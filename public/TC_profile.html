@@ -5,13 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font-family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- fontawesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <title>TC_profile</title>
     <style>
+        * {
+            font-family: 'Noto Sans', sans-serif;
+
+        }
+
         @media (min-width: 320px) {
             body {
                 background: #F1F0E9;
@@ -20,8 +32,7 @@
             .logo {
                 width: 306.82px;
                 height: 60px;
-                margin-left: 44px;
-                margin: 40px 44px 40px;
+                margin: 40px 3%;
             }
 
             .bread {
@@ -29,10 +40,14 @@
                 letter-spacing: -0.015em;
                 font-weight: 500;
                 color: #065F8E;
-                padding: 0px 0px 15px 44px;
+                margin: 0px 3% 15px;
             }
 
-            .profile-form {
+            .bread>ol {
+                list-style-type: none;
+            }
+
+            .form {
                 background: rgba(255, 255, 255, 0.8);
                 border-radius: 20px;
             }
@@ -44,14 +59,12 @@
                 color: #065F8E;
             }
 
-            .title {
+            .form-title {
                 font-size: 24px;
                 color: #065F8E;
-                text-align: center;
                 letter-spacing: -0.015em;
                 font-weight: bold;
-                display: flex;
-                justify-content: center;
+                margin: auto;
             }
 
             .nav {
@@ -61,7 +74,72 @@
                 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             }
 
+            .pic {
+                width: 116px;
+                border-radius: 50%;
+                overflow: hidden;
+            }
 
+            .btn-primary {
+                width: 117px;
+                height: 50px;
+                border: 1px solid #065F8E;
+                border-radius: 10px;
+                background-color: transparent;
+                color: black;
+                font-size: 15px;
+                font-weight: normal;
+                margin: auto;
+            }
+
+            .nameInputs {
+                margin: 27px 0 50px;
+                border: 1px solid #868686;
+                border-radius: 10px;
+                height: 48px;
+                font-size: 15px;
+            }
+
+            ::placeholder {
+                padding-left: 17px;
+            }
+
+            .allInputs {
+                border: 1px solid #868686;
+                border-radius: 10px;
+                height: 48px;
+                font-size: 15px;
+                margin-bottom: 50px;
+            }
+            .intro{
+                border: 1px solid #868686;
+                border-radius: 10px;
+                margin-bottom: 30px;
+            }
+            .intro::placeholder{
+                padding-top: 17px;
+            }
+
+        }
+
+        @media (min-width: 375px) {
+            .logo {
+                width: 306.82px;
+                height: 60px;
+                margin: 40px 44px 40px;
+            }
+
+            .bread {
+                padding: 0px 0px 15px 35px;
+            }
+
+            .btn-primary {
+                margin-left: 36px;
+            }
+
+            .nameInputs {
+                margin: 27px 0 50px;
+            }
 
         }
     </style>
@@ -88,21 +166,43 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
 
-        <div class="row profile"></div>
-        <div class="row bread">首頁/教師頁面/會員中心/個人資料</div>
-        <div class="row profile-form">
-            <div class="d-flex align-items-center">
-                <a href=""><i class="fas fa-chevron-left back"></i></a>
-                <div class="title"><span>個人資料</span></div>
-            </div>
 
+    <div class="row profile"></div>
+    <nav class="row bread">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="">首頁</a></li>
+            <li class="breadcrumb-item"><a href="">會員中心</a></li>
+            <li class="breadcrumb-item"><a href="">個人資料</a></li>
+        </ol>
+    </nav>
+    <form class="form container">
+        <div class="d-flex align-items-center ">
+            <a href=""><i class="fas fa-chevron-left back"></i></a>
+            <div class="form-title">個人資料</div>
+            <a href=""><i class="back"></i></a>
         </div>
-    </div>
+        <div class="d-flex align-items-center">
+            <div class="pic">
+                <img src="./img/teachers/Thomas_Lillard.jpg" class="img-fluid" alt="">
+            </div>
+            <button class="btn btn-primary"><span>請選擇圖片</span></button>
+        </div>
+        <div class="fullname d-flex">
+            <input type="text" class="col-6 nameInputs" placeholder="名字">
+            <input type="text" class="col-6 nameInputs" placeholder="姓氏">
+        </div>
+        <input type="email" class="col-12 allInputs" placeholder="信箱">
+        <input type="date" class="col-12 allInputs" placeholder="生日">
+        <input type="text" class="col-12 allInputs" placeholder="暱稱">
+        <input type="text" class="col-12 allInputs" placeholder="請輸入擅長的語言">
+        <textarea name="" id="" rows="5" class="col-12 intro" placeholder="自我介紹"></textarea>
+        <button class="btn btn-secondary">儲存</button>
+    </form>
 
-    <div class="dec-circle"></div>
-    <div class="dec-block"></div>
+
+        <div class="dec-circle"></div>
+        <div class="dec-block"></div>
 
 </body>
 
