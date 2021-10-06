@@ -12,11 +12,6 @@
 
     <title>TC_profile</title>
     <style>
-        * {
-            background: #F2F2F2;
-            font-family: 'Noto Sans TC', sans-serif;
-        }
-
         @media (min-width: 320px) {
             body {
                 background: #F1F0E9;
@@ -45,6 +40,18 @@
             .back {
                 width: 40px;
                 padding: 40px 16px;
+                background-color: transparent;
+                color: #065F8E;
+            }
+
+            .title {
+                font-size: 24px;
+                color: #065F8E;
+                text-align: center;
+                letter-spacing: -0.015em;
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
             }
 
             .nav {
@@ -61,7 +68,7 @@
 </head>
 
 <body>
-    <object data="./svg/Earth_final-02.svg" class="logo" ></object>
+    <object data="./svg/Earth_final-02.svg" class="logo"></object>
 
     <nav>
         <div class="container">
@@ -86,7 +93,11 @@
         <div class="row profile"></div>
         <div class="row bread">首頁/教師頁面/會員中心/個人資料</div>
         <div class="row profile-form">
-            <div class="back"><i class="fas fa-chevron-left"></i></div>
+            <div class="d-flex align-items-center">
+                <a href=""><i class="fas fa-chevron-left back"></i></a>
+                <div class="title"><span>個人資料</span></div>
+            </div>
+
         </div>
     </div>
 
