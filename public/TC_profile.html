@@ -11,8 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -32,7 +31,12 @@
             .logo {
                 width: 306.82px;
                 height: 60px;
-                margin: 40px 3%;
+                margin: 40px 0px;
+            }
+            .breadcrumb{
+                background-color: transparent;
+                margin: 0;
+                padding: 0;
             }
 
             .bread {
@@ -40,7 +44,7 @@
                 letter-spacing: -0.015em;
                 font-weight: 500;
                 color: #065F8E;
-                margin: 0px 3% 15px;
+                margin-left: 3%;
             }
 
             .bread>ol {
@@ -50,6 +54,7 @@
             .form {
                 background: rgba(255, 255, 255, 0.8);
                 border-radius: 20px;
+                padding: 15px;
             }
 
             .back {
@@ -96,6 +101,8 @@
                 margin: 27px 0 50px;
                 border: 1px solid #868686;
                 border-radius: 10px;
+                align-self: center;
+                width: 100%;
                 height: 48px;
                 font-size: 15px;
             }
@@ -111,12 +118,14 @@
                 font-size: 15px;
                 margin-bottom: 50px;
             }
-            .intro{
+
+            .intro {
                 border: 1px solid #868686;
                 border-radius: 10px;
                 margin-bottom: 30px;
             }
-            .intro::placeholder{
+
+            .intro::placeholder {
                 padding-top: 17px;
             }
 
@@ -130,7 +139,8 @@
             }
 
             .bread {
-                padding: 0px 0px 15px 35px;
+                padding-bottom: 15px;
+                padding-left: 44px;
             }
 
             .btn-primary {
@@ -146,10 +156,12 @@
 </head>
 
 <body>
-    <object data="./svg/Earth_final-02.svg" class="logo"></object>
+    <div class="container">
+        <!-- <img src="./images/logo/log_mobile.png" alt=""> -->
+        <object data="./svg/Earth_final-02.svg" class="logo"></object>
 
-    <nav>
-        <div class="container">
+        <nav>
+
             <ul class="nav">
                 <li class="nav-item ml-5">
                     <a class="nav-link active" aria-current="page" href="#">Active</a>
@@ -164,7 +176,7 @@
                     <a class="nav-link disabled">Disabled</a>
                 </li>
             </ul>
-        </div>
+    </div>
     </nav>
 
 
@@ -176,7 +188,7 @@
             <li class="breadcrumb-item"><a href="">個人資料</a></li>
         </ol>
     </nav>
-    <form class="form container">
+    <form class="form col-12">
         <div class="d-flex align-items-center ">
             <a href=""><i class="fas fa-chevron-left back"></i></a>
             <div class="form-title">個人資料</div>
@@ -184,26 +196,26 @@
         </div>
         <div class="d-flex align-items-center">
             <div class="pic">
-                <img src="./img/teachers/Thomas_Lillard.jpg" class="img-fluid" alt="">
+                <img src="./images/teachers/Thomas_Lillard.jpg" class="img-fluid" alt="">
             </div>
             <button class="btn btn-primary"><span>請選擇圖片</span></button>
         </div>
-        <div class="fullname d-flex">
-            <input type="text" class="col-6 nameInputs" placeholder="名字">
-            <input type="text" class="col-6 nameInputs" placeholder="姓氏">
+        <div class="fullname row">
+            <div class="col-6"><input type="text" class="nameInputs" placeholder="名字"></div>
+            <div class="col-6"><input type="text" class="nameInputs" placeholder="姓氏"></div>
         </div>
         <input type="email" class="col-12 allInputs" placeholder="信箱">
-        <input type="date" class="col-12 allInputs" placeholder="生日">
+        <input type="date" class="col-12 allInputs px-3" placeholder="生日">
         <input type="text" class="col-12 allInputs" placeholder="暱稱">
         <input type="text" class="col-12 allInputs" placeholder="請輸入擅長的語言">
         <textarea name="" id="" rows="5" class="col-12 intro" placeholder="自我介紹"></textarea>
-        <button class="btn btn-secondary">儲存</button>
+        <button class="btn btn-secondary d-flex m-auto">儲存</button>
     </form>
 
 
-        <div class="dec-circle"></div>
-        <div class="dec-block"></div>
-
+    <div class="dec-circle"></div>
+    <div class="dec-block"></div>
+    </div>
 </body>
 
 </html>
