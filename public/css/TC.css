@@ -38,6 +38,29 @@
   height: 30px;
 }
 
+.pagination{
+  display: flex;
+  align-items: center;
+}
+
+.page-item a {
+  width: 28px;
+  height: 28px;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.act{
+  color: white;
+  background-color: #065F8E;
+}
+
+.page-link {
+  border: 0;
+  background-color: transparent;
+}
+
 @media (min-width: 320px) {
   body {
     background: #f1f0e9;
@@ -227,12 +250,17 @@
     animation: hy 12s linear infinite;
   }
 
+  .courseLabel {
+    display: none;
+  }
+
   .TCcourse-card {
     display: flex;
     width: 100%;
     background: #F1F0E9;
     border-radius: 10px;
     overflow: hidden;
+    margin-bottom: 15px;
   }
 
   .TCcourse-img {
@@ -301,7 +329,6 @@
     margin: 40px auto;
   }
 
-
   .btn-sm {
     width: 115px;
     height: 40px;
@@ -323,10 +350,15 @@
     width: 150px;
   }
 
+  .TCcourse-info-left {
+    display: flex;
+    margin: auto;
+  }
+
   .TCcourse-detail {
-    margin-left: 10px;
+    width: 80px;
+    text-align: center;
     font-size: 14px;
-    text-align: left;
   }
 
   .TCcourse-detail span {
@@ -339,13 +371,35 @@
     padding: 0px;
     margin: auto 15px;
   }
+
+  .courseLabel {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5%;
+    margin-bottom: 25px;
+  }
+
+  .courseLabel-left {
+    display: flex;
+    padding-right: 68px;
+  }
+
+  .Labelitem {
+    width: 72px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin: auto 5px;
+  }
+
+
 }
 
 @media (min-width: 1024px) {
 
-  .labels {
-    display: flex;
-    margin: 62px auto 25px;
+  .courseLabel-left {
+    padding-right: 20px;
+
   }
 
   .search {
@@ -558,12 +612,6 @@
     margin-bottom: 30px;
   }
 
-  .img-fluid {
-    width: 100%;
-    height: 100%;
-    background-color: aqua;
-  }
-
   .nav_list {
     list-style: none;
     padding: 0px;
@@ -641,5 +689,8 @@
     width: 67%;
   }
 
+  .courseLabel-left {
+    padding-right: 80px;
+  }
 
 }

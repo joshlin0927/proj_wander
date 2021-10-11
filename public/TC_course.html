@@ -151,8 +151,8 @@
             <div class="d-flex justify-content-between align-items-center ml-1">
               <a href=""><i class="fas fa-chevron-left back"></i></a>
               <div class="form-title mr-auto">我的課程</div>
+            <!-- desktop search bar -->
               <div class="search mr-auto">
-
                   <input
                     type="text"
                     class="searchbar"
@@ -166,6 +166,7 @@
                 <button class="btn btn-sm btn-secondary">新增</button>
               </div>
             </div>
+            <!-- mobile search bar -->
             <div class="search-mobile">
                 <input
                   type="text"
@@ -176,13 +177,23 @@
                   <i class="fas fa-search"></i>
                 </button>
             </div>
+            <div class="courseLabel">
+              <div class="Labelitem">課程封面</div>
+              <div class="Labelitem">課程名稱</div>
+              <div class="courseLabel-left">
+                <div class="Labelitem">課程種類</div>
+                <div class="Labelitem">上架日期</div>
+                <div class="Labelitem">課程長度</div>
+              </div>
+            </div>
+            <!-- course cards -->
             <div class="TCcourse-card col-12">
               <div class="TCcourse-img"></div>
               <div class="TCcourse-info">
                 <div class="TCcourse-title">
                   Thomas老師：從零開始的日文基礎課程3
                 </div>
-                <div class="d-flex mx-auto">
+                <div class="TCcourse-info-left">
                   <div class="TCcourse-detail"><span>課程種類：</span> 日文</div>
                   <div class="TCcourse-detail"><span>上架日期：</span> 2021/09/08</div>
                   <div class="TCcourse-detail"><span>課程長度：</span> 01:02:30</div>
@@ -192,6 +203,21 @@
                 <i class="far fa-times-circle"></i>
               </div>
             </div>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-end">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                  </a>
+                </li>
+                <li class="page-item act"><a class="page-link" href="#">1</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </form>
         </div>
       </div>
