@@ -89,7 +89,6 @@
     background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     padding: 15px;
-    margin-bottom: 30px;
     margin: 0px -15px 30px;
   }
 
@@ -239,11 +238,11 @@
   .TCcourse-img {
     width: 108px;
     height: 100px;
-    background: url(".././images/courses/日文課程.jpeg") no-repeat center / cover;
+    margin-left: -15px;
+    background: url(".././images/course/日文課程.jpeg") no-repeat center / cover;
   }
 
   .TCcourse-info {
-    width: 160px;
     padding: 8px 0px 4px 11px;
   }
 
@@ -252,6 +251,7 @@
     font-weight: 400;
     line-height: 16px;
     margin-bottom: 7px;
+    letter-spacing: -0.015em;
   }
 
   .TCcourse-detail {
@@ -265,7 +265,7 @@
   .TCcourse-delete {
     color: #065f8e;
     font-size: 18px;
-    padding: 3px 10px 0px 0px;
+    padding: 3px 0px 0px;
     margin-left: auto;
   }
 }
@@ -289,77 +289,65 @@
     margin: 27px 0 50px;
   }
 
-  .form-lg {
-    /* width: 100%; */
-  }
-
   .TCcourse-info {
-    width: 100%;
+    width: 50%;
     padding: 8px 0px 4px 11px;
   }
 
 }
 
 @media (min-width: 768px) {
-
-
   .logo {
     margin: 40px auto;
   }
 
-  .form-lg {
-    width: 100%;
-    margin: auto;
-  }
 
-  .TCcourse-card {
-    display: flex;
-    width: 100%;
-    background: #F1F0E9;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .TCcourse-img {
-    width: 152px;
-    height: 100px;
-    background: url(".././images/courses/日文課程.jpeg") no-repeat center / cover;
+  .btn-sm {
+    width: 115px;
+    height: 40px;
   }
 
   .TCcourse-info {
+    width: 80%;
     display: flex;
     align-items: center;
-    justify-content: end;
-    margin: auto;
-    /* padding: 0px 0px 0px 11px; */
   }
 
   .TCcourse-title {
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 16px;
     line-height: 20px;
     margin-bottom: 0;
   }
 
+  .TCcourse-img {
+    width: 150px;
+  }
+
   .TCcourse-detail {
+    margin-left: 10px;
     font-size: 14px;
+    text-align: left;
+  }
+
+  .TCcourse-detail span {
+    display: none;
   }
 
   .TCcourse-delete {
     color: #065f8e;
     font-size: 18px;
-    padding: 3px 10px 0px 0px;
-    margin-left: auto;
+    padding: 0px;
+    margin: auto 15px;
   }
 }
 
 @media (min-width: 1024px) {
 
-  .labels{
+  .labels {
     display: flex;
     margin: 62px auto 25px;
   }
-  
+
   .search {
     display: flex;
   }
@@ -511,6 +499,7 @@
   .form-lg {
     border: 2px solid rgba(6, 95, 142, 0.5);
     width: 80%;
+    padding: 0px 40px;
     margin: 0 auto 150px;
   }
 
@@ -632,23 +621,25 @@
     background-color: white;
   }
 
-  @media (min-width: 1440px) {
-    .sidebar {
-      margin-right: 112px;
-    }
-
-    .form-sm {
-      width: 55%;
-      margin: 0 0 150px;
-    }
-
-    .form-m {
-      width: 67%;
-    }
-
-    .btn-sm {
-      width: 115px;
-      height: 40px;
-    }
+  .TCcourse-delete {
+    display: none;
   }
+
+}
+
+@media (min-width: 1440px) {
+  .sidebar {
+    margin-right: 112px;
+  }
+
+  .form-sm {
+    width: 55%;
+    margin: 0 0 150px;
+  }
+
+  .form-m {
+    width: 67%;
+  }
+
+
 }
