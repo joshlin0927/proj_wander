@@ -18,7 +18,8 @@
 .mb-30 {
   margin-bottom: 30px;
 }
-.mb-50{
+
+.mb-50 {
   margin-bottom: 50px;
 }
 
@@ -30,6 +31,11 @@
   height: 40px;
   font-size: 14px;
   font-weight: bold;
+}
+
+.btn-sm {
+  width: 73px;
+  height: 30px;
 }
 
 @media (min-width: 320px) {
@@ -64,6 +70,7 @@
   .sidebar {
     display: none;
   }
+
   .form-sm {
     background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
@@ -72,6 +79,13 @@
   }
 
   .form-m {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 15px;
+    margin: 0 -15px 30px;
+  }
+
+  .form-lg {
     background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     padding: 15px;
@@ -91,6 +105,28 @@
     letter-spacing: -0.015em;
     font-weight: bold;
     margin: auto;
+  }
+
+  .search {
+    margin-bottom: 30px;
+  }
+
+  .searchbar {
+    width: 100%;
+    height: 40px;
+    padding-left: 17px;
+    padding-right: 50px;
+    border: 1px solid #065F8E;
+    border-radius: 6px;
+  }
+
+  .searchbar+button[type="submit"] {
+    width: 76px;
+    background:  #065F8E;
+    color: white;
+    margin-left: -50px;
+    border: 0;
+    border-radius: 0px 6px 6px 0px;
   }
 
   .navbar {
@@ -171,6 +207,31 @@
 
   .change-btn {
     margin: 0px 0 30px;
+  }
+
+  .dec-block {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    width: 68%;
+    height: 335px;
+    z-index: -2;
+    background: #f1ef5b;
+    border-radius: 0px 0px 0px 180px;
+    animation: hy 12s linear infinite;
+  }
+
+  .course-img {
+
+    height: 100px;
+  }
+
+  .course-card {
+    display: flex;
+    background: #F1F0E9;
+    border-radius: 10px;
+    overflow: hidden;
   }
 }
 
@@ -341,6 +402,11 @@
     margin: 0 auto 150px;
   }
 
+  .form-lg {
+    border: 2px solid rgba(6, 95, 142, 0.5);
+    margin-bottom: 150px;
+  }
+
   .back {
     display: none;
   }
@@ -351,7 +417,7 @@
     font-size: 36px;
   }
 
-  .form-title-margin{
+  .form-title-margin {
     margin: 50px auto 50px 96px;
   }
 
@@ -371,7 +437,7 @@
     display: flex;
     margin-right: 74px;
   }
-  
+
   .input-grp-sm {
     margin: auto 96px;
   }
