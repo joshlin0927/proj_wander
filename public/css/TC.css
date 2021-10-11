@@ -89,7 +89,8 @@
     background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     padding: 15px;
-    margin: 0 -15px 30px;
+    margin-bottom: 30px;
+    margin: 0px -15px 30px;
   }
 
   .back {
@@ -108,6 +109,11 @@
   }
 
   .search {
+    display: none;
+  }
+
+  .search-mobile {
+    display: flex;
     margin-bottom: 30px;
   }
 
@@ -122,7 +128,7 @@
 
   .searchbar+button[type="submit"] {
     width: 76px;
-    background:  #065F8E;
+    background: #065F8E;
     color: white;
     margin-left: -50px;
     border: 0;
@@ -222,16 +228,45 @@
     animation: hy 12s linear infinite;
   }
 
-  .course-img {
-
-    height: 100px;
-  }
-
-  .course-card {
+  .TCcourse-card {
     display: flex;
+    width: 100%;
     background: #F1F0E9;
     border-radius: 10px;
     overflow: hidden;
+  }
+
+  .TCcourse-img {
+    width: 108px;
+    height: 100px;
+    background: url(".././images/courses/日文課程.jpeg") no-repeat center / cover;
+  }
+
+  .TCcourse-info {
+    width: 160px;
+    padding: 8px 0px 4px 11px;
+  }
+
+  .TCcourse-title {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    margin-bottom: 7px;
+  }
+
+  .TCcourse-detail {
+    font-size: 10px;
+    transform: scale(0.8);
+    transform-origin: left center;
+    line-height: 15px;
+    padding-right: 0;
+  }
+
+  .TCcourse-delete {
+    color: #065f8e;
+    font-size: 18px;
+    padding: 3px 10px 0px 0px;
+    margin-left: auto;
   }
 }
 
@@ -241,7 +276,6 @@
     height: 60px;
     margin: 40px 44px 40px;
   }
-
 
   .breadcrumb {
     margin: 0px 30px;
@@ -254,15 +288,86 @@
   .nameInputs {
     margin: 27px 0 50px;
   }
+
+  .form-lg {
+    /* width: 100%; */
+  }
+
+  .TCcourse-info {
+    width: 100%;
+    padding: 8px 0px 4px 11px;
+  }
+
 }
 
 @media (min-width: 768px) {
+
+
   .logo {
     margin: 40px auto;
+  }
+
+  .form-lg {
+    width: 100%;
+    margin: auto;
+  }
+
+  .TCcourse-card {
+    display: flex;
+    width: 100%;
+    background: #F1F0E9;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .TCcourse-img {
+    width: 152px;
+    height: 100px;
+    background: url(".././images/courses/日文課程.jpeg") no-repeat center / cover;
+  }
+
+  .TCcourse-info {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin: auto;
+    /* padding: 0px 0px 0px 11px; */
+  }
+
+  .TCcourse-title {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 0;
+  }
+
+  .TCcourse-detail {
+    font-size: 14px;
+  }
+
+  .TCcourse-delete {
+    color: #065f8e;
+    font-size: 18px;
+    padding: 3px 10px 0px 0px;
+    margin-left: auto;
   }
 }
 
 @media (min-width: 1024px) {
+
+  .labels{
+    display: flex;
+    margin: 62px auto 25px;
+  }
+  
+  .search {
+    display: flex;
+  }
+
+  .search-mobile {
+    display: none;
+  }
+
   .logo {
     display: none;
   }
@@ -372,6 +477,7 @@
   .earth {
     display: block;
     position: absolute;
+    z-index: -1;
     right: 0;
     top: 724px;
   }
@@ -404,7 +510,8 @@
 
   .form-lg {
     border: 2px solid rgba(6, 95, 142, 0.5);
-    margin-bottom: 150px;
+    width: 80%;
+    margin: 0 auto 150px;
   }
 
   .back {
@@ -537,6 +644,11 @@
 
     .form-m {
       width: 67%;
+    }
+
+    .btn-sm {
+      width: 115px;
+      height: 40px;
     }
   }
 }
