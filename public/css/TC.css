@@ -38,27 +38,38 @@
   height: 30px;
 }
 
-.pagination{
+.Mypagination {
+  list-style: none;
   display: flex;
   align-items: center;
 }
 
-.page-item a {
+.Mypage-item {
   width: 28px;
   height: 28px;
-  color: white;
-  text-align: center;
   border-radius: 5px;
+  line-height: 26px;
+  text-align: center;
 }
 
-.act{
-  color: white;
+.Mypage-item a {
+  font-size: 12px;
+  color: black;
+  text-align: center;
+}
+
+
+.act {
   background-color: #065F8E;
 }
 
-.page-link {
-  border: 0;
+.act a{
+  color: white;
+}
+
+.Mypage-link {
   background-color: transparent;
+
 }
 
 @media (min-width: 320px) {
