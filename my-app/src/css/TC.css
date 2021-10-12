@@ -42,6 +42,7 @@
   list-style: none;
   display: flex;
   align-items: center;
+  margin: 70px 0px 60px;
 }
 
 .Mypage-item {
@@ -63,7 +64,7 @@
   background-color: #065F8E;
 }
 
-.act a{
+.act a {
   color: white;
 }
 
@@ -73,6 +74,10 @@
 }
 
 @media (min-width: 320px) {
+  .Mypagination {
+    display: none;
+  }
+
   body {
     background: #f1f0e9;
   }
@@ -421,6 +426,10 @@
     display: none;
   }
 
+  .searchbar {
+    width: 368px;
+  }
+
   .logo {
     display: none;
   }
@@ -563,6 +572,7 @@
 
   .form-lg {
     border: 2px solid rgba(6, 95, 142, 0.5);
+    /* height: 943px; */
     width: 80%;
     padding: 0px 40px;
     margin: 0 auto 150px;
@@ -682,6 +692,10 @@
 
   .TCcourse-delete {
     display: none;
+  }
+
+  .Mypagination {
+    display: flex;
   }
 
 }

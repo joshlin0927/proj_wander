@@ -32,8 +32,8 @@
       crossorigin="anonymous"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/TC.css" />
-    <title>TC_password</title>
+    <link rel="stylesheet" href="../css/TC.css" />
+    <title>TC_profile</title>
   </head>
 
   <body>
@@ -42,7 +42,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <a class="navbar-brand" href="#"
-            ><img src="./images/logo/logo_desktop.png" alt=""
+            ><img src="../images/logo/logo_desktop.png" alt=""
           /></a>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -83,12 +83,12 @@
       <!-- bg decoration -->
       <div class="dec-circle"></div>
       <div class="dec-block"></div>
-      <div class="earth"><img src="./images/element/earth.png" alt="" /></div>
+      <div class="earth"><img src="../images/element/earth.png" alt="" /></div>
       <div class="dec-low-block"></div>
       <!-- breadcrumb -->
       <div class="container">
         <div class="logo">
-          <img src="./images/logo/log_mobile.png" alt="" />
+          <img src="../images/logo/log_mobile.png" alt="" />
         </div>
         <nav class="">
           <ol class="breadcrumb">
@@ -98,17 +98,16 @@
           </ol>
         </nav>
         <div class="pageName">
-          <img src="./images/element/password.png" alt="" />
+          <img src="../images/element/profile.png" alt="" />
         </div>
       </div>
-
       <div class="container">
         <div class="d-flex flex-wrap">
           <!-- sidebar -->
           <nav class="sidebar">
             <div class="avatar">
               <img
-                src="./images/teacher/Thomas_Lillard.jpg"
+                src="../images/teacher/Thomas_Lillard.jpg"
                 alt=""
                 class="img-fluid"
               />
@@ -148,36 +147,80 @@
             </ul>
           </nav>
           <!-- form -->
-          <form class="form-sm">
-            <div class="input-grp-sm">
+          <form class="form-m">
+            <div class="d-flex align-items-center ml-1">
+              <a href=""><i class="fas fa-chevron-left back"></i></a>
+              <div class="form-title form-title-margin">個人資料</div>
+              <a href=""><i class="back"></i></a>
+              <button class="btn btn-secondary preview-btn-top">
+                個人頁面預覽
+              </button>
+            </div>
+            <div class="input-grp">
               <div class="d-flex align-items-center ml-1">
-                <a href=""><i class="fas fa-chevron-left back"></i></a>
-                <div class="form-title">密碼更改</div>
-                <a href=""><i class="back"></i></a>
+                <div class="pic">
+                  <img
+                    src="../images/teacher/Thomas_Lillard.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+                <button class="btn btn-primary"><span>請選擇圖片</span></button>
+              </div>
+              <div class="fullname row">
+                <div class="col-6">
+                  <input
+                    type="text"
+                    class="nameInputs"
+                    placeholder="名字"
+                    disabled
+                  />
+                </div>
+                <div class="col-6">
+                  <input
+                    type="text"
+                    class="nameInputs"
+                    placeholder="姓氏"
+                    disabled
+                  />
+                </div>
+              </div>
+              <div class="mb-50">
+                <input
+                  type="email"
+                  class="col-12 allInputs"
+                  placeholder="信箱"
+                  disabled
+                />
+              </div>
+              <div class="mb-50">
+                <input
+                  type="date"
+                  class="col-12 allInputs px-2"
+                  placeholder="生日"
+                />
               </div>
 
-              <input
-                type="password"
-                class="col-12 allInputs"
-                placeholder="請輸入原密碼"
-              />
-              <label class="notice" for="">請填寫正確密碼</label>
+              <input type="text" class="col-12 allInputs" placeholder="暱稱" />
+              <label class="notice" for="">請填寫至少一個字</label>
               <input
                 type="text"
                 class="col-12 allInputs"
-                placeholder="請輸入新密碼"
+                placeholder="請輸入擅長的語言"
               />
-              <label class="notice" for="">請填寫至少6位數密碼</label>
-              <input
-                type="text"
-                class="col-12 allInputs"
-                placeholder="請再次輸入新密碼"
-              />
-              <label class="notice" for="">與上列密碼不符</label>
-            </div>
+              <label class="notice" for="">請填寫至少一種擅長語言</label>
 
-            <button class="btn btn-secondary row mx-auto change-btn">
-              更改
+              <textarea
+                name=""
+                id=""
+                rows="5"
+                class="intro w-100"
+                placeholder="自我介紹"
+              ></textarea>
+            </div>
+            <button class="btn btn-secondary row mx-auto save-btn">儲存</button>
+            <button class="btn btn-secondary row preview-btn">
+              個人頁面預覽
             </button>
           </form>
         </div>
