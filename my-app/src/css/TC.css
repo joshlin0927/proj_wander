@@ -128,7 +128,6 @@
     background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     padding: 15px;
-    margin: 0px -15px 30px;
   }
 
   .back {
@@ -272,7 +271,6 @@
 
   .TCcourse-card {
     display: flex;
-    width: 100%;
     background: #F1F0E9;
     border-radius: 10px;
     overflow: hidden;
@@ -359,7 +357,6 @@
   .TCcourse-title {
     font-size: 16px;
     line-height: 20px;
-    margin-bottom: 0;
   }
 
   .TCcourse-img {
@@ -391,13 +388,13 @@
   .courseLabel {
     display: flex;
     justify-content: space-between;
-    padding-left: 5%;
+    /* padding-left: 5%; */
     margin-bottom: 25px;
   }
 
-  .courseLabel-left {
+  .courseLabel-right {
     display: flex;
-    padding-right: 68px;
+    /* padding-right: 68px; */
   }
 
   .Labelitem {
@@ -413,7 +410,7 @@
 
 @media (min-width: 1024px) {
 
-  .courseLabel-left {
+  .courseLabel-right {
     padding-right: 20px;
 
   }
@@ -574,7 +571,7 @@
     border: 2px solid rgba(6, 95, 142, 0.5);
     /* height: 943px; */
     width: 80%;
-    padding: 0px 40px;
+    /* padding: 0px 40px; */
     margin: 0 auto 150px;
   }
 
@@ -713,8 +710,12 @@
   .form-m {
     width: 67%;
   }
+  .courseLabel{
+    width: 100%;
+    padding: auto;
+  }
 
-  .courseLabel-left {
+  .courseLabel-right {
     padding-right: 80px;
   }
 
