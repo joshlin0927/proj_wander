@@ -19,9 +19,34 @@
   margin-bottom: 30px;
 }
 
+.mt-50 {
+  margin-top: 50px;
+}
+
 .mb-50 {
   margin-bottom: 50px;
 }
+
+.save-btn {
+  color: black;
+}
+
+.notify {
+  display: flex;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  border: 2px solid rgba(6, 95, 142, 0.5);
+  padding: 15px;
+}
+
+.notify-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: #065F8E;
+  letter-spacing: -0.015em;
+}
+
 
 .btn {
   display: flex;
@@ -74,6 +99,12 @@
 }
 
 @media (min-width: 320px) {
+  .notify-text {
+    font-size: 18px;
+    text-align: center;
+    color: #065F8E;
+  }
+
   .Mypagination {
     display: none;
   }
@@ -213,6 +244,10 @@
     padding: 17px;
   }
 
+  .resume {
+    display: flex;
+  }
+
   .allInputs {
     border: 1px solid #868686;
     border-radius: 10px;
@@ -220,6 +255,17 @@
     height: 48px;
     font-size: 15px;
     margin-bottom: 5px;
+    background-color: transparent;
+  }
+
+  .browse {
+    width: 100%;
+    height: 48px;
+    border: 0px;
+    color: black;
+    background-color: #f1ef5b;
+    margin-left: -100px;
+    border-radius: 0px 10px 10px 0px;
   }
 
   .notice {
@@ -250,7 +296,8 @@
   }
 
   .change-btn {
-    margin: 0px 0 30px;
+    color: black;
+    margin: 0px 0px 30px;
   }
 
   .dec-block {
@@ -314,6 +361,12 @@
 }
 
 @media (min-width: 375px) {
+  .notify-text {
+    font-size: 21px;
+    text-align: center;
+    color: #065F8E;
+  }
+
   .logo {
     width: 306.82px;
     height: 60px;
@@ -406,10 +459,17 @@
     margin: auto 5px;
   }
 
+  .input-grp-sm {
+    margin: auto 96px;
+  }
 
 }
 
 @media (min-width: 1024px) {
+  .notify-text {
+    font-size: 28px;
+    margin: 0px auto
+  }
 
   .courseLabel-right {
     padding-right: 20px;
@@ -594,11 +654,12 @@
   }
 
   .save-btn {
+    color: black;
     margin: 60px 0;
   }
 
   .change-btn {
-    margin: 60px 0;
+    margin: 10px 0px 60px;
   }
 
   .preview-btn-top {
@@ -673,17 +734,20 @@
     margin-top: 56px;
   }
 
-  .sidebar .nav-item::after {
+  .sidebar .active {
+    background-color: white;
+  }
+
+  .sidebar .active::after {
     content: " ";
     position: absolute;
     left: 0;
     width: 15px;
     height: 50px;
-
     background: #f1ef5b;
   }
 
-  .nav-item:hover {
+  .sidebar .nav-item:hover {
     background-color: white;
   }
 
@@ -710,7 +774,8 @@
   .form-m {
     width: 67%;
   }
-  .courseLabel{
+
+  .courseLabel {
     width: 100%;
     padding: auto;
   }

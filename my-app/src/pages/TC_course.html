@@ -114,7 +114,6 @@
             </div>
             <ul class="nav_list">
               <li class="nav-item">
-                <div class="active"></div>
                 <a href="">
                   <i class="fas fa-user"></i>
                   <div>個人資料</div>
@@ -126,7 +125,7 @@
                   密碼更改
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item active">
                 <a href="">
                   <i class="fas fa-th-list"></i>
                   課程列表
@@ -146,29 +145,14 @@
               </li>
             </ul>
           </nav>
-          
+
           <!-- form -->
           <form class="form-lg">
             <div class="d-flex justify-content-between align-items-center ml-1">
               <a href=""><i class="fas fa-chevron-left back"></i></a>
               <div class="form-title mr-auto">我的課程</div>
-            <!-- desktop search bar -->
+              <!-- desktop search bar -->
               <div class="search mr-auto">
-                  <input
-                    type="text"
-                    class="searchbar"
-                    placeholder="請輸入課程名稱"
-                  />
-                  <button type="submit" class="">
-                    <i class="fas fa-search"></i>
-                  </button>
-              </div>
-              <div class="d-flex justify-content-end">
-                <button class="btn btn-sm btn-secondary">新增</button>
-              </div>
-            </div>
-            <!-- mobile search bar -->
-            <div class="search-mobile">
                 <input
                   type="text"
                   class="searchbar"
@@ -177,6 +161,21 @@
                 <button type="submit" class="">
                   <i class="fas fa-search"></i>
                 </button>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-sm btn-secondary">新增</button>
+              </div>
+            </div>
+            <!-- mobile search bar -->
+            <div class="search-mobile">
+              <input
+                type="text"
+                class="searchbar"
+                placeholder="請輸入課程名稱"
+              />
+              <button type="submit" class="">
+                <i class="fas fa-search"></i>
+              </button>
             </div>
             <div class="courseLabel col-12">
               <div class="Labelitem">課程封面</div>
@@ -195,9 +194,15 @@
                   Thomas老師：從零開始的日文基礎課程3
                 </div>
                 <div class="TCcourse-info-left">
-                  <div class="TCcourse-detail"><span>課程種類：</span> 日文</div>
-                  <div class="TCcourse-detail"><span>上架日期：</span> 2021/09/08</div>
-                  <div class="TCcourse-detail"><span>課程長度：</span> 01:02:30</div>
+                  <div class="TCcourse-detail">
+                    <span>課程種類：</span> 日文
+                  </div>
+                  <div class="TCcourse-detail">
+                    <span>上架日期：</span> 2021/09/08
+                  </div>
+                  <div class="TCcourse-detail">
+                    <span>課程長度：</span> 01:02:30
+                  </div>
                 </div>
               </div>
               <div class="TCcourse-delete">
@@ -211,8 +216,12 @@
                     <i class="fas fa-chevron-left"></i>
                   </a>
                 </li>
-                <li class="Mypage-item act"><a class="Mypage-link" href="#">1</a></li>
-                <li class="Mypage-item"><a class="Mypage-link" href="#">2</a></li>
+                <li class="Mypage-item act">
+                  <a class="Mypage-link" href="#">1</a>
+                </li>
+                <li class="Mypage-item">
+                  <a class="Mypage-link" href="#">2</a>
+                </li>
                 <li class="Mypage-item">
                   <a class="Mypage-link" href="#" aria-label="Next">
                     <i class="fas fa-chevron-right"></i>
@@ -222,6 +231,50 @@
             </nav>
           </form>
         </div>
+      </div>
+    </div>
+    <div class="modal-dialog modal-lg">
+      <form class="form-m">
+        <div class="input-grp-sm">
+          <div class="d-flex align-items-center ml-1">
+            <a href=""><i class="fas fa-chevron-left back"></i></a>
+            <div class="form-title">審核資料</div>
+            <a href=""><i class="back"></i></a>
+          </div>
+          <div class="d-flex align-items-center ml-1 mb-50">
+            <div class="pic">
+              <img
+                src="../images/teacher/Thomas_Lillard.jpg"
+                class="img-fluid"
+                alt=""
+              />
+            </div>
+            <button class="btn btn-primary">
+              <span>請選擇圖片</span>
+            </button>
+          </div>
+          <input type="text" class="col-12 allInputs" placeholder="國籍" />
+          <label class="notice" for="">請填寫國籍</label>
+          <div class="mb-50">
+            <input
+              type="text"
+              class="col-12 allInputs"
+              placeholder="請輸入擅長的語言"
+            />
+          </div>
+          <div class="resume">
+            <input class="col-12 allInputs" placeholder="請選擇要上傳的履歷 " />
+            <button type="submit" class="btn btn-secondary browse">瀏覽</button>
+          </div>
+          <label class="notice" for="">請選擇檔案</label>
+        </div>
+
+        <button class="btn btn-secondary row mx-auto change-btn">送出</button>
+      </form>
+    </div>
+    <div class="modal-dialog modal-lg">
+      <div class="notify col-12">
+        <div class="notify-text">資料審核中，大約會在一至三天內通知審核結果，請耐心等待</div>
       </div>
     </div>
   </body>
