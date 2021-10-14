@@ -98,7 +98,7 @@
 
 }
 
-@media (min-width: 320px) {
+
   .notify-text {
     font-size: 18px;
     text-align: center;
@@ -216,6 +216,7 @@
     width: 116px;
     border-radius: 50%;
     overflow: hidden;
+    margin-right: 21px;
   }
 
   .btn-primary {
@@ -358,8 +359,8 @@
     padding: 3px 0px 0px;
     margin-left: auto;
   }
-}
 
+/* 
 @media (min-width: 375px) {
   .notify-text {
     font-size: 21px;
@@ -390,9 +391,10 @@
     padding: 8px 0px 4px 11px;
   }
 
-}
+} */
 
 @media (min-width: 768px) {
+
   .logo {
     margin: 40px auto;
   }
