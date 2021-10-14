@@ -16,4 +16,3 @@ let io = socketIo(server);
 router.use(express.static(publicPath));
 
 
-module.exports = router;
