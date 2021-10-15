@@ -27,7 +27,7 @@
       crossorigin="anonymous"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="../.././src/css/TC.css" />
+    <link rel="stylesheet" href="../.././public/css/TC.css" />
     <title>TC_course</title>
   </head>
 
@@ -142,7 +142,7 @@
           </nav>
 
           <!-- form -->
-          <form class="form-lg">
+          <form class="form-lg col-12 col-md-10">
             <div class="d-flex justify-content-between align-items-center ml-1">
               <a href=""><i class="fas fa-chevron-left back"></i></a>
               <div class="form-title mr-auto">我的課程</div>
@@ -172,6 +172,7 @@
                 <i class="fas fa-search"></i>
               </button>
             </div>
+            <!-- course card label -->
             <div class="courseLabel col-12">
               <div class="Labelitem">課程封面</div>
               <div class="Labelitem">課程名稱</div>
@@ -228,8 +229,9 @@
         </div>
       </div>
     </div>
+    <!-- application form -->
     <div class="modal-dialog modal-lg">
-      <form class="form-m">
+      <form class="form-lg">
         <div class="input-grp-sm">
           <div class="d-flex align-items-center ml-1">
             <a href=""><i class="fas fa-chevron-left back"></i></a>
@@ -244,7 +246,7 @@
                 alt=""
               />
             </div>
-            <button class="btn btn-primary">
+            <button class="btn btn-primary ml-0">
               <span>請選擇圖片</span>
             </button>
           </div>
@@ -267,6 +269,7 @@
         <button class="btn btn-secondary row mx-auto change-btn">送出</button>
       </form>
     </div>
+    <!-- notify -->
     <div class="modal-dialog modal-lg">
       <div class="notify col-12">
         <div class="notify-text">資料審核中，大約會在一至三天內通知審核結果，請耐心等待</div>
