@@ -2,6 +2,10 @@
   font-family: "Noto Sans", "Noto Sans TC", sans-serif;
 }
 
+img{
+  max-width: 100%;
+}
+
 .modal-dialog{
   margin: 0;
 }
@@ -120,9 +124,9 @@
     background: #f1f0e9;
   }
 
-  .pageName {
+  /* .pageName {
     display: none;
-  }
+  } */
 
   .logo {
     width: 306.82px;
@@ -545,10 +549,10 @@
     margin-left: -10px;
   }
 
-  .pageName {
+  /* .pageName {
     display: block;
     margin: 47px 176px 96px;
-  }
+  } */
 
   @keyframes bc {
     0% {
