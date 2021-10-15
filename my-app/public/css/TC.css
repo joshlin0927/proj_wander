@@ -18,6 +18,9 @@
 .mt-15 {
   margin-top: 15px;
 }
+.mt-200{
+  margin-top: 200px;
+}
 
 .mb-30 {
   margin-bottom: 30px;
@@ -145,6 +148,10 @@
     display: none;
   }
 
+  .topbar {
+    display: none;
+  }
+
   .form {
     background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
@@ -226,6 +233,7 @@
     width: 116px;
     border-radius: 50%;
     overflow: hidden;
+    margin-right: 21px;
   }
 
   .btn-primary {
@@ -310,6 +318,20 @@
     margin: 0px 0px 30px;
   }
 
+  @keyframes hy2 {
+    0% {
+      left: 10%;
+    }
+
+    50% {
+      left: 12%;
+    }
+
+    100% {
+      left: 10%;
+    }
+  }
+
   .dec-block {
     display: block;
     position: absolute;
@@ -321,6 +343,19 @@
     background: #f1ef5b;
     border-radius: 0px 0px 0px 180px;
     animation: hy 12s linear infinite;
+  }
+
+  .dec-block-lg{
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 90%;
+    height: 250px;
+    z-index: -2;
+    background: #f1ef5b;
+    border-radius: 0px 0px 0px 180px;
+    animation: hy2 12s linear infinite;
   }
 
   .courseLabel {
@@ -442,13 +477,13 @@
   .courseLabel {
     display: flex;
     justify-content: space-between;
-    /* padding-left: 5%; */
     margin-bottom: 25px;
   }
 
   .courseLabel-right {
     display: flex;
-    /* padding-right: 68px; */
+    justify-content: space-evenly;
+    padding-right: 3.2rem;
   }
 
   .Labelitem {
@@ -480,8 +515,7 @@
   }
 
   .courseLabel-right {
-    padding-right: 20px;
-
+    padding-right: 1rem;
   }
 
   .search {
@@ -575,31 +609,10 @@
     animation: bc 150s linear infinite;
   }
 
-  @keyframes hy {
-    0% {
-      left: 50%;
-    }
 
-    50% {
-      left: 46%;
-    }
-
-    100% {
-      left: 50%;
-    }
-  }
 
   .dec-block {
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0px;
-    width: 68%;
     height: 300px;
-    z-index: -2;
-    background: #f1ef5b;
-    border-radius: 0px 0px 0px 180px;
-    animation: hy 12s linear infinite;
   }
 
   .earth {
@@ -697,6 +710,31 @@
     padding: 0;
   }
 
+  .topbar {
+    display: flex;
+    align-items: center;
+    margin: auto;
+  }
+
+  .topNavList{
+    display: flex;
+    list-style: none;
+    padding: 0px;
+  }
+
+  .topNav-item{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    width: 175px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    padding-left: 39px;
+    margin-bottom: 10px;
+  }
+
+
   .avatar {
     width: 120px;
     height: 120px;
@@ -791,11 +829,11 @@
 
   .courseLabel {
     width: 100%;
-    padding: auto;
+    /* padding: auto; */
   }
 
   .courseLabel-right {
-    padding-right: 80px;
+    padding-right: 5.5rem;
   }
 
 }
