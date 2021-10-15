@@ -2,6 +2,10 @@
   font-family: "Noto Sans", "Noto Sans TC", sans-serif;
 }
 
+.modal-dialog{
+  margin: 0;
+}
+
 .allwraper {
   position: relative;
   overflow: hidden;
@@ -98,7 +102,7 @@
 
 }
 
-@media (min-width: 320px) {
+
   .notify-text {
     font-size: 18px;
     text-align: center;
@@ -139,6 +143,12 @@
 
   .sidebar {
     display: none;
+  }
+
+  .form {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 15px;
   }
 
   .form-sm {
@@ -326,7 +336,7 @@
   }
 
   .TCcourse-img {
-    width: 108px;
+    width: 8rem;
     height: 100px;
     margin-left: -15px;
     background: url(".././images/course/日文課程.jpeg") no-repeat center / cover;
@@ -355,10 +365,10 @@
   .TCcourse-delete {
     color: #065f8e;
     font-size: 18px;
-    padding: 3px 0px 0px;
+    padding: 3px 10px 0px;
     margin-left: auto;
   }
-}
+
 
 @media (min-width: 375px) {
   .notify-text {
@@ -384,12 +394,6 @@
   .nameInputs {
     margin: 27px 0 50px;
   }
-
-  .TCcourse-info {
-    width: 50%;
-    padding: 8px 0px 4px 11px;
-  }
-
 }
 
 @media (min-width: 768px) {
@@ -411,10 +415,6 @@
   .TCcourse-title {
     font-size: 16px;
     line-height: 20px;
-  }
-
-  .TCcourse-img {
-    width: 150px;
   }
 
   .TCcourse-info-left {
@@ -461,6 +461,14 @@
 
   .input-grp-sm {
     margin: auto 96px;
+  }
+
+  .modal-dialog{
+    margin: auto;
+  }
+
+  .allInputs{
+    height: 50px;
   }
 
 }
@@ -616,6 +624,12 @@
     animation: 12s linear infinite;
   }
 
+  .form {
+    border: 2px solid rgba(6, 95, 142, 0.5);
+    width: 748px;
+    margin: 0 auto 150px;
+  }
+
   .form-sm {
     border: 2px solid rgba(6, 95, 142, 0.5);
     width: 60%;
@@ -625,7 +639,7 @@
   .form-m {
     border: 2px solid rgba(6, 95, 142, 0.5);
     width: 80%;
-    margin: 0 auto 150px;
+    margin: 0px 0px 150px;
   }
 
   .form-lg {
