@@ -1,6 +1,95 @@
-img{
-    max-width: 100%;
+/* 通用 */
+img {
+  max-width: 100%;
 }
-body{
-    background-color: #f1f0e9;
+body {
+  background-color: #f1f0e9;
+  font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+}
+.navbar {
+  height: 80px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+.cartMain {
+  margin-top: 110px;
+}
+/* breadcrumb */
+
+/* 手機logo */
+.logo-m {
+  display: none;
+}
+@media (max-width: 769px) {
+  .logo-m {
+    margin: 40px auto 40px;
+    display: block;
+  }
+  .navbar {
+    display: none;
+  }
+}
+
+.breadcrumb {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+/* 標題 */
+.cartTitle {
+  margin-top: 96px;
+  display: flex;
+  width: 100%;
+  border-bottom: 2px black solid;
+}
+.cartIcon {
+  height: 57px;
+  width: 57px;
+}
+.cartTitleTxt {
+  color: black;
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 69px;
+  margin-left: 1.8rem;
+}
+
+/* 背景 */
+
+/* 圓圈 */
+.dec-circle {
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 262px;
+  height: 262px;
+  right: 26px;
+  top: 189px;
+  border: 4px dashed #065f8e;
+  border-radius: 50%;
+  animation: bc 150s linear infinite;
+}
+
+/* 黃色色塊(上) */
+/* 上面的黃色色塊 */
+.dec-block {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  width: 68%;
+  height: 300px;
+  z-index: -2;
+  background: #f1ef5b;
+  border-radius: 0px 0px 0px 180px;
+  animation: hy 12s linear infinite;
+}
+
+/* 地球 */
+.earth {
+  display: block;
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  top: 724px;
 }
