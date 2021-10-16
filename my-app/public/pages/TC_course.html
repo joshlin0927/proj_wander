@@ -82,25 +82,25 @@
 
     <div class="container">
       <!-- breadcrumb -->
-      <div class="row ml-1">
+      <div class="row">
         <div class="logo-m">
           <img src="../images/logo/log_mobile.png" alt="" />
         </div>
         <nav class="w-100">
-          <ol class="breadcrumb">
+          <ol class="breadcrumb col col-md-11 col-lg-12 ml-auto">
             <li class="breadcrumb-item"><a href="">首頁</a></li>
             <li class="breadcrumb-item"><a href="">會員中心</a></li>
             <li class="breadcrumb-item"><a href="">個人資料</a></li>
           </ol>
         </nav>
-        <div class="col-6 ml-5 pl-5 pageName">
+        <div class="col-10 ml-auto pageName">
           <img src="../images/elements/course.png" alt="" />
         </div>
       </div>
 
       <div class="row">
         <!-- sidebar -->
-        <nav class="sidebar col-2 mr-0">
+        <nav class="sidebar col-2">
           <div class="avatar">
             <img
               src="../images/teacher/Thomas_Lillard.jpg"
@@ -143,14 +143,12 @@
         </nav>
 
         <!-- form -->
-        <form class="form col-12 col-md-10">
-          <div
-            class="d-flex justify-content-between align-items-center ml-1 mb-4"
-          >
+        <form class="form col-12 col-md-10 px-4 mx-auto">
+          <div class="form-head ml-1 p-0">
             <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
             <div class="form-title mr-auto">我的課程</div>
             <!-- desktop search bar -->
-            <div class="search mr-auto">
+            <div class="search mr-auto col-6">
               <input
                 type="text"
                 class="searchbar"
@@ -174,11 +172,15 @@
           <!-- course card label -->
           <div class="courseLabel col-12">
             <div class="Labelitem">課程封面</div>
+
             <div class="Labelitem">課程名稱</div>
             <div class="courseLabel-right">
               <div class="Labelitem">課程種類</div>
               <div class="Labelitem">上架日期</div>
               <div class="Labelitem">課程長度</div>
+              <div class="TCcourse-delete">
+                <i class="far fa-times-circle opacity-0"></i>
+              </div>
             </div>
           </div>
           <!-- course cards -->
@@ -188,7 +190,7 @@
               <div class="TCcourse-title">
                 Thomas老師：從零開始的日文基礎課程3
               </div>
-              <div class="TCcourse-info-left">
+              <div class="TCcourse-info-right">
                 <div class="TCcourse-detail"><span>課程種類：</span> 日文</div>
                 <div class="TCcourse-detail">
                   <span>上架日期：</span> 2021/09/08
@@ -231,13 +233,13 @@
     <div class="earth"><img src="../images/elements/earth.png" alt="" /></div>
     <div class="dec-low-block"></div>
     <!-- modal-form -->
-    <div class="modal-dialog modal-lg">
-      <form class="form col-12">
-        <div class="input-grp-sm">
-          <div class="d-flex align-items-center ml-1">
-            <a href=""><i class="fas fa-chevron-left back"></i></a>
+    <div class="modal-dialog form col-12 col-md-8">
+      <form class="py-4">
+        <div class="form-content w-100">
+          <div class="form-head ml-1">
+            <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
             <div class="form-title">審核資料</div>
-            <a href=""><i class="back"></i></a>
+            <a href=""><i class="TCback-btn"></i></a>
           </div>
           <div class="d-flex align-items-center ml-1 mb-50">
             <div class="pic">
@@ -251,6 +253,7 @@
               <span>請選擇圖片</span>
             </button>
           </div>
+
           <input type="text" class="col-12 allInputs" placeholder="國籍" />
           <label class="notice" for="">請填寫國籍</label>
           <div class="mb-50">
