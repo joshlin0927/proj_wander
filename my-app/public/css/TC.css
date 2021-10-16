@@ -184,7 +184,7 @@
 .form-head {
   display: flex;
   align-items: center;
-  margin-bottom: 1.9rem;
+  margin: 1.9rem 0px;
 }
 
 /* 頁面英文標題(圖片) */
@@ -334,7 +334,7 @@
   margin-bottom: 30px;
 }
 
-/* 圓圈的動畫 */
+/* 新增課程的黃色色塊的動畫 */
 @keyframes hy2 {
   0% {
     left: 10%;
@@ -421,6 +421,54 @@
     height: 40px;
   }
 
+  /* 麵包屑 */
+  .breadcrumb {
+    padding-bottom: 15px;
+  }
+
+  /* 彈窗 */
+  .modal-dialog {
+    margin: auto;
+  }
+
+  /* 所有input欄位 */
+  .allInputs {
+    height: 50px;
+  }
+
+  /* 表單頁面 */
+  .form-content {
+    margin: 0px auto;
+    padding: 0px 3rem;
+  }
+
+
+
+  /* 課程欄位列 */
+  .courseLabel {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+
+  .courseLabel-right {
+    display: flex;
+    justify-content: space-evenly;
+    padding-right: 3.2rem;
+  }
+
+  .Labelitem {
+    width: 72px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin: auto 5px;
+  }
+
+  .input-grp-sm {
+    margin: auto 96px;
+  }
+
   /* 課程卡片 */
   .TCcourse-info {
     /* width: 80%; */
@@ -455,46 +503,7 @@
     margin: auto 15px;
   }
 
-  /* 課程欄位列 */
-  .courseLabel {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
-  }
 
-  .courseLabel-right {
-    display: flex;
-    justify-content: space-evenly;
-    padding-right: 3.2rem;
-  }
-
-  .Labelitem {
-    width: 72px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    margin: auto 5px;
-  }
-
-  .input-grp-sm {
-    margin: auto 96px;
-  }
-
-  /* 彈窗 */
-  .modal-dialog {
-    margin: auto;
-  }
-
-  /* 所有input欄位 */
-  .allInputs {
-    height: 50px;
-  }
-
-  /* 表單頁面 */
-  .form-content {
-    margin: 0px auto;
-    padding: 0px 3rem;
-  }
 
 }
 
@@ -697,7 +706,6 @@
     display: flex;
     text-decoration: none;
     align-items: center;
-    width: 175px;
     height: 50px;
     line-height: 50px;
     border-radius: 10px;
@@ -711,6 +719,7 @@
     flex-direction: column;
     align-items: center;
     padding: 0;
+    margin: 0;
   }
 
   /* 頭像 */
@@ -734,8 +743,8 @@
     align-items: center;
     width: 100%;
     height: 50px;
-    border-radius: 10px;
-    padding: 0px 20px;
+    border-radius: 0px 10px 10px 0px;
+    padding: 0px 30px;
     margin-bottom: 10px;
   }
 
@@ -756,17 +765,16 @@
   }
 
   /* 選中的選項狀態 */
-  .sidebar .active {
+  .active {
     background-color: white;
   }
 
-  .nav-item .active::before {
-    content: " ";
+  .sidebar .active::after {
+    content: "";
     position: absolute;
     left: 0;
     width: 15px;
     height: 50px;
-    
     background: #f1ef5b;
   }
 
