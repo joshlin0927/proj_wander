@@ -176,7 +176,7 @@
 }
 
 /* 課程新增進度 */
-.topbar {
+.processBar {
   display: none;
 }
 
@@ -193,17 +193,27 @@
   margin: 1.875rem 0px;
 }
 
+
 /* 頁面英文標題(圖片) */
 .pageName {
   display: none;
 }
 
+/* 表單標題 */
 .form-title {
   font-size: 24px;
   color: #065f8e;
   letter-spacing: -0.015em;
   font-weight: bold;
   margin: auto;
+}
+
+.form-title-upload {
+  font-size: 24px;
+  color: #065f8e;
+  letter-spacing: -0.015em;
+  font-weight: bold;
+  margin-left: auto;
 }
 
 /* 表單頁面 */
@@ -251,6 +261,12 @@
   border-radius: 50%;
   overflow: hidden;
   margin-right: 21px;
+}
+
+/* 表單裡的頭圖 */
+.pic-square {
+  width: 271px;
+  margin-bottom: 30px;
 }
 
 .btn-border-only {
@@ -320,8 +336,7 @@
 }
 
 .intro::placeholder {
-  padding-top: 17px;
-  padding-left: 17px;
+  padding-top: 2.5%;
 }
 
 /* 預覽按鈕(桌機板) */
@@ -334,7 +349,8 @@
   margin: 15px auto 30px;
 }
 
-.change-btn {
+/* 單獨一個按鈕在表單底部時 */
+.one-btn {
   color: black;
   margin-bottom: 30px;
 }
@@ -421,6 +437,10 @@
   /* 所有input欄位 */
   .allInputs {
     height: 50px;
+  }
+
+  .form-head {
+    padding: 0px 10%;
   }
 
   /* 表單頁面 */
@@ -672,27 +692,50 @@
   }
 
   /* 課程新增的進度 */
-  .topbar {
+  .processBar {
     display: flex;
     align-items: center;
-    margin: auto;
+    padding: 0;
+    margin: 0;
   }
 
-  .topNavList {
+  .processBarList {
     display: flex;
     list-style: none;
-    padding: 0px;
   }
 
-  .topNav-item {
+  .processBar-item {
     display: flex;
+    position: relative;
     text-decoration: none;
     align-items: center;
+    width: 100%;
     height: 50px;
-    line-height: 50px;
-    border-radius: 10px;
-    padding-left: 39px;
+    padding: 0px 30px;
     margin-bottom: 10px;
+  }
+
+  .here {
+    position: absolute;
+    bottom: 10px;
+    width: 70%;
+    height: 5px;
+    background-color: #065f8e;
+
+  }
+
+  .processBar-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    color: #065f8e;
+    background-color: transparent;
+  }
+
+  .processBar-item a i {
+    padding-right: 13px;
   }
 
   /* 會員中心sidebar */
@@ -773,23 +816,9 @@
     margin: 60px 0;
   }
 
-  /* 密碼更改 */
-  .change-btn {
-    margin: 14px 0px 60px;
-  }
-
-  /* 課程欄位右側 */
-  /* .courseLabel-right {
-    display: flex;
-    justify-content: space-evenly;
-    padding-right: calc(9% - 3rem);
-  } */
-
-  /* 課程欄位 */
-  .Labelitem {
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
+  /* 單獨一個按鈕在表單底部時 */
+  .one-btn {
+    margin: 50px 0px 60px;
   }
 
   /* 課程名稱 */
