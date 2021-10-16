@@ -5,30 +5,25 @@
 /* 全頁背景色 */
 .sp-bgc {
   background: #f1f0e9;
+  overflow: hidden;
 }
 
 .modal-dialog {
   margin: 0;
 }
 
-.mt-15 {
-  margin-top: 15px;
-}
-
-.mt-200 {
-  margin-top: 200px;
-}
-
-.mb-30 {
-  margin-bottom: 30px;
-}
-
-.mt-50 {
-  margin-top: 50px;
-}
-
 .mb-50 {
   margin-bottom: 50px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 115px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 /* -------------以上為公用--------- */
@@ -80,16 +75,6 @@
 
 .bread>ol {
   list-style-type: none;
-}
-
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 115px;
-  height: 40px;
-  font-size: 14px;
-  font-weight: bold;
 }
 
 /* 新增課程(手機板) */
@@ -177,7 +162,6 @@
 .form {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
-  padding: 15px;
 }
 
 /* 表單頭 */
@@ -328,7 +312,6 @@
   margin: 15px auto 30px;
 }
 
-
 .change-btn {
   color: black;
   margin-bottom: 30px;
@@ -441,8 +424,6 @@
     margin: 0px auto;
     padding: 0px 3rem;
   }
-
-
 
   /* 課程欄位列 */
   .courseLabel {
@@ -638,7 +619,7 @@
   /* 頁面英文標題(圖片) */
   .pageName {
     display: block;
-    margin-bottom: 10%;
+    margin-bottom: 96px;
   }
 
   /* 表單 */
@@ -653,6 +634,7 @@
     margin: 0px;
   }
 
+  /* 表單內容 */
   .form-content {
     width: 70%;
   }
@@ -782,16 +764,6 @@
     background-color: white;
   }
 
-  /* 課程刪除鈕 */
-  .TCcourse-delete {
-    display: none;
-  }
-
-  /* 頁碼 */
-  .Mypagination {
-    display: flex;
-  }
-
   /* 自我介紹欄位 */
   .intro {
     margin-bottom: 0px;
@@ -801,10 +773,20 @@
     margin: 60px 0;
   }
 
+  /* 密碼更改 */
   .change-btn {
-    margin: 10px 0px 60px;
+    margin: 14px 0px 60px;
   }
 
+  /* 課程刪除鈕 */
+  .TCcourse-delete {
+    display: none;
+  }
+
+  /* 頁碼 */
+  .Mypagination {
+    display: flex;
+  }
 }
 
 @media (min-width: 1440px) {
