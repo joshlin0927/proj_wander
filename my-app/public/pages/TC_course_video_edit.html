@@ -33,7 +33,7 @@
     />
     <!-- CSS -->
     <link rel="stylesheet" href="../css/TC2.css" />
-    <title>TC_course</title>
+    <title>TC_course_video_edit</title>
   </head>
 
   <body class="TCsp-bgc">
@@ -86,7 +86,6 @@
           </div>
         </div>
       </nav>
-
       <!-- Main Content -->
       <div class="container mainContent">
         <!-- breadcrumb -->
@@ -101,50 +100,31 @@
               <li class="breadcrumb-item active">個人資料</li>
             </ol>
           </nav>
-          <div class="col-10 ml-auto pageName">
-            <span class="pageNameText course">course</span>
-          </div>
         </div>
-
-        <div class="row">
-          <!-- sidebar -->
-          <nav class="sidebar col-2">
-            <div class="avatar">
-              <img
-                src="../images/teacher/Thomas_Lillard.jpg"
-                alt=""
-                class="img-fluid"
-              />
-            </div>
-            <ul class="nav-list">
-              <li>
-                <a href="" class="nav-item active">
-                  <i class="fas fa-user"></i>
-                  <div>個人資料</div>
+        <div class="row justify-content-center">
+          <!-- TCcourse-process bar -->
+          <nav class="TCcourse-processBar col-10">
+            <a href="" class="btn btn-border-only-no-h col-2">
+              <i class="fas fa-chevron-left"></i>
+              <span>返回列表</span>
+            </a>
+            <ul class="TCcourse-processBarList">
+              <li class="TCcourse-processBar-item">
+                <a href="">
+                  <i class="far fa-check-circle"></i>
+                  <div>課程細節頁面</div>
                 </a>
               </li>
-              <li>
-                <a href="" class="nav-item">
-                  <i class="fas fa-key"></i>
-                  <div>密碼更改</div>
+              <li class="TCcourse-processBar-item active">
+                <a href="">
+                  <i class="far fa-check-circle"></i>
+                  <div>課程內容上傳</div>
                 </a>
               </li>
-              <li>
-                <a href="" class="nav-item">
-                  <i class="fas fa-th-list"></i>
-                  <div>課程列表</div>
-                </a>
-              </li>
-              <li>
-                <a href="" class="nav-item">
-                  <i class="fas fa-comment-alt"></i>
-                  <div>聊天室</div>
-                </a>
-              </li>
-              <li>
-                <a href="" class="nav-item">
-                  <i class="fas fa-chart-line"></i>
-                  <div>數據分析</div>
+              <li class="TCcourse-processBar-item">
+                <a href="">
+                  <i class="far fa-check-circle"></i>
+                  <div>課程內容管理</div>
                 </a>
               </li>
             </ul>
@@ -153,9 +133,9 @@
           <form class="TCform col-12 col-md-10 px-4">
             <div class="TCform-head ml-1 p-0">
               <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
-              <div class="TCform-title mr-auto">我的課程</div>
+              <div class="TCform-title mr-auto">課程內容管理</div>
               <!-- desktop search bar -->
-              <div class="search mr-auto col-6">
+              <div class="search ml-0">
                 <input
                   type="text"
                   class="searchbar"
@@ -166,7 +146,7 @@
                 </button>
               </div>
               <div class="d-flex justify-content-end">
-                <button class="btn TCbtn-sm btn-primary">新增</button>
+                <button class="btn TCbtn-sm-w-switch btn-primary">儲存</button>
               </div>
             </div>
             <!-- mobile search bar -->
@@ -182,13 +162,11 @@
             </div>
             <!-- TCcourse card label -->
             <div class="TCcourseLabel col-12">
-              <div class="Labelitem">課程封面</div>
-
-              <div class="Labelitem">課程名稱</div>
+              <div class="Labelitem">影片截圖</div>
+              <div class="Labelitem">影片名稱</div>
               <div class="TCcourseLabel-right">
-                <div class="Labelitem">課程種類</div>
-                <div class="Labelitem">上架日期</div>
-                <div class="Labelitem">課程長度</div>
+                <div class="Labelitem">上傳日期</div>
+                <div class="Labelitem">影片長度</div>
                 <div class="TCcourse-delete">
                   <i class="far fa-times-circle opacity-0"></i>
                 </div>
@@ -202,9 +180,6 @@
                   Thomas老師：從零開始的日文基礎課程3
                 </div>
                 <div class="TCcourse-info-right">
-                  <div class="TCcourse-detail">
-                    <span>課程種類：</span> 日文
-                  </div>
                   <div class="TCcourse-detail">
                     <span>上架日期：</span> 2021/09/08
                   </div>
@@ -238,7 +213,6 @@
               </ul>
             </nav>
           </form>
-        </div>
       </div>
 
       <!-- modal-form -->
@@ -247,57 +221,26 @@
           <div class="TCform-content w-100">
             <div class="TCform-head ml-1">
               <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
-              <div class="TCform-title">審核資料</div>
-              <a href=""><i class="TCback-btn"></i></a>
-            </div>
-            <div class="d-flex align-items-center ml-1 TCmb-50">
-              <div class="profile-pic">
-                <img
-                  src="../images/teacher/Thomas_Lillard.jpg"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <button class="btn btn-border-only ml-0">
-                <span>請選擇圖片</span>
-              </button>
-            </div>
-
-            <input type="text" class="col-12 allInputs" placeholder="國籍" />
-            <label class="TCnotice" for="">請填寫國籍</label>
-            <div class="TCmb-50">
-              <input
-                type="text"
-                class="col-12 allInputs"
-                placeholder="請輸入擅長的語言"
-              />
+              <div class="TCform-title">影片資訊</div>
+              <a href=""><i class="fas fa-chevron-left TCback-btn opacity-0"></i></a>
             </div>
             <div class="resume">
               <input
                 class="col-12 allInputs"
-                placeholder="請選擇要上傳的履歷 "
+                placeholder="請輸入影片標題 "
               />
               <button type="submit" class="btn btn-secondary browse">
-                瀏覽
+                更改名稱
               </button>
             </div>
-            <label class="TCnotice" for="">請選擇檔案</label>
+            <label class="TCnotice" for="">至少填寫一個字</label>
           </div>
-
-          <button class="btn btn-secondary mx-auto one-btn">送出</button>
         </form>
       </div>
-      <!-- modal-TCnotify -->
-      <div class="modal-dialog mx-auto modal-lg">
-        <div class="TCnotify col-12">
-          <div class="TCnotify-text">
-            資料審核中，大約會在一至三天內通知審核結果，請耐心等待
-          </div>
-        </div>
-      </div>
+
       <!-- bg decoration -->
       <div class="dec-circle"></div>
-      <div class="dec-block"></div>
+      <div class="dec-block-lg"></div>
       <div class="earth"><img src="../images/elements/earth.png" alt="" /></div>
       <div class="dec-low-block"></div>
     </div>
@@ -311,8 +254,5 @@
       integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
       crossorigin="anonymous"
     ></script>
-    <script>
-
-    </script>
   </body>
 </html>
