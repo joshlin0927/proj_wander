@@ -879,6 +879,7 @@
   .sidebar .nav_list {
     list-style: none;
     padding-left: 0;
+    /* width: 100%; */
   }
 
   /* sidebar選項 */
@@ -908,11 +909,11 @@
   }
 
   /* 選中的選項狀態 */
-  .sidebar .active {
+  .nav-item.active {
     background-color: white;
   }
 
-  .sidebar .active::after {
+  .nav-item.active::after {
     content: "";
     position: absolute;
     width: 15px;

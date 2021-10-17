@@ -31,7 +31,7 @@ ul {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 
@@ -218,6 +218,7 @@ transform: scale(1, 1);
 .nav__scroll-header {
   background-color: var(--body-color);
   box-shadow: 0 0 4px rgba(14, 55, 63, 0.15);
+  transition: 0.3s ease;
 }
 .nav__scroll-header .nav__singheader,
 .nav__scroll-header .nav__nav__logoa {

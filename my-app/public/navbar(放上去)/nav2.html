@@ -1,0 +1,155 @@
+<!-- Navbar -->
+<nav class="nav__header" id="nav__header">
+    <div class="nav__singheader container">
+        <div class="row">
+            <div class="col-3 p-0">
+                <a href="#">
+                    <img src="../images/logo/logo_desktop.png" />
+                </a>
+            </div>
+            <ul class="nav__pc_menu col-7">
+                <li><a href="#"><span class="nav__en">關於我們</span></a></li>
+                <li><a href="#"><span class="nav__en">課程總覽</span></a></li>
+                <li><a href="#"><span class="nav__en">我的課程</span></a></li>
+                <li><a href="#"><span class="nav__en">國際角落</span></a></li>
+            </ul>
+            <div class="col-2 d-flex align-items-center justify-content-around">
+                <a href="#" class="nav_login">
+                    <span class="nav_login_txt">登入</span>
+                </a>
+                <a href="#" class="nav_cart">
+                    <img src="../images/cart/cart_icon.svg" alt="" class="nav_cart_icon">
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- 以上直接貼在navbar位置 -->
+
+<!-- navbarScroll script引用 注意路徑 -->
+<script src="../navbar(放上去)/assets/js/main.js"></script>
+
+<!-- 以下貼在自己的css檔 -->
+
+<style>
+    /*=============== Navbar ===============*/
+    ul {
+        list-style: none !important;
+    }
+
+    a {
+        text-decoration: none !important;
+    }
+
+    .nav__header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background-color: transparent;
+        color: #065f8e;
+    }
+
+    @media (max-width: 768px) {
+        .nav__header {
+            display: none;
+        }
+    }
+
+    .nav__header .nav__singheader {
+        position: relative;
+        height: 80px;
+    }
+
+    .nav__header .nav__singheader .nav__pc_menu {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        margin: 0;
+    }
+
+    .nav__header .nav__singheader .nav__pc_menu li {
+        display: inline-block;
+    }
+
+    .nav__en {
+        color: #065f8e;
+        display: block;
+        font-weight: bold;
+        position: relative;
+        padding: 0 15px;
+        /* TODO */
+    }
+
+    .nav_cart,
+    .nav_login {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: 0.3s ease;
+    }
+
+    .nav_login_txt {
+        color: #065f8e;
+        font-weight: bold;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+    }
+
+    .nav_cart_icon {
+        width: 24px;
+        height: 24px;
+        left: -50%;
+        top: 50%;
+        filter: drop-shadow(#065f8e 60px 0);
+        transform: translate(-50%, -50%);
+        position: absolute;
+        z-index: 5;
+    }
+
+    .nav_cart:hover,
+    .nav_login:hover {
+        background-color: #065f8e;
+    }
+
+    .nav_cart:hover .nav_cart_icon,
+    .nav_login:hover .nav_login_txt {
+        filter: drop-shadow(#ffffff 60px 0);
+        color: white;
+    }
+
+    /* hover底線動畫 */
+    .nav__en::after {
+        position: absolute;
+        bottom: -28px;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: #242424;
+        transform: scale(0, 1);
+        transform-origin: left top;
+        transition: transform 0.3s;
+        z-index: 10;
+    }
+
+    .nav__en:hover::after {
+        transform: scale(1, 1);
+    }
+
+    /* scroll後變色 */
+    .nav__scroll-header {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 4px rgba(14, 55, 63, 0.15);
+        transition: 0.3s ease;
+    }
+</style>
