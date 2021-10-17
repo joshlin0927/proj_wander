@@ -33,8 +33,7 @@
     />
     <!-- CSS -->
     <link rel="stylesheet" href="../css/TC2.css" />
-
-    <title>TC_profile</title>
+    <title>TC_course</title>
   </head>
 
   <body class="TCsp-bgc">
@@ -87,6 +86,7 @@
           </div>
         </div>
       </nav>
+
       <!-- Main Content -->
       <div class="container mainContent">
         <!-- breadcrumb -->
@@ -102,11 +102,11 @@
             </ol>
           </nav>
           <div class="col-10 ml-auto pageName">
-            <span class="pageNameText profile">Profile</span>
+            <span class="pageNameText course">course</span>
           </div>
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row">
           <!-- sidebar -->
           <nav class="sidebar col-2">
             <div class="avatar">
@@ -117,118 +117,67 @@
               />
             </div>
             <ul class="nav-list">
-              <li class="nav-item active">
-                <a href="">
+              <li>
+                <a href="" class="nav-item active">
                   <i class="fas fa-user"></i>
                   <div>個人資料</div>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="">
+              <li>
+                <a href="" class="nav-item">
                   <i class="fas fa-key"></i>
                   <div>密碼更改</div>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="">
+              <li>
+                <a href="" class="nav-item">
                   <i class="fas fa-th-list"></i>
                   <div>課程列表</div>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="">
+              <li>
+                <a href="" class="nav-item">
                   <i class="fas fa-comment-alt"></i>
                   <div>聊天室</div>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="">
+              <li>
+                <a href="" class="nav-item">
                   <i class="fas fa-chart-line"></i>
                   <div>數據分析</div>
                 </a>
               </li>
             </ul>
           </nav>
-          <!-- form -->
-          <form class="TCform col-12 col-md-8">
-            <div class="TCform-content">
-              <div class="TCform-head">
+          <!-- chatting -->
+          <div class="chatList col-12 col-md-4">
+            <div class="chatList-content">
+              <div class="TCform-head ml-1">
                 <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
-                <div class="TCform-title">個人資料</div>
-                <a href=""><i class="TCback-btn"></i></a>
-                <button class="btn btn-primary preview-btn-top">
-                  個人頁面預覽
-                </button>
+                <div class="TCform-title">聊天室</div>
+                <a href=""
+                  ><i class="fas fa-chevron-left TCback-btn opacity-0"></i
+                ></a>
               </div>
-
-              <div class="d-flex align-items-center">
-                <div class="profile-pic">
+              <!-- a person -->
+              <div class="chatCard">
+                <div class="avatar">
                   <img
-                    src="../images/teacher/Thomas_Lillard.jpg"
+                    src="../images/students/Sagehashi Harue.jpeg"
                     class="img-fluid"
-                    alt=""
                   />
                 </div>
-                <button class="btn btn-border-only">
-                  <span>請選擇圖片</span>
-                </button>
-              </div>
-              <div class="fullname d-flex">
-                <div class="col-6 pl-0">
-                  <input
-                    type="text"
-                    class="nameInputs"
-                    placeholder="名字"
-                    disabled
-                  />
-                </div>
-                <div class="col-6 pr-0">
-                  <input
-                    type="text"
-                    class="nameInputs"
-                    placeholder="姓氏"
-                    disabled
-                  />
+                <div class="chatCard-info">
+                  <div class="d-flex align-items-center">
+                    <div class="chatName">Harue</div>
+                    <div class="notification"></div>
+                  </div>
+                  <p>課程名稱：<span>123</span></p>
+                  <p>我對第一段影片的...<span>(15分鐘前)</span></p>
                 </div>
               </div>
-              <div class="TCmb-50">
-                <input
-                  type="email"
-                  class="col-12 allInputs"
-                  placeholder="信箱"
-                  disabled
-                />
-              </div>
-              <div class="TCmb-50">
-                <input
-                  type="date"
-                  class="col-12 allInputs px-2"
-                  placeholder="生日"
-                />
-              </div>
-
-              <input type="text" class="col-12 allInputs" placeholder="暱稱" />
-              <label class="TCnotice" for="">請填寫至少一個字</label>
-              <input
-                type="text"
-                class="col-12 allInputs"
-                placeholder="請輸入擅長的語言"
-              />
-              <label class="TCnotice" for="">請填寫至少一種擅長語言</label>
-
-              <textarea
-                name=""
-                id=""
-                rows="5"
-                class="TC-intro w-100 col-12"
-                placeholder="自我介紹"
-              ></textarea>
             </div>
-            <button class="btn btn-secondary mx-auto TCsave-btn">儲存</button>
-            <button class="btn btn-primary preview-btn">
-              個人頁面預覽
-            </button>
-          </form>
+          </div>
         </div>
       </div>
       <!-- bg decoration -->
@@ -237,21 +186,16 @@
       <div class="earth"><img src="../images/elements/earth.png" alt="" /></div>
       <div class="dec-low-block"></div>
     </div>
-
     <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-      crossorigin="anonymous"
-    ></script>
+    <script></script>
   </body>
 </html>

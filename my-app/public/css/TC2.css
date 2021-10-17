@@ -204,6 +204,11 @@
   color: #065F8E;
 }
 
+/* 頁面英文標題 */
+.pageName {
+  display: none;
+}
+
 /* 表單 */
 .TCform {
   background: rgba(255, 255, 255, 0.8);
@@ -216,11 +221,6 @@
   display: flex;
   align-items: center;
   margin: 1.875rem 0px;
-}
-
-/* 頁面英文標題 */
-.pageName {
-  display: none;
 }
 
 /* 表單標題 */
@@ -297,7 +297,7 @@
 }
 
 /* 欄位提示小字 */
-.notice {
+.TCnotice {
   font-weight: bold;
   font-size: 14px;
   letter-spacing: -0.015em;
@@ -316,6 +316,68 @@
 .TC-intro::placeholder {
   padding-top: 2.5%;
 }
+
+/* 聊天室 */
+.chatList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #fff;
+  width: 100%;
+}
+
+/* .chatList-content{
+  margin: 30px 0px;
+} */
+
+.chatList .title {
+  margin: 50px 0px;
+  color: #065F8E;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.chatCard {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 10px 15px;
+  background-color: #F1F0E9;
+  border-radius: 10px;
+}
+
+.chatCard .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px
+}
+
+.chatName {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.chatCard-info .notification {
+  width: 12px;
+  height: 12px;
+  margin-left: auto;
+  border-radius: 50%;
+  background-color: #065F8E;
+}
+
+.chatCard-info>p {
+  font-size: 12px;
+  margin: 0px;
+}
+
+.chatCard:hover {
+  background-color: #F1EF5B;
+}
+
 
 /* -------------以上為公用--------- */
 
@@ -702,7 +764,7 @@
     top: 55%;
   }
 
-  
+
   .analytics::before {
     content: "";
     width: 28px;
@@ -751,7 +813,6 @@
     border-radius: 0px 10px 10px 0px;
     margin-bottom: 10px;
     color: #065f8e;
-
   }
 
   .sidebar .nav-item>i {
