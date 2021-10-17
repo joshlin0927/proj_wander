@@ -698,6 +698,19 @@
     top: 55%;
   }
 
+  
+  .analytics::before {
+    content: "";
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f1ef5b;
+    position: absolute;
+    z-index: -5;
+    left: 32%;
+    top: 55%;
+  }
+
   /* 會員中心sidebar */
   .sidebar {
     display: flex;

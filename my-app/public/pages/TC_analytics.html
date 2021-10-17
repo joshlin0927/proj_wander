@@ -33,7 +33,7 @@
     />
     <!-- CSS -->
     <link rel="stylesheet" href="../css/TC2.css" />
-    <title>TC_course</title>
+    <title>TC_analytics</title>
   </head>
 
   <body class="TCsp-bgc">
@@ -102,7 +102,7 @@
             </ol>
           </nav>
           <div class="col-10 ml-auto pageName">
-            <span class="pageNameText course">course</span>
+            <span class="pageNameText analytics">Analytics</span>
           </div>
         </div>
 
@@ -154,9 +154,9 @@
           <form class="TCform col-12 col-md-10 px-4">
             <div class="TCform-head ml-1 p-0">
               <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
-              <div class="TCform-title mr-auto">我的課程</div>
+              <div class="TCform-title mr-auto">數據分析</div>
               <!-- desktop search bar -->
-              <div class="search mr-auto col-6">
+              <div class="search ml-0">
                 <input
                   type="text"
                   class="searchbar"
@@ -165,9 +165,6 @@
                 <button type="submit" class="">
                   <i class="fas fa-search"></i>
                 </button>
-              </div>
-              <div class="d-flex justify-content-end">
-                <button class="btn TCbtn-sm btn-primary">新增</button>
               </div>
             </div>
             <!-- mobile search bar -->
@@ -181,15 +178,20 @@
                 <i class="fas fa-search"></i>
               </button>
             </div>
+            <!-- chart -->
+            <canvas
+              id="myChart"
+              class="col-12 TCmb-50"
+              width="700"
+              height="300"
+            ></canvas>
             <!-- TCcourse card label -->
             <div class="TCcourseLabel col-12">
               <div class="Labelitem">課程封面</div>
-
               <div class="Labelitem">課程名稱</div>
               <div class="TCcourseLabel-right">
-                <div class="Labelitem">課程種類</div>
                 <div class="Labelitem">上架日期</div>
-                <div class="Labelitem">課程長度</div>
+                <div class="Labelitem">觀看次數</div>
                 <div class="TCcourse-delete">
                   <i class="far fa-times-circle opacity-0"></i>
                 </div>
@@ -204,17 +206,14 @@
                 </div>
                 <div class="TCcourse-info-right">
                   <div class="TCcourse-detail">
-                    <span>課程種類：</span> 日文
-                  </div>
-                  <div class="TCcourse-detail">
                     <span>上架日期：</span> 2021/09/08
                   </div>
                   <div class="TCcourse-detail">
-                    <span>課程長度：</span> 01:02:30
+                    <span>觀看次數：</span> 123456789
                   </div>
                 </div>
               </div>
-              <div class="TCcourse-delete">
+              <div class="TCcourse-delete opacity-0">
                 <i class="far fa-times-circle"></i>
               </div>
             </div>
@@ -242,60 +241,6 @@
         </div>
       </div>
 
-      <!-- modal-form -->
-      <div class="modal-dialog mx-auto TCform col-12 col-md-8">
-        <form class="py-4">
-          <div class="TCform-content w-100">
-            <div class="TCform-head ml-1">
-              <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
-              <div class="TCform-title">審核資料</div>
-              <a href=""><i class="TCback-btn"></i></a>
-            </div>
-            <div class="d-flex align-items-center ml-1 TCmb-50">
-              <div class="profile-pic">
-                <img
-                  src="../images/teacher/Thomas_Lillard.jpg"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <button class="btn btn-border-only ml-0">
-                <span>請選擇圖片</span>
-              </button>
-            </div>
-
-            <input type="text" class="col-12 allInputs" placeholder="國籍" />
-            <label class="notice" for="">請填寫國籍</label>
-            <div class="TCmb-50">
-              <input
-                type="text"
-                class="col-12 allInputs"
-                placeholder="請輸入擅長的語言"
-              />
-            </div>
-            <div class="resume">
-              <input
-                class="col-12 allInputs"
-                placeholder="請選擇要上傳的履歷 "
-              />
-              <button type="submit" class="btn btn-secondary browse">
-                瀏覽
-              </button>
-            </div>
-            <label class="notice" for="">請選擇檔案</label>
-          </div>
-
-          <button class="btn btn-secondary  mx-auto one-btn">送出</button>
-        </form>
-      </div>
-      <!-- modal-TCnotify -->
-      <div class="modal-dialog mx-auto modal-lg">
-        <div class="TCnotify col-12">
-          <div class="TCnotify-text">
-            資料審核中，大約會在一至三天內通知審核結果，請耐心等待
-          </div>
-        </div>
-      </div>
       <!-- bg decoration -->
       <div class="dec-circle"></div>
       <div class="dec-block"></div>
@@ -312,5 +257,36 @@
       integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "觀看次數",
+              data: [120, 109, 30, 50, 200, 310],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              max:500,
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
   </body>
 </html>
