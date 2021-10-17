@@ -3,8 +3,8 @@
     <div class="nav__singheader container">
         <div class="row flex-nowrap">
             <div class="col-3 p-0">
-                <a href="#">
-                    <img src="../images/logo/logo_desktop.png" />
+                <a href="#" class="logo_desktop">
+                    <img src="../images/logo/logo_desktop.png"/>
                 </a>
             </div>
             <ul class="nav__pc_menu col-7">
@@ -42,6 +42,10 @@
         text-decoration: none !important;
     }
 
+    .logo_desktop {
+        height: 80px;
+    }
+
     .nav__header {
         width: 100%;
         position: fixed;
@@ -60,7 +64,6 @@
 
     .nav__header .nav__singheader {
         position: relative;
-        height: 80px;
     }
 
     .nav__header .nav__singheader .nav__pc_menu {
@@ -134,12 +137,18 @@
         left: 0;
         content: "";
         width: 100%;
-        height: 2px;
+        height: 0.1rem;
         background: #242424;
         transform: scale(0, 1);
         transform-origin: left top;
         transition: transform 0.3s;
         z-index: 10;
+    }
+
+    @media (max-width: 992px) {
+        .nav__en::after {
+            bottom: -21px;
+        }
     }
 
     .nav__en:hover::after {
