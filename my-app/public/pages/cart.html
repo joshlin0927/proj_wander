@@ -21,31 +21,36 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="../css/cart.css">
     <title>cart</title>
 
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
+    <nav class="nav__header" id="nav__header">
+        <div class="nav__singheader container">
+            <div class="row">
+                <div class="col-3 p-0">
+                    <a href="#">
+                        <img src="../images/logo/logo_desktop.png" />
+                    </a>
+                </div>
+                <ul class="nav__pc_menu col-7">
+                    <li><a href="#"><span class="nav__en">關於我們</span></a></li>
+                    <li><a href="#"><span class="nav__en">課程總覽</span></a></li>
+                    <li><a href="#"><span class="nav__en">我的課程</span></a></li>
+                    <li><a href="#"><span class="nav__en">國際角落</span></a></li>
+                </ul>
+                <div class="col-2 d-flex align-items-center justify-content-around">
+                    <a href="#" class="nav_login">
+                        <span class="nav_login_txt">登入</span>
+                    </a>
+                    <a href="#" class="nav_cart">
+                        <img src="../images/cart/cart_icon.svg" alt="" class="nav_cart_icon">
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -65,7 +70,7 @@
             <div class="cartTitle">
                 <img src="../images/cart/cart_icon.svg" alt="" class="cartIcon">
                 <span class="cartTitleTxt">購物車</span>
-                    
+
             </div>
         </div>
     </div>
@@ -85,6 +90,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+
+    <!-- navbarScroll -->
+    <script src="../navbar(放上去)/assets/js/main.js"></script>
 </body>
 
 </html>
