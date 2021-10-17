@@ -33,7 +33,8 @@
     />
     <!-- CSS -->
     <link rel="stylesheet" href="../css/TC2.css" />
-    <title>TC_password</title>
+
+    <title>TC_course_video_upload</title>
   </head>
 
   <body class="TCsp-bgc">
@@ -86,7 +87,6 @@
           </div>
         </div>
       </nav>
-
       <!-- Main Content -->
       <div class="container mainContent">
         <!-- breadcrumb -->
@@ -101,88 +101,60 @@
               <li class="breadcrumb-item active">個人資料</li>
             </ol>
           </nav>
-          <div class="col-10 ml-auto pageName">
-            <span class="pageNameText password">Password</span>
-          </div>
         </div>
-
         <div class="row justify-content-center">
-          <!-- sidebar -->
-          <nav class="sidebar col-2">
-            <div class="avatar align-item-center">
-              <img
-                src="../images/teacher/Thomas_Lillard.jpg"
-                alt=""
-                class="img-fluid"
-              />
-            </div>
-            <ul class="nav-list">
-              <li class="nav-item active">
+          <!-- TCcourse-process bar -->
+          <nav class="TCcourse-processBar col-10">
+            <a href="" class="btn btn-border-only-no-h col-2">
+              <i class="fas fa-chevron-left"></i>
+              <span>返回列表</span>
+            </a>
+            <ul class="TCcourse-processBarList">
+              <li class="TCcourse-processBar-item">
                 <a href="">
-                  <i class="fas fa-user"></i>
-                  <div>個人資料</div>
+                  <i class="far fa-check-circle"></i>
+                  <div>課程細節頁面</div>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="TCcourse-processBar-item active">
                 <a href="">
-                  <i class="fas fa-key"></i>
-                  密碼更改
+                  <i class="far fa-check-circle"></i>
+                  <div>課程內容上傳</div>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="TCcourse-processBar-item">
                 <a href="">
-                  <i class="fas fa-th-list"></i>
-                  課程列表
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="">
-                  <i class="fas fa-comment-alt"></i>
-                  聊天室
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="">
-                  <i class="fas fa-chart-line"></i>
-                  數據分析
+                  <i class="far fa-check-circle"></i>
+                  <div>課程內容管理</div>
                 </a>
               </li>
             </ul>
           </nav>
           <!-- form -->
-          <form class="form col-12 col-md-8">
-            <div class="form-content w-100 col-md-10 col-lg-8">
-              <div class="form-head p-0">
+          <form class="form col-12 col-md-10">
+            <div class="form-content">
+              <div class="form-head">
                 <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
-                <div class="form-title">密碼更改</div>
-                <a href=""><i class="TCback-btn"></i></a>
+                <div class="form-title">課程內容上傳</div>
+                <div class="d-flex justify-content-end">
+                  <button class="btn TCbtn-sm-w-switch btn-primary">
+                    儲存
+                  </button>
+                </div>
               </div>
-              <input
-                type="password"
-                class="col-12 allInputs"
-                placeholder="請輸入原密碼"
-              />
-              <label class="notice" for="">請填寫正確密碼</label>
-              <input
-                type="text"
-                class="col-12 allInputs"
-                placeholder="請輸入新密碼"
-              />
-              <label class="notice" for="">請填寫至少6位數密碼</label>
-              <input
-                type="text"
-                class="col-12 allInputs"
-                placeholder="請再次輸入新密碼"
-              />
-              <label class="notice" for="">與上列密碼不符</label>
-              <button class="btn btn-secondary mx-auto one-btn">更改</button>
+              <div class="TCvideo-drop-zone">
+                <i class="fas fa-upload"></i>
+                <p>將你要上傳的影片檔案拖曳到這裡</p>
+                <label>僅支持檔案小於1GB，且格式為mp4, mov, wmv的檔案</label>
+                <button class="btn btn-secondary">選擇檔案</button>
+              </div>
             </div>
           </form>
         </div>
       </div>
       <!-- bg decoration -->
-      <div class="dec-circle"></div>
-      <div class="dec-block"></div>
+      <div class="dec-circle-w"></div>
+      <div class="dec-block-lg"></div>
       <div class="earth"><img src="../images/elements/earth.png" alt="" /></div>
       <div class="dec-low-block"></div>
     </div>

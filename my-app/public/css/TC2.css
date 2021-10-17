@@ -3,22 +3,17 @@
 }
 
 /* 全頁背景色 */
-.sp-bgc {
+.TCsp-bgc {
   background: #f1f0e9;
 }
 
-.allwraper {
+.TCallwraper {
   position: relative;
   overflow: hidden;
   width: 100%;
 }
 
-/* 彈窗 */
-.modal-dialog {
-  margin: auto;
-}
-
-.mb-50 {
+.TCmb-50 {
   margin-bottom: 50px;
 }
 
@@ -34,6 +29,11 @@
 
 .opacity-0 {
   opacity: 0;
+}
+
+/* 網站導覽列 */
+.navbar {
+  display: none;
 }
 
 /* 地球背景圖 */
@@ -52,11 +52,11 @@
   z-index: -2;
   background: #f1ef5b;
   border-radius: 0px 0px 0px 180px;
-  animation: hy 12s linear infinite;
+  animation: TChy 12s linear infinite;
 }
 
 /* 黃色色塊的動畫 */
-/* @keyframes hy {
+@keyframes TChy {
   0% {
     left: 50%;
   }
@@ -68,7 +68,7 @@
   100% {
     left: 50%;
   }
-} */
+}
 
 /* 新增課程的黃色色塊 */
 .dec-block-lg {
@@ -81,11 +81,11 @@
   z-index: -2;
   background: #f1ef5b;
   border-radius: 0px 0px 0px 180px;
-  animation: hy2 12s linear infinite;
+  animation: TChy2 12s linear infinite;
 }
 
 /* 新增課程的黃色色塊的動畫 */
-/* @keyframes hy2 {
+@keyframes TChy2 {
   0% {
     left: 5%;
   }
@@ -97,7 +97,7 @@
   100% {
     left: 5%;
   }
-} */
+}
 
 /* 麵包屑 */
 .breadcrumb {
@@ -108,48 +108,6 @@
   color: #065f8e;
   margin-left: .25rem;
   padding: 0px 0px 15px;
-}
-
-.bread>ol {
-  list-style-type: none;
-}
-
-/* 新增課程(手機板) */
-.btn-sm {
-  width: 73px;
-  height: 30px;
-}
-
-
-/* 手機板會變小的按鈕(有display變化)  */
-.btn-sm-w-switch {
-  display: block;
-  width: 73px;
-  height: 30px;
-}
-
-
-/* 審核提示窗 */
-.notify {
-  display: flex;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
-  padding: 15px;
-}
-
-.notify-text {
-  font-size: 18px;
-  font-weight: bold;
-  color: #065F8E;
-  letter-spacing: -0.015em;
-  text-align: center;
-}
-
-/* 教師頁面返回按鈕 */
-.TCback-btn {
-  padding: 0px 15px;
-  color: #065F8E;
 }
 
 /* 頁碼 */
@@ -179,11 +137,11 @@
 }
 
 /* 頁碼被選中時 */
-.act {
+.Mypage-item.active {
   background-color: #065F8E;
 }
 
-.act a {
+.Mypage-item.active a {
   color: white;
 }
 
@@ -197,17 +155,49 @@
   display: none;
 }
 
-/* -------------以上為公用--------- */
-
-
 /* 表單儲存的字體顏色 */
-.save-btn {
+.TCsave-btn {
   color: black;
 }
 
-/* 課程新增進度 */
-.processBar {
-  display: none;
+
+/* 新增課程(手機板) */
+.TCbtn-sm {
+  display: flex;
+  width: 73px;
+  height: 30px;
+}
+
+
+/* 手機板會變小的按鈕(有display變化)  */
+.TCbtn-sm-w-switch {
+  display: flex;
+  width: 73px;
+  height: 30px;
+}
+
+
+/* 審核提示窗 */
+.TCnotify {
+  display: flex;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.TCnotify-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #065F8E;
+  letter-spacing: -0.015em;
+  text-align: center;
+}
+
+/* 教師頁面返回按鈕 */
+.TCback-btn {
+  padding: 0px 15px;
+  color: #065F8E;
 }
 
 /* 表單 */
@@ -224,7 +214,6 @@
   margin: 1.875rem 0px;
 }
 
-
 /* 頁面英文標題 */
 .pageName {
   display: none;
@@ -239,19 +228,10 @@
   margin: auto;
 }
 
-
 /* 表單頁面 */
 .form-content {
   margin: 0px auto;
   padding: 0px auto;
-}
-
-/* 課程圖片 */
-.course-img {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 50px;
 }
 
 /* 搜尋列 */
@@ -282,21 +262,77 @@
   border-radius: 0px 6px 6px 0px;
 }
 
-/* 網站導覽列 */
-.navbar {
-  display: none;
-}
-
 /* 表單裡的頭圖 */
-.pic {
+.profile-pic {
   width: 116px;
   border-radius: 50%;
   overflow: hidden;
   margin-right: 21px;
 }
 
+/* 姓名的input */
+.nameInputs {
+  margin: 27px 0 50px;
+  border: 1px solid #868686;
+  border-radius: 10px;
+  width: 100%;
+  height: 48px;
+  font-size: 15px;
+  padding: 17px;
+}
+
+/* 所有input的格式 */
+.allInputs {
+  border: 1px solid #868686;
+  border-radius: 10px;
+  width: 100%;
+  height: 48px;
+  font-size: 15px;
+  margin-bottom: 5px;
+  background-color: transparent;
+}
+
+/* 欄位提示小字 */
+.notice {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+  color: #CF2727;
+  margin-bottom: 26px;
+}
+
+/* 自我介紹欄位 */
+.TC-intro {
+  border: 1px solid #868686;
+  background-color: transparent;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.TC-intro::placeholder {
+  padding-top: 2.5%;
+}
+
+
+/* -------------以上為公用--------- */
+
+/* 課程新增進度 */
+.TCcourse-processBar {
+  display: none;
+}
+
+/* 課程圖片上傳 */
+.TCcourse-img-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+
+
 /* 表單裡的頭圖 */
-.pic-square {
+.TCcourse-pic-square {
   width: 271px;
   margin-bottom: 30px;
 }
@@ -312,9 +348,10 @@
   font-weight: normal;
 }
 
+/* 課程新增的返回列表按鈕 */
 .btn-border-only-no-h {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   border: 1px solid #065f8e;
   border-radius: 10px;
@@ -323,31 +360,9 @@
   font-weight: normal;
 }
 
-/* 姓名的input */
-.nameInputs {
-  margin: 27px 0 50px;
-  border: 1px solid #868686;
-  border-radius: 10px;
-  width: 100%;
-  height: 48px;
-  font-size: 15px;
-  padding: 17px;
-}
-
 /* 上傳履歷的div */
 .resume {
   display: flex;
-}
-
-/* 所有input的格式 */
-.allInputs {
-  border: 1px solid #868686;
-  border-radius: 10px;
-  width: 100%;
-  height: 48px;
-  font-size: 15px;
-  margin-bottom: 5px;
-  background-color: transparent;
 }
 
 /* 瀏覽按鈕 */
@@ -359,27 +374,6 @@
   background-color: #f1ef5b;
   margin-left: -100px;
   border-radius: 0px 10px 10px 0px;
-}
-
-/* 欄位提示小字 */
-.notice {
-  font-weight: bold;
-  font-size: 14px;
-  letter-spacing: -0.015em;
-  color: #CF2727;
-  margin-bottom: 26px;
-}
-
-/* 自我介紹欄位 */
-.intro {
-  border: 1px solid #868686;
-  background-color: transparent;
-  border-radius: 10px;
-  margin-bottom: 30px;
-}
-
-.intro::placeholder {
-  padding-top: 2.5%;
 }
 
 /* 預覽按鈕(桌機板) */
@@ -403,8 +397,9 @@
   display: none;
 }
 
+
 /* 課程管理的欄位 */
-.courseLabel {
+.TCcourseLabel {
   display: none;
 }
 
@@ -459,9 +454,35 @@
   margin-left: auto;
 }
 
+/* 影片上傳 */
+.TCvideo-drop-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #868686;
+  border-radius: 20px;
+  padding: 25%;
+  margin: 0px auto 30px;
+  text-align: center;
+}
+
+.TCvideo-drop-zone>i {
+  font-size: 50px;
+}
+
+.TCvideo-drop-zone>p {
+  font-size: 20px;
+  margin: 25px auto 5px;
+}
+
+.TCvideo-drop-zone>label {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
 
 @media (min-width: 375px) {
-  .notify-text {
+  .TCnotify-text {
     font-size: 21px;
   }
 
@@ -471,6 +492,22 @@
 }
 
 @media (min-width: 768px) {
+
+  /* 網站主要導覽列 */
+  .navbar {
+    z-index: 5;
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    padding: 0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .mainContent {
+    margin-top: 110px;
+  }
 
   /* 麵包屑 */
   .breadcrumb {
@@ -581,87 +618,9 @@
     animation: 12s linear infinite;
   }
 
-  /* 手機板會變小的按鈕 */
-  .btn-sm {
-    width: 115px;
-    height: 40px;
-  }
-
-  /* 手機板會變小的按鈕(有display變化)  */
-  .btn-sm-w-switch {
-    display: none;
-  }
-
   /* 所有input欄位 */
   .allInputs {
     height: 50px;
-  }
-
-
-  /* 課程欄位列 */
-  .courseLabel {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
-  }
-
-  .courseLabel-right {
-    display: flex;
-    justify-content: space-evenly;
-    padding-right: 0;
-  }
-
-  .Labelitem {
-    width: 80px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-  }
-
-  /* 課程卡片 */
-  .TCcourse-info {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-
-  /* 課程名稱 */
-  .TCcourse-title {
-    font-size: 16px;
-    margin-bottom: 0px;
-  }
-
-  .TCcourse-info-right {
-    display: flex;
-    justify-content: space-evenly;
-  }
-
-  .TCcourse-detail {
-    transform: scale(1);
-    width: 80px;
-    text-align: center;
-    font-size: 14px;
-  }
-
-  .TCcourse-detail span {
-    display: none;
-  }
-
-  .TCcourse-delete {
-    color: #065f8e;
-    font-size: 18px;
-    padding: 0px;
-    margin: auto 15px;
-  }
-
-  /* 瀏覽按鈕 */
-  .browse {
-    height: 50px;
-  }
-
-  .notify-text {
-    font-size: 28px;
-    margin: 0px auto
   }
 
   /* 搜尋列 */
@@ -682,21 +641,11 @@
     display: none;
   }
 
-  /* 網站主要導覽列 */
-  .navbar {
-    z-index: 5;
-    position: fixed;
+  /* 頁碼 */
+  .Mypagination {
     display: flex;
-    top: 0;
-    width: 100%;
-    height: 80px;
-    padding: 0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
-  .mainContent {
-    margin-top: 110px;
-  }
 
   /* 頁面英文標題 */
   .pageName {
@@ -750,119 +699,11 @@
     top: 55%;
   }
 
-  /* 表單 */
-  .form {
-    border: 2px solid rgba(6, 95, 142, 0.5);
-    margin: 0px auto 150px;
-  }
-
-  /* 表單頭 */
-  .form-head {
-    margin: 0px;
-  }
-
-  /* 表單內容 */
-  .form-content {
-    width: 70%;
-  }
-
-
-  /* 課程圖片 */
-  .course-img {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 50px;
-  }
-
-  /* 課程表單裡的圖 */
-  .pic-square {
-    width: 271px;
-    margin-right: 20px;
-  }
-
-  /* 表單名稱 */
-  .form-title {
-    display: flex;
-    margin: 50px 0px;
-    font-size: 36px;
-  }
-
-  /* 給profile page用 */
-  .form-title-margin {
-    margin: 50px auto 50px 96px;
-  }
-
-  /* 預覽按鈕(桌機板) */
-  .preview-btn-top {
-    display: block;
-    margin-left: auto;
-  }
-
-  /* 預覽按鈕(手機) */
-  .preview-btn {
-    display: none;
-  }
-
-  /* 教師頁面返回按鈕 */
-  .TCback-btn {
-    display: none;
-  }
-
-  .input-grp-sm {
-    margin: auto 96px;
-  }
-
-  /* 課程新增的進度 */
-  .processBar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: auto 5rem;
-    margin: 30px 0px 96px;
-  }
-
-  .processBarList {
-    display: flex;
-    list-style: none;
-    margin: 0;
-  }
-
-  .processBar-item {
-    text-decoration: none;
-    width: 150px;
-  }
-
-  .processBar-item a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    color: #065f8e;
-    background-color: transparent;
-  }
-
-  .processBar-item a i {
-    padding-right: .5rem;
-  }
-
-  /* 目前所在的頁面 */
-  .processBar-item::after {
-    position: absolute;
-    bottom: 4px;
-    width: 70%;
-    height: 5px;
-    background-color: #065f8e;
-
-  }
-
   /* 會員中心sidebar */
   .sidebar {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     padding: 0;
   }
 
@@ -876,7 +717,8 @@
   }
 
   /* sidebar選項列 */
-  .sidebar .nav_list {
+  .sidebar .nav-list {
+    width: 100%;
     list-style: none;
     padding-left: 0;
   }
@@ -884,6 +726,7 @@
   /* sidebar選項 */
   .sidebar .nav-item {
     display: flex;
+    text-align: center;
     align-items: center;
     height: 50px;
     border-radius: 0px 10px 10px 0px;
@@ -908,11 +751,11 @@
   }
 
   /* 選中的選項狀態 */
-  .sidebar .active {
+  .sidebar .nav-item.active {
     background-color: white;
   }
 
-  .sidebar .active::after {
+  .sidebar .nav-item.active::after {
     content: "";
     position: absolute;
     width: 15px;
@@ -924,15 +767,185 @@
     background-color: white;
   }
 
-  /* 自我介紹欄位 */
-  .intro {
-    margin-bottom: 0px;
+  /* 表單名稱 */
+  .form-title {
+    display: flex;
+    margin: 50px 0px;
+    font-size: 36px;
   }
 
-  .save-btn {
+  /* 表單 */
+  .form {
+    border: 2px solid rgba(6, 95, 142, 0.5);
+    margin: 0px auto 150px;
+  }
+
+  /* 表單頭 */
+  .form-head {
+    margin: 0px;
+  }
+
+  /* 表單內容 */
+  .form-content {
+    width: 70%;
+  }
+
+  .TCsave-btn {
     margin: 60px 0;
   }
 
+  /* -------------以上為公用--------- */
+
+  /* 手機板會變小的按鈕 */
+  .TCbtn-sm {
+    display: flex;
+    width: 115px;
+    height: 40px;
+  }
+
+  /* 手機板會變小的按鈕(有display變化)  */
+  .TCbtn-sm-w-switch {
+    display: none;
+  }
+
+
+  /* 課程欄位列 */
+  .TCcourseLabel {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+
+  .TCcourseLabel-right {
+    display: flex;
+    justify-content: space-evenly;
+    padding-right: 0;
+  }
+
+  .Labelitem {
+    width: 80px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  /* 課程卡片 */
+  .TCcourse-info {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  /* 課程名稱 */
+  .TCcourse-title {
+    font-size: 16px;
+    margin-bottom: 0px;
+  }
+
+  .TCcourse-info-right {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .TCcourse-detail {
+    transform: scale(1);
+    width: 80px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .TCcourse-detail span {
+    display: none;
+  }
+
+  .TCcourse-delete {
+    color: #065f8e;
+    font-size: 18px;
+    padding: 0px;
+    margin: auto 15px;
+  }
+
+  /* 瀏覽按鈕 */
+  .browse {
+    height: 50px;
+  }
+
+  .TCnotify-text {
+    font-size: 28px;
+    margin: 0px auto
+  }
+
+  /* 課程圖片 */
+  .TCcourse-img-selector {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  /* 課程表單裡的圖 */
+  .TCcourse-pic-square {
+    width: 271px;
+    margin-right: 20px;
+  }
+
+
+  /* 預覽按鈕(桌機板) */
+  .preview-btn-top {
+    display: block;
+    margin-left: auto;
+  }
+
+  /* 預覽按鈕(手機) */
+  .preview-btn {
+    display: none;
+  }
+
+  /* 教師頁面返回按鈕 */
+  .TCback-btn {
+    display: none;
+  }
+
+
+  /* 課程新增的進度 */
+  .TCcourse-processBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: auto 5rem;
+    margin: 30px 0px 96px;
+  }
+
+  .TCcourse-processBarList {
+    display: flex;
+    list-style: none;
+    margin: 0;
+  }
+
+  .TCcourse-processBar-item {
+    position: relative;
+    text-decoration: none;
+    width: 150px;
+  }
+
+  .TCcourse-processBar-item a {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #065f8e;
+  }
+
+  .TCcourse-processBar-item a i {
+    padding-right: .5rem;
+  }
+
+
+  /* 自我介紹欄位 */
+  .TC-intro {
+    margin-bottom: 0px;
+  }
 
 
   /* 單獨一個按鈕在表單底部時 */
@@ -950,13 +963,22 @@
     width: 80%;
   }
 
-  /* 頁碼 */
-  .Mypagination {
-    display: flex;
-  }
-
   /* 審核提示窗 */
-  .notify {
+  .TCnotify {
     border: 2px solid rgba(6, 95, 142, 0.5);
   }
+
+  /* 影片上傳 */
+  .TCvideo-drop-zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #868686;
+    border-radius: 20px;
+    padding: 25%;
+    margin: 0px auto 135px;
+    text-align: center;
+  }
+
 }
