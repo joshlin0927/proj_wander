@@ -272,7 +272,7 @@
 
        .signUpBtn{
        display:block;
-       width:50%;
+       width:28%;
        height: 50px;
        border: 0;
        border-radius: 180px;
@@ -376,7 +376,7 @@
 
        .title {
        display: block;
-       font-size: 36px;
+       font-size: 48px;
        font-weight: bold;
        color: rgba(6, 95, 142, 1);
        text-align: center;
@@ -402,173 +402,7 @@
        }
     }
 
-    @media (min-width: 1024px) {
-
-      body {
-        background-image: url('../public/imgs/其他/AdobeStock_408070902.jpeg');
-        background-position: top;
-        background-repeat: no-repeat;
-        background-size: cover;
-        /* 透明度0.6的黑色半透明遮罩 */
-        background-color: rgba(0, 0, 0, 0.6);
-        /* 設置背景混和模式為相乘模式 */
-        background-blend-mode: multiply;
-      }
-
-      .form-sm {
-        width: 80%;
-      }
-
-      .separator {
-        border-bottom: 1px solid black;
-        margin-top: 64px;
-        margin-bottom: 67px;
-        position: relative;
-      }
-
-      .or {
-        background-color: white;
-        position: absolute;
-        font-size: 15px;
-        width: 64px;
-        height: 20px;
-        text-align: center;
-        left: 50%;
-        transform: translate(-50%, -250%);
-      }
-
-      .signUpBtn{ 
-        display:block;
-        width:30%;
-        height: 50px;
-        border: 0;
-        border-radius: 180px;
-        background-color: #F1EF5B;
-        color: black;
-        font-size: 15px;
-        font-weight: bold;
-        margin-bottom: 60px;
-      }
-
-      .signUpBtn-m {
-        display: none;  
-      }
-
-      .socialBtn {
-        background-color: transparent;
-        border: 1px solid rgba(0, 0, 0, 0.5);
-        color: rgba(0, 0, 0, 0.8);
-        font-weight: light;
-        font-size: 14px;
-        margin-bottom: 50px;
-        width: 100%;
-        height: 50px;
-      }
-
-      .socialBtn:hover {
-        background-color: transparent;
-        color: rgba(0, 0, 0, 0.8);
-        font-weight: light;
-        font-size: 14px;
-        border: 1px solid #F1EF5B;
-      }
-
-      #asTeacher,
-      #asStudent {
-        margin-bottom: 0px;
-      }
-
-      .tab_css input:checked+#asTeacher,
-      .tab_css #asTeacher:hover {
-        background-color: #DCDCDC;
-        border-right: 2px solid rgba(6, 95, 142, 1);
-      }
-
-      .tab_css input:checked+#asStudent,
-      .tab_css #asStudent:hover {
-        background-color: #DCDCDC;
-        border-left: 2px solid rgba(6, 95, 142, 1);
-      }
-
-      .tab_css input:checked+label+.tab_content {
-        display: initial;
-        /* 被選到的頁籤內容出現 */
-      }
-
-      .labelName {
-        font-weight: bold;
-        font-size: 14px;
-        letter-spacing: -0.015em;
-        color: #CF2727;
-        margin-bottom: 10px;
-
-      }
-
-      .tab_css {
-        position: relative;
-        top: 0px;
-        left: 0px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .tab_css input {
-        display: none
-      }
-
-      .tab_css label {
-        padding: 10px;
-        width: 50%;
-        cursor: pointer;
-        border-radius: 20px 20px 0 0;
-        background: rgb(255, 255, 255);
-        color: rgba(6, 95, 142, 1);
-        text-align: center;
-        font-weight: bold;
-        font-size: 18px;
-
-      }
-
-      .tab_content {
-
-        order: 1;
-        display: none;
-        /* 先把內容藏起來 */
-        width: 100%;
-        padding: 15px;
-        border-radius: 5px;
-        padding: 0;
-      }
-
-      .title {
-        display: block;
-        font-size: 48px;
-        font-weight: bold;
-        color: rgba(6, 95, 142, 1);
-        text-align: center;
-        margin-top: 39px;
-      }
-
-      .signUp {
-        
-        margin-top: 228px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 150px;
-        padding: 60px;
-        padding: 0px;
-        border: 2px solid rgba(6, 95, 142, 1);
-        border-radius: 20px;
-        background-color: white;
-        height: fit-content;
-      }
-
-      .m-wrap {
-        display: none;
-      }
-
-    }
+  
   </style>
 
   <title>Wander 註冊</title>
@@ -620,7 +454,7 @@
         <span class="slider round switch">學生  教師</span>
       </label>
     </div>
-    <div class="signUp col-lg-6 col-12 col-md-6">
+    <div class="signUp col-12 col-md-6">
       <div class="tab_css">
         <!--TAB1-->
         <input id="tab1" type="radio" name="tab" checked="checked" />
@@ -641,29 +475,29 @@
           <input type="text" class="shortInputs col-5 lastName" placeholder="姓氏*" />
         </div>
         <div class="d-flex justify-content-start">
-          <label class="notice col-5 ml-3 ml-md-2 ml-lg-3" for="">請填寫名字</label>
+          <label class="notice col-5 ml-2 ml-md-3" for="">請填寫名字</label>
           <label class="notice col-5 ml-1 labelName" for="">請填寫姓氏</label>
         </div>
 
         <div class="d-flex justify-content-center"><input type="password" class="allInputs col-10"
             placeholder="請填寫電子信箱" />
         </div>
-        <label class="notice col-10 ml-3 ml-md-2 ml-lg-3" for="">信箱格式不符</label>
+        <label class="notice col-10 ml-2 ml-md-3" for="">信箱格式不符</label>
 
 
         <div class="d-flex justify-content-center"><input type="text" class="allInputs col-10" placeholder="密碼*" />
         </div>
-        <label class="notice col-10 ml-3 ml-md-2 ml-lg-3" for="">請填寫至少6位數密碼</label>
+        <label class="notice col-10 ml-2 ml-md-3" for="">請填寫至少6位數密碼</label>
 
         <div class="d-flex justify-content-center"><input type="text" class="allInputs col-10" placeholder="暱稱" /></div>
         <div class="separator col-10 mx-auto">
           <div class="or">OR</div>
         </div>
 
-        <div class="d-flex d-lg-block d-md-block">
-          <button type="button" class="socialBtn btn btn-lg btn-block col-lg-10 col-md-10 col-4 mt-0 mx-auto">facebook
+        <div class="d-flex d-md-block">
+          <button type="button" class="socialBtn btn btn-lg btn-block col-md-10 col-4 mt-0 mx-auto">facebook
             快速註冊</button>
-          <button type="button" class="socialBtn btn btn-lg btn-block col-lg-10 col-md-10 col-4 mt-0 mx-auto" id="google">Google
+          <button type="button" class="socialBtn btn btn-lg btn-block col-md-10 col-4 mt-0 mx-auto" id="google">Google
             快速註冊</button>
         </div>
         <div class="d-flex justify-content-center">
