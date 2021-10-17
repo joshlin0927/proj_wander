@@ -121,9 +121,7 @@
       padding:0px 3px;
     }  
      
-    .nav-item {
-      width: 247px;
-    }
+    
 
     ul {
       display: flex;
@@ -243,6 +241,7 @@
        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
        margin-bottom: 30px;
        }
+       
 
        .logo-m {
        display: none;
@@ -416,20 +415,8 @@
         background-blend-mode: multiply;
       }
 
-      .navbar {
-        display: flex;
-        height: 80px;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        margin-bottom: 30px;
-      }
-
-      .logo-m {
-        display: none;
-      }
-
       .form-sm {
         width: 80%;
-
       }
 
       .separator {
@@ -588,7 +575,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg  navbar-expand-md navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#"><img src="../public/imgs/網頁素材/logo_desktop.png" alt="" /></a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -654,19 +641,19 @@
           <input type="text" class="shortInputs col-5 lastName" placeholder="姓氏*" />
         </div>
         <div class="d-flex justify-content-start">
-          <label class="notice col-5 ml-3" for="">請填寫名字</label>
+          <label class="notice col-5 ml-3 ml-md-2 ml-lg-3" for="">請填寫名字</label>
           <label class="notice col-5 ml-1 labelName" for="">請填寫姓氏</label>
         </div>
 
         <div class="d-flex justify-content-center"><input type="password" class="allInputs col-10"
             placeholder="請填寫電子信箱" />
         </div>
-        <label class="notice col-10 ml-3" for="">信箱格式不符</label>
+        <label class="notice col-10 ml-3 ml-md-2 ml-lg-3" for="">信箱格式不符</label>
 
 
         <div class="d-flex justify-content-center"><input type="text" class="allInputs col-10" placeholder="密碼*" />
         </div>
-        <label class="notice col-10 ml-3" for="">請填寫至少6位數密碼</label>
+        <label class="notice col-10 ml-3 ml-md-2 ml-lg-3" for="">請填寫至少6位數密碼</label>
 
         <div class="d-flex justify-content-center"><input type="text" class="allInputs col-10" placeholder="暱稱" /></div>
         <div class="separator col-10 mx-auto">
