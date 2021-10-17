@@ -201,14 +201,14 @@
 }
 
 /* 表單 */
-.form {
+.TCform {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   margin-bottom: 30px;
 }
 
 /* 表單頭 */
-.form-head {
+.TCform-head {
   display: flex;
   align-items: center;
   margin: 1.875rem 0px;
@@ -220,7 +220,7 @@
 }
 
 /* 表單標題 */
-.form-title {
+.TCform-title {
   font-size: 24px;
   color: #065f8e;
   letter-spacing: -0.015em;
@@ -229,7 +229,7 @@
 }
 
 /* 表單頁面 */
-.form-content {
+.TCform-content {
   margin: 0px auto;
   padding: 0px auto;
 }
@@ -313,7 +313,6 @@
   padding-top: 2.5%;
 }
 
-
 /* -------------以上為公用--------- */
 
 /* 課程新增進度 */
@@ -330,10 +329,10 @@
 }
 
 
-
-/* 表單裡的頭圖 */
+/* 課程表單裡的圖  */
 .TCcourse-pic-square {
   width: 271px;
+  height: 271px;
   margin-bottom: 30px;
 }
 
@@ -768,25 +767,25 @@
   }
 
   /* 表單名稱 */
-  .form-title {
+  .TCform-title {
     display: flex;
     margin: 50px 0px;
     font-size: 36px;
   }
 
   /* 表單 */
-  .form {
+  .TCform {
     border: 2px solid rgba(6, 95, 142, 0.5);
     margin: 0px auto 150px;
   }
 
   /* 表單頭 */
-  .form-head {
+  .TCform-head {
     margin: 0px;
   }
 
   /* 表單內容 */
-  .form-content {
+  .TCform-content {
     width: 70%;
   }
 
@@ -822,7 +821,7 @@
     padding-right: 0;
   }
 
-  .Labelitem {
+  .TCcourseLabel .Labelitem {
     width: 80px;
     text-align: center;
     font-size: 16px;
@@ -886,7 +885,10 @@
   /* 課程表單裡的圖 */
   .TCcourse-pic-square {
     width: 271px;
+    height: 271px;
     margin-right: 20px;
+    border: 1px solid #868686;
+    border-radius: 10px;
   }
 
 
