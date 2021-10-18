@@ -7,6 +7,7 @@
   background: #f1f0e9;
 }
 
+/* 全頁包覆(為了色塊動畫) */
 .TCallwraper {
   position: relative;
   overflow: hidden;
@@ -60,7 +61,7 @@
 }
 
 /* 黃色色塊的動畫 */
-@keyframes TChy {
+/* @keyframes TChy {
   0% {
     left: 50%;
   }
@@ -72,7 +73,7 @@
   100% {
     left: 50%;
   }
-}
+} */
 
 /* 新增課程的黃色色塊 */
 .dec-block-lg {
@@ -651,12 +652,12 @@
     top: -12rem;
     border: 4px dashed white;
     border-radius: 50%;
-    /* animation: bc 150s linear infinite; */
+    animation: bc 150s linear infinite;
   }
 
   /* 黃色色塊(上) */
   .dec-block {
-    height: 320px;
+    height: 310px;
   }
 
   /* 地球 */
