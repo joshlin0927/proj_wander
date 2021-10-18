@@ -151,9 +151,6 @@ a {
     margin: 40px auto 40px;
     display: block;
   }
-  .navbar {
-    display: none;
-  }
 }
 
 .breadcrumb {
@@ -180,13 +177,13 @@ a {
 }
 .cartTitleTxt {
   color: black;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   line-height: 69px;
   margin-left: 1.8rem;
 }
 .cartQuality{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -194,6 +191,28 @@ a {
 @media (max-width: 992px) {
   .cartQuality{
     display: none;
+  }
+}
+@media (max-width: 767px) {
+  .cartMain {
+    margin-left: 8.333333%;
+  }
+  .cartTitle {
+    margin-top: 30px;
+  }
+  .cartQuality{
+    display: block;
+  }
+  .cartIcon {
+    height: 25px;
+    width: 25px;
+  }
+  .cartTitleTxt {
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 32px;
+    margin-left: 7px;
   }
 }
 /* 分類欄 */
@@ -207,6 +226,11 @@ a {
   width: 100%;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
+@media (max-width: 767px) {
+  .cartSort{
+    display: none;
+  }
+}
 .cartSortTxt{
   font-size: 1.2rem;
   font-weight: bold;
@@ -218,38 +242,56 @@ a {
   flex-wrap: wrap;
   background-color: #fff;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-top: 30px;
   padding: 20px 0px 0px 0px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.cartItem-flex-grow-2{
-  flex: 2;
-}
-.cartItem-flex-grow-1{
-  flex: 1;
-}
-.cartItemTxt{
-  font-size: 1.2rem;
-  text-align: center;
+@media (min-width: 768px) {
+  .cartItem-flex-grow-2{
+    flex: 2;
+  }
+  .cartItem-flex-grow-1{
+    flex: 1;
+  } 
 }
 .cartItemImage{
   width: 20%;
   margin-left: 7%;
-  margin-right: 7%;
+}
+.cartItemTxt{
+  font-size: 1.2rem;
+  text-align: start;
+  display: flex;
+  margin-left: 5%;
 }
 .cartItemName{
-  margin-left: 2%;
-  margin-right: 2%;
+  max-width: 180px;
+  margin-left: 0%;
 }
 .cartItemStatus{
-  margin-left: 2%;
-  margin-right: 4%;
+  padding-left: 8%;
+  min-width: 60px;
 }
 .cartItemPrice{
-  margin-right: 2%;
+  margin-left: 20%;
   color: #065f8e; 
 }
+@media (max-width: 767px) {
+  .cartItem{
+    padding-top: 15px;
+  }
+  .cartItemImage{
+    width: 30%;
+    margin: 0 0 0 15px;
+    float: left;
+  }
+  .cartItemTxt{
+    
+    
+  }
+}
+
 .cartItemBtn{
   width: 100%;
   display: flex;
@@ -264,6 +306,9 @@ a {
   color: black;
   display: flex;
   align-items: center;
+  position: relative;
+  opacity: 0.6;
+  transition: 0.3s ease;
 }
 .cartItemBtn a span{
   margin-left: 5px;
@@ -271,13 +316,16 @@ a {
 .cartItemBtn-Delete{
   margin-left: 5%;
 }
+.cartItemBtn a:hover {
+  opacity: 1;
+}
 
 /*============= SideList =============*/
 .cartSideList{
   position: relative;
   margin-top: 110px;
   left: -2rem;
-  z-index: -3;
+  z-index: 1;
 }
 .cartSideListImage{
   position: absolute;
@@ -293,7 +341,7 @@ a {
 }
 .cartSideListItemNum{
   position: absolute;
-  left: 30%;
+  left: 28%;
   background-color: #065F8E;
   color: #ffffff;
   border-radius: 50%;
@@ -313,18 +361,18 @@ a {
 }
 .cartSideListLine1{
   position: absolute;
-  border: 2px solid #FFFFFF;
+  border-right: 4px solid #FFFFFF;
   top: 31%;
-  left: 34%;
+  left: 32.5%;
   width: 1px;
   height: 15%;
   z-index: -5;
 }
 .cartSideListLine2{
   position: absolute;
-  border: 2px solid #FFFFFF;
+  border-right: 4px solid #FFFFFF;
   top: 65%;
-  left: 34%;
+  left: 32.5%;
   width: 1px;
   height: 15%;
   z-index: -5;
@@ -361,6 +409,50 @@ a {
     left: 27%;
   }
 }
+@media (max-width: 767px) {
+  .cartSideList{
+    display: flex;
+    margin-top: 15px;
+    padding: 0;
+    left: 0rem;
+    justify-content: space-around;
+    flex-direction: row;
+    height: 50px;
+  }
+  .cartSideListImage{
+    display: none;
+  }
+  .cartSideListItem{
+    width: 33.33%;
+    padding: 0;
+  }
+  .cartSideListItemNum{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .cartSideListItemTxt {
+    position: absolute;
+    text-align: center;
+    line-height: 16px;
+    color: #065F8E;
+    font-weight: bold;
+    width: 100%;
+    top: 3rem;
+    left: 0;
+  }
+  .cartSideListLine1{
+    transform: rotate(90deg);
+    height: 100%;
+    top: -1rem;
+    left: 32%;
+  }
+  .cartSideListLine2{
+    transform: rotate(90deg);
+    height: 100%;
+    top: -1rem;
+    left: 66%;
+  }
+}
 
 
 /*============= CheckoutList =============*/
@@ -372,6 +464,11 @@ a {
   margin-top: 200px;
   background-color: #fff;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+@media (max-width: 767px) {
+  .checkout{
+    display: none;
+  }
 }
 .checkoutTitle{
   font-size: 1.5rem;
@@ -525,7 +622,7 @@ a {
   top: 0px;
   width: 56%;
   height: 300px;
-  z-index: -2;
+  z-index: -10;
   background: #f1ef5b;
   border-radius: 0px 0px 0px 180px;
   animation: TChy2 12s linear infinite;
@@ -541,6 +638,11 @@ a {
 
   100% {
     width: 56%;
+  }
+}
+@media (max-width: 767px) {
+  .dec-circle{
+    display: none;
   }
 }
 /* 地球 */
@@ -566,4 +668,10 @@ a {
 }
 .bgc-white{
   background-color: #ffffff;
+}
+.bd-blue{
+  border-color: #065F8E;
+}
+.bd-white{
+  border-color: #ffffff;
 }
