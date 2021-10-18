@@ -95,9 +95,15 @@
         </div>
         <nav class="w-100">
           <ol class="breadcrumb col col-md-10 col-lg-12 m-0">
-            <li class="breadcrumb-item"><a href="">首頁</a></li>
-            <li class="breadcrumb-item"><a href="">會員中心</a></li>
-            <li class="breadcrumb-item active">個人資料</li>
+            <li class="breadcrumb-item">
+              <a href="">首頁</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="">會員中心</a>
+            </li>
+            <li class="breadcrumb-item active">
+              <a href="">個人資料</a>
+            </li>
           </ol>
         </nav>
         <div class="col-10 ml-auto pageName">
@@ -149,7 +155,7 @@
           </ul>
         </nav>
         <!-- chatting list -->
-        <div class="chatList col-12 col-md-4">
+        <div class="chatList col-12 col-md-5 col-lg-4">
           <div class="chatList-content">
             <div class="TCform-head ml-1">
               <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
@@ -171,14 +177,21 @@
                   <div class="chatName">Harue</div>
                   <div class="notification"></div>
                 </div>
-                <p>課程名稱：<span>123</span></p>
-                <p>我對第一段影片...<span>(15分鐘前)</span></p>
+                <div class="LastMessageAndTime">
+                  <p class="m-0">課程名稱：<span>123</span></p>
+                  <div class="d-flex">
+                    <p class="lastMessage">
+                      我對第一段影片的某一些地方有疑問，適不適
+                    </p>
+                    <span>(15分鐘前)</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <!-- chatting window -->
-        <div class="chatWindow col-12 col-md-6">
+        <div class="chatWindow col-12 col-md-6 col-lg-5">
           <div class="chatWindowHead">
             <div class="talkTo">
               <div class="talkToAvatar">
@@ -195,10 +208,29 @@
           </div>
           <div class="messageLeft">
             <div class="messageAvatar">
-              <img src="../images/students/Sagehashi Harue.jpeg" class="img-fluid">
+              <img
+                src="../images/students/Sagehashi Harue.jpeg"
+                class="img-fluid"
+              />
             </div>
-            <div class="message">
+            <div class="message left">
               <p>希金說過，有兩種模糊：一種源於思想感情的貧乏，只能用語言</p>
+            </div>
+          </div>
+          <div class="messageRight">
+            <div class="message right">
+              <p>希金說過，有兩種模糊：一種源於思想感情的貧乏，只能用語言</p>
+            </div>
+            <div class="messageAvatar">
+              <img
+                src="../images/teacher/Thomas_Lillard.jpg"
+                class="img-fluid"
+              />
+              <div class="triangle-left">   
+                <svg width="24" height="24" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.4806 9.58225L7.01544 13.2766C5.76914 13.9888 5 15.3142 5 16.7496V17.2854H0V0.142578H5V0.678431C5 2.11386 5.76914 3.43923 7.01544 4.1514L13.4806 7.84576C14.1524 8.22966 14.1524 9.19835 13.4806 9.58225Z" fill="#F1EF5B"/>
+                  </svg>
+              </div>
             </div>
           </div>
         </div>
