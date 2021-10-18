@@ -27,7 +27,7 @@ a {
   background-color: transparent;
   color: #065f8e;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .nav__header {
     display: none;
   }
