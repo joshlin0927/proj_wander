@@ -20,6 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
+
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -34,7 +35,6 @@
       integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
       crossorigin="anonymous"
     />
-
     <style>
       * {
         font-family: "Noto Sans", "Noto Sans TC", sans-serif;
@@ -49,6 +49,19 @@
         background-color: rgba(0, 0, 0, 0.6);
         /* 設置背景混和模式為相乘模式 */
         background-blend-mode: multiply;
+      }
+
+      /* 全頁背景色 */
+      .TCsp-bgc {
+        position: relative;
+      }
+
+      /* 全頁包覆(為了色塊動畫) */
+      .TCallwraper {
+        z-index: -1;
+        position: absolute;
+        top: -110px;
+        width: 100%;
       }
 
       .modal-dialog {
@@ -77,19 +90,19 @@
 
       /* -------------以上為公用--------- */
 
-      /* 上面的黃色色塊 */
-      .dec-block {
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 0px;
-        width: 68%;
-        height: 335px;
-        z-index: -2;
-        background: #f1ef5b;
-        border-radius: 0px 0px 0px 180px;
-        animation: hy 12s linear infinite;
-      }
+      /* samar */
+      /* .dec-block {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    width: 68%;
+    height: 335px;
+    z-index: -2;
+    background: #f1ef5b;
+    border-radius: 0px 0px 0px 180px;
+    animation: hy 12s linear infinite;
+    } */
 
       /* @keyframes hy{
      0% {
@@ -117,6 +130,35 @@
      height: 350px;
      }
      } */
+
+      /* 上面的黃色色塊 */
+      .dec-block {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0px;
+        width: 56%;
+        height: 335px;
+        z-index: -2;
+        background: #f1ef5b;
+        border-radius: 0px 0px 0px 180px;
+        animation: TChy 12s linear infinite;
+      }
+
+      /* 黃色色塊的動畫 */
+      @keyframes TChy {
+        0% {
+          left: 50%;
+        }
+
+        50% {
+          left: 46%;
+        }
+
+        100% {
+          left: 50%;
+        }
+      }
 
       /* 麵包屑 */
       .breadcrumb {
@@ -288,17 +330,28 @@
         margin-bottom: 30px;
       }
 
-      /* @media (min-width: 375px) {
-    .notify-text {
-    font-size: 21px;
-    }
-
-    .nameInputs {
-    margin: 27px 0 50px;
-    }
-    } */
-
       @media (min-width: 768px) {
+        /* 網站主要導覽列 */
+        .navbar {
+          z-index: 5;
+          position: fixed;
+          display: flex;
+          top: 0;
+          width: 100%;
+          height: 80px;
+          padding: 0;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .mainContent {
+          margin-top: 110px;
+        }
+
+        /* 麵包屑 */
+        .breadcrumb {
+          padding: 0px;
+        }
+
         .btn-sm {
           width: 115px;
           height: 40px;
@@ -332,11 +385,11 @@
           padding: 0px 3rem;
         }
 
-        /* 黃色色塊(上) */
-        .dec-block {
-          height: 300px;
-          width: 54%;
-        }
+        /* samar */
+        /* .dec-block {
+     height: 300px;
+     width: 54%;
+     } */
         /* @keyframes hy{
      0% {
      width: 60%;
@@ -364,6 +417,10 @@
      }
      } */
 
+        .dec-block {
+          height: 310px;
+        }
+
         .notify-text {
           font-size: 28px;
           margin: 0px auto;
@@ -378,19 +435,32 @@
           display: none;
         }
 
-        /* 網站主要導覽列 */
-        .navbar {
-          display: flex;
-          height: 80px;
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-          margin-bottom: 30px;
-        }
-
-        /* 頁面英文標題(圖片) */
+        /* 頁面英文標題*/
         .pageName {
           display: block;
-          margin-bottom: 10%;
-          margin-top: 40px;
+          margin-bottom: 96px;
+          margin-top: 96px;
+          padding: 0;
+        }
+
+        .pageNameText {
+          position: relative;
+          color: black;
+          font-size: 6rem;
+          font-weight: bold;
+          line-height: 1;
+        }
+
+        .profile::before {
+          content: "";
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          background: #f1ef5b;
+          position: absolute;
+          z-index: -5;
+          left: 36%;
+          top: 42%;
         }
 
         /* 表單 */
@@ -540,65 +610,72 @@
     <title>Wander 個人資料</title>
   </head>
 
-  <body>
+  <body class="TCsp-bgc">
     <!-- top nav -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="#"
-          ><img src="../public/imgs/網頁素材/logo_desktop.png" alt=""
-        /></a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
-          <ul class="navbar-nav">
-            <li class="nav-item"><a href="" class="nav-link">account</a></li>
-          </ul>
+        <div class="row flex-nowrap">
+          <div class="">
+            <a class="navbar-brand" href="#"
+              ><img src="../images/logo/logo_desktop.png" alt=""
+            /></a>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#"
+                  >Home <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li>
+            </ul>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="" class="nav-link">account</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
 
-    <div class="container">
+    <!-- Main Content -->
+    <div class="container mainContent">
       <!-- breadcrumb -->
       <div class="row">
         <div class="logo-m">
-          <img src="../public/imgs/網頁素材/log_mobile.png" alt="" />
+          <img src="../images/logo/log_mobile.png" alt="" />
         </div>
         <nav class="w-100">
-          <ol class="breadcrumb col col-md-10 m-0">
+          <ol class="breadcrumb col col-md-10 col-lg-12 m-0">
             <li class="breadcrumb-item"><a href="">首頁</a></li>
             <li class="breadcrumb-item"><a href="">會員中心</a></li>
-            <li class="breadcrumb-item"><a href="">個人資料</a></li>
+            <li class="breadcrumb-item active">個人資料</li>
           </ol>
         </nav>
         <div class="col-10 ml-auto pageName">
-          <img src="../public/imgs/網頁素材/profile.png" alt="" />
+          <span class="pageNameText profile">Profile</span>
         </div>
       </div>
 
@@ -607,7 +684,7 @@
         <nav class="sidebar col-2">
           <div class="avatar">
             <img
-              src="../public/imgs/學生照片/Anne Hathaway.jpg"
+              src="../images/students/Anne Hathaway.jpg"
               alt=""
               class="img-fluid"
             />
@@ -703,6 +780,8 @@
         </form>
       </div>
     </div>
-    <div class="dec-block"></div>
+    <div class="TCallwraper">
+      <div class="dec-block"></div>
+    </div>
   </body>
 </html>
