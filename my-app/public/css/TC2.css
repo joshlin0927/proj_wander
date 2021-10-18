@@ -6,7 +6,7 @@
 .TCsp-bgc {
   background: #f1f0e9;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* 全頁包覆(為了色塊動畫) */
@@ -64,7 +64,7 @@
 }
 
 /* 黃色色塊的動畫 */
-@keyframes TChy {
+/* @keyframes TChy {
   0% {
     left: 50%;
   }
@@ -76,7 +76,7 @@
   100% {
     left: 50%;
   }
-}
+} */
 
 /* 新增課程的黃色色塊 */
 .dec-block-lg {
@@ -322,6 +322,7 @@
 }
 
 /* 聊天室 */
+/* 對象選單 */
 .chatList {
   display: flex;
   flex-direction: column;
@@ -379,13 +380,15 @@
   background-color: #F1EF5B;
 }
 
+/* 對話視窗 */
 .chatWindow {
   display: flex;
+  flex-direction: column;
   border-radius: 20px;
   background-color: #fff;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid black;
-  width: 100%;
-  padding: 0px;
+  height: 690px;
 }
 
 .chatWindowHead {
@@ -409,19 +412,44 @@
   overflow: hidden;
 }
 
-.talkToName{
+.talkToName {
   font-size: 24px;
   font-weight: bold;
 }
 
-.closeWindow{
+.closeWindow {
   font-size: 27px;
   padding: 0px 30px;
   margin: auto 0px;
   margin-left: auto;
 }
 
-/* -------------以上為公用--------- */
+/* 對話框(左) */
+.messageLeft {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  /* width: 75%; */
+}
+
+.messageAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: .625rem;
+}
+
+.message{
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: #F1F0E9;
+  padding: .5rem;
+  font-size: 18px;
+}
+
+/* -------------以上為公用------------ */
 
 /* 課程新增進度 */
 .TCcourse-processBar {
