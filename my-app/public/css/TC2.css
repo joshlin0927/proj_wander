@@ -6,6 +6,7 @@
 .TCsp-bgc {
   background: #f1f0e9;
   position: relative;
+  overflow: hidden;
 }
 
 /* 全頁包覆(為了色塊動畫) */
@@ -328,11 +329,8 @@
   border-radius: 20px;
   background-color: #fff;
   width: 100%;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
 }
-
-/* .chatList-content{
-  margin: 30px 0px;
-} */
 
 .chatList .title {
   margin: 50px 0px;
@@ -351,7 +349,7 @@
   border-radius: 10px;
 }
 
-.chatCard .avatar {
+.chatCard .chatCardAvatar {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -381,6 +379,47 @@
   background-color: #F1EF5B;
 }
 
+.chatWindow {
+  display: flex;
+  border-radius: 20px;
+  background-color: #fff;
+  border: 1px solid black;
+  width: 100%;
+  padding: 0px;
+}
+
+.chatWindowHead {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  box-shadow: 0px 2px #F1F0E9;
+}
+
+.talkTo {
+  display: flex;
+  align-items: center;
+}
+
+.talkToAvatar {
+  width: 50px;
+  height: 50px;
+  margin: 17px 10px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.talkToName{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.closeWindow{
+  font-size: 27px;
+  padding: 0px 30px;
+  margin: auto 0px;
+  margin-left: auto;
+}
 
 /* -------------以上為公用--------- */
 
