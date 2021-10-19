@@ -738,7 +738,7 @@ body {
   }
 
   /* 白色色塊 */
-  .dec-white{
+  .dec-white {
     width: 90%;
   }
 
@@ -836,7 +836,7 @@ body {
     background: #f1ef5b;
     position: absolute;
     z-index: -5;
-    left: 17%;
+    left: 20%;
     top: 42%;
   }
 
@@ -1272,5 +1272,15 @@ body {
     border-radius: 50%;
     overflow: hidden;
     margin-top: 100px;
+  }
+
+  .p-page-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #065F8E;
+  }
+
+  .p-page-myCourse{
+    margin-top: 80px;
   }
 }
