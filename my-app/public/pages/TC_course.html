@@ -272,8 +272,14 @@
             />
           </div>
           <div class="resume">
-            <input class="col-12 allInputs" placeholder="請選擇要上傳的履歷 " />
-            <button type="submit" class="btn btn-secondary browse">瀏覽</button>
+            <input
+              type="button"
+              id="fakeFileInput"
+              class="col-12 allInputs"
+              placeholder="請選擇要上傳的履歷 "
+            />
+            <input type="file" id="fileInput" class="d-none">
+            <button type="submit" id="brwosing" class="btn btn-secondary browse">瀏覽</button>
           </div>
           <label class="TCnotice" for="">請選擇檔案</label>
         </div>
@@ -306,6 +312,15 @@
       integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const fileInput = document.querySelector('#fileInput')
+      const fakeFileInput = document.querySelector('#fakeFileInput')
 
+      function readURL(fakeFileInput)
+      
+      fakeFileInput.addEventListener('change', ()=>{
+        readURL()
+      })
+    </script>
   </body>
 </html>

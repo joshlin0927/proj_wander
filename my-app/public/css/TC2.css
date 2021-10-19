@@ -44,6 +44,32 @@ body {
   font-weight: bold;
 }
 
+.btn-primary{
+  border: 1px solid #065F8E;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #065F8E;
+}
+
+.btn-primary:hover{
+  color: white;
+  border: 1px solid #065F8E;
+  background-color:#065F8E;
+}
+
+.btn-secondary{
+  border: 1px solid black;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #F1EF5B;
+}
+
+.btn-secondary:hover{
+  color: black;
+  border: 1px solid #F1EF5B;
+  background-color:#F1EF5B;
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -470,23 +496,41 @@ body {
 
 .messageAvatar {
   display: flex;
+  position: relative;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
   margin-right: .625rem;
   margin-left: .625rem;
 }
 
-.triangle-left {
-  /* position: absolute;
-  top: 147px;
-  left: 60px; */
+.messageAvatarFilter{
+  border-radius: 50%;
+  overflow: hidden;
+} 
+
+.Ltriangle::before {
+  position: absolute;
+  left: 35px;
+  top: 5px;
+  content: '';
   width: 0;
   height: 0;
   border-style: solid;
   border-width: 20px 30px 20px 0;
   border-color: transparent #F1F0E9 transparent transparent;
+}
+
+.Rtriangle::before {
+  position: absolute;
+  left: -25px;
+  top: 5px;
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 30px 20px 0;
+  border-color: transparent #f1ef5b transparent transparent;
+  transform: rotateZ(60deg);
 }
 
 .message {
@@ -508,7 +552,7 @@ body {
 /* 預覽頁面 */
 /* 個人資料 */
 
-.p-info-wrapper{
+.p-info-wrapper {
   display: flex;
   flex-direction: column;
 }
@@ -523,6 +567,7 @@ body {
 
 .p-page-info {
   order: 2;
+
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -537,11 +582,22 @@ body {
 }
 
 .p-page-info .TCp-intro {
+  position: relative;
   border: 2px solid #F1EF5B;
   border-radius: 5px;
   padding: 25px;
   margin-bottom: 34px;
   width: 100%;
+}
+
+.p-page-info .TCp-intro-title {
+  position: absolute;
+  top: -15px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100px;
+  text-align: center;
+  background-color: #fff;
 }
 
 
@@ -958,6 +1014,10 @@ body {
   /* 所有input欄位 */
   .allInputs {
     height: 50px;
+  }
+
+  #fakeFileInput{
+    content: '123';
   }
 
   /* 搜尋列 */
@@ -1423,7 +1483,7 @@ body {
 
   /* 預覽頁面 */
   /* 個人資料 */
-  .p-info-wrapper{
+  .p-info-wrapper {
     display: flex;
     flex-direction: row;
     margin-top: 100px;
@@ -1437,7 +1497,6 @@ body {
     background: #fff;
     border-radius: 0px 0px 20px 0px;
   }
-
 
   .p-page-info-bg {
     border-radius: 20px;
@@ -1464,6 +1523,13 @@ body {
     border-radius: 5px;
     padding: 34px;
     width: 80%;
+  }
+
+  .p-page-info .TCp-intro-title {
+    top: -20px;
+    /* left: 65px; */
+    width: 165px;
+    font-size: 24px;
   }
 
   .p-page-info .TCp-intro>p {
