@@ -755,6 +755,9 @@ body {
 .resume {
   display: flex;
 }
+.resume>input{
+  cursor: pointer;
+}
 
 /* 瀏覽按鈕 */
 .browse {
@@ -1650,4 +1653,5 @@ body {
     bottom: 6%;
     right: 5%;
   }
+  
 }
