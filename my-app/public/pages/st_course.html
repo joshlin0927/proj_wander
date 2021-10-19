@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- font-family -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <style>
+    * {
+      font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+    }
+
+    /* 全頁背景色 */
+    .TCsp-bgc {
+
+      position: relative;
+      /* overflow: hidden; */
+    }
+
+    /* 全頁包覆(為了色塊動畫) */
+    .TCallwraper {
+      z-index: 1;
+      position: absolute;
+      top: -110px;
+      width: 100%;
+    }
+
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 115px;
+      height: 40px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+
+    /* 網站導覽列 */
+    .navbar {
+      display: none;
+    }
+
+    /* 地球背景圖 */
+    .earth {
+      display: none;
+    }
+
+
+    /* 上面的黃色色塊 */
+    .dec-block {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0px;
+      width: 56%;
+      height: 335px;
+      z-index: -2;
+      background: #f1ef5b;
+      border-radius: 0px 0px 0px 180px;
+      animation: TChy 12s linear infinite;
+    }
+
+    /* 黃色色塊的動畫 */
+    @keyframes TChy {
+      0% {
+        left: 50%;
+      }
+
+      50% {
+        left: 46%;
+      }
+
+      100% {
+        left: 50%;
+      }
+    }
+
+
+
+
+    /* 麵包屑 */
+    .breadcrumb {
+      background-color: transparent;
+      font-size: 14px;
+      letter-spacing: -0.015em;
+      font-weight: 500;
+      color: #065f8e;
+      margin-left: .25rem;
+      padding: 0px 0px 15px;
+    }
+
+    /* 頁碼 */
+    .Mypagination {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      margin: 70px 0px 60px;
+    }
+
+    .Mypage-item {
+      width: 28px;
+      height: 28px;
+      border-radius: 5px;
+      line-height: 26px;
+      text-align: center;
+    }
+
+    .Mypage-item a {
+      font-size: 12px;
+      color: black;
+      text-align: center;
+    }
+
+    .Mypage-item a i {
+      color: #065F8E;
+    }
+
+    /* 頁碼被選中時 */
+    .Mypage-item.active {
+      background-color: #065F8E;
+    }
+
+    .Mypage-item.active a {
+      color: white;
+    }
+
+    /* 手機logo */
+    .logo-m {
+      margin: 40px auto 40px;
+    }
+
+    .mainsection {
+      background-color: #F1F0E9;
+    }
+
+    /* 會員中心sidebar */
+    .sidebar {
+      display: none;
+    }
+
+    /* 表單儲存的字體顏色 */
+    .TCsave-btn {
+      color: black;
+    }
+
+
+    /* 新增課程(手機板) */
+    .TCbtn-sm {
+      display: flex;
+      width: 73px;
+      height: 30px;
+    }
+
+
+    /* 手機板會變小的按鈕(有display變化) */
+    .TCbtn-sm-w-switch {
+      display: flex;
+      width: 73px;
+      height: 30px;
+    }
+
+
+
+
+
+
+    /* 教師頁面返回按鈕 */
+    .TCback-btn {
+      padding: 0px 15px;
+      color: #065F8E;
+    }
+
+    /* 頁面英文標題 */
+    .pageName {
+      display: none;
+    }
+
+    /* 表單 */
+    .TCform {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+
+    /* 表單頭 */
+    .TCform-head {
+      display: flex;
+      align-items: center;
+      margin: 1.875rem 0px;
+    }
+
+
+
+
+
+
+    /* -------------以上為公用------------ */
+
+
+    /* 這裡開始是課程商品 */
+    .courserow {
+      display: flex;
+      justify-content: center;
+    }
+
+    .lowerlayer {
+      margin-top: 30px;
+      margin-bottom: 120px;
+    }
+
+    .courseitem {
+      width: 215px;
+      height: 215px;
+      border: 1.25px solid rgba(255, 255, 255, 1);
+      border-radius: 30px;
+      position: relative;
+      margin-left: 17px;
+    }
+
+    .courseitem img {
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+    }
+
+    .coursename {
+      color: white;
+      font-size: 14px;
+      font-style: bold;
+      top: 65%;
+      left: 5%;
+      margin-left: auto;
+      position: absolute;
+    }
+
+    .teachername {
+      color: white;
+      font-size: 8px;
+      font-style: bold;
+      position: absolute;
+      top: 75%;
+      left: 5%;
+    }
+
+    .fa-star {
+      color: #BCC831;
+    }
+
+    .score {
+      font-size: 10px;
+      color: white;
+      font-style: bold;
+      position: absolute;
+      top: 85%;
+      left: 5%;
+    }
+
+    .price {
+      font-size: 14px;
+      color: white;
+      font-weight: bold;
+      position: absolute;
+      top: 87%;
+      right: 5%;
+    }
+
+    /* 課程商品商品結束 */
+
+    .recommend {
+      font-size: 36px;
+      font-weight: bold;
+      margin-top: 100px;
+    }
+
+    .teacherrow {
+      display: flex;
+      justify-content: center;
+      margin-top: 76px;
+
+    }
+
+    .t_avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .t_avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .bgcolor {
+      background-color: #F1F0E9;
+    }
+
+    .teachersnamerow {
+      display: flex;
+      justify-content: around;
+      margin-top: 60px;
+      margin-bottom: 150px;
+    }
+
+    .nametag {
+      margin-left: 200px;
+    }
+
+
+
+
+
+
+
+    @media (min-width: 768px) {
+
+      /* 網站主要導覽列 */
+      .navbar {
+        z-index: 5;
+        position: fixed;
+        display: flex;
+        top: 0;
+        width: 100%;
+        height: 80px;
+        padding: 0;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+
+      .mainContent {
+        margin-top: 110px;
+      }
+
+      /* 麵包屑 */
+      .breadcrumb {
+        padding: 0px;
+      }
+
+
+      /* 黃色色塊(上) */
+      .dec-block {
+        height: 310px;
+      }
+
+      /* 地球 */
+      .earth {
+        display: block;
+        position: absolute;
+        z-index: -1;
+        right: 0;
+        top: 724px;
+      }
+
+
+
+
+
+      /* 手機版logo */
+      .logo-m {
+        display: none;
+      }
+
+      /* 頁碼 */
+      .Mypagination {
+        display: flex;
+      }
+
+
+      /* 頁面英文標題 */
+      .pageName {
+        display: block;
+        margin-bottom: 96px;
+        margin-top: 96px;
+        padding: 0;
+      }
+
+      .pageNameText {
+        position: relative;
+        color: black;
+        font-size: 6rem;
+        font-weight: bold;
+        line-height: 1.0;
+      }
+
+
+      .course::before {
+        content: "";
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: #f1ef5b;
+        position: absolute;
+        z-index: -5;
+        left: 19%;
+        top: 42%;
+      }
+
+      /* 會員中心sidebar */
+      .sidebar {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 0;
+      }
+
+      /* 頭像 */
+      .sidebar .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 30px;
+      }
+
+      /* sidebar選項列 */
+      .sidebar .nav-list {
+        width: 100%;
+        list-style: none;
+        padding-left: 0;
+      }
+
+      /* sidebar選項 */
+      .sidebar .nav-item {
+        display: flex;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        align-items: center;
+        height: 50px;
+        border-radius: 0px 10px 10px 0px;
+        margin-bottom: 10px;
+        color: #065f8e;
+      }
+
+      .sidebar .nav-item>i {
+        font-size: 25px;
+        width: 40px;
+        margin-left: 10%;
+        background-color: transparent;
+      }
+
+      /* 選中的選項狀態 */
+      .sidebar .nav-item.active {
+        background-color: white;
+      }
+
+      .sidebar .nav-item.active::after {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 50px;
+        background: #f1ef5b;
+      }
+
+      .sidebar .nav-item:hover {
+        background-color: white;
+      }
+
+
+
+      /* -------------以上為公用--------- */
+
+      /* 手機板會變小的按鈕 */
+      .TCbtn-sm {
+        display: flex;
+        width: 115px;
+        height: 40px;
+      }
+
+      /* 手機板會變小的按鈕(有display變化) */
+      .TCbtn-sm-w-switch {
+        display: none;
+      }
+
+
+
+      /* 會員中心sidebar */
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+      }
+
+      /* 頭像 */
+      .sidebar .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 30px;
+      }
+
+      /* sidebar選項列 */
+      .sidebar .nav_list {
+        list-style: none;
+        padding-left: 0;
+        /* width: 100%; */
+      }
+
+      /* sidebar選項 */
+      .sidebar .nav-item {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        border-radius: 0px 10px 10px 0px;
+        margin-bottom: 10px;
+      }
+
+      .sidebar .nav-item a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        color: #065f8e;
+        margin-left: 25px;
+        background-color: transparent;
+      }
+
+      .sidebar .nav-item>a>i {
+        font-size: 25px;
+        width: 30px;
+        background-color: transparent;
+      }
+
+      /* 選中的選項狀態 */
+      .nav-item.active {
+        background-color: white;
+      }
+
+      .nav-item.active::after {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 50px;
+        background: #f1ef5b;
+      }
+
+      /* 這裡開始是課程商品 */
+      .courserow {
+        display: flex;
+        justify-content: center;
+      }
+
+      .lowerlayer {
+        margin-top: 30px;
+        margin-bottom: 120px;
+      }
+
+      .courseitem {
+        width: 215px;
+        height: 215px;
+        border: 1.25px solid rgba(255, 255, 255, 1);
+        border-radius: 30px;
+        position: relative;
+        margin-left: 17px;
+      }
+
+      .courseitem img {
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+      }
+
+      .coursename {
+        color: white;
+        font-size: 14px;
+        font-style: bold;
+        top: 65%;
+        left: 5%;
+        margin-left: auto;
+        position: absolute;
+      }
+
+      .teachername {
+        color: white;
+        font-size: 8px;
+        font-style: bold;
+        position: absolute;
+        top: 75%;
+        left: 5%;
+      }
+
+      .fa-star {
+        color: #BCC831;
+      }
+
+      .score {
+        font-size: 10px;
+        color: white;
+        font-style: bold;
+        position: absolute;
+        top: 85%;
+        left: 5%;
+      }
+
+      .price {
+        font-size: 14px;
+        color: white;
+        font-weight: bold;
+        position: absolute;
+        top: 87%;
+        right: 5%;
+      }
+
+       .recommend {
+       font-size: 36px;
+       font-weight: bold;
+       margin-top: 100px;
+       }
+
+       .teacherrow {
+       display: flex;
+       justify-content: center;
+       margin-top: 76px;
+
+       }
+
+       .t_avatar {
+       width: 200px;
+       height: 200px;
+       border-radius: 50%;
+       margin-left: auto;
+       margin-right: auto;
+       }
+
+       .t_avatar img {
+       width: 100%;
+       height: 100%;
+       border-radius: 50%;
+       }
+
+       .bgcolor {
+       background-color: #F1F0E9;
+       }
+
+       .teachersnamerow {
+       display: flex;
+       justify-content: around;
+       margin-top: 60px;
+       margin-bottom: 150px;
+       }
+
+       .nametag {
+       margin-left: 200px;
+       }
+
+
+    }
+  </style>
+
+  <title>我的課程</title>
+</head>
+
+<body>
+
+  <body class="TCsp-bgc">
+
+    <!-- top nav -->
+     <nav class="navbar navbar-expand-md navbar-light bg-light">
+       <div class="container">
+         <div class="row flex-nowrap">
+           <div class="">
+             <a class="navbar-brand" href="#"><img src="../images/logo/logo_desktop.png" alt="" /></a>
+           </div>
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav mr-auto">
+               <li class="nav-item">
+                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#">Link</a>
+               </li>
+               <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                   Dropdown
+                 </a>
+                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                   <a class="dropdown-item" href="#">Action</a>
+                   <a class="dropdown-item" href="#">Another action</a>
+                   <div class="dropdown-divider"></div>
+                   <a class="dropdown-item" href="#">Something else here</a>
+                 </div>
+               </li>
+             </ul>
+             <ul class="navbar-nav">
+               <li class="nav-item">
+                 <a href="" class="nav-link">account</a>
+               </li>
+             </ul>
+           </div>
+         </div>
+       </div>
+     </nav>
+
+    <!-- Main Content -->
+    <div class="container mainContent">
+      <!-- breadcrumb -->
+      <div class="row">
+        <div class="logo-m">
+          <img src="../images/logo/log_mobile.png" alt="" />
+        </div>
+        <nav class="w-100">
+          <ol class="breadcrumb col col-md-10 col-lg-12 m-0">
+            <li class="breadcrumb-item"><a href="">首頁</a></li>
+            <li class="breadcrumb-item"><a href="">我的課程</a></li>
+          </ol>
+        </nav>
+        <div class="col-10 ml-auto pageName">
+          <span class="pageNameText course">Course</span>
+        </div>
+      </div>
+      <div class="row justify-content-center d-flex">
+        <!-- sidebar -->
+        <nav class="sidebar col-2">
+          <div class="avatar">
+            <img src="../public/imgs/學生照片/Anne Hathaway.jpg" alt="" class="img-fluid" />
+          </div>
+          <ul class="nav_list">
+            <li class="nav-item">
+              <a href="">
+                <i class="fas fa-user"></i>
+                <div>聊天室</div>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a href="">
+                <i class="far fa-play-circle"></i>
+                <div> 我的課程</div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href=""><i class="fal fa-users-class"></i>
+                <div> 教室上課</div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="">
+                <i class="fal fa-table"></i>
+                <div> 課程管理</div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- 課程商品區，與sidebar在同一row -->
+        <div class="coursesection col-10">
+          <!-- 課程商品四個一行 -->
+          <div class="courserow ">
+            <div class="courseitem">
+              <img src="../public/imgs/課程圖片/歐洲運動賽事.jpeg" alt="">
+              <div class="coursename">課程名稱：填上課程名稱</div>
+              <span class="teachername">Thoms Lillard</span>
+              <span class="score">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                (4.7)
+              </span>
+              <span class="price">1500 TWD</span>
+            </div>
+            <div class="courseitem">
+              <img src="../public/imgs/課程圖片/機場、旅遊.jpeg" alt="">
+              <div class="coursename ">課程名稱：填上課程名稱</div>
+              <span class="teachername">Thoms Lillard</span>
+              <span class="score">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                (4.7)
+              </span>
+              <span class="price">1500 TWD</span>
+            </div>
+            <div class="courseitem">
+              <img src="../public/imgs/課程圖片/韓文課程.jpeg" alt="">
+              <div class="coursename ">課程名稱：填上課程名稱</div>
+              <span class="teachername">Thoms Lillard</span>
+              <span class="score">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                (4.7)
+              </span>
+              <span class="price">1500 TWD</span>
+            </div>
+            <div class="courseitem">
+              <img src="../public/imgs/課程圖片/韓文課程(職場韓文).jpeg" alt="">
+              <div class="coursename ">課程名稱：填上課程名稱</div>
+              <span class="teachername">Thoms Lillard</span>
+              <span class="score">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                (4.7)
+              </span>
+              <span class="price">1500 TWD</span>
+            </div>
+          </div>
+          <!-- 除了第一行其他行都需要margin-top -->
+          <div class="courserow lowerlayer">
+            <div class="courseitem">
+              <img src="../public/imgs/課程圖片/英文課程1.jpeg" alt="">
+              <div class="coursename ">課程名稱：填上課程名稱</div>
+              <span class="teachername">Thoms Lillard</span>
+              <span class="score">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                (4.7)
+              </span>
+              <span class="price">1500 TWD</span>
+            </div>
+            <div class="courseitem">
+              <img src="../public/imgs/課程圖片/韓國文化.jpeg" alt="">
+              <div class="coursename ">課程名稱：填上課程名稱</div>
+              <span class="teachername">Thoms Lillard</span>
+              <span class="score">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                (4.7)
+              </span>
+              <span class="price">1500 TWD</span>
+            </div>
+            <div class="courseitem">
+              <img src="../public/imgs/課程圖片/法文課程(咖啡廳文化).jpeg" alt="">
+              <div class="coursename ">課程名稱：填上課程名稱</div>
+              <span class="teachername">Thoms Lillard</span>
+              <span class="score">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                (4.7)
+              </span>
+              <span class="price">1500 TWD</span>
+            </div>
+            <div class="courseitem">
+              <img src="../public/imgs/課程圖片/歐洲運動賽事.jpeg" alt="">
+              <div class="coursename ">課程名稱：填上課程名稱</div>
+              <span class="teachername">Thoms Lillard</span>
+              <span class="score">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                (4.7)
+              </span>
+              <span class="price">1500 TWD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="container-fluid bgcolor">
+      <div class="container">
+        <div class="row">
+          <div class="recommend col-md-2">
+            <span>推薦教師</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="teacherrow col-md-10">
+            <div class="t_avatar "><img src="../public/imgs/老師照片/Carlin Eich.jpg" alt=""></div>
+            <div class="t_avatar"><img src="../public/imgs/老師照片/Carly Paisley.jpg" alt=""></div>
+            <div class="t_avatar"><img src="../public/imgs/老師照片/Debbie Millman.jpg" alt=""></div>
+            <div class="t_avatar"><img src="../public/imgs/老師照片/Patrick Graham.jpg" alt=""></div>
+          </div>
+        </div>
+        <div class="row col-md-12">
+          <div class="teachersnamerow ">
+            <div class="nametag">Carlin</div>
+            <div class="nametag ">Carly</div>
+            <div class="nametag">Debbie</div>
+            <div class="nametag">Patrick</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="TCallwraper">
+      <div class="dec-block"></div>
+    </div>
+  </body>
+
+
+
+
+</body>
+
+</html>
