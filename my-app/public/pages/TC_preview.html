@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font-family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/TC2.css" />
+
+    <style>
+      /*=============== Navbar ===============*/
+      ul {
+        list-style: none !important;
+      }
+
+      a {
+        text-decoration: none !important;
+      }
+
+      .nav__header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background-color: transparent;
+        color: #065f8e;
+      }
+
+      @media (max-width: 768px) {
+        .nav__header {
+          display: none;
+        }
+      }
+
+      .nav__header .nav__singheader {
+        position: relative;
+        height: 80px;
+      }
+
+      .nav__header .nav__singheader .nav__pc_menu {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        margin: 0;
+      }
+
+      .nav__header .nav__singheader .nav__pc_menu li {
+        display: inline-block;
+      }
+
+      .nav__en {
+        color: #065f8e;
+        display: block;
+        font-weight: bold;
+        position: relative;
+        padding: 0 15px;
+        /* TODO */
+      }
+
+      .nav_cart,
+      .nav_login {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: 0.3s ease;
+      }
+
+      .nav_login_txt {
+        color: #065f8e;
+        font-weight: bold;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+      }
+
+      .nav_cart_icon {
+        width: 24px;
+        height: 24px;
+        left: -50%;
+        top: 50%;
+        filter: drop-shadow(#065f8e 60px 0);
+        transform: translate(-50%, -50%);
+        position: absolute;
+        z-index: 5;
+      }
+
+      .nav_cart:hover,
+      .nav_login:hover {
+        background-color: #065f8e;
+      }
+
+      .nav_cart:hover .nav_cart_icon,
+      .nav_login:hover .nav_login_txt {
+        filter: drop-shadow(#ffffff 60px 0);
+        color: white;
+      }
+
+      /* hover底線動畫 */
+      .nav__en::after {
+        position: absolute;
+        bottom: -28px;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: #242424;
+        transform: scale(0, 1);
+        transform-origin: left top;
+        transition: transform 0.3s;
+        z-index: 10;
+      }
+
+      .nav__en:hover::after {
+        transform: scale(1, 1);
+      }
+
+      /* scroll後變色 */
+      .nav__scroll-header {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 4px rgba(14, 55, 63, 0.15);
+        transition: 0.3s ease;
+      }
+    </style>
+    <title>TC_preview</title>
+  </head>
+
+  <body class="TCsp-bgc">
+    <!-- main nav -->
+    <nav class="nav__header" id="nav__header">
+      <div class="nav__singheader container">
+        <div class="row flex-nowrap">
+          <div class="col-3 p-0">
+            <a href="#">
+              <img src="../images/logo/logo_desktop.png" />
+            </a>
+          </div>
+          <ul class="nav__pc_menu col-7">
+            <li>
+              <a href="#"><span class="nav__en">關於我們</span></a>
+            </li>
+            <li>
+              <a href="#"><span class="nav__en">課程總覽</span></a>
+            </li>
+            <li>
+              <a href="#"><span class="nav__en">我的課程</span></a>
+            </li>
+            <li>
+              <a href="#"><span class="nav__en">國際角落</span></a>
+            </li>
+          </ul>
+          <div class="col d-flex align-items-center justify-content-around">
+            <a href="#" class="nav_login">
+              <span class="nav_login_txt">登入</span>
+            </a>
+            <a href="#" class="nav_cart">
+              <img
+                src="../images/cart/cart_icon.svg"
+                alt=""
+                class="nav_cart_icon"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mainContent">
+      <!-- breadcrumb -->
+      <div class="row">
+        <div class="logo-m">
+          <img src="../images/logo/log_mobile.png" alt="" />
+        </div>
+        <nav class="w-100">
+          <ol class="breadcrumb col col-md-10 col-lg-12 m-0">
+            <li class="breadcrumb-item"><a href="">首頁</a></li>
+            <li class="breadcrumb-item"><a href="">會員中心</a></li>
+            <li class="breadcrumb-item active">個人資料</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="row justify-content-center col-12">
+        <!-- personal info -->
+        <div class="p-page-info col-12 col-md-8">
+          <div class="TCname">Thomas Lillard</div>
+          <div class="TCp-intro">
+            <p>
+              會說英文、中文
+              <br />
+              <br />
+              私訊詢問最新優惠甜價！！ 今晚，我想來點英文課！
+              <br />
+              <br />
+              擁有兩年教學經驗
+              <br />
+              兒童美語補習教師
+              <br />
+              非母語者卻有正統美國口音
+              <br />
+              曾任外商航空空服員
+              <br />
+              多國旅遊經驗
+              <br />
+              已幫助超過100位學生增強英語能力
+              <br />
+              中英雙語上課溝通無壓力
+            </p>
+          </div>
+        </div>
+        <div class="p-page-avatar">
+          <img src="../images/teacher/Tarin Johnson.jpg" class="img-fluid" />
+        </div>
+      </div>
+      <div class="p-page-myCourse row col-12">
+        <div class="p-page-title ml-0">
+          我的課程
+        </div>
+      </div>
+    </div>
+    <!-- bg decoration -->
+    <div class="TCallwraper">
+      <div class="dec-block"></div>
+      <div class="earth"><img src="../images/elements/earth.png" alt="" /></div>
+      <div class="dec-low-block"></div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../navbar(放上去)/assets/js/main.js"></script>
+  </body>
+</html>
