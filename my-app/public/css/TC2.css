@@ -542,7 +542,7 @@ body {
   left: 5%;
 }
 
-.stars{
+.stars {
   position: absolute;
   bottom: 6%;
   left: 5%;
@@ -569,6 +569,58 @@ body {
   position: absolute;
   bottom: 6%;
   right: 5%;
+}
+
+/* 預覽頁面 */
+/* 個人資料 */
+.p-page-info {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+
+  border-radius: 20px;
+}
+
+.p-page-info .TCname {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.p-page-info .TCp-intro {
+  border: 2px solid #F1EF5B;
+  border-radius: 5px;
+  padding: 25px;
+}
+
+.TCp-intro {
+  width: 100%;
+}
+
+.p-page-info .TCp-intro>p {
+  font-size: 12px;
+  margin: 0px;
+}
+
+.p-page-avatar {
+  order: 1;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 35px;
+}
+
+.p-page-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #065F8E;
+  margin-bottom: 50px;
+}
+
+.p-page-myCourse {
+  margin-top: 80px;
 }
 
 
@@ -1358,6 +1410,7 @@ body {
   /* 預覽頁面 */
   /* 個人資料 */
   .p-page-info {
+    order: 1;
     display: flex;
     flex-direction: column;
     margin-top: 100px;
@@ -1385,6 +1438,7 @@ body {
   }
 
   .p-page-avatar {
+    order: 2;
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -1399,7 +1453,79 @@ body {
     margin-bottom: 50px;
   }
 
-  .p-page-myCourse{
+  .p-page-myCourse {
     margin-top: 80px;
+  }
+
+  /* 商城顯示的課程 */
+  .BuyCourseSection {
+    display: flex;
+
+    flex-wrap: wrap;
+  }
+
+  .BuyCourseItem {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border: 4px solid rgba(255, 255, 255, 1);
+    border-radius: 30px;
+    position: relative;
+    margin-bottom: 30px;
+    margin-left: 10px;
+  }
+
+  .BuyCourseImg {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+  }
+
+  .coursename {
+    color: white;
+    font-size: 14px;
+    font-style: bold;
+    top: 65%;
+    left: 5%;
+    margin-left: auto;
+    position: absolute;
+  }
+
+  .teachername {
+    color: white;
+    font-size: 8px;
+    font-style: bold;
+    position: absolute;
+    top: 75%;
+    left: 5%;
+  }
+
+  .stars {
+    position: absolute;
+    bottom: 6%;
+    left: 5%;
+  }
+
+  .fa-star {
+    font-size: 12px;
+    color: #BCC831;
+  }
+
+  .score {
+    font-size: 10px;
+    color: white;
+    font-style: bold;
+    position: absolute;
+    top: 85%;
+    left: 5%;
+  }
+
+  .price {
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    bottom: 6%;
+    right: 5%;
   }
 }
