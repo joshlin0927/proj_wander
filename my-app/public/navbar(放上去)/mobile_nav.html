@@ -1,0 +1,126 @@
+<!-- 要active的css在對應位置加上 mobile-nav-item-active / mobile-nav-icon-active / active -->
+<!-- mobile nav -->
+<div class="mobile-nav container-fluid">
+    <div class="row justify-content-center">
+        <div class="mobile-nav-item col-2">
+            <img src="../images/mobile-nav/nav-icon-course.svg" alt="" class="mobile-nav-icon">
+            <span>課程總覽</span>
+        </div>
+        <div class="mobile-nav-item mobile-nav-item-active col-2">
+            <img src="../images/mobile-nav/nav-icon-cart.svg" alt="" class="mobile-nav-icon-active">
+            <span class="active">購物車</span>
+        </div>
+        <div class="mobile-nav-item col-2">
+            <img src="../images/mobile-nav/nav-icon-chat.svg" alt="" class="mobile-nav-icon">
+            <span>聊天室</span>
+        </div>
+        <div class="mobile-nav-item col-2">
+            <img src="../images/mobile-nav/nav-icon-my.svg" alt="" class="mobile-nav-icon">
+            <span>我的課程</span>
+        </div>
+        <div class="mobile-nav-item col-2">
+            <img src="../images/mobile-nav/nav-icon-member.svg" alt="" class="mobile-nav-icon">
+            <span>會員中心</span>
+        </div>
+    </div>
+</div>
+
+<!-- css -->
+<style>
+    /*============= mobile nav =============*/
+    @media (min-width: 768px) {
+        .mobile-nav {
+            display: none;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .mobile-nav {
+            background-color: #fff;
+            height: 80px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+
+        .mobile-nav-item {
+            height: 80px;
+            position: relative;
+            padding: 0;
+            text-align: center;
+            margin: 0 0.5rem 0 0.5rem;
+            overflow: hidden;
+        }
+
+        .mobile-nav-icon {
+            width: 20px;
+            height: 20px;
+            left: -38px;
+            top: 23px;
+            filter: drop-shadow(#C6C3B4 60px 0);
+            position: absolute;
+            z-index: 5;
+        }
+
+        .mobile-nav-item::after {
+            content: "";
+            border-radius: 50%;
+            border: 1px #C6C3B4 solid;
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .mobile-nav-item span {
+            position: absolute;
+            width: 100%;
+            color: #C6C3B4;
+            font-weight: bold;
+            top: 55px;
+            left: 0;
+        }
+
+        /* active */
+        .mobile-nav-icon-active {
+            width: 20px;
+            height: 20px;
+            left: -38px;
+            top: 23px;
+            filter: drop-shadow(#065F8E 60px 0);
+            position: absolute;
+            z-index: 5;
+        }
+
+        .mobile-nav-item-active::after {
+            content: "";
+            border-radius: 50%;
+            border: 1px #065F8E solid;
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .mobile-nav-item span.active {
+            color: #065F8E;
+        }
+
+        .mobile-nav-item-active::before {
+            content: "";
+            width: 64px;
+            height: 6px;
+            color: #f1ef5b;
+            border-top: 6px solid #f1ef5b;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+    }
+</style>

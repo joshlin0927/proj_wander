@@ -235,9 +235,11 @@ a {
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
+  padding: 0;
 }
 /* 購物車內容 */
 .cartItem{
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   background-color: #fff;
@@ -247,48 +249,60 @@ a {
   padding: 20px 0px 0px 0px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
-@media (min-width: 768px) {
-  .cartItem-flex-grow-2{
-    flex: 2;
-  }
-  .cartItem-flex-grow-1{
-    flex: 1;
-  } 
-}
 .cartItemImage{
-  width: 20%;
-  margin-left: 7%;
+  background: url('../images/cart/jp_course.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 0;
+  min-height: 100px;
 }
 .cartItemTxt{
   font-size: 1.2rem;
-  text-align: start;
+  padding: 0;
   display: flex;
-  margin-left: 5%;
+}
+@media (max-width: 992px) {
+  .cartSortTxt, .cartItemTxt{
+    font-size: 1rem;
+    overflow: scroll;
+  }
 }
 .cartItemName{
-  max-width: 180px;
-  margin-left: 0%;
+  padding: 0 0 0 1rem;
 }
 .cartItemStatus{
-  padding-left: 8%;
-  min-width: 60px;
+  text-align: center;
+  padding: 0;
 }
 .cartItemPrice{
-  margin-left: 20%;
+  text-align: center;
   color: #065f8e; 
+  padding: 0;
 }
 @media (max-width: 767px) {
   .cartItem{
     padding-top: 15px;
   }
   .cartItemImage{
-    width: 30%;
     margin: 0 0 0 15px;
-    float: left;
+    min-height: 50px;
   }
   .cartItemTxt{
-    
-    
+    flex-direction: column;
+    height: 33%;
+  }
+  .cartItemName{
+    text-align: left;
+    padding: 0 0 0.5rem 1rem;
+  }
+  .cartItemStatus{
+    text-align: left;
+    padding: 0 0 0.5rem 1rem;
+  }
+  .cartItemPrice{
+    text-align: left;
+    padding: 0 0 0.5rem 1rem;
   }
 }
 
@@ -350,6 +364,7 @@ a {
   height: 30px;
   width: 30px;
   font-weight: bold;
+  border: 1px solid #065F8E;
 }
 .cartSideListItemTxt{
   position: absolute;
@@ -465,11 +480,6 @@ a {
   background-color: #fff;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
-@media (max-width: 767px) {
-  .checkout{
-    display: none;
-  }
-}
 .checkoutTitle{
   font-size: 1.5rem;
   font-weight: bold;
@@ -529,6 +539,7 @@ a {
 .checkoutFooter{
   padding: 30px 0 16px 0;
   border-top: 2px solid black;
+  justify-content: center;
 }
 .checkoutBtn{
   width: 60%;
@@ -542,6 +553,165 @@ a {
   background-color: #ffffff;
   border: 2px solid #065F8E;
 }
+@media (max-width: 767px) {
+  .checkout{
+    max-width: 300px;
+    min-width: 180px;
+    margin: 60px 0 0 8.33%;
+    background-color: #ffffff00;
+    box-shadow: none;
+    padding: 0 0 0 15px;
+  }
+  .checkoutTitle, .checkoutSubtotal, .checkoutTotal{
+    display: none;
+  }
+  .couponTitle-m{
+    width: 100%;
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+  }
+  .checkoutCoupon span{
+    margin-top: 30px;
+    padding: 0;
+    font-size: 1.2rem;
+  }
+  .checkoutSubtotal-m{
+    margin: 30px 1.5rem 190px 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .checkoutSubtotal-m span{
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  .checkoutFooter{
+    background-color: #f1f0e9;
+    position: fixed;
+    bottom: 80px;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    justify-content: flex-end;
+    display: flex;
+    border-top: 1px solid black;
+  }
+  .checkoutBtn{
+    width: 30%;
+    border-radius: 0;
+  }
+  .checkoutFooter-t{
+    padding: 0.5rem 1rem;
+  }
+  .checkoutTotal-m{
+    margin-right: 10%;
+  }
+  .checkoutTotal-m-1{
+    font-size: 1.5rem;
+    color: #065F8E;
+    font-weight: bold;
+  }
+}
+@media (min-width: 768px) {
+  .couponTitle-m, .checkoutSubtotal-m, .checkoutFooter-t, .checkoutTotal-m{
+    display: none;
+  }
+}
+
+/*============= mobile nav =============*/
+@media (min-width: 768px) {
+  .mobile-nav{
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .mobile-nav{
+    background-color: #fff;
+    height: 80px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  .mobile-nav-item{
+    height: 80px;
+    position: relative;
+    padding: 0;
+    text-align: center;
+    margin: 0 0.5rem 0 0.5rem;
+    overflow: hidden;
+  }
+  .mobile-nav-icon{
+    width: 20px;
+    height: 20px;
+    left: -38px;
+    top: 23px;
+    filter: drop-shadow(#C6C3B4 60px 0);
+    position: absolute;
+    z-index: 5;
+  }
+  .mobile-nav-item::after{
+    content: "";
+    border-radius: 50%;
+    border: 1px #C6C3B4 solid;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .mobile-nav-item span{
+    position: absolute;
+    width: 100%;
+    color: #C6C3B4;
+    font-weight: bold;
+    top: 55px;
+    left: 0;
+  }
+  /* active */
+  .mobile-nav-icon-active{
+    width: 20px;
+    height: 20px;
+    left: -38px;
+    top: 23px;
+    filter: drop-shadow(#065F8E 60px 0);
+    position: absolute;
+    z-index: 5;
+  }
+  .mobile-nav-item-active::after{
+    content: "";
+    border-radius: 50%;
+    border: 1px #065F8E solid;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .mobile-nav-item span.active{
+    color: #065F8E;
+  }
+  .mobile-nav-item-active::before{
+    content: "";
+    width: 64px;
+    height: 6px;
+    color: #f1ef5b;
+    border-top: 6px solid #f1ef5b;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+}
+
 
 /*============= Background =============*/
 
@@ -640,11 +810,6 @@ a {
     width: 56%;
   }
 }
-@media (max-width: 767px) {
-  .dec-circle{
-    display: none;
-  }
-}
 /* 地球 */
 .earth {
   display: block;
@@ -653,6 +818,12 @@ a {
   right: 0;
   top: 724px;
 }
+@media (max-width: 767px) {
+  .dec-circle, .earth{
+    display: none;
+  }
+}
+
 
 
 /*============= 效果模組 =============*/
@@ -663,11 +834,17 @@ a {
 .c-white{
   color: #ffffff;
 }
+.c-gray{
+  color: #C6C3B4;
+}
 .bgc-blue{
   background-color: #065F8E;
 }
 .bgc-white{
   background-color: #ffffff;
+}
+.bgc-gray{
+  background-color: #C6C3B4;
 }
 .bd-blue{
   border-color: #065F8E;
