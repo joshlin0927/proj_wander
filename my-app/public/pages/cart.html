@@ -72,7 +72,7 @@
     <div class="container-fluid">
         <div class="row align-items-start">
             <!-- SideList -->
-            <div class="cartSideList col-10 offset-1 col-md-3 offset-md-0 ">
+            <div class="cartSideList col-10 offset-1 col-md-3 offset-md-0">
                 <img src="../images/cart/cartSideList.svg" alt="" class="cartSideListImage">
                 <div class="cartSideListItem">
                     <span class="cartSideListItemNum">1</span>
@@ -99,21 +99,27 @@
                         <span class="cartQuality">已加入 3 堂課</span>
                     </div>
                     <div class="w-100"></div>
-                    <div class="cartSort">
-                        <span class="cartSortTxt">課程預覽</span>
-                        <span class="cartSortTxt ml-5 pl-3">課程全名</span>
-                        <span class="cartSortTxt mx-3 px-3">開課狀態</span>
-                        <span class="cartSortTxt">售價</span>
+                    <div class="cartSort container">
+                        <div class="row w-100">
+                            <span class="cartSortTxt col-3">課程預覽</span>
+                            <span class="cartSortTxt col-3">課程全名</span>
+                            <span class="cartSortTxt col">開課狀態</span>
+                            <span class="cartSortTxt col-2">售價</span>
+                        </div>
                     </div>
                 </div>
                 <!-- 購物車item -->
                 <div class="row">
                     <div class="cartItem">
-                        <img src="../images/cart/jp_course.jpg" alt="" class="cartItemImage">
-                        <div class="cartItemTxt cartItem-flex-grow-2">
-                            <p class="cartItemName">日本自由行必學的實用日語會話</p>
-                            <p class="cartItemStatus">已開課</p>
-                            <span class="cartItemPrice">NT$2700</span>
+                        <div class="container">
+                            <div class="row w-100 m-0">
+                                <div class="cartItemImage col-4 col-md-3"></div>
+                                <div class="cartItemTxt col-7 col-md-9">
+                                    <span class="cartItemName col-12 col-md-4">日本自由行必學的實用日語會話</span>
+                                    <span class="cartItemStatus col-12 col-md-3 offset-xl-1 offset-lg-1 offset-md-1">已開課</span>
+                                    <span class="cartItemPrice col-12 col-md-3 offset-xl-1 offset-lg-1 offset-md-0">NT$2700</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="cartItemBtn">
                             <a href="#" class="cartItemBtn-Detail">
@@ -127,10 +133,16 @@
                         </div>
                     </div>
                     <div class="cartItem">
-                        <img src="../images/cart/jp_course.jpg" alt="" class="cartItemImage cartItem-flex-grow-1">
-                        <span class="cartItemTxt cartItem-flex-grow-2 cartItemName">日本自由行必學的實用日語會話</span>
-                        <span class="cartItemTxt cartItem-flex-grow-1 cartItemStatus">已開課</span>
-                        <span class="cartItemTxt cartItem-flex-grow-1 cartItemPrice">NT$2700</span>
+                        <div class="container">
+                            <div class="row w-100 m-0">
+                                <div class="cartItemImage col-4 col-md-3"></div>
+                                <div class="cartItemTxt col-7 col-md-9">
+                                    <span class="cartItemName col-12 col-md-4">日本自由行必學的實用日語會話</span>
+                                    <span class="cartItemStatus col-12 col-md-3 offset-xl-1 offset-lg-1 offset-md-1">已開課</span>
+                                    <span class="cartItemPrice col-12 col-md-3 offset-xl-1 offset-lg-1 offset-md-0">NT$2700</span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="cartItemBtn">
                             <a href="#" class="cartItemBtn-Detail">
                                 <img src="../images/cart/cartItemDetail.svg" alt="">
@@ -143,10 +155,16 @@
                         </div>
                     </div>
                     <div class="cartItem">
-                        <img src="../images/cart/jp_course.jpg" alt="" class="cartItemImage cartItem-flex-grow-1">
-                        <span class="cartItemTxt cartItem-flex-grow-2 cartItemName">日本自由行必學的實用日語會話</span>
-                        <span class="cartItemTxt cartItem-flex-grow-1 cartItemStatus">已開課</span>
-                        <span class="cartItemTxt cartItem-flex-grow-1 cartItemPrice">NT$2700</span>
+                        <div class="container">
+                            <div class="row w-100 m-0">
+                                <div class="cartItemImage col-4 col-md-3"></div>
+                                <div class="cartItemTxt col-7 col-md-9">
+                                    <span class="cartItemName col-12 col-md-4">日本自由行必學的實用日語會話</span>
+                                    <span class="cartItemStatus col-12 col-md-3 offset-xl-1 offset-lg-1 offset-md-1">已開課</span>
+                                    <span class="cartItemPrice col-12 col-md-3 offset-xl-1 offset-lg-1 offset-md-0">NT$2700</span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="cartItemBtn">
                             <a href="#" class="cartItemBtn-Detail">
                                 <img src="../images/cart/cartItemDetail.svg" alt="">
@@ -158,10 +176,12 @@
                             </a>
                         </div>
                     </div>
+
+
                 </div>
             </div>
             <!-- Checkout Detail -->
-            <div class="checkout container col-2">
+            <div class="checkout container col-10 col-md-2">
                 <div class="row">
                     <div class="checkoutTitle">
                         <span>結帳明細</span>
@@ -181,6 +201,9 @@
                 </div>
                 <!-- 選擇優惠券 -->
                 <div class="row justify-content-center">
+                    <div class="couponTitle-m">
+                        優惠券
+                    </div>
                     <div class="checkoutCoupon">
                         <span>選擇使用的優惠券：</span>
                         <div class="w-100 mt-3 counponImage">
@@ -195,11 +218,55 @@
                             <span class="selectOtherCoupon">選擇其他優惠券</span>
                         </a>
                     </div>
+                    <div class="couponTitle-m">結帳明細</div>
+                    <div class="checkoutSubtotal-m">
+                        <span>小計</span>
+                        <span>NT$8100</span>
+                        <div class="w-100"></div>
+                        <span>折扣</span>
+                        <span>-NT$810</span>
+                        <div class="w-100 my-2 border-bottom"></div>
+                        <span>結帳金額</span>
+                        <span>NT$7310</span>
+                    </div>
                 </div>
                 <!-- 結帳按鈕 -->
-                <div class="row justify-content-center checkoutFooter">
+                <div class="row checkoutFooter">
+                    <div class="checkoutFooter-t">
+                        <span>結帳金額：</span>
+                    </div>
+                    <div class="checkoutTotal-m">
+                        <span class="checkoutTotal-m-1">NT$7310</span>
+                        <div class="w-100"></div>
+                        <span class="checkoutTotal-m-2">(優惠折抵：NT$810)</span>
+                    </div>
                     <button class="btn checkoutBtn">我要結帳</button>
                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- mobile nav -->
+    <div class="mobile-nav container-fluid">
+        <div class="row justify-content-center">
+            <div class="mobile-nav-item col-2">
+                <img src="../images/mobile-nav/nav-icon-course.svg" alt="" class="mobile-nav-icon">
+                <span>課程總覽</span>
+            </div>
+            <div class="mobile-nav-item mobile-nav-item-active col-2">
+                <img src="../images/mobile-nav/nav-icon-cart.svg" alt="" class="mobile-nav-icon-active">
+                <span class="active">購物車</span>
+            </div>
+            <div class="mobile-nav-item col-2">
+                <img src="../images/mobile-nav/nav-icon-chat.svg" alt="" class="mobile-nav-icon">
+                <span>聊天室</span>
+            </div>
+            <div class="mobile-nav-item col-2">
+                <img src="../images/mobile-nav/nav-icon-my.svg" alt="" class="mobile-nav-icon">
+                <span>我的課程</span>
+            </div>
+            <div class="mobile-nav-item col-2">
+                <img src="../images/mobile-nav/nav-icon-member.svg" alt="" class="mobile-nav-icon">
+                <span>會員中心</span>
             </div>
         </div>
     </div>
