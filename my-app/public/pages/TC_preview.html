@@ -54,7 +54,7 @@
         color: #065f8e;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 767px) {
         .nav__header {
           display: none;
         }
@@ -161,7 +161,6 @@
           display: none;
         }
       }
-
       @media (max-width: 767px) {
         .mobile-nav {
           background-color: #fff;
@@ -171,7 +170,6 @@
           bottom: 0;
           left: 0;
         }
-
         .mobile-nav-item {
           height: 80px;
           position: relative;
@@ -180,68 +178,36 @@
           margin: 0 0.5rem 0 0.5rem;
           overflow: hidden;
         }
-
         .mobile-nav-icon {
-          width: 20px;
-          height: 20px;
-          left: -38px;
-          top: 23px;
-          filter: drop-shadow(#c6c3b4 60px 0);
+          width: 32px;
+          height: 32px;
+          left: 50%;
+          transform: translate(-50%, 0);
+          top: 25%;
           position: absolute;
           z-index: 5;
         }
-
-        .mobile-nav-item::after {
-          content: "";
-          border-radius: 50%;
-          border: 1px #c6c3b4 solid;
-          width: 35px;
-          height: 35px;
-          position: absolute;
-          top: 15px;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
         .mobile-nav-item span {
           position: absolute;
           width: 100%;
           color: #c6c3b4;
           font-weight: bold;
-          top: 55px;
+          bottom: 10%;
           left: 0;
         }
-
         /* active */
-        .mobile-nav-icon-active {
-          width: 20px;
-          height: 20px;
-          left: -38px;
-          top: 23px;
-          filter: drop-shadow(#065f8e 60px 0);
+        .mobile-nav-icon.active {
+          filter: drop-shadow(#065f8e 0 60px);
+          transform: translate(-50%, -60px);
           position: absolute;
           z-index: 5;
         }
-
-        .mobile-nav-item-active::after {
-          content: "";
-          border-radius: 50%;
-          border: 1px #065f8e solid;
-          width: 35px;
-          height: 35px;
-          position: absolute;
-          top: 15px;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
         .mobile-nav-item span.active {
           color: #065f8e;
         }
-
         .mobile-nav-item-active::before {
           content: "";
-          width: 64px;
+          width: 100%;
           height: 6px;
           color: #f1ef5b;
           border-top: 6px solid #f1ef5b;
@@ -310,42 +276,44 @@
           </ol>
         </nav>
       </div>
-      <div class="row col-12 ">
+      <div class="row p-page-info-bg">
         <!-- personal info -->
-        <div class="p-page-info col-12 col-md-8">
-          <div class="TCname">Thomas Lillard</div>
-          <div class="TCp-intro">
-            <p>
-              會說英文、中文
-              <br />
-              <br />
-              私訊詢問最新優惠甜價！！ 今晚，我想來點英文課！
-              <br />
-              <br />
-              擁有兩年教學經驗
-              <br />
-              兒童美語補習教師
-              <br />
-              非母語者卻有正統美國口音
-              <br />
-              曾任外商航空空服員
-              <br />
-              多國旅遊經驗
-              <br />
-              已幫助超過100位學生增強英語能力
-              <br />
-              中英雙語上課溝通無壓力
-            </p>
+        <div class="p-info-wrapper col-12">
+          <div class="p-page-info">
+            <div class="TCname">Thomas Lillard</div>
+            <div class="TCp-intro">
+              <p>
+                會說英文、中文
+                <br />
+                <br />
+                私訊詢問最新優惠甜價！！ 今晚，我想來點英文課！
+                <br />
+                <br />
+                擁有兩年教學經驗
+                <br />
+                兒童美語補習教師
+                <br />
+                非母語者卻有正統美國口音
+                <br />
+                曾任外商航空空服員
+                <br />
+                多國旅遊經驗
+                <br />
+                已幫助超過100位學生增強英語能力
+                <br />
+                中英雙語上課溝通無壓力
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="p-page-avatar">
-          <img src="../images/teacher/Tarin Johnson.jpg" class="img-fluid" />
+          <div class="p-page-avatar">
+            <img src="../images/teacher/Tarin Johnson.jpg" class="img-fluid" />
+          </div>
         </div>
       </div>
-      <div class="p-page-myCourse row col-12">
+      <div class="p-page-myCourse">
         <div class="p-page-title ml-0 w-100">我的課程</div>
-        <div class="BuyCourseSection d-flex mx-auto">
-          <div class="BuyCourseItem ">
+        <div class="BuyCourseSection">
+          <div class="BuyCourseItem">
             <img
               src="../images/course/商用英文.jpeg"
               class="BuyCourseImg"
@@ -353,84 +321,16 @@
             />
             <div class="coursename">課程名稱：填上課程名稱</div>
             <span class="teachername">Thomas Lillard</span>
-            <div class="d-flex">
-              <div class="stars">
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </div>
-              <div class="price">
-                <span id="number">1500</span>
-                <span id="unit">TWD</span>
-              </div>
+            <div class="stars">
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
             </div>
-          </div>
-          <div class="BuyCourseItem ">
-            <img
-              src="../images/course/商用英文.jpeg"
-              class="BuyCourseImg"
-              alt=""
-            />
-            <div class="coursename">課程名稱：填上課程名稱</div>
-            <span class="teachername">Thomas Lillard</span>
-            <div class="d-flex">
-              <div class="stars">
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </div>
-              <div class="price">
-                <span id="number">1500</span>
-                <span id="unit">TWD</span>
-              </div>
-            </div>
-          </div>
-          <div class="BuyCourseItem ">
-            <img
-              src="../images/course/商用英文.jpeg"
-              class="BuyCourseImg"
-              alt=""
-            />
-            <div class="coursename">課程名稱：填上課程名稱</div>
-            <span class="teachername">Thomas Lillard</span>
-            <div class="d-flex">
-              <div class="stars">
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </div>
-              <div class="price">
-                <span id="number">1500</span>
-                <span id="unit">TWD</span>
-              </div>
-            </div>
-          </div>
-          <div class="BuyCourseItem ">
-            <img
-              src="../images/course/商用英文.jpeg"
-              class="BuyCourseImg"
-              alt=""
-            />
-            <div class="coursename">課程名稱：填上課程名稱</div>
-            <span class="teachername">Thomas Lillard</span>
-            <div class="d-flex">
-              <div class="stars">
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </div>
-              <div class="price">
-                <span id="number">1500</span>
-                <span id="unit">TWD</span>
-              </div>
+            <div class="price">
+              <span id="number">1500</span>
+              <span id="unit">TWD</span>
             </div>
           </div>
         </div>
@@ -441,7 +341,7 @@
       <div class="row justify-content-center flex-nowrap">
         <div class="mobile-nav-item col-2">
           <img
-            src="../images/mobile-nav/nav-icon-course.svg"
+            src="../images/mobile-nav-alter/nav-icon-course.svg"
             alt=""
             class="mobile-nav-icon"
           />
@@ -449,15 +349,15 @@
         </div>
         <div class="mobile-nav-item mobile-nav-item-active col-2">
           <img
-            src="../images/mobile-nav/nav-icon-cart.svg"
+            src="../images/mobile-nav-alter/nav-icon-cart.svg"
             alt=""
-            class="mobile-nav-icon-active"
+            class="mobile-nav-icon active"
           />
           <span class="active">購物車</span>
         </div>
         <div class="mobile-nav-item col-2">
           <img
-            src="../images/mobile-nav/nav-icon-chat.svg"
+            src="../images/mobile-nav-alter/nav-icon-chat.svg"
             alt=""
             class="mobile-nav-icon"
           />
@@ -465,7 +365,7 @@
         </div>
         <div class="mobile-nav-item col-2">
           <img
-            src="../images/mobile-nav/nav-icon-my.svg"
+            src="../images/mobile-nav-alter/nav-icon-my.svg"
             alt=""
             class="mobile-nav-icon"
           />
@@ -473,7 +373,7 @@
         </div>
         <div class="mobile-nav-item col-2">
           <img
-            src="../images/mobile-nav/nav-icon-member.svg"
+            src="../images/mobile-nav-alter/nav-icon-member.svg"
             alt=""
             class="mobile-nav-icon"
           />
@@ -484,6 +384,7 @@
     <!-- bg decoration -->
     <div class="TCallwraper">
       <div class="dec-block"></div>
+      <div class="dec-white"></div>
       <div class="earth"><img src="../images/elements/earth.png" alt="" /></div>
       <div class="dec-low-block"></div>
     </div>

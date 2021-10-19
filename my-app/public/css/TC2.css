@@ -7,6 +7,10 @@ body {
   font-size: 12px;
 }
 
+.mainContent {
+  margin-bottom: 80px;
+}
+
 /* 全頁背景色 */
 .TCsp-bgc {
   background: #f1f0e9;
@@ -111,6 +115,7 @@ body {
     left: 5%;
   }
 }
+
 
 /* 麵包屑 */
 .breadcrumb {
@@ -500,6 +505,71 @@ body {
   background-color: #f1ef5b
 }
 
+/* 預覽頁面 */
+/* 個人資料 */
+
+.p-info-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.p-page-info-bg {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 20px;
+  background-color: #fff;
+
+}
+
+.p-page-info {
+  order: 2;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 15px;
+  border-radius: 20px;
+}
+
+.p-page-info .TCname {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.p-page-info .TCp-intro {
+  border: 2px solid #F1EF5B;
+  border-radius: 5px;
+  padding: 25px;
+  margin-bottom: 34px;
+  width: 100%;
+}
+
+
+.p-page-info .TCp-intro>p {
+  font-size: 12px;
+  margin: 0px;
+}
+
+.p-page-avatar {
+  order: 1;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 35px;
+}
+
+.p-page-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #065F8E;
+  margin-bottom: 15px;
+}
+
+.p-page-myCourse {
+  margin-top: 80px;
+}
+
 /* 商城顯示的課程 */
 .BuyCourseSection {
   display: flex;
@@ -507,18 +577,17 @@ body {
 }
 
 .BuyCourseItem {
-  width: 250px;
-  height: 250px;
+  width: 100%;
+  height: 271px;
   overflow: hidden;
   border: 4px solid rgba(255, 255, 255, 1);
   border-radius: 30px;
   position: relative;
   margin-bottom: 30px;
-  margin-left: 10px;
 }
 
 .BuyCourseImg {
-  width: auto;
+  width: 100%;
   height: 100%;
   border-radius: 30px;
 }
@@ -571,57 +640,6 @@ body {
   right: 5%;
 }
 
-/* 預覽頁面 */
-/* 個人資料 */
-.p-page-info {
-  order: 2;
-  display: flex;
-  flex-direction: column;
-  margin-top: 15px;
-
-  border-radius: 20px;
-}
-
-.p-page-info .TCname {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.p-page-info .TCp-intro {
-  border: 2px solid #F1EF5B;
-  border-radius: 5px;
-  padding: 25px;
-}
-
-.TCp-intro {
-  width: 100%;
-}
-
-.p-page-info .TCp-intro>p {
-  font-size: 12px;
-  margin: 0px;
-}
-
-.p-page-avatar {
-  order: 1;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-top: 35px;
-}
-
-.p-page-title {
-  font-size: 36px;
-  font-weight: bold;
-  color: #065F8E;
-  margin-bottom: 50px;
-}
-
-.p-page-myCourse {
-  margin-top: 80px;
-}
 
 
 /* -------------以上為公用------------ */
@@ -793,6 +811,7 @@ body {
 
 
 
+
 @media (min-width: 375px) {
   .TCnotify-text {
     font-size: 21px;
@@ -905,11 +924,6 @@ body {
     border: 4px dashed white;
     border-radius: 50%;
     animation: bc 150s linear infinite;
-  }
-
-  /* 白色色塊 */
-  .dec-white {
-    width: 90%;
   }
 
   /* 黃色色塊(上) */
@@ -1409,11 +1423,34 @@ body {
 
   /* 預覽頁面 */
   /* 個人資料 */
+  .p-info-wrapper{
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+  }
+
+  .dec-white {
+    position: absolute;
+    z-index: -3;
+    width: 80%;
+    height: 840px;
+    background: #fff;
+    border-radius: 0px 0px 20px 0px;
+  }
+
+
+  .p-page-info-bg {
+    border-radius: 20px;
+    background-color: transparent;
+    margin: 0;
+    padding: 0px -15px;
+  }
+
   .p-page-info {
     order: 1;
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
+    width: 75%;
   }
 
   .p-page-info .TCname {
@@ -1426,9 +1463,6 @@ body {
     border: 4px solid #F1EF5B;
     border-radius: 5px;
     padding: 34px;
-  }
-
-  .TCp-intro {
     width: 80%;
   }
 
@@ -1443,7 +1477,6 @@ body {
     height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    margin-top: 100px;
   }
 
   .p-page-title {
@@ -1460,7 +1493,6 @@ body {
   /* 商城顯示的課程 */
   .BuyCourseSection {
     display: flex;
-
     flex-wrap: wrap;
   }
 
@@ -1472,11 +1504,12 @@ body {
     border-radius: 30px;
     position: relative;
     margin-bottom: 30px;
-    margin-left: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
   .BuyCourseImg {
-    width: 100%;
+    width: auto;
     height: 100%;
     border-radius: 30px;
   }
