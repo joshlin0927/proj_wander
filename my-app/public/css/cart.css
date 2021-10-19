@@ -540,6 +540,7 @@ a {
   padding: 30px 0 16px 0;
   border-top: 2px solid black;
   justify-content: center;
+  display: flex;
 }
 .checkoutBtn{
   width: 60%;
@@ -547,6 +548,7 @@ a {
   height: 50px;
   color: #ffffff;
   background-color: #065f8e;
+  margin: 0;
 }
 .checkoutBtn:hover{
   color: #065f8e;
@@ -596,6 +598,7 @@ a {
     position: fixed;
     bottom: 80px;
     left: 0;
+    right: 0;
     width: 100%;
     padding: 0;
     justify-content: flex-end;
@@ -603,6 +606,7 @@ a {
     border-top: 1px solid black;
   }
   .checkoutBtn{
+    min-width: 85px;
     width: 30%;
     border-radius: 0;
   }
@@ -610,7 +614,7 @@ a {
     padding: 0.5rem 1rem;
   }
   .checkoutTotal-m{
-    margin-right: 10%;
+    padding-right: 5%;
   }
   .checkoutTotal-m-1{
     font-size: 1.5rem;
@@ -648,55 +652,30 @@ a {
     overflow: hidden;
   }
   .mobile-nav-icon{
-    width: 20px;
-    height: 20px;
-    left: -38px;
-    top: 23px;
-    filter: drop-shadow(#C6C3B4 60px 0);
+    width: 32px;
+    height: 32px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 25%;
     position: absolute;
     z-index: 5;
   }
-  .mobile-nav-item::after{
-    content: "";
-    border-radius: 50%;
-    border: 1px #C6C3B4 solid;
-    width: 35px;
-    height: 35px;
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .mobile-nav-item span{
+ .mobile-nav-item span{
     position: absolute;
     width: 100%;
     color: #C6C3B4;
     font-weight: bold;
-    top: 55px;
+    bottom: 10%;
     left: 0;
   }
   /* active */
-  .mobile-nav-icon-active{
-    width: 20px;
-    height: 20px;
-    left: -38px;
-    top: 23px;
-    filter: drop-shadow(#065F8E 60px 0);
+  .mobile-nav-icon.active{
+    filter: drop-shadow(#065F8E 0 60px);
+    transform: translate(-50%, -60px);
     position: absolute;
     z-index: 5;
   }
-  .mobile-nav-item-active::after{
-    content: "";
-    border-radius: 50%;
-    border: 1px #065F8E solid;
-    width: 35px;
-    height: 35px;
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .mobile-nav-item span.active{
+ .mobile-nav-item span.active{
     color: #065F8E;
   }
   .mobile-nav-item-active::before{
