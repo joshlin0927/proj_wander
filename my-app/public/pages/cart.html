@@ -182,6 +182,23 @@
                             </a>
                         </div>
                     </div>
+                    <div class="creditCard">
+                        <img src="../images/cart/credit_icon.svg" alt="" class="credit-icon">
+                        <span class="credit-title">Credit Card</span>
+                        <span class="credit-num">0000 0000 0000 0000</span>
+                        <span class="credit-name">Xiao-Ming Wang</span>
+                        <span class="credit-MY">Month/Year</span>
+                        <span class="credit-date">11/24</span>
+                    </div>
+                    <div class="creditCard ml-5">
+                        <div class="credit-blackbar"></div>
+                        <div class="credit-graybar"></div>
+                        <div class="credit-CVC">888</div>
+                        <div class="credit-whitebar1"></div>
+                        <div class="credit-whitebar2"></div>
+                        <div class="credit-whitebar3"></div>
+                        <div class="credit-whitebar4"></div>
+                    </div>
 
 
                 </div>
@@ -431,13 +448,19 @@
     <script src="../navbar(放上去)/assets/js/main.js"></script>
 
     <script>
+        // counpon modal click style
         $('#counponCanUse .modal-card').on('click', function () {
             if ($(this).attr('isChecked') !== 'checked') {
                 $(this).attr('isChecked', 'checked');
                 $(this).addClass('active').siblings().removeClass('active');
+                $(this).siblings().attr('isChecked', '');
                 $(this).children().last().html('<img src="../images/cart/checked_icon.svg" alt="">');
+                $('#counponCanUse .modal-card').each(function(i,v){
+                    if ($(this).attr('isChecked') !== 'checked') {
+                        $(this).children().last().html('<img src="../images/cart/check_icon.svg" alt="">');
+                    }
+                });
             }
-
         });
     </script>
 </body>
