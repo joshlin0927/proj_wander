@@ -1,109 +1,397 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <!-- font-family -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-      crossorigin="anonymous"
-    />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- font-family -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet" />
 
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
-    <style>
-      * {
-        font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <style>
+    * {
+      font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+    }
+
+    body {
+      background-image: url("../public/imgs/其他/AdobeStock_408070902.jpeg");
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* 透明度0.6的黑色半透明遮罩 */
+      background-color: rgba(0, 0, 0, 0.6);
+      /* 設置背景混和模式為相乘模式 */
+      background-blend-mode: multiply;
+    }
+
+    /* 全頁背景色 */
+    .TCsp-bgc {
+      position: relative;
+      /* overflow: hidden; */
+    }
+
+    /* 全頁包覆(為了色塊動畫) */
+    .TCallwraper {
+      z-index: -1;
+      position: absolute;
+      top: -110px;
+      width: 100%;
+    }
+
+    .modal-dialog {
+      margin: 0;
+    }
+
+    .mt-15 {
+      margin-top: 15px;
+    }
+
+    .mt-200 {
+      margin-top: 200px;
+    }
+
+    .mb-30 {
+      margin-bottom: 30px;
+    }
+
+    .mt-50 {
+      margin-top: 50px;
+    }
+
+    .mb-50 {
+      margin-bottom: 50px;
+    }
+
+    /* -------------以上為公用--------- */
+
+    
+
+    /* 上面的黃色色塊 */
+    .dec-block {
+      display: block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      width: 56%;
+      height: 335px;
+      z-index: -2;
+      background: #f1ef5b;
+      border-radius: 0px 0px 0px 180px;
+      animation: TChy 12s linear infinite;
+    }
+
+    /* 黃色色塊的動畫 */
+    @keyframes TChy {
+      0% {
+        width: 60%;
+        height: 350px;
       }
 
-      body {
-        background-image: url("../public/imgs/其他/AdobeStock_408070902.jpeg");
-        background-position: top;
-        background-repeat: no-repeat;
-        background-size: cover;
-        /* 透明度0.6的黑色半透明遮罩 */
-        background-color: rgba(0, 0, 0, 0.6);
-        /* 設置背景混和模式為相乘模式 */
-        background-blend-mode: multiply;
+      25% {
+        height: 300px;
+        width: 54%;
       }
 
-      /* 全頁背景色 */
-      .TCsp-bgc {
-        position: relative;
+      50% {
+        width: 60%;
+        height: 350px;
+
       }
 
-      /* 全頁包覆(為了色塊動畫) */
-      .TCallwraper {
-        z-index: -1;
+      75% {
+        height: 300px;
+        width: 54%;
+
+      }
+
+      100% {
+        width: 60%;
+        height: 350px;
+      }
+    }
+
+
+    /* 麵包屑 */
+    .breadcrumb {
+      background-color: transparent;
+      font-size: 14px;
+      letter-spacing: -0.015em;
+      font-weight: 500;
+      color: #065f8e;
+      margin-left: 0.25rem;
+      padding-bottom: 15px;
+    }
+
+    .bread>ol {
+      list-style-type: none;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 115px;
+      height: 40px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* 新增課程(手機板) */
+    .btn-sm {
+      width: 73px;
+      height: 30px;
+    }
+
+    /* 表單儲存的字體顏色 */
+    .save-btn {
+      background-color: transparent;
+      color: black;
+      border: rgba(241, 239, 91, 1) 1px solid;
+    }
+
+    .save-btn:hover {
+      background-color: rgba(241, 239, 91, 1);
+      border: transparent 1px solid;
+      color: black;
+    }
+
+    /* 教師頁面返回按鈕 */
+    .TCback-btn {
+      padding: 0px 15px;
+      color: #065f8e;
+    }
+
+    /* 手機logo */
+    .logo-m {
+      margin: 40px auto 40px;
+    }
+
+    /* 會員中心sidebar */
+    .sidebar {
+      display: none;
+    }
+
+    /* 表單 */
+    .form {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      padding: 15px;
+
+    }
+
+    /* 表單頭 */
+    .form-head {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.9rem;
+    }
+
+    /* 頁面英文標題(圖片) */
+    .pageName {
+      display: none;
+    }
+
+    .form-title {
+      font-size: 24px;
+      color: #065f8e;
+      letter-spacing: -0.015em;
+      font-weight: bold;
+      margin: auto;
+    }
+
+    /* 表單頁面 */
+    .form-content {
+      margin: 0px auto;
+      padding: 0px auto;
+    }
+
+    /* 網站導覽列 */
+    .navbar {
+      display: none;
+    }
+
+    /* 表單裡的頭圖 */
+    .pic {
+      width: 116px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 21px;
+    }
+
+    .btn-border-only {
+      width: 117px;
+      height: 50px;
+      border: 1px solid #065f8e;
+      border-radius: 10px;
+      background-color: transparent;
+      color: black;
+      font-size: 15px;
+      font-weight: normal;
+    }
+
+    /* 姓名的input */
+    .nameInputs {
+      margin: 27px 0 50px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      width: 100%;
+      height: 48px;
+      font-size: 15px;
+      padding: 17px;
+    }
+
+    /* 所有input的格式 */
+    .allInputs {
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      width: 100%;
+      height: 48px;
+      font-size: 15px;
+      margin-bottom: 5px;
+      background-color: transparent;
+    }
+
+    /* 瀏覽按鈕 */
+    .browse {
+      width: 100%;
+      height: 48px;
+      border: 0px;
+      color: black;
+      background-color: #f1ef5b;
+      margin-left: -100px;
+      border-radius: 0px 10px 10px 0px;
+    }
+
+    /* 欄位提示小字 */
+    .notice {
+      font-weight: bold;
+      font-size: 14px;
+      letter-spacing: -0.015em;
+      color: #cf2727;
+      margin-bottom: 26px;
+    }
+
+    /* 預覽按鈕(桌機板) */
+    .preview-btn-top {
+      display: none;
+    }
+
+    /* 預覽按鈕(行動裝置) */
+    .preview-btn {
+      margin: 15px auto 30px;
+    }
+
+    .save-btn {
+      margin-top: 25px;
+    }
+
+    .change-btn {
+      color: black;
+      margin-bottom: 30px;
+    }
+
+    .confirmmsg-m {
+      width: 100%;
+      height: 70px;
+      background-color: white;
+      position: absolute;
+      right: 0px;
+      top: 270px;
+      font-size: 14px;
+      color: #065f8e;
+      text-align: center;
+      line-height: 70px;
+      z-index:-1;
+    }
+
+
+
+    @media (min-width: 768px) {
+
+      /* 右上角白圈 */
+      .whitecircle {
         position: absolute;
-        top: -110px;
+        width: 500px;
+        height: 500px;
+        right: 0px;
+        top: -126px;
+        border: white 2px dashed;
+        border-radius: 50%;
+
+      }
+
+      /* 網站主要導覽列 */
+      .navbar {
+        z-index: 5;
+        position: fixed;
+        display: flex;
+        top: 0;
         width: 100%;
+        height: 80px;
+        padding: 0;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
 
+      .mainContent {
+        margin-top: 110px;
+      }
+
+      /* 麵包屑 */
+      .breadcrumb {
+        padding: 0px;
+      }
+
+      .btn-sm {
+        width: 115px;
+        height: 40px;
+      }
+
+      .Labelitem {
+        width: 72px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        margin: auto 5px;
+      }
+
+      .input-grp-sm {
+        margin: auto 96px;
+      }
+
+      /* 彈窗 */
       .modal-dialog {
-        margin: 0;
+        margin: auto;
       }
 
-      .mt-15 {
-        margin-top: 15px;
+      /* 所有input欄位 */
+      .allInputs {
+        height: 50px;
       }
 
-      .mt-200 {
-        margin-top: 200px;
+      /* 表單頁面 */
+      .form-content {
+        margin: 0px auto;
+        padding: 0px 3rem;
       }
-
-      .mb-30 {
-        margin-bottom: 30px;
-      }
-
-      .mt-50 {
-        margin-top: 50px;
-      }
-
-      .mb-50 {
-        margin-bottom: 50px;
-      }
-
-      /* -------------以上為公用--------- */
 
       /* samar */
       /* .dec-block {
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0px;
-    width: 68%;
-    height: 335px;
-    z-index: -2;
-    background: #f1ef5b;
-    border-radius: 0px 0px 0px 180px;
-    animation: hy 12s linear infinite;
-    } */
-
+     height: 300px;
+     width: 54%;
+     } */
       /* @keyframes hy{
      0% {
      width: 60%;
@@ -131,657 +419,360 @@
      }
      } */
 
-      /* 上面的黃色色塊 */
       .dec-block {
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 0px;
-        width: 56%;
-        height: 335px;
-        z-index: -2;
-        background: #f1ef5b;
-        border-radius: 0px 0px 0px 180px;
-        animation: TChy 12s linear infinite;
+        height: 310px;
       }
 
-      /* 黃色色塊的動畫 */
-      @keyframes TChy {
-        0% {
-          left: 50%;
-        }
-
-        50% {
-          left: 46%;
-        }
-
-        100% {
-          left: 50%;
-        }
+      .notify-text {
+        font-size: 28px;
+        margin: 0px auto;
       }
 
-      /* 麵包屑 */
-      .breadcrumb {
-        background-color: transparent;
-        font-size: 14px;
-        letter-spacing: -0.015em;
-        font-weight: 500;
-        color: #065f8e;
-        margin-left: 0.25rem;
-        padding-bottom: 15px;
+      .courseLabel-right {
+        padding-right: 1rem;
       }
 
-      .bread > ol {
-        list-style-type: none;
-      }
-
-      .btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 115px;
-        height: 40px;
-        font-size: 14px;
-        font-weight: bold;
-      }
-
-      /* 新增課程(手機板) */
-      .btn-sm {
-        width: 73px;
-        height: 30px;
-      }
-
-      /* 表單儲存的字體顏色 */
-      .save-btn {
-        color: black;
-      }
-
-      /* 教師頁面返回按鈕 */
-      .TCback-btn {
-        padding: 0px 15px;
-        color: #065f8e;
-      }
-
-      /* 手機logo */
+      /* 手機版logo */
       .logo-m {
-        margin: 40px auto 40px;
+        display: none;
       }
 
-      /* 會員中心sidebar */
-      .sidebar {
-        display: none;
+      /* 頁面英文標題*/
+      .pageName {
+        display: block;
+        margin-bottom: 96px;
+        margin-top: 96px;
+        padding: 0;
+      }
+
+      .pageNameText {
+        position: relative;
+        color: black;
+        font-size: 6rem;
+        font-weight: bold;
+        line-height: 1;
+      }
+
+      .profile::before {
+        content: "";
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: #f1ef5b;
+        position: absolute;
+        z-index: -5;
+        left: 36%;
+        top: 42%;
       }
 
       /* 表單 */
       .form {
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 20px;
-        padding: 15px;
+        border: 2px solid rgba(6, 95, 142, 0.5);
+        margin: 0 auto 150px;
       }
 
       /* 表單頭 */
       .form-head {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1.9rem;
+        padding: 0px 5rem;
+        margin: 0px;
       }
 
-      /* 頁面英文標題(圖片) */
-      .pageName {
-        display: none;
-      }
-
-      .form-title {
-        font-size: 24px;
-        color: #065f8e;
-        letter-spacing: -0.015em;
-        font-weight: bold;
-        margin: auto;
-      }
-
-      /* 表單頁面 */
       .form-content {
-        margin: 0px auto;
-        padding: 0px auto;
+        width: 70%;
       }
 
-      /* 網站導覽列 */
-      .navbar {
-        display: none;
+      /* 表單名稱 */
+      .form-title {
+        display: flex;
+        margin: 50px 0px;
+        font-size: 36px;
       }
 
-      /* 表單裡的頭圖 */
-      .pic {
-        width: 116px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin-right: 21px;
-      }
-
-      .btn-border-only {
-        width: 117px;
-        height: 50px;
-        border: 1px solid #065f8e;
-        border-radius: 10px;
-        background-color: transparent;
-        color: black;
-        font-size: 15px;
-        font-weight: normal;
-      }
-
-      /* 姓名的input */
-      .nameInputs {
-        margin: 27px 0 50px;
-        border: 1px solid rgba(0, 0, 0, 0.5);
-        border-radius: 10px;
-        width: 100%;
-        height: 48px;
-        font-size: 15px;
-        padding: 17px;
-      }
-
-      /* 所有input的格式 */
-      .allInputs {
-        border: 1px solid rgba(0, 0, 0, 0.5);
-        border-radius: 10px;
-        width: 100%;
-        height: 48px;
-        font-size: 15px;
-        margin-bottom: 5px;
-        background-color: transparent;
-      }
-
-      /* 瀏覽按鈕 */
-      .browse {
-        width: 100%;
-        height: 48px;
-        border: 0px;
-        color: black;
-        background-color: #f1ef5b;
-        margin-left: -100px;
-        border-radius: 0px 10px 10px 0px;
-      }
-
-      /* 欄位提示小字 */
-      .notice {
-        font-weight: bold;
-        font-size: 14px;
-        letter-spacing: -0.015em;
-        color: #cf2727;
-        margin-bottom: 26px;
+      /* 給profile page用 */
+      .form-title-margin {
+        margin: 50px auto 50px 96px;
       }
 
       /* 預覽按鈕(桌機板) */
       .preview-btn-top {
+        display: block;
+        margin-left: auto;
+      }
+
+      /* 預覽按鈕(手機) */
+      .preview-btn {
         display: none;
       }
 
-      /* 預覽按鈕(行動裝置) */
-      .preview-btn {
-        margin: 15px auto 30px;
+      /* 教師頁面返回按鈕 */
+      .TCback-btn {
+        display: none;
       }
 
-      .save-btn {
-        margin-top: 25px;
+      .input-grp-sm {
+        margin: auto 96px;
       }
 
-      .change-btn {
-        color: black;
+      .topNavList {
+        display: flex;
+        list-style: none;
+        padding: 0px;
+      }
+
+      .topNav-item {
+        display: flex;
+        text-decoration: none;
+        align-items: center;
+        width: 175px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 10px;
+        padding-left: 39px;
+        margin-bottom: 10px;
+      }
+
+      /* 會員中心sidebar */
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+      }
+
+      /* 頭像 */
+      .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
         margin-bottom: 30px;
       }
 
-      @media (min-width: 768px) {
-        /* 網站主要導覽列 */
-        .navbar {
-          z-index: 5;
-          position: fixed;
-          display: flex;
-          top: 0;
-          width: 100%;
-          height: 80px;
-          padding: 0;
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        }
-
-        .mainContent {
-          margin-top: 110px;
-        }
-
-        /* 麵包屑 */
-        .breadcrumb {
-          padding: 0px;
-        }
-
-        .btn-sm {
-          width: 115px;
-          height: 40px;
-        }
-
-        .Labelitem {
-          width: 72px;
-          text-align: center;
-          font-size: 16px;
-          font-weight: bold;
-          margin: auto 5px;
-        }
-
-        .input-grp-sm {
-          margin: auto 96px;
-        }
-
-        /* 彈窗 */
-        .modal-dialog {
-          margin: auto;
-        }
-
-        /* 所有input欄位 */
-        .allInputs {
-          height: 50px;
-        }
-
-        /* 表單頁面 */
-        .form-content {
-          margin: 0px auto;
-          padding: 0px 3rem;
-        }
-
-        /* samar */
-        /* .dec-block {
-     height: 300px;
-     width: 54%;
-     } */
-        /* @keyframes hy{
-     0% {
-     width: 60%;
-     height: 350px;
-     }
-     25%{
-     height: 300px;
-     width: 54%;
-     }
-
-     50% {
-     width: 60%;
-     height: 350px;
-
-     }
-     75%{
-     height: 300px;
-     width: 54%;
-
-     }
-
-     100% {
-     width: 60%;
-     height: 350px;
-     }
-     } */
-
-        .dec-block {
-          height: 310px;
-        }
-
-        .notify-text {
-          font-size: 28px;
-          margin: 0px auto;
-        }
-
-        .courseLabel-right {
-          padding-right: 1rem;
-        }
-
-        /* 手機版logo */
-        .logo-m {
-          display: none;
-        }
-
-        /* 頁面英文標題*/
-        .pageName {
-          display: block;
-          margin-bottom: 96px;
-          margin-top: 96px;
-          padding: 0;
-        }
-
-        .pageNameText {
-          position: relative;
-          color: black;
-          font-size: 6rem;
-          font-weight: bold;
-          line-height: 1;
-        }
-
-        .profile::before {
-          content: "";
-          width: 42px;
-          height: 42px;
-          border-radius: 50%;
-          background: #f1ef5b;
-          position: absolute;
-          z-index: -5;
-          left: 36%;
-          top: 42%;
-        }
-
-        /* 表單 */
-        .form {
-          border: 2px solid rgba(6, 95, 142, 0.5);
-          margin: 0 auto 150px;
-        }
-
-        /* 表單頭 */
-        .form-head {
-          padding: 0px 5rem;
-          margin: 0px;
-        }
-
-        .form-content {
-          width: 70%;
-        }
-
-        /* 表單名稱 */
-        .form-title {
-          display: flex;
-          margin: 50px 0px;
-          font-size: 36px;
-        }
-
-        /* 給profile page用 */
-        .form-title-margin {
-          margin: 50px auto 50px 96px;
-        }
-
-        /* 預覽按鈕(桌機板) */
-        .preview-btn-top {
-          display: block;
-          margin-left: auto;
-        }
-
-        /* 預覽按鈕(手機) */
-        .preview-btn {
-          display: none;
-        }
-
-        /* 教師頁面返回按鈕 */
-        .TCback-btn {
-          display: none;
-        }
-
-        .input-grp-sm {
-          margin: auto 96px;
-        }
-
-        .topNavList {
-          display: flex;
-          list-style: none;
-          padding: 0px;
-        }
-
-        .topNav-item {
-          display: flex;
-          text-decoration: none;
-          align-items: center;
-          width: 175px;
-          height: 50px;
-          line-height: 50px;
-          border-radius: 10px;
-          padding-left: 39px;
-          margin-bottom: 10px;
-        }
-
-        /* 會員中心sidebar */
-        .sidebar {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 0;
-        }
-
-        /* 頭像 */
-        .avatar {
-          width: 120px;
-          height: 120px;
-          border-radius: 50%;
-          overflow: hidden;
-          margin-bottom: 30px;
-        }
-
-        /* sidebar選項列 */
-        .nav_list {
-          list-style: none;
-          padding: 0px;
-        }
-
-        /* sidebar選項 */
-        .nav-item {
-          display: flex;
-          align-items: center;
-          width: 100%;
-          height: 50px;
-          border-radius: 10px;
-          padding: 0px 20px;
-          margin-bottom: 10px;
-        }
-
-        .nav-item a {
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-          font-weight: bold;
-          font-size: 16px;
-          color: #065f8e;
-          background-color: transparent;
-        }
-
-        .nav-item > a > i {
-          font-size: 25px;
-          padding-right: 10px;
-          background-color: transparent;
-        }
-
-        /* 選中的選項狀態 */
-        .sidebar .active {
-          background-color: white;
-        }
-
-        .nav-item.active::before {
-          content: " ";
-          position: absolute;
-          left: 0;
-          width: 15px;
-          height: 50px;
-          background: #f1ef5b;
-        }
-
-        .sidebar .nav-item:hover {
-          background-color: white;
-        }
-
-        .save-btn {
-          margin: 60px 0;
-        }
-
-        .change-btn {
-          margin: 10px 0px 60px;
-        }
+      /* sidebar選項列 */
+      .nav_list {
+        list-style: none;
+        padding: 0px;
       }
-    </style>
 
-    <title>Wander 個人資料</title>
-  </head>
+      /* sidebar選項 */
+      .nav-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        border-radius: 10px;
+        padding: 0px 20px;
+        margin-bottom: 10px;
+      }
 
-  <body class="TCsp-bgc">
-    <!-- top nav -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-      <div class="container">
-        <div class="row flex-nowrap">
-          <div class="">
-            <a class="navbar-brand" href="#"
-              ><img src="../images/logo/logo_desktop.png" alt=""
-            /></a>
-          </div>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#"
-                  >Home <span class="sr-only">(current)</span></a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>
-            </ul>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a href="" class="nav-link">account</a>
-              </li>
-            </ul>
-          </div>
+      .nav-item a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        color: #065f8e;
+        background-color: transparent;
+      }
+
+      .nav-item>a>i {
+        font-size: 25px;
+        padding-right: 10px;
+        background-color: transparent;
+      }
+
+      /* 選中的選項狀態 */
+      .sidebar .active {
+        background-color: white;
+      }
+
+      .nav-item.active::before {
+        content: " ";
+        position: absolute;
+        left: 0;
+        width: 15px;
+        height: 50px;
+        background: #f1ef5b;
+      }
+
+      .sidebar .nav-item:hover {
+        background-color: white;
+      }
+
+      .save-btn {
+        margin: 60px 0;
+      }
+
+      .change-btn {
+        margin: 10px 0px 60px;
+      }
+
+      /* 表單送出後彈框 */
+      .confirmmsg {
+        width: 20%;
+        height: 70px;
+        background-color: white;
+        position: absolute;
+        right: 152px;
+        top: 270px;
+        font-size: 14px;
+        color: #065f8e;
+        text-align: center;
+        line-height: 70px;
+      }
+    }
+  </style>
+
+  <title>Wander 個人資料</title>
+</head>
+
+<body class="TCsp-bgc">
+  <!-- top nav -->
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container">
+      <div class="row flex-nowrap">
+        <div class="">
+          <a class="navbar-brand" href="#"><img src="../images/logo/logo_desktop.png" alt="" /></a>
         </div>
-      </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="container mainContent">
-      <!-- breadcrumb -->
-      <div class="row">
-        <div class="logo-m">
-          <img src="../images/logo/log_mobile.png" alt="" />
-        </div>
-        <nav class="w-100">
-          <ol class="breadcrumb col col-md-10 col-lg-12 m-0">
-            <li class="breadcrumb-item"><a href="">首頁</a></li>
-            <li class="breadcrumb-item"><a href="">會員中心</a></li>
-            <li class="breadcrumb-item active">個人資料</li>
-          </ol>
-        </nav>
-        <div class="col-10 ml-auto pageName">
-          <span class="pageNameText profile">Profile</span>
-        </div>
-      </div>
-
-      <div class="row justify-content-center">
-        <!-- sidebar -->
-        <nav class="sidebar col-2">
-          <div class="avatar">
-            <img
-              src="../images/students/Anne Hathaway.jpg"
-              alt=""
-              class="img-fluid"
-            />
-          </div>
-          <ul class="nav_list">
-            <li class="nav-item active">
-              <a href="">
-                <i class="fas fa-user"></i>
-                <div>個人資料</div>
-              </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a href="">
-                <i class="fas fa-key"></i>
-                <div>密碼更改</div>
-              </a>
+              <a class="nav-link" href="#">Link</a>
             </li>
-            <li class="nav-item">
-              <a href=""
-                ><i class="fas fa-shopping-bag"></i>
-                <div>訂單查詢</div>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Dropdown
               </a>
-            </li>
-            <li class="nav-item">
-              <a href="">
-                <i class="fas fa-comment-alt"></i>
-                <div>聊天室</div>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="">
-                <i class="far fa-credit-card"></i>
-                <div>信用卡管理</div>
-              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
             </li>
           </ul>
-        </nav>
-        <!-- form -->
-        <form class="form col-12 col-md-8">
-          <div class="form-head ml-1">
-            <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
-            <div class="form-title">個人資料</div>
-            <a href=""><i class="TCback-btn"></i></a>
-            <button class="btn btn-secondary preview-btn-top">頁面預覽</button>
-          </div>
-          <div class="form-content">
-            <div class="d-flex align-items-center ml-1">
-              <div class="pic">
-                <img
-                  src="../public/imgs/學生照片/Anne Hathaway.jpg"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <button class="btn btn-border-only">
-                <span>請選擇圖片</span>
-              </button>
-            </div>
-            <div class="fullname row">
-              <div class="col-6">
-                <input
-                  type="text"
-                  class="nameInputs"
-                  placeholder="Ann"
-                  disabled
-                />
-              </div>
-              <div class="col-6">
-                <input
-                  type="text"
-                  class="nameInputs"
-                  placeholder="Huang"
-                  disabled
-                />
-              </div>
-            </div>
-            <div class="mb-50">
-              <input
-                type="email"
-                class="col-12 allInputs"
-                placeholder="abc@gmail.com"
-                disabled
-              />
-            </div>
-            <div class="mb-50">
-              <input type="date" class="col-12 allInputs px-2" />
-            </div>
-
-            <input type="text" class="col-12 allInputs" placeholder="Ann" />
-          </div>
-          <button class="btn btn-secondary row mx-auto save-btn">儲存</button>
-          <button class="btn btn-secondary row preview-btn">頁面預覽</button>
-        </form>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="" class="nav-link">account</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="TCallwraper">
-      <div class="dec-block"></div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mainContent">
+    <!-- breadcrumb -->
+    <div class="row">
+      <div class="logo-m">
+        <img src="../images/logo/log_mobile.png" alt="" />
+      </div>
+      <nav class="w-100">
+        <ol class="breadcrumb col col-md-10 col-lg-12 m-0">
+          <li class="breadcrumb-item"><a href="">首頁</a></li>
+          <li class="breadcrumb-item"><a href="">會員中心</a></li>
+          <li class="breadcrumb-item active">個人資料</li>
+        </ol>
+      </nav>
+      <div class="col-10 ml-auto pageName">
+        <span class="pageNameText profile">Profile</span>
+      </div>
     </div>
-  </body>
+
+    <div class="row justify-content-center">
+      <!-- sidebar -->
+      <nav class="sidebar col-3">
+        <div class="avatar">
+          <img src="../images/students/Anne Hathaway.jpg" alt="" class="img-fluid" />
+        </div>
+        <ul class="nav_list">
+          <li class="nav-item active">
+            <a href="">
+              <i class="fas fa-user"></i>
+              <div>個人資料</div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="">
+              <i class="fas fa-key"></i>
+              <div>密碼更改</div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href=""><i class="fas fa-shopping-bag"></i>
+              <div>訂單查詢</div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="">
+              <i class="fas fa-comment-alt"></i>
+              <div>聊天室</div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="">
+              <i class="far fa-credit-card"></i>
+              <div>信用卡管理</div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- form -->
+      <form class="form col-12 col-md-8">
+        <div class="form-head ml-1">
+          <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
+          <div class="form-title">個人資料</div>
+          <a href=""><i class="TCback-btn"></i></a>
+
+        </div>
+        
+        <div class="form-content">
+          
+          <div class="d-flex align-items-center ml-1">
+            <div class="pic">
+              <img src="../public/imgs/學生照片/Anne Hathaway.jpg" class="img-fluid" alt="" />
+            </div>
+            <button class="btn btn-border-only">
+              <span>請選擇圖片</span>
+            </button>
+          </div>
+          <div class="fullname row">
+            <div class="col-6">
+              <input type="text" class="nameInputs" placeholder="Ann" disabled />
+            </div>
+            <div class="col-6">
+              <input type="text" class="nameInputs" placeholder="Huang" disabled />
+            </div>
+          </div>
+          <div class="mb-50">
+            <input type="email" class="col-12 allInputs" placeholder="abc@gmail.com" disabled />
+          </div>
+          <div class="mb-50">
+            <input type="date" class="col-12 allInputs px-2" />
+          </div>
+
+          <input type="text" class="col-12 allInputs" placeholder="Ann" />
+        </div>
+        <button class="btn btn-secondary row mx-auto save-btn">儲存</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="TCallwraper">
+    <div class="confirmmsg"><i class="far fa-check-circle"></i> 資料已修改完成</div>
+    <div class="dec-block"></div>
+    <div class="whitecircle"></div>
+
+
+
+  </div>
+</body>
+
 </html>
+
+

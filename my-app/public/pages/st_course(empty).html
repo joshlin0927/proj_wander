@@ -39,6 +39,7 @@
       position: absolute;
       top: -110px;
       width: 100%;
+      
     }
 
 
@@ -78,31 +79,48 @@
       animation: TChy 12s linear infinite;
     }
 
+    /* 藍色倒三角 */
+    .bluetriangle {
+      /* fill: #065F8E;
+      stroke: #065F8E;
+      stroke-width: 10;
+      transform: rotateZ(180deg);
+      position: absolute;
+      right:0px;
+      top:500px */
+     
+    }
+
+
     /* 黃色色塊的動畫 */
-    /* @keyframes TChy {
-    0% {
-    left: 50%;
-    }
-    50% {
-    left: 46%;
-    }
-    100% {
-    left: 50%;
-    }
-    } */
+    @keyframes TChy {
+      0% {
+      width: 60%;
+      height: 350px;
+      }
 
-     /* 藍色倒三角 */
-     .bluetriangle{
-     fill: #065F8E;
-     stroke: #065F8E;
-     stroke-width: 10;
-     transform:rotateZ(180deg);
-     display: block;
-     position: absolute;
-     right: -400px;
-     top: 517px;
-     }
+      25% {
+      height: 300px;
+      width: 54%;
+      }
 
+      50% {
+      width: 60%;
+      height: 350px;
+
+      }
+
+      75% {
+      height: 300px;
+      width: 54%;
+
+      }
+
+      100% {
+      width: 60%;
+      height: 350px;
+      }
+    } 
 
 
     /* 麵包屑 */
@@ -325,6 +343,18 @@
 
 
     @media (min-width: 768px) {
+
+
+      /* 右上角白圈 */
+      .whitecircle {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        right: 0px;
+        top: -126px;
+        border: white 2px dashed;
+        border-radius: 50%;
+      }
 
       /* 網站主要導覽列 */
       .navbar {
@@ -693,6 +723,7 @@
 
 
 
+
     }
   </style>
 
@@ -785,7 +816,7 @@
         </ul>
       </nav>
 
-      <div class="col-8 col-md-10">
+      <div class="col-8 col-md-10 col-lg-10">
         <p class="remindingtext">您尚未預訂任何課程</p>
         <button class="btn btn-secondary row buy-btn">購買課程</button>
       </div>
@@ -822,9 +853,10 @@
 
   <div class="TCallwraper">
     <div class="dec-block"></div>
-     <div class="bluetriangle"><svg width="672" height="747" viewBox="-50 -50 300 300">
-         <polygon class="triangle" stroke-linejoin="round" points="100,0 0,200 200,200" />
-       </svg></div>
+    <div class="whitecircle"></div>
+    <!-- <div class="bluetriangle"><svg width="672" height="747" viewBox="-50 -50 300 300">
+        <polygon class="triangle" stroke-linejoin="round" points="100,0 0,200 200,200" />
+      </svg></div> -->
   </div>
 </body>
 
