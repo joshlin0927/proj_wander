@@ -540,6 +540,7 @@ a {
   padding: 30px 0 16px 0;
   border-top: 2px solid black;
   justify-content: center;
+  display: flex;
 }
 .checkoutBtn{
   width: 60%;
@@ -547,6 +548,7 @@ a {
   height: 50px;
   color: #ffffff;
   background-color: #065f8e;
+  margin: 0;
 }
 .checkoutBtn:hover{
   color: #065f8e;
@@ -596,6 +598,7 @@ a {
     position: fixed;
     bottom: 80px;
     left: 0;
+    right: 0;
     width: 100%;
     padding: 0;
     justify-content: flex-end;
@@ -603,6 +606,7 @@ a {
     border-top: 1px solid black;
   }
   .checkoutBtn{
+    min-width: 85px;
     width: 30%;
     border-radius: 0;
   }
@@ -610,7 +614,7 @@ a {
     padding: 0.5rem 1rem;
   }
   .checkoutTotal-m{
-    margin-right: 10%;
+    padding-right: 5%;
   }
   .checkoutTotal-m-1{
     font-size: 1.5rem;
