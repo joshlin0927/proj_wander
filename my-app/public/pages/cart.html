@@ -216,11 +216,11 @@
                             <img src="../images/cart/coupon.svg" alt="">
                         </div>
                         <!-- <div class="w-100 mt-3"></div>
-                        <a href="#" class="ml-auto mr-auto">
+                        <a href="#" class="ml-auto mr-auto" data-toggle="modal" data-target="#counponModal">
                             <span class="selectCoupon">點我選擇優惠券</span>
                         </a> -->
                         <div class="w-100 mt-3"></div>
-                        <a href="#" class="ml-auto">
+                        <a href="#" class="ml-auto" data-toggle="modal" data-target="#counponModal">
                             <span class="selectOtherCoupon">選擇其他優惠券</span>
                         </a>
                     </div>
@@ -277,6 +277,135 @@
         </div>
     </div>
 
+    <!-- coupon modal -->
+
+    <div class="modal fade" id="counponModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="counponModalTitle">選擇優惠券</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="counponModalBody">
+                    <div class="container-fluid">
+                        <!-- 分類標題 -->
+                        <div class="row modal-body-title">
+                            <div class="col-4 text-center">優惠券類別</div>
+                            <div class="col-4 text-center">詳細說明</div>
+                            <div class="col-2 text-center">有效期限</div>
+                            <div class="col-2 text-center">選取</div>
+                        </div>
+                        <!-- 可用/不可用標題 -->
+                        <div class="row">
+                            <div class="col-12 modal-card-title">可使用的優惠券</div>
+                        </div>
+                    </div>
+                    <div id="counponCanUse" class="container-fluid ">
+                        <!-- 優惠券 -->
+                        <div class="row modal-card">
+                            <div class="col-6 col-md-4 text-center p-0">
+                                <img src="../images/cart/coupon.svg" alt="">
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <span>帳號內首筆訂單可使用</span>
+                                <div class="w-100"></div>
+                                <span>不限制訂單內課程購買數量</span>
+                             </div>
+                            <div class="col-6 col-md-2 text-center">2021.12.31</div>
+                            <div class="col-2 offset-4 offset-md-0 text-center p-0">
+                                <img src="../images/cart/check_icon.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="row modal-card">
+                            <div class="col-6 col-md-4 text-center p-0">
+                                <img src="../images/cart/coupon.svg" alt="">
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <span>帳號內首筆訂單可使用</span>
+                                <div class="w-100"></div>
+                                <span>不限制訂單內課程購買數量</span>
+                             </div>
+                            <div class="col-6 col-md-2 text-center">2021.12.31</div>
+                            <div class="col-2 offset-4 offset-md-0 text-center p-0">
+                                <img src="../images/cart/check_icon.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="row modal-card">
+                            <div class="col-6 col-md-4 text-center p-0">
+                                <img src="../images/cart/coupon.svg" alt="">
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <span>帳號內首筆訂單可使用</span>
+                                <div class="w-100"></div>
+                                <span>不限制訂單內課程購買數量</span>
+                             </div>
+                            <div class="col-6 col-md-2 text-center">2021.12.31</div>
+                            <div class="col-2 offset-4 offset-md-0 text-center p-0">
+                                <img src="../images/cart/check_icon.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid mt-5">
+                        <!-- 不可用標題 -->
+                        <div class="row">
+                            <div class="col-12 modal-card-title">無法套用的優惠券</div>
+                        </div>
+                        <!-- disable優惠券 -->
+                        <div class="row modal-card disable">
+                            <div class="col-6 col-md-4 text-center p-0">
+                                <img src="../images/cart/coupon.svg" alt="">
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <span>帳號內首筆訂單可使用</span>
+                                <div class="w-100"></div>
+                                <span>不限制訂單內課程購買數量</span>
+                             </div>
+                            <div class="col-6 col-md-2 text-center">2021.12.31</div>
+                            <div class="col-2 offset-4 offset-md-0 text-center p-0">
+                                <img src="../images/cart/check_icon.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="row modal-card disable">
+                            <div class="col-6 col-md-4 text-center p-0">
+                                <img src="../images/cart/coupon.svg" alt="">
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <span>帳號內首筆訂單可使用</span>
+                                <div class="w-100"></div>
+                                <span>不限制訂單內課程購買數量</span>
+                             </div>
+                            <div class="col-6 col-md-2 text-center">2021.12.31</div>
+                            <div class="col-2 offset-4 offset-md-0 text-center p-0">
+                                <img src="../images/cart/check_icon.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="row modal-card disable">
+                            <div class="col-6 col-md-4 text-center p-0">
+                                <img src="../images/cart/coupon.svg" alt="">
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <span>帳號內首筆訂單可使用</span>
+                                <div class="w-100"></div>
+                                <span>不限制訂單內課程購買數量</span>
+                             </div>
+                            <div class="col-6 col-md-2 text-center">2021.12.31</div>
+                            <div class="col-2 offset-4 offset-md-0 text-center p-0">
+                                <img src="../images/cart/check_icon.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn confirmBtn">確認</button>
+                    <button type="button" class="btn confirmBtn" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 
@@ -302,7 +431,14 @@
     <script src="../navbar(放上去)/assets/js/main.js"></script>
 
     <script>
+        $('#counponCanUse .modal-card').on('click', function () {
+            if ($(this).attr('isChecked') !== 'checked') {
+                $(this).attr('isChecked', 'checked');
+                $(this).addClass('active').siblings().removeClass('active');
+                $(this).children().last().html('<img src="../images/cart/checked_icon.svg" alt="">');
+            }
 
+        });
     </script>
 </body>
 

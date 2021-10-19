@@ -22,6 +22,15 @@ body {
   font-size: 14px;
   font-weight: bold;
 }
+.confirmBtn{
+  background-color: #ffffff;
+  border: 2px solid #065F8E;
+  color: #065F8E;
+}
+.confirmBtn:hover{
+  background-color: #065F8E;
+  color: #ffffff;
+}
 
 /*=============== Navbar ===============*/
 ul {
@@ -691,6 +700,88 @@ a {
   }
 }
 
+/*============= coupon modal =============*/
+.modal-header, .modal-body{
+  padding: 2rem;
+}
+#counponModal .modal-title{
+  color: #065F8E;
+  font-size: 2rem;
+}
+#counponModal .modal-content{
+  background-color: #c7c6c1;
+}
+.modal-body-title{
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1rem 0;
+  align-items: center;
+  font-weight: bold;
+}
+.modal-card-title{
+  border-bottom: 2px solid black;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  padding: 0;
+}
+.modal-card{
+  cursor: pointer;
+  background-color: #fff;
+  border: 3px solid #065e8e00;
+  margin-top: 1.5rem;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+  align-items: center;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.modal-card.active{
+  border: 3px solid #065F8E;
+}
+.modal-card.disable{
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+@media (max-width: 767px) {
+  .modal-body-title{
+    display: none;
+  }
+  #counponModal .modal-dialog{
+    margin: 0;
+    width: 100%;
+    max-width: 767px;
+  }
+  #counponModal .modal-content{
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 5%;
+    overflow: scroll;
+    height: 100vh;
+    width: 100vw;
+  }
+  #counponModal .modal-content .modal-body{
+    margin-bottom: 10vh;
+  }
+  #counponModal .modal-content .modal-footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    border-bottom: none;
+    z-index: 5;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+  }
+  .modal.fade .modal-dialog {
+    transform: translateY(50vh);
+  }
+  .modal.show .modal-dialog {
+    transform: translateY(0);
+  }
+  .modal-card{
+    padding: 1rem;
+  }
+}
 
 /*============= Background =============*/
 
