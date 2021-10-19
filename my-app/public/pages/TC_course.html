@@ -316,7 +316,9 @@
       const fileInput = document.querySelector('#fileInput')
       const fakeFileInput = document.querySelector('#fakeFileInput')
 
-      function readURL(fakeFileInput)
+      function readURL(){
+        fakeFileInput
+      }
       
       fakeFileInput.addEventListener('change', ()=>{
         readURL()

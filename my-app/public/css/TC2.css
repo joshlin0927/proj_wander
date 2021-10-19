@@ -15,7 +15,6 @@ body {
 .TCsp-bgc {
   background: #f1f0e9;
   position: relative;
-  /* overflow: hidden; */
 }
 
 /* 全頁包覆(為了色塊動畫) */
@@ -99,7 +98,7 @@ body {
 }
 
 /* 黃色色塊的動畫 */
-/* @keyframes TChy {
+@keyframes TChy {
   0% {
     left: 50%;
   }
@@ -111,7 +110,7 @@ body {
   100% {
     left: 50%;
   }
-} */
+}
 
 /* 新增課程的黃色色塊 */
 .dec-block-lg {
