@@ -106,40 +106,7 @@
     }
 
     /* 頁碼 */
-    .Mypagination {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      margin: 50px 0px 30px;
-    }
-
-    .Mypage-item {
-      width: 28px;
-      height: 28px;
-      border-radius: 5px;
-      line-height: 26px;
-      text-align: center;
-    }
-
-    .Mypage-item a {
-      font-size: 12px;
-      color: black;
-      text-align: center;
-    }
-
-    .Mypage-item a i {
-      color: #065F8E;
-    }
-
-    /* 頁碼被選中時 */
-    .Mypage-item.active {
-      background-color: #065F8E;
-    }
-
-    .Mypage-item.active a {
-      color: white;
-    }
-
+    
     /* 手機logo */
     .logo-m {
       margin: 40px auto 40px;
@@ -330,12 +297,6 @@
         display: none;
       }
 
-      /* 頁碼 */
-      .Mypagination {
-        display: flex;
-      }
-
-
       /* 頁面英文標題 */
       .pageName {
         display: block;
@@ -499,6 +460,40 @@
       } */
 
 
+      .Mypagination {
+      
+      list-style: none;
+      display: flex;
+      align-items: center;
+      margin: 50px 0px 30px;
+      }
+
+      .Mypage-item {
+      width: 28px;
+      height: 28px;
+      border-radius: 5px;
+      line-height: 26px;
+      text-align: center;
+      }
+
+      .Mypage-item a {
+      font-size: 12px;
+      color: black;
+      text-align: center;
+      }
+
+      .Mypage-item a i {
+      color: #065F8E;
+      }
+
+      /* 頁碼被選中時 */
+      .Mypage-item.active {
+      background-color: #065F8E;
+      }
+
+      .Mypage-item.active a {
+      color: white;
+      }
 
       .subtitle {
         font-size: 36px;
@@ -519,8 +514,6 @@
         /* height: 200px; */
         object-fit: cover;
         border-radius: 50%;
-
-
       }
 
       .nametag {
@@ -535,25 +528,7 @@
 
       /* -------------以上為公用--------- */
 
-      /* 手機板會變小的按鈕 */
-      .TCbtn-sm {
-        display: flex;
-        width: 115px;
-        height: 40px;
-      }
-
-      /* 手機板會變小的按鈕(有display變化) */
-      .TCbtn-sm-w-switch {
-        display: none;
-      }
-
-
-
-      /* 教師頁面返回按鈕 */
-      .TCback-btn {
-        display: none;
-      }
-
+      
 
       /* 會員中心sidebar */
       .sidebar {
@@ -754,25 +729,25 @@
           <span class="teachername">Thoms Lillard</span>
 
         </div>
-        <div class="courseitem ">
+        <div class="courseitem mo-none">
           <img src="../public/imgs/課程圖片/法文課程(咖啡廳文化).jpeg" alt="">
           <div class="coursename">課程名稱：填上課程名稱</div>
           <span class="teachername">Thoms Lillard</span>
 
         </div>
-        <div class="courseitem ">
+        <div class="courseitem mo-none">
           <img src="../public/imgs/課程圖片/歐洲運動賽事.jpeg" alt="">
           <div class="coursename">課程名稱：填上課程名稱</div>
           <span class="teachername">Thoms Lillard</span>
 
         </div>
-        <div class="courseitem ">
+        <div class="courseitem mo-none">
           <img src="../public/imgs/課程圖片/歐洲運動賽事.jpeg" alt="">
           <div class="coursename">課程名稱：填上課程名稱</div>
           <span class="teachername">Thoms Lillard</span>
 
         </div>
-        <div class="courseitem ">
+        <div class="courseitem mo-none">
           <img src="../public/imgs/課程圖片/歐洲運動賽事.jpeg" alt="">
           <div class="coursename">課程名稱：填上課程名稱</div>
           <span class="teachername">Thoms Lillard</span>
@@ -781,7 +756,7 @@
       </div>
     </div>
     <nav>
-      <ul class="Mypagination justify-content-end">
+      <ul class="Mypagination justify-content-end mo-none">
         <li class="Mypage-item">
           <a class="Mypage-link" href="#" aria-label="Previous">
             <i class="fas fa-chevron-left"></i>

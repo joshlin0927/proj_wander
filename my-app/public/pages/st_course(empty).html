@@ -62,10 +62,7 @@
       display: none;
     }
 
-    /* 地球背景圖 */
-    .earth {
-      display: none;
-    }
+
 
     /* 上面的黃色色塊 */
     .dec-block {
@@ -276,30 +273,34 @@
       width: 100%;
     }
 
-    .remindingtext{
-    font-size:36px;
-    color: #065F8E;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 185px;
+    .remindingtext {
+      font-size: 36px;
+      color: #065F8E;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 185px;
 
 
 
     }
 
-    .buy-btn{
-    background-color: transparent;
-    border:#065F8E 1px solid;
-    color:#065F8E;
-    margin-left: auto;
-    margin-right: auto;
+    .buy-btn {
+      background-color: transparent;
+      border: #065F8E 1px solid;
+      color: #065F8E;
+      margin-left: auto;
+      margin-right: auto;
 
     }
 
-    .buy-btn:hover{
-    background-color:#065F8E;
-    border:1px solid transparent;
-    color:white;
+    .buy-btn:hover {
+      background-color: #065F8E;
+      border: 1px solid transparent;
+      color: white;
+    }
+
+    .bgcwhite {
+      background-color: #ffffff;
     }
 
 
@@ -338,20 +339,6 @@
       .dec-block {
         height: 310px;
       }
-
-      /* 地球 */
-      .earth {
-        display: block;
-        position: absolute;
-        z-index: -1;
-        right: 0;
-        top: 724px;
-      }
-      
-
-
-
-
 
       /* 手機版logo */
       .logo-m {
@@ -659,43 +646,38 @@
         margin-bottom: 150px;
       }
 
-     
-      
-      .remindingtext{
-        font-size:36px;
+
+
+      .remindingtext {
+        font-size: 36px;
         color: #065F8E;
         font-weight: bold;
         text-align: center;
         margin-top: 185px;
-       
-        
+
+
 
       }
-      
-      .buy-btn{
+
+      .buy-btn {
         background-color: transparent;
-        border:#065F8E 1px solid;
-        color:#065F8E;
+        border: #065F8E 1px solid;
+        color: #065F8E;
         margin-left: auto;
         margin-right: auto;
-       
+
       }
 
-       .buy-btn:hover{
-         background-color:#065F8E;
-         border:1px solid transparent;
-         color:white;
-       }
+      .buy-btn:hover {
+        background-color: #065F8E;
+        border: 1px solid transparent;
+        color: white;
+      }
 
-       .bluetriangle{
-         fill: #065F8E;
-         stroke: #065F8E;
-         stroke-width: 10; 
-         position: absolute;
-         right:800px;
-         top: 100px;
-         
-       }
+      .bgcwhite {
+        background-color: #ffffff;
+      }
+
 
 
     }
@@ -780,7 +762,7 @@
               <div> 我的課程</div>
             </a>
           </li>
-          
+
           <li class="nav-item">
             <a href="">
               <i class="fal fa-table"></i>
@@ -790,17 +772,14 @@
         </ul>
       </nav>
 
-        <div class="col-8 col-md-10">
-          <p class="remindingtext">您尚未預訂任何課程</p>
-          <button class="btn btn-secondary row buy-btn">購買課程</button>
-        </div>
-
-
-      
+      <div class="col-8 col-md-10">
+        <p class="remindingtext">您尚未預訂任何課程</p>
+        <button class="btn btn-secondary row buy-btn">購買課程</button>
+      </div>
     </div>
-   
-    
-    
+
+
+
 
     <div class="row mb-5 ">
       <div class="subtitle">推薦教師</div>
@@ -824,18 +803,12 @@
         <p class="nametag">Jessica</p>
       </div>
     </div>
+
+
   </div>
-
-
 
   <div class="TCallwraper">
     <div class="dec-block"></div>
-    <div class="earth"><img src="../public/imgs/網頁素材/earth.png" alt="" /></div>
-    <div><svg width="672" height="747" viewBox="-50 -50 300 300">
-        <polygon class="bluetriangle" stroke-linejoin="round" points="100,0 0,200 200,200" />
-      </svg></div>
-
-    
   </div>
 </body>
 
