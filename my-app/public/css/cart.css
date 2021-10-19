@@ -680,7 +680,7 @@ a {
   }
   .mobile-nav-item-active::before{
     content: "";
-    width: 64px;
+    width: 100%;
     height: 6px;
     color: #f1ef5b;
     border-top: 6px solid #f1ef5b;
