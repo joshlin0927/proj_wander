@@ -238,7 +238,7 @@
 
     .t_avatar {
       width: 200px;
-      height:fit-height;
+      height: fit-height;
       border-radius: 50%;
       /* overflow: hidden; */
 
@@ -258,7 +258,7 @@
       margin-top: 45px;
       font-size: 24px;
       margin-bottom: 0px;
-      
+
     }
 
     .mo-none {
@@ -271,10 +271,37 @@
       display: row;
     }
 
-    .btblock{
-    margin-bottom: 30px;
-    width:100%;
+    .btblock {
+      margin-bottom: 30px;
+      width: 100%;
     }
+
+    .remindingtext{
+    font-size:36px;
+    color: #065F8E;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 185px;
+
+
+
+    }
+
+    .buy-btn{
+    background-color: transparent;
+    border:#065F8E 1px solid;
+    color:#065F8E;
+    margin-left: auto;
+    margin-right: auto;
+
+    }
+
+    .buy-btn:hover{
+    background-color:#065F8E;
+    border:1px solid transparent;
+    color:white;
+    }
+
 
 
 
@@ -320,6 +347,7 @@
         right: 0;
         top: 724px;
       }
+      
 
 
 
@@ -508,7 +536,7 @@
 
       .t_avatar {
         width: 200px;
-        
+
         border-radius: 50%;
         /* overflow: hidden; */
 
@@ -527,8 +555,8 @@
         text-align: center;
         margin-top: 45px;
         font-size: 24px;
-        margin-bottom:0px;
-        
+        margin-bottom: 0px;
+
       }
 
 
@@ -626,16 +654,54 @@
         display: block;
       }
 
-      .btblock{
+      .btblock {
         width: 100%;
         margin-bottom: 150px;
       }
+
+     
+      
+      .remindingtext{
+        font-size:36px;
+        color: #065F8E;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 185px;
+       
+        
+
+      }
+      
+      .buy-btn{
+        background-color: transparent;
+        border:#065F8E 1px solid;
+        color:#065F8E;
+        margin-left: auto;
+        margin-right: auto;
+       
+      }
+
+       .buy-btn:hover{
+         background-color:#065F8E;
+         border:1px solid transparent;
+         color:white;
+       }
+
+       .bluetriangle{
+         fill: #065F8E;
+         stroke: #065F8E;
+         stroke-width: 10; 
+         position: absolute;
+         right:800px;
+         top: 100px;
+         
+       }
 
 
     }
   </style>
 
-  <title>學生課程</title>
+  <title>學生課程(尚未購買)</title>
 </head>
 
 <body class="TCsp-bgc">
@@ -714,11 +780,7 @@
               <div> 我的課程</div>
             </a>
           </li>
-          <li class="nav-item">
-            <a href=""><i class="fal fa-users-class"></i>
-              <div> 教室上課</div>
-            </a>
-          </li>
+          
           <li class="nav-item">
             <a href="">
               <i class="fal fa-table"></i>
@@ -728,105 +790,40 @@
         </ul>
       </nav>
 
-
-      <div class="coursesection col-md-10 col-lg-10 col-12">
-
-        <div class="courseitem">
-          <img src="../public/imgs/課程圖片/歐洲運動賽事.jpeg" alt="">
-          <div class="coursename">課程名稱：填上課程名稱</div>
-          <span class="teachername">Thoms Lillard</span>
-        </div>
-        <div class="courseitem">
-          <img src="../public/imgs/課程圖片/機場、旅遊.jpeg" alt="">
-          <div class="coursename ">課程名稱：填上課程名稱</div>
-          <span class="teachername">Thoms Lillard</span>
-        </div>
-        <div class="courseitem">
-          <img src="../public/imgs/課程圖片/機場、旅遊.jpeg" alt="">
-          <div class="coursename ">課程名稱：填上課程名稱</div>
-          <span class="teachername">Thoms Lillard</span>
-
-
-        </div>
-        <div class="courseitem">
-          <img src="../public/imgs/課程圖片/機場、旅遊.jpeg" alt="">
-          <div class="coursename ">課程名稱：填上課程名稱</div>
-          <span class="teachername">Thoms Lillard</span>
-
-        </div>
-        <div class="courseitem ">
-          <img src="../public/imgs/課程圖片/法文課程(咖啡廳文化).jpeg" alt="">
-          <div class="coursename">課程名稱：填上課程名稱</div>
-          <span class="teachername">Thoms Lillard</span>
-
-        </div>
-        <div class="courseitem ">
-          <img src="../public/imgs/課程圖片/歐洲運動賽事.jpeg" alt="">
-          <div class="coursename">課程名稱：填上課程名稱</div>
-          <span class="teachername">Thoms Lillard</span>
-
-        </div>
-        <div class="courseitem ">
-          <img src="../public/imgs/課程圖片/歐洲運動賽事.jpeg" alt="">
-          <div class="coursename">課程名稱：填上課程名稱</div>
-          <span class="teachername">Thoms Lillard</span>
-
-        </div>
-        <div class="courseitem ">
-          <img src="../public/imgs/課程圖片/歐洲運動賽事.jpeg" alt="">
-          <div class="coursename">課程名稱：填上課程名稱</div>
-          <span class="teachername">Thoms Lillard</span>
+        <div class="col-8 col-md-10">
+          <p class="remindingtext">您尚未預訂任何課程</p>
+          <button class="btn btn-secondary row buy-btn">購買課程</button>
         </div>
 
+
+      
+    </div>
+   
+    
+    
+
+    <div class="row mb-5 ">
+      <div class="subtitle">推薦教師</div>
+    </div>
+
+    <div class="row teacherrow btblock">
+
+      <div class="t_avatar col-12 col-md-3 col-lg-3"><img src="../public/imgs/老師照片/Tarin Johnson.jpg" alt="">
+        <p class="nametag">Tarin</p>
+      </div>
+
+      <div class="t_avatar  col-md-3 col-lg-3 mo-none"><img src="../public/imgs/老師照片/Mickey Adames.jpeg" alt="">
+        <p class="nametag">Carlin</p>
+      </div>
+
+      <div class="t_avatar  col-md-3 col-lg-3 mo-none"><img src="../public/imgs/老師照片/Tarin Johnson.jpg" alt="">
+        <p class="nametag">Catherine</p>
+      </div>
+
+      <div class="t_avatar col-md-3 col-lg-3 mo-none"><img src="../public/imgs/老師照片/Tarin Johnson.jpg" alt="">
+        <p class="nametag">Jessica</p>
       </div>
     </div>
-    <nav>
-      <ul class="Mypagination justify-content-end">
-        <li class="Mypage-item">
-          <a class="Mypage-link" href="#" aria-label="Previous">
-            <i class="fas fa-chevron-left"></i>
-          </a>
-        </li>
-        <li class="Mypage-item active">
-          <a class="Mypage-link" href="#">1</a>
-        </li>
-        <li class="Mypage-item">
-          <a class="Mypage-link" href="#">2</a>
-        </li>
-        <li class="Mypage-item">
-          <a class="Mypage-link" href="#" aria-label="Next">
-            <i class="fas fa-chevron-right"></i>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    
-      <div class="row mb-5 ">
-        <div class="subtitle">推薦教師</div>
-      </div>
-
-      <div class="row teacherrow btblock">
-
-        <div class="t_avatar col-12 col-md-3 col-lg-3"><img src="../public/imgs/老師照片/Tarin Johnson.jpg" alt="">
-          <p class="nametag">Tarin</p>
-        </div>
-
-        <div class="t_avatar  col-md-3 col-lg-3 mo-none"><img src="../public/imgs/老師照片/Mickey Adames.jpeg" alt="">
-          <p class="nametag">Carlin</p>
-        </div>
-
-        <div class="t_avatar  col-md-3 col-lg-3 mo-none"><img src="../public/imgs/老師照片/Tarin Johnson.jpg" alt="">
-          <p class="nametag">Catherine</p>
-        </div>
-
-        <div class="t_avatar col-md-3 col-lg-3 mo-none"><img src="../public/imgs/老師照片/Tarin Johnson.jpg" alt="">
-          <p class="nametag">Jessica</p>
-        </div>
-
-      </div>
-
-    
-   
   </div>
 
 
@@ -834,7 +831,11 @@
   <div class="TCallwraper">
     <div class="dec-block"></div>
     <div class="earth"><img src="../public/imgs/網頁素材/earth.png" alt="" /></div>
+    <div><svg width="672" height="747" viewBox="-50 -50 300 300">
+        <polygon class="bluetriangle" stroke-linejoin="round" points="100,0 0,200 200,200" />
+      </svg></div>
 
+    
   </div>
 </body>
 
