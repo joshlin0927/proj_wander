@@ -619,12 +619,17 @@ a {
   }
 }
 @media (min-width: 768px) {
-  .couponTitle-m, .checkoutSubtotal-m, .checkoutFooter-t, .checkoutTotal-m, .mobile-nav{
+  .couponTitle-m, .checkoutSubtotal-m, .checkoutFooter-t, .checkoutTotal-m{
     display: none;
   }
 }
 
 /*============= mobile nav =============*/
+@media (min-width: 768px) {
+  .mobile-nav{
+    display: none;
+  }
+}
 @media (max-width: 767px) {
   .mobile-nav{
     background-color: #fff;
