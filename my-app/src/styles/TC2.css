@@ -4,23 +4,17 @@
 
 body {
   font-size: 12px;
-}
-
-.mainContent {
-  margin-bottom: 80px;
-}
-
-/* 全頁背景色 */
-.TCsp-bgc {
   background: #f1f0e9;
   position: relative;
 }
 
 /* 全頁包覆(為了色塊動畫) */
 .TCallwraper {
+  z-index: -1;
   position: absolute;
   top: -110px;
   width: 100%;
+  height: 100%;
 }
 
 .TCmb-50 {
@@ -41,20 +35,20 @@ body {
   font-weight: bold;
 }
 
-.btn-primary{
+.btn-primary {
   border: 1px solid #065F8E;
   border-radius: 6px;
   background-color: transparent;
   color: #065F8E;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
   color: white;
   border: 1px solid #065F8E;
-  background-color:#065F8E;
+  background-color: #065F8E;
 }
 
-.btn-secondary{
+.btn-secondary {
   border: 1px solid black;
   border-radius: 6px;
   background-color: transparent;
@@ -62,19 +56,14 @@ body {
   transition: .12s linear;
 }
 
-.btn-secondary:hover{
+.btn-secondary:hover {
   color: black;
   border: 1px solid #F1EF5B;
-  background-color:#F1EF5B;
+  background-color: #F1EF5B;
 }
 
 .opacity-0 {
   opacity: 0;
-}
-
-/* 網站導覽列 */
-.navbar {
-  display: none;
 }
 
 /* 地球背景圖 */
@@ -148,6 +137,10 @@ body {
   }
 }
 
+/* 網站導覽列 */
+.navbar {
+  display: none;
+}
 
 /* 麵包屑 */
 .breadcrumb {
@@ -157,6 +150,73 @@ body {
   font-weight: 500;
   margin-left: .25rem;
   padding: 0px 0px 15px;
+}
+
+/* footer */
+.footerWrap {
+  margin-bottom: 80px;
+}
+
+.wanderFooter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 220px;
+  background-color: #065F8E;
+}
+
+.footer-left {
+  margin: auto;
+  width: 100%;
+}
+
+#Footer-Desktop-Logo {
+  display: none;
+}
+
+#Footer-Mobile-Logo {
+  display: block;
+  margin: 18px auto 35px;
+}
+
+.Footer-page-links {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 25px;
+  width: 100%;
+  padding: 0px;
+}
+
+.Footer-page-links>a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer-right {
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  width: 100%;
+}
+
+.icons {
+  color: white;
+  font-size: 25px;
+}
+
+.version-icon {
+  display: flex;
+  margin-left: 0px;
+}
+
+.icon-sp {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-size: 12px;
+  color: white;
+  margin: 5px;
 }
 
 /* 頁碼 */
@@ -284,16 +344,16 @@ body {
 }
 
 /* 搜尋列 */
-.search {
+.TCsearch {
   display: none;
 }
 
-.search-mobile {
+.TCsearch-mobile {
   display: flex;
   margin-bottom: 30px;
 }
 
-.searchbar {
+.TCsearchbar {
   width: 100%;
   height: 40px;
   padding-left: 17px;
@@ -302,7 +362,7 @@ body {
   border-radius: 6px;
 }
 
-.searchbar+button[type="submit"] {
+.TCsearchbar+button[type="submit"] {
   width: 76px;
   background: #065F8E;
   color: white;
@@ -509,10 +569,10 @@ body {
   margin-left: .625rem;
 }
 
-.messageAvatarFilter{
+.messageAvatarFilter {
   border-radius: 50%;
   overflow: hidden;
-} 
+}
 
 .Ltriangle::before {
   position: absolute;
@@ -650,7 +710,6 @@ body {
 .BuyCourseImg {
   width: 100%;
   height: 100%;
-  border-radius: 30px;
 }
 
 .coursename {
@@ -753,7 +812,8 @@ body {
 .resume {
   display: flex;
 }
-.resume>input{
+
+.resume>input {
   cursor: pointer;
 }
 
@@ -804,6 +864,7 @@ body {
   width: 100%;
   overflow: hidden;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 /* 課程圖片 */
@@ -814,7 +875,7 @@ body {
   overflow: hidden;
 }
 
-.TCcourse-img img{
+.TCcourse-img img {
   max-width: auto;
   height: 100%;
 }
@@ -849,6 +910,11 @@ body {
   font-size: 18px;
   padding: 3px 10px 0px;
   margin-left: auto;
+  cursor: pointer;
+}
+
+.TCcourse-delete:hover{
+
 }
 
 /* 影片上傳 */
@@ -1023,7 +1089,7 @@ body {
     display: block;
     position: absolute;
     left: 70px;
-    top: 1068px;
+    bottom: 0px;
     width: 367px;
     height: 789px;
     transform: skew(-24.76deg);
@@ -1032,7 +1098,7 @@ body {
     border-radius: 30px;
     animation: 12s linear infinite;
   }
-  
+
   /* 藍色色塊(下) */
   .dec-blue-block {
     display: block;
@@ -1047,20 +1113,20 @@ body {
     height: 50px;
   }
 
-  #fakeFileInput{
+  #fakeFileInput {
     content: '123';
   }
 
   /* 搜尋列 */
-  .search {
+  .TCsearch {
     display: flex;
   }
 
-  .search-mobile {
+  .TCsearch-mobile {
     display: none;
   }
 
-  .searchbar {
+  .TCsearchbar {
     width: 100%;
   }
 
@@ -1165,7 +1231,7 @@ body {
   }
 
   /* sidebar選項 */
-  .sidebar .nav-item {
+  .nav-item {
     display: flex;
     text-align: center;
     text-decoration: none;
@@ -1176,6 +1242,7 @@ body {
     border-radius: 0px 10px 10px 0px;
     margin-bottom: 10px;
     color: #065f8e;
+    position: relative;
   }
 
   .sidebar .nav-item>i {
@@ -1193,6 +1260,8 @@ body {
   .sidebar .nav-item.active::after {
     content: "";
     position: absolute;
+    left: 0;
+    top: 0;
     width: 15px;
     height: 50px;
     background: #f1ef5b;
@@ -1417,6 +1486,7 @@ body {
   /* sidebar選項 */
   .sidebar .nav-item {
     display: flex;
+    position: relative;
     align-items: center;
     height: 50px;
     border-radius: 0px 10px 10px 0px;
@@ -1448,6 +1518,8 @@ body {
   .nav-item.active::after {
     content: "";
     position: absolute;
+    top: 0;
+    left: 0;
     width: 15px;
     height: 50px;
     background: #f1ef5b;
@@ -1583,6 +1655,7 @@ body {
   .BuyCourseSection {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 30px;
   }
 
   .BuyCourseItem {
@@ -1600,7 +1673,6 @@ body {
   .BuyCourseImg {
     width: auto;
     height: 100%;
-    border-radius: 30px;
   }
 
   .coursename {
@@ -1650,5 +1722,79 @@ body {
     bottom: 6%;
     right: 5%;
   }
-  
+
+  /* footer */
+  .footerWrap {
+    width: 90%;
+    border-radius: 0px 50px 0px 0px;
+    background-color: #065F8E;
+    margin-bottom: 0px;
+  }
+
+  .wanderFooter {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 250px;
+  }
+
+  .footer-left {
+    margin-right: 0px;
+  }
+
+  #Footer-Desktop-Logo {
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  #Footer-Mobile-Logo {
+    display: none;
+  }
+
+  .Footer-page-links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    width: 100%;
+  }
+
+  .Footer-page-links>a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 4.5rem;
+    margin-right: 10%;
+    width: 100%;
+  }
+
+  .icons {
+    color: white;
+    font-size: 25px;
+    margin-bottom: 60px;
+  }
+
+  .icons i {
+    margin-left: 26px;
+  }
+
+  .version-icon {
+    display: flex;
+    margin-left: 0px;
+  }
+
+
+  .icon-sp {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    font-size: 12px;
+    color: white;
+    margin: 0px 0px 0px 10px;
+  }
 }
