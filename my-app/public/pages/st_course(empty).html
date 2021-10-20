@@ -39,7 +39,7 @@
       position: absolute;
       top: -110px;
       width: 100%;
-      
+
     }
 
 
@@ -81,29 +81,27 @@
 
     /* 藍色倒三角 */
     .bluetriangle {
-      position:absolute;
-      right: 0;
-      top:615px;    
+      display: none;
     }
 
 
     /* 黃色色塊的動畫 */
     @keyframes TChy {
-    0% {
-    right: 0%;
-    width: 56%;
-    }
+      0% {
+        right: 0%;
+        width: 56%;
+      }
 
-    50% {
-    right: 0%;
-    width: 60%;
-    }
+      50% {
+        right: 0%;
+        width: 60%;
+      }
 
-    100% {
-    right: 0%;
-    width: 56%;
+      100% {
+        right: 0%;
+        width: 56%;
 
-    }
+      }
     }
 
 
@@ -338,6 +336,14 @@
         top: -126px;
         border: white 2px dashed;
         border-radius: 50%;
+      }
+
+      /* 藍色倒三角 */
+      .bluetriangle {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 615px;
       }
 
       /* 網站主要導覽列 */
