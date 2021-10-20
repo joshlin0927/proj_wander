@@ -156,15 +156,18 @@
           </ul>
         </nav>
         <!-- form -->
-        <form class="TCform col-12 col-md-10">
+        <div class="TCform col-12 col-md-10">
           <div class="TCform-head ml-1 p-0">
-            <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
+            <a href="">
+              <i class="fas fa-chevron-left TCback-btn"></i>
+            </a>
             <div class="TCform-title mr-auto">我的課程</div>
             <!-- desktop search bar -->
-            <div class="search mr-auto col-6">
+            <div class="TCsearch mr-auto col-6">
               <input
                 type="text"
-                class="searchbar"
+                class="TCsearchbar"
+                id="TCsearchbar"
                 placeholder="請輸入課程名稱"
               />
               <button type="submit" class="">
@@ -176,8 +179,8 @@
             </div>
           </div>
           <!-- mobile search bar -->
-          <div class="search-mobile">
-            <input type="text" class="searchbar" placeholder="請輸入課程名稱" />
+          <div class="TCsearch-mobile">
+            <input type="text" class="TCsearchbar" id="TCsearchbar" placeholder="請輸入課程名稱" />
             <button type="submit" class="">
               <i class="fas fa-search"></i>
             </button>
@@ -215,12 +218,12 @@
                 </div>
               </div>
             </div>
-            <div class="TCcourse-delete">
+            <div class="TCcourse-delete" data-toggle="modal" data-target="#exampleModal">
               <i class="far fa-times-circle"></i>
             </div>
           </div>
           <!-- Pagination -->
-          <nav>
+          <nav class="">
             <ul class="Mypagination justify-content-end">
               <li class="Mypage-item">
                 <a class="Mypage-link" href="#" aria-label="Previous">
@@ -240,17 +243,27 @@
               </li>
             </ul>
           </nav>
-        </form>
+        </div>
       </div>
     </div>
 
     <!-- modal delete courses -->
-    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <h5 class="modal-title d-flex justify-content-center my-5" id="exampleModalLabel">是否要刪除課程?</h5>
+            <div class="d-flex justify-content-center mb-5">
+              <button type="button" class="btn btn-primary mx-2" >是</button>
+              <button type="button" class="btn btn-primary mx-2" data-dismiss="modal">否</button>
+            </div>
+        </div>
+      </div>
+    </div>
 
 
     <!-- apply-form -->
-    <div class="TCform col-12 col-md-4">
-      <form class="py-4">
+    <div class="TCform col-12 col-md-8 col-lg-6 col-xl-4">
+      <form class="p-4">
         <div class="TCform-content w-100">
           <div class="TCform-head ml-1">
             <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
