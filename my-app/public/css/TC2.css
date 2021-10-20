@@ -1481,10 +1481,10 @@ body {
   }
 
   /* sidebar選項列 */
-  .sidebar .nav_list {
+  .sidebar .nav-list {
     list-style: none;
     padding-left: 0;
-    /* width: 100%; */
+    width: 100%;
   }
 
   /* sidebar選項 */
