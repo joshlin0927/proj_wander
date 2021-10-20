@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font-family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/index.css" />
+    
+    <style>
+      /*=============== Navbar ===============*/
+      ul {
+        list-style: none !important;
+      }
+
+      a {
+        text-decoration: none !important;
+      }
+
+      .nav__header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background-color: transparent;
+        color: #065f8e;
+      }
+
+      .mobile-mobile{
+        display: none;
+      }
+
+
+      @media (max-width: 768px) {
+
+  
+
+        .nav__header {
+          display: none;
+        }
+
+        #desktop{
+    display:none !important;
+    }
+
+        .mobile-mobile{
+        display: block;
+      }
+
+
+      }
+
+
+      
+
+
+
+      .nav__header .nav__singheader {
+        position: relative;
+        height: 80px;
+      }
+
+      .nav__header .nav__singheader .nav__pc_menu {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        margin: 0;
+      }
+
+      .nav__header .nav__singheader .nav__pc_menu li {
+        display: inline-block;
+      }
+
+      .nav__en {
+        color: #065f8e;
+        display: block;
+        font-weight: bold;
+        position: relative;
+        padding: 0 15px;
+        /* TODO */
+      }
+
+      .nav_cart,
+      .nav_login {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: 0.3s ease;
+      }
+
+      .nav_login_txt {
+        color: #065f8e;
+        font-weight: bold;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+      }
+
+      .nav_cart_icon {
+        width: 24px;
+        height: 24px;
+        left: -50%;
+        top: 50%;
+        filter: drop-shadow(#065f8e 60px 0);
+        transform: translate(-50%, -50%);
+        position: absolute;
+        z-index: 5;
+      }
+
+      .nav_cart:hover,
+      .nav_login:hover {
+        background-color: #065f8e;
+      }
+
+      .nav_cart:hover .nav_cart_icon,
+      .nav_login:hover .nav_login_txt {
+        filter: drop-shadow(#ffffff 60px 0);
+        color: white;
+      }
+
+      /* hover底線動畫 */
+      .nav__en::after {
+        position: absolute;
+        bottom: -28px;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: #242424;
+        transform: scale(0, 1);
+        transform-origin: left top;
+        transition: transform 0.3s;
+        z-index: 10;
+      }
+
+      .nav__en:hover::after {
+        transform: scale(1, 1);
+      }
+
+      /* scroll後變色 */
+      .nav__scroll-header {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 4px rgba(14, 55, 63, 0.15);
+        transition: 0.3s ease;
+      }
+    </style>
+    <title>index</title>
+  </head>
+
+  <body class="TCsp-bgc">
+    <!-- main nav -->
+    <nav class="nav__header" id="nav__header">
+      <div class="nav__singheader container">
+        <div class="row flex-nowrap">
+          <div class="col-3 p-0">
+            <a href="#">
+              <img src="../images/logo/logo_desktop.png" />
+            </a>
+          </div>
+          <ul class="nav__pc_menu col-7">
+            <li>
+              <a href="#"><span class="nav__en">關於我們</span></a>
+            </li>
+            <li>
+              <a href="#"><span class="nav__en">課程總覽</span></a>
+            </li>
+            <li>
+              <a href="#"><span class="nav__en">我的課程</span></a>
+            </li>
+            <li>
+              <a href="#"><span class="nav__en">國際角落</span></a>
+            </li>
+          </ul>
+          <div class="col d-flex align-items-center justify-content-around">
+            <a href="#" class="nav_login">
+              <span class="nav_login_txt">登入</span>
+            </a>
+            <a href="#" class="nav_cart">
+              <img
+                src="../images/cart/cart_icon.svg"
+                alt=""
+                class="nav_cart_icon"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+
+
+
+    <div class="mobile-mobile"  >
+
+    <div class="container mainContent" >
+      <!-- breadcrumb -->
+      <div class="row">
+        <div class="logo-m">
+          <img src="../images/logo/log_mobile.png" alt="" />
+        </div>
+        <div class="change-m">
+          <img src="../images/index/mobile/01/01.jpg" alt="" />
+        </div>
+        <div class=" ath">
+          <span class="TextA">提供學習多種外語的教學平台</span>
+          <span class="TextB">能自由漫步世界各國。</span>
+        </div>
+        <div class=" imgc-div-m">
+          <span>#Learning never ends</span>
+        </div>
+        <div class="mgc-div-01">
+          <img src="../images/index/mobile/02.png" alt="" />
+        </div>
+
+        <div class=" card_img-a">
+                <img  src="../images/index/mobile/card/01.png" alt="" />
+      </div>
+      <div class=" card_img-b">
+        <img  src="../images/index/mobile/card/02.png" alt="" />
+</div>
+<div class=" card_img-c">
+  <img  src="../images/index/mobile/card/03.png" alt="" />
+</div>
+<div class=" card_img-d">
+  <img  src="../images/index/mobile/card/04.png" alt="" />
+</div>
+
+              <span class="icon01"><img src="../images/index/mobile/grey_triangle.png" /></span>
+
+              <div class="img5-title">
+            
+                <div class="type01">
+                      <div class='type01-Text'>
+                        <img  src="../images/index/mobile/07.png" alt="" />
+                      </div>
+                      <div class='type02-Text'>
+                        <img  src="../images/index/mobile/08.png" alt="" />
+                      </div>
+                      
+                    <div class="sp_type_img pc_off">
+                        <ul>
+                            <li>
+                              <img  src="../images/index/mobile/04.png" alt="" />
+                            </li>
+                            <li>
+                              <img  src="../images/index/mobile/05.png" alt="" />
+
+                            </li>
+                            <li>
+                              <img  src="../images/index/mobile/06.png" alt="" />
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <span class="icon02"><img src="../images/index/mobile/yellowbox.png" /></span>
+              
+      </div>
+      
+
+      <div class='type03-Text'>
+        <img  src="../images/index/mobile/09.png" alt="" />
+      </div>
+
+      <div class="type04-ath">
+        <span class="type04-TextA">快加入我們吧!!</span>
+        <span class="type04-TextB">對於教學有熱誠?   對於學習語言有興趣?</span>
+        <div class="type05">
+          <button class=" btn btn-light ">
+            我是老師
+          </button>
+        </div>
+        <div class="type06">
+
+          <button class="btn btn-light">
+            我是學生          
+          </button>
+        </div>
+
+
+      </div>
+      
+      <div class="type07-ath">
+        <span class="type07-TextA">熱門課程</span>
+        <div class="type07-back">
+        </div>
+
+      </div>
+
+            
+      <div class="type08-ath">
+        <span class="type08-TextA">熱門文章</span>
+        </div>
+
+        <div class='type10-Text'>
+          <img  src="../images/index/mobile/10.png" alt="" />
+        </div>
+
+        <div class='type11-Text'>
+          <img  src="../images/index/mobile/11.png" alt="" />
+        </div>
+
+        <div class='type12-Text'>
+          <img  src="../images/index/mobile/12.png" alt="" />
+        </div>
+
+        <div class='popular-card-but'>
+  <button class="popular-button">
+    <span class="popular-card-span">
+      更多文章
+    </span>  
+  </button>
+</div>
+
+        
+
+      </div>
+
+
+
+      <div class="row justify-content-center">
+      </div>
+    </div>
+    <div class="dec-block"></div>
+
+  </div>
+</div>
+
+    <!-- Main Content -->
+    <div class="container mainContent" id="desktop">
+      <div class="row d-flex justify-content-end">
+        
+        <div class="imga">
+          <img src="../images/index/01/01.jpg" alt="" />
+        </div>
+        <div class="imgc">
+          <img src="../images/index/03.jpg" alt="" />
+        </div>
+        <div class=" imgc-div">
+          <span>#Learning never ends</span>
+        </div>
+        <div class="carda">
+          <img class='img1-1'src="../images/index/04/1-1.png" alt="" />
+          <span class='img1-2'>2500+學員認證</span>
+          <img class='img1-3' src="../images/index/04/1-3.png" alt="" />
+          <span class='img1-4'>Student certification</span>
+        </div>
+        <div class="cardb">
+          <img class='img2-1'src="../images/index/04/2-1.png" alt="" />
+          <span class='img2-2'>高質量的原創課程</span>
+          <img class='img2-3' src="../images/index/04/2-3.png" alt="" />
+          <span class='img2-4'>High-quality original courses </span>
+          </div> 
+          <div class="cardc">
+            <img class='img3-1'src="../images/index/04/3-1.png" alt="" />
+            <span class='img3-2'>隨時上課，沒有限制</span>
+            <img class='img3-3' src="../images/index/04/2-3.png" alt="" />
+            <span class='img3-4'>Class anytime, no restrictions</span>
+            </div> 
+            <div class="cardd">
+              <img class='img4-1'src="../images/index/04/4-1.png" alt="" />
+              <span class='img4-2'>學成後的認證</span>
+              <img class='img4-3' src="../images/index/04/1-3.png" alt="" />
+              <span class='img4-4'>Post-study certification</span>
+              </div> 
+        </div>
+      </div>
+
+      <!-- <div class="row justify-content-center">
+
+      </div> -->
+    <!-- bg decoration -->
+    <div class="TCallwraper" id="desktop">
+      <div class="dec-circle"></div>
+      <div class="dec-block"></div>
+      <div class="row ">
+        <div class=" aearth">
+        <span class="TextA">提供學習多種外語的教學平台</span>
+        <span class="TextA">能自由漫步世界各國。</span>
+      </div>
+
+      <div class="imge">
+        <img src="../images/index/05.jpg" alt="" />
+      </div>
+      <div class="grey-box"></div>
+      <div class="imge-1-title">
+        <div class='imge-1-Text'>
+      <span >想學習？是不是又擔心..</span>
+    </div>
+    </div>
+    <div class="imge-2-title">
+      <div class='imge-2-Text'>
+    <span >快加入我們吧!!</span>
+  </div>
+  </div>
+  <div class="yellow-area">
+    <div class='yellow-area-1-Text'>
+      <span >現在學習語言會不會太晚？</span>
+    </div>
+    <div class='yellow-area-2-Text'>
+      <span >對於教學有熱誠?   對於學習語言有興趣?</span>
+    </div>
+    <!-- <button class="yellow-area-button">
+    <span class="yellow-area-span">我是老師</span>   
+    </button> -->
+    <div class='yellow-area-but-1'>
+    <button class="btn btn-light">
+      我是老師
+    </button>
+  </div>
+  <div class='yellow-area-but-2'>
+    <button class="btn btn-light">
+      我是學生
+    </button>
+  </div>
+  <div class='yellow-area-popular-course'>
+    <span class="popular-course-title">
+      熱門課程    
+    </span>
+  </div>
+</div>
+
+
+<div class='popular-title'>
+  <span class="popular-span">
+    熱門文章  
+  </span>
+</div>
+
+<div class="popular-card ">
+  <ul class="popular-card-top ">
+      <li class="popular-card-card">
+          <img src="../images/index/06.png" alt="" />
+      </li>
+      <li class="popular-card-card">
+          <img src="../images/index/07.png" alt="" />
+      </li>
+      <li class="popular-card-card">
+        <img src="../images/index/08.png" alt="" />
+    </li>
+  </ul>
+</div>
+<div class='popular-card-but'>
+  <button class="popular-button">
+    <span class="popular-card-span">
+      更多文章
+    </span>  
+  </button>
+</div>
+
+
+      <div class="imgb">
+        <img src="../images/index/02.jpg" alt="" />
+      </div>
+      <div class="imgc-move">
+      <div class="img-triangle">
+        <svg  width="1300" height="850" viewBox="-50 -50 300 300">
+          <polygon class="triangle" stroke-linejoin="round" points="100,0 0,200 200,200"/>
+        
+        </svg>
+      </div>
+    </div>
+    <div class="recommendation" id="recommendation">
+      <div class="wrap">
+        <h3 class="section-title">
+          <span class="section-title-span1">
+          好評  
+        </span><span class="section-title-span2">
+          推薦  
+        </span></h3>
+        <div class="recommendation-wall ">
+            <ul class="gallery-top animate">
+                <li class="recommendation-card">
+                    <img src="../images/index/10.png" alt="">
+                    <div class="recommend-content">
+                        <div class="recommend-img">
+                            <img src="../images/index/09.png" alt="">
+                            <div>
+                                <h6>王大雄</h6>
+                                <p class="recommend-text">XXX老師的初階英語</p>
+                            </div>
+                        </div>
+                        <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                    </div>
+                </li>
+                <li class="recommendation-card">
+                  <img src="../images/index/10.png" alt="">
+                  <div class="recommend-content">
+                      <div class="recommend-img">
+                          <img src="../images/index/09.png" alt="">
+                          <div>
+                              <h6>王大雄</h6>
+                              <p class="recommend-text">XXX老師的初階英語</p>
+                          </div>
+                      </div>
+                      <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                  </div>
+              </li>
+              <li class="recommendation-card">
+                <img src="../images/index/10.png" alt="">
+                <div class="recommend-content">
+                    <div class="recommend-img">
+                        <img src="../images/index/09.png" alt="">
+                        <div>
+                            <h6>王大雄</h6>
+                            <p class="recommend-text">XXX老師的初階英語</p>
+                        </div>
+                    </div>
+                    <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                </div>
+            </li>
+            </ul>
+            <ul class="gallery-bottom animate">
+              <li class="recommendation-card">
+                  <img src="../images/index/10.png" alt="">
+                  <div class="recommend-content">
+                      <div class="recommend-img">
+                          <img src="../images/index/09.png" alt="">
+                          <div>
+                              <h6>王大雄</h6>
+                              <p class="recommend-text">XXX老師的初階英語</p>
+                          </div>
+                      </div>
+                      <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                  </div>
+              </li>
+              <li class="recommendation-card">
+                  <img src="../images/index/10.png" alt="">
+                  <div class="recommend-content">
+                      <div class="recommend-img">
+                          <img src="../images/index/09.png" alt="">
+                          <div>
+                              <h6>王大雄</h6>
+                              <p class="recommend-text">XXX老師的初階英語</p>
+                          </div>
+                      </div>
+                      <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                  </div>
+              </li>
+              <li class="recommendation-card">
+                  <img src="../images/index/10.png" alt="">
+                  <div class="recommend-content">
+                      <div class="recommend-img">
+                          <img src="../images/index/09.png" alt="">
+                          <div>
+                              <h6>王大雄</h6>
+                              <p class="recommend-text">XXX老師的初階英語</p>
+                          </div>
+                      </div>
+                      <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                  </div>
+              </li>
+          </ul>
+        </div>
+    </div>
+   
+    </div>
+
+    </div>
+    </div>
+
+  <footer id="footer">
+    <div class="footer_inr">
+        
+        <h2><a href="./"><img src="../images/logo/footer_desktop.png" /></a></h2>
+        <div class="link_area">
+            <a href="#" class="en">關於我們</a>
+            <a href="#" class="enclass">課程總覽</a>
+            <a href="#" class="en">常見問題</a>
+            <a href="#" class="en">國際角落</a>
+        </div>
+        <div class="sns">
+          <a href="#" class="nav_footer">
+            <img
+              src="../images/index/icon/Facebook.svg"
+              alt=""
+              class="Facebook"
+            />
+          </a>
+          <a href="#" class="nav_footer">
+            <img
+              src="../images/index/icon/twitter.svg"
+              alt=""
+              class="Facebook"
+            />
+          </a>
+          <a href="#" class="nav_footer">
+            <img
+              src="../images/index/icon/youTube.svg"
+              alt=""
+              class="Facebook"
+            />
+          </a>
+        </div>
+        <div class="mobile-mobile">
+          <div class="mobile-a">
+            <img
+            src="../images/index/icon/mobile-Facebook.svg"
+            alt=""
+          />
+          </div>
+          <div class="mobile-b">
+            <img
+            src="../images/index/icon/mobile-Twitter.svg"
+            alt=""
+          />
+          </div>
+          <div class="mobile-c">
+            <img
+            src="../images/index/icon/mobile-YouTube.svg"
+            alt=""
+          />
+          </div>
+
+        </div>
+        <div class="foot-end">
+          <a href="#" class="nav_footer">
+            <img
+              src="../images/index/icon/mobile.svg"
+              alt=""
+              class="Facebook"
+            />
+          </a>
+          <a href="#" class="nav_footer">
+            <img
+              src="../images/index/icon/desktop.svg"
+              alt=""
+              class="Facebook"
+            />
+          </a>
+        </div>
+    </div>
+    <a href="#top" class="pagetop v_txt">PAGETOP</a>
+    
+    
+</footer>
+
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../navbar(放上去)/assets/js/main.js"></script>
+  </body>
+</html>
