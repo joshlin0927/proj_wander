@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// Css 擺放位置
+import './styles/TC2.css'
+
+// 使用套件
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom'
+import React, { useState } from 'react'
+
+// 教師頁面
+import TCpages from './pages/tc/index'
+
+// 全頁通用元件
+import MultiLevelBreadCrumb from './components/MultiLevelBreadCrumb'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      {/* <MultiLevelBreadCrumb /> */}
+      <TCpages />
+    </>
+  )
 }
 
-export default App;
+export default App

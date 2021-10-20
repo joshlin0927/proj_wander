@@ -72,6 +72,10 @@ body {
   opacity: 0;
 }
 
+/* 網站導覽列 */
+.navbar {
+  display: none;
+}
 
 /* 地球背景圖 */
 .earth {
@@ -145,13 +149,6 @@ body {
 }
 
 
-
-
-/* 網站導覽列 */
-.navbar {
-  display: none;
-}
-
 /* 麵包屑 */
 .breadcrumb {
   background-color: transparent;
@@ -160,44 +157,6 @@ body {
   font-weight: 500;
   margin-left: .25rem;
   padding: 0px 0px 15px;
-}
-
-/* footer */
-.footerWrap{
-
-
-}
-
-.wanderFooter{
-  width: 100%;
-  height: 289px;
-  background-color: #065F8E;
-}
-
-.footer-left{
-  margin: auto;
-}
-
-#Footer-Desktop-Logo{
-  display: none;
-  margin: auto;
-  justify-content: center;
-  align-items: center;
-}
-
-#Footer-Mobile-Logo{
-  display: block;
-  margin: 18px auto 35px;
-}
-
-.Footer-page-links{
-  display: flex;
-  justify-content: space-around;
-}
-
-.Footer-page-links>a{
-  text-decoration: none;
-  color: #fff;
 }
 
 /* 頁碼 */
@@ -1217,7 +1176,6 @@ body {
     border-radius: 0px 10px 10px 0px;
     margin-bottom: 10px;
     color: #065f8e;
-    position: relative;
   }
 
   .sidebar .nav-item>i {
@@ -1235,8 +1193,6 @@ body {
   .sidebar .nav-item.active::after {
     content: "";
     position: absolute;
-    left: 0;
-    top: 0;
     width: 15px;
     height: 50px;
     background: #f1ef5b;
