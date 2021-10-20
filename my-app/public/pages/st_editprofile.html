@@ -177,6 +177,7 @@
       background: rgba(255, 255, 255, 0.8);
       border-radius: 20px;
       padding: 15px;
+      
 
     }
 
@@ -185,6 +186,7 @@
       display: flex;
       align-items: center;
       margin-bottom: 1.9rem;
+      
     }
 
     /* 頁面英文標題(圖片) */
@@ -204,6 +206,7 @@
     .form-content {
       margin: 0px auto;
       padding: 0px auto;
+      
     }
 
     /* 網站導覽列 */
@@ -292,17 +295,22 @@
     }
 
     .confirmmsg-m {
-      width: 100%;
+      width: 50%;
       height: 70px;
-      background-color: white;
+      background-color: rgb(255, 255, 255);
       position: absolute;
-      right: 0px;
-      top: 270px;
+      right: 0%;
+      top: 20px;
+      /* transform: translateX(50%); */
       font-size: 14px;
       color: #065f8e;
       text-align: center;
       line-height: 70px;
-      z-index:-1;
+      border-radius:5px;
+      
+    }
+    .confirmmsg{
+      display: none;
     }
 
 
@@ -597,6 +605,7 @@
 
       /* 表單送出後彈框 */
       .confirmmsg {
+        display:block;
         width: 20%;
         height: 70px;
         background-color: white;
@@ -607,6 +616,11 @@
         color: #065f8e;
         text-align: center;
         line-height: 70px;
+        border-radius:5px;
+      }
+
+      .confirmmsg-m{
+        display:none;
       }
     }
   </style>
@@ -712,12 +726,13 @@
       </nav>
       <!-- form -->
       <form class="form col-12 col-md-8">
+        <div class="confirmmsg-m"><i class="far fa-check-circle"></i> 資料已修改完成</div>
         <div class="form-head ml-1">
           <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
           <div class="form-title">個人資料</div>
           <a href=""><i class="TCback-btn"></i></a>
-
         </div>
+        
         
         <div class="form-content">
           
