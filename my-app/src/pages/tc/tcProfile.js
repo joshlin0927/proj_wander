@@ -1,8 +1,7 @@
 import React from 'react'
 
 // components
-import TcSideBar from '../../components/TcSideBar'
-
+import TcSideBar from '../../components/tc/TcSideBar'
 
 function TcProfile() {
   return (
@@ -26,7 +25,7 @@ function TcProfile() {
 
         <div className="row justify-content-center">
           {/* sidebar */}
-          <TcSideBar/>
+          <TcSideBar />
           {/* form */}
           <form className="TCform col-12 col-md-8">
             <div className="TCform-content">

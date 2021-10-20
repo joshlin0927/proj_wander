@@ -1481,15 +1481,16 @@ body {
   }
 
   /* sidebar選項列 */
-  .sidebar .nav_list {
+  .sidebar .nav-list {
     list-style: none;
     padding-left: 0;
-    /* width: 100%; */
+    width: 100%;
   }
 
   /* sidebar選項 */
   .sidebar .nav-item {
     display: flex;
+    position: relative;
     align-items: center;
     height: 50px;
     border-radius: 0px 10px 10px 0px;
@@ -1521,6 +1522,8 @@ body {
   .nav-item.active::after {
     content: "";
     position: absolute;
+    top: 0;
+    left: 0;
     width: 15px;
     height: 50px;
     background: #f1ef5b;
