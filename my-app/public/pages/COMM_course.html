@@ -362,6 +362,7 @@
             height: 40px;
             margin-top: 25px
         }
+
         /* btn更多課程 */
 
 
@@ -371,41 +372,58 @@
             font-size: 15px;
             margin-bottom: 25px
         }
+
         /* 查詢框 */
         .pageName {
-                display: block;
-                margin-bottom: 35px;
-                margin-top: 15px;
-                padding: 0;
-            }
+            display: block;
+            margin-bottom: 35px;
+            margin-top: 15px;
+            padding: 0;
+        }
+
         .search {
-                display: flex;
-                justify-content: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .searchbar {
+            width: 100%;
+            height: 40px;
+            padding-left: 17px;
+            padding-right: 50px;
+            border: 1px solid #065F8E;
+            border-radius: 6px;
+        }
+
+        .searchbar+button[type="submit"] {
+            width: 76px;
+            background: #065F8E;
+            color: white;
+            margin-left: -50px;
+            border: 0;
+            border-radius: 0px 6px 6px 0px;
+        }
+         /* 查詢框 */
+         
+         /* 讓桌機板navbar消失 */
+
+        @media (max-width: 768px) {
+            .nav__header {
+                display: none;
             }
-            .searchbar {
-                width:100%;
-                height: 40px;
-                padding-left: 17px;
-                padding-right: 50px;
-                border: 1px solid #065F8E;
-                border-radius: 6px;
-            }
-
-            .searchbar+button[type="submit"] {
-                width: 76px;
-                background: #065F8E;
-                color: white;
-                margin-left: -50px;
-                border: 0;
-                border-radius: 0px 6px 6px 0px;
-            }
-        
-             /* 查詢框 */
-        
+        }
 
 
 
-        
+
+
+       
+
+
+
+
+
+
 
         /* 新增的手機板 */
 
@@ -414,7 +432,7 @@
         @media (min-width: 768px) {
 
             /* 網站主要導覽列 */
-            .navbar {
+            /* .navbar {
                 z-index: 5;
                 position: fixed;
                 display: flex;
@@ -423,7 +441,7 @@
                 height: 80px;
                 padding: 0;
                 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            }
+            } */
 
             .mainContent {
                 margin-top: 110px;
@@ -433,6 +451,7 @@
             .breadcrumb {
                 padding: 0px;
             }
+
 
             /* 頁面背景 */
             /* 圓圈的動畫 */
@@ -653,7 +672,7 @@
                 position: relative;
                 margin-bottom: 30px;
                 margin-left: 10px;
-                
+
 
             }
 
@@ -661,9 +680,7 @@
                 width: 100%;
                 height: 100%;
                 border-radius: 30px;
-                object-fit:fill
-                
-            
+                object-fit: fill
             }
 
             .coursename {
@@ -1132,7 +1149,7 @@
 
             }
 
-            .block-yy {
+            .block-y {
                 display: block;
                 position: absolute;
                 right: 0;
@@ -1152,6 +1169,115 @@
                 font-size: 15px;
                 margin-bottom: 5px
             }
+            /* navbar */
+
+            .nav__header {
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 100;
+                background-color: transparent;
+                color: #065f8e;
+            }
+
+            .nav__header .nav__singheader {
+                position: relative;
+                height: 80px;
+            }
+
+            .nav__header .nav__singheader .nav__pc_menu {
+                display: flex;
+                align-items: center;
+                flex-wrap: nowrap;
+                margin: 0;
+            }
+
+            .nav__header .nav__singheader .nav__pc_menu li {
+                display: inline-block;
+            }
+
+            .nav__en {
+                color: #065f8e;
+                display: block;
+                font-weight: bold;
+                position: relative;
+                padding: 0 15px;
+                /* TODO */
+            }
+
+            .nav_cart,
+            .nav_login {
+                position: relative;
+                width: 60px;
+                height: 60px;
+                background-color: #fff;
+                border-radius: 50%;
+                overflow: hidden;
+                transition: 0.3s ease;
+            }
+
+            .nav_login_txt {
+                color: #065f8e;
+                font-weight: bold;
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 5;
+            }
+
+            .nav_cart_icon {
+                width: 24px;
+                height: 24px;
+                left: -50%;
+                top: 50%;
+                filter: drop-shadow(#065f8e 60px 0);
+                transform: translate(-50%, -50%);
+                position: absolute;
+                z-index: 5;
+            }
+
+            .nav_cart:hover,
+            .nav_login:hover {
+                background-color: #065f8e;
+            }
+
+            .nav_cart:hover .nav_cart_icon,
+            .nav_login:hover .nav_login_txt {
+                filter: drop-shadow(#ffffff 60px 0);
+                color: white;
+            }
+
+            /* hover底線動畫 */
+            .nav__en::after {
+                position: absolute;
+                bottom: -28px;
+                left: 0;
+                content: "";
+                width: 100%;
+                height: 2px;
+                background: #242424;
+                transform: scale(0, 1);
+                transform-origin: left top;
+                transition: transform 0.3s;
+                z-index: 10;
+            }
+
+            .nav__en:hover::after {
+                transform: scale(1, 1);
+            }
+
+            /* scroll後變色 */
+            .nav__scroll-header {
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0 0 4px rgba(14, 55, 63, 0.15);
+                transition: 0.3s ease;
+            }
+            /* navbar */
+
+         
 
 
 
@@ -1165,38 +1291,35 @@
 
 <body class="TCsp-bgc">
     <!-- top nav -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <div class="container">
+    <nav class="nav__header" id="nav__header">
+        <div class="nav__singheader container">
             <div class="row flex-nowrap">
-                <div class="">
-                    <a class="navbar-brand" href="#"><img src="../images/logo/logo_desktop.png" alt="" /></a>
+                <div class="col-3 p-0">
+                    <a href="#">
+                        <img src="../images/logo/logo_desktop.png" />
+                    </a>
                 </div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">account</a>
-                        </li>
-                    </ul>
+                <ul class="nav__pc_menu col-7">
+                    <li>
+                        <a href="#"><span class="nav__en">關於我們</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="nav__en">課程總覽</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="nav__en">我的課程</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="nav__en">國際角落</span></a>
+                    </li>
+                </ul>
+                <div class="col d-flex align-items-center justify-content-around">
+                    <a href="#" class="nav_login">
+                        <span class="nav_login_txt">登入</span>
+                    </a>
+                    <a href="#" class="nav_cart">
+                        <img src="../images/cart/cart_icon.svg" alt="" class="nav_cart_icon" />
+                    </a>
                 </div>
             </div>
         </div>
@@ -1314,7 +1437,7 @@
 
                 </div>
                 <div class="courseitem ">
-                    <img src="../images/img/成為專業筆譯必備：商務日文翻譯力.png" alt="" >
+                    <img src="../images/img/成為專業筆譯必備：商務日文翻譯力.png" alt="">
                     <div class="coursename">課程名稱：填上課程名稱</div>
                     <span class="teachername">Thoms Lillard</span>
 
@@ -1375,8 +1498,10 @@
     <div class="block-w">
     </div>
     <div class="TCallwrapery">
-        <div class="block-yy"></div>
+        <div class="block-y"></div>
     </div>
+    <!--navbar 需要下拉scroll -->
+    <script src="../navbar(放上去)/assets/js/main.js"></script>
 
 </body>
 
