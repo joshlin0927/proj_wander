@@ -1,6 +1,5 @@
 * {
   font-family: "Noto Sans", "Noto Sans TC", sans-serif;
-
 }
 
 body {
@@ -19,7 +18,6 @@ body {
 
 /* 全頁包覆(為了色塊動畫) */
 .TCallwraper {
-  z-index: -1;
   position: absolute;
   top: -110px;
   width: 100%;
@@ -61,6 +59,7 @@ body {
   border-radius: 6px;
   background-color: transparent;
   color: black;
+  transition: .12s linear;
 }
 
 .btn-secondary:hover{
@@ -1032,16 +1031,10 @@ body {
   /* 藍色色塊(下) */
   .dec-blue-block {
     display: block;
-    height: 20px;
-    width: 20px;
-    background-color: inherit;
-    border: inherit;
     position: absolute;
-    bottom: -10px;
-    left: calc(50% - 10px);
-    clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
-    transform: rotate(-45deg);
-    border-radius: 0 0 0 0.25em;
+    top: 1100px;
+    left: 0px;
+    z-index: -1;
   }
 
   /* 所有input欄位 */
