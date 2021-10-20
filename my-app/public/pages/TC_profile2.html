@@ -375,13 +375,7 @@
             </div>
 
             <div class="d-flex align-items-center">
-              <input
-                type="file"
-                name="avatar"
-                id="avatar"
-                class=""
-                onchange="previewFile()"
-              />
+              <input type="file" id="realFileInput" class="d-none" onchange="previewFile()"/>
               <div class="profile-pic">
                 <img
                   id="avatarImg"
@@ -390,9 +384,9 @@
                   alt=""
                 />
               </div>
-              <button class="btn btn-border-only" onclick="avatar.click()">
+              <div class="btn btn-border-only" id="loadFile" onclick="realFileInput.click()">
                 <span>請選擇圖片</span>
-              </button>
+              </div>
             </div>
             <div class="fullname d-flex">
               <div class="col-6 pl-0">
@@ -520,14 +514,15 @@
     ></script>
     <script src="../navbar(放上去)/assets/js/main.js"></script>
     <script>
-      const avatar = document.querySelector("#avatar");
+      const realFileInput = document.querySelector("#realFileInput");
+      const loadFile = document.querySelector('#loadFile');
 
       function previewFile() {
-        var avatarImg = document.querySelector("#avatarImg");
-        const file = avatar.files[0];
-        var reader = new FileReader();
+        const avatarImg = document.querySelector("#avatarImg");
+        const file = realFileInput.files[0];
+        const reader = new FileReader();
 
-        console.log(file);
+        console.log(reader);
         
         reader.addEventListener(
           "load",
@@ -541,6 +536,7 @@
           reader.readAsDataURL(file);
         }
       }
+
     </script>
   </body>
 </html>
