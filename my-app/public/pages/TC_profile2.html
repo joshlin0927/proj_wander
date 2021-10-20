@@ -3,16 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <!-- font-family -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
@@ -54,7 +71,7 @@
         color: #065f8e;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 767px) {
         .nav__header {
           display: none;
         }
@@ -134,7 +151,7 @@
         position: absolute;
         bottom: -28px;
         left: 0;
-        content: "";
+        content: '';
         width: 100%;
         height: 2px;
         background: #242424;
@@ -191,7 +208,7 @@
         }
 
         .mobile-nav-item::after {
-          content: "";
+          content: '';
           border-radius: 50%;
           border: 1px #c6c3b4 solid;
           width: 35px;
@@ -223,7 +240,7 @@
         }
 
         .mobile-nav-item-active::after {
-          content: "";
+          content: '';
           border-radius: 50%;
           border: 1px #065f8e solid;
           width: 35px;
@@ -239,7 +256,7 @@
         }
 
         .mobile-nav-item-active::before {
-          content: "";
+          content: '';
           width: 64px;
           height: 6px;
           color: #f1ef5b;
@@ -266,19 +283,34 @@
           </div>
           <ul class="nav__pc_menu col-7">
             <li>
-              <a href="#"><span class="nav__en">關於我們</span></a>
+              <a href="#"
+                ><span class="nav__en">關於我們</span></a
+              >
             </li>
             <li>
-              <a href="#"><span class="nav__en">課程總覽</span></a>
+              <a href="#"
+                ><span class="nav__en">課程總覽</span></a
+              >
             </li>
             <li>
-              <a href="#"><span class="nav__en">我的課程</span></a>
+              <a href="#"
+                ><span class="nav__en">我的課程</span></a
+              >
             </li>
             <li>
-              <a href="#"><span class="nav__en">國際角落</span></a>
+              <a href="#"
+                ><span class="nav__en">國際角落</span></a
+              >
             </li>
           </ul>
-          <div class="col d-flex align-items-center justify-content-around">
+          <div
+            class="
+              col
+              d-flex
+              align-items-center
+              justify-content-around
+            "
+          >
             <a href="#" class="nav_login">
               <span class="nav_login_txt">登入</span>
             </a>
@@ -302,7 +334,9 @@
           <img src="../images/logo/log_mobile.png" alt="" />
         </div>
         <nav class="w-100">
-          <ol class="breadcrumb col col-md-10 col-lg-12 m-0">
+          <ol
+            class="breadcrumb col col-md-10 col-lg-12 m-0"
+          >
             <li class="breadcrumb-item">
               <a href="">首頁</a>
             </li>
@@ -366,16 +400,27 @@
         <form class="TCform col-12 col-md-8">
           <div class="TCform-content">
             <div class="TCform-head">
-              <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
+              <a href=""
+                ><i
+                  class="fas fa-chevron-left TCback-btn"
+                ></i
+              ></a>
               <div class="TCform-title">個人資料</div>
               <a href=""><i class="TCback-btn"></i></a>
-              <button class="btn btn-primary preview-btn-top">
+              <button
+                class="btn btn-primary preview-btn-top"
+              >
                 個人頁面預覽
               </button>
             </div>
 
             <div class="d-flex align-items-center">
-              <input type="file" id="realFileInput" class="d-none" onchange="previewFile()"/>
+              <input
+                type="file"
+                id="realFileInput"
+                class="d-none"
+                onchange="previewFile()"
+              />
               <div class="profile-pic">
                 <img
                   id="avatarImg"
@@ -384,7 +429,11 @@
                   alt=""
                 />
               </div>
-              <div class="btn btn-border-only" id="loadFile" onclick="realFileInput.click()">
+              <div
+                class="btn btn-border-only"
+                id="loadFile"
+                onclick="realFileInput.click()"
+              >
                 <span>請選擇圖片</span>
               </div>
             </div>
@@ -422,14 +471,22 @@
               />
             </div>
 
-            <input type="text" class="col-12 allInputs" placeholder="暱稱" />
-            <label class="TCnotice" for="">請填寫至少一個字</label>
+            <input
+              type="text"
+              class="col-12 allInputs"
+              placeholder="暱稱"
+            />
+            <label class="TCnotice" for=""
+              >請填寫至少一個字</label
+            >
             <input
               type="text"
               class="col-12 allInputs"
               placeholder="請輸入擅長的語言"
             />
-            <label class="TCnotice" for="">請填寫至少一種擅長語言</label>
+            <label class="TCnotice" for=""
+              >請填寫至少一種擅長語言</label
+            >
 
             <textarea
               name=""
@@ -439,61 +496,68 @@
               placeholder="自我介紹"
             ></textarea>
           </div>
-          <button class="btn btn-secondary mx-auto TCsave-btn">儲存</button>
-          <button class="btn btn-primary preview-btn">個人頁面預覽</button>
+          <button
+            class="btn btn-secondary mx-auto TCsave-btn"
+          >
+            儲存
+          </button>
+          <button class="btn btn-primary preview-btn">
+            個人頁面預覽
+          </button>
         </form>
       </div>
     </div>
-    <!-- mobile nav -->
-    <div class="mobile-nav container-fluid">
-      <div class="row justify-content-center flex-nowrap">
-        <div class="mobile-nav-item col-2">
+    <footer class="footerWrap">
+      <div class="wanderFooter container">
+        <div class="row footer-left">
           <img
-            src="../images/mobile-nav-alter/nav-icon-course.svg"
-            alt=""
-            class="mobile-nav-icon"
+            id="Footer-Desktop-Logo"
+            src="../images/logo/footer_desktop.png"
           />
-          <span>課程總覽</span>
+          <img
+            id="Footer-Mobile-Logo"
+            src="../images/logo/footer_mobile.png"
+          />
+          <div class="Footer-page-links">
+            <a href="">關於我們</a>
+            <a href="">常見問題</a>
+            <a href="">國際角落</a>
+          </div>
         </div>
-        <div class="mobile-nav-item mobile-nav-item-active col-2">
-          <img
-            src="../images/mobile-nav-alter/nav-icon-cart.svg"
-            alt=""
-            class="mobile-nav-icon-active"
-          />
-          <span class="active">購物車</span>
-        </div>
-        <div class="mobile-nav-item col-2">
-          <img
-            src="../images/mobile-nav-alter/nav-icon-chat.svg"
-            alt=""
-            class="mobile-nav-icon"
-          />
-          <span>聊天室</span>
-        </div>
-        <div class="mobile-nav-item col-2">
-          <img
-            src="../images/mobile-nav-alter/nav-icon-my.svg"
-            alt=""
-            class="mobile-nav-icon"
-          />
-          <span>我的課程</span>
-        </div>
-        <div class="mobile-nav-item col-2">
-          <img
-            src="../images/mobile-nav-alter/nav-icon-member.svg"
-            alt=""
-            class="mobile-nav-icon"
-          />
-          <span>會員中心</span>
+        <div class="row footer-right">
+          <div class="icons">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+          <div class="version-icon">
+            <div class="icon-sp">
+              <img
+                src="../images/elements/icon-mobile.svg"
+                alt=""
+              />
+              手機版
+            </div>
+            <div class="icon-sp">
+              <img
+                src="../images/elements/icon-monitor.png"
+                alt=""
+              />
+              電腦版
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+      
+    </footer>
+
     <!-- bg decoration -->
     <div class="TCallwraper">
       <div class="dec-circle"></div>
       <div class="dec-block"></div>
-      <div class="earth"><img src="../images/elements/earth.png" alt="" /></div>
+      <div class="earth">
+        <img src="../images/elements/earth.png" alt="" />
+      </div>
       <div class="dec-low-block"></div>
     </div>
 
@@ -514,29 +578,31 @@
     ></script>
     <script src="../navbar(放上去)/assets/js/main.js"></script>
     <script>
-      const realFileInput = document.querySelector("#realFileInput");
-      const loadFile = document.querySelector('#loadFile');
+      const realFileInput = document.querySelector(
+        '#realFileInput'
+      )
+      const loadFile = document.querySelector('#loadFile')
 
       function previewFile() {
-        const avatarImg = document.querySelector("#avatarImg");
-        const file = realFileInput.files[0];
-        const reader = new FileReader();
+        const avatarImg =
+          document.querySelector('#avatarImg')
+        const file = realFileInput.files[0]
+        const reader = new FileReader()
 
-        console.log(reader);
-        
+        console.log(reader)
+
         reader.addEventListener(
-          "load",
+          'load',
           () => {
-            avatarImg.src = reader.result;
+            avatarImg.src = reader.result
           },
           false
-        );
+        )
 
         if (file) {
-          reader.readAsDataURL(file);
+          reader.readAsDataURL(file)
         }
       }
-
     </script>
   </body>
 </html>

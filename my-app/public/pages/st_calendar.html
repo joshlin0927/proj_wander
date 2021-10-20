@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- font-family -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <style>
+    * {
+      font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+    }
+
+    body {
+      background-image: url("../public/imgs/其他/AdobeStock_367262423.jpeg");
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* 透明度0.6的黑色半透明遮罩 */
+      background-color: rgba(0, 0, 0, 0.6);
+      /* 設置背景混和模式為相乘模式 */
+      background-blend-mode: multiply;
+
+    }
+
+    .mt-15 {
+      margin-top: 15px;
+    }
+
+    .mt-200 {
+      margin-top: 200px;
+    }
+
+    .mb-30 {
+      margin-bottom: 30px;
+    }
+
+    .mt-50 {
+      margin-top: 50px;
+    }
+
+    .mb-50 {
+      margin-bottom: 50px;
+    }
+
+    /* -------------以上為公用--------- */
+
+
+
+    /* 麵包屑 */
+    .breadcrumb {
+      background-color: transparent;
+      font-size: 14px;
+      letter-spacing: -0.015em;
+      font-weight: 500;
+      color: #065f8e;
+      margin-left: 0.25rem;
+      padding-bottom: 15px;
+      padding-left: 0px;
+    }
+
+    .bread>ol {
+      list-style-type: none;
+    }
+
+
+
+
+
+    /* 手機logo */
+    .logo-m {
+      margin: 40px auto 40px;
+    }
+
+    /* 會員中心sidebar */
+    .sidebar {
+      display: none;
+    }
+
+
+    /* 頁面英文標題(圖片) */
+    .pageName {
+      display: none;
+    }
+
+
+
+    /* 網站導覽列 */
+    .navbar {
+      display: none;
+    }
+
+
+    @media (min-width: 768px) {
+      body{font-size: 16px;}
+
+      /* 網站主要導覽列 */
+      .navbar {
+        z-index: 5;
+        position: fixed;
+        display: flex;
+        top: 0;
+        width: 100%;
+        height: 80px;
+        padding: 0;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+
+      .mainContent {
+        margin-top: 110px;
+      }
+
+      /* 麵包屑 */
+      .breadcrumb {
+        padding: 0px;
+      }
+
+      .btn-sm {
+        width: 115px;
+        height: 40px;
+      }
+
+      .Labelitem {
+        width: 72px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        margin: auto 5px;
+      }
+
+      /* 手機版logo */
+      .logo-m {
+        display: none;
+      }
+
+      /* 頁面英文標題*/
+      .pageName {
+        display: block;
+        margin-bottom: 96px;
+        margin-top: 96px;
+        padding: 0;
+      }
+
+      .pageNameText {
+        position: relative;
+        color: black;
+        font-size: 6rem;
+        font-weight: bold;
+        line-height: 1;
+      }
+
+      .calendar::before {
+        content: "";
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: #f1ef5b;
+        position: absolute;
+        z-index: -5;
+        left: 18%;
+        top: 55%;
+      }
+
+      .topNavList {
+        display: flex;
+        list-style: none;
+        padding: 0px;
+      }
+
+      .topNav-item {
+        display: flex;
+        text-decoration: none;
+        align-items: center;
+        width: 175px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 10px;
+        padding-left: 39px;
+        margin-bottom: 10px;
+      }
+
+     /* 會員中心sidebar */
+  .sidebar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  /* 頭像 */
+  .sidebar .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+
+  /* sidebar選項列 */
+  .sidebar .nav-list {
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  /* sidebar選項 */
+  .sidebar .nav-item {
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    align-items: center;
+    height: 50px;
+    border-radius: 0px 10px 10px 0px;
+    margin-bottom: 10px;
+    color: #065f8e;
+  }
+
+  .nav-item a{
+    color: #065f8e;
+    display: flex;
+    align-items: center;
+
+  }
+
+  .sidebar .nav-item i {
+    font-size: 25px;
+    margin-left: 10%;
+    background-color: transparent;
+  }
+
+  /* 選中的選項狀態 */
+  .sidebar .nav-item.active {
+    background-color: white;
+  }
+
+  .sidebar .nav-item.active::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 50px;
+    background: #f1ef5b;
+  }
+
+  .sidebar .nav-item:hover {
+    background-color: white;
+  }
+
+      /* 日曆 */
+
+      .timetable {
+        width: 844px;
+        height: 747px;
+
+      }
+
+      .table {}
+
+      .year_month {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+      }
+
+      .month,
+      .year {
+        font-size: 48px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .year {
+        margin-left: 15px;
+      }
+
+      .weekday {
+        font-size: 14px;
+        font-weight: bold;
+        background-color: white;
+        text-align: center;
+      }
+
+      .firstweek,
+      .secweek,
+      .thirdweek,
+      .forthweek,
+      .fifweek {
+        background-color: white;
+        font-size: 16px;
+        width: 121px;
+        height: 112px;
+      }
+
+
+
+
+
+
+    }
+  </style>
+
+  <title>Wander 課程進度</title>
+</head>
+
+<body>
+  <!-- top nav -->
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container">
+      <div class="row flex-nowrap">
+        <div class="">
+          <a class="navbar-brand" href="#"><img src="../images/logo/logo_desktop.png" alt="" /></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="" class="nav-link">account</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mainContent">
+    <!-- breadcrumb -->
+      <div class="row">
+        <div class="logo-m">
+          <img src="../images/logo/log_mobile.png" alt="" />
+        </div>
+        <nav class="w-100">
+          <ol class="breadcrumb col col-md-10 col-lg-12 m-0">
+            <li class="breadcrumb-item">
+              <a href="">首頁</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="">會員中心</a>
+            </li>
+            <li class="breadcrumb-item active">
+              <a href="">個人資料</a>
+            </li>
+          </ol>
+        </nav>
+        <div class="col-10 ml-auto pageName">
+          <span class="pageNameText profile">Profile</span>
+        </div>
+      </div>
+    <div class="row justify-content-center">
+         <!-- sidebar -->
+         <nav class="sidebar col-2">
+           <div class="avatar">
+             <img src="../public/imgs/學生照片/Anne Hathaway.jpg" alt="" class="img-fluid" />
+           </div>
+           <ul class="nav-list">
+             <li class="nav-item active">
+               <a href="">
+                 <i class="fas fa-user"></i>
+                 <div>個人資料</div>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="">
+                 <i class="fas fa-key"></i>
+                 <div>密碼更改</div>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="">
+                 <i class="fas fa-th-list"></i>
+                 <div>課程列表</div>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="">
+                 <i class="fas fa-comment-alt"></i>
+                 <div>聊天室</div>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="">
+                 <i class="fas fa-chart-line"></i>
+                 <div>數據分析</div>
+               </a>
+             </li>
+           </ul>
+         </nav>
+
+      <div class="timetable table-responsive col-8">
+        <div class="year_month">
+          <p class="month">November</p>
+          <p class="year">2021</p>
+        </div>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th class="weekday">SUNDAY</th>
+              <th class="weekday">MONDAY</th>
+              <th class="weekday">TUESDAY</th>
+              <th class="weekday">WEDNESDAY</th>
+              <th class="weekday">THURSDAY</th>
+              <th class="weekday">FRIDAY</th>
+              <th class="weekday">SATURDAY</th>
+            </tr>
+            <tr>
+              <th class="firstweek">31</th>
+              <th class="firstweek">1</th>
+              <th class="firstweek">2</th>
+              <th class="firstweek">3</th>
+              <th class="firstweek">4</th>
+              <th class="firstweek">5</th>
+              <th class="firstweek">6</th>
+            </tr>
+            <tr>
+              <th class="secweek">7</th>
+              <th class="secweek">8</th>
+              <th class="secweek">9</th>
+              <th class="secweek">10</th>
+              <th class="secweek">11</th>
+              <th class="secweek">12</th>
+              <th class="secweek">13</th>
+            </tr>
+            <tr>
+              <th class="thirdweek">14</th>
+              <th class="thirdweek">15</th>
+              <th class="thirdweek">16</th>
+              <th class="thirdweek">17</th>
+              <th class="thirdweek">18</th>
+              <th class="thirdweek">19</th>
+              <th class="thirdweek">20</th>
+            </tr>
+            <tr>
+              <th class="forthweek">21</th>
+              <th class="forthweek">22</th>
+              <th class="forthweek">23</th>
+              <th class="forthweek">24</th>
+              <th class="forthweek">25</th>
+              <th class="forthweek">26</th>
+              <th class="forthweek">27</th>
+            </tr>
+            <tr>
+              <th class="fifweek">28</th>
+              <th class="fifweek">29</th>
+              <th class="fifweek">30</th>
+              <th class="fifweek"></th>
+              <th class="fifweek"></th>
+              <th class="fifweek"></th>
+              <th class="fifweek"></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+
+  </div>
+</body>
+
+</html>
