@@ -44,7 +44,7 @@ function TcAvatarSelector() {
         <div
           className="btn btn-border-only"
           id="loadFile"
-          onClick={realFileInput.click()}
+          onClick={realFileInput}
         >
           <span>請選擇圖片</span>
         </div>

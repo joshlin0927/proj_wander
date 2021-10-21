@@ -1,5 +1,5 @@
 * {
-  font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+  font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
 }
 
 body {
@@ -40,16 +40,16 @@ body {
 }
 
 .btn-primary {
-  border: 1px solid #065F8E;
+  border: 1px solid #065f8e;
   border-radius: 6px;
   background-color: transparent;
-  color: #065F8E;
+  color: #065f8e;
 }
 
 .btn-primary:hover {
   color: white;
-  border: 1px solid #065F8E;
-  background-color: #065F8E;
+  border: 1px solid #065f8e;
+  background-color: #065f8e;
 }
 
 .btn-secondary {
@@ -57,13 +57,13 @@ body {
   border-radius: 6px;
   background-color: transparent;
   color: black;
-  transition: .12s linear;
+  transition: 0.12s linear;
 }
 
 .btn-secondary:hover {
   color: black;
-  border: 1px solid #F1EF5B;
-  background-color: #F1EF5B;
+  border: 1px solid #f1ef5b;
+  background-color: #f1ef5b;
 }
 
 .opacity-0 {
@@ -104,7 +104,6 @@ body {
   100% {
     right: 0%;
     width: 56%;
-
   }
 }
 
@@ -137,7 +136,6 @@ body {
   100% {
     right: 0%;
     width: 95%;
-
   }
 }
 
@@ -152,7 +150,7 @@ body {
   font-size: 14px;
   letter-spacing: -0.015em;
   font-weight: 500;
-  margin-left: .25rem;
+  margin-left: 0.25rem;
   padding: 0px 0px 15px;
 }
 
@@ -166,7 +164,7 @@ body {
   flex-direction: column;
   width: 100%;
   height: 220px;
-  background-color: #065F8E;
+  background-color: #065f8e;
 }
 
 .footer-left {
@@ -191,7 +189,7 @@ body {
   padding: 0px;
 }
 
-.Footer-page-links>a {
+.Footer-page-links > a {
   text-decoration: none;
   color: #fff;
 }
@@ -246,12 +244,12 @@ body {
 }
 
 .Mypage-item a i {
-  color: #065F8E;
+  color: #065f8e;
 }
 
 /* 頁碼被選中時 */
 .Mypage-item.active {
-  background-color: #065F8E;
+  background-color: #065f8e;
 }
 
 .Mypage-item.active a {
@@ -273,7 +271,6 @@ body {
   color: black;
 }
 
-
 /* 新增課程(手機板) */
 .TCbtn-sm {
   display: flex;
@@ -281,14 +278,12 @@ body {
   height: 30px;
 }
 
-
 /* 手機板會變小的按鈕(有display變化)  */
 .TCbtn-sm-w-switch {
   display: flex;
   width: 73px;
   height: 30px;
 }
-
 
 /* 審核提示窗 */
 .TCnotify {
@@ -302,7 +297,7 @@ body {
 .TCnotify-text {
   font-size: 18px;
   font-weight: bold;
-  color: #065F8E;
+  color: #065f8e;
   letter-spacing: -0.015em;
   text-align: center;
 }
@@ -310,7 +305,7 @@ body {
 /* 教師頁面返回按鈕 */
 .TCback-btn {
   padding: 0px 15px;
-  color: #065F8E;
+  color: #065f8e;
 }
 
 /* 頁面英文標題 */
@@ -362,13 +357,13 @@ body {
   height: 40px;
   padding-left: 17px;
   padding-right: 50px;
-  border: 1px solid #065F8E;
+  border: 1px solid #065f8e;
   border-radius: 6px;
 }
 
-.TCsearchbar+button[type="submit"] {
+.TCsearchbar + button[type='submit'] {
   width: 76px;
-  background: #065F8E;
+  background: #065f8e;
   color: white;
   margin-left: -50px;
   border: 0;
@@ -410,7 +405,7 @@ body {
   font-weight: bold;
   font-size: 14px;
   letter-spacing: -0.015em;
-  color: #CF2727;
+  color: #cf2727;
   margin-bottom: 26px;
 }
 
@@ -444,7 +439,7 @@ body {
 
 .chatList .title {
   margin: 50px 0px;
-  color: #065F8E;
+  color: #065f8e;
   font-size: 36px;
   font-weight: bold;
 }
@@ -454,9 +449,10 @@ body {
   align-items: center;
   width: 100%;
   height: 80px;
-  padding: .75rem;
-  background-color: #F1F0E9;
+  padding: 0.75rem;
+  background-color: #f1f0e9;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .chatCard-info {
@@ -468,7 +464,7 @@ body {
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  margin-right: 10px
+  margin-right: 10px;
 }
 
 .chatName {
@@ -481,7 +477,7 @@ body {
   height: 12px;
   margin-left: auto;
   border-radius: 50%;
-  background-color: #065F8E;
+  background-color: #065f8e;
 }
 
 .LastMessageAndTime {
@@ -501,7 +497,7 @@ body {
 }
 
 .chatCard:hover {
-  background-color: #F1EF5B;
+  background-color: #f1ef5b;
 }
 
 /* 對話視窗 */
@@ -511,6 +507,7 @@ body {
   border-radius: 20px;
   background-color: #fff;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
   height: 690px;
 }
 
@@ -519,7 +516,7 @@ body {
   align-items: center;
   width: 100%;
   height: 80px;
-  box-shadow: 0px 2px #F1F0E9;
+  box-shadow: 0px 2px #f1f0e9;
 }
 
 .talkTo {
@@ -547,6 +544,10 @@ body {
   margin-left: auto;
 }
 
+.chatWindowBody{
+  height: 540px;
+}
+
 /* 對話框(左) */
 .messageLeft {
   display: flex;
@@ -569,8 +570,8 @@ body {
   position: relative;
   width: 50px;
   height: 50px;
-  margin-right: .625rem;
-  margin-left: .625rem;
+  margin-right: 0.625rem;
+  margin-left: 0.625rem;
 }
 
 .messageAvatarFilter {
@@ -587,7 +588,7 @@ body {
   height: 0;
   border-style: solid;
   border-width: 20px 30px 20px 0;
-  border-color: transparent #F1F0E9 transparent transparent;
+  border-color: transparent #f1f0e9 transparent transparent;
 }
 
 .Rtriangle::before {
@@ -607,17 +608,26 @@ body {
   z-index: 1;
   border-radius: 10px;
   width: 75%;
-  padding: .5rem;
+  padding: 0.5rem;
   font-size: 18px;
 }
 
 .message.left {
-  background-color: #F1F0E9;
+  background-color: #f1f0e9;
 }
 
 .message.right {
-  background-color: #f1ef5b
+  background-color: #f1ef5b;
 }
+
+.chatWindowFoot {
+  justify-content: flex-end;
+}
+
+.chatInsert {
+  
+}
+
 
 /* 預覽頁面 */
 /* 個人資料 */
@@ -632,7 +642,6 @@ body {
   flex-wrap: wrap;
   border-radius: 20px;
   background-color: #fff;
-
 }
 
 .p-page-info {
@@ -652,7 +661,7 @@ body {
 
 .p-page-info .TCp-intro {
   position: relative;
-  border: 2px solid #F1EF5B;
+  border: 2px solid #f1ef5b;
   border-radius: 5px;
   padding: 25px;
   margin-bottom: 34px;
@@ -669,8 +678,7 @@ body {
   background-color: #fff;
 }
 
-
-.p-page-info .TCp-intro>p {
+.p-page-info .TCp-intro > p {
   font-size: 12px;
   margin: 0px;
 }
@@ -687,7 +695,7 @@ body {
 .p-page-title {
   font-size: 24px;
   font-weight: bold;
-  color: #065F8E;
+  color: #065f8e;
   margin-bottom: 15px;
 }
 
@@ -743,7 +751,7 @@ body {
 
 .fa-star {
   font-size: 12px;
-  color: #BCC831;
+  color: #bcc831;
 }
 
 .score {
@@ -764,8 +772,6 @@ body {
   right: 5%;
 }
 
-
-
 /* -------------以上為公用------------ */
 
 /* 課程新增進度 */
@@ -780,7 +786,6 @@ body {
   align-items: center;
   margin-bottom: 50px;
 }
-
 
 /* 課程表單裡的圖  */
 .TCcourse-pic-square {
@@ -798,6 +803,7 @@ body {
   color: black;
   font-size: 15px;
   font-weight: normal;
+  cursor: pointer;
 }
 
 /* 課程新增的返回列表按鈕 */
@@ -817,7 +823,7 @@ body {
   display: flex;
 }
 
-.resume>input {
+.resume > input {
   cursor: pointer;
 }
 
@@ -835,6 +841,7 @@ body {
 /* 預覽按鈕(桌機板) */
 .preview-btn-top {
   display: none;
+  cursor: pointer;
 }
 
 /* 預覽按鈕(行動裝置) */
@@ -853,7 +860,6 @@ body {
   display: none;
 }
 
-
 /* 課程管理的欄位 */
 .TCcourseLabel {
   display: none;
@@ -863,7 +869,7 @@ body {
 .TCcourse-card {
   display: flex;
   justify-content: center;
-  background: #F1F0E9;
+  background: #f1f0e9;
   border-radius: 10px;
   width: 100%;
   overflow: hidden;
@@ -917,8 +923,7 @@ body {
   cursor: pointer;
 }
 
-.TCcourse-delete:hover{
-
+.TCcourse-delete:hover {
 }
 
 /* 影片上傳 */
@@ -934,22 +939,19 @@ body {
   text-align: center;
 }
 
-.TCvideo-drop-zone>i {
+.TCvideo-drop-zone > i {
   font-size: 50px;
 }
 
-.TCvideo-drop-zone>p {
+.TCvideo-drop-zone > p {
   font-size: 20px;
   margin: 25px auto 5px;
 }
 
-.TCvideo-drop-zone>label {
+.TCvideo-drop-zone > label {
   font-size: 12px;
   margin-bottom: 20px;
 }
-
-
-
 
 @media (min-width: 375px) {
   .TCnotify-text {
@@ -962,11 +964,9 @@ body {
 }
 
 @media (min-width: 768px) {
-
   body {
     font-size: 16px;
   }
-
 
   /* 網站主要導覽列 */
   .navbar {
@@ -1088,21 +1088,6 @@ body {
     top: 724px;
   }
 
-  /* 黃色色塊(下) */
-  .dec-low-block {
-    display: block;
-    position: absolute;
-    left: 70px;
-    bottom: 0px;
-    width: 367px;
-    height: 789px;
-    transform: skew(-24.76deg);
-    z-index: -1;
-    background: #f1ef5b;
-    border-radius: 30px;
-    animation: 12s linear infinite;
-  }
-
   /* 藍色色塊(下) */
   .dec-blue-block {
     display: block;
@@ -1144,7 +1129,6 @@ body {
     display: flex;
   }
 
-
   /* 頁面英文標題 */
   .pageName {
     display: block;
@@ -1158,11 +1142,11 @@ body {
     color: black;
     font-size: 6rem;
     font-weight: bold;
-    line-height: 1.0;
+    line-height: 1;
   }
 
   .profile::before {
-    content: "";
+    content: '';
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -1174,7 +1158,7 @@ body {
   }
 
   .course::before {
-    content: "";
+    content: '';
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -1186,7 +1170,7 @@ body {
   }
 
   .password::before {
-    content: "";
+    content: '';
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -1197,9 +1181,8 @@ body {
     top: 55%;
   }
 
-
   .analytics::before {
-    content: "";
+    content: '';
     width: 28px;
     height: 28px;
     border-radius: 50%;
@@ -1244,15 +1227,15 @@ body {
     align-items: center;
     height: 50px;
     border-radius: 0px 10px 10px 0px;
+    padding: 0;
     margin-bottom: 10px;
     color: #065f8e;
     position: relative;
   }
 
-  .sidebar .nav-item>i {
+  .sidebar .nav-item > i {
     font-size: 25px;
-    width: 40px;
-    margin-left: 10%;
+    margin: auto 8% auto 17%;
     background-color: transparent;
   }
 
@@ -1262,7 +1245,7 @@ body {
   }
 
   .sidebar .nav-item.active::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 0;
@@ -1315,7 +1298,6 @@ body {
   .TCbtn-sm-w-switch {
     display: none;
   }
-
 
   /* 課程欄位列 */
   .TCcourseLabel {
@@ -1380,7 +1362,7 @@ body {
 
   .TCnotify-text {
     font-size: 28px;
-    margin: 0px auto
+    margin: 0px auto;
   }
 
   /* 課程圖片 */
@@ -1401,7 +1383,6 @@ body {
     overflow: hidden;
   }
 
-
   /* 預覽按鈕(桌機板) */
   .preview-btn-top {
     display: block;
@@ -1417,7 +1398,6 @@ body {
   .TCback-btn {
     display: none;
   }
-
 
   /* 課程新增的進度 */
   .TCcourse-processBar {
@@ -1450,7 +1430,7 @@ body {
   }
 
   .TCcourse-processBar-item a i {
-    padding-right: .5rem;
+    padding-right: 0.5rem;
   }
 
   /* 目前所在的頁面 */
@@ -1460,7 +1440,6 @@ body {
     width: 70%;
     height: 5px;
     background-color: #065f8e;
-
   }
 
   /* 會員中心sidebar */
@@ -1508,7 +1487,7 @@ body {
     background-color: transparent;
   }
 
-  .sidebar .nav-item>a>i {
+  .sidebar .nav-item > a > i {
     font-size: 25px;
     width: 30px;
     background-color: transparent;
@@ -1520,7 +1499,7 @@ body {
   }
 
   .nav-item.active::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -1537,7 +1516,6 @@ body {
   .TC-intro {
     margin-bottom: 0px;
   }
-
 
   /* 單獨一個按鈕在表單底部時 */
   .one-btn {
@@ -1618,7 +1596,7 @@ body {
   }
 
   .p-page-info .TCp-intro {
-    border: 4px solid #F1EF5B;
+    border: 4px solid #f1ef5b;
     border-radius: 5px;
     padding: 34px;
     width: 80%;
@@ -1631,7 +1609,7 @@ body {
     font-size: 24px;
   }
 
-  .p-page-info .TCp-intro>p {
+  .p-page-info .TCp-intro > p {
     font-size: 18px;
     margin: 0px;
   }
@@ -1647,7 +1625,7 @@ body {
   .p-page-title {
     font-size: 36px;
     font-weight: bold;
-    color: #065F8E;
+    color: #065f8e;
     margin-bottom: 50px;
   }
 
@@ -1706,7 +1684,7 @@ body {
 
   .fa-star {
     font-size: 12px;
-    color: #BCC831;
+    color: #bcc831;
   }
 
   .score {
@@ -1731,7 +1709,7 @@ body {
   .footerWrap {
     width: 90%;
     border-radius: 0px 50px 0px 0px;
-    background-color: #065F8E;
+    background-color: #065f8e;
     margin-bottom: 0px;
   }
 
@@ -1762,7 +1740,7 @@ body {
     width: 100%;
   }
 
-  .Footer-page-links>a {
+  .Footer-page-links > a {
     text-decoration: none;
     color: #fff;
   }
@@ -1790,7 +1768,6 @@ body {
     display: flex;
     margin-left: 0px;
   }
-
 
   .icon-sp {
     display: flex;

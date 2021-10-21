@@ -273,6 +273,7 @@ body {
 /* 表單儲存的字體顏色 */
 .TCsave-btn {
   color: black;
+  cursor: pointer;
 }
 
 
@@ -424,10 +425,6 @@ body {
   margin-bottom: 30px;
 }
 
-.TC-intro::placeholder {
-  padding-top: 2.5%;
-}
-
 /* 聊天室 */
 /* 對象選單 */
 .chatList {
@@ -459,6 +456,7 @@ body {
   padding: .75rem;
   background-color: #F1F0E9;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .chatCard-info {
@@ -800,6 +798,7 @@ body {
   color: black;
   font-size: 15px;
   font-weight: normal;
+  cursor: pointer;
 }
 
 /* 課程新增的返回列表按鈕 */
@@ -837,6 +836,7 @@ body {
 /* 預覽按鈕(桌機板) */
 .preview-btn-top {
   display: none;
+  cursor: pointer;
 }
 
 /* 預覽按鈕(行動裝置) */
@@ -1089,7 +1089,6 @@ body {
     right: 0;
     top: 724px;
   }
-
 
   /* 藍色色塊(下) */
   .dec-blue-block {

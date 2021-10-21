@@ -164,7 +164,6 @@ function TcProfile() {
         <div className="earth">
           <img src="../images/elements/earth.png" alt="" />
         </div>
-        <div className="dec-low-block"></div>
       </div>
     </>
   )
