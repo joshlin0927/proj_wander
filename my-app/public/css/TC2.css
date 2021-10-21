@@ -623,18 +623,16 @@ body {
 .chatWindowFoot {
   display: flex;
   align-items: center;
-  position: relative;
 }
 
 .chatInsertButton {
-  position: absolute;
-  right: 1px;
-  bottom: 6px;
+  width: 100%;
   height: 48px;
   border: 0px;
   color: black;
   background-color: #f1ef5b;
   margin-left: -100px;
+  margin-bottom: 5px;
   border-radius: 0px 10px 10px 0px;
 }
 
@@ -1115,7 +1113,7 @@ body {
   }
 
   #fakeFileInput {
-    content: '123';
+   
   }
 
   /* 搜尋列 */
