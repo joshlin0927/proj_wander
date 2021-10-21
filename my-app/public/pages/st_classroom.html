@@ -52,7 +52,7 @@
       padding: 0px 0px 15px;
     }
 
-   
+
 
     /* 手機logo */
     .logo-m {
@@ -64,65 +64,73 @@
       display: none;
     }
 
-
-
-
-
-
-    /* 手機板會變小的按鈕(有display變化) */
-    .TCbtn-sm-w-switch {
-      display: flex;
-      width: 73px;
-      height: 30px;
-    }
-
-
-
-
-
-    /* 教師頁面返回按鈕 */
-    .TCback-btn {
-      padding: 0px 15px;
-      color: #065F8E;
-    }
-
     /* 頁面英文標題 */
     .pageName {
       display: none;
     }
 
-    .timetable,
-    .search, .year_month {
+    .player {
+      width: 100%;
+      height: fit-content
+    }
+
+    .video img {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .play {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+
+    }
+
+    .playlist {
+      display: block;
+      padding: 0px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .clip {
+      width: 100%;
+      height: 52px;
+      border-radius: 0px 0px 5px 5px;
+      background-color: white;
+      display: flex;
+      /* justify-content:center; */
+
+      line-height: 52px;
+      font-size: 14px;
+    }
+
+    .clip p {
+      margin-left: 5px;
+    }
+
+    .first {
+      background-color: #065f8e;
+    }
+
+    .mo-none {
       display: none;
     }
 
-    .minicalendar{
-      display:block;
-    }
-    
-    .year_month-m{
-      display: flex;
-      justify-content:center;
-      background-color: white;
+    .mb30 {
+      margin-bottom: 30px;
     }
 
-    .year_month-m a{
-      color:black;
-    }
 
-    .fa-chevron-left{
-      margin-right: 25px;
-    }
 
-    .fa-chevron-right{
-       margin-left: 25px;
-    }
 
-    .weekday-m, .firstweek-m, .secweek-m, .thirdweek-m, .forthweek-m, .forthweek-m{
-    background-color:white;
-    }
 
-    
+
 
     /* -------------以上為公用------------ */
 
@@ -188,7 +196,7 @@
 
 
 
-      .course::before {
+      .class::before {
         content: "";
         width: 22px;
         height: 22px;
@@ -196,7 +204,7 @@
         background: #f1ef5b;
         position: absolute;
         z-index: -5;
-        left: 18%;
+        left: 44%;
         top: 55%;
       }
 
@@ -333,89 +341,63 @@
         background-color: white;
       }
 
-
-
-      /* 日曆 */
-
-      .timetable {
+      .player {
         display: block;
-        width: 844px;
-        height: 747px;
-        padding: 0px;
-        overflow: hidden;
+        width: 100%;
+        height: fit-content;
       }
 
-      .search{
-        display: block;
+      .video img {
+        width: 100%;
+        object-fit: contain;
       }
 
-      .year_month {
-        display:block;
-        background-color: white;
-        display: flex;
-        justify-content: center;
-
-      }
-
-      .month,
-      .year {
-        
-        font-size: 48px;
-        font-weight: bold;
-        text-align: center;
-        margin-top: 20px;
-        margin-bottom: 20px;
-      }
-
-      .year {
-        margin-left: 15px;
-      }
-
-      .weekday {
-        
-        font-size: 14px;
-        font-weight: bold;
-        background-color: white;
-        text-align: center;
-      }
-
-      .firstweek,
-      .secweek,
-      .thirdweek,
-      .forthweek,
-      .fifweek {
-        
-        background-color: white;
-        font-size: 16px;
-        width: 121px;
-        height: 112px;
-      }
-
-      .plus {
-        display: block;
+      .play {
+        width: 87px;
+        height: 87px;
         position: absolute;
-        left: 20%;
-        top: 24%;
-      }
-
-      .search {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         display: flex;
-        justify-content: end;
-        margin-bottom: 25px;
+        flex-direction: column;
 
       }
 
-      .search span {
-        font-weight: bold;
+      .playlist {
+        display: block;
+        padding: 0px;
+      }
+
+      .clip {
+        width: 100%;
+        height: 52px;
+        border-radius: 0px 0px 5px 5px;
+        background-color: white;
+        display: flex;
+        /* justify-content:center; */
+
+        line-height: 52px;
+        font-size: 14px;
+      }
+
+      .clip p {
+        margin-left: 5px;
+      }
+
+      .first {
+        background-color: #065f8e;
       }
 
       .mb150 {
         margin-bottom: 150px;
       }
 
-      .minicalendar, .year_month-m {
+      .des-none {
         display: none;
       }
+
+
 
 
     }
@@ -474,11 +456,11 @@
         <ol class="breadcrumb col col-md-10 col-lg-12 m-0">
           <li class="breadcrumb-item"><a href="">首頁</a></li>
           <li class="breadcrumb-item"><a href="">我的課程</a></li>
-          <li class="breadcrumb-item"><a href="">課程管理</a></li>
+          <li class="breadcrumb-item"><a href="">教室上課</a></li>
         </ol>
       </nav>
       <div class="col-10 ml-auto pageName">
-        <span class="pageNameText course">Calendar</span>
+        <span class="pageNameText class">Class</span>
       </div>
     </div>
 
@@ -501,12 +483,12 @@
               <div> 我的課程</div>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item  active">
             <a href=""><i class="fal fa-users-class"></i>
               <div> 教室上課</div>
             </a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a href="">
               <i class="fal fa-table"></i>
               <div> 課程管理</div>
@@ -514,148 +496,107 @@
           </li>
         </ul>
       </nav>
-
-
-      <div class="timetable table-responsive  col-8 offset-0 offset-md-1">
-        <div class="search"><i class="fal fa-search"> <span>Search</span> </i></div>
-        <div class="year_month">
-          <p class="month">November</p>
-          <p class="year">2021</p>
+      <div class="player col-7 mo-none">
+        <div class="play">
+          <img src="../public/imgs/網頁素材/play_circle_outline.svg" alt="">
         </div>
-        <table class="table  table-responsive table-bordered">
-          <tbody>
-            <tr>
-              <th class="weekday">SUN</th>
-              <th class="weekday">MON</th>
-              <th class="weekday">TUES</th>
-              <th class="weekday">WED</th>
-              <th class="weekday">THU</th>
-              <th class="weekday">FRI</th>
-              <th class="weekday">SAT</th>
-            </tr>
-            <tr>
-              <th class="firstweek">31</th>
-              <th class="firstweek">1
-                <div class="plus"><i class="fal fa-plus"></i></div>
-              </th>
-              <th class="firstweek">2</th>
-              <th class="firstweek">3</th>
-              <th class="firstweek">4</th>
-              <th class="firstweek">5</th>
-              <th class="firstweek">6</th>
-            </tr>
-            <tr>
-              <th class="secweek">7</th>
-              <th class="secweek">8</th>
-              <th class="secweek">9</th>
-              <th class="secweek">10</th>
-              <th class="secweek">11</th>
-              <th class="secweek">12</th>
-              <th class="secweek">13</th>
-            </tr>
-            <tr>
-              <th class="thirdweek">14</th>
-              <th class="thirdweek">15</th>
-              <th class="thirdweek">16</th>
-              <th class="thirdweek">17</th>
-              <th class="thirdweek">18</th>
-              <th class="thirdweek">19</th>
-              <th class="thirdweek">20</th>
-            </tr>
-            <tr>
-              <th class="forthweek">21</th>
-              <th class="forthweek">22</th>
-              <th class="forthweek">23</th>
-              <th class="forthweek">24</th>
-              <th class="forthweek">25</th>
-              <th class="forthweek">26</th>
-              <th class="forthweek">27</th>
-            </tr>
-            <tr>
-              <th class="fifweek">28</th>
-              <th class="fifweek">29</th>
-              <th class="fifweek">30</th>
-              <th class="fifweek"></th>
-              <th class="fifweek"></th>
-              <th class="fifweek"></th>
-              <th class="fifweek"></th>
-            </tr>
-          </tbody>
-        </table>
+        <div class="video">
+          <img src="../public/imgs/課程圖片/韓文課程(人際關係).jpeg" alt="">
+        </div>
+
+      </div>
+      <div class="playlist col-3 mo-none">
+        <div class="first clip">
+          <p>自我介紹</p>
+          <p>02:33</p>
+        </div>
+        <div class="clip">
+          <p>西班牙文基礎發音</p>
+          <p>02:33</p>
+        </div>
+        <div class="clip">
+          <p>西班牙文基礎發音</p>
+          <p>02:33</p>
+        </div>
+        <div class="clip">
+          <p>西班牙文基礎發音</p>
+          <p>02:33</p>
+        </div>
+        <div class="clip">
+          <p>西班牙文基礎發音</p>
+          <p>02:33</p>
+        </div>
+        <div class="clip">
+          <p>基礎發音</p>
+          <p>02:33</p>
+        </div>
+        <div class="clip">
+          <p>基礎發音</p>
+          <p>02:33</p>
+        </div>
+        <div class="clip">
+          <p>基礎發音</p>
+          <p>02:33</p>
+        </div>
       </div>
     </div>
 
-   
-
-    <div class="minicalendar">
-      <div class="year_month-m">
-        <a href=""><i class="fas fa-chevron-left"></i></a>
-        <span> November</span>
-        <span>2021 </span>
-        <a href=""><i class="fas fa-chevron-right"></i></a>
+    <div class="row mb30 des-none">
+      <div class="player col-12">
+        <div class="play">
+          <img src="../public/imgs/網頁素材/play_circle_outline.svg" alt="">
+        </div>
+        <div class="video">
+          <img src="../public/imgs/課程圖片/韓文課程(人際關係).jpeg" alt="">
+        </div>
       </div>
-       <table class="minitable table table-responsive ">
-         <tbody>
-           <tr>
-             <th class="weekday-m">SUN</th>
-             <th class="weekday-m">MON</th>
-             <th class="weekday-m">TUES</th>
-             <th class="weekday-m">WED</th>
-             <th class="weekday-m">THU</th>
-             <th class="weekday-m">FRI</th>
-             <th class="weekday-m">SAT</th>
-           </tr>
-           <tr>
-             <th class="firstweek-m">31</th>
-             <th class="firstweek-m">1</th>
-             <th class="firstweek-m">2</th>
-             <th class="firstweek-m">3</th>
-             <th class="firstweek-m">4</th>
-             <th class="firstweek-m">5</th>
-             <th class="firstweek-m">6</th>
-           </tr>
-           <tr>
-             <th class="secweek-m">7</th>
-             <th class="secweek-m">8</th>
-             <th class="secweek-m">9</th>
-             <th class="secweek-m">10</th>
-             <th class="secweek-m">11</th>
-             <th class="secweek-m">12</th>
-             <th class="secweek-m">13</th>
-           </tr>
-           <tr>
-             <th class="thirdweek-m">14</th>
-             <th class="thirdweek-m">15</th>
-             <th class="thirdweek-m">16</th>
-             <th class="thirdweek-m">17</th>
-             <th class="thirdweek-m">18</th>
-             <th class="thirdweek-m">19</th>
-             <th class="thirdweek-m">20</th>
-           </tr>
-           <tr>
-             <th class="forthweek-m">21</th>
-             <th class="forthweek-m">22</th>
-             <th class="forthweek-m">23</th>
-             <th class="forthweek-m">24</th>
-             <th class="forthweek-m">25</th>
-             <th class="forthweek-m">26</th>
-             <th class="forthweek-m">27</th>
-           </tr>
-           <tr>
-             <th class="forthweek-m">28</th>
-             <th class="forthweek-m">29</th>
-             <th class="forthweek-m">30</th>
-             <th class="forthweek-m"></th>
-             <th class="forthweek-m"></th>
-             <th class="forthweek-m"></th>
-             <th class="forthweek-m"></th>
-           </tr>
-         </tbody>
-       </table>
-      
     </div>
-  
-  </div> 
+
+    <div class="row  mb30 des-none ">
+      <div class="playlist col-8">
+        <div class="first clip">
+          <p>自我介紹</p>
+          <p>02:33</p>
+        </div>
+        <div class="clip">
+          <p>西班牙文基礎發音</p>
+          <p>02:33</p>
+        </div>
+        <div class="clip">
+          <p>西班牙文基礎發音</p>
+          <p>02:33</p>
+        </div>
+        <div class="clip">
+          <p>西班牙文基礎發音</p>
+          <p>02:33</p>
+        </div>
+        <div class="clip">
+          <p>西班牙文基礎發音</p>
+          <p>02:33</p>
+        </div>
+        <div class="clip">
+          <p>基礎發音</p>
+          <p>02:33</p>
+        </div>
+        <div class="clip">
+          <p>基礎發音</p>
+          <p>02:33</p>
+        </div>
+        <div class="clip">
+          <p>基礎發音</p>
+          <p>02:33</p>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+  </div>
+
 
 </body>
 

@@ -16,13 +16,7 @@
       font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     }
 
-    body {    
-      background-image: url('');
-      background-position: center;
-      background-size:cover ;
-      background-repeat: no-repeat;   
-    }
-
+   
 
     .navbar {
       display: none;
@@ -50,7 +44,7 @@
       padding: 0;
     }
 
-    .selectlanguage,
+    
     .dec-side,
     .dec-insideblock {
       display: none;
@@ -60,7 +54,7 @@
       position: absolute;
       right: 0;
       top: 0;
-      width: 64%;
+      
       height: 316px;
       border-radius: 0px 0px 0px 50px;
       background-color: #F1EF5B;
@@ -74,16 +68,16 @@
       width: 90%;
       height: 284px;
       background-color: #ffffff;
-      border-radius: 20px 0px 0px 80px;
+      border-radius: 10px 0px 0px 80px;
       margin-left: auto;
       padding: 0;
       position: relative;
     }
 
-    .selectlanguage-m {
+    /* .selectlanguage-m {
       display: block;
       border: 3px solid black;
-      width: 70%;
+      
       height: 63px;
       font-weight: bold;
       font-size: 18px;
@@ -94,7 +88,7 @@
       top: 60%;
       left: 18%;
       z-index: 1;
-    }
+    } */
 
     .dot {
       width: 19px;
@@ -107,6 +101,38 @@
       z-index: -1;
     }
 
+    .selectlanguage {
+    display: block;
+    border: 3px solid black;
+    height: 63px;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: underline;
+    text-align: center;
+    line-height: 63px;
+    position: absolute;
+    top: 70%;
+    left: 25%;
+    z-index: 1;
+    }
+
+     ul {
+     display: block;
+     line-height: 20px;
+     background-color: hsl(0, 0%, 100%);
+     position: absolute;
+     width: 70%;
+
+     transform: translate(0%, -10%);
+     }
+
+     ul li {
+     line-height: 20px;
+     font-size: 14px;
+     font-weight: normal;
+     }
+     
+
 
 
 
@@ -114,7 +140,7 @@
 
       body {
         background-color: #F1F0E9;
-        background-image: none;
+       
       }
 
       .navbar {
@@ -151,7 +177,7 @@
         width: 100%;
         height: 481px;
         background-color: #ffffff;
-        border-radius: 20px 0px 0px 180px;
+        border-radius: 10px 0px 0px 180px;
         margin-left: auto;
         padding: 0;
         position: relative;
@@ -263,7 +289,7 @@
           <ol class="breadcrumb col col-md-10 ">
             <li class="breadcrumb-item"><a href="">首頁</a></li>
             <li class="breadcrumb-item"><a href="">我的課程</a></li>
-            <li class="breadcrumb-item"><a href="">選擇語系</a></li>
+            <li class="breadcrumb-item"><a href="">開始上課</a></li>
           </ol>
         </nav>
       </div>
@@ -273,9 +299,9 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="dec-side col-md-6">
-        <div class="dec-insideblock col-md-8">
-          <div class="selectlanguage col-md-6">
+      <div class="dec-side col-md-8 col-lg-8">
+        <div class="dec-insideblock col-md-9 col-lg-8">
+          <div class="selectlanguage col-md-6 col-lg-6">
             選擇語系
             <ul>
               <li>英文</li>
@@ -293,8 +319,14 @@
     <row>
       <div class="dec-side-m col-8">
         <div class="dec-insideblock-m col-11">
-          <div class="selectlanguage-m col-9">
+          <div class="selectlanguage col-6 ">
             選擇語系
+            <ul>
+              <li>英文</li>
+              <li>西文</li>
+              <li>法文</li>
+              <li>德文</li>
+            </ul>
           </div>
         </div>
       </div>
