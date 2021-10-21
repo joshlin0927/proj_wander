@@ -49,16 +49,16 @@ function TcSideBar() {
               <div>課程列表</div>
             </Nav.Link>
           </li>
-          {/* <li>
-            <Nav.Link
+          <li>
+            <div
               as={NavLink}
               className="nav-item"
               activeClassName="active"
             >
               <i className="fas fa-comment-alt"></i>
               <div>聊天室</div>
-            </Nav.Link>
-          </li> */}
+            </div>
+          </li>
           <li>
             <Nav.Link
               as={NavLink}

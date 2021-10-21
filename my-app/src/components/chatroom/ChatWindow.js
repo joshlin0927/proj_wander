@@ -36,7 +36,7 @@ function ChatWindow() {
             type="button"
             class="btn chatInsertButton"
           >
-            送出
+            <span>送出</span>
           </button>
         </div>
       </div>

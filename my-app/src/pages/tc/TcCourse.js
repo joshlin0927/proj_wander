@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // components
-import TcSideBar from '../../components/tc/TcSideBar'
+import TcSearchBar from '../../components/tc/TcSearchBar'
+import TcCourseCard from '../../components/tc/TcCourseCard'
 import MyPagination from '../../components/MyPagination'
 
 function TcCourse() {
@@ -10,21 +11,13 @@ function TcCourse() {
     <>
       <div class="TCform col-12 col-md-10">
         <div class="TCform-head ml-1 p-0">
-          <a href="">
+          <Link to="">
             <i class="fas fa-chevron-left TCback-btn"></i>
-          </a>
+          </Link>
           <div class="TCform-title mr-auto">我的課程</div>
           {/* desktop search bar */}
           <div class="TCsearch mr-auto col-6">
-            <input
-              type="text"
-              class="TCsearchbar"
-              id="TCsearchbar"
-              placeholder="請輸入課程名稱"
-            />
-            <button type="submit" class="">
-              <i class="fas fa-search"></i>
-            </button>
+            <TcSearchBar />
           </div>
           <div class="d-flex justify-content-end">
             <button class="btn TCbtn-sm btn-primary">
@@ -34,15 +27,7 @@ function TcCourse() {
         </div>
         {/* mobile search bar */}
         <div class="TCsearch-mobile">
-          <input
-            type="text"
-            class="TCsearchbar"
-            id="TCsearchbar"
-            placeholder="請輸入課程名稱"
-          />
-          <button type="submit" class="">
-            <i class="fas fa-search"></i>
-          </button>
+          <TcSearchBar />
         </div>
         {/* TCcourse card label */}
         <div class="TCcourseLabel col-12">
@@ -59,34 +44,7 @@ function TcCourse() {
           </div>
         </div>
         {/* course cards */}
-        <div class="TCcourse-card col-12">
-          <div class="TCcourse-img">
-            <img src="../images/course/日文課程.jpeg" />
-          </div>
-          <div class="TCcourse-info">
-            <div class="TCcourse-title">
-              Thomas老師：從零開始的日文基礎課程3
-            </div>
-            <div class="TCcourse-info-right">
-              <div class="TCcourse-detail">
-                <span>課程種類：</span> 日文
-              </div>
-              <div class="TCcourse-detail">
-                <span>上架日期：</span> 2021/09/08
-              </div>
-              <div class="TCcourse-detail">
-                <span>課程長度：</span> 01:02:30
-              </div>
-            </div>
-          </div>
-          <div
-            class="TCcourse-delete"
-            data-toggle="modal"
-            data-target="#exampleModal"
-          >
-            <i class="far fa-times-circle"></i>
-          </div>
-        </div>
+        <TcCourseCard />
         {/* Pagination */}
         <MyPagination />
       </div>

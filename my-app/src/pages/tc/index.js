@@ -14,7 +14,11 @@ import TcAnalytic from './TcAnalytic'
 // 共用元件
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcPageName from '../../components/tc/TcPageName'
-import TcBgDecoration from '../../components/tc/TcBgDecoration'
+import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
+import TcBgDecorationThreeSteps from '../../components/tc/TcBgDecorationThreeSteps'
+import ChatList from '../../components/chatroom/ChatList'
+import ChatWindow from '../../components/chatroom/ChatWindow'
+import TcCourseEdit from './TcCourseEdit'
 
 function index() {
   return (
@@ -25,6 +29,8 @@ function index() {
           <TcPageName />
           <div className="row">
             <TcSideBar />
+            {/* <ChatList /> */}
+            {/* <ChatWindow /> */}
             <Switch>
               <Route path="/TcProfile">
                 <TcProfile />
@@ -41,7 +47,8 @@ function index() {
             </Switch>
           </div>
         </div>
-        <TcBgDecoration />
+        <TcBgDecorationNormal />
+        <TcBgDecorationThreeSteps />
       </Router>
     </>
   )

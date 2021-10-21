@@ -417,10 +417,6 @@ body {
   margin-bottom: 30px;
 }
 
-.TC-intro::placeholder {
-  padding-top: 2.5%;
-}
-
 /* 聊天室 */
 /* 對象選單 */
 .chatList {
@@ -634,9 +630,6 @@ body {
   margin-left: -100px;
   margin-bottom: 5px;
   border-radius: 0px 10px 10px 0px;
-}
-
-.chatInsert::after {
 }
 
 /* 預覽頁面 */

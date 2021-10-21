@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // components
-import MyPagination from '../../components/MyPagination'
+import TcSearchBar from '../../components/tc/TcSearchBar'
+import TcCourseCard from '../../components/tc/TcCourseCard'
 import TcChart from '../../components/tc/TcChart'
+import MyPagination from '../../components/MyPagination'
 
 function TcAnalytic() {
   return (
@@ -18,29 +20,20 @@ function TcAnalytic() {
           </div>
           {/* desktop search bar */}
           <div className="TCsearch ml-0">
-            <input
-              type="text"
-              className="TCsearchbar"
-              placeholder="請輸入課程名稱"
-            />
-            <button type="submit" className="">
-              <i className="fas fa-search"></i>
-            </button>
+            <TcSearchBar />
           </div>
         </div>
         {/* mobile search bar */}
         <div className="TCsearch-mobile">
-          <input
-            type="text"
-            className="TCsearchbar"
-            placeholder="請輸入課程名稱"
-          />
-          <button type="submit" className="">
-            <i className="fas fa-search"></i>
-          </button>
+          <TcSearchBar />
         </div>
         {/* chart */}
-        <TcChart width={700} height={300} />
+        <div class="mb-5">
+          <TcChart
+            width={700}
+            height={300}
+          />
+        </div>
         {/* TCcourse card label */}
         <div className="TCcourseLabel col-12">
           <div className="Labelitem">課程封面</div>
@@ -54,25 +47,7 @@ function TcAnalytic() {
           </div>
         </div>
         {/* course cards */}
-        <div className="TCcourse-card col-12">
-          <div className="TCcourse-img"></div>
-          <div className="TCcourse-info">
-            <div className="TCcourse-title">
-              Thomas老師：從零開始的日文基礎課程3
-            </div>
-            <div className="TCcourse-info-right">
-              <div className="TCcourse-detail">
-                <span>上架日期：</span> 2021/09/08
-              </div>
-              <div className="TCcourse-detail">
-                <span>觀看次數：</span> 123456789
-              </div>
-            </div>
-          </div>
-          <div className="TCcourse-delete opacity-0">
-            <i className="far fa-times-circle"></i>
-          </div>
-        </div>
+        <TcCourseCard />
         <MyPagination />
       </form>
     </>
