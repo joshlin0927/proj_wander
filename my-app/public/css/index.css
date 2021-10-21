@@ -26,15 +26,7 @@
   margin-bottom: 70px;
 }
 
-/* .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 115px;
-  height: 40px;
-  font-size: 14px;
-  font-weight: bold;
-} */
+
 
 .opacity-0 {
   opacity: 0;
@@ -1206,6 +1198,9 @@
 
 }
 
+/* ==========================================================================
+index-網頁版
+========================================================================== */
 
        /* 標語*/
        .aearth {
@@ -1229,6 +1224,36 @@
         text-align: center;
         
       }
+
+      .checkoutBtn {
+        font-size: 1.2rem;
+        width: 251px;
+        height: 40px;
+        color: #ffffff;
+        background-color: #065f8e;
+        margin: 0;
+      }
+      .checkoutBtn:hover {
+        color: #065f8e;
+        background-color: #ffffff;
+        border: 2px solid #065f8e;
+      }
+
+        .checkoutBtn-y {
+        width: 60%;
+        font-size: 1.2rem;
+        height: 50px;
+        color: #065f8e;
+        background-color: #ffffff;
+        margin: 0;
+      }
+      .checkoutBtn-y:hover {
+        color: #ffffff;
+        background-color: #065f8e;
+        border: 2px solid #ffffff;
+      }
+
+
 
       .imga {
         position: absolute;
@@ -1778,38 +1803,20 @@ color: #FFFFFF;
         .yellow-area-but-1{
           position: absolute;
           left: 335px;
-          top: 380px;        
+          top: 380px;
+          z-index: 20;
+          width: 600px;       
         }
 
-        .btn {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 14px;
-          border: 1px solid #000000;
-          position: absolute;
-          width: 525px;
-          height: 58px;
-          background: #FFFFFF;
-          box-sizing: border-box;
-          font-family: Noto Sans;
-          font-style: normal;
-          font-weight: bold;
-          font-size: 30px;
-          line-height: 41px;
-          /* identical to box height */
-
-          display: flex;
-          align-items: center;
-          letter-spacing: 0.15em;
-
-          color: #000000;
-        }
 
         .yellow-area-but-2{
           position: absolute;
           left: 1035px;
-          top: 380px;        
+          top: 380px;
+          z-index: 20;
+          width: 600px;       
+
+        
         }
 
         .yellow-area-popular-course{
@@ -2208,7 +2215,17 @@ color: #30618C;
       flex-wrap: wrap;
 }
 
+/* ==========================================================================
+手機板800 -index
+========================================================================== */
+
 @media screen and ( max-width: 800px ) {
+
+  .checkoutBtn {
+    min-width: 85px;
+    width: 30%;
+    border-radius: 0;
+  }
     
   #footer {
     top: 3400px;
@@ -2365,6 +2382,12 @@ index手機
     display:none !important;
     }
 
+    .checkoutBtn {
+      min-width: 85px;
+      width: 30%;
+      border-radius: 0;
+    }
+
 
 
 
@@ -2385,6 +2408,8 @@ index手機
   z-index: 3;
   }
 
+
+
        /* 標語*/
        .ath {
         display: block;
@@ -2399,6 +2424,22 @@ index手機
         height: 159px;
     
       }
+
+      .checkoutBtn {
+        width: 60%;
+        font-size: 1.2rem;
+        height: 50px;
+        color: #ffffff;
+        background-color: #065f8e;
+        margin: 0;
+      }
+      
+      .checkoutBtn:hover {
+        color: #065f8e;
+        background-color: #ffffff;
+        border: 2px solid #065f8e;
+      }
+
 
       .TextA {
         position: absolute;
@@ -2998,30 +3039,17 @@ index手機
 
             .type05{
               position: relative;
-              left: 10px;
+              left: 46px;
               top:140px;
-
+              width: 1000px;
             }
     
-            .btn {
-              width: 345px;
-              font-family: Noto Sans;
-              font-style: normal;
-              font-weight: bold;
-              font-size: 16px;
-              line-height: 22px;
-              /* identical to box height */
-              display: flex;
-              align-items: center;
-              letter-spacing: 0.15em;
-              
-              color: #000000;
-            }
-
             .type06{
               position: relative;
-              left: 10px;
-              top:215px;
+              left: 46px;
+              top:200px;
+              width: 1000px;
+
             }
 
             .type07-ath {
@@ -3112,12 +3140,13 @@ index手機
 
 
             
-        .popular-card-but{
-          position: absolute;
-          top: 2580px;
-          left:55px;
-        z-index: 20;
-        }
+            .popular-card-but{
+              position: absolute;
+                top: 2580px;
+                left: 120px;
+                z-index: 20;
+                width: 400px;
+            }
 
    
         .popular-button{   
@@ -3139,6 +3168,8 @@ index手機
 
 
 }
+
+
 
 @media screen and ( max-width: 800px ) {
   #desktop{
@@ -3778,30 +3809,19 @@ index手機
 
             .type05{
               position: relative;
-              left: 10px;
+              left: 46px;
               top:140px;
+              width: 1000px;
 
             }
     
-            .btn {
-              width: 345px;
-              font-family: Noto Sans;
-              font-style: normal;
-              font-weight: bold;
-              font-size: 16px;
-              line-height: 22px;
-              /* identical to box height */
-              display: flex;
-              align-items: center;
-              letter-spacing: 0.15em;
-              
-              color: #000000;
-            }
 
             .type06{
               position: relative;
-              left: 10px;
-              top:215px;
+              left: 46px;
+              top:200px;
+              width: 1000px;
+
             }
 
             .type07-ath {
@@ -3892,13 +3912,13 @@ index手機
 
 
             
-        .popular-card-but{
-          position: absolute;
-          top: 2580px;
-          left:55px;
-        z-index: 20;
-        }
-
+            .popular-card-but{
+              position: absolute;
+                top: 2580px;
+                left: 120px;
+                z-index: 20;
+                width: 400px;
+            }
    
         .popular-button{   
 
@@ -3914,6 +3934,8 @@ index手機
           font-weight: bold;
           color: #FFFFFF;
         }
+
+
 
 
 
