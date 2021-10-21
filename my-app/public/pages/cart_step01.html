@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/cart_step.css">
     <title>cart</title>
 
 </head>
@@ -310,7 +310,7 @@
                                 <span>帳號內首筆訂單可使用</span>
                                 <div class="w-100"></div>
                                 <span>不限制訂單內課程購買數量</span>
-                             </div>
+                            </div>
                             <div class="col-6 col-md-2 text-center">2021.12.31</div>
                             <div class="col-2 offset-4 offset-md-0 text-center p-0">
                                 <img src="../images/cart/check_icon.svg" alt="">
@@ -324,7 +324,7 @@
                                 <span>帳號內首筆訂單可使用</span>
                                 <div class="w-100"></div>
                                 <span>不限制訂單內課程購買數量</span>
-                             </div>
+                            </div>
                             <div class="col-6 col-md-2 text-center">2021.12.31</div>
                             <div class="col-2 offset-4 offset-md-0 text-center p-0">
                                 <img src="../images/cart/check_icon.svg" alt="">
@@ -338,7 +338,7 @@
                                 <span>帳號內首筆訂單可使用</span>
                                 <div class="w-100"></div>
                                 <span>不限制訂單內課程購買數量</span>
-                             </div>
+                            </div>
                             <div class="col-6 col-md-2 text-center">2021.12.31</div>
                             <div class="col-2 offset-4 offset-md-0 text-center p-0">
                                 <img src="../images/cart/check_icon.svg" alt="">
@@ -359,7 +359,7 @@
                                 <span>帳號內首筆訂單可使用</span>
                                 <div class="w-100"></div>
                                 <span>不限制訂單內課程購買數量</span>
-                             </div>
+                            </div>
                             <div class="col-6 col-md-2 text-center">2021.12.31</div>
                             <div class="col-2 offset-4 offset-md-0 text-center p-0">
                                 <img src="../images/cart/check_icon.svg" alt="">
@@ -373,7 +373,7 @@
                                 <span>帳號內首筆訂單可使用</span>
                                 <div class="w-100"></div>
                                 <span>不限制訂單內課程購買數量</span>
-                             </div>
+                            </div>
                             <div class="col-6 col-md-2 text-center">2021.12.31</div>
                             <div class="col-2 offset-4 offset-md-0 text-center p-0">
                                 <img src="../images/cart/check_icon.svg" alt="">
@@ -387,7 +387,7 @@
                                 <span>帳號內首筆訂單可使用</span>
                                 <div class="w-100"></div>
                                 <span>不限制訂單內課程購買數量</span>
-                             </div>
+                            </div>
                             <div class="col-6 col-md-2 text-center">2021.12.31</div>
                             <div class="col-2 offset-4 offset-md-0 text-center p-0">
                                 <img src="../images/cart/check_icon.svg" alt="">
@@ -406,46 +406,34 @@
     <!-- Footer -->
     <footer class="footerWrap cartFooterMargin">
         <div class="wanderFooter container-fluid">
-          <div class="row footer-left">
-            <img
-              id="Footer-Desktop-Logo"
-              src="../images/logo/footer_desktop.png"
-            />
-            <img
-              id="Footer-Mobile-Logo"
-              src="../images/logo/footer_mobile.png"
-            />
-            <div class="Footer-page-links">
-              <a href="">關於我們</a>
-              <a href="">常見問題</a>
-              <a href="">國際角落</a>
+            <div class="row footer-left">
+                <img id="Footer-Desktop-Logo" src="../images/logo/footer_desktop.png" />
+                <img id="Footer-Mobile-Logo" src="../images/logo/footer_mobile.png" />
+                <div class="Footer-page-links">
+                    <a href="">關於我們</a>
+                    <a href="">常見問題</a>
+                    <a href="">國際角落</a>
+                </div>
             </div>
-          </div>
-          <div class="row footer-right">
-            <div class="icons">
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-youtube"></i>
+            <div class="row footer-right">
+                <div class="icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="version-icon">
+                    <div class="icon-sp">
+                        <img src="../images/elements/icon-mobile.svg" alt="" />
+                        手機版
+                    </div>
+                    <div class="icon-sp">
+                        <img src="../images/elements/icon-monitor.png" alt="" />
+                        電腦版
+                    </div>
+                </div>
             </div>
-            <div class="version-icon">
-              <div class="icon-sp">
-                <img
-                  src="../images/elements/icon-mobile.svg"
-                  alt=""
-                />
-                手機版
-              </div>
-              <div class="icon-sp">
-                <img
-                  src="../images/elements/icon-monitor.png"
-                  alt=""
-                />
-                電腦版
-              </div>
-            </div>
-          </div>
         </div>
-      </footer>
+    </footer>
 
 
 
@@ -477,7 +465,7 @@
                 $(this).addClass('active').siblings().removeClass('active');
                 $(this).siblings().attr('isChecked', '');
                 $(this).children().last().html('<img src="../images/cart/checked_icon.svg" alt="">');
-                $('#counponCanUse .modal-card').each(function(i,v){
+                $('#counponCanUse .modal-card').each(function (i, v) {
                     if ($(this).attr('isChecked') !== 'checked') {
                         $(this).children().last().html('<img src="../images/cart/check_icon.svg" alt="">');
                     }
