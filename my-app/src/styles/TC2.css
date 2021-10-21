@@ -416,10 +416,7 @@ body {
   background-color: transparent;
   border-radius: 10px;
   margin-bottom: 30px;
-}
-
-.TC-intro::placeholder {
-  padding-top: 2.5%;
+  font-size: 15px;
 }
 
 /* 聊天室 */
@@ -1240,6 +1237,7 @@ body {
     align-items: center;
     height: 50px;
     border-radius: 0px 10px 10px 0px;
+    padding-right: 0px;
     margin-bottom: 10px;
     color: #065f8e;
     position: relative;
@@ -1247,13 +1245,13 @@ body {
 
   .sidebar .nav-item>i {
     font-size: 25px;
-    width: 40px;
-    margin-left: 10%;
+    margin: auto 3%;
     background-color: transparent;
   }
 
   /* 選中的選項狀態 */
   .sidebar .nav-item.active {
+    color: #065F8E;
     background-color: white;
   }
 
