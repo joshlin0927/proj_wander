@@ -844,6 +844,7 @@ a {
 }
 .payTitle{
   border-bottom: 2px solid black;
+  position: relative;
 }
 .payTitle span{
   font-size: 1.5rem;
@@ -957,8 +958,8 @@ a {
 }
 #payTimeDL{
   position: absolute;
-  right: 0;
-  bottom: -100%;
+  left: 0;
+  bottom: -70%;
   color: red;
   font-size: 0.8rem;
 }
@@ -1036,6 +1037,36 @@ a {
   }
   .orderDetailItemImg{
     padding: 0.5rem;
+  }
+}
+.orderGoBtn{
+  color: #065f8e;
+  font-weight: bold;
+  border: 2px solid #065f8e;
+  width: 160px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+}
+.orderGoBtn span{
+  font-size: 1rem;
+  margin-left: 5px;
+}
+.orderGoBtn:hover{
+  background-color: #065f8e;
+  color: white;
+}
+@media (max-width: 767px) {
+  .orderGoBtn{
+      width: 120px;
+      height: 22px;
+      padding: 0;
+      right: 0;
+      bottom: 3px;
+  }
+  .orderGoBtn{
+    font-size: 10px;
   }
 }
 

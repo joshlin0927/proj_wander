@@ -31,11 +31,7 @@ body {
     background-color: #065f8e;
     color: #ffffff;
 }
-@media (max-width: 767px) {
-    .m-d-none{
-        display: none;
-    }
-}
+
 /*=============== Navbar ===============*/
 ul {
     list-style: none !important;
@@ -669,3 +665,8 @@ a {
   .bd-radius-10{
     border-radius: 10px;
   }
+  @media (max-width: 767px) {
+    .m-d-none{
+        display: none;
+    }
+}
