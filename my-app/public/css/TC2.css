@@ -544,7 +544,7 @@ body {
   margin-left: auto;
 }
 
-.chatWindowBody{
+.chatWindowBody {
   height: 540px;
 }
 
@@ -621,13 +621,25 @@ body {
 }
 
 .chatWindowFoot {
-  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-.chatInsert {
-  
+.chatInsertButton {
+  position: absolute;
+  right: 1px;
+  bottom: 6px;
+  height: 48px;
+  border: 0px;
+  color: black;
+  background-color: #f1ef5b;
+  margin-left: -100px;
+  border-radius: 0px 10px 10px 0px;
 }
 
+.chatInsert::after {
+}
 
 /* 預覽頁面 */
 /* 個人資料 */
