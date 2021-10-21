@@ -1,5 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom'
+
+// page
+import ThreeStepsIndex from './ThreeSteps/ThreeStepsIndex'
 
 // components
 import TcSearchBar from '../../components/tc/TcSearchBar'
@@ -11,7 +19,7 @@ function TcCourse() {
     <>
       <div class="TCform col-12 col-md-10">
         <div class="TCform-head ml-1 p-0">
-          <Link to="">
+          <Link to="/">
             <i class="fas fa-chevron-left TCback-btn"></i>
           </Link>
           <div class="TCform-title mr-auto">我的課程</div>
@@ -21,7 +29,9 @@ function TcCourse() {
           </div>
           <div class="d-flex justify-content-end">
             <button class="btn TCbtn-sm btn-primary">
-              <span>新增</span>
+              <Link to="TcCourse/ThreeStepsIndex">
+                <span>新增</span>
+              </Link>
             </button>
           </div>
         </div>
@@ -48,6 +58,7 @@ function TcCourse() {
         {/* Pagination */}
         <MyPagination />
       </div>
+
     </>
   )
 }

@@ -243,7 +243,8 @@
     .subtitle {
       font-size: 36px;
       font-weight: bold;
-      margin: 100px 0px 100px 15px;
+      margin-top: 20px; 
+      margin:100px 0px 0px 15px;
     }
 
     .t_avatar {
@@ -292,9 +293,6 @@
       font-weight: bold;
       text-align: center;
       margin-top: 185px;
-
-
-
     }
 
     .buy-btn {
@@ -314,6 +312,10 @@
 
     .bgcwhite {
       background-color: #ffffff;
+    }
+
+    .reminding{
+      margin:0px;
     }
 
 
@@ -551,7 +553,7 @@
       .subtitle {
         font-size: 36px;
         font-weight: bold;
-        margin: 100px 0px 100px 15px;
+        margin:100px 0px 0px 15px;
       }
 
       .t_avatar {
@@ -686,10 +688,7 @@
         color: #065F8E;
         font-weight: bold;
         text-align: center;
-        margin-top: 185px;
-
-
-
+        margin-top: 145px;
       }
 
       .buy-btn {
@@ -777,43 +776,42 @@
       </div>
     </div>
 
-    <div class="row justify-content-center d-flex">
+    <div class="row">
       <!-- sidebar -->
-      <nav class="sidebar col-2">
-        <div class="avatar">
-          <img src="../public/imgs/學生照片/Anne Hathaway.jpg" alt="" class="img-fluid" />
-        </div>
-        <ul class="nav_list">
-          <li class="nav-item">
-            <a href="">
-              <i class="fas fa-user"></i>
-              <div>聊天室</div>
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a href="">
-              <i class="far fa-play-circle"></i>
-              <div> 我的課程</div>
-            </a>
-          </li>
+       <nav class="sidebar col-2">
+         <div class="avatar">
+           <img src="../images/students/Anne Hathaway.jpg" alt="" class="img-fluid" />
+         </div>
+         <ul class="nav-list">
+           <li>
+             <a href="" class="nav-item active">
+               <i class="fas fa-user"></i>
+               <div>聊天室</div>
+             </a>
+           </li>
+           <li>
+             <a href="" class="nav-item">
+               <i class="far fa-play-circle"></i>
+               <div> 我的課程</div>
+             </a>
+           </li>
+           <li>
+             <a href="" class="nav-item"><i class="fal fa-users-class"></i>
+               <div> 教室上課</div>
+             </a>
+           </li>
+         </ul>
+       </nav>
 
-          <li class="nav-item">
-            <a href="">
-              <i class="fal fa-table"></i>
-              <div> 課程管理</div>
-            </a>
-          </li>
-        </ul>
-      </nav>
+       <div class="col-12 col-md-8  reminding">
+         <p class="remindingtext">您尚未預訂任何課程</p>
+         <button class="btn btn-secondary row buy-btn">購買課程</button>
+       </div>
 
-      <div class="col-8 col-md-10 col-lg-10">
-        <p class="remindingtext">您尚未預訂任何課程</p>
-        <button class="btn btn-secondary row buy-btn">購買課程</button>
-      </div>
+
+      
     </div>
-
-
-
+    
 
     <div class="row mb-5 ">
       <div class="subtitle">推薦教師</div>

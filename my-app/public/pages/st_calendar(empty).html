@@ -26,21 +26,13 @@
       font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     }
 
-    body {
-      background-image: url("../public/imgs/其他/AdobeStock_367262423.jpeg");
-      background-position: top;
-      background-repeat: no-repeat;
-      background-size: cover;
-      /* 透明度0.6的黑色半透明遮罩 */
-      background-color: rgba(0, 0, 0, 0.4);
-      /* 設置背景混和模式為相乘模式 */
-      background-blend-mode: multiply;
-    }
+  
 
     /* 網站導覽列 */
     .navbar {
       display: none;
     }
+
 
     /* 麵包屑 */
     .breadcrumb {
@@ -52,7 +44,7 @@
       padding: 0px 0px 15px;
     }
 
-   
+    /* 頁碼 */
 
     /* 手機logo */
     .logo-m {
@@ -65,70 +57,164 @@
     }
 
 
-
-
-
-
-    /* 手機板會變小的按鈕(有display變化) */
-    .TCbtn-sm-w-switch {
-      display: flex;
-      width: 73px;
-      height: 30px;
-    }
-
-
-
-
-
-    /* 教師頁面返回按鈕 */
-    .TCback-btn {
-      padding: 0px 15px;
-      color: #065F8E;
-    }
-
     /* 頁面英文標題 */
     .pageName {
       display: none;
     }
 
-    .timetable,
-    .search, .year_month {
-      display: none;
-    }
-
-    .minicalendar{
-      display:block;
-    }
-    
-    .year_month-m{
-      display: flex;
-      justify-content:center;
-      background-color: white;
-    }
-
-    .year_month-m a{
-      color:black;
-    }
-
-    .fa-chevron-left{
-      margin-right: 25px;
-    }
-
-    .fa-chevron-right{
-       margin-left: 25px;
-    }
-
-    .weekday-m, .firstweek-m, .secweek-m, .thirdweek-m, .forthweek-m, .forthweek-m{
-    background-color:white;
-    }
-
-    
-
     /* -------------以上為公用------------ */
+    .buynowbtn {
+      display: flex;
+      justify-content: center;
+    }
+
+    .buy-btn {
+      background-color: transparent;
+      border: #065F8E 1px solid;
+      color: #065F8E;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 30px;
+
+    }
+
+    .buy-btn:hover {
+      background-color: #065F8E;
+      border: 1px solid transparent;
+      color: white;
+    }
+
+    .remindingtext {
+      font-size: 24px;
+      color: #065F8E;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 0px;
+    }
+
+    .subtitle {
+      display:block;
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 70px;
+    }
+
+    .courseitem {
+      width: 100%;
+      height: 271px;
+      border: 1.25px solid rgba(255, 255, 255, 1);
+      border-radius: 30px;
+      position: relative;
+      margin-top: 55px;
+      
+    }
+
+    .courseitem img {
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+    }
+
+    .coursename {
+      color: white;
+      font-size: 14px;
+      font-style: bold;
+      top: 65%;
+      left: 5%;
+      margin-left: auto;
+      position: absolute;
+    }
+
+    .teachername {
+      color: white;
+      font-size: 8px;
+      font-style: bold;
+      position: absolute;
+      top: 75%;
+      left: 5%;
+    }
+
+    .mainContent{
+      background-image: url("../public/imgs/其他/AdobeStock_367262423.jpeg");
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* 透明度0.6的黑色半透明遮罩 */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* 設置背景混和模式為相乘模式 */
+      background-blend-mode: multiply;    
+    }
+
+    .coursesection{
+      margin:0px;
+      width: 100%;
+    
+    }
+
+    .mb50{
+      margin-bottom: 50px;
+    }
+    .mb30{
+      margin-bottom: 30px;
+    }
+
+     .rightarr{
+
+     width: 45px;
+     height: 45px;
+     background-color: white;
+     border-radius: 50%;
+     position: absolute;
+     top:50%;
+     right:0%;
+     transform: translate(30%,-50%);
+     text-align: center;
+
+
+     }
+
+     .rightarr a, .leftarr a{
+
+     color:black;
+     font-size:32px
+     }
+
+     .leftarr{
+     width: 45px;
+     height: 45px;
+     background-color: white;
+     border-radius: 50%;
+     position: absolute;
+     top:50%;
+     left:0%;
+     transform: translate(-30%,-50%);
+     text-align: center;
+     }
+
+     .remindingarea{
+       margin-left: auto;
+       margin-right: auto;
+     }
+
+     .mo-show{
+       display:block;
+     }
+
+
+
 
 
 
     @media (min-width: 768px) {
+
+      .mainContent{
+        background-image:none;
+        background-color:transparent
+
+      }
+
+      
+      
 
       /* 右上角白圈 */
       .whitecircle {
@@ -338,28 +424,24 @@
       /* 日曆 */
 
       .timetable {
-        display: block;
         width: 844px;
         height: 747px;
         padding: 0px;
         overflow: hidden;
-      }
 
-      .search{
-        display: block;
+
       }
 
       .year_month {
-        display:block;
         background-color: white;
         display: flex;
         justify-content: center;
+
 
       }
 
       .month,
       .year {
-        
         font-size: 48px;
         font-weight: bold;
         text-align: center;
@@ -372,7 +454,6 @@
       }
 
       .weekday {
-        
         font-size: 14px;
         font-weight: bold;
         background-color: white;
@@ -384,7 +465,6 @@
       .thirdweek,
       .forthweek,
       .fifweek {
-        
         background-color: white;
         font-size: 16px;
         width: 121px;
@@ -392,7 +472,6 @@
       }
 
       .plus {
-        display: block;
         position: absolute;
         left: 20%;
         top: 24%;
@@ -409,14 +488,31 @@
         font-weight: bold;
       }
 
+      .remindingtext {
+        font-size: 36px;
+        color: #065F8E;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 185px;
+      }
+
+
+      /* 這裡開始是課程商品 */
+
       .mb150 {
         margin-bottom: 150px;
       }
+       
+      .rightarr, .leftarr, .coursesection, .subtitle, .courseitem{
+        display:none;
 
-      .minicalendar, .year_month-m {
+      }
+
+      .des-none{
         display: none;
       }
 
+      
 
     }
   </style>
@@ -474,7 +570,6 @@
         <ol class="breadcrumb col col-md-10 col-lg-12 m-0">
           <li class="breadcrumb-item"><a href="">首頁</a></li>
           <li class="breadcrumb-item"><a href="">我的課程</a></li>
-          <li class="breadcrumb-item"><a href="">課程管理</a></li>
         </ol>
       </nav>
       <div class="col-10 ml-auto pageName">
@@ -495,7 +590,7 @@
               <div>聊天室</div>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a href="">
               <i class="far fa-play-circle"></i>
               <div> 我的課程</div>
@@ -506,7 +601,7 @@
               <div> 教室上課</div>
             </a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a href="">
               <i class="fal fa-table"></i>
               <div> 課程管理</div>
@@ -516,146 +611,49 @@
       </nav>
 
 
-      <div class="timetable table-responsive  col-8 offset-0 offset-md-1">
-        <div class="search"><i class="fal fa-search"> <span>Search</span> </i></div>
-        <div class="year_month">
-          <p class="month">November</p>
-          <p class="year">2021</p>
-        </div>
-        <table class="table  table-responsive table-bordered">
-          <tbody>
-            <tr>
-              <th class="weekday">SUN</th>
-              <th class="weekday">MON</th>
-              <th class="weekday">TUES</th>
-              <th class="weekday">WED</th>
-              <th class="weekday">THU</th>
-              <th class="weekday">FRI</th>
-              <th class="weekday">SAT</th>
-            </tr>
-            <tr>
-              <th class="firstweek">31</th>
-              <th class="firstweek">1
-                <div class="plus"><i class="fal fa-plus"></i></div>
-              </th>
-              <th class="firstweek">2</th>
-              <th class="firstweek">3</th>
-              <th class="firstweek">4</th>
-              <th class="firstweek">5</th>
-              <th class="firstweek">6</th>
-            </tr>
-            <tr>
-              <th class="secweek">7</th>
-              <th class="secweek">8</th>
-              <th class="secweek">9</th>
-              <th class="secweek">10</th>
-              <th class="secweek">11</th>
-              <th class="secweek">12</th>
-              <th class="secweek">13</th>
-            </tr>
-            <tr>
-              <th class="thirdweek">14</th>
-              <th class="thirdweek">15</th>
-              <th class="thirdweek">16</th>
-              <th class="thirdweek">17</th>
-              <th class="thirdweek">18</th>
-              <th class="thirdweek">19</th>
-              <th class="thirdweek">20</th>
-            </tr>
-            <tr>
-              <th class="forthweek">21</th>
-              <th class="forthweek">22</th>
-              <th class="forthweek">23</th>
-              <th class="forthweek">24</th>
-              <th class="forthweek">25</th>
-              <th class="forthweek">26</th>
-              <th class="forthweek">27</th>
-            </tr>
-            <tr>
-              <th class="fifweek">28</th>
-              <th class="fifweek">29</th>
-              <th class="fifweek">30</th>
-              <th class="fifweek"></th>
-              <th class="fifweek"></th>
-              <th class="fifweek"></th>
-              <th class="fifweek"></th>
-            </tr>
-          </tbody>
-        </table>
+      <div class="remindingarea col-8 offset-0 offset-md-1">
+        <p class="remindingtext">您尚未預訂任何課程</p>
+        <div class="buynowbtn"><button class="btn btn-secondary row buy-btn">購買課程</button></div>
       </div>
     </div>
+  </div>
 
-   
+   <div class="container des-none mo-show">
 
-    <div class="minicalendar">
-      <div class="year_month-m">
-        <a href=""><i class="fas fa-chevron-left"></i></a>
-        <span> November</span>
-        <span>2021 </span>
-        <a href=""><i class="fas fa-chevron-right"></i></a>
-      </div>
-       <table class="minitable table table-responsive ">
-         <tbody>
-           <tr>
-             <th class="weekday-m">SUN</th>
-             <th class="weekday-m">MON</th>
-             <th class="weekday-m">TUES</th>
-             <th class="weekday-m">WED</th>
-             <th class="weekday-m">THU</th>
-             <th class="weekday-m">FRI</th>
-             <th class="weekday-m">SAT</th>
-           </tr>
-           <tr>
-             <th class="firstweek-m">31</th>
-             <th class="firstweek-m">1</th>
-             <th class="firstweek-m">2</th>
-             <th class="firstweek-m">3</th>
-             <th class="firstweek-m">4</th>
-             <th class="firstweek-m">5</th>
-             <th class="firstweek-m">6</th>
-           </tr>
-           <tr>
-             <th class="secweek-m">7</th>
-             <th class="secweek-m">8</th>
-             <th class="secweek-m">9</th>
-             <th class="secweek-m">10</th>
-             <th class="secweek-m">11</th>
-             <th class="secweek-m">12</th>
-             <th class="secweek-m">13</th>
-           </tr>
-           <tr>
-             <th class="thirdweek-m">14</th>
-             <th class="thirdweek-m">15</th>
-             <th class="thirdweek-m">16</th>
-             <th class="thirdweek-m">17</th>
-             <th class="thirdweek-m">18</th>
-             <th class="thirdweek-m">19</th>
-             <th class="thirdweek-m">20</th>
-           </tr>
-           <tr>
-             <th class="forthweek-m">21</th>
-             <th class="forthweek-m">22</th>
-             <th class="forthweek-m">23</th>
-             <th class="forthweek-m">24</th>
-             <th class="forthweek-m">25</th>
-             <th class="forthweek-m">26</th>
-             <th class="forthweek-m">27</th>
-           </tr>
-           <tr>
-             <th class="forthweek-m">28</th>
-             <th class="forthweek-m">29</th>
-             <th class="forthweek-m">30</th>
-             <th class="forthweek-m"></th>
-             <th class="forthweek-m"></th>
-             <th class="forthweek-m"></th>
-             <th class="forthweek-m"></th>
-           </tr>
-         </tbody>
-       </table>
-      
-    </div>
-  
-  </div> 
+     <div class="row">
+       <div class="subtitle">推薦課程</div>
+       <div class="coursesection col-12 mb30">
+         <div class="courseitem">
+           <div class="leftarr"><a href=""><i class="fal fa-arrow-left"></i></a></div>
+           <img src="../public/imgs/課程圖片/歐洲運動賽事.jpeg" alt="">
+           <div class="coursename">課程名稱：填上課程名稱</div>
+           <span class="teachername">Thoms Lillard</span>
+           <div class="rightarr"><a href=""><i class="fal fa-arrow-right"></i></a></div>
+         </div>
+       </div>
+     </div>
+
+
+   </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 

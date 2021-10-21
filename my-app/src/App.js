@@ -11,6 +11,7 @@ import React, { useState } from 'react'
 
 // 教師頁面
 import TCindex from './pages/tc/index'
+import ThreeStepsIndex from './pages/tc/ThreeSteps/ThreeStepsIndex'
 
 // 全頁通用元件
 import MultiLevelBreadCrumb from './components/MultiLevelBreadCrumb'
@@ -21,8 +22,17 @@ function App() {
     <>
       <Router>
         {/* <MultiLevelBreadCrumb /> */}
-        <TCindex />
-        {/* <Footer /> */}
+
+        <Switch>
+          <Route to="/TCindex">
+            <TCindex />
+          </Route>
+          <Route to="/ThreeStepsIndex">
+            <ThreeStepsIndex />
+          </Route>
+        </Switch>
+
+        <Footer />
       </Router>
     </>
   )

@@ -18,7 +18,7 @@ import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import TcBgDecorationThreeSteps from '../../components/tc/TcBgDecorationThreeSteps'
 import ChatList from '../../components/chatroom/ChatList'
 import ChatWindow from '../../components/chatroom/ChatWindow'
-import TcCourseEdit from './TcCourseEdit'
+import TcCourseEdit from './ThreeSteps/TcCourseEdit'
 
 function index() {
   return (
@@ -48,7 +48,6 @@ function index() {
           </div>
         </div>
         <TcBgDecorationNormal />
-        <TcBgDecorationThreeSteps />
       </Router>
     </>
   )
