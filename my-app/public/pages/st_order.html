@@ -18,23 +18,22 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
-
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- CSS -->
   <link rel="stylesheet" href="../css/st_order.css">
   <style>
     * {
-      font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+      font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
     }
 
     body {
-      background-image: url("../images/elements/st_bg.jpg");
+      background-image: url('../images/elements/st_bg.jpg');
       background-position: top;
       background-repeat: no-repeat;
       background-size: cover;
       /* 透明度0.6的黑色半透明遮罩 */
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.4);
       /* 設置背景混和模式為相乘模式 */
       background-blend-mode: multiply;
     }
@@ -79,8 +78,6 @@
 
     /* -------------以上為公用--------- */
 
-
-
     /* 上面的黃色色塊 */
     .dec-block {
       display: block;
@@ -110,7 +107,6 @@
       100% {
         right: 0%;
         width: 56%;
-
       }
     }
 
@@ -132,16 +128,6 @@
 
     .bread>ol {
       list-style-type: none;
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 115px;
-      height: 40px;
-      font-size: 14px;
-      font-weight: bold;
     }
 
     /* 新增課程(手機板) */
@@ -185,7 +171,6 @@
       border-radius: 20px;
       padding: 15px;
 
-
     }
 
     /* 表單頭 */
@@ -193,7 +178,6 @@
       display: flex;
       align-items: center;
       margin-bottom: 1.9rem;
-
     }
 
     /* 頁面英文標題(圖片) */
@@ -213,7 +197,6 @@
     .form-content {
       margin: 0px auto;
       padding: 0px auto;
-
     }
 
     /* 網站導覽列 */
@@ -314,14 +297,11 @@
       text-align: center;
       line-height: 70px;
       border-radius: 5px;
-
     }
 
     .confirmmsg {
       display: none;
     }
-
-
 
     @media (min-width: 768px) {
 
@@ -334,7 +314,6 @@
         top: -126px;
         border: white 2px dashed;
         border-radius: 50%;
-
       }
 
       /* 網站主要導覽列 */
@@ -391,37 +370,6 @@
         padding: 0px 3rem;
       }
 
-      /* samar */
-      /* .dec-block {
-     height: 300px;
-     width: 54%;
-     } */
-      /* @keyframes hy{
-     0% {
-     width: 60%;
-     height: 350px;
-     }
-     25%{
-     height: 300px;
-     width: 54%;
-     }
-
-     50% {
-     width: 60%;
-     height: 350px;
-
-     }
-     75%{
-     height: 300px;
-     width: 54%;
-
-     }
-
-     100% {
-     width: 60%;
-     height: 350px;
-     }
-     } */
 
       .dec-block {
         height: 310px;
@@ -433,7 +381,6 @@
         right: 0;
         top: 615px;
       }
-
 
       .notify-text {
         font-size: 28px;
@@ -466,7 +413,7 @@
       }
 
       .profile::before {
-        content: "";
+        content: '';
         width: 42px;
         height: 42px;
         border-radius: 50%;
@@ -480,7 +427,8 @@
       /* 表單 */
       .form {
         border: 2px solid rgba(6, 95, 142, 0.5);
-        margin: 0 auto 150px;
+        margin-bottom: 150px;
+
       }
 
       /* 表單頭 */
@@ -552,7 +500,7 @@
       }
 
       /* 頭像 */
-      .avatar {
+      .sidebar .avatar {
         width: 120px;
         height: 120px;
         border-radius: 50%;
@@ -561,50 +509,43 @@
       }
 
       /* sidebar選項列 */
-      .nav_list {
+      .sidebar .nav-list {
+        width: 100%;
         list-style: none;
-        padding: 0px;
+        padding-left: 0;
       }
 
       /* sidebar選項 */
       .nav-item {
         display: flex;
-        position: relative;
-        align-items: center;
-        width: 100%;
-        height: 50px;
-        border-radius: 10px;
-        padding: 0px 20px;
-        margin-bottom: 10px;
-      }
-
-      .nav-item a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
+        text-align: center;
         font-weight: bold;
         font-size: 16px;
+        align-items: center;
+        height: 50px;
+        border-radius: 0px 10px 10px 0px;
+        margin-bottom: 10px;
         color: #065f8e;
-        background-color: transparent;
+        position: relative;
       }
 
-      .nav-item>a>i {
+      .sidebar .nav-item i {
         font-size: 25px;
-        padding-right: 10px;
+        width: 40px;
+        margin-left: 10%;
         background-color: transparent;
       }
 
       /* 選中的選項狀態 */
-      .sidebar .active {
+      .sidebar .nav-item.active {
         background-color: white;
       }
 
-      .nav-item.active::before {
-        content: " ";
+      .sidebar .nav-item.active::after {
+        content: '';
         position: absolute;
+        left: 0;
         top: 0;
-        left: 0;
-        left: 0;
         width: 15px;
         height: 50px;
         background: #f1ef5b;
@@ -643,8 +584,8 @@
       }
     }
   </style>
-
-  <title>Wander 個人資料</title>
+  <!-- <link rel="stylesheet" href="../css/TC2.css"> -->
+  <title>Wander 訂單查詢</title>
 </head>
 
 <body class="TCsp-bgc">
@@ -684,42 +625,47 @@
       </div>
       <nav class="w-100">
         <ol class="breadcrumb col col-md-10 col-lg-12 m-0">
-          <li class="breadcrumb-item"><a href="">首頁</a></li>
-          <li class="breadcrumb-item"><a href="">會員中心</a></li>
+          <li class="breadcrumb-item">
+            <a href="">首頁</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="">會員中心</a>
+          </li>
           <li class="breadcrumb-item active">訂單查詢</li>
         </ol>
       </nav>
       <div class="col-10 ml-auto pageName">
-        <span class="pageNameText profile">Orders</span>
+        <span class="pageNameText order">Order</span>
       </div>
     </div>
 
-    <div class="row justify-content-center">
+    <!-- Main -->
+    <div class="row">
       <!-- sidebar -->
-      <nav class="sidebar col-3">
+      <nav class="sidebar col-2">
         <div class="avatar">
           <img src="../images/students/Anne Hathaway.jpg" alt="" class="img-fluid" />
         </div>
-        <ul class="nav_list">
-          <li class="nav-item active">
-            <a href="">
+        <ul class="nav-list">
+          <li>
+            <a href="" class="nav-item">
               <i class="fas fa-user"></i>
               <div>個人資料</div>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="">
+          <li>
+            <a href="" class="nav-item">
               <i class="fas fa-key"></i>
               <div>密碼更改</div>
             </a>
           </li>
-          <li class="nav-item">
-            <a href=""><i class="fas fa-shopping-bag"></i>
+          <li>
+            <a href="" class="nav-item active"><i class="fas fa-shopping-bag"></i>
               <div>訂單查詢</div>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="">
+          <li>
+            <a href="" class="nav-item">
               <i class="fas fa-comment-alt"></i>
               <div>聊天室</div>
             </a>
@@ -727,54 +673,311 @@
         </ul>
       </nav>
       <!-- form -->
-      <form class="form col-12 col-md-8 ml-auto mr-0">
-        <div class="confirmmsg-m"><i class="far fa-check-circle"></i> 資料已修改完成</div>
-        <div class="form-head ml-1">
+      <form class="form col-12 offset-0 col-md-9 offset-md-1">
+        <div class="confirmmsg-m">
+          <i class="far fa-check-circle"></i>
+          資料已修改完成
+        </div>
+        <div class="form-head ml-1 px-3">
           <a href=""><i class="fas fa-chevron-left TCback-btn"></i></a>
           <div class="form-title">訂單查詢</div>
           <a href=""><i class="TCback-btn"></i></a>
         </div>
 
-
-        <div class="form-content">
-
-          <div class="d-flex align-items-center ml-1">
-            <div class="pic">
-              <img src="../public/imgs/學生照片/Anne Hathaway.jpg" class="img-fluid" alt="" />
+        <div class="stOrderContent container">
+          <div class="row">
+            <a href="#/" class="col-3 col-md-2 stOrderContentTitle active">
+              <span>全部</span>
+            </a>
+            <a href="#/" class="col-3 col-md-2 stOrderContentTitle">
+              <span>待付款</span>
+            </a>
+            <a href="#/" class="col-3 col-md-2 stOrderContentTitle">
+              <span>已付款</span>
+            </a>
+            <a href="#/" class="col-3 col-md-2 stOrderContentTitle">
+              <span>已取消</span>
+            </a>
+          </div>
+          <!-- orders -->
+          <div class="row">
+            <div class="container stOrders">
+              <!-- 分類欄 -->
+              <div class="row stOrderDetailTitle m-d-none">
+                <div class="col-3 stOrderDetailTitleTxt"><span>成立時間</span></div>
+                <div class="col-3 stOrderDetailTitleTxt"><span>訂單編號</span></div>
+                <div class="col-2 stOrderDetailTitleTxt"><span>訂單狀態</span></div>
+                <div class="col-2 stOrderDetailTitleTxt"><span>訂單金額</span></div>
+                <div class="col-2 stOrderDetailTitleTxt"><span>詳情</span></div>
+              </div>
+              <!-- orderItem -->
+              <div class="row stOrderDetail">
+                <div class="col-12 col-md-3 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>成立時間</span>
+                  </div>
+                  <span>2021-12-01 23:00:12</span>
+                </div>
+                <div class="col-12 col-md-3 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>訂單編號</span>
+                  </div>
+                  <span>AAA00123456</span>
+                </div>
+                <div class="col-12 col-md-2 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>訂單狀態</span>
+                  </div>
+                  <span>已付款</span>
+                </div>
+                <div class="col-12 col-md-2 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>訂單金額</span>
+                  </div>
+                  <span>NT$7310</span>
+                </div>
+                <div class="col-12 col-md-2 stOrderDetailItem m-d-none">
+                  <a href="#/">
+                    <img src="../images/st_order/stOrderDetail_icon.svg" alt="">
+                  </a>
+                </div>
+              </div>
+              <div class="row stOrderDetail">
+                <div class="col-12 col-md-3 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>成立時間</span>
+                  </div>
+                  <span>2021-12-01 23:00:12</span>
+                </div>
+                <div class="col-12 col-md-3 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>訂單編號</span>
+                  </div>
+                  <span>BBB00123456</span>
+                </div>
+                <div class="col-12 col-md-2 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>訂單狀態</span>
+                  </div>
+                  <span>已付款</span>
+                </div>
+                <div class="col-12 col-md-2 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>訂單金額</span>
+                  </div>
+                  <span>NT$7310</span>
+                </div>
+                <div class="col-2 stOrderDetailItem m-d-none">
+                  <a href="#/">
+                    <img src="../images/st_order/stOrderDetail_icon.svg" alt="">
+                  </a>
+                </div>
+              </div>
+              <div class="row stOrderDetail">
+                <div class="col-12 col-md-3 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>成立時間</span>
+                  </div>
+                  <span>2021-12-01 23:00:12</span>
+                </div>
+                <div class="col-12 col-md-3 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>訂單編號</span>
+                  </div>
+                  <span>CCC00123456</span>
+                </div>
+                <div class="col-12 col-md-2 stOrderDetailItem text-danger">
+                  <div class="stOrderDetailItem-t">
+                    <span>訂單狀態</span>
+                  </div>
+                  <span>待付款</span>
+                </div>
+                <div class="col-12 col-md-2 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>訂單金額</span>
+                  </div>
+                  <span>NT$7310</span>
+                </div>
+                <div class="col-2 stOrderDetailItem m-d-none">
+                  <a href="#/">
+                    <img src="../images/st_order/stOrderDetail_icon.svg" alt="">
+                  </a>
+                </div>
+              </div>
+              <div class="row stOrderDetail">
+                <div class="col-12 col-md-3 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>成立時間</span>
+                  </div>
+                  <span>2021-12-01 23:00:12</span>
+                </div>
+                <div class="col-12 col-md-3 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>訂單編號</span>
+                  </div>
+                  <span>DDD00123456</span>
+                </div>
+                <div class="col-12 col-md-2 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>訂單狀態</span>
+                  </div>
+                  <span>已取消</span>
+                </div>
+                <div class="col-12 col-md-2 stOrderDetailItem">
+                  <div class="stOrderDetailItem-t">
+                    <span>訂單金額</span>
+                  </div>
+                  <span>NT$7310</span>
+                </div>
+                <div class="col-2 stOrderDetailItem m-d-none">
+                  <a href="#/">
+                    <img src="../images/st_order/stOrderDetail_icon.svg" alt="">
+                  </a>
+                </div>
+              </div>
+              <!-- 訂單明細 -->
+              <div class="row payMethod m-0 bgc-main">
+                <div class="col-12 payTitle">
+                  <span>訂單明細</span>
+                  <button class="btn stOrderBackBtn">&larr; 回上層</button>
+                </div>
+                <div class="orderContent col-12">
+                  <div class="orderContentRow col-12 col-xl-6">
+                    <span>訂單編號：</span>
+                    <span>ABC - 00123456</span>
+                  </div>
+                  <div class="orderContentRow col-12 col-xl-6">
+                    <span>付款方式：</span>
+                    <span>信用卡</span>
+                  </div>
+                  <div class="orderContentRow col-12 col-xl-6">
+                    <span>訂單金額：</span>
+                    <span>NT$7310</span>
+                  </div>
+                  <div class="orderContentRow col-12 col-xl-6">
+                    <span>支付狀態：</span>
+                    <span>已付款</span>
+                    <button class="btn stOrderCancelBtn">我要取消</button>
+                  </div>
+                  <div class="orderContentRow col-12 col-xl-6">
+                    <span>成立時間：</span>
+                    <span>2021-12-01 23:00:12</span>
+                  </div>
+                  <div class="orderContentRow col-12 col-xl-6">
+                    <span>付款代碼：</span>
+                    <span>000123456789</span>
+                  </div>
+                  <div class="orderContentRow col-12">
+                    <span>購買細項：</span>
+                  </div>
+                </div>
+                <div class="orderDetail col-12">
+                  <div class="orderDetailContent col-12">
+                    <div class="orderDetailTitle col-12">
+                      <span class="col-4">課程預覽</span>
+                      <span class="col-4">課程名稱</span>
+                      <span class="col-4">課程售價</span>
+                    </div>
+                    <div class="orderDetailItem col-12">
+                      <img src="../images/cart/jp_course.jpg" alt="" class="col-4 orderDetailItemImg">
+                      <div class="col-8 orderDetailItemTxt">
+                        <span class="col-12 col-lg-6">日本自由行必學的實用日語會話</span>
+                        <span class="col-12 col-lg-6 c-blue">NT$2700</span>
+                      </div>
+                    </div>
+                    <div class="orderDetailItem col-12">
+                      <img src="../images/cart/jp_course.jpg" alt="" class="col-4 orderDetailItemImg">
+                      <div class="col-8 orderDetailItemTxt">
+                        <span class="col-12 col-lg-6">日本自由行必學的實用日語會話</span>
+                        <span class="col-12 col-lg-6 c-blue">NT$2700</span>
+                      </div>
+                    </div>
+                    <div class="orderDetailItem col-12">
+                      <img src="../images/cart/jp_course.jpg" alt="" class="col-4 orderDetailItemImg">
+                      <div class="col-8 orderDetailItemTxt">
+                        <span class="col-12 col-lg-6">日本自由行必學的實用日語會話</span>
+                        <span class="col-12 col-lg-6 c-blue">NT$2700</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <button class="btn btn-border-only">
-              <span>請選擇圖片</span>
-            </button>
           </div>
-          <div class="fullname row">
-            <div class="col-6">
-              <input type="text" class="nameInputs" placeholder="Ann" disabled />
-            </div>
-            <div class="col-6">
-              <input type="text" class="nameInputs" placeholder="Huang" disabled />
-            </div>
-          </div>
-          <div class="mb-50">
-            <input type="email" class="col-12 allInputs" placeholder="abc@gmail.com" disabled />
-          </div>
-          <div class="mb-50">
-            <input type="date" class="col-12 allInputs px-2" />
-          </div>
-
-          <input type="text" class="col-12 allInputs" placeholder="Ann" />
         </div>
-        <button class="btn btn-secondary row mx-auto save-btn">儲存</button>
-      </form>
     </div>
   </div>
 
-  <div class="TCallwraper">
-    <div class="confirmmsg"><i class="far fa-check-circle"></i> 資料已修改完成</div>
-    <div class="dec-block"></div>
-    <div class="whitecircle"></div>
-    <div class="bluetriangle"><img src="../public/imgs/網頁素材/Polygon 4.svg" alt=""></div>
+  <!-- 要active的css在對應的圖或span加上 active -->
+  <!-- mobile nav -->
+  <div class="mobile-nav container-fluid">
+    <div class="row justify-content-center flex-nowrap">
+      <div class="mobile-nav-item col-2">
+        <img src="../images/mobile-nav-alter/nav-icon-course.svg" alt="" class="mobile-nav-icon">
+        <span>課程總覽</span>
+      </div>
+      <div class="mobile-nav-item col-2">
+        <img src="../images/mobile-nav-alter/nav-icon-cart.svg" alt="" class="mobile-nav-icon">
+        <span class="active">購物車</span>
+      </div>
+      <div class="mobile-nav-item col-2">
+        <img src="../images/mobile-nav-alter/nav-icon-chat.svg" alt="" class="mobile-nav-icon">
+        <span>聊天室</span>
+      </div>
+      <div class="mobile-nav-item col-2">
+        <img src="../images/mobile-nav-alter/nav-icon-my.svg" alt="" class="mobile-nav-icon">
+        <span>我的課程</span>
+      </div>
+      <div class="mobile-nav-item active col-2">
+        <img src="../images/mobile-nav-alter/nav-icon-member.svg" alt="" class="mobile-nav-icon">
+        <span>會員中心</span>
+      </div>
+    </div>
   </div>
 
+  <!-- Footer -->
+  <footer class="footerWrap stFooterMargin">
+    <div class="wanderFooter container-fluid">
+      <div class="row footer-left">
+        <img id="Footer-Desktop-Logo" src="../images/logo/footer_desktop.png" />
+        <img id="Footer-Mobile-Logo" src="../images/logo/footer_mobile.png" />
+        <div class="Footer-page-links">
+          <a href="">關於我們</a>
+          <a href="">常見問題</a>
+          <a href="">國際角落</a>
+        </div>
+      </div>
+      <div class="row footer-right">
+        <div class="icons">
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-youtube"></i>
+        </div>
+        <div class="version-icon">
+          <div class="icon-sp">
+            <img src="../images/elements/icon-mobile.svg" alt="" />
+            手機版
+          </div>
+          <div class="icon-sp">
+            <img src="../images/elements/icon-monitor.png" alt="" />
+            電腦版
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- bg -->
+  <div class="TCallwraper">
+    <div class="confirmmsg">
+      <i class="far fa-check-circle"></i> 資料已修改完成
+    </div>
+    <div class="dec-block"></div>
+    <div class="whitecircle"></div>
+    <div class="bluetriangle">
+      <img src="../public/imgs/網頁素材/Polygon 4.svg" alt="" />
+    </div>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

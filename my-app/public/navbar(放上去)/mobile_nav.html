@@ -1,94 +1,99 @@
 <!-- 要active的css在對應的圖或span加上 active -->
 <!-- mobile nav -->
 <div class="mobile-nav container-fluid">
-    <div class="row justify-content-center flex-nowrap">
-        <div class="mobile-nav-item col-2">
-            <img src="../images/mobile-nav-alter/nav-icon-course.svg" alt="" class="mobile-nav-icon">
-            <span>課程總覽</span>
-        </div>
-        <div class="mobile-nav-item mobile-nav-item-active col-2">
-            <img src="../images/mobile-nav-alter/nav-icon-cart.svg" alt="" class="mobile-nav-icon active">
-            <span class="active">購物車</span>
-        </div>
-        <div class="mobile-nav-item col-2">
-            <img src="../images/mobile-nav-alter/nav-icon-chat.svg" alt="" class="mobile-nav-icon">
-            <span>聊天室</span>
-        </div>
-        <div class="mobile-nav-item col-2">
-            <img src="../images/mobile-nav-alter/nav-icon-my.svg" alt="" class="mobile-nav-icon">
-            <span>我的課程</span>
-        </div>
-        <div class="mobile-nav-item col-2">
-            <img src="../images/mobile-nav-alter/nav-icon-member.svg" alt="" class="mobile-nav-icon">
-            <span>會員中心</span>
-        </div>
+  <div class="row justify-content-center flex-nowrap">
+    <div class="mobile-nav-item col-2">
+      <img src="../images/mobile-nav-alter/nav-icon-course.svg" alt="" class="mobile-nav-icon">
+      <span>課程總覽</span>
     </div>
+    <div class="mobile-nav-item col-2">
+      <img src="../images/mobile-nav-alter/nav-icon-cart.svg" alt="" class="mobile-nav-icon">
+      <span class="active">購物車</span>
+    </div>
+    <div class="mobile-nav-item col-2">
+      <img src="../images/mobile-nav-alter/nav-icon-chat.svg" alt="" class="mobile-nav-icon">
+      <span>聊天室</span>
+    </div>
+    <div class="mobile-nav-item col-2">
+      <img src="../images/mobile-nav-alter/nav-icon-my.svg" alt="" class="mobile-nav-icon">
+      <span>我的課程</span>
+    </div>
+    <div class="mobile-nav-item active col-2">
+      <img src="../images/mobile-nav-alter/nav-icon-member.svg" alt="" class="mobile-nav-icon">
+      <span>會員中心</span>
+    </div>
+  </div>
 </div>
 
 <!-- css -->
 <style>
-    
-/*============= mobile nav =============*/
-@media (min-width: 768px) {
-  .mobile-nav{
-    display: none;
+  /*============= mobile nav =============*/
+  @media (min-width: 768px) {
+    .mobile-nav {
+      display: none;
+    }
   }
-}
-@media (max-width: 767px) {
-  .mobile-nav{
-    background-color: #fff;
-    height: 80px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-  }
-  .mobile-nav-item{
-    height: 80px;
-    position: relative;
-    padding: 0;
-    text-align: center;
-    margin: 0 0.5rem 0 0.5rem;
-    overflow: hidden;
-  }
-  .mobile-nav-icon{
-    width: 32px;
-    height: 32px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    top: 25%;
-    position: absolute;
-    z-index: 5;
-  }
- .mobile-nav-item span{
-    position: absolute;
-    width: 100%;
-    color: #C6C3B4;
-    font-weight: bold;
-    bottom: 10%;
-    left: 0;
-  }
-  /* active */
-  .mobile-nav-icon.active{
-    filter: drop-shadow(#065F8E 0 60px);
-    transform: translate(-50%, -60px);
-    position: absolute;
-    z-index: 5;
-  }
- .mobile-nav-item span.active{
-    color: #065F8E;
-  }
-  .mobile-nav-item-active::before{
-    content: "";
-    width: 100%;
-    height: 6px;
-    color: #f1ef5b;
-    border-top: 6px solid #f1ef5b;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-  }
-}
 
+  @media (max-width: 767px) {
+    .mobile-nav {
+      background-color: #fff;
+      height: 80px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+    }
+
+    .mobile-nav-item {
+      height: 80px;
+      position: relative;
+      padding: 0;
+      text-align: center;
+      margin: 0 0.5rem 0 0.5rem;
+      overflow: hidden;
+    }
+
+    .mobile-nav-icon {
+      width: 32px;
+      height: 32px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      top: 25%;
+      position: absolute;
+      z-index: 5;
+    }
+
+    .mobile-nav-item span {
+      position: absolute;
+      width: 100%;
+      color: #C6C3B4;
+      font-weight: bold;
+      bottom: 10%;
+      left: 0;
+    }
+
+    /* active */
+    .mobile-nav-item.active .mobile-nav-icon {
+      filter: drop-shadow(#065F8E 0 60px);
+      transform: translate(-50%, -60px);
+      position: absolute;
+      z-index: 5;
+    }
+
+    .mobile-nav-item.active span {
+      color: #065F8E;
+    }
+
+    .mobile-nav-item.active::before {
+      content: "";
+      width: 100%;
+      height: 6px;
+      color: #f1ef5b;
+      border-top: 6px solid #f1ef5b;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+  }
 </style>

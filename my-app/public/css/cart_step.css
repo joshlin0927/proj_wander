@@ -982,7 +982,7 @@ a {
   flex-wrap: wrap;
 }
 .orderDetailContent{
-  background-color: #c6c3b4;
+  background-color: rgba(198, 195, 180, 0.5);
   display: flex;
   flex-wrap: wrap;
   padding: 1rem;
