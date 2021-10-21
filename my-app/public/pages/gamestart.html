@@ -14,9 +14,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
     rel="stylesheet" />
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -27,15 +27,10 @@
     * {
       font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     }
+    
+   
 
-    body {
-      background-image: url('../public/imgs/背景圖素材/7656d57f.jpg');
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-color: transparent;
-    }
-
+    
 
     .navbar {
       display: none;
@@ -49,6 +44,7 @@
       color: #065f8e;
       padding-bottom: 15px;
       margin: 0px;
+      padding-left: 0px;
     }
 
     .bread>ol {
@@ -61,16 +57,19 @@
 
     .mainpic {
       padding: 0;
+      background-image: none;
+
+
     }
 
-    .mylanguage,
+
     .dec-side,
-    .dec-insideblock,
-    .gamestart {
+    .dec-insideblock {
       display: none;
     }
 
     .dec-side-m {
+      display: block;
       position: absolute;
       right: 0;
       top: 0;
@@ -85,6 +84,7 @@
     }
 
     .dec-insideblock-m {
+      display: block;
       width: 90%;
       height: 334px;
       background-color: #ffffff;
@@ -94,10 +94,10 @@
       position: relative;
     }
 
-    .mylanguage-m {
+    .mylanguage {
       display: block;
       border: 3px solid black;
-      width: 70%;
+
       height: 63px;
       font-weight: bold;
       font-size: 18px;
@@ -109,10 +109,9 @@
       z-index: 1;
     }
 
-    .gamestart-m {
+    .gamestart {
       display: block;
       border: 3px solid black;
-      width: 70%;
       height: 63px;
       font-weight: bold;
       font-size: 18px;
@@ -135,7 +134,7 @@
       z-index: -1;
     }
 
-   
+
 
 
 
@@ -143,10 +142,10 @@
     @media (min-width: 768px) {
 
       body {
-        background-image: url('');
+        background-color: #F1F0E9;
 
-        background-color: transparent;
       }
+
 
       .navbar {
         display: flex;
@@ -160,7 +159,7 @@
       }
 
       .mainpic {
-        background-image: url('../public/imgs/背景圖素材/7656d57f.jpg');
+        background-image: url('../public/imgs/背景圖素材/218e6e75.jpg');
         background-position: center;
         background-repeat: no-repeat;
         height: 446px;
@@ -244,15 +243,17 @@
         z-index: -1;
       }
 
-     
-
+      .dec-side-m,
+      .dec-insideblock-m {
+        display: none;
+      }
 
 
     }
   </style>
 </head>
 
-<body class="bg-image">
+<body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#"><img src="../public/imgs/網頁素材/logo_desktop.png" alt="" /></a>
@@ -284,6 +285,7 @@
     </div>
   </nav>
 
+
   <div class="container-fluid mainpic">
     <div class="container">
       <div class="row">
@@ -294,47 +296,50 @@
           <ol class="breadcrumb col col-md-10 col-lg-10">
             <li class="breadcrumb-item"><a href="">首頁</a></li>
             <li class="breadcrumb-item"><a href="">我的課程</a></li>
-            <li class="breadcrumb-item"><a href="">課程測驗</a></li>
+            <li class="breadcrumb-item"><a href="">開始上課</a></li>
           </ol>
         </nav>
       </div>
     </div>
   </div>
 
-  
-    <div class="container-fluid">
-      <div class="row">
-        <div class="dec-side col-md-11 col-lg-11">
-          <div class="dec-insideblock col-md-8 col-lg-8">
-            <div class="mylanguage col-md-6 col-lg-6">
-              <div class="dot"></div>
-              西班牙文
-            </div>
-            <br>
-            <div class="gamestart col-md-6 col-lg-6">
-              <div class="dot"></div>
-              課程測驗</i></i>
-            </div>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="dec-side col-md-8 col-lg-8">
+        <div class="dec-insideblock col-md-9 col-lg-8">
+          <div class="mylanguage col-md-6 col-lg-6">
+            <div class="dot"></div>
+            西班牙文
+          </div>
+          <br>
+          <div class="gamestart col-md-6 col-lg-6">
+            <div class="dot"></div>
+            課程測驗</i></i>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
 
 
 
-  <div class="dec-side-m col-8">
-    <div class="dec-insideblock-m col-11">
-      <div class="mylanguage-m col-9">
-        <div class="dot"></div>
-        西班牙文
-      </div>
-      <div class="gamestart-m col-9">
-        <div class="dot"></div>
-        課程測驗</i></i>
+ 
+    <div class="dec-side-m col-8">
+      <div class="dec-insideblock-m col-11">
+        <div class="mylanguage col-6">
+          <div class="dot"></div>
+          西班牙文
+        </div>
+        <div class="gamestart col-6">
+          <div class="dot"></div>
+          課程測驗</i></i>
+        </div>
       </div>
     </div>
-  </div>
+ 
 
 </body>
 
