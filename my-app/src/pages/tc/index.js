@@ -10,13 +10,13 @@ import TcProfile from './TcProfile'
 
 // 共用元件
 
-
 function index() {
   return (
-    <>
-
-      <TcProfile/>
-    </>
+    <Router>
+      <>
+        <TcProfile />
+      </>
+    </Router>
   )
 }
 

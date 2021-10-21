@@ -1,0 +1,3943 @@
+* {
+  font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+}
+
+/* 全頁背景色 */
+.TCsp-bgc {
+  background: #FFFFFF;
+  position: relative;
+  
+  /* overflow: hidden; */
+}
+
+/* 全頁包覆(為了色塊動畫) */
+.TCallwraper {
+  z-index: -1;
+  position: absolute;
+  top: -110px;
+  width: 100%;
+}
+
+.TCmb-50 {
+  margin-bottom: 50px;
+}
+
+.TCmb-70 {
+  margin-bottom: 70px;
+}
+
+
+
+.opacity-0 {
+  opacity: 0;
+}
+
+/* 網站導覽列 */
+.navbar {
+  display: none;
+}
+
+/* 地球背景圖 */
+.earth {
+  display: none;
+}
+
+/* 上面的黃色色塊 */
+.dec-block {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  width: 56%;
+  height: 335px;
+  z-index: -2;
+  background: #f1ef5b;
+  border-radius: 0px 0px 0px 180px;
+  animation: TChy 12s linear infinite;
+}
+
+/* 黃色色塊的動畫 */
+/* @keyframes TChy {
+  0% {
+    left: 50%;
+  }
+
+  50% {
+    left: 46%;
+  }
+
+  100% {
+    left: 50%;
+  }
+} */
+
+/* 新增課程的黃色色塊 */
+.dec-block-lg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 95%;
+  height: 250px;
+  z-index: -2;
+  background: #f1ef5b;
+  border-radius: 0px 0px 0px 180px;
+  animation: TChy2 12s linear infinite;
+}
+
+/* 新增課程的黃色色塊的動畫 */
+@keyframes TChy2 {
+  0% {
+    left: 5%;
+  }
+
+  50% {
+    left: 7%;
+  }
+
+  100% {
+    left: 5%;
+  }
+}
+
+/* 麵包屑 */
+.breadcrumb {
+  background-color: transparent;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  color: #065f8e;
+  margin-left: .25rem;
+  padding: 0px 0px 15px;
+}
+
+/* 頁碼 */
+.Mypagination {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 70px 0px 60px;
+}
+
+.Mypage-item {
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  line-height: 26px;
+  text-align: center;
+}
+
+.Mypage-item a {
+  font-size: 12px;
+  color: black;
+  text-align: center;
+}
+
+.Mypage-item a i {
+  color: #065F8E;
+}
+
+/* 頁碼被選中時 */
+.Mypage-item.active {
+  background-color: #065F8E;
+}
+
+.Mypage-item.active a {
+  color: white;
+}
+
+/* 手機logo */
+.logo-m {
+  margin: 40px auto 40px;
+}
+
+/* 會員中心sidebar */
+.sidebar {
+  display: none;
+}
+
+/* 表單儲存的字體顏色 */
+.TCsave-btn {
+  color: black;
+}
+
+
+/* 新增課程(手機板) */
+.TCbtn-sm {
+  display: flex;
+  width: 73px;
+  height: 30px;
+}
+
+
+/* 手機板會變小的按鈕(有display變化)  */
+.TCbtn-sm-w-switch {
+  display: flex;
+  width: 73px;
+  height: 30px;
+}
+
+
+/* 審核提示窗 */
+.TCnotify {
+  display: flex;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.TCnotify-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #065F8E;
+  letter-spacing: -0.015em;
+  text-align: center;
+}
+
+/* 教師頁面返回按鈕 */
+.TCback-btn {
+  padding: 0px 15px;
+  color: #065F8E;
+}
+
+/* 頁面英文標題 */
+.pageName {
+  display: none;
+}
+
+/* 表單 */
+.TCform {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+/* 表單頭 */
+.TCform-head {
+  display: flex;
+  align-items: center;
+  margin: 1.875rem 0px;
+}
+
+/* 表單標題 */
+.TCform-title {
+  font-size: 24px;
+  color: #065f8e;
+  letter-spacing: -0.015em;
+  font-weight: bold;
+  margin: auto;
+}
+
+/* 表單頁面 */
+.TCform-content {
+  margin: 0px auto;
+  padding: 0px auto;
+}
+
+/* 搜尋列 */
+.search {
+  display: none;
+}
+
+.search-mobile {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.searchbar {
+  width: 100%;
+  height: 40px;
+  padding-left: 17px;
+  padding-right: 50px;
+  border: 1px solid #065F8E;
+  border-radius: 6px;
+}
+
+.searchbar+button[type="submit"] {
+  width: 76px;
+  background: #065F8E;
+  color: white;
+  margin-left: -50px;
+  border: 0;
+  border-radius: 0px 6px 6px 0px;
+}
+
+/* 表單裡的頭圖 */
+.profile-pic {
+  width: 116px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 21px;
+}
+
+/* 姓名的input */
+.nameInputs {
+  margin: 27px 0 50px;
+  border: 1px solid #868686;
+  border-radius: 10px;
+  width: 100%;
+  height: 48px;
+  font-size: 15px;
+  padding: 17px;
+}
+
+/* 所有input的格式 */
+.allInputs {
+  border: 1px solid #868686;
+  border-radius: 10px;
+  width: 100%;
+  height: 48px;
+  font-size: 15px;
+  margin-bottom: 5px;
+  background-color: transparent;
+}
+
+/* 欄位提示小字 */
+.TCnotice {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+  color: #CF2727;
+  margin-bottom: 26px;
+}
+
+/* 自我介紹欄位 */
+.TC-intro {
+  border: 1px solid #868686;
+  background-color: transparent;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.TC-intro::placeholder {
+  padding-top: 2.5%;
+}
+
+/* 聊天室 */
+/* 對象選單 */
+.chatList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #fff;
+  width: 100%;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chatList .title {
+  margin: 50px 0px;
+  color: #065F8E;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.chatCard {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 10px 15px;
+  background-color: #F1F0E9;
+  border-radius: 10px;
+}
+
+.chatCard .chatCardAvatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px
+}
+
+.chatName {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.chatCard-info .notification {
+  width: 12px;
+  height: 12px;
+  margin-left: auto;
+  border-radius: 50%;
+  background-color: #065F8E;
+}
+
+.chatCard-info>p {
+  font-size: 12px;
+  margin: 0px;
+}
+
+.chatCard:hover {
+  background-color: #F1EF5B;
+}
+
+/* 對話視窗 */
+.chatWindow {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid black;
+  height: 690px;
+}
+
+.chatWindowHead {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  box-shadow: 0px 2px #F1F0E9;
+}
+
+.talkTo {
+  display: flex;
+  align-items: center;
+}
+
+.talkToAvatar {
+  width: 50px;
+  height: 50px;
+  margin: 17px 10px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.talkToName {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.closeWindow {
+  font-size: 27px;
+  padding: 0px 30px;
+  margin: auto 0px;
+  margin-left: auto;
+}
+
+/* 對話框(左) */
+.messageLeft {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  /* width: 75%; */
+}
+
+.messageAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: .625rem;
+}
+
+.message{
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: #F1F0E9;
+  padding: .5rem;
+  font-size: 18px;
+}
+
+/* -------------以上為公用------------ */
+
+/* 課程新增進度 */
+.TCcourse-processBar {
+  display: none;
+}
+
+/* 課程圖片上傳 */
+.TCcourse-img-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+
+/* 課程表單裡的圖  */
+.TCcourse-pic-square {
+  width: 271px;
+  height: 271px;
+  margin-bottom: 30px;
+}
+
+.btn-border-only {
+  display: flex;
+  height: 50px;
+  border: 1px solid #065f8e;
+  border-radius: 10px;
+  background-color: transparent;
+  color: black;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+/* 課程新增的返回列表按鈕 */
+.btn-border-only-no-h {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid #065f8e;
+  border-radius: 10px;
+  color: #065f8e;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/* 上傳履歷的div */
+.resume {
+  display: flex;
+}
+
+/* 瀏覽按鈕 */
+.browse {
+  width: 100%;
+  height: 48px;
+  border: 0px;
+  color: black;
+  background-color: #f1ef5b;
+  margin-left: -100px;
+  border-radius: 0px 10px 10px 0px;
+}
+
+/* 預覽按鈕(桌機板) */
+.preview-btn-top {
+  display: none;
+}
+
+/* 預覽按鈕(行動裝置) */
+.preview-btn {
+  margin: 15px auto 30px;
+}
+
+/* 單獨一個按鈕在表單底部時 */
+.one-btn {
+  color: black;
+  margin-bottom: 30px;
+}
+
+/* 單獨一個按鈕的顯示 */
+.onebtn-switch {
+  display: none;
+}
+
+
+/* 課程管理的欄位 */
+.TCcourseLabel {
+  display: none;
+}
+
+/* 課程卡片 */
+.TCcourse-card {
+  display: flex;
+  justify-content: center;
+  background: #F1F0E9;
+  border-radius: 10px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+/* 課程圖片 */
+.TCcourse-img {
+  width: 8rem;
+  height: 100px;
+  margin-left: -15px;
+  background: url("../.././public/images/course/日文課程.jpeg") no-repeat center / cover;
+}
+
+/* 課程的文字資訊 */
+.TCcourse-info {
+  width: 100%;
+  padding: 8px 0px 8px 10px;
+}
+
+/* 課程名稱 */
+.TCcourse-title {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-bottom: 7px;
+  letter-spacing: -0.015em;
+}
+
+/* 課程名稱除外的細節 */
+.TCcourse-detail {
+  font-size: 10px;
+  transform: scale(0.8);
+  transform-origin: left center;
+  line-height: 15px;
+  padding-right: 0;
+}
+
+/* 課程刪除按鈕 */
+.TCcourse-delete {
+  color: #065f8e;
+  font-size: 18px;
+  padding: 3px 10px 0px;
+  margin-left: auto;
+}
+
+/* 影片上傳 */
+.TCvideo-drop-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #868686;
+  border-radius: 20px;
+  padding: 25%;
+  margin: 0px auto 30px;
+  text-align: center;
+}
+
+.TCvideo-drop-zone>i {
+  font-size: 50px;
+}
+
+.TCvideo-drop-zone>p {
+  font-size: 20px;
+  margin: 25px auto 5px;
+}
+
+.TCvideo-drop-zone>label {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+
+@media (min-width: 375px) {
+  .TCnotify-text {
+    font-size: 21px;
+  }
+
+  .nameInputs {
+    margin: 27px 0 50px;
+  }
+}
+
+@media (min-width: 768px) {
+
+  /* 網站主要導覽列 */
+  .navbar {
+    z-index: 5;
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    padding: 0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .mainContent {
+    margin-top: 110px;
+  }
+
+  /* 麵包屑 */
+  .breadcrumb {
+    padding: 0px;
+  }
+
+  /* 頁面背景 */
+  /* 圓圈的動畫 */
+  @keyframes bc {
+    0% {
+      transform: scale(0.9);
+    }
+
+    10% {
+      transform: scale(1);
+    }
+
+    20% {
+      transform: scale(0.9);
+    }
+
+    30% {
+      transform: scale(1);
+    }
+
+    40% {
+      transform: scale(0.9);
+    }
+
+    50% {
+      transform: scale(1);
+    }
+
+    60% {
+      transform: scale(0.9);
+    }
+
+    70% {
+      transform: scale(1);
+    }
+
+    80% {
+      transform: scale(0.9);
+    }
+
+    90% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(0.9);
+    }
+  }
+
+  /* 圓圈 */
+  .dec-circle {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 262px;
+    height: 262px;
+    right: 26px;
+    top: 189px;
+    border: 4px dashed #065f8e;
+    border-radius: 50%;
+    animation: bc 150s linear infinite;
+  }
+
+  .dec-circle-w {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 412px;
+    height: 412px;
+    right: -8rem;
+    top: -12rem;
+    border: 4px dashed white;
+    border-radius: 50%;
+    animation: bc 150s linear infinite;
+  }
+
+  /* 黃色色塊(上) */
+  .dec-block {
+    height: 310px;
+  }
+
+  /* 地球 */
+  .earth {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    top: 724px;
+  }
+
+  /* 黃色色塊(下) */
+  .dec-low-block {
+    display: block;
+    position: absolute;
+    left: 70px;
+    top: 1068px;
+    width: 367px;
+    height: 789px;
+    transform: skew(-24.76deg);
+    z-index: -1;
+    background: #f1ef5b;
+    border-radius: 30px;
+    animation: 12s linear infinite;
+  }
+
+  /* 所有input欄位 */
+  .allInputs {
+    height: 50px;
+  }
+
+  /* 搜尋列 */
+  .search {
+    display: flex;
+  }
+
+  .search-mobile {
+    display: none;
+  }
+
+  .searchbar {
+    width: 100%;
+  }
+
+  /* 手機版logo */
+  .logo-m {
+    display: none;
+  }
+
+  /* 頁碼 */
+  .Mypagination {
+    display: flex;
+  }
+
+
+  /* 頁面英文標題 */
+  .pageName {
+    display: block;
+    margin-bottom: 96px;
+    margin-top: 96px;
+    padding: 0;
+  }
+
+  .pageNameText {
+    position: relative;
+    color: black;
+    font-size: 6rem;
+    font-weight: bold;
+    line-height: 1.0;
+  }
+
+  .profile::before {
+    content: "";
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #f1ef5b;
+    position: absolute;
+    z-index: -5;
+    left: 36%;
+    top: 42%;
+  }
+
+  .course::before {
+    content: "";
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #f1ef5b;
+    position: absolute;
+    z-index: -5;
+    left: 17%;
+    top: 42%;
+  }
+
+  .password::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #f1ef5b;
+    position: absolute;
+    z-index: -5;
+    left: 16%;
+    top: 55%;
+  }
+
+
+  .analytics::before {
+    content: "";
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f1ef5b;
+    position: absolute;
+    z-index: -5;
+    left: 32%;
+    top: 55%;
+  }
+
+  /* 會員中心sidebar */
+  .sidebar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  /* 頭像 */
+  .sidebar .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+
+  /* sidebar選項列 */
+  .sidebar .nav-list {
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  /* sidebar選項 */
+  .sidebar .nav-item {
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    align-items: center;
+    height: 50px;
+    border-radius: 0px 10px 10px 0px;
+    margin-bottom: 10px;
+    color: #065f8e;
+  }
+
+  .sidebar .nav-item>i {
+    font-size: 25px;
+    width: 40px;
+    margin-left: 10%;
+    background-color: transparent;
+  }
+
+  /* 選中的選項狀態 */
+  .sidebar .nav-item.active {
+    background-color: white;
+  }
+
+  .sidebar .nav-item.active::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 50px;
+    background: #f1ef5b;
+  }
+
+  .sidebar .nav-item:hover {
+    background-color: white;
+  }
+
+  /* 表單名稱 */
+  .TCform-title {
+    display: flex;
+    margin: 50px 0px;
+    font-size: 36px;
+  }
+
+  /* 表單 */
+  .TCform {
+    border: 2px solid rgba(6, 95, 142, 0.5);
+    margin: 0px auto 150px;
+  }
+
+  /* 表單頭 */
+  .TCform-head {
+    margin: 0px;
+  }
+
+  /* 表單內容 */
+  .TCform-content {
+    width: 70%;
+  }
+
+  .TCsave-btn {
+    margin: 60px 0;
+  }
+
+  /* -------------以上為公用--------- */
+
+  /* 手機板會變小的按鈕 */
+  .TCbtn-sm {
+    display: flex;
+    width: 115px;
+    height: 40px;
+  }
+
+  /* 手機板會變小的按鈕(有display變化)  */
+  .TCbtn-sm-w-switch {
+    display: none;
+  }
+
+
+  /* 課程欄位列 */
+  .TCcourseLabel {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+
+  .TCcourseLabel-right {
+    display: flex;
+    justify-content: space-evenly;
+    padding-right: 0;
+  }
+
+  .TCcourseLabel .Labelitem {
+    width: 80px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  /* 課程卡片 */
+  .TCcourse-info {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  /* 課程名稱 */
+  .TCcourse-title {
+    font-size: 16px;
+    margin-bottom: 0px;
+  }
+
+  .TCcourse-info-right {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .TCcourse-detail {
+    transform: scale(1);
+    width: 80px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .TCcourse-detail span {
+    display: none;
+  }
+
+  .TCcourse-delete {
+    color: #065f8e;
+    font-size: 18px;
+    padding: 0px;
+    margin: auto 15px;
+  }
+
+  /* 瀏覽按鈕 */
+  .browse {
+    height: 50px;
+  }
+
+  .TCnotify-text {
+    font-size: 28px;
+    margin: 0px auto
+  }
+
+  /* 課程圖片 */
+  .TCcourse-img-selector {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  /* 課程表單裡的圖 */
+  .TCcourse-pic-square {
+    width: 271px;
+    height: 271px;
+    margin-right: 20px;
+    border: 1px solid #868686;
+    border-radius: 10px;
+  }
+
+
+  /* 預覽按鈕(桌機板) */
+  .preview-btn-top {
+    display: block;
+    margin-left: auto;
+  }
+
+  /* 預覽按鈕(手機) */
+  .preview-btn {
+    display: none;
+  }
+
+  /* 教師頁面返回按鈕 */
+  .TCback-btn {
+    display: none;
+  }
+
+
+  /* 課程新增的進度 */
+  .TCcourse-processBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: auto 5rem;
+    margin: 30px 0px 96px;
+  }
+
+  .TCcourse-processBarList {
+    display: flex;
+    list-style: none;
+    margin: 0;
+  }
+
+  .TCcourse-processBar-item {
+    position: relative;
+    text-decoration: none;
+    width: 150px;
+  }
+
+  .TCcourse-processBar-item a {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #065f8e;
+  }
+
+  .TCcourse-processBar-item a i {
+    padding-right: .5rem;
+  }
+
+  /* 目前所在的頁面 */
+  .processBar-item::after {
+    position: absolute;
+    bottom: 4px;
+    width: 70%;
+    height: 5px;
+    background-color: #065f8e;
+
+  }
+
+  /* 會員中心sidebar */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  /* 頭像 */
+  .sidebar .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+
+  /* sidebar選項列 */
+  .sidebar .nav_list {
+    list-style: none;
+    padding-left: 0;
+    /* width: 100%; */
+  }
+
+  /* sidebar選項 */
+  .sidebar .nav-item {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-radius: 0px 10px 10px 0px;
+    margin-bottom: 10px;
+  }
+
+  .sidebar .nav-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    color: #065f8e;
+    margin-left: 25px;
+    background-color: transparent;
+  }
+
+  .sidebar .nav-item>a>i {
+    font-size: 25px;
+    width: 30px;
+    background-color: transparent;
+  }
+
+  /* 選中的選項狀態 */
+  .nav-item.active {
+    background-color: white;
+  }
+
+  .nav-item.active::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 50px;
+    background: #f1ef5b;
+  }
+
+  .sidebar .nav-item:hover {
+    background-color: white;
+  }
+
+  /* 自我介紹欄位 */
+  .TC-intro {
+    margin-bottom: 0px;
+  }
+
+
+  /* 單獨一個按鈕在表單底部時 */
+  .one-btn {
+    margin: 50px 0px 60px;
+  }
+
+  /* 單獨一個按鈕的顯示 */
+  .onebtn-switch {
+    display: block;
+  }
+
+  /* 課程名稱 */
+  .TCcourse-title {
+    width: 80%;
+  }
+
+  /* 審核提示窗 */
+  .TCnotify {
+    border: 2px solid rgba(6, 95, 142, 0.5);
+  }
+
+  /* 影片上傳 */
+  .TCvideo-drop-zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #868686;
+    border-radius: 20px;
+    padding: 25%;
+    margin: 0px auto 135px;
+    text-align: center;
+  }
+
+}
+
+/* ==========================================================================
+index-網頁版
+========================================================================== */
+
+       /* 標語*/
+       .aearth {
+        display: block;
+        position: absolute;
+        z-index: -1;
+        right: 1300px;
+        /* right: 1300px; */
+        top: 145px;      
+      }
+
+      .TextA {
+
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 44px;
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        
+      }
+
+      .checkoutBtn {
+        font-size: 1.2rem;
+        width: 251px;
+        height: 40px;
+        color: #ffffff;
+        background-color: #065f8e;
+        margin: 0;
+      }
+      .checkoutBtn:hover {
+        color: #065f8e;
+        background-color: #ffffff;
+        border: 2px solid #065f8e;
+      }
+
+        .checkoutBtn-y {
+        width: 60%;
+        font-size: 1.2rem;
+        height: 50px;
+        color: #065f8e;
+        background-color: #ffffff;
+        margin: 0;
+      }
+      .checkoutBtn-y:hover {
+        color: #ffffff;
+        background-color: #065f8e;
+        border: 2px solid #ffffff;
+      }
+
+
+
+      .imga {
+        position: absolute;
+        top: 130px;
+        border: 11px solid #FFFFFF;
+        box-sizing: border-box;
+      }
+    
+      .imga img{
+
+        vertical-align: middle;
+        border: none;
+      }
+
+
+      .imgb {
+        display: block;
+        position: absolute;
+        z-index: 5;
+        left: 150px;
+        top: 595px;
+        border: 12px solid #FFFFFF;
+        box-sizing: border-box;
+      }
+
+
+      .triangle {
+        fill: #065F8E;
+        stroke: #065F8E;
+        stroke-width: 75;
+        z-index: 3;
+
+    }
+
+    .imgc-move{
+      display: block;
+      position: absolute;
+      width: 57.28vw;
+      max-width:1122px;
+      top:calc(263px + 34.28vw);
+      left:-300px;
+      z-index:1;
+      -webkit-animation: main_icon01 15s infinite;
+      -ms-animation: main_icon01 15s infinite;
+      -o-animation: main_icon01 15s infinite;
+      animation: main_icon01 15s infinite;
+      
+    }
+
+    .img-triangle{
+      display: block;
+      position: absolute;
+      transform: rotate(-179.95deg);
+    }
+
+    @-moz-keyframes main_icon01 {
+  50% { transform: translate(50px,50px);}
+}
+@-webkit-keyframes main_icon01 {
+  50% { transform: translate(50px,50px);}
+}    
+@-o-keyframes main_icon01 {
+  50% { transform: translate(50px,50px);}
+}
+@-ms-keyframes main_icon01 {
+  50% { transform: translate(50px,50px);}
+}
+@keyframes main_icon01{
+  50% { transform: translate(50px,50px);}
+}
+
+
+.imgc {
+  position: absolute;
+  top: 630px;
+  left: 850px;
+  border: 15px solid #FFFFFF;
+  box-sizing: border-box;
+}
+
+.imgc-div{
+  position: absolute;
+width: 200px;
+height: 31px;
+left: 950px;
+top: 845px;
+font-family: Redressed;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+display: flex;
+align-items: flex-end;
+text-align: center;
+color: #333333;
+text-shadow: 10px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.carda{
+position: absolute;
+width: 230px;
+height: 304px;
+left: 1020px;
+top: 956px;
+background: #065F8E;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+}
+
+.carda .img1-1{
+  position: absolute;
+  left: 34.35%;
+  right: 34.35%;
+  top: 19.74%;
+  bottom: 56.58%;
+  
+}
+
+.carda .img1-2{
+  position: absolute;
+  left: 22.17%;
+  right: 23.48%;
+  top: 48.68%;
+  bottom: 43.42%;
+  
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  /* identical to box height, or 133% */
+  
+  letter-spacing: 0.1px;
+  
+  color: #FFFFFF;
+}
+
+.carda .img1-3{
+  position: absolute;
+  left: 14.35%;
+  right: 15.65%;
+  top: 63.16%;
+  bottom: 36.18%;
+}
+
+.carda .img1-4{
+  position: absolute;
+  left: 22.17%;
+  right: 19.57%;
+  top: 70.39%;
+  bottom: 25.66%;
+  
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 120%;
+  /* or 14px */
+  
+  letter-spacing: 0.2px;
+  
+  color: #FFFFFF;
+  
+  
+}
+
+
+.cardb{
+  position: absolute;
+  width: 230px;
+  height: 304px;
+  left: 1330px;
+  top: 956px;
+  background: #F1EF5B;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  }
+  
+  .cardb .img2-1{
+    position: absolute;
+    left: 34.35%;
+    right: 34.35%;
+    top: 19.74%;
+    bottom: 56.58%;     
+  }
+  
+  .cardb .img2-2{
+    position: absolute;
+    left: 19.13%;
+    right: 18.7%;
+    top: 44.08%;
+    bottom: 44.08%;
+    
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 36px;
+    /* identical to box height, or 200% */
+    
+    letter-spacing: -0.015em;
+    
+    /* text-color */
+    
+    color: #252B42;
+    
+  }
+  
+  .cardb .img2-3{
+    position: absolute;
+    left: 16.09%;
+    right: 13.91%;
+    top: 62.5%;
+    bottom: 36.84%;
+    
+    /* danger-color */
+    
+    /* danger-color */
+  }
+  
+  .cardb .img2-4{
+position: absolute;
+left: 11.74%;
+right: 7.83%;
+top: 69.74%;
+bottom: 23.68%;
+
+font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 20px;
+/* identical to box height, or 167% */
+
+letter-spacing: 0.2px;
+
+/* second-text-color */
+
+color: #737373;
+    
+  }
+
+
+  .cardc{
+    position: absolute;
+    width: 230px;
+    height: 304px;
+    left: 1020px;
+    top: 1383px;
+    background: #F1EF5B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    }
+    
+    .cardc .img3-1{
+      position: absolute;
+      left: 34.35%;
+      right: 34.35%;
+      top: 19.74%;
+      bottom: 56.58%;           
+    }
+    
+    .cardc .img3-2{
+      position: absolute;
+      left: 15.22%;
+      right: 15.22%;
+      top: 47.7%;
+      bottom: 40.46%;
+      
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 36px;
+      /* identical to box height, or 200% */
+      
+      letter-spacing: -0.015em;
+      
+      /* text-color */
+      
+      color: #252B42;
+      
+      
+    }
+    
+    .cardc .img3-3{
+      position: absolute;
+      left: 16.09%;
+      right: 13.91%;
+      top: 62.5%;
+      bottom: 36.84%;
+      
+      /* danger-color */
+      
+      /* danger-color */
+    }
+    
+    .cardc .img3-4{
+  position: absolute;
+  left: 11.74%;
+  right: 7.83%;
+  top: 69.74%;
+  bottom: 23.68%;
+  
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 167% */
+  
+  letter-spacing: 0.2px;
+  
+  /* second-text-color */
+  
+  color: #737373;
+      
+    }
+
+
+    .cardd{
+      position: absolute;
+      width: 230px;
+      height: 304px;
+      left: 1330px;
+      top: 1383px;
+      background: #065F8E;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      }
+      
+      .cardd .img4-1{
+        position: absolute;
+        left: 34.35%;
+        right: 34.35%;
+        top: 19.74%;
+        bottom: 56.58%;           
+      }
+      
+      .cardd .img4-2{
+        position: absolute;
+        left: 27.39%;
+        right: 26.09%;
+        top: 48.36%;
+        bottom: 39.8%;
+        
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 36px;
+        /* identical to box height, or 200% */
+        
+        letter-spacing: -0.015em;
+        
+        /* light-text-color */
+        
+        color: #FFFFFF;
+        
+        
+      }
+      
+      .cardd .img4-3{
+        position: absolute;
+        left: 16.09%;
+        right: 13.91%;
+        top: 62.5%;
+        bottom: 36.84%;
+        
+        /* danger-color */
+        
+        /* danger-color */
+      }
+      
+      .cardd .img4-4{
+        position: absolute;
+left: 17.39%;
+right: 17.39%;
+top: 74.01%;
+bottom: 20.07%;
+
+font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 120%;
+/* or 14px */
+
+letter-spacing: 0.2px;
+
+color: #FFFFFF;
+        
+      }
+
+
+      
+      .imge {
+        display: block;
+        position: absolute;
+        z-index: 5;
+        left: 320px;
+        top: 1908px;
+        border: 12px solid #FFFFFF;
+        box-sizing: border-box;
+      }
+
+      .grey-box{
+        position: absolute;
+        width: 450px;
+        height: 684px;
+        right: 0px;
+        top: 1980px;
+        background: #F2F2F2;
+      }
+
+      .imge-1-title{
+        display: block;
+        position: absolute;
+        top: 2130px;
+        left: 1000px;
+        writing-mode: vertical-rl;
+      }
+
+      .imge-1-title  .imge-1-Text{
+        position: absolute;
+        width: 36px;
+        height: 635px;
+        left: calc(50% - 36px/2 + 446px);
+        top: calc(50% - 635px/2 + 108.5px);
+        
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 54px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.15em;
+        
+        color: #4B4B4B;
+        
+
+      }
+
+
+      .imge-2-title{
+        display: block;
+        position: absolute;
+        top: 2130px;
+        left: 1000px;
+      }
+
+      .imge-2-title  .imge-2-Text{
+        position: absolute;
+        width: 36px;
+        height: 682px;
+        left: calc(50% - 36px/2 + 372px);
+        top: calc(50% - 682px/2 + 135px);
+        
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 54px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.15em;
+        
+        color: #0C6291;
+        
+        writing-mode: vertical-lr;
+
+      }
+
+      .yellow-area{
+        position: absolute;
+        width: 2030px;
+        height: 886px;
+        left: 0px;
+        top: 2500px;
+        background: #F1EF5B;
+
+      }
+
+      .yellow-area-1-Text{
+      position: absolute;
+      left: 335px;
+      right: 0%;
+      top: -380px;
+      bottom: 0%;
+
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 41px;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.15em;
+      color: #0C6291;
+      }
+
+      .yellow-area-2-Text{
+        position: absolute;
+        left: 335px;
+        right: 0%;
+        top: -250px;
+        bottom: 0%;
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 41px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.15em;
+        
+        color: #6C6B38;
+        }
+
+        .yellow-area-button{
+        position: absolute;
+        width: 525px;
+        height: 58px;
+        left: 47px;
+        top: 303px;
+
+        background: #FFFFFF;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        }
+
+        .yellow-area-span{  
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 41px;
+        /* identical to box height */
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.15em;
+        color: #000000;
+        }
+
+        .yellow-area-but-1{
+          position: absolute;
+          left: 335px;
+          top: 380px;
+          z-index: 20;
+          width: 600px;       
+        }
+
+
+        .yellow-area-but-2{
+          position: absolute;
+          left: 1035px;
+          top: 380px;
+          z-index: 20;
+          width: 600px;       
+
+        
+        }
+
+        .yellow-area-popular-course{
+          position: absolute;
+          left: 1500px;
+          top: 550px;        
+        }
+
+        .popular-course-title{
+          font-family: Noto Sans;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 48px;
+          line-height: 65px;
+          display: flex;
+          align-items: center;
+          text-align: right;
+          letter-spacing: 0.15em;
+          color: #1D6D96;
+        }
+
+        .popular-title{
+          position: absolute;
+          width: 250px;
+          height: 65px;
+          left: 300px;
+          top: 3650px;
+        }
+
+        .popular-span{
+
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 65px;
+        display: flex;
+        align-items: center;
+        text-align: right;
+        letter-spacing: 0.15em;
+
+        color: #1D6D96;
+        }
+
+        .popular-card{
+          position: absolute;
+          left: 0px;
+          top: 3800px;
+          width: 2030px;
+          padding: 60px 0;
+        }
+
+        .popular-card-top {
+          margin-left: 335px;
+          margin-bottom: 20px;
+        }
+
+        .popular-card-top, .gallery-bottom {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+        }
+
+        .popular-card-card {
+          margin-left: 100px;
+        }
+
+
+
+        .popular-card-but{
+          position: absolute;
+          left:950px;
+          top: 4200px;
+        z-index: 8;
+        }
+
+        .popular-button{   
+          width: 251px;
+          height: 40px;
+          background: #065F8E;
+          border: 1px solid #065F8E;
+          box-sizing: border-box;
+          border-radius: 6px;
+
+        }
+
+
+        .popular-card-span{
+          font-weight: bold;
+          color: #FFFFFF;
+
+        }
+
+        .recommendation{
+          position: absolute;
+          left: 0px;
+          background: #F1EF5B;
+          top: 4220px;
+          width: 2030px;
+          padding: 60px 0;
+          z-index: 6;
+        }
+
+        .wrap {
+          max-width: 1110px;
+          margin: 0 auto;
+        }
+
+        .section-title {
+          text-align: center;
+          font-size: 1.75rem;
+          margin-bottom: 30px;
+        }
+
+        .section-title-span1{ 
+          left: 15px;    
+          font-family: Noto Sans;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 48px;
+          line-height: 65px;
+          letter-spacing: 0.15em;
+          
+          color: #3C3C3B;
+        }
+
+      
+        .section-title-span2{    
+          position: absolute;
+          font-family: Noto Sans;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 48px;
+          line-height: 65px;
+          letter-spacing: 0.15em;
+
+          color: #337B9F;
+        }
+
+        .recommendation-wall {
+          overflow-x: scroll;
+          -ms-overflow-style: none;
+          /* IE and Edge */
+          scrollbar-width: none;
+          /* Firefox */
+        }
+
+        .recommendation-wall::-webkit-scrollbar {
+          display: none;
+        }
+
+        .gallery-top , .gallery-bottom{
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+        }
+        
+        .gallery-top {
+          margin-left: 95px;
+          margin-bottom: 20px;
+        }
+        
+
+        .recommendation-card {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          margin-left: 30px;
+          min-width: 350px;
+          background-color: #FFFFFF;
+        }
+        
+        .recommendation-card img {
+          user-select: none;
+          -moz-user-select: none;
+          -webkit-user-drag: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+        }
+
+        .recommend-content {
+          padding-left: 16px;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+        }
+
+        .recommend-img {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          margin-bottom: 3px;
+        }
+        
+        .recommend-img img {
+          width: 40px;
+          border-radius: 50%;
+          margin-right: 8px;
+        }
+        
+
+        .recommend-text {
+          font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 24px;
+/* identical to box height, or 133% */
+
+letter-spacing: -0.015em;
+
+color: #30618C;
+        }
+        
+
+        .recommend p{  
+          font-family: Noto Sans;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 24px;
+          /* or 171% */
+          letter-spacing: -0.015em;
+          color: #000000;
+        }
+
+  
+    
+        .recommendation p,  img,  ol, ul, li{
+          margin: 0;
+          padding: 0;
+          border: 0;
+          font-size: 100%;
+          font: inherit;
+          vertical-align: baseline;
+        }
+
+/* ==========================================================================
+	footer
+========================================================================== */
+        
+        #footer {
+          top: 4800px;
+          position: relative;
+          padding-right: 7.14vw;
+          box-sizing:border-box;
+      }
+      #footer .footer_inr {
+          position: relative;
+          width: 100%;
+          border-radius:0 60px 0 0;
+          background:#065f8e;
+          padding:120px 0 115px 7.14vw;
+          box-sizing:border-box;
+      }#footer {
+        position: relative;
+        padding-right: 7.14vw;
+        box-sizing:border-box;
+    }
+    #footer .footer_inr {
+        position: relative;
+        width: 100%;
+        border-radius:0 60px 0 0;
+        background:#065f8e;
+        padding:120px 0 115px 7.14vw;
+        box-sizing:border-box;
+    }
+    #footer h2 {
+        width: 246px;
+    }
+    #footer h2 a {
+        display: block;
+    }
+
+    #footer .link_area a {
+        position: relative;
+        display:inline-block;
+        font-size: 13px;
+        font-weight: 300;
+        color:#fff;
+        margin-right: 25px;
+    }
+    #footer .link_area a::after {
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background: #fff;
+      transform: scale(0, 1);
+      transform-origin: left top;
+      transition: transform .3s;
+    }
+    #footer .link_area a:hover::after {
+      transform: scale(1, 1);
+    }
+    #footer .sns {
+        position: absolute;
+        right: 7.14vw;
+        top:120px;
+      -js-display: flex;
+      display:-webkit-box;
+      display: -webkit-flex;
+      display:-moz-box;
+      display:-ms-flexbox;
+      display: flex;
+      -webkit-justify-content: space-between;
+        justify-content: space-between;
+      -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+    }
+ 
+
+    #footer .nav_footer,
+    #footer .nav_login {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      background-color: #065f8e;
+      border-radius: 50%;
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+
+    #footer .nav_login_txt {
+      color: #065f8e;
+      font-weight: bold;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+    }
+
+    #footer .Facebook {
+      width: 30px;
+      height: 30px;
+      left: -50%;
+      top: 50%;
+      filter: drop-shadow(#fff 60px 0);
+      transform: translate(-50%, -50%);
+      position: absolute;
+      z-index: 5;
+    }
+
+    #footer .nav_footer:hover,
+    #footer .nav_login:hover {
+      background-color: #fff;
+    }
+
+    #footer .nav_footer:hover .Facebook,
+    #footer .nav_login:hover .nav_login_txt {
+      filter: drop-shadow(#065f8e 60px 0);
+      color: #065f8e;
+    }
+
+    /* #footer .foot-end {
+      font-size: 12px;
+      font-weight: 500;
+      position: absolute;
+      right: 7.14vw;
+      top:275px;
+      text-align:right;
+      color:#fff;
+      font-family: 'Montserrat', sans-serif;
+  } */
+
+
+  #footer .foot-end {
+    position: absolute;
+    right: 7.14vw;
+    top:240px;
+  -js-display: flex;
+  display:-webkit-box;
+  display: -webkit-flex;
+  display:-moz-box;
+  display:-ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+    justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+/* ==========================================================================
+手機板800 -index
+========================================================================== */
+
+@media screen and ( max-width: 800px ) {
+
+  .checkoutBtn {
+    min-width: 85px;
+    width: 30%;
+    border-radius: 0;
+  }
+    
+  #footer {
+    top: 3400px;
+    padding-right: 0
+    ;}
+  #footer .footer_inr {
+      border-radius:0;
+      padding:21vw 0 50px;
+  }
+  #footer h2 { width: 182px;margin:0 auto;}
+  #footer p {
+      font-size: 13px;
+      text-align: center;
+      margin:20px 0 43px;
+  }
+  
+  #footer .link_area {text-align: center;}
+
+  #footer .link_area a {font-size: 12px; margin-right: 18px;font-weight: 500;}
+  #footer .link_area a:last-child{margin-right: 0;}
+  #footer .link_area a::after {display:none;}
+  #footer .sns {
+  position: relative;
+      width: 95px;
+      right: auto;
+      top:auto;
+      left:calc(50% - 150px);
+      margin-top: 40px;
+  }
+
+  #footer .sns a{
+    
+      width: 40px;
+      height: 40px;
+      border-radius:40px;
+
+  }
+  #footer .sns .Facebook{
+    display: none;
+  }
+
+  #footer .sns .insta:before{
+      width: 15px;
+      height: 15px;
+  }
+  #footer h3 {
+      font-size: 11px;
+      right:auto;
+      top: auto;
+      left: calc(50% + 45px);
+      text-align:right;
+      bottom:110px;
+  }
+
+  #footer .link_area .ena {
+    font-size: 11px;
+    right:auto;
+    top: auto;
+    left: calc(50% + 45px);
+    text-align:right;
+    bottom:110px;
+}
+  
+  .pagetop{display:none!Important; }
+
+  .mobile-a{
+    position: absolute;
+    top: 257px;
+    left:40px;
+
+  }
+
+  .mobile-b{
+    position: absolute;
+    top: 257px;
+    left:90px;
+
+  }
+
+  .mobile-c{
+    position: absolute;
+    top: 257px;
+    left:140px;
+
+  }
+
+  
+}
+
+
+    
+
+
+/* ==========================================================================
+	footer按鈕
+========================================================================== */
+      .pagetop{
+        position: absolute;
+        right: 0;
+        width: 7.14vw;
+        text-align:center;
+        font-size: 13px;
+        font-weight: 700;
+        color:#065f8e;
+        top: 0;
+        padding-top: 115px;
+        padding-right: calc(3.57vw - 6px);
+        box-sizing: border-box;
+     -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+    .pagetop:hover{
+        color:#d6d33a;
+        
+    }
+    .pagetop:before{
+        content:"";
+        display: block;
+        width: 3px;
+        height: 80px;
+        background:#f2ef5b;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        margin:auto;
+     -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        
+    }
+    .pagetop:hover:before{
+        top:-5px;
+        background:#044567;
+    }
+
+    .v_txt{writing-mode: vertical-rl;font-feature-settings: normal;vertical-align: top;display:inline-block;-webkit-writing-mode:vertical-rl;}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+index手機
+========================================================================== */
+@media screen and ( max-width: 900px ) {
+  #desktop{
+    display:none !important;
+    }
+
+    .checkoutBtn {
+      min-width: 85px;
+      width: 30%;
+      border-radius: 0;
+    }
+
+
+
+
+  .nav__header {
+    display: none;
+  }
+
+  .mobile{
+  display: block;
+  }
+
+  .change-m{
+  position: absolute;
+  top: 130px;
+  left: 10px;
+  border: 10px solid #FFFFFF;
+  box-sizing: border-box;
+  z-index: 3;
+  }
+
+
+
+       /* 標語*/
+       .ath {
+        display: block;
+        position: absolute;
+        z-index: -1;
+        /* right: 1300px; */
+        top: 410px;
+        right: 55px;
+        background-color: #ffffff;  
+        z-index: 4;
+        width: 345px;
+        height: 159px;
+    
+      }
+
+      .checkoutBtn {
+        width: 60%;
+        font-size: 1.2rem;
+        height: 50px;
+        color: #ffffff;
+        background-color: #065f8e;
+        margin: 0;
+      }
+      
+      .checkoutBtn:hover {
+        color: #065f8e;
+        background-color: #ffffff;
+        border: 2px solid #065f8e;
+      }
+
+
+      .TextA {
+        position: absolute;
+        left: 43px;
+        top: 30px;
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 30px;
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        
+        color: #333333;
+        box-sizing: border-box;
+        
+      }
+      .TextB {
+        position: absolute;
+        top: 55px;
+        left: 43px;
+
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 30px;
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        
+        color: #333333;
+        box-sizing: border-box;
+        
+      }
+
+      .imgc-div-m{
+        position: absolute;
+        left: 40px;
+        top: 510px;
+        font-family: Redressed;
+        color: #333333;
+        z-index: 5;
+
+      }
+
+      .mgc-div-01{
+          position: absolute;
+          top: 480px;
+          right: 35px;
+          border: 5px solid #FFFFFF;
+          box-sizing: border-box;
+          z-index: 6;
+
+      
+      }
+
+      .card_img-a{
+        /* overflow-x: scroll; */
+        position:relative;
+        top: 550px;
+        left:15px;       
+        z-index:15;
+    }
+
+
+    .card_img-b{
+      /* overflow-x: scroll; */
+      position:relative;
+      top: 550px;
+      left:28px;       
+      z-index:15;
+  }
+
+  .card_img-c{
+    /* overflow-x: scroll; */
+    position:relative;
+    top: 550px;
+    left:15px;       
+    z-index:15;
+}
+
+.card_img-d{
+  /* overflow-x: scroll; */
+  position:relative;
+  top: 550px;
+  left:28px;       
+  z-index:15;
+}
+
+
+
+
+      .carda{
+        position: absolute;
+        width: 159px;
+        height: 194px;
+        left: 19px;
+        top: 670px;
+        
+        background: #065F8E;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        z-index: 4;
+        -webkit-animation: hidden !Important;
+        -ms-animation: hidden !Important;
+        -o-animation: hidden !Important;
+        animation: hidden !Important;
+        }
+
+        .carda .img1-1{
+          position: absolute;
+          width: 72px;
+          height: 60px;
+          left: 43px;
+          top: 22px;        
+
+        }
+
+        .carda .img1-2{
+          position: absolute;
+          width: 109px;
+          height: 23px;
+          left: 25px;
+          top: 96px;
+          
+          font-family: Noto Sans;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 24px;
+          /* or 150% */
+          
+          letter-spacing: -0.015em;
+          
+          color: #FFFFFF;
+        }
+
+
+        .carda .img1-3{
+          position: absolute;
+          width: 100px;
+          height: 1.9px;
+          left: 27px;
+          top: 125px;
+        }
+
+        .carda .img1-4{
+        position: absolute;
+        width: 95px;
+        height: 36px;
+        left: 30px;
+        top: 141px;
+
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 20px;
+        /* or 143% */
+        letter-spacing: 0.2px;
+        color: #FFFFFF;      
+          
+        }
+
+        .cardb{
+          position: absolute;
+          width: 159px;
+          height: 194px;
+          left: 201px;
+          top: 670px;
+          
+          background: #F1EF5B;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          border-radius: 10px;
+          z-index: 4;
+          -webkit-animation: hidden !Important;
+          -ms-animation: hidden !Important;
+          -o-animation: hidden !Important;
+          animation: hidden !Important;
+        }
+          
+          .cardb .img2-1{
+          position: absolute;
+          left: 27.04%;
+          right: 27.67%;
+          top: 11.34%;
+          bottom: 57.73%;
+   
+          }
+          
+          .cardb .img2-2{
+            position: absolute;
+            width: 131px;
+            height: 23px;
+            left: 16px;
+            top: 96px;
+            
+            font-family: Noto Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 24px;
+            /* or 150% */
+            
+            letter-spacing: -0.015em;
+            
+            /* text-color */
+            
+            color: #252B42;
+            
+          }
+          
+          .cardb .img2-3{
+            position: absolute;
+            left: 16.98%;
+            right: 20.13%;
+            top: 64.43%;
+            bottom: 34.59%;
+            
+            
+          }
+          
+          .cardb .img2-4{
+            position: absolute;
+            width: 119px;
+            height: 43px;
+            left: 27px;
+            top: 141px;
+            
+            font-family: Noto Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 20px;
+            /* or 143% */
+            
+            letter-spacing: 0.2px;
+            
+            /* second-text-color */
+            
+            color: #737373;
+            
+          }
+
+          .cardc{
+            position: absolute;
+            width: 159px;
+            height: 194px;
+            left: 19px;
+            top: 887px;
+            
+            background: #F1EF5B;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            z-index: 4;
+            -webkit-animation: hidden !Important;
+            -ms-animation: hidden !Important;
+            -o-animation: hidden !Important;
+            animation: hidden !Important;
+            }
+            
+            .cardc .img3-1{
+
+              position: absolute;
+              left: 27.04%;
+              right: 27.67%;
+              top: 10.82%;
+              bottom: 58.25%;           
+            }
+            
+            .cardc .img3-2{
+              position: absolute;
+              left: 5.03%;
+              right: 5.03%;
+              top: 48.93%;
+              bottom: 39.22%;
+              
+              font-family: Noto Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 16px;
+              line-height: 24px;
+              /* or 150% */
+              
+              letter-spacing: -0.015em;
+              
+              /* text-color */
+              
+              color: #252B42;
+              
+              
+            }
+            
+            .cardc .img3-3{
+              position: absolute;
+              left: 15.09%;
+              right: 22.01%;
+              top: 63.92%;
+              bottom: 35.1%;
+              
+              /* danger-color */
+              
+            }
+            
+            .cardc .img3-4{
+              position: absolute;
+              left: 13.84%;
+              right: 14.47%;
+              top: 72.16%;
+              bottom: 5.67%;
+              
+              font-family: Noto Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 14px;
+              line-height: 20px;
+              /* or 143% */
+              
+              letter-spacing: 0.2px;
+              
+              /* second-text-color */
+              
+              color: #737373;
+              
+            }
+
+            .cardd{
+              position: absolute;
+              width: 159px;
+              height: 194px;
+              left: 201px;
+              top: 887px;
+              
+              background: #065F8E;
+              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+              border-radius: 10px;
+              z-index: 4;
+              -webkit-animation: hidden !Important;
+              -ms-animation: hidden !Important;
+              -o-animation: hidden !Important;
+              animation: hidden !Important;
+              
+              }
+              
+              .cardd .img4-1{
+                position: absolute;
+                left: 27.04%;
+                right: 27.67%;
+                top: 11.86%;
+                bottom: 57.22%;
+                           
+              }
+              
+              .cardd .img4-2{
+                position: absolute;
+                left: 18.87%;
+                right: 18.87%;
+                top: 50%;
+                bottom: 38.14%;
+                
+                font-family: Noto Sans;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 16px;
+                line-height: 24px;
+                /* or 150% */
+                
+                letter-spacing: -0.015em;
+                
+                color: #FFFFFF;
+                
+                
+                
+              }
+              
+              .cardd .img4-3{
+                position: absolute;
+                left: 18.87%;
+                right: 18.24%;
+                top: 64.43%;
+                bottom: 34.59%;
+              }
+              
+              .cardd .img4-4{
+                position: absolute;
+                left: 24.53%;
+                right: 15.72%;
+                top: 72.63%;
+                bottom: 7.27%;
+                
+                font-family: Noto Sans;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 20px;
+                /* or 143% */
+                
+                letter-spacing: 0.2px;
+                
+                /* light-text-color */
+                
+                color: #FFFFFF;
+                
+              }
+
+              .icon01{
+                top: 800px;
+                width: 375px;
+                display: block;
+                position: absolute;
+                max-width:1122px;
+                z-index:3;
+                -webkit-animation: type02_icon 15s infinite;
+                -ms-animation: type02_icon 15s infinite;
+                -o-animation: type02_icon 15s infinite;
+                animation: type02_icon 15s infinite;
+              }
+
+              .icon01 img{
+                width: 375px;
+              }
+            
+            
+            @-moz-keyframes type02_icon1 {
+              50% { transform: translate(-50px,-50px);}
+            }
+            @-webkit-keyframes type02_icon {
+              50% { transform: translate(-50px,-50px);}
+            }    
+            @-o-keyframes type02_icon {
+              50% { transform: translate(-50px,-50px);}
+            }
+            @-ms-keyframes type02_icon {
+              50% { transform: translate(-50px,-50px);}
+            }
+            @keyframes type02_icon{
+              50% { transform: translate(-50px,-50px);}
+            }
+            
+
+         .img5-title{
+          display: block;
+          position: absolute;
+          background:#fff;
+          top: 1200px;
+         }
+
+         .img5-title .type01 {
+           background:#fff;
+           padding:15vw 0 0;
+          }
+     
+        .img5-title .type01:before{display:none;}
+        .img5-titlee .type01:after{
+             width: 62.5vw;
+             height: 70vw;
+             background:#f2ef5b;
+             position: absolute;
+             right: auto;
+             left: 0;
+             top: calc(15vw + 190px);
+         }
+     
+         
+         .img5-title .sp_type_img{
+             position:absolute;
+             left:168px;       
+             top: 15vw;
+             width: 57.5vw;        
+             z-index:15;
+         }
+         
+         .img5-title .sp_type_img ul li{
+             position: relative;
+             left:0;
+             width: 100%;
+             height: 100px;
+             margin-bottom: 15px;
+         }
+
+
+         .type01-Text{
+          position: absolute;
+          left: 80px;
+          z-index:4;
+
+          }
+
+          .type02-Text{
+            position: absolute;
+            left: 35px;
+            top: 54px;
+            z-index:4;
+
+            }
+
+            
+
+
+         
+            .icon02{
+              top: 280px;
+              display: block;
+              position: absolute;
+              max-width:1122px;
+              z-index:3;
+              -webkit-animation: type02_icon 15s infinite;
+              -ms-animation: type02_icon 15s infinite;
+              -o-animation: type02_icon 15s infinite;
+              animation: type02_icon 15s infinite;
+            }
+          
+          
+          @-moz-keyframes type02_icon1 {
+            50% { transform: translate(-50px,-50px);}
+          }
+          @-webkit-keyframes type02_icon {
+            50% { transform: translate(-50px,-50px);}
+          }    
+          @-o-keyframes type02_icon {
+            50% { transform: translate(-50px,-50px);}
+          }
+          @-ms-keyframes type02_icon {
+            50% { transform: translate(-50px,-50px);}
+          }
+          @keyframes type02_icon{
+            50% { transform: translate(-50px,-50px);}
+          }
+
+
+          .type03-Text{
+            position: absolute;
+            left: 20px;
+            top: 420px;
+            z-index:4;
+  
+            }
+
+
+             .type04-ath {
+              display: block;
+              position: absolute;
+              z-index: 10;
+              top: 640px;
+              width: 400px;
+              height: 159px;
+          
+            }
+
+            .type04-TextA {
+              position: absolute;
+              left: 95px;
+              top: 30px;
+              font-family: Noto Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 25px;
+              line-height: 34px;
+              display: flex;
+              align-items: center;
+              letter-spacing: 0.15em;
+              
+              color: #0C6291;
+              
+            }
+
+            .type04-TextB{
+              position: absolute;
+              left: 50px;
+              top: 85px;
+
+              font-family: Noto Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 15px;
+              line-height: 20px;
+              display: flex;
+              align-items: center;
+              letter-spacing: 0.15em;
+              
+            }
+
+
+            /* .type04-but-1{
+              position: absolute;
+              left: 5px;
+              top: 150px;
+              background: #FFFFFF;
+              border: 1px solid #000000;
+              box-sizing: border-box;
+              width: 344px;
+              height: 49px;
+
+            } */
+
+            .type05{
+              position: relative;
+              left: 46px;
+              top:140px;
+              width: 1000px;
+            }
+    
+            .type06{
+              position: relative;
+              left: 46px;
+              top:200px;
+              width: 1000px;
+
+            }
+
+            .type07-ath {
+              display: block;
+              position: absolute;
+              z-index: 10;
+              top: 980px;
+              width: 400px;
+              height: 159px;
+          
+            }
+
+            .type07-TextA {
+              position: absolute;
+              left: 135px;
+              font-family: Noto Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 25px;
+              line-height: 34px;
+              display: flex;
+              align-items: center;
+              letter-spacing: 0.15em;
+              
+              color: #0C6291;
+              
+            }
+
+            .type07-back{
+              top: 250px;
+              height: 159px;
+              width: 400px;
+              z-index: 15;
+              position: absolute;
+              background-color: #C4C4C4;
+            }
+
+
+            .type08-ath {
+              display: block;
+              position: absolute;
+              z-index: 10;
+              top: 1480px;
+              width: 400px;
+              height: 159px;
+          
+            }
+
+
+            .type08-TextA {
+              position: absolute;
+              left: 135px;
+              top: 30px;
+              font-family: Noto Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 25px;
+              line-height: 34px;
+              display: flex;
+              align-items: center;
+              letter-spacing: 0.15em;
+              
+              color: #0C6291;
+              
+            }
+
+
+            .type10-Text{
+              position: absolute;
+              left: 25px;
+              top: 1660px;
+              z-index:4;
+            }
+
+            .type11-Text{
+              position: absolute;
+              left: 25px;
+              top: 1950px;
+              z-index:4;
+            }
+
+            .type12-Text{
+              position: absolute;
+              left: 25px;
+              top: 2240px;
+              z-index:4;
+            }
+
+
+            
+            .popular-card-but{
+              position: absolute;
+                top: 2580px;
+                left: 120px;
+                z-index: 20;
+                width: 400px;
+            }
+
+   
+        .popular-button{   
+
+          width: 251px;
+          height: 40px;
+          background: #065F8E;
+          border: 1px solid #065F8E;
+          box-sizing: border-box;
+          border-radius: 6px;
+        }
+
+        .popular-card-span{
+          font-weight: bold;
+          color: #FFFFFF;
+        }
+
+
+
+
+}
+
+
+
+@media screen and ( max-width: 800px ) {
+  #desktop{
+    display:none !important;
+    }
+
+
+
+
+  .nav__header {
+    display: none;
+  }
+
+  .mobile{
+  display: block;
+  }
+
+  .change-m{
+  position: absolute;
+  top: 130px;
+  left: 10px;
+  border: 10px solid #FFFFFF;
+  box-sizing: border-box;
+  z-index: 3;
+  }
+
+       /* 標語*/
+       .ath {
+        display: block;
+        position: absolute;
+        z-index: -1;
+        /* right: 1300px; */
+        top: 410px;
+        right: 55px;
+        background-color: #ffffff;  
+        z-index: 4;
+        width: 345px;
+        height: 159px;
+    
+      }
+
+      .TextA {
+        position: absolute;
+        left: 43px;
+        top: 30px;
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 30px;
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        
+        color: #333333;
+        box-sizing: border-box;
+        
+      }
+      .TextB {
+        position: absolute;
+        top: 55px;
+        left: 43px;
+
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 30px;
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        
+        color: #333333;
+        box-sizing: border-box;
+        
+      }
+
+      .imgc-div-m{
+        position: absolute;
+        left: 40px;
+        top: 510px;
+        font-family: Redressed;
+        color: #333333;
+        z-index: 5;
+
+      }
+
+      .mgc-div-01{
+          position: absolute;
+          top: 480px;
+          right: 35px;
+          border: 5px solid #FFFFFF;
+          box-sizing: border-box;
+          z-index: 6;
+
+      
+      }
+
+      .card_img-a{
+        /* overflow-x: scroll; */
+        position:relative;
+        top: 550px;
+        left:15px;       
+        z-index:15;
+    }
+
+
+    .card_img-b{
+      /* overflow-x: scroll; */
+      position:relative;
+      top: 550px;
+      left:28px;       
+      z-index:15;
+  }
+
+  .card_img-c{
+    /* overflow-x: scroll; */
+    position:relative;
+    top: 550px;
+    left:15px;       
+    z-index:15;
+}
+
+.card_img-d{
+  /* overflow-x: scroll; */
+  position:relative;
+  top: 550px;
+  left:28px;       
+  z-index:15;
+}
+
+
+
+
+      .carda{
+        position: absolute;
+        width: 159px;
+        height: 194px;
+        left: 19px;
+        top: 670px;
+        
+        background: #065F8E;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        z-index: 4;
+        -webkit-animation: hidden !Important;
+        -ms-animation: hidden !Important;
+        -o-animation: hidden !Important;
+        animation: hidden !Important;
+        }
+
+        .carda .img1-1{
+          position: absolute;
+          width: 72px;
+          height: 60px;
+          left: 43px;
+          top: 22px;        
+
+        }
+
+        .carda .img1-2{
+          position: absolute;
+          width: 109px;
+          height: 23px;
+          left: 25px;
+          top: 96px;
+          
+          font-family: Noto Sans;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 24px;
+          /* or 150% */
+          
+          letter-spacing: -0.015em;
+          
+          color: #FFFFFF;
+        }
+
+
+        .carda .img1-3{
+          position: absolute;
+          width: 100px;
+          height: 1.9px;
+          left: 27px;
+          top: 125px;
+        }
+
+        .carda .img1-4{
+        position: absolute;
+        width: 95px;
+        height: 36px;
+        left: 30px;
+        top: 141px;
+
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 20px;
+        /* or 143% */
+        letter-spacing: 0.2px;
+        color: #FFFFFF;      
+          
+        }
+
+        .cardb{
+          position: absolute;
+          width: 159px;
+          height: 194px;
+          left: 201px;
+          top: 670px;
+          
+          background: #F1EF5B;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          border-radius: 10px;
+          z-index: 4;
+          -webkit-animation: hidden !Important;
+          -ms-animation: hidden !Important;
+          -o-animation: hidden !Important;
+          animation: hidden !Important;
+        }
+          
+          .cardb .img2-1{
+          position: absolute;
+          left: 27.04%;
+          right: 27.67%;
+          top: 11.34%;
+          bottom: 57.73%;
+   
+          }
+          
+          .cardb .img2-2{
+            position: absolute;
+            width: 131px;
+            height: 23px;
+            left: 16px;
+            top: 96px;
+            
+            font-family: Noto Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 24px;
+            /* or 150% */
+            
+            letter-spacing: -0.015em;
+            
+            /* text-color */
+            
+            color: #252B42;
+            
+          }
+          
+          .cardb .img2-3{
+            position: absolute;
+            left: 16.98%;
+            right: 20.13%;
+            top: 64.43%;
+            bottom: 34.59%;
+            
+            
+          }
+          
+          .cardb .img2-4{
+            position: absolute;
+            width: 119px;
+            height: 43px;
+            left: 27px;
+            top: 141px;
+            
+            font-family: Noto Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 20px;
+            /* or 143% */
+            
+            letter-spacing: 0.2px;
+            
+            /* second-text-color */
+            
+            color: #737373;
+            
+          }
+
+          .cardc{
+            position: absolute;
+            width: 159px;
+            height: 194px;
+            left: 19px;
+            top: 887px;
+            
+            background: #F1EF5B;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            z-index: 4;
+            -webkit-animation: hidden !Important;
+            -ms-animation: hidden !Important;
+            -o-animation: hidden !Important;
+            animation: hidden !Important;
+            }
+            
+            .cardc .img3-1{
+
+              position: absolute;
+              left: 27.04%;
+              right: 27.67%;
+              top: 10.82%;
+              bottom: 58.25%;           
+            }
+            
+            .cardc .img3-2{
+              position: absolute;
+              left: 5.03%;
+              right: 5.03%;
+              top: 48.93%;
+              bottom: 39.22%;
+              
+              font-family: Noto Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 16px;
+              line-height: 24px;
+              /* or 150% */
+              
+              letter-spacing: -0.015em;
+              
+              /* text-color */
+              
+              color: #252B42;
+              
+              
+            }
+            
+            .cardc .img3-3{
+              position: absolute;
+              left: 15.09%;
+              right: 22.01%;
+              top: 63.92%;
+              bottom: 35.1%;
+              
+              /* danger-color */
+              
+            }
+            
+            .cardc .img3-4{
+              position: absolute;
+              left: 13.84%;
+              right: 14.47%;
+              top: 72.16%;
+              bottom: 5.67%;
+              
+              font-family: Noto Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 14px;
+              line-height: 20px;
+              /* or 143% */
+              
+              letter-spacing: 0.2px;
+              
+              /* second-text-color */
+              
+              color: #737373;
+              
+            }
+
+            .cardd{
+              position: absolute;
+              width: 159px;
+              height: 194px;
+              left: 201px;
+              top: 887px;
+              
+              background: #065F8E;
+              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+              border-radius: 10px;
+              z-index: 4;
+              -webkit-animation: hidden !Important;
+              -ms-animation: hidden !Important;
+              -o-animation: hidden !Important;
+              animation: hidden !Important;
+              
+              }
+              
+              .cardd .img4-1{
+                position: absolute;
+                left: 27.04%;
+                right: 27.67%;
+                top: 11.86%;
+                bottom: 57.22%;
+                           
+              }
+              
+              .cardd .img4-2{
+                position: absolute;
+                left: 18.87%;
+                right: 18.87%;
+                top: 50%;
+                bottom: 38.14%;
+                
+                font-family: Noto Sans;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 16px;
+                line-height: 24px;
+                /* or 150% */
+                
+                letter-spacing: -0.015em;
+                
+                color: #FFFFFF;
+                
+                
+                
+              }
+              
+              .cardd .img4-3{
+                position: absolute;
+                left: 18.87%;
+                right: 18.24%;
+                top: 64.43%;
+                bottom: 34.59%;
+              }
+              
+              .cardd .img4-4{
+                position: absolute;
+                left: 24.53%;
+                right: 15.72%;
+                top: 72.63%;
+                bottom: 7.27%;
+                
+                font-family: Noto Sans;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 20px;
+                /* or 143% */
+                
+                letter-spacing: 0.2px;
+                
+                /* light-text-color */
+                
+                color: #FFFFFF;
+                
+              }
+
+              .icon01{
+                top: 800px;
+                width: 375px;
+                display: block;
+                position: absolute;
+                max-width:1122px;
+                z-index:3;
+                -webkit-animation: type02_icon 15s infinite;
+                -ms-animation: type02_icon 15s infinite;
+                -o-animation: type02_icon 15s infinite;
+                animation: type02_icon 15s infinite;
+              }
+
+              .icon01 img{
+                width: 375px;
+              }
+            
+            
+            @-moz-keyframes type02_icon1 {
+              50% { transform: translate(-50px,-50px);}
+            }
+            @-webkit-keyframes type02_icon {
+              50% { transform: translate(-50px,-50px);}
+            }    
+            @-o-keyframes type02_icon {
+              50% { transform: translate(-50px,-50px);}
+            }
+            @-ms-keyframes type02_icon {
+              50% { transform: translate(-50px,-50px);}
+            }
+            @keyframes type02_icon{
+              50% { transform: translate(-50px,-50px);}
+            }
+            
+
+         .img5-title{
+          display: block;
+          position: absolute;
+          background:#fff;
+          top: 1200px;
+         }
+
+         .img5-title .type01 {
+           background:#fff;
+           padding:15vw 0 0;
+          }
+     
+        .img5-title .type01:before{display:none;}
+        .img5-titlee .type01:after{
+             width: 62.5vw;
+             height: 70vw;
+             background:#f2ef5b;
+             position: absolute;
+             right: auto;
+             left: 0;
+             top: calc(15vw + 190px);
+         }
+     
+         
+         .img5-title .sp_type_img{
+             position:absolute;
+             left:168px;       
+             top: 15vw;
+             width: 57.5vw;        
+             z-index:15;
+         }
+         
+         .img5-title .sp_type_img ul li{
+             position: relative;
+             left:0;
+             width: 100%;
+             height: 100px;
+             margin-bottom: 15px;
+         }
+
+
+         .type01-Text{
+          position: absolute;
+          left: 80px;
+          z-index:4;
+
+          }
+
+          .type02-Text{
+            position: absolute;
+            left: 35px;
+            top: 54px;
+            z-index:4;
+
+            }
+
+            
+
+
+         
+            .icon02{
+              top: 280px;
+              display: block;
+              position: absolute;
+              max-width:1122px;
+              z-index:3;
+              -webkit-animation: type02_icon 15s infinite;
+              -ms-animation: type02_icon 15s infinite;
+              -o-animation: type02_icon 15s infinite;
+              animation: type02_icon 15s infinite;
+            }
+          
+          
+          @-moz-keyframes type02_icon1 {
+            50% { transform: translate(-50px,-50px);}
+          }
+          @-webkit-keyframes type02_icon {
+            50% { transform: translate(-50px,-50px);}
+          }    
+          @-o-keyframes type02_icon {
+            50% { transform: translate(-50px,-50px);}
+          }
+          @-ms-keyframes type02_icon {
+            50% { transform: translate(-50px,-50px);}
+          }
+          @keyframes type02_icon{
+            50% { transform: translate(-50px,-50px);}
+          }
+
+
+          .type03-Text{
+            position: absolute;
+            left: 20px;
+            top: 420px;
+            z-index:4;
+  
+            }
+
+
+             .type04-ath {
+              display: block;
+              position: absolute;
+              z-index: 10;
+              top: 640px;
+              width: 400px;
+              height: 159px;
+          
+            }
+
+            .type04-TextA {
+              position: absolute;
+              left: 95px;
+              top: 30px;
+              font-family: Noto Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 25px;
+              line-height: 34px;
+              display: flex;
+              align-items: center;
+              letter-spacing: 0.15em;
+              
+              color: #0C6291;
+              
+            }
+
+            .type04-TextB{
+              position: absolute;
+              left: 50px;
+              top: 85px;
+
+              font-family: Noto Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 15px;
+              line-height: 20px;
+              display: flex;
+              align-items: center;
+              letter-spacing: 0.15em;
+              
+            }
+
+
+            /* .type04-but-1{
+              position: absolute;
+              left: 5px;
+              top: 150px;
+              background: #FFFFFF;
+              border: 1px solid #000000;
+              box-sizing: border-box;
+              width: 344px;
+              height: 49px;
+
+            } */
+
+            .type05{
+              position: relative;
+              left: 46px;
+              top:140px;
+              width: 1000px;
+
+            }
+    
+
+            .type06{
+              position: relative;
+              left: 46px;
+              top:200px;
+              width: 1000px;
+
+            }
+
+            .type07-ath {
+              display: block;
+              position: absolute;
+              z-index: 10;
+              top: 980px;
+              width: 400px;
+              height: 159px;
+          
+            }
+
+            .type07-TextA {
+              position: absolute;
+              left: 135px;
+              font-family: Noto Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 25px;
+              line-height: 34px;
+              display: flex;
+              align-items: center;
+              letter-spacing: 0.15em;
+              
+              color: #0C6291;
+              
+            }
+
+            .type07-back{
+              top: 250px;
+              height: 159px;
+              width: 400px;
+              z-index: 15;
+              position: absolute;
+              background-color: #C4C4C4;
+            }
+
+
+            .type08-ath {
+              display: block;
+              position: absolute;
+              z-index: 10;
+              top: 1480px;
+              width: 400px;
+              height: 159px;
+          
+            }
+
+
+            .type08-TextA {
+              position: absolute;
+              left: 135px;
+              top: 30px;
+              font-family: Noto Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 25px;
+              line-height: 34px;
+              display: flex;
+              align-items: center;
+              letter-spacing: 0.15em;
+              
+              color: #0C6291;
+              
+            }
+
+
+            .type10-Text{
+              position: absolute;
+              left: 25px;
+              top: 1660px;
+              z-index:4;
+            }
+
+            .type11-Text{
+              position: absolute;
+              left: 25px;
+              top: 1950px;
+              z-index:4;
+            }
+
+            .type12-Text{
+              position: absolute;
+              left: 25px;
+              top: 2240px;
+              z-index:4;
+            }
+
+
+            
+            .popular-card-but{
+              position: absolute;
+                top: 2580px;
+                left: 120px;
+                z-index: 20;
+                width: 400px;
+            }
+   
+        .popular-button{   
+
+          width: 251px;
+          height: 40px;
+          background: #065F8E;
+          border: 1px solid #065F8E;
+          box-sizing: border-box;
+          border-radius: 6px;
+        }
+
+        .popular-card-span{
+          font-weight: bold;
+          color: #FFFFFF;
+        }
+
+
+
+
+
+
+}

@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font-family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/index.css" />
+    
+    <style>
+      /*=============== Navbar ===============*/
+      ul {
+        list-style: none !important;
+      }
+
+      a {
+        text-decoration: none !important;
+      }
+
+      .nav__header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background-color: transparent;
+        color: #065f8e;
+      }
+
+      .mobile-mobile{
+        display: none;
+      }
+
+
+      @media (max-width: 768px) {
+
+  
+
+        .nav__header {
+          display: none;
+        }
+
+        #desktop{
+    display:none !important;
+    }
+
+        .mobile-mobile{
+        display: block;
+      }
+
+
+      }
+
+
+      
+
+
+
+      .nav__header .nav__singheader {
+        position: relative;
+        height: 80px;
+      }
+
+      .nav__header .nav__singheader .nav__pc_menu {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        margin: 0;
+      }
+
+      .nav__header .nav__singheader .nav__pc_menu li {
+        display: inline-block;
+      }
+
+      .nav__en {
+        color: #065f8e;
+        display: block;
+        font-weight: bold;
+        position: relative;
+        padding: 0 15px;
+        /* TODO */
+      }
+
+      .nav_cart,
+      .nav_login {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: 0.3s ease;
+      }
+
+      .nav_login_txt {
+        color: #065f8e;
+        font-weight: bold;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+      }
+
+      .nav_cart_icon {
+        width: 24px;
+        height: 24px;
+        left: -50%;
+        top: 50%;
+        filter: drop-shadow(#065f8e 60px 0);
+        transform: translate(-50%, -50%);
+        position: absolute;
+        z-index: 5;
+      }
+
+      .nav_cart:hover,
+      .nav_login:hover {
+        background-color: #065f8e;
+      }
+
+      .nav_cart:hover .nav_cart_icon,
+      .nav_login:hover .nav_login_txt {
+        filter: drop-shadow(#ffffff 60px 0);
+        color: white;
+      }
+
+      /* hover底線動畫 */
+      .nav__en::after {
+        position: absolute;
+        bottom: -28px;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: #242424;
+        transform: scale(0, 1);
+        transform-origin: left top;
+        transition: transform 0.3s;
+        z-index: 10;
+      }
+
+      .nav__en:hover::after {
+        transform: scale(1, 1);
+      }
+
+      /* scroll後變色 */
+      .nav__scroll-header {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 4px rgba(14, 55, 63, 0.15);
+        transition: 0.3s ease;
+      }
+
+ /* ==========================================================================
+手機板768 -index
+========================================================================== */
+
+      @media (max-width: 768px) {
+
+#desktop{
+display:none !important;
+}
+
+.checkoutBtn {
+    min-width: 85px;
+    width: 30%;
+    border-radius: 0;
+  }
+
+
+.nav__header {
+display: none;
+}
+
+.mobile{
+display: block;
+}
+
+.change-m{
+position: absolute;
+top: 130px;
+left: 10px;
+border: 10px solid #FFFFFF;
+box-sizing: border-box;
+z-index: 3;
+}
+
+/* 標語*/
+.ath {
+display: block;
+position: absolute;
+z-index: -1;
+/* right: 1300px; */
+top: 410px;
+right: 55px;
+background-color: #ffffff;  
+z-index: 4;
+width: 345px;
+height: 159px;
+
+}
+
+.TextA {
+position: absolute;
+left: 43px;
+top: 30px;
+font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+line-height: 30px;
+display: flex;
+align-items: flex-end;
+text-align: center;
+
+color: #333333;
+box-sizing: border-box;
+
+}
+.TextB {
+position: absolute;
+top: 55px;
+left: 43px;
+
+font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+line-height: 30px;
+display: flex;
+align-items: flex-end;
+text-align: center;
+
+color: #333333;
+box-sizing: border-box;
+
+}
+
+.imgc-div-m{
+position: absolute;
+left: 40px;
+top: 510px;
+font-family: Redressed;
+color: #333333;
+z-index: 5;
+
+}
+
+.mgc-div-01{
+position: absolute;
+top: 480px;
+right: 35px;
+border: 5px solid #FFFFFF;
+box-sizing: border-box;
+z-index: 6;
+
+
+}
+
+.card_img-a{
+/* overflow-x: scroll; */
+position:relative;
+top: 550px;
+left:15px;       
+z-index:15;
+}
+
+
+.card_img-b{
+/* overflow-x: scroll; */
+position:relative;
+top: 550px;
+left:28px;       
+z-index:15;
+}
+
+.card_img-c{
+/* overflow-x: scroll; */
+position:relative;
+top: 550px;
+left:15px;       
+z-index:15;
+}
+
+.card_img-d{
+/* overflow-x: scroll; */
+position:relative;
+top: 550px;
+left:28px;       
+z-index:15;
+}
+
+
+
+
+.carda{
+position: absolute;
+width: 159px;
+height: 194px;
+left: 19px;
+top: 670px;
+
+background: #065F8E;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+z-index: 4;
+-webkit-animation: hidden !Important;
+-ms-animation: hidden !Important;
+-o-animation: hidden !Important;
+animation: hidden !Important;
+}
+
+.carda .img1-1{
+position: absolute;
+width: 72px;
+height: 60px;
+left: 43px;
+top: 22px;        
+
+}
+
+.carda .img1-2{
+position: absolute;
+width: 109px;
+height: 23px;
+left: 25px;
+top: 96px;
+
+font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+
+letter-spacing: -0.015em;
+
+color: #FFFFFF;
+}
+
+
+.carda .img1-3{
+position: absolute;
+width: 100px;
+height: 1.9px;
+left: 27px;
+top: 125px;
+}
+
+.carda .img1-4{
+position: absolute;
+width: 95px;
+height: 36px;
+left: 30px;
+top: 141px;
+
+font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 20px;
+/* or 143% */
+letter-spacing: 0.2px;
+color: #FFFFFF;      
+
+}
+
+.cardb{
+position: absolute;
+width: 159px;
+height: 194px;
+left: 201px;
+top: 670px;
+
+background: #F1EF5B;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+z-index: 4;
+-webkit-animation: hidden !Important;
+-ms-animation: hidden !Important;
+-o-animation: hidden !Important;
+animation: hidden !Important;
+}
+
+.cardb .img2-1{
+position: absolute;
+left: 27.04%;
+right: 27.67%;
+top: 11.34%;
+bottom: 57.73%;
+
+}
+
+.cardb .img2-2{
+  position: absolute;
+  width: 131px;
+  height: 23px;
+  left: 16px;
+  top: 96px;
+  
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+  
+  letter-spacing: -0.015em;
+  
+  /* text-color */
+  
+  color: #252B42;
+  
+}
+
+.cardb .img2-3{
+  position: absolute;
+  left: 16.98%;
+  right: 20.13%;
+  top: 64.43%;
+  bottom: 34.59%;
+  
+  
+}
+
+.cardb .img2-4{
+  position: absolute;
+  width: 119px;
+  height: 43px;
+  left: 27px;
+  top: 141px;
+  
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  /* or 143% */
+  
+  letter-spacing: 0.2px;
+  
+  /* second-text-color */
+  
+  color: #737373;
+  
+}
+
+.cardc{
+  position: absolute;
+  width: 159px;
+  height: 194px;
+  left: 19px;
+  top: 887px;
+  
+  background: #F1EF5B;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  z-index: 4;
+  -webkit-animation: hidden !Important;
+  -ms-animation: hidden !Important;
+  -o-animation: hidden !Important;
+  animation: hidden !Important;
+  }
+  
+  .cardc .img3-1{
+
+    position: absolute;
+    left: 27.04%;
+    right: 27.67%;
+    top: 10.82%;
+    bottom: 58.25%;           
+  }
+  
+  .cardc .img3-2{
+    position: absolute;
+    left: 5.03%;
+    right: 5.03%;
+    top: 48.93%;
+    bottom: 39.22%;
+    
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    /* or 150% */
+    
+    letter-spacing: -0.015em;
+    
+    /* text-color */
+    
+    color: #252B42;
+    
+    
+  }
+  
+  .cardc .img3-3{
+    position: absolute;
+    left: 15.09%;
+    right: 22.01%;
+    top: 63.92%;
+    bottom: 35.1%;
+    
+    /* danger-color */
+    
+  }
+  
+  .cardc .img3-4{
+    position: absolute;
+    left: 13.84%;
+    right: 14.47%;
+    top: 72.16%;
+    bottom: 5.67%;
+    
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    /* or 143% */
+    
+    letter-spacing: 0.2px;
+    
+    /* second-text-color */
+    
+    color: #737373;
+    
+  }
+
+  .cardd{
+    position: absolute;
+    width: 159px;
+    height: 194px;
+    left: 201px;
+    top: 887px;
+    
+    background: #065F8E;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    z-index: 4;
+    -webkit-animation: hidden !Important;
+    -ms-animation: hidden !Important;
+    -o-animation: hidden !Important;
+    animation: hidden !Important;
+    
+    }
+    
+    .cardd .img4-1{
+      position: absolute;
+      left: 27.04%;
+      right: 27.67%;
+      top: 11.86%;
+      bottom: 57.22%;
+                 
+    }
+    
+    .cardd .img4-2{
+      position: absolute;
+      left: 18.87%;
+      right: 18.87%;
+      top: 50%;
+      bottom: 38.14%;
+      
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 24px;
+      /* or 150% */
+      
+      letter-spacing: -0.015em;
+      
+      color: #FFFFFF;
+      
+      
+      
+    }
+    
+    .cardd .img4-3{
+      position: absolute;
+      left: 18.87%;
+      right: 18.24%;
+      top: 64.43%;
+      bottom: 34.59%;
+    }
+    
+    .cardd .img4-4{
+      position: absolute;
+      left: 24.53%;
+      right: 15.72%;
+      top: 72.63%;
+      bottom: 7.27%;
+      
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 20px;
+      /* or 143% */
+      
+      letter-spacing: 0.2px;
+      
+      /* light-text-color */
+      
+      color: #FFFFFF;
+      
+    }
+
+    .icon01{
+      top: 800px;
+      width: 375px;
+      display: block;
+      position: absolute;
+      max-width:1122px;
+      z-index:3;
+      -webkit-animation: type02_icon 15s infinite;
+      -ms-animation: type02_icon 15s infinite;
+      -o-animation: type02_icon 15s infinite;
+      animation: type02_icon 15s infinite;
+    }
+
+    .icon01 img{
+      width: 375px;
+    }
+  
+  
+  @-moz-keyframes type02_icon1 {
+    50% { transform: translate(-50px,-50px);}
+  }
+  @-webkit-keyframes type02_icon {
+    50% { transform: translate(-50px,-50px);}
+  }    
+  @-o-keyframes type02_icon {
+    50% { transform: translate(-50px,-50px);}
+  }
+  @-ms-keyframes type02_icon {
+    50% { transform: translate(-50px,-50px);}
+  }
+  @keyframes type02_icon{
+    50% { transform: translate(-50px,-50px);}
+  }
+  
+
+.img5-title{
+display: block;
+position: absolute;
+background:#fff;
+top: 1200px;
+}
+
+.img5-title .type01 {
+ background:#fff;
+ padding:15vw 0 0;
+}
+
+.img5-title .type01:before{display:none;}
+.img5-titlee .type01:after{
+   width: 62.5vw;
+   height: 70vw;
+   background:#f2ef5b;
+   position: absolute;
+   right: auto;
+   left: 0;
+   top: calc(15vw + 190px);
+}
+
+
+.img5-title .sp_type_img{
+   position:absolute;
+   left:168px;       
+   top: 15vw;
+   width: 57.5vw;        
+   z-index:15;
+}
+
+.img5-title .sp_type_img ul li{
+   position: relative;
+   left:0;
+   width: 100%;
+   height: 100px;
+   margin-bottom: 15px;
+}
+
+
+.type01-Text{
+position: absolute;
+left: 80px;
+z-index:4;
+
+}
+
+.type02-Text{
+  position: absolute;
+  left: 35px;
+  top: 54px;
+  z-index:4;
+
+  }
+
+  
+
+
+
+  .icon02{
+    top: 280px;
+    display: block;
+    position: absolute;
+    max-width:1122px;
+    z-index:3;
+    -webkit-animation: type02_icon 15s infinite;
+    -ms-animation: type02_icon 15s infinite;
+    -o-animation: type02_icon 15s infinite;
+    animation: type02_icon 15s infinite;
+  }
+
+
+@-moz-keyframes type02_icon1 {
+  50% { transform: translate(-50px,-50px);}
+}
+@-webkit-keyframes type02_icon {
+  50% { transform: translate(-50px,-50px);}
+}    
+@-o-keyframes type02_icon {
+  50% { transform: translate(-50px,-50px);}
+}
+@-ms-keyframes type02_icon {
+  50% { transform: translate(-50px,-50px);}
+}
+@keyframes type02_icon{
+  50% { transform: translate(-50px,-50px);}
+}
+
+
+.type03-Text{
+  position: absolute;
+  left: 20px;
+  top: 420px;
+  z-index:4;
+
+  }
+
+
+   .type04-ath {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    top: 640px;
+    width: 400px;
+    height: 159px;
+
+  }
+
+  .type04-TextA {
+    position: absolute;
+    left: 95px;
+    top: 30px;
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 34px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15em;
+    
+    color: #0C6291;
+    
+  }
+
+  .type04-TextB{
+    position: absolute;
+    left: 50px;
+    top: 85px;
+
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15em;
+    
+  }
+
+
+  /* .type04-but-1{
+    position: absolute;
+    left: 5px;
+    top: 150px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    width: 344px;
+    height: 49px;
+
+  } */
+
+  .type05{
+    position: relative;
+    left: 46px;
+    top:140px;
+    width: 1000px;
+
+  }
+
+
+  .type06{
+    position: relative;
+    left: 46px;
+    top:200px;
+    width: 1000px;
+
+  }
+
+  .type07-ath {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    top: 980px;
+    width: 400px;
+    height: 159px;
+
+  }
+
+  .type07-TextA {
+    position: absolute;
+    left: 135px;
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 34px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15em;
+    
+    color: #0C6291;
+    
+  }
+
+  .type07-back{
+    top: 250px;
+    height: 159px;
+    width: 400px;
+    z-index: 15;
+    position: absolute;
+    background-color: #C4C4C4;
+  }
+
+
+  .type08-ath {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    top: 1480px;
+    width: 400px;
+    height: 159px;
+
+  }
+
+
+  .type08-TextA {
+    position: absolute;
+    left: 135px;
+    top: 30px;
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 34px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15em;
+    
+    color: #0C6291;
+    
+  }
+
+
+  .type10-Text{
+    position: absolute;
+    left: 25px;
+    top: 1660px;
+    z-index:4;
+  }
+
+  .type11-Text{
+    position: absolute;
+    left: 25px;
+    top: 1950px;
+    z-index:4;
+  }
+
+  .type12-Text{
+    position: absolute;
+    left: 25px;
+    top: 2240px;
+    z-index:4;
+  }
+
+
+  
+.popular-card-but{
+  position: absolute;
+    top: 2580px;
+    left: 120px;
+    z-index: 20;
+    width: 400px;
+}
+
+
+.popular-button{   
+
+width: 251px;
+height: 40px;
+background: #065F8E;
+border: 1px solid #065F8E;
+box-sizing: border-box;
+border-radius: 6px;
+}
+
+.popular-card-span{
+font-weight: bold;
+color: #FFFFFF;
+}
+
+
+}
+    </style>
+    <title>index</title>
+  </head>
+
+  <body class="TCsp-bgc">
+    <!-- main nav -->
+    <nav class="nav__header" id="nav__header">
+      <div class="nav__singheader container">
+        <div class="row flex-nowrap">
+          <div class="col-3 p-0">
+            <a href="#">
+              <img src="../images/logo/logo_desktop.png" />
+            </a>
+          </div>
+          <ul class="nav__pc_menu col-7">
+            <li>
+              <a href="#"><span class="nav__en">關於我們</span></a>
+            </li>
+            <li>
+              <a href="#"><span class="nav__en">課程總覽</span></a>
+            </li>
+            <li>
+              <a href="#"><span class="nav__en">我的課程</span></a>
+            </li>
+            <li>
+              <a href="#"><span class="nav__en">國際角落</span></a>
+            </li>
+          </ul>
+          <div class="col d-flex align-items-center justify-content-around">
+            <a href="#" class="nav_login">
+              <span class="nav_login_txt">登入</span>
+            </a>
+            <a href="#" class="nav_cart">
+              <img
+                src="../images/cart/cart_icon.svg"
+                alt=""
+                class="nav_cart_icon"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+
+
+
+    <div class="mobile-mobile"  >
+
+    <div class="container mainContent" >
+      <!-- breadcrumb -->
+      <div class="row">
+        <div class="logo-m">
+          <img src="../images/logo/log_mobile.png" alt="" />
+        </div>
+        <div class="change-m">
+          <img src="../images/index/mobile/01/01.jpg" alt="" />
+        </div>
+        <div class=" ath">
+          <span class="TextA">提供學習多種外語的教學平台</span>
+          <span class="TextB">能自由漫步世界各國。</span>
+        </div>
+        <div class=" imgc-div-m">
+          <span>#Learning never ends</span>
+        </div>
+        <div class="mgc-div-01">
+          <img src="../images/index/mobile/02.png" alt="" />
+        </div>
+
+        <div class=" card_img-a">
+                <img  src="../images/index/mobile/card/01.png" alt="" />
+      </div>
+      <div class=" card_img-b">
+        <img  src="../images/index/mobile/card/02.png" alt="" />
+</div>
+<div class=" card_img-c">
+  <img  src="../images/index/mobile/card/03.png" alt="" />
+</div>
+<div class=" card_img-d">
+  <img  src="../images/index/mobile/card/04.png" alt="" />
+</div>
+
+              <span class="icon01"><img src="../images/index/mobile/grey_triangle.png" /></span>
+
+              <div class="img5-title">
+            
+                <div class="type01">
+                      <div class='type01-Text'>
+                        <img  src="../images/index/mobile/07.png" alt="" />
+                      </div>
+                      <div class='type02-Text'>
+                        <img  src="../images/index/mobile/08.png" alt="" />
+                      </div>
+                      
+                    <div class="sp_type_img pc_off">
+                        <ul>
+                            <li>
+                              <img  src="../images/index/mobile/04.png" alt="" />
+                            </li>
+                            <li>
+                              <img  src="../images/index/mobile/05.png" alt="" />
+
+                            </li>
+                            <li>
+                              <img  src="../images/index/mobile/06.png" alt="" />
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <span class="icon02"><img src="../images/index/mobile/yellowbox.png" /></span>
+              
+      </div>
+      
+
+      <div class='type03-Text'>
+        <img  src="../images/index/mobile/09.png" alt="" />
+      </div>
+
+      <div class="type04-ath">
+        <span class="type04-TextA">快加入我們吧!!</span>
+        <span class="type04-TextB">對於教學有熱誠?   對於學習語言有興趣?</span>
+        <div class="type05">
+          <button class=" btn checkoutBtn ">
+            我是老師
+          </button>
+        </div>
+        <div class="type06">
+
+          <button class="btn checkoutBtn">
+            我是學生          
+          </button>
+        </div>
+
+
+      </div>
+      
+      <div class="type07-ath">
+        <span class="type07-TextA">熱門課程</span>
+        <div class="type07-back">
+        </div>
+
+      </div>
+
+            
+      <div class="type08-ath">
+        <span class="type08-TextA">熱門文章</span>
+        </div>
+
+        <div class='type10-Text'>
+          <img  src="../images/index/mobile/10.png" alt="" />
+        </div>
+
+        <div class='type11-Text'>
+          <img  src="../images/index/mobile/11.png" alt="" />
+        </div>
+
+        <div class='type12-Text'>
+          <img  src="../images/index/mobile/12.png" alt="" />
+        </div>
+
+        <div class='popular-card-but'>
+
+
+  <button class="btn checkoutBtn">更多文章</button>
+</div>
+
+        
+
+      </div>
+
+
+
+    </div>
+    <div class="dec-block"></div>
+
+  </div>
+</div>
+
+    <!-- Main Content -->
+    <div class="container mainContent" id="desktop">
+      <div class="row d-flex justify-content-end">
+        
+        <div class="imga">
+          <img src="../images/index/01/01.jpg" alt="" />
+        </div>
+        <div class="imgc">
+          <img src="../images/index/03.jpg" alt="" />
+        </div>
+        <div class=" imgc-div">
+          <span>#Learning never ends</span>
+        </div>
+        <div class="carda">
+          <img class='img1-1'src="../images/index/04/1-1.png" alt="" />
+          <span class='img1-2'>2500+學員認證</span>
+          <img class='img1-3' src="../images/index/04/1-3.png" alt="" />
+          <span class='img1-4'>Student certification</span>
+        </div>
+        <div class="cardb">
+          <img class='img2-1'src="../images/index/04/2-1.png" alt="" />
+          <span class='img2-2'>高質量的原創課程</span>
+          <img class='img2-3' src="../images/index/04/2-3.png" alt="" />
+          <span class='img2-4'>High-quality original courses </span>
+          </div> 
+          <div class="cardc">
+            <img class='img3-1'src="../images/index/04/3-1.png" alt="" />
+            <span class='img3-2'>隨時上課，沒有限制</span>
+            <img class='img3-3' src="../images/index/04/2-3.png" alt="" />
+            <span class='img3-4'>Class anytime, no restrictions</span>
+            </div> 
+            <div class="cardd">
+              <img class='img4-1'src="../images/index/04/4-1.png" alt="" />
+              <span class='img4-2'>學成後的認證</span>
+              <img class='img4-3' src="../images/index/04/1-3.png" alt="" />
+              <span class='img4-4'>Post-study certification</span>
+              </div> 
+        </div>
+      </div>
+
+      <!-- <div class="row justify-content-center">
+
+      </div> -->
+    <!-- bg decoration -->
+    <div class="TCallwraper" id="desktop">
+      <div class="dec-circle"></div>
+      <div class="dec-block"></div>
+      <div class="row ">
+        <div class=" aearth">
+        <span class="TextA">提供學習多種外語的教學平台</span>
+        <span class="TextA">能自由漫步世界各國。</span>
+      </div>
+
+      <div class="imge">
+        <img src="../images/index/05.jpg" alt="" />
+      </div>
+      <div class="grey-box"></div>
+      <div class="imge-1-title">
+        <div class='imge-1-Text'>
+      <span >想學習？是不是又擔心..</span>
+    </div>
+    </div>
+    <div class="imge-2-title">
+      <div class='imge-2-Text'>
+    <span >快加入我們吧!!</span>
+  </div>
+  </div>
+  <div class="yellow-area">
+    <div class='yellow-area-1-Text'>
+      <span >現在學習語言會不會太晚？</span>
+    </div>
+    <div class='yellow-area-2-Text'>
+      <span >對於教學有熱誠?   對於學習語言有興趣?</span>
+    </div>
+    <!-- <button class="yellow-area-button">
+    <span class="yellow-area-span">我是老師</span>   
+    </button> -->
+    <div class='yellow-area-but-1'>
+      <button class="btn checkoutBtn-y">我是老師</button>
+  </div>
+  <div class='yellow-area-but-2'>
+    <button class="btn checkoutBtn-y">
+      我是學生
+    </button>
+  </div>
+  <div class='yellow-area-popular-course'>
+    <span class="popular-course-title">
+      熱門課程    
+    </span>
+  </div>
+</div>
+
+
+<div class='popular-title'>
+  <span class="popular-span">
+    熱門文章  
+  </span>
+</div>
+
+<div class="popular-card ">
+  <ul class="popular-card-top ">
+      <li class="popular-card-card">
+          <img src="../images/index/06.png" alt="" />
+      </li>
+      <li class="popular-card-card">
+          <img src="../images/index/07.png" alt="" />
+      </li>
+      <li class="popular-card-card">
+        <img src="../images/index/08.png" alt="" />
+    </li>
+  </ul>
+</div>
+<div class='popular-card-but'>
+  <!-- <button class="popular-button">
+    <span class="popular-card-span">
+      更多文章
+    </span>  
+  </button> -->
+
+  <button class="btn checkoutBtn">更多文章</button>
+</div>
+
+
+      <div class="imgb">
+        <img src="../images/index/02.jpg" alt="" />
+      </div>
+      <div class="imgc-move">
+      <div class="img-triangle">
+        <svg  width="1300" height="850" viewBox="-50 -50 300 300">
+          <polygon class="triangle" stroke-linejoin="round" points="100,0 0,200 200,200"/>
+        
+        </svg>
+      </div>
+    </div>
+    <div class="recommendation" id="recommendation">
+      <div class="wrap">
+        <h3 class="section-title">
+          <span class="section-title-span1">
+          好評  
+        </span><span class="section-title-span2">
+          推薦  
+        </span></h3>
+        <div class="recommendation-wall ">
+            <ul class="gallery-top animate">
+                <li class="recommendation-card">
+                    <img src="../images/index/10.png" alt="">
+                    <div class="recommend-content">
+                        <div class="recommend-img">
+                            <img src="../images/index/09.png" alt="">
+                            <div>
+                                <h6>王大雄</h6>
+                                <p class="recommend-text">XXX老師的初階英語</p>
+                            </div>
+                        </div>
+                        <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                    </div>
+                </li>
+                <li class="recommendation-card">
+                  <img src="../images/index/10.png" alt="">
+                  <div class="recommend-content">
+                      <div class="recommend-img">
+                          <img src="../images/index/09.png" alt="">
+                          <div>
+                              <h6>王大雄</h6>
+                              <p class="recommend-text">XXX老師的初階英語</p>
+                          </div>
+                      </div>
+                      <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                  </div>
+              </li>
+              <li class="recommendation-card">
+                <img src="../images/index/10.png" alt="">
+                <div class="recommend-content">
+                    <div class="recommend-img">
+                        <img src="../images/index/09.png" alt="">
+                        <div>
+                            <h6>王大雄</h6>
+                            <p class="recommend-text">XXX老師的初階英語</p>
+                        </div>
+                    </div>
+                    <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                </div>
+            </li>
+            </ul>
+            <ul class="gallery-bottom animate">
+              <li class="recommendation-card">
+                  <img src="../images/index/10.png" alt="">
+                  <div class="recommend-content">
+                      <div class="recommend-img">
+                          <img src="../images/index/09.png" alt="">
+                          <div>
+                              <h6>王大雄</h6>
+                              <p class="recommend-text">XXX老師的初階英語</p>
+                          </div>
+                      </div>
+                      <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                  </div>
+              </li>
+              <li class="recommendation-card">
+                  <img src="../images/index/10.png" alt="">
+                  <div class="recommend-content">
+                      <div class="recommend-img">
+                          <img src="../images/index/09.png" alt="">
+                          <div>
+                              <h6>王大雄</h6>
+                              <p class="recommend-text">XXX老師的初階英語</p>
+                          </div>
+                      </div>
+                      <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                  </div>
+              </li>
+              <li class="recommendation-card">
+                  <img src="../images/index/10.png" alt="">
+                  <div class="recommend-content">
+                      <div class="recommend-img">
+                          <img src="../images/index/09.png" alt="">
+                          <div>
+                              <h6>王大雄</h6>
+                              <p class="recommend-text">XXX老師的初階英語</p>
+                          </div>
+                      </div>
+                      <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                  </div>
+              </li>
+          </ul>
+        </div>
+    </div>
+   
+    </div>
+
+    </div>
+    </div>
+
+  <footer id="footer">
+    <div class="footer_inr">
+        
+        <h2><a href="./"><img src="../images/logo/footer_desktop.png" /></a></h2>
+        <div class="link_area">
+            <a href="#" class="en">關於我們</a>
+            <a href="#" class="enclass">課程總覽</a>
+            <a href="#" class="en">常見問題</a>
+            <a href="#" class="en">國際角落</a>
+        </div>
+        <div class="sns">
+          <a href="#" class="nav_footer">
+            <img
+              src="../images/index/icon/Facebook.svg"
+              alt=""
+              class="Facebook"
+            />
+          </a>
+          <a href="#" class="nav_footer">
+            <img
+              src="../images/index/icon/twitter.svg"
+              alt=""
+              class="Facebook"
+            />
+          </a>
+          <a href="#" class="nav_footer">
+            <img
+              src="../images/index/icon/youTube.svg"
+              alt=""
+              class="Facebook"
+            />
+          </a>
+        </div>
+        <div class="mobile-mobile">
+          <div class="mobile-a">
+            <img
+            src="../images/index/icon/mobile-Facebook.svg"
+            alt=""
+          />
+          </div>
+          <div class="mobile-b">
+            <img
+            src="../images/index/icon/mobile-Twitter.svg"
+            alt=""
+          />
+          </div>
+          <div class="mobile-c">
+            <img
+            src="../images/index/icon/mobile-YouTube.svg"
+            alt=""
+          />
+          </div>
+
+        </div>
+        <div class="foot-end">
+          <a href="#" class="nav_footer">
+            <img
+              src="../images/index/icon/mobile.svg"
+              alt=""
+              class="Facebook"
+            />
+          </a>
+          <a href="#" class="nav_footer">
+            <img
+              src="../images/index/icon/desktop.svg"
+              alt=""
+              class="Facebook"
+            />
+          </a>
+        </div>
+    </div>
+    <a href="#top" class="pagetop v_txt">PAGETOP</a>
+    
+    
+</footer>
+
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../navbar(放上去)/assets/js/main.js"></script>
+  </body>
+</html>
