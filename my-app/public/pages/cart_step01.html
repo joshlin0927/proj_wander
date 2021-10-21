@@ -182,25 +182,6 @@
                             </a>
                         </div>
                     </div>
-                    <div class="creditCard">
-                        <img src="../images/cart/credit_icon.svg" alt="" class="credit-icon">
-                        <span class="credit-title">Credit Card</span>
-                        <span class="credit-num">0000 0000 0000 0000</span>
-                        <span class="credit-name">Xiao-Ming Wang</span>
-                        <span class="credit-MY">Month/Year</span>
-                        <span class="credit-date">11/24</span>
-                    </div>
-                    <div class="creditCard ml-5">
-                        <div class="credit-blackbar"></div>
-                        <div class="credit-graybar"></div>
-                        <div class="credit-CVC">888</div>
-                        <div class="credit-whitebar1"></div>
-                        <div class="credit-whitebar2"></div>
-                        <div class="credit-whitebar3"></div>
-                        <div class="credit-whitebar4"></div>
-                    </div>
-
-
                 </div>
             </div>
             <!-- Checkout Detail -->
@@ -263,7 +244,7 @@
                         <div class="w-100"></div>
                         <span class="checkoutTotal-m-2">(優惠折抵：NT$810)</span>
                     </div>
-                    <button class="btn checkoutBtn">我要結帳</button>
+                    <button class="btn checkoutBtn" onClick="location.href='./cart_step2.html'">我要結帳</button>
                 </div>
             </div>
         </div>
@@ -295,8 +276,7 @@
     </div>
 
     <!-- coupon modal -->
-
-    <div class="modal fade" id="counponModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    <div class="modal fade p-0" id="counponModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -423,7 +403,49 @@
         </div>
     </div>
 
-
+    <!-- Footer -->
+    <footer class="footerWrap cartFooterMargin">
+        <div class="wanderFooter container-fluid">
+          <div class="row footer-left">
+            <img
+              id="Footer-Desktop-Logo"
+              src="../images/logo/footer_desktop.png"
+            />
+            <img
+              id="Footer-Mobile-Logo"
+              src="../images/logo/footer_mobile.png"
+            />
+            <div class="Footer-page-links">
+              <a href="">關於我們</a>
+              <a href="">常見問題</a>
+              <a href="">國際角落</a>
+            </div>
+          </div>
+          <div class="row footer-right">
+            <div class="icons">
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-youtube"></i>
+            </div>
+            <div class="version-icon">
+              <div class="icon-sp">
+                <img
+                  src="../images/elements/icon-mobile.svg"
+                  alt=""
+                />
+                手機版
+              </div>
+              <div class="icon-sp">
+                <img
+                  src="../images/elements/icon-monitor.png"
+                  alt=""
+                />
+                電腦版
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
 
 
 

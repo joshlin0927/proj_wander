@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font-family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/cart.css">
+    <title>cart</title>
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="nav__header" id="nav__header">
+        <div class="nav__singheader container">
+            <div class="row flex-nowrap">
+                <div class="col-3 p-0">
+                    <a href="#" class="logo_desktop">
+                        <img src="../images/logo/logo_desktop.png" />
+                    </a>
+                </div>
+                <ul class="nav__pc_menu col-7">
+                    <li><a href="#"><span class="nav__en">關於我們</span></a></li>
+                    <li><a href="#"><span class="nav__en">課程總覽</span></a></li>
+                    <li><a href="#"><span class="nav__en">我的課程</span></a></li>
+                    <li><a href="#"><span class="nav__en">國際角落</span></a></li>
+                </ul>
+                <div class="col d-flex align-items-center justify-content-around">
+                    <a href="#" class="nav_login">
+                        <span class="nav_login_txt">登入</span>
+                    </a>
+                    <a href="#" class="nav_cart">
+                        <img src="../images/cart/cart_icon.svg" alt="" class="nav_cart_icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- breadcrumb -->
+    <div class="container breadcontent">
+        <div class="row">
+            <div class="logo-m">
+                <img src="../images/logo/log_mobile.png" alt="" />
+            </div>
+            <nav class="col-10 offset-1 col-md-12 offset-md-0 p-0">
+                <ol class="breadcrumb p-0 m-0">
+                    <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">購物車</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Main -->
+    <div class="container-fluid p-0">
+        <div class="row align-items-start m-0">
+            <!-- SideList -->
+            <div class="cartSideList col-10 offset-1 col-md-3 offset-md-0">
+                <img src="../images/cart/cartSideList.svg" alt="" class="cartSideListImage">
+                <div class="cartSideListItem">
+                    <span class="cartSideListItemNum">1</span>
+                    <span class="cartSideListItemTxt">確認購物車內容</span>
+                </div>
+                <div class="cartSideListItem">
+                    <span class="cartSideListItemNum c-white bgc-blue">2</span>
+                    <span class="cartSideListItemTxt c-blue">選擇付款方式</span>
+                </div>
+                <div class="cartSideListItem">
+                    <span class="cartSideListItemNum c-blue bgc-white">3</span>
+                    <span class="cartSideListItemTxt c-white">完成訂單&付款</span>
+                </div>
+                <div class="cartSideListLine1 bd-blue"></div>
+                <div class="cartSideListLine2"></div>
+            </div>
+            <!-- Main Content -->
+            <div class="cartMain container col-10 col-md-5">
+                <!-- 購物車標題 -->
+                <div class="row">
+                    <div class="cartTitle">
+                        <img src="../images/cart/checkout_icon.svg" alt="" class="cartIcon">
+                        <span class="cartTitleTxt">結帳資訊</span>
+                        <a href="../pages/cart_step1.html"><span class="cartBackStep">回到上一步</span></a>
+                    </div>
+                </div>
+                <!-- 付款方式 -->
+                <div class="row payMethod">
+                    <div class="col-12 payTitle">
+                        <span>付款方式</span>
+                    </div>
+                    <div class="w-100 mt-4"></div>
+                    <div class="col-12 col-md-6 payMethodSelect">
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>請選擇付款方式...</option>
+                            <option value="1">信用卡 (支援信用卡與簽帳卡)</option>
+                            <option value="2">超商代碼</option>
+                            <option value="3">ATM轉帳匯款</option>
+                        </select>
+                    </div>
+                    <div id="payMethodSelectInfo1" class="col-12 col-md-6 payMethodSelectInfo">
+                        <img src="../images/cart/credit_VISA.png" alt="">
+                        <img src="../images/cart/credit_MSCard.png" alt="">
+                        <img src="../images/cart/credit_JCB.png" alt="">
+                    </div>
+                    <div id="payMethodSelectInfo2" class="col-12 col-md-6 payMethodSelectInfo">
+                        <span class="text-danger">注意事項：</span>
+                        <div class="w-100"></div>
+                        <span>超商代碼繳費時限為7天，請務必於期限內進行繳費。</span>
+                    </div>
+                    <div id="payMethodSelectInfo3" class="col-12 col-md-6 payMethodSelectInfo">
+                        <span class="text-danger">注意事項：</span>
+                        <div class="w-100"></div>
+                        <span>平台僅提供部分銀行，如有跨行轉帳之手續費需由買方負擔。</span>
+                        <div class="w-100"></div>
+                        <span>請於取得平台轉帳帳號後於48小時內完成匯款。</span>
+                    </div>
+                </div>
+                <!-- 付款資訊 -->
+                <div class="row payInfo">
+                    <div class="col-12 payTitle">
+                        <span>付款資訊</span>
+                    </div>
+                    <div class="w-100 mt-4"></div>
+                    <!-- 信用卡 -->
+                    <div class="col-12 payInfoInput">
+                        <div class="input-group align-items-center">
+                            <label class="inputCategory">信用卡號</label>
+                            <input type="text" class="allInputs fourLengthInput" maxlength="4"
+                                oninput="value=value.replace(/[^\d]/g,'')">
+                            <span>-</span>
+                            <input type="text" class="allInputs fourLengthInput" maxlength="4"
+                                oninput="value=value.replace(/[^\d]/g,'')">
+                            <span>-</span>
+                            <input type="text" class="allInputs fourLengthInput" maxlength="4"
+                                oninput="value=value.replace(/[^\d]/g,'')">
+                            <span>-</span>
+                            <input type="text" class="allInputs fourLengthInput" maxlength="4"
+                                oninput="value=value.replace(/[^\d]/g,'')">
+                        </div>
+                        <div class="input-group align-items-center mt-3">
+                            <label class="inputCategory">有效期限</label>
+                            <input type="text" class="allInputs fourLengthInput" maxlength="2" placeholder="YY"
+                                oninput="value=value.replace(/[^\d]/g,'')">
+                            <span>-</span>
+                            <input type="text" class="allInputs fourLengthInput" maxlength="2" placeholder="MM"
+                                oninput="value=value.replace(/[^\d]/g,'')">
+                        </div>
+                        <div class="input-group align-items-center mt-3">
+                            <label class="inputCategory">檢核碼</label>
+                            <input type="text" class="allInputs fourLengthInput" maxlength="3" placeholder="000"
+                                oninput="value=value.replace(/[^\d]/g,'')">
+                        </div>
+                        <div class="input-group align-items-center mt-3">
+                            <label class="inputCategory">持卡人姓名</label>
+                            <input type="text" class="allInputs longLengthInput" placeholder="請輸入姓名">
+                        </div>
+                        <div class="input-group align-items-center mt-3">
+                            <label class="inputCategory">手機號碼</label>
+                            <input type="text" class="allInputs longLengthInput"
+                                oninput="value=value.replace(/[^\d]/g,'')">
+                        </div>
+                    </div>
+                    <div class="w-100 mt-4"></div>
+                    <!-- 信用卡圖背面 -->
+                    <div class="creditCard">
+                        <div class="creditCardBack">
+                            <div class="credit-blackbar"></div>
+                            <div class="credit-graybar"></div>
+                            <div class="credit-CVC">888</div>
+                            <div class="credit-whitebar1"></div>
+                            <div class="credit-whitebar2"></div>
+                            <div class="credit-whitebar3"></div>
+                            <div class="credit-whitebar4"></div>
+                        </div>
+                    </div>
+                    <!-- 信用卡圖正面 -->
+                    <div class="creditCard">
+                        <div class="creditCardFront">
+                            <img src="../images/cart/credit_icon.svg" alt="" class="credit-icon">
+                            <span class="credit-title">Credit Card</span>
+                            <span class="credit-num">0000 0000 0000 0000</span>
+                            <span class="credit-name">Xiao-Ming Wang</span>
+                            <span class="credit-MY">Month/Year</span>
+                            <span class="credit-date">11/24</span>
+                        </div>
+                    </div>
+                    <div class="w-100 mt-4"></div>
+                    <!-- 超商代碼 -->
+                    <div class="col-12 d-flex flex-wrap">
+                        <div class="form-check col-12 col-md-6 d-flex align-items-center my-3">
+                            <input class="form-check-input mt-0" type="radio" name="RadioCStore" id="Radio7-Eleven">
+                            <label class="form-check-label mx-2" for="Radio7-Eleven">7-Eleven</label>
+                            <img src="../images/cart/7-Eleven.png" alt="">
+                        </div>
+                        <div class="form-check col-12 col-md-6 d-flex align-items-center my-3">
+                            <input class="form-check-input mt-0" type="radio" name="RadioCStore" id="RadioFamiMart">
+                            <label class="form-check-label mx-2" for="RadioFamiMart">全家FamilyMart</label>
+                            <img src="../images/cart/FamiMart.png" alt="">
+                        </div>
+                        <div class="form-check col-12 col-md-6 d-flex align-items-center my-3">
+                            <input class="form-check-input mt-0" type="radio" name="RadioCStore" id="RadioOKMart">
+                            <label class="form-check-label mx-2" for="RadioOKMart">OK Mart</label>
+                            <img src="../images/cart/OKMart.png" alt="">
+                        </div>
+                        <div class="form-check col-12 col-md-6 d-flex align-items-center my-3">
+                            <input class="form-check-input mt-0" type="radio" name="RadioCStore" id="RadioHiLife">
+                            <label class="form-check-label mx-2" for="RadioHiLife">萊爾富HiLife</label>
+                            <img src="../images/cart/HiLife.png" alt="">
+                        </div>
+                    </div>
+                    <div class="w-100 mt-4"></div>
+                    <!-- ATM銀行轉帳 -->
+                    <div class="col-12 d-flex flex-wrap">
+                        <div class="form-check col-12 d-flex align-items-center my-3">
+                            <input class="form-check-input mt-0" type="radio" name="RadioBank" id="RadioCTBC">
+                            <label class="form-check-label mx-2" for="RadioCTBC">中國信託銀行</label>
+                            <img src="../images/cart/CTBC.png" alt="">
+                        </div>
+                        <div class="form-check col-12 d-flex align-items-center my-3">
+                            <input class="form-check-input mt-0" type="radio" name="RadioBank" id="RadioCUB">
+                            <label class="form-check-label mx-2" for="RadioCUB">國泰世華銀行</label>
+                            <img src="../images/cart/CUB.png" alt="">
+                        </div>
+                        <div class="form-check col-12 d-flex align-items-center my-3">
+                            <input class="form-check-input mt-0" type="radio" name="RadioBank" id="RadioTFB">
+                            <label class="form-check-label mx-2" for="RadioTFB">台北富邦銀行</label>
+                            <img src="../images/cart/TFB.png" alt="">
+                        </div>
+                        <div class="form-check col-12 d-flex align-items-center my-3">
+                            <input class="form-check-input mt-0" type="radio" name="RadioBank" id="RadioESB">
+                            <label class="form-check-label mx-2" for="RadioESB">玉山銀行</label>
+                            <img src="../images/cart/ESB.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Checkout Detail -->
+            <div class="checkout container col-10 col-md-2">
+                <div class="row">
+                    <div class="checkoutTitle">
+                        <span>結帳明細</span>
+                    </div>
+                    <div class="checkoutSubtotal">
+                        <span>小計</span>
+                        <span>NT$8100</span>
+                        <div class="w-100"></div>
+                        <span>折扣</span>
+                        <span>-NT$810</span>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="checkoutTotal">
+                        NT$ 7310
+                    </div>
+                </div>
+                <!-- 選擇優惠券 -->
+                <div class="row justify-content-center">
+                    <div class="couponTitle-m">
+                        優惠券
+                    </div>
+                    <div class="checkoutCoupon">
+                        <span>選擇使用的優惠券：</span>
+                        <div class="w-100 mt-3 counponImage">
+                            <img src="../images/cart/coupon.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="couponTitle-m">結帳明細</div>
+                    <div class="checkoutSubtotal-m">
+                        <span>小計</span>
+                        <span>NT$8100</span>
+                        <div class="w-100"></div>
+                        <span>折扣</span>
+                        <span>-NT$810</span>
+                        <div class="w-100 my-2 border-bottom"></div>
+                        <span>結帳金額</span>
+                        <span>NT$7310</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="checkoutTitle">
+                        <span>購買清單</span>
+                        <button class="btn editCheckBtn" onClick="location.href='./cart_step1.html'">修改</button>
+                    </div>
+                    <div class="editCheckList container">
+                        <div class="row align-items-center">
+                            <div class="w-100 my-2"></div>
+                            <div class="col-5 pr-0">
+                                <img src="../images/cart/jp_course.jpg" alt="">
+                            </div>
+                            <div class="col-7">日本自由行必學的實用日語會話</div>
+                            <div class="w-100 my-2"></div>
+                            <div class="col-5 pr-0">
+                                <img src="../images/cart/jp_course.jpg" alt="">
+                            </div>
+                            <div class="col-7">日本自由行必學的實用日語會話</div>
+                            <div class="w-100 my-2"></div>
+                            <div class="col-5 pr-0">
+                                <img src="../images/cart/jp_course.jpg" alt="">
+                            </div>
+                            <div class="col-7">日本自由行必學的實用日語會話</div>
+                            <div class="w-100 my-2"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 結帳按鈕 -->
+                <div class="checkoutFooter">
+                    <div class="checkoutFooter-t">
+                        <span>結帳金額：</span>
+                    </div>
+                    <div class="checkoutTotal-m">
+                        <span class="checkoutTotal-m-1">NT$7310</span>
+                        <div class="w-100"></div>
+                        <span class="checkoutTotal-m-2">(優惠折抵：NT$810)</span>
+                    </div>
+                    <button class="btn checkoutBtn" data-toggle="modal" data-target="#confirmCheckModal">確認付款</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- mobile nav -->
+    <div class="mobile-nav container-fluid">
+        <div class="row justify-content-center flex-nowrap">
+            <div class="mobile-nav-item col-2">
+                <img src="../images/mobile-nav-alter/nav-icon-course.svg" alt="" class="mobile-nav-icon">
+                <span>課程總覽</span>
+            </div>
+            <div class="mobile-nav-item mobile-nav-item-active col-2">
+                <img src="../images/mobile-nav-alter/nav-icon-cart.svg" alt="" class="mobile-nav-icon active">
+                <span class="active">購物車</span>
+            </div>
+            <div class="mobile-nav-item col-2">
+                <img src="../images/mobile-nav-alter/nav-icon-chat.svg" alt="" class="mobile-nav-icon">
+                <span>聊天室</span>
+            </div>
+            <div class="mobile-nav-item col-2">
+                <img src="../images/mobile-nav-alter/nav-icon-my.svg" alt="" class="mobile-nav-icon">
+                <span>我的課程</span>
+            </div>
+            <div class="mobile-nav-item col-2">
+                <img src="../images/mobile-nav-alter/nav-icon-member.svg" alt="" class="mobile-nav-icon">
+                <span>會員中心</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade p-0" id="confirmCheckModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="">確認付款</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center" id="counponModalBody">
+                    <span>確認送出訂單並進行付款？</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn confirmBtn" id="confirmCheckBtn"
+                        onClick="location.href='./cart_step3.html'">確認</button>
+                    <button type="button" class="btn confirmBtn" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footerWrap cartFooterMargin">
+        <div class="wanderFooter container-fluid">
+            <div class="row footer-left">
+                <img id="Footer-Desktop-Logo" src="../images/logo/footer_desktop.png" />
+                <img id="Footer-Mobile-Logo" src="../images/logo/footer_mobile.png" />
+                <div class="Footer-page-links">
+                    <a href="">關於我們</a>
+                    <a href="">常見問題</a>
+                    <a href="">國際角落</a>
+                </div>
+            </div>
+            <div class="row footer-right">
+                <div class="icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="version-icon">
+                    <div class="icon-sp">
+                        <img src="../images/elements/icon-mobile.svg" alt="" />
+                        手機版
+                    </div>
+                    <div class="icon-sp">
+                        <img src="../images/elements/icon-monitor.png" alt="" />
+                        電腦版
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- bg decoration -->
+    <div class="TCallwraper">
+        <div class="dec-circle"></div>
+        <div class="dec-block"></div>
+        <div class="earth"><img src="../images/elements/earth.png" alt="" /></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <!-- navbarScroll -->
+    <script src="../navbar(放上去)/assets/js/main.js"></script>
+
+    <script>
+        // counpon modal click style
+        $('#counponCanUse .modal-card').on('click', function () {
+            if ($(this).attr('isChecked') !== 'checked') {
+                $(this).attr('isChecked', 'checked');
+                $(this).addClass('active').siblings().removeClass('active');
+                $(this).siblings().attr('isChecked', '');
+                $(this).children().last().html('<img src="../images/cart/checked_icon.svg" alt="">');
+                $('#counponCanUse .modal-card').each(function (i, v) {
+                    if ($(this).attr('isChecked') !== 'checked') {
+                        $(this).children().last().html('<img src="../images/cart/check_icon.svg" alt="">');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
