@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function TcAvatarSelector() {
+function TcAvatarSelector(props) {
+  const { avatar } = props
+
+  
   const realFileInput = document.querySelector(
     '#realFileInput'
   )
@@ -31,7 +34,10 @@ function TcAvatarSelector() {
           type="file"
           id="realFileInput"
           className="d-none"
-          onChange={previewFile()}
+          name={avatar}
+          onChange={() => {
+            previewFile()
+          }}
         />
         <div className="profile-pic">
           <img
@@ -44,7 +50,9 @@ function TcAvatarSelector() {
         <div
           className="btn btn-border-only"
           id="loadFile"
-          onClick={realFileInput}
+          onClick={() => {
+            realFileInput.click()
+          }}
         >
           <span>請選擇圖片</span>
         </div>

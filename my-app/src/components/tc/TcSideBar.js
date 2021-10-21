@@ -19,7 +19,7 @@ function TcSideBar() {
           <li>
             <Nav.Link
               as={NavLink}
-              to="/TcProfile"
+              to="./TcProfile"
               className="nav-item"
               activeClassName="active"
             >
@@ -49,17 +49,16 @@ function TcSideBar() {
               <div>課程列表</div>
             </Nav.Link>
           </li>
-          <li>
+          {/* <li>
             <Nav.Link
               as={NavLink}
-              to="/TcChat"
               className="nav-item"
               activeClassName="active"
             >
               <i className="fas fa-comment-alt"></i>
               <div>聊天室</div>
             </Nav.Link>
-          </li>
+          </li> */}
           <li>
             <Nav.Link
               as={NavLink}

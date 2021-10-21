@@ -9,9 +9,9 @@ import {
 function Footer() {
   return (
     <>
-      <footer class="footerWrap">
-        <div class="wanderFooter container">
-          <div class="row footer-left">
+      <footer className="footerWrap">
+        <div className="wanderFooter container">
+          <div className="row footer-left">
             <img
               id="Footer-Desktop-Logo"
               src="../images/logo/footer_desktop.png"
@@ -20,27 +20,27 @@ function Footer() {
               id="Footer-Mobile-Logo"
               src="../images/logo/footer_mobile.png"
             />
-            <div class="Footer-page-links">
+            <div className="Footer-page-links">
               <Link to="">關於我們</Link>
               <Link to="">常見問題</Link>
               <Link to="">國際角落</Link>
             </div>
           </div>
-          <div class="row footer-right">
-            <div class="icons">
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-youtube"></i>
+          <div className="row footer-right">
+            <div className="icons">
+              <i className="fab fa-facebook"></i>
+              <i className="fab fa-twitter"></i>
+              <i className="fab fa-youtube"></i>
             </div>
-            <div class="version-icon">
-              <div class="icon-sp">
+            <div className="version-icon">
+              <div className="icon-sp">
                 <img
                   src="../images/elements/icon-mobile.svg"
                   alt=""
                 />
                 手機版
               </div>
-              <div class="icon-sp">
+              <div className="icon-sp">
                 <img
                   src="../images/elements/icon-monitor.png"
                   alt=""
