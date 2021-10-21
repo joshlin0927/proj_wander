@@ -857,7 +857,7 @@
                   <div class="orderContentRow col-12 col-xl-6">
                     <span>支付狀態：</span>
                     <span>已付款</span>
-                    <button class="btn stOrderCancelBtn">我要取消</button>
+                    <button class="btn stOrderCancelBtn" data-toggle="modal" data-target="#cancelOrderModal">我要取消</button>
                   </div>
                   <div class="orderContentRow col-12 col-xl-6">
                     <span>成立時間：</span>
@@ -905,6 +905,73 @@
             </div>
           </div>
         </div>
+    </div>
+  </div>
+
+  <!-- cancel modal -->
+  <div class="modal fade p-0" id="cancelOrderModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="">取消訂單</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="counponModalBody">
+          <div class="container bgc-main py-3">
+            <div class="row">
+              <div class="col-4 d-flex flex-column align-items-end">
+                <span>訂單編號：</span>
+                <div class="w-100"></div>
+                <span>付款方式：</span>
+                <div class="w-100"></div>
+                <span>訂單金額：</span>
+                <div class="w-100"></div>
+                <span>成立時間：</span>
+                <div class="w-100"></div>
+                <span>取消原因：</span>
+              </div>
+              <div class="col-8 d-flex flex-column">
+                <span>ABC - 00123456</span>
+                <div class="w-100"></div>
+                <span>信用卡</span>
+                <div class="w-100"></div>
+                <span>NT$7310</span>
+                <div class="w-100"></div>
+                <span>2021-12-01 23:00:12</span>
+                <div class="w-100"></div>
+                <form action="">
+                  <div class="form-check d-flex align-items-center">
+                    <input class="form-check-input mt-0" type="radio" name="cancelRadio" id="cancelReason1">
+                    <label class="form-check-label mx-2" for="cancelReason1">課程內容不符需求</label>
+                  </div>
+                  <div class="form-check d-flex align-items-center">
+                    <input class="form-check-input mt-0" type="radio" name="cancelRadio" id="cancelReason2">
+                    <label class="form-check-label mx-2" for="cancelReason2">暫時中止學習規劃</label>
+                  </div>
+                  <div class="form-check d-flex align-items-center">
+                    <input class="form-check-input mt-0" type="radio" name="cancelRadio" id="cancelReason3">
+                    <label class="form-check-label mx-2" for="cancelReason3">重複選購</label>
+                  </div>
+                  <div class="form-check d-flex align-items-start flex-wrap">
+                    <input class="form-check-input mt-0" type="radio" name="cancelRadio" id="cancelReason4">
+                    <label class="form-check-label mx-2" for="cancelReason4">其他</label>
+                    <div class="w-100"></div>
+                    <textarea class="form-control" id="cancelReason4" rows="3"></textarea>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn confirmBtn" id="confirmCheckBtn"
+            onClick="location.href='./cart_step3.html'">確認</button>
+          <button type="button" class="btn confirmBtn" data-dismiss="modal">取消</button>
+        </div>
+      </div>
     </div>
   </div>
 
