@@ -14,12 +14,16 @@ import TCindex from './pages/tc'
 
 // 全頁通用元件
 import MultiLevelBreadCrumb from './components/MultiLevelBreadCrumb'
+import Footer from './components/Footer'
 
 function App() {
   return (
     <>
-      {/* <MultiLevelBreadCrumb /> */}
-      <TCindex />
+      <Router>
+        {/* <MultiLevelBreadCrumb /> */}
+        <TCindex />
+        <Footer />
+      </Router>
     </>
   )
 }

@@ -4,12 +4,14 @@
 
 body {
   font-size: 12px;
+  background: #f1f0e9;
+  position: relative;
 }
 
 /* 全頁背景色 */
 .TCsp-bgc {
-  background: #f1f0e9;
-  position: relative;
+
+
 }
 
 /* 全頁包覆(為了色塊動畫) */
@@ -1088,20 +1090,6 @@ body {
     top: 724px;
   }
 
-  /* 黃色色塊(下) */
-  .dec-low-block {
-    display: block;
-    position: absolute;
-    left: 70px;
-    bottom: 0px;
-    width: 367px;
-    height: 789px;
-    transform: skew(-24.76deg);
-    z-index: -1;
-    background: #f1ef5b;
-    border-radius: 30px;
-    animation: 12s linear infinite;
-  }
 
   /* 藍色色塊(下) */
   .dec-blue-block {
@@ -1244,6 +1232,7 @@ body {
     align-items: center;
     height: 50px;
     border-radius: 0px 10px 10px 0px;
+    padding: 0;
     margin-bottom: 10px;
     color: #065f8e;
     position: relative;
@@ -1251,8 +1240,7 @@ body {
 
   .sidebar .nav-item>i {
     font-size: 25px;
-    width: 40px;
-    margin-left: 10%;
+    margin:auto 8% auto 17%;
     background-color: transparent;
   }
 
@@ -1400,7 +1388,6 @@ body {
     border-radius: 10px;
     overflow: hidden;
   }
-
 
   /* 預覽按鈕(桌機板) */
   .preview-btn-top {

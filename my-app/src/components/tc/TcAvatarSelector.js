@@ -8,10 +8,8 @@ function TcAvatarSelector() {
 
   function previewFile() {
     const avatarImg = document.querySelector('#avatarImg')
-    const file = realFileInput.files[0]
+    const file = realFileInput
     const reader = new FileReader()
-
-    console.log(reader)
 
     reader.addEventListener(
       'load',
@@ -25,10 +23,6 @@ function TcAvatarSelector() {
       reader.readAsDataURL(file)
     }
   }
-
-  // loadFile.addEventListener('click', () => {
-  //   realFileInput.click()
-  // })
 
   return (
     <>

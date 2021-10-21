@@ -33,11 +33,11 @@ function TcProfile() {
           </div>
         </div>
 
-        <div className="row justify-content-center">
+        <div className="row">
           {/* sidebar */}
           <TcSideBar />
           {/* form */}
-          <form className="TCform col-12 col-md-8">
+          <form class="TCform col-12 offset-0 col-md-8 offset-md-1">
             <div className="TCform-content">
               <div className="TCform-head">
                 <Link to="">
