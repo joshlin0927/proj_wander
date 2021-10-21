@@ -10,7 +10,7 @@ import {
 import React, { useState } from 'react'
 
 // 教師頁面
-import TCpages from './pages/tc/index'
+import TCindex from './pages/tc'
 
 // 全頁通用元件
 import MultiLevelBreadCrumb from './components/MultiLevelBreadCrumb'
@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       {/* <MultiLevelBreadCrumb /> */}
-      <TCpages />
+      <TCindex />
     </>
   )
 }

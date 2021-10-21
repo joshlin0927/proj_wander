@@ -26,9 +26,10 @@ function TcAvatarSelector() {
     }
   }
 
-  loadFile.addEventListener('click', () => {
-    realFileInput.click()
-  })
+  // loadFile.addEventListener('click', () => {
+  //   realFileInput.click()
+  // })
+
   return (
     <>
       <div className="d-flex align-items-center">
@@ -36,7 +37,7 @@ function TcAvatarSelector() {
           type="file"
           id="realFileInput"
           className="d-none"
-          onChange="previewFile()"
+          onChange={previewFile()}
         />
         <div className="profile-pic">
           <img
@@ -49,7 +50,7 @@ function TcAvatarSelector() {
         <div
           className="btn btn-border-only"
           id="loadFile"
-          onClick="realFileInput.click()"
+          onClick={realFileInput.click()}
         >
           <span>請選擇圖片</span>
         </div>

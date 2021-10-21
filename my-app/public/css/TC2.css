@@ -1285,7 +1285,7 @@ body {
   /* 表單 */
   .TCform {
     border: 2px solid rgba(6, 95, 142, 0.5);
-    margin: 0px auto 150px;
+    margin-bottom: 150px;
   }
 
   /* 表單頭 */

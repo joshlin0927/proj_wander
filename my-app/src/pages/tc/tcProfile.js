@@ -14,7 +14,6 @@ function TcProfile() {
   const [TcLanguage, setTcLanguage] = useState('')
   const [TcIntro, setTcIntro] = useState('')
 
-
   return (
     <>
       {/* Main Content */}

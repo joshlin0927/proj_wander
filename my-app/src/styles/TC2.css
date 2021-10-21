@@ -4,6 +4,10 @@
 
 body {
   font-size: 12px;
+}
+
+/* 全頁背景色 */
+.TCsp-bgc {
   background: #f1f0e9;
   position: relative;
 }
@@ -416,7 +420,10 @@ body {
   background-color: transparent;
   border-radius: 10px;
   margin-bottom: 30px;
-  font-size: 15px;
+}
+
+.TC-intro::placeholder {
+  padding-top: 2.5%;
 }
 
 /* 聊天室 */
@@ -1228,7 +1235,7 @@ body {
   }
 
   /* sidebar選項 */
-  .nav-item {
+  .sidebar .nav-item {
     display: flex;
     text-align: center;
     text-decoration: none;
@@ -1237,7 +1244,6 @@ body {
     align-items: center;
     height: 50px;
     border-radius: 0px 10px 10px 0px;
-    padding-right: 0px;
     margin-bottom: 10px;
     color: #065f8e;
     position: relative;
@@ -1245,13 +1251,13 @@ body {
 
   .sidebar .nav-item>i {
     font-size: 25px;
-    margin: auto 3%;
+    width: 40px;
+    margin-left: 10%;
     background-color: transparent;
   }
 
   /* 選中的選項狀態 */
   .sidebar .nav-item.active {
-    color: #065F8E;
     background-color: white;
   }
 
@@ -1279,7 +1285,7 @@ body {
   /* 表單 */
   .TCform {
     border: 2px solid rgba(6, 95, 142, 0.5);
-    margin: 0px auto 150px;
+    margin-bottom: 150px;
   }
 
   /* 表單頭 */
@@ -1475,10 +1481,10 @@ body {
   }
 
   /* sidebar選項列 */
-  .sidebar .nav_list {
+  .sidebar .nav-list {
     list-style: none;
     padding-left: 0;
-    /* width: 100%; */
+    width: 100%;
   }
 
   /* sidebar選項 */
