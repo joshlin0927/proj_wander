@@ -3,33 +3,6 @@ import React from 'react'
 function TcCourseEdit() {
   return (
     <>
-      {/* TCcourse-TCcourse-process bar  */}
-      <nav class="TCcourse-processBar col-10">
-        <a href="" class="btn btn-border-only-no-h col-2">
-          <i class="fas fa-chevron-left"></i>
-          <span>返回列表</span>
-        </a>
-        <ul class="TCcourse-processBarList">
-          <li class="TCcourse-processBar-item">
-            <a href="">
-              <i class="far fa-check-circle"></i>
-              <div>課程細節頁面</div>
-            </a>
-          </li>
-          <li class="TCcourse-processBar-item">
-            <a href="">
-              <i class="far fa-check-circle"></i>
-              <div>課程內容上傳</div>
-            </a>
-          </li>
-          <li class="TCcourse-processBar-item">
-            <a href="">
-              <i class="far fa-check-circle"></i>
-              <div>課程內容管理</div>
-            </a>
-          </li>
-        </ul>
-      </nav>
       {/* form  */}
       <form class="TCform col-12 col-md-10">
         <div class="TCform-content">
@@ -40,7 +13,7 @@ function TcCourseEdit() {
             <div class="TCform-title">課程細節頁面</div>
             <div class="d-flex justify-content-end">
               <button class="btn TCbtn-sm-w-switch btn-primary">
-                儲存
+                <span>儲存</span>
               </button>
             </div>
           </div>
@@ -97,7 +70,7 @@ function TcCourseEdit() {
         </div>
         <div class="onebtn-switch">
           <button class="btn btn-secondary mx-auto one-btn">
-            儲存
+            <span>儲存</span>
           </button>
         </div>
       </form>

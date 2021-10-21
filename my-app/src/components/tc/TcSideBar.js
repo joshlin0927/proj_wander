@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Nav } from 'react-bootstrap'
 
 // 要使用能有active css效果的NavLink元件
 import { NavLink } from 'react-router-dom'
 
 function TcSideBar() {
+  const [isActive, setIsActive] = useState('')
+
   return (
     <>
       <Nav className="sidebar col-2">
@@ -19,9 +21,12 @@ function TcSideBar() {
           <li>
             <Nav.Link
               as={NavLink}
-              to="./TcProfile"
+              to="/TcProfile"
               className="nav-item"
               activeClassName="active"
+              onClick={() => {
+                setIsActive('個人資料')
+              }}
             >
               <i className="fas fa-user"></i>
               <div>個人資料</div>
@@ -33,6 +38,9 @@ function TcSideBar() {
               to="/TcPassword"
               className="nav-item"
               activeClassName="active"
+              onClick={() => {
+                setIsActive('密碼更改')
+              }}
             >
               <i className="fas fa-key"></i>
               <div>密碼更改</div>
@@ -44,6 +52,9 @@ function TcSideBar() {
               to="/TcCourse"
               className="nav-item"
               activeClassName="active"
+              onClick={() => {
+                setIsActive('課程列表')
+              }}
             >
               <i className="fas fa-th-list"></i>
               <div>課程列表</div>
@@ -51,9 +62,15 @@ function TcSideBar() {
           </li>
           <li>
             <div
-              as={NavLink}
-              className="nav-item"
+              className={
+                isActive === '聊天室'
+                  ? 'nav-item' + ' ' + 'active'
+                  : 'nav-item'
+              }
               activeClassName="active"
+              onClick={() => {
+                setIsActive('聊天室')
+              }}
             >
               <i className="fas fa-comment-alt"></i>
               <div>聊天室</div>
@@ -65,6 +82,9 @@ function TcSideBar() {
               to="/TcAnalytic"
               className="nav-item"
               activeClassName="active"
+              onClick={() => {
+                setIsActive('數據分析')
+              }}
             >
               <i className="fas fa-chart-line"></i>
               <div>數據分析</div>
