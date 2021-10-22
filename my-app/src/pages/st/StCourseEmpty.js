@@ -4,7 +4,7 @@ import { devUrl } from '../../config'
 
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
-import SideBar2 from '../../components/SideBar/SideBar2'
+import SideBar2 from '../../components/SideBar2'
 import RemindingText from '../../components/st/RemindingText'
 
 export default function StCourseEmpty() {
