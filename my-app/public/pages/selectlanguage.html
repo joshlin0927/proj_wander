@@ -16,7 +16,18 @@
       font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     }
 
-   
+    body {
+      /* background-color: #F1F0E9; */
+      background-image: url('../public/imgs/背景圖素材/7656d57f.jpg');
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size:cover;
+      /* 透明度0.6的黑色半透明遮罩 */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* 設置背景混和模式為相乘模式 */
+      background-blend-mode: multiply; 
+
+    }
 
     .navbar {
       display: none;
@@ -30,6 +41,7 @@
       color: #065f8e;
       padding-bottom: 15px;
       margin: 0px;
+      padding-left:0px;
     }
 
     .bread>ol {
@@ -44,7 +56,7 @@
       padding: 0;
     }
 
-    
+
     .dec-side,
     .dec-insideblock {
       display: none;
@@ -54,7 +66,7 @@
       position: absolute;
       right: 0;
       top: 0;
-      
+
       height: 316px;
       border-radius: 0px 0px 0px 50px;
       background-color: #F1EF5B;
@@ -102,36 +114,41 @@
     }
 
     .selectlanguage {
-    display: block;
-    border: 3px solid black;
-    height: 63px;
-    font-weight: bold;
-    font-size: 18px;
-    text-decoration: underline;
-    text-align: center;
-    line-height: 63px;
-    position: absolute;
-    top: 70%;
-    left: 25%;
-    z-index: 1;
+      display: block;
+      border: 3px solid black;
+      height: 63px;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: underline;
+      text-align: center;
+      line-height: 63px;
+      position: absolute;
+      top: 70%;
+      left: 25%;
+      z-index: 1;
     }
 
-     ul {
-     display: block;
-     line-height: 20px;
-     background-color: hsl(0, 0%, 100%);
-     position: absolute;
-     width: 70%;
+    ul {
+      display: block;
+      line-height: 20px;
+      background-color: hsl(0, 0%, 100%);
+      position: absolute;
+      width: 70%;
 
-     transform: translate(0%, -10%);
-     }
+      transform: translate(0%, -10%);
+    }
 
-     ul li {
-     line-height: 20px;
-     font-size: 14px;
-     font-weight: normal;
-     }
-     
+    ul li {
+      line-height: 20px;
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    .full {
+      height: 100vh;
+      width:100%;
+    }
+
 
 
 
@@ -140,7 +157,12 @@
 
       body {
         background-color: #F1F0E9;
-       
+        background-image: none;
+
+      }
+
+      .full {
+        height: fit-content;
       }
 
       .navbar {
@@ -156,7 +178,7 @@
 
       .mainpic {
         background-image: url('../public/imgs/背景圖素材/7656d57f.jpg');
-        background-position: center;
+        background-position: top;
         background-repeat: no-repeat;
         height: 446px;
         background-size: cover;
@@ -280,7 +302,7 @@
   </nav>
   <div class="container-fluid mainpic">
 
-    <div class="container">
+    <div class="container full">
       <div class="row">
         <div class="logo-m">
           <img src="../public/imgs/網頁素材/log_mobile.png" alt="" />

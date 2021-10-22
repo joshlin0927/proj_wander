@@ -134,6 +134,21 @@
       z-index: -1;
     }
 
+    .full{
+      height:100vh;
+    }
+
+    body{
+      background-image: url('../public/imgs/背景圖素材/218e6e75.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* 透明度0.6的黑色半透明遮罩 */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* 設置背景混和模式為相乘模式 */
+      background-blend-mode: multiply;
+    }
+
 
 
 
@@ -143,7 +158,12 @@
 
       body {
         background-color: #F1F0E9;
+        background-image: none;
 
+      }
+
+      .full{
+      height:fit-content;
       }
 
 
@@ -305,7 +325,7 @@
 
 
 
-  <div class="container-fluid">
+  <div class="container-fluid full">
     <div class="row">
       <div class="dec-side col-md-8 col-lg-8">
         <div class="dec-insideblock col-md-9 col-lg-8">
