@@ -48,7 +48,7 @@ function TcAvatarSelector(props) {
           />
         </div>
         <div
-          className="btn btn-border-only"
+          className="TCbtn btn-border-only"
           id="loadFile"
           onClick={() => {
             realFileInput.click()

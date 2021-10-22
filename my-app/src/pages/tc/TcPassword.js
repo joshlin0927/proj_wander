@@ -2,15 +2,17 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // components
-import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 
 function TcPassword() {
+  const [origin, setOrigin] = useState('')
+  const [newPass, setNewPass] = useState('')
+  const [newPassCopy, setnewPassCopy] = useState('')
+
   return (
     <>
       <div className="container mainContent">
-        <MultiLevelBreadCrumb />
         <div className="row">
           <div className="logo-m">
             <img
@@ -30,18 +32,21 @@ function TcPassword() {
           <form class="TCform col-12 offset-0 col-md-8 offset-md-1">
             <div class="TCform-content w-100 col-md-10 col-lg-8">
               <div class="TCform-head p-0">
-                <a href="">
+                <Link to="/">
                   <i class="fas fa-chevron-left TCback-btn"></i>
-                </a>
+                </Link>
                 <div class="TCform-title">密碼更改</div>
-                <a href="">
+                <Link to="/">
                   <i class="TCback-btn"></i>
-                </a>
+                </Link>
               </div>
               <input
                 type="password"
                 class="col-12 allInputs"
                 placeholder="請輸入原密碼"
+                onChange={(e) => {
+                  setOrigin(e.target.value)
+                }}
               />
               <label class="TCnotice" for="">
                 請填寫正確密碼
@@ -50,6 +55,9 @@ function TcPassword() {
                 type="text"
                 class="col-12 allInputs"
                 placeholder="請輸入新密碼"
+                onChange={(e) => {
+                  setNewPass(e.target.value)
+                }}
               />
               <label class="TCnotice" for="">
                 請填寫至少6位數密碼
@@ -58,11 +66,14 @@ function TcPassword() {
                 type="text"
                 class="col-12 allInputs"
                 placeholder="請再次輸入新密碼"
+                onChange={(e) => {
+                  setnewPassCopy(e.target.value)
+                }}
               />
               <label class="TCnotice" for="">
                 與上列密碼不符
               </label>
-              <button class="btn btn-secondary mx-auto one-btn">
+              <button class="TCbtn btn-secondary mx-auto one-btn">
                 <span>更改</span>
               </button>
             </div>

@@ -4,7 +4,6 @@
 
 body {
   font-size: 12px;
-  background: #f1f0e9;
   position: relative;
 }
 
@@ -95,7 +94,7 @@ body {
   margin-bottom: 70px;
 }
 
-.btn {
+.TCbtn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -892,6 +891,8 @@ body {
 }
 
 .TCcourse-delete:hover {
+  color: white;
+  background-color: #065f8e;
 }
 
 /* 影片上傳 */
