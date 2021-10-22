@@ -19,11 +19,8 @@ import WanderIndex from './pages/home/WanderIndex'
 // 教師頁面
 import TCindex from './pages/tc/index'
 
-<<<<<<< HEAD
 import StIndex from './pages/st/index'
-=======
 // import Login from './pages/st/Login'
->>>>>>> fe54d3ade61f5d462385c42abe731a3bf5eac2cc
 
 // 全頁通用元件
 import Footer from './components/Footer'
