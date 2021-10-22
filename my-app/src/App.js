@@ -16,11 +16,15 @@ import MobileNavbar from './components/MobileNavbar'
 // 首頁
 import WanderIndex from './pages/home/WanderIndex'
 
+//會員登入、註冊
+import Login from './pages/st/Login'
+import SignUp from './pages/st/SignUp'
+
 // 教師頁面
 import TCindex from './pages/tc/index'
 
+//學生頁面
 import StIndex from './pages/st/index'
-// import Login from './pages/st/Login'
 
 // 購物車
 import CartStep01 from './pages/cart/CartStep01'
@@ -46,6 +50,14 @@ function App() {
 
           <Route path="/">
             <WanderIndex />
+          </Route>
+
+          <Route path="/Login">
+            <Login />
+          </Route>
+
+          <Route path="/SignUp">
+            <SignUp />
           </Route>
         </Switch>
 

@@ -11,6 +11,7 @@
    background-color: rgba(0, 0, 0, 0.4);
    /* 設置背景混和模式為相乘模式 */
    background-blend-mode: multiply;
+   z-index: -4;;
  }
 
  /* 全頁背景色 */

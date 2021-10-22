@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../public/css/st_startmycourse.css'
+import './style/st_startmycourse.css'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 
 export default function StStartMyCourse() {
@@ -8,14 +8,8 @@ export default function StStartMyCourse() {
       <div class="bgc-img">
         <div className="container-fluid mainpic">
           <div className="container">
-            <MultiLevelBreadCrumb />
             <div className="row">
-              <div className="logo-m">
-                <img
-                  src="../public/imgs/網頁素材/log_mobile.png"
-                  alt=""
-                />
-              </div>
+              <MultiLevelBreadCrumb />
             </div>
           </div>
         </div>

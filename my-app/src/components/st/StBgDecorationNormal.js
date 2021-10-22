@@ -1,5 +1,4 @@
 import React from 'react'
-import '../../../public/css/st_editprofile.css'
 
 export default function StBgDecorationNormal() {
   return (

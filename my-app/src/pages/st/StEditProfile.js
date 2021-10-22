@@ -1,9 +1,13 @@
 import React from 'react'
 import './style/st_editprofile.css'
 import { Link } from 'react-router-dom'
+import { devUrl } from '../../config'
+
+//共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar from '../../components/st/StSideBar'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
+import ConfirmMsg from '../../components/ConfirmMsg'
 
 export default function StEditProfile() {
   return (
@@ -11,16 +15,9 @@ export default function StEditProfile() {
       <div className="bgc-img">
         <div className="container mainContent">
           {/* <!-- breadcrumb --> */}
-          <MultiLevelBreadCrumb />
 
           <div className="row">
-            <div className="logo-m">
-              <img
-                src="../images/logo/log_mobile.png"
-                alt=""
-              />
-            </div>
-
+            <MultiLevelBreadCrumb />
             <div className="col-10 ml-auto pageName">
               <span className="pageNameText profile">
                 Profile
@@ -28,14 +25,10 @@ export default function StEditProfile() {
             </div>
           </div>
           <div className="row">
-            {/* <!-- sidebar --> */}
             <StSideBar />
             {/* <!-- form --> */}
             <form className="form col-12 offset-0 col-md-8 offset-md-1">
-              <div className="confirmmsg-m">
-                <i className="far fa-check-circle"></i>
-                資料已修改完成
-              </div>
+              <ConfirmMsg />
               <div className="form-head ml-1">
                 <Link href="">
                   <i className="fas fa-chevron-left TCback-btn"></i>
@@ -50,7 +43,7 @@ export default function StEditProfile() {
                 <div className="d-flex align-items-center ml-1">
                   <div className="pic">
                     <img
-                      src="../public/imgs/學生照片/Anne Hathaway.jpg"
+                      src={`${devUrl}/images/pic/學生照片/Anne Hathaway.jpg`}
                       className="img-fluid"
                       alt=""
                     />

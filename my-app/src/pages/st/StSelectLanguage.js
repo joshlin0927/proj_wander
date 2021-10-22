@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../public/css/st_selectlanguage.css'
+import './style/st_selectlanguage.css'
 // import { Link } from 'react-router-dom'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 
@@ -9,14 +9,8 @@ export default function StSelectLanguage() {
       <div class="bgc-img">
         <div className="container-fluid mainpic">
           <div className="container full">
-            <MultiLevelBreadCrumb />
             <div className="row">
-              <div className="logo-m">
-                <img
-                  src="../public/imgs/網頁素材/log_mobile.png"
-                  alt=""
-                />
-              </div>
+              <MultiLevelBreadCrumb />
             </div>
           </div>
         </div>

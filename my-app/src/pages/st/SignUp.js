@@ -1,5 +1,6 @@
 import '../st/style/signUp.css'
 import React from 'react'
+import { devUrl } from '../../config'
 
 export default function SignUp() {
   return (
@@ -9,7 +10,7 @@ export default function SignUp() {
           <div className="m-wrap row justify-content-center">
             <div className="logo-m">
               <img
-                src="../public/imgs/網頁素材/log_mobile.png"
+                src={`${devUrl}/images/logo/log_mobile.png`}
                 alt=""
               />
             </div>

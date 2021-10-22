@@ -1,24 +1,20 @@
 import React from 'react'
-import '../../../public/css/st_passwordmodify.css'
+import './style/st_passwordmodify.css'
 import { Link } from 'react-router-dom'
 
+//共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
+import StSidebar from '../../components/st/StSideBar'
+import ConfirmMsg from '../../components/ConfirmMsg'
 
 export default function StPasswordModify() {
   return (
     <>
       <div class="bgc-img">
         <div className="container">
-          <MultiLevelBreadCrumb />
           <div className="row">
-            <div className="logo-m">
-              <img
-                src="../public/imgs/網頁素材/log_mobile.png"
-                alt=""
-              />
-            </div>
-
+            <MultiLevelBreadCrumb />
             <div className="col-10 ml-auto pageName">
               <span className="pageNameText password">
                 Password
@@ -26,47 +22,10 @@ export default function StPasswordModify() {
             </div>
           </div>
           <div className="row justify-content-center">
-            <nav className="sidebar col-2">
-              <div className="avatar">
-                <img
-                  src="../public/imgs/學生照片/Anne Hathaway.jpg"
-                  alt=""
-                  className="img-fluid"
-                />
-              </div>
-              <ul className="nav-list">
-                <li>
-                  <Link to="" className="nav-item">
-                    <i className="fas fa-user"></i>
-                    <div>個人資料</div>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="" className="nav-item active">
-                    <i className="fas fa-key"></i>
-                    <div>密碼更改</div>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="" className="nav-item">
-                    <i className="fas fa-shopping-bag"></i>
-                    <div>訂單查詢</div>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="" className="nav-item">
-                    <i className="fas fa-comment-alt"></i>
-                    <div>聊天室</div>
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+            <StSidebar />
 
             <form className="form col-12 offset-0 col-md-7 offset-md-1 col-lg-7">
-              <div className="confirmmsg-m">
-                <i className="far fa-check-circle"></i>
-                資料已修改完成
-              </div>
+              <ConfirmMsg />
               <div className="form-content w-100 col-md-8">
                 <div className="form-head p-0">
                   <Link to="">

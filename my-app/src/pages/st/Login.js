@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { devUrl } from '../../config'
 
 import '../st/style/login.css'
 
@@ -16,7 +17,7 @@ function Login(props) {
           <div className="m-wrap row justify-content-center">
             <div className="logo-m">
               <img
-                src="http://localhost:3000/images/logo/log_mobile.png"
+                src={`${devUrl}/images/logo/log_mobile.png`}
                 alt=""
               />
             </div>
@@ -24,7 +25,7 @@ function Login(props) {
           <div className="row m-wrap">
             <div className="back">Back</div>
           </div>
-          <div className="mt95"></div>
+          <div className="h95"></div>
 
           <div className="login col-md-6">
             <form className="form-sm">
@@ -75,12 +76,12 @@ function Login(props) {
                   前往註冊
                 </Link>
               </div>
-              <div className="mb30"></div>
+              <div className="h30"></div>
             </form>
           </div>
         </div>
 
-        <div className="mb150"></div>
+        <div className="h150"></div>
       </div>
       {/* <p>目前登入情況: {auth ? '登入中' : '未登入'}</p> */}
       {/* <button

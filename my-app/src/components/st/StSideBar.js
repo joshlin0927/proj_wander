@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../../../public/css/st_editprofile.css'
+import { devUrl } from '../../config'
 
 export default function StSideBar() {
   return (
@@ -8,7 +8,7 @@ export default function StSideBar() {
       <nav className="sidebar col-2">
         <div className="avatar">
           <img
-            src="../images/students/Anne Hathaway.jpg"
+            src={`${devUrl}/images/pic/學生照片/Anne Hathaway.jpg`}
             alt=""
             className="img-fluid"
           />
@@ -23,17 +23,17 @@ export default function StSideBar() {
           <li>
             <Link href="" className="nav-item">
               <i className="fas fa-key"> </i>
-              <div> 密碼更改 </div>
+              <div>密碼更改</div>
             </Link>
           </li>
           <li>
-            <Link href="" className="nav-item">
+            <Link to="" className="nav-item">
               <i className="fas fa-shopping-bag"> </i>
-              <div> 訂單查詢 </div>
+              <div>訂單查詢</div>
             </Link>
           </li>
           <li>
-            <Link href="" className="nav-item">
+            <Link to="" className="nav-item">
               <i className="fas fa-comment-alt"> </i>
               <div> 聊天室 </div>
             </Link>

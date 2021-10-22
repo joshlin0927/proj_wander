@@ -7,14 +7,8 @@ export default function StGameStart() {
       <div class="bgc-img">
         <div className="container-fluid mainpic">
           <div className="container">
-            <MultiLevelBreadCrumb />
             <div className="row">
-              <div className="logo-m">
-                <img
-                  src="../public/imgs/網頁素材/log_mobile.png"
-                  alt=""
-                />
-              </div>
+              <MultiLevelBreadCrumb />
             </div>
           </div>
         </div>
