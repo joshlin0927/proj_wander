@@ -8,14 +8,84 @@ body {
   position: relative;
 }
 
-/* 全頁包覆(為了色塊動畫) */
-.TCallwraper {
+/* 頁面背景(手機) */
+/* 背景包覆(為了色塊動畫) */
+/* .TCallwraper {
   z-index: -1;
   position: absolute;
   top: -110px;
   width: 100%;
   height: 100%;
-}
+} */
+
+/* 地球背景圖 */
+/* .earth {
+  display: none;
+} */
+
+/* 上面的黃色色塊 */
+/* .dec-block {
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 56%;
+  height: 335px;
+  z-index: -2;
+  background: #f1ef5b;
+  border-radius: 0px 0px 0px 180px;
+  animation: TChy 12s linear infinite;
+} */
+
+/* 黃色色塊的動畫 */
+/* @keyframes TChy {
+  0% {
+    right: 0%;
+    width: 56%;
+  }
+
+  50% {
+    right: 0%;
+    width: 60%;
+  }
+
+  100% {
+    right: 0%;
+    width: 56%;
+  }
+} */
+
+/* 新增課程的黃色色塊 */
+/* .dec-block-lg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 95%;
+  height: 250px;
+  z-index: -2;
+  background: #f1ef5b;
+  border-radius: 0px 0px 0px 180px;
+  animation: TChy2 12s linear infinite;
+} */
+
+/* 新增課程的黃色色塊的動畫 */
+/* @keyframes TChy2 {
+  0% {
+    right: 0%;
+    width: 95%;
+  }
+
+  50% {
+    right: 0%;
+    width: 90%;
+  }
+
+  100% {
+    right: 0%;
+    width: 95%;
+  }
+} */
 
 .TCmb-50 {
   margin-bottom: 50px;
@@ -66,75 +136,6 @@ body {
   opacity: 0;
 }
 
-/* 地球背景圖 */
-.earth {
-  display: none;
-}
-
-/* 上面的黃色色塊 */
-.dec-block {
-  display: block;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  width: 56%;
-  height: 335px;
-  z-index: -2;
-  background: #f1ef5b;
-  border-radius: 0px 0px 0px 180px;
-  animation: TChy 12s linear infinite;
-}
-
-/* 黃色色塊的動畫 */
-@keyframes TChy {
-  0% {
-    right: 0%;
-    width: 56%;
-  }
-
-  50% {
-    right: 0%;
-    width: 60%;
-  }
-
-  100% {
-    right: 0%;
-    width: 56%;
-  }
-}
-
-/* 新增課程的黃色色塊 */
-.dec-block-lg {
-  display: block;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  width: 95%;
-  height: 250px;
-  z-index: -2;
-  background: #f1ef5b;
-  border-radius: 0px 0px 0px 180px;
-  animation: TChy2 12s linear infinite;
-}
-
-/* 新增課程的黃色色塊的動畫 */
-@keyframes TChy2 {
-  0% {
-    right: 0%;
-    width: 95%;
-  }
-
-  50% {
-    right: 0%;
-    width: 90%;
-  }
-
-  100% {
-    right: 0%;
-    width: 95%;
-  }
-}
-
 /* 網站導覽列 */
 .navbar {
   display: none;
@@ -151,7 +152,7 @@ body {
 }
 
 /* footer */
-.footerWrap {
+/* .footerWrap {
   margin-bottom: 80px;
 }
 
@@ -215,8 +216,7 @@ body {
   font-size: 12px;
   color: white;
   margin: 5px;
-}
-
+} */
 
 /* 手機logo */
 .logo-m {
@@ -957,9 +957,9 @@ body {
     padding: 0px;
   }
 
-  /* 頁面背景 */
+  /* 頁面背景(桌機) */
   /* 圓圈的動畫 */
-  @keyframes bc {
+  /* @keyframes bc {
     0% {
       transform: scale(0.9);
     }
@@ -1003,10 +1003,10 @@ body {
     100% {
       transform: scale(0.9);
     }
-  }
+  } */
 
   /* 圓圈 */
-  .dec-circle {
+  /* .dec-circle {
     display: block;
     position: absolute;
     z-index: -1;
@@ -1017,10 +1017,10 @@ body {
     border: 4px dashed #065f8e;
     border-radius: 50%;
     animation: bc 150s linear infinite;
-  }
+  } */
 
   /* 圓圈-白 */
-  .dec-circle-w {
+  /* .dec-circle-w {
     display: block;
     position: absolute;
     z-index: -1;
@@ -1040,30 +1040,30 @@ body {
     height: 840px;
     background: #fff;
     border-radius: 0px 0px 20px 0px;
-  }
+  } */
 
   /* 黃色色塊(上) */
-  .dec-block {
+  /* .dec-block {
     height: 310px;
-  }
+  } */
 
   /* 地球 */
-  .earth {
+  /* .earth {
     display: block;
     position: absolute;
     z-index: -1;
     right: 0;
     top: 724px;
-  }
+  } */
 
   /* 藍色色塊(下) */
-  .dec-blue-block {
+  /* .dec-blue-block {
     display: block;
     position: absolute;
     top: 1100px;
     left: 0px;
     z-index: -1;
-  }
+  } */
 
   /* 所有input欄位 */
   .allInputs {
@@ -1223,7 +1223,7 @@ body {
     background: #f1ef5b;
   }
 
-  .sidebar li>.nav-item:hover {
+  .sidebar li > .nav-item:hover {
     background-color: white;
   }
 
@@ -1603,12 +1603,12 @@ body {
   }
 
   /* 商城顯示的課程 */
-  .BuyCourseSection {
+  /* .BuyCourseSection {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 30px;
-  }
-
+  }  
+  
   .BuyCourseItem {
     width: 250px;
     height: 250px;
@@ -1672,10 +1672,10 @@ body {
     position: absolute;
     bottom: 6%;
     right: 5%;
-  }
+  } */
 
   /* footer */
-  .footerWrap {
+  /* .footerWrap {
     width: 90%;
     border-radius: 0px 50px 0px 0px;
     background-color: #065f8e;
@@ -1746,5 +1746,5 @@ body {
     font-size: 12px;
     color: white;
     margin: 0px 0px 0px 10px;
-  }
+  } */
 }

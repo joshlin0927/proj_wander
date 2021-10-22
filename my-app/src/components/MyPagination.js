@@ -1,38 +1,41 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-
 function MyPagination() {
   return (
     <>
       <nav class="">
         <ul class="Mypagination justify-content-end">
-          <li class="Mypage-item">
+          <li>
             <Link
               class="Mypage-link"
               to="#"
               aria-label="Previous"
             >
-              <i class="fas fa-chevron-left"></i>
+              <div class="Mypage-item">
+                <i class="fas fa-chevron-left"></i>
+              </div>
             </Link>
           </li>
-          <li class="Mypage-item active">
+          <li>
             <Link class="Mypage-link" to="#">
-              1
+              <div class="Mypage-item active">1</div>
             </Link>
           </li>
-          <li class="Mypage-item">
+          <li>
             <Link class="Mypage-link" to="#">
-              2
+              <div class="Mypage-item">2</div>
             </Link>
           </li>
-          <li class="Mypage-item">
+          <li>
             <Link
               to="Mypage-link"
               href="#"
               aria-label="Next"
             >
-              <i class="fas fa-chevron-right"></i>
+              <div class="Mypage-item">
+                <i class="fas fa-chevron-right"></i>
+              </div>
             </Link>
           </li>
         </ul>
