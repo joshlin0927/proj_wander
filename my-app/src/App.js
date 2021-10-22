@@ -9,6 +9,12 @@ import {
 } from 'react-router-dom'
 import React, { useState } from 'react'
 
+// Navbar
+import PcNavbar from './components/PcNavbar'
+
+// 首頁
+import WanderIndex from './pages/home/WanderIndex'
+
 // 教師頁面
 import TCindex from './pages/tc/index'
 import ThreeStepsIndex from './pages/tc/ThreeSteps/ThreeStepsIndex'
@@ -21,11 +27,15 @@ function App() {
   return (
     <>
       <Router>
+        <PcNavbar />
         <MultiLevelBreadCrumb />
 
         <Switch>
-          <Route to="/TCindex">
+          <Route path="/TCindex" exact>
             <TCindex />
+          </Route>
+          <Route path="/">
+            <WanderIndex />
           </Route>
         </Switch>
 
