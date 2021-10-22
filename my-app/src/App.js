@@ -26,7 +26,7 @@ import TcAnalytic from './pages/tc/TcAnalytic'
 // 教師頁面
 import TCindex from './pages/tc/index'
 
-import Login from './pages/st/Login'
+// import Login from './pages/st/Login'
 
 // 全頁通用元件
 import Footer from './components/Footer'
@@ -46,7 +46,7 @@ function App() {
           </Route>
 
           <Route path="/Login">
-            <Login />
+            {/* <Login /> */}
           </Route>
 
           <Route path="/">

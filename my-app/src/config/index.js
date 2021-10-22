@@ -11,8 +11,8 @@ export const pathnameList = [
   '/TCindex/TcPassword',
   '/TCindex/TcCourse',
   '/TCindex/TcCourseEdit',
-  '/TCindex/TcCourseVideoEdit',
   '/TCindex/TcCourseVideoUpload',
+  '/TCindex/TcCourseVideoEdit',
   '/TCindex/TcAnalytic',
 ]
 
@@ -26,4 +26,6 @@ export const pathnameTextList = [
   '/教師頁面/課程細節頁面',
   '/教師頁面/課程內容上傳',
   '/教師頁面/課程內容管理',
+  '/教師頁面/課程內容管理',
+  '/教師頁面/數據分析',
 ]
