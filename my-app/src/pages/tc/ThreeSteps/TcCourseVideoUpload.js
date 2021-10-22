@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 // components
+import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
 import TcCourseCard from '../../../components/tc/TcCourseCard'
 import MyPagination from '../../../components/MyPagination'
@@ -11,6 +12,7 @@ function TcCourseVideoUpload() {
   return (
     <>
       <div class="container mainContent">
+        <MultiLevelBreadCrumb />
         <div class="row justify-content-center">
           {/* TCcourse-TCcourse-process bar */}
           <TcCourseProcessBar />

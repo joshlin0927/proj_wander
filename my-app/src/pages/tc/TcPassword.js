@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // components
+import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 
@@ -14,6 +15,7 @@ function TcPassword() {
     <>
       <div className="container mainContent">
         <div className="row">
+          <MultiLevelBreadCrumb />
           <div className="col-10 ml-auto pageName">
             <span className="pageNameText password">
               Password
