@@ -1,0 +1,391 @@
+* {
+  font-family: Noto Sans, Noto Sans TC;
+}
+
+.bgc-img {
+  background-image: url('../public/imgs/其他/AdobeStock_408070902.jpeg');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* 透明度0.6的黑色半透明遮罩 */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* 設置背景混和模式為相乘模式 */
+  background-blend-mode: multiply;
+}
+
+.navbar {
+  display: none;
+}
+
+.logo-m {
+  margin-top: 90px;
+}
+
+.back {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 80px;
+  color: black;
+  margin-top: 88px;
+}
+
+/* toggle for teacher/student */
+/* The toggle - the box around the slider */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 70px;
+  height: 34px;
+
+}
+
+/* Hide default HTML checkbox */
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 32px;
+  width: 32px;
+  left: 0px;
+  bottom: 2px;
+  background-color: #F1EF5B;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #F1EF5B;
+}
+
+input:checked+.slider:before {
+  background-color: #ffffff;
+}
+
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #F1EF5B;
+}
+
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(36px);
+  transform: translateX(36px);
+}
+
+
+.slider.round {
+
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.switch {
+  font-size: 14px;
+  line-height: 33px;
+  padding: 0px 3px;
+}
+
+
+
+ul {
+  display: flex;
+}
+
+.form-sm {
+  width: 100%;
+  height: fit-content;
+  margin: auto;
+}
+
+input::-webkit-input-placeholder {
+  font-size: 15px
+}
+
+.shortInputs {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  height: 50px;
+  font-size: 15px;
+  margin-top: 43px;
+  margin-bottom: 5px;
+  background-color: transparent;
+}
+
+.lastName {
+  margin-left: 5px;
+
+}
+
+.allInputs {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  height: 50px;
+  font-size: 15px;
+  background-color: transparent;
+
+}
+
+
+.notice {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+  color: #CF2727;
+  margin-bottom: 22px;
+  /* margin-left: 50px; */
+}
+
+.title,
+.tab_css {
+  display: none;
+}
+
+.or {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.socialBtn {
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: light;
+  font-size: 14px;
+  margin-bottom: 60px;
+  width: 100%;
+  height: 60px;
+}
+
+.socialBtn:hover {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: light;
+  font-size: 14px;
+  border: 1px solid #F1EF5B;
+}
+
+.signUpBtn-m {
+  display: block;
+  width: 100%;
+  height: 60px;
+  border: 0;
+  border-radius: 180px;
+  background-color: #F1EF5B;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.signUpBtn {
+  display: none;
+}
+
+#google {
+  margin-bottom: 60px;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-image: url('../public/imgs/其他/AdobeStock_408070902.jpeg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* 透明度0.6的黑色半透明遮罩 */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* 設置背景混和模式為相乘模式 */
+    background-blend-mode: multiply;
+  }
+
+  .navbar {
+    display: flex;
+    height: 80px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 30px;
+  }
+
+
+  .logo-m {
+    display: none;
+  }
+
+  .form-sm {
+    width: 80%;
+
+  }
+
+  .separator {
+    border-bottom: 1px solid black;
+    margin-top: 64px;
+    margin-bottom: 67px;
+    position: relative;
+  }
+
+  .or {
+    background-color: white;
+    position: absolute;
+    font-size: 15px;
+    width: 64px;
+    height: 20px;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -250%);
+  }
+
+  .signUpBtn {
+    display: block;
+    width: 28%;
+    height: 50px;
+    border: 0;
+    border-radius: 180px;
+    background-color: #F1EF5B;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 60px;
+  }
+
+  .signUpBtn-m {
+    display: none;
+  }
+
+  .socialBtn {
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: light;
+    font-size: 14px;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 50px;
+  }
+
+  .socialBtn:hover {
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: light;
+    font-size: 14px;
+    border: 1px solid #F1EF5B;
+  }
+
+  #asTeacher,
+  #asStudent {
+    margin-bottom: 0px;
+  }
+
+  .tab_css input:checked+#asTeacher,
+  .tab_css #asTeacher:hover {
+    background-color: #DCDCDC;
+    border-right: 2px solid rgba(6, 95, 142, 1);
+  }
+
+  .tab_css input:checked+#asStudent,
+  .tab_css #asStudent:hover {
+    background-color: #DCDCDC;
+    border-left: 2px solid rgba(6, 95, 142, 1);
+  }
+
+  .tab_css input:checked+label+.tab_content {
+    display: initial;
+    /* 被選到的頁籤內容出現 */
+  }
+
+  .labelName {
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: -0.015em;
+    color: #CF2727;
+    margin-bottom: 10px;
+
+  }
+
+  .tab_css {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tab_css input {
+    display: none
+  }
+
+  .tab_css label {
+    padding: 10px;
+    width: 50%;
+    cursor: pointer;
+    border-radius: 20px 20px 0 0;
+    background: rgb(255, 255, 255);
+    color: rgba(6, 95, 142, 1);
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+
+  }
+
+  .tab_content {
+
+    order: 1;
+    display: none;
+    /* 先把內容藏起來 */
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    padding: 0;
+  }
+
+  .title {
+    display: block;
+    font-size: 48px;
+    font-weight: bold;
+    color: rgba(6, 95, 142, 1);
+    text-align: center;
+    margin-top: 39px;
+  }
+
+  .signUp {
+    width: 100%;
+    margin-top: 228px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 150px;
+    padding: 60px;
+    padding: 0px;
+    border: 2px solid rgba(6, 95, 142, 1);
+    border-radius: 20px;
+    background-color: white;
+    height: fit-content;
+  }
+
+  .m-wrap {
+    display: none;
+  }
+}

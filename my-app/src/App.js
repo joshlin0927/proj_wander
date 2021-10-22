@@ -26,6 +26,8 @@ import TcAnalytic from './pages/tc/TcAnalytic'
 // 教師頁面
 import TCindex from './pages/tc/index'
 
+import Login from './pages/st/Login'
+
 // 全頁通用元件
 import Footer from './components/Footer'
 import MultiLevelBreadCrumb from './components/MultiLevelBreadCrumb'
@@ -42,6 +44,11 @@ function App() {
             {/* exact 要加回去 */}
             <TCindex />
           </Route>
+
+          <Route path="/Login">
+            <Login />
+          </Route>
+
           <Route path="/">
             <WanderIndex />
           </Route>
