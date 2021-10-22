@@ -8,10 +8,6 @@ body {
   position: relative;
 }
 
-/* 全頁背景色 */
-.TCsp-bgc {
-}
-
 /* 全頁包覆(為了色塊動畫) */
 .TCallwraper {
   z-index: -1;

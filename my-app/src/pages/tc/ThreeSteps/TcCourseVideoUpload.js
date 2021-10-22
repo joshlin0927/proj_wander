@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 // components
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
-import TcSearchBar from '../../../components/tc/TcSearchBar'
 import TcCourseCard from '../../../components/tc/TcCourseCard'
 import MyPagination from '../../../components/MyPagination'
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'

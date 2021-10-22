@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 
 function MyPagination() {
   return (
@@ -6,32 +8,32 @@ function MyPagination() {
       <nav class="">
         <ul class="Mypagination justify-content-end">
           <li class="Mypage-item">
-            <a
+            <Link
               class="Mypage-link"
-              href="#"
+              to="#"
               aria-label="Previous"
             >
               <i class="fas fa-chevron-left"></i>
-            </a>
+            </Link>
           </li>
           <li class="Mypage-item active">
-            <a class="Mypage-link" href="#">
+            <Link class="Mypage-link" to="#">
               1
-            </a>
+            </Link>
           </li>
           <li class="Mypage-item">
-            <a class="Mypage-link" href="#">
+            <Link class="Mypage-link" to="#">
               2
-            </a>
+            </Link>
           </li>
           <li class="Mypage-item">
-            <a
-              class="Mypage-link"
+            <Link
+              to="Mypage-link"
               href="#"
               aria-label="Next"
             >
               <i class="fas fa-chevron-right"></i>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

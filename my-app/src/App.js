@@ -22,7 +22,7 @@ function App() {
     <Router>
       <>
         <Switch>
-          <Route to="/TCindex">
+          <Route path="/TCindex">
             <TCindex />
           </Route>
         </Switch>
