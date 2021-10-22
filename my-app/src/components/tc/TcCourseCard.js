@@ -1,6 +1,7 @@
 import React from 'react'
 
-function TcCourseCard() {
+function TcCourseCard(props) {
+  const {} = props
   return (
     <>
       <div class="TCcourse-card col-12">

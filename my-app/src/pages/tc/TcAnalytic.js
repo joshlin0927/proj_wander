@@ -23,8 +23,8 @@ function TcAnalytic() {
             />
           </div>
           <div className="col-10 ml-auto pageName">
-            <span className="pageNameText analytic">
-              Analytic
+            <span className="pageNameText analytics">
+              Analytics
             </span>
           </div>
         </div>

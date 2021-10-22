@@ -19,14 +19,7 @@ function TcProfile() {
   return (
     <>
       <div className="container mainContent">
-        <MultiLevelBreadCrumb />
         <div className="row">
-          <div className="logo-m">
-            <img
-              src="../images/logo/log_mobile.png"
-              alt=""
-            />
-          </div>
           <div className="col-10 ml-auto pageName">
             <span className="pageNameText profile">
               Profile

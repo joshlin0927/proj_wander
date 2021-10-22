@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Route,
   Switch,
+  Redirect,
 } from 'react-router-dom'
 
 // 頁面
@@ -24,6 +25,9 @@ function index() {
     <>
       <Switch>
         {/* Main Content */}
+        <Route exact path="/TCindex">
+          <Redirect to="/TCindex/TcCourse" />
+        </Route>
         <Route path="/TCindex/TcProfile">
           <TcProfile />
         </Route>
