@@ -1,27 +1,32 @@
 import React from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  NavLink,
-  Link,
-} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { devUrl } from '../config'
 
-function Footer() {
+function Footer(props) {
+  const { cartFooterMb } = props
   return (
     <>
-      <footer className="footerWrap">
+      <footer
+        className={
+          cartFooterMb
+            ? 'footerWrap cartFooterMargin'
+            : 'footerWrap'
+        }
+      >
         <div className="wanderFooter container">
           <div className="row footer-left">
             <Link to="/">
               <img
                 id="Footer-Desktop-Logo"
-                src="../images/logo/footer_desktop.png"
+                src={`${devUrl}/images/logo/footer_desktop.png`}
+                alt=""
               />
             </Link>
             <Link to="/">
               <img
                 id="Footer-Mobile-Logo"
-                src="../images/logo/footer_mobile.png"
+                src={`${devUrl}/images/logo/footer_mobile.png`}
+                alt=""
               />
             </Link>
             <div className="Footer-page-links">
@@ -39,14 +44,14 @@ function Footer() {
             <div className="version-icon">
               <div className="icon-sp">
                 <img
-                  src="../images/elements/icon-mobile.svg"
+                  src={`${devUrl}/images/elements/icon-mobile.svg`}
                   alt=""
                 />
                 手機版
               </div>
               <div className="icon-sp">
                 <img
-                  src="../images/elements/icon-monitor.png"
+                  src={`${devUrl}/images/elements/icon-monitor.png`}
                   alt=""
                 />
                 電腦版

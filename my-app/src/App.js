@@ -7,7 +7,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import React, { useState } from 'react'
+import React from 'react'
 
 // Navbar
 import PcNavbar from './components/PcNavbar'
@@ -15,21 +15,14 @@ import MobileNavbar from './components/MobileNavbar'
 
 // 首頁
 import WanderIndex from './pages/home/WanderIndex'
-import TcProfile from './pages/tc/TcProfile'
-import TcPassword from './pages/tc/TcPassword'
-import TcCourse from './pages/tc/TcCourse'
-import TcCourseVideoEdit from './pages/tc/ThreeSteps/TcCourseVideoEdit'
-import TcCourseVideoUpload from './pages/tc/ThreeSteps/TcCourseVideoUpload'
-import TcCourseEdit from './pages/tc/ThreeSteps/TcCourseEdit'
-import TcAnalytic from './pages/tc/TcAnalytic'
 
 // 教師頁面
 import TCindex from './pages/tc/index'
 
 // import Login from './pages/st/Login'
 
-// 全頁通用元件
-import Footer from './components/Footer'
+// 購物車
+import CartStep01 from './pages/cart/CartStep01'
 
 function App() {
   return (
@@ -44,8 +37,10 @@ function App() {
             <TCindex />
           </Route>
 
-          <Route path="/Login">
-            {/* <Login /> */}
+          <Route path="/Login">{/* <Login /> */}</Route>
+
+          <Route path="/Cart">
+            <CartStep01 />
           </Route>
 
           <Route path="/">
@@ -54,7 +49,6 @@ function App() {
         </Switch>
 
         <MobileNavbar />
-        <Footer />
       </>
     </Router>
   )
