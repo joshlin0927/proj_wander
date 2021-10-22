@@ -23,7 +23,6 @@ import TCindex from './pages/tc/index'
 
 // 全頁通用元件
 import Footer from './components/Footer'
-import MultiLevelBreadCrumb from './components/MultiLevelBreadCrumb'
 
 function App() {
   return (
@@ -46,6 +45,7 @@ function App() {
             <WanderIndex />
           </Route>
         </Switch>
+
         <MobileNavbar />
         <Footer />
       </>
