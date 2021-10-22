@@ -15,16 +15,16 @@ function TcCourse() {
   let [data, setData] = useState({})
   let [totalRows, setTotalRows] = useState(0)
 
-  useEffect(() => {
-    ;(async () => {
-      let r = await asiox.get(ADDRESS_BOOK_LIST)
-      console.log(r)
-      if (r.status === 200) {
-        setTotalRows(r.data.totalRows)
-        setData(r.data)
-      }
-    })()
-  }, [])
+  // useEffect(() => {
+  //   ;(async () => {
+  //     let r = await asiox.get(ADDRESS_BOOK_LIST)
+  //     console.log(r)
+  //     if (r.status === 200) {
+  //       setTotalRows(r.data.totalRows)
+  //       setData(r.data)
+  //     }
+  //   })()
+  // }, [])
 
   return (
     <>

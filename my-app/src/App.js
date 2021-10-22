@@ -19,7 +19,8 @@ import WanderIndex from './pages/home/WanderIndex'
 // 教師頁面
 import TCindex from './pages/tc/index'
 
-import StIndex from './pages/st/index'
+// 學生頁面
+// import StIndex from './pages/st/index'
 // import Login from './pages/st/Login'
 
 // 購物車
@@ -41,7 +42,7 @@ function App() {
             <CartStep01 />
           </Route>
           <Route path="/StIndex">
-            <StIndex />
+            {/* <StIndex /> */}
           </Route>
 
           <Route path="/">
