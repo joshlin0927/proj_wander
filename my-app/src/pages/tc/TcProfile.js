@@ -6,6 +6,7 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcAvatarSelector from '../../components/tc/TcAvatarSelector'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
+import Footer from '../../components/Footer'
 
 function TcProfile() {
   const [TcFirstName, setTcFirstName] = useState('')
@@ -151,6 +152,7 @@ function TcProfile() {
         </div>
       </div>
       <TcBgDecorationNormal />
+      <Footer />
     </>
   )
 }

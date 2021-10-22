@@ -1,12 +1,17 @@
 import React from 'react'
 import { devUrl } from '../../config'
+import { Link } from 'react-router-dom'
 
-export default function {
-  return (<>
-
-    <nav className="sidebar col-2">
+export default function SideBar2() {
+  return (
+    <>
+      <nav className="sidebar col-2">
         <div className="avatar">
-          <img src={`${devUrl}/images/pic/學生照片/Anne Hathaway.jpg`} alt="" className="img-fluid" />
+          <img
+            src={`${devUrl}/images/pic/學生照片/Anne Hathaway.jpg`}
+            alt=""
+            className="img-fluid"
+          />
         </div>
         <ul className="nav_list">
           <li className="nav-item">
@@ -22,7 +27,8 @@ export default function {
             </Link>
           </li>
           <li className="nav-item  active">
-            <Link href=""><i className="fal fa-users-className"></i>
+            <Link href="">
+              <i className="fal fa-users-className"></i>
               <div> 教室上課</div>
             </Link>
           </li>
@@ -34,5 +40,6 @@ export default function {
           </li>
         </ul>
       </nav>
-  </>)
+    </>
+  )
 }

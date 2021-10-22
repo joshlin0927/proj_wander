@@ -1,4 +1,5 @@
 import React from 'react'
+import { devUrl } from 'react-router-dom'
 
 export default function StBgDecorationNormal() {
   return (
@@ -12,7 +13,7 @@ export default function StBgDecorationNormal() {
         <div className="whitecircle"></div>
         <div className="bluetriangle">
           <img
-            src="../public/imgs/網頁素材/Polygon 4.svg"
+            src={`${devUrl}/images/elements/bluetriangle.svg`}
             alt=""
           />
         </div>

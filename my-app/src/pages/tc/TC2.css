@@ -671,7 +671,7 @@ body {
   margin-top: 80px;
 }
 
-/* 商城顯示的課程 */
+/* 商城顯示的課程(手機) */
 .BuyCourseSection {
   display: flex;
   flex-wrap: wrap;
@@ -1603,7 +1603,7 @@ body {
     margin-top: 80px;
   }
 
-  /* 商城顯示的課程 */
+  /* 商城顯示的課程(桌機) */
   /* .BuyCourseSection {
     display: flex;
     flex-wrap: wrap;

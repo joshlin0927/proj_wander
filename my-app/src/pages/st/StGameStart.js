@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../public/css/gamestart.css'
+import './style/gamestart.css'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 export default function StGameStart() {
   return (

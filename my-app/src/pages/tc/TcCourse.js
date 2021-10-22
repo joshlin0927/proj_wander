@@ -9,22 +9,23 @@ import TcSearchBar from '../../components/tc/TcSearchBar'
 import TcCourseCard from '../../components/tc/TcCourseCard'
 import MyPagination from '../../components/MyPagination'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
+import Footer from '../../components/Footer'
 
 function TcCourse() {
   const [searchWord, setSearchWord] = useState('')
   let [data, setData] = useState({})
   let [totalRows, setTotalRows] = useState(0)
 
-  useEffect(() => {
-    ;(async () => {
-      let r = await asiox.get(ADDRESS_BOOK_LIST)
-      console.log(r)
-      if (r.status === 200) {
-        setTotalRows(r.data.totalRows)
-        setData(r.data)
-      }
-    })()
-  }, [])
+  // useEffect(() => {
+  //   ;(async () => {
+  //     let r = await asiox.get(ADDRESS_BOOK_LIST)
+  //     console.log(r)
+  //     if (r.status === 200) {
+  //       setTotalRows(r.data.totalRows)
+  //       setData(r.data)
+  //     }
+  //   })()
+  // }, [])
 
   return (
     <>
@@ -100,6 +101,7 @@ function TcCourse() {
         </div>
       </div>
       <TcBgDecorationNormal />
+      <Footer />
     </>
   )
 }

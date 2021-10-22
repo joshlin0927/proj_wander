@@ -1,10 +1,5 @@
 import React, { useState } from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 // 頁面
 import TcProfile from './TcProfile'
@@ -16,7 +11,6 @@ import TcCourseVideoEdit from './ThreeSteps/TcCourseVideoEdit'
 import TcAnalytic from './TcAnalytic'
 
 // 共用元件
-import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import ChatList from '../../components/chatroom/ChatList'
 import ChatWindow from '../../components/chatroom/ChatWindow'
 

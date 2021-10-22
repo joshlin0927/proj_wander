@@ -22,13 +22,15 @@ function Footer(props) {
                 alt=""
               />
             </Link>
-            <Link to="/">
-              <img
-                id="Footer-Mobile-Logo"
-                src={`${devUrl}/images/logo/footer_mobile.png`}
-                alt=""
-              />
-            </Link>
+            <div className="mx-auto">
+              <Link to="/">
+                <img
+                  id="Footer-Mobile-Logo"
+                  src={`${devUrl}/images/logo/footer_mobile.png`}
+                  alt=""
+                />
+              </Link>
+            </div>
             <div className="Footer-page-links">
               <Link to="">關於我們</Link>
               <Link to="">常見問題</Link>

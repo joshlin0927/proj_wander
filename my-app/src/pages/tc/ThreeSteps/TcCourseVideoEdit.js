@@ -8,48 +8,49 @@ import TcSearchBar from '../../../components/tc/TcSearchBar'
 import TcCourseCard from '../../../components/tc/TcCourseCard'
 import MyPagination from '../../../components/MyPagination'
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'
+import Footer from '../../../components/Footer'
 
 function TcCourseVideoEdit() {
   return (
     <>
-      <div class="container mainContent">
+      <div className="container mainContent">
         <MultiLevelBreadCrumb />
-        <div class="row justify-content-center">
+        <div className="row justify-content-center">
           {/* TCcourse-TCcourse-process bar */}
           <TcCourseProcessBar />
-          <form class="TCform col-12 col-md-10 px-4">
-            <div class="TCform-head ml-1 p-0">
+          <form className="TCform col-12 col-md-10 px-4">
+            <div className="TCform-head ml-1 p-0">
               <Link to="">
-                <i class="fas fa-chevron-left TCback-btn"></i>
+                <i className="fas fa-chevron-left TCback-btn"></i>
               </Link>
-              <div class="TCform-title mr-auto">
+              <div className="TCform-title mr-auto">
                 課程內容管理
               </div>
               {/* desktop search bar */}
-              <div class="TCsearch ml-0">
+              <div className="TCsearch ml-0">
                 <TcSearchBar />
               </div>
-              <div class="d-flex justify-content-end">
+              <div className="d-flex justify-content-end">
                 <Link>
-                  <button class="TCbtn TCbtn-sm-w-switch btn-primary">
+                  <button className="TCbtn TCbtn-sm-w-switch btn-primary">
                     <span>儲存</span>
                   </button>
                 </Link>
               </div>
             </div>
             {/* mobile search bar */}
-            <div class="TCsearch-mobile">
+            <div className="TCsearch-mobile">
               <TcSearchBar />
             </div>
             {/* TCcourse card label */}
-            <div class="TCcourseLabel col-12">
-              <div class="Labelitem">影片截圖</div>
-              <div class="Labelitem">影片名稱</div>
-              <div class="TCcourseLabel-right">
-                <div class="Labelitem">上傳日期</div>
-                <div class="Labelitem">影片長度</div>
-                <div class="TCcourse-delete">
-                  <i class="far fa-times-circle opacity-0"></i>
+            <div className="TCcourseLabel col-12">
+              <div className="Labelitem">影片截圖</div>
+              <div className="Labelitem">影片名稱</div>
+              <div className="TCcourseLabel-right">
+                <div className="Labelitem">上傳日期</div>
+                <div className="Labelitem">影片長度</div>
+                <div className="TCcourse-delete">
+                  <i className="far fa-times-circle opacity-0"></i>
                 </div>
               </div>
             </div>
@@ -60,6 +61,7 @@ function TcCourseVideoEdit() {
         </div>
       </div>
       <TcBgDecorationThreeSteps />
+      <Footer />
     </>
   )
 }
