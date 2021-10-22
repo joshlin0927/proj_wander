@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // components
+import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcSearchBar from '../../components/tc/TcSearchBar'
 import TcCourseCard from '../../components/tc/TcCourseCard'
@@ -14,6 +15,7 @@ function TcCourse() {
     <>
       <div className="container mainContent">
         <div className="row">
+        <MultiLevelBreadCrumb />
           <div className="logo-m">
             <img
               src="../images/logo/log_mobile.png"

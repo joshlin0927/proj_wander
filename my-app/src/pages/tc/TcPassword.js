@@ -2,24 +2,20 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // components
+import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 
 function TcPassword() {
   const [origin, setOrigin] = useState('')
   const [newPass, setNewPass] = useState('')
-  const [newPassCopy, setnewPassCopy] = useState('')
+  const [newPassCopy, setNewPassCopy] = useState('')
 
   return (
     <>
       <div className="container mainContent">
         <div className="row">
-          <div className="logo-m">
-            <img
-              src="../images/logo/log_mobile.png"
-              alt=""
-            />
-          </div>
+          <MultiLevelBreadCrumb />
           <div className="col-10 ml-auto pageName">
             <span className="pageNameText password">
               Password
@@ -44,6 +40,7 @@ function TcPassword() {
                 type="password"
                 class="col-12 allInputs"
                 placeholder="請輸入原密碼"
+                value={origin}
                 onChange={(e) => {
                   setOrigin(e.target.value)
                 }}
@@ -55,6 +52,7 @@ function TcPassword() {
                 type="text"
                 class="col-12 allInputs"
                 placeholder="請輸入新密碼"
+                value={newPass}
                 onChange={(e) => {
                   setNewPass(e.target.value)
                 }}
@@ -66,8 +64,9 @@ function TcPassword() {
                 type="text"
                 class="col-12 allInputs"
                 placeholder="請再次輸入新密碼"
+                value={newPassCopy}
                 onChange={(e) => {
-                  setnewPassCopy(e.target.value)
+                  setNewPassCopy(e.target.value)
                 }}
               />
               <label class="TCnotice" for="">

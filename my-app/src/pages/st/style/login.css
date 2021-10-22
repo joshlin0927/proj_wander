@@ -3,7 +3,11 @@
  }
 
  .bgc-img {
+<<<<<<< HEAD
    background-image: url('http: //localhost:3000/images/pic/其他/AdobeStock_408070902.jpeg');
+=======
+   /* background-image: url('../imgs/其他/AdobeStock_408070902.jpeg'); */
+>>>>>>> fe54d3ade61f5d462385c42abe731a3bf5eac2cc
    background-position: left;
    background-repeat: no-repeat;
    background-size: cover;
@@ -125,8 +129,13 @@
 
 
  @media (min-width: 768px) {
+<<<<<<< HEAD
    /* .bgc-img {
      background-image: url('http://localhost:3000/images/pic/其他/AdobeStock_408070902.jpeg');
+=======
+   .bgc-img {
+     /* background-image: url('../imgs/其他/AdobeStock_408070902.jpeg'); */
+>>>>>>> fe54d3ade61f5d462385c42abe731a3bf5eac2cc
      background-position: top;
      background-repeat: no-repeat;
      background-size: cover;

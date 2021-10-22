@@ -77,7 +77,7 @@ function MultiLevelBreadCrumb(props) {
     <>
       <nav
         aria-label="breadcrumb"
-        className="container customBread p-0"
+        className="p-0"
       >
         <div class="logo-m">
           <img
