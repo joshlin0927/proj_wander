@@ -10,7 +10,7 @@ function TcCourseProcessBar() {
       <Nav className="TCcourse-processBar col-10">
         <Nav.Link
           as={NavLink}
-          to="/"
+          to="/TCindex/TcCourse"
           className="btn btn-border-only-no-h col-2"
         >
           <i className="fas fa-chevron-left"></i>
@@ -18,7 +18,10 @@ function TcCourseProcessBar() {
         </Nav.Link>
         <ul className="TCcourse-processBarList">
           <li className="TCcourse-processBar-item">
-            <Nav.Link as={NavLink} to="/TcCourseEdit">
+            <Nav.Link
+              as={NavLink}
+              to="/TCindex/TcCourseEdit"
+            >
               <i className="far fa-check-circle"></i>
               <div>課程細節頁面</div>
             </Nav.Link>
@@ -26,14 +29,17 @@ function TcCourseProcessBar() {
           <li className="TCcourse-processBar-item">
             <Nav.Link
               as={NavLink}
-              to="/TcCourseVideoUpload"
+              to="/TCindex/TcCourseVideoUpload"
             >
               <i className="far fa-check-circle"></i>
               <div>課程內容上傳</div>
             </Nav.Link>
           </li>
           <li className="TCcourse-processBar-item">
-            <Nav.Link as={NavLink} to="/TcCourseVideoEdit">
+            <Nav.Link
+              as={NavLink}
+              to="/TCindex/TcCourseVideoEdit"
+            >
               <i className="far fa-check-circle"></i>
               <div>課程內容管理</div>
             </Nav.Link>
