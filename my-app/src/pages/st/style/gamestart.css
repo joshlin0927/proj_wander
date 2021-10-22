@@ -109,7 +109,7 @@
 }
 
 .bgc-img {
-  background-image: url('../public/imgs/背景圖素材/218e6e75.jpg');
+  background-image: url('http://localhost:3000/images/pic/背景圖素材/218e6e75.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -149,7 +149,7 @@
   }
 
   .mainpic {
-    background-image: url('../public/imgs/背景圖素材/218e6e75.jpg');
+    background-image: url('http://localhost:3000/images/pic/背景圖素材/218e6e75.jpg');
     background-position: center;
     background-repeat: no-repeat;
     height: 446px;
