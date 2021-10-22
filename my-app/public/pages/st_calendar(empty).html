@@ -26,7 +26,6 @@
       font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     }
 
-  
 
     /* 網站導覽列 */
     .navbar {
@@ -93,7 +92,7 @@
     }
 
     .subtitle {
-      display:block;
+      display: block;
       font-size: 24px;
       font-weight: bold;
       margin-top: 70px;
@@ -106,7 +105,7 @@
       border-radius: 30px;
       position: relative;
       margin-top: 55px;
-      
+
     }
 
     .courseitem img {
@@ -134,7 +133,7 @@
       left: 5%;
     }
 
-    .mainContent{
+    .mainContent {
       background-image: url("../public/imgs/其他/AdobeStock_367262423.jpeg");
       background-position: top;
       background-repeat: no-repeat;
@@ -142,63 +141,67 @@
       /* 透明度0.6的黑色半透明遮罩 */
       background-color: rgba(0, 0, 0, 0.4);
       /* 設置背景混和模式為相乘模式 */
-      background-blend-mode: multiply;    
+      background-blend-mode: multiply;
     }
 
-    .coursesection{
-      margin:0px;
+    .coursesection {
+      margin: 0px;
       width: 100%;
-    
+
     }
 
-    .mb50{
+    .mb50 {
       margin-bottom: 50px;
     }
-    .mb30{
+
+    .mb30 {
       margin-bottom: 30px;
     }
 
-     .rightarr{
+    .rightarr {
 
-     width: 45px;
-     height: 45px;
-     background-color: white;
-     border-radius: 50%;
-     position: absolute;
-     top:50%;
-     right:0%;
-     transform: translate(30%,-50%);
-     text-align: center;
+      width: 45px;
+      height: 45px;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      right: 0%;
+      transform: translate(30%, -50%);
+      text-align: center;
 
 
-     }
+    }
 
-     .rightarr a, .leftarr a{
+    .rightarr a,
+    .leftarr a {
 
-     color:black;
-     font-size:32px
-     }
+      color: black;
+      font-size: 32px
+    }
 
-     .leftarr{
-     width: 45px;
-     height: 45px;
-     background-color: white;
-     border-radius: 50%;
-     position: absolute;
-     top:50%;
-     left:0%;
-     transform: translate(-30%,-50%);
-     text-align: center;
-     }
+    .leftarr {
+      width: 45px;
+      height: 45px;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      transform: translate(-30%, -50%);
+      text-align: center;
+    }
 
-     .remindingarea{
-       margin-left: auto;
-       margin-right: auto;
-     }
+    .remindingarea {
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-     .mo-show{
-       display:block;
-     }
+    .mo-show {
+      /* display:block; */
+    }
+
+
 
 
 
@@ -207,14 +210,29 @@
 
     @media (min-width: 768px) {
 
-      .mainContent{
-        background-image:none;
-        background-color:transparent
-
+      .full{
+        height:100vh;
+        width:100%;
       }
 
-      
-      
+      .mainContent {
+        background-image: none;
+        background-color: transparent
+      }
+
+      body{
+       background-image: url("../public/imgs/其他/AdobeStock_367262423.jpeg");
+       background-position: top;
+       background-repeat: no-repeat;
+       background-size: cover;
+       /* 透明度0.6的黑色半透明遮罩 */
+       background-color: rgba(0, 0, 0, 0.4);
+       /* 設置背景混和模式為相乘模式 */
+       background-blend-mode: multiply;
+      }
+
+
+
 
       /* 右上角白圈 */
       .whitecircle {
@@ -502,17 +520,21 @@
       .mb150 {
         margin-bottom: 150px;
       }
-       
-      .rightarr, .leftarr, .coursesection, .subtitle, .courseitem{
-        display:none;
+
+      .rightarr,
+      .leftarr,
+      .coursesection,
+      .subtitle,
+      .courseitem {
+        display: none;
 
       }
 
-      .des-none{
+      .des-none {
         display: none;
       }
 
-      
+
 
     }
   </style>
@@ -560,7 +582,7 @@
   </nav>
 
   <!-- Main Content -->
-  <div class="container mainContent">
+  <div class="container mainContent full">
     <!-- breadcrumb -->
     <div class="row">
       <div class="logo-m">
@@ -616,27 +638,30 @@
         <div class="buynowbtn"><button class="btn btn-secondary row buy-btn">購買課程</button></div>
       </div>
     </div>
+
+
+
+  </div>
+  <div class="des-none mo-show">
+
+
+    <div class="subtitle">推薦課程</div>
+    <div class="coursesection col-12 mb30">
+      <div class="courseitem">
+        <div class="leftarr"><a href=""><i class="fal fa-arrow-left"></i></a></div>
+        <img src="../public/imgs/課程圖片/歐洲運動賽事.jpeg" alt="">
+        <div class="coursename">課程名稱：填上課程名稱</div>
+        <span class="teachername">Thoms Lillard</span>
+        <div class="rightarr"><a href=""><i class="fal fa-arrow-right"></i></a></div>
+      </div>
+    </div>
+
+
+
   </div>
 
-   <div class="container des-none mo-show">
-
-     <div class="row">
-       <div class="subtitle">推薦課程</div>
-       <div class="coursesection col-12 mb30">
-         <div class="courseitem">
-           <div class="leftarr"><a href=""><i class="fal fa-arrow-left"></i></a></div>
-           <img src="../public/imgs/課程圖片/歐洲運動賽事.jpeg" alt="">
-           <div class="coursename">課程名稱：填上課程名稱</div>
-           <span class="teachername">Thoms Lillard</span>
-           <div class="rightarr"><a href=""><i class="fal fa-arrow-right"></i></a></div>
-         </div>
-       </div>
-     </div>
 
 
-   </div>
-
- 
 
 
 
