@@ -698,3 +698,22 @@ a {
     margin: 0px 0px 0px 10px;
   }
 }
+
+/*============= breadcrumb =============*/
+.customBread{
+  margin-top: 110px;
+}
+/* 手機logo */
+.logo-m {
+  display: none;
+}
+@media (max-width: 767px) {
+  .logo-m {
+    margin: 40px auto 40px;
+    display: block;
+    text-align: center;
+  }
+  .customBread{
+    margin-top: 0px;
+  }
+}

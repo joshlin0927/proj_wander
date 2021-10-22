@@ -32,11 +32,7 @@ function App() {
         <MultiLevelBreadCrumb />
 
         <Switch>
-<<<<<<< HEAD
-          <Route path="/TCindex">
-=======
           <Route path="/TCindex" exact>
->>>>>>> 7dede0c099c246aae9a9c150db94e2315f10e230
             <TCindex />
           </Route>
           <Route path="/">
