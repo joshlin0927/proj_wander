@@ -9,6 +9,7 @@ import TcSearchBar from '../../components/tc/TcSearchBar'
 import TcCourseCard from '../../components/tc/TcCourseCard'
 import MyPagination from '../../components/MyPagination'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
+import Footer from '../../components/Footer'
 
 function TcCourse() {
   const [searchWord, setSearchWord] = useState('')
@@ -100,6 +101,7 @@ function TcCourse() {
         </div>
       </div>
       <TcBgDecorationNormal />
+      <Footer />
     </>
   )
 }

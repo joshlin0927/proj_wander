@@ -9,6 +9,7 @@ import TcCourseCard from '../../components/tc/TcCourseCard'
 import TcChart from '../../components/tc/TcChart'
 import MyPagination from '../../components/MyPagination'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
+import Footer from '../../components/Footer'
 
 function TcAnalytic() {
   return (
@@ -65,6 +66,7 @@ function TcAnalytic() {
         </div>
       </div>
       <TcBgDecorationNormal />
+      <Footer />
     </>
   )
 }

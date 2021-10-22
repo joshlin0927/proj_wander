@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
+import Footer from '../../components/Footer'
 
 function TcPassword() {
   const [origin, setOrigin] = useState('')
@@ -80,6 +81,7 @@ function TcPassword() {
         </div>
       </div>
       <TcBgDecorationNormal />
+      <Footer />
     </>
   )
 }

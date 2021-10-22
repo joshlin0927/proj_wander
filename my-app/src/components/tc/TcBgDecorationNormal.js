@@ -1,4 +1,5 @@
 import React from 'react'
+import { devUrl } from '../../config'
 
 function TcBgDecoration() {
   return (
@@ -8,7 +9,10 @@ function TcBgDecoration() {
         <div className="dec-circle"></div>
         <div className="dec-block"></div>
         <div className="earth">
-          <img src="../images/elements/earth.png" alt="" />
+          <img
+            src={`${devUrl}/images/elements/earth.png`}
+            alt=""
+          />
         </div>
       </div>
     </>
