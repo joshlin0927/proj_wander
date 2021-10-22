@@ -1,4 +1,4 @@
-import '../../../public/css/signUp.css'
+import '../st/style/signUp.css'
 import React from 'react'
 
 export default function SignUp() {
