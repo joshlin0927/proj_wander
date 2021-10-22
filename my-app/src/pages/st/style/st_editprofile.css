@@ -3,7 +3,7 @@
  }
 
  .bgc-img {
-   background-image: url('../public/imgs/其他/AdobeStock_408070902.jpeg');
+   background-image: url('http://localhost:3000/images/pic/其他/AdobeStock_408070902.jpeg');
    background-position: top;
    background-repeat: no-repeat;
    background-size: cover;

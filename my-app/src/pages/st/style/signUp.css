@@ -3,7 +3,7 @@
 }
 
 .bgc-img {
-  background-image: url('../public/imgs/其他/AdobeStock_408070902.jpeg');
+  background-image: url('http://localhost:3000/images/pic/其他/AdobeStock_408070902.jpeg');
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
@@ -212,17 +212,7 @@ input::-webkit-input-placeholder {
 }
 
 @media (min-width: 768px) {
-  body {
-    background-image: url('../public/imgs/其他/AdobeStock_408070902.jpeg');
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* 透明度0.6的黑色半透明遮罩 */
-    background-color: rgba(0, 0, 0, 0.6);
-    /* 設置背景混和模式為相乘模式 */
-    background-blend-mode: multiply;
-  }
-
+ 
   .navbar {
     display: flex;
     height: 80px;

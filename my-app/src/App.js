@@ -19,8 +19,7 @@ import WanderIndex from './pages/home/WanderIndex'
 // 教師頁面
 import TCindex from './pages/tc/index'
 
-import Login from './pages/st/Login'
-
+import StIndex from './pages/st/index'
 
 // 全頁通用元件
 import Footer from './components/Footer'
@@ -30,21 +29,18 @@ function App() {
   return (
     <Router>
       <>
-        
         <PcNavbar />
         {/* <MultiLevelBreadCrumb /> */}
-      
 
         <Switch>
-          <Route path="/TCindex"> 
-          {/* exact 要加回去 */}
+          <Route path="/TCindex">
+            {/* exact 要加回去 */}
             <TCindex />
           </Route>
 
-           <Route path = "/Login">
-           <Login />
-             </Route>
-           
+          <Route path="/StIndex">
+            <StIndex />
+          </Route>
 
           <Route path="/">
             <WanderIndex />
