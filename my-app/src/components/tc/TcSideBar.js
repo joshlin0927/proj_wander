@@ -21,7 +21,7 @@ function TcSideBar() {
           <li>
             <Nav.Link
               as={NavLink}
-              to="/TcProfile"
+              to="/TCindex/TcProfile"
               className="nav-item"
               activeClassName="active"
               onClick={() => {
@@ -35,7 +35,7 @@ function TcSideBar() {
           <li>
             <Nav.Link
               as={NavLink}
-              to="/TcPassword"
+              to="/TCindex/TcPassword"
               className="nav-item"
               activeClassName="active"
               onClick={() => {
@@ -49,7 +49,7 @@ function TcSideBar() {
           <li>
             <Nav.Link
               as={NavLink}
-              to="/TcCourse"
+              to="/TCindex/TcCourse"
               className="nav-item"
               activeClassName="active"
               onClick={() => {
@@ -79,7 +79,7 @@ function TcSideBar() {
           <li>
             <Nav.Link
               as={NavLink}
-              to="/TcAnalytic"
+              to="/TCindex/TcAnalytic"
               className="nav-item"
               activeClassName="active"
               onClick={() => {

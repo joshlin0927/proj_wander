@@ -17,16 +17,16 @@ import WanderIndex from './pages/home/WanderIndex'
 
 // 教師頁面
 import TCindex from './pages/tc/index'
+import TcCourse from './pages/tc/TcCourse'
 import ThreeStepsIndex from './pages/tc/ThreeSteps/ThreeStepsIndex'
 
 // 全頁通用元件
-import MultiLevelBreadCrumb from './components/MultiLevelBreadCrumb'
 import Footer from './components/Footer'
 
 function App() {
   return (
-    <>
-      <Router>
+    <Router>
+      <>
         <PcNavbar />
         <MultiLevelBreadCrumb />
 
@@ -40,8 +40,8 @@ function App() {
         </Switch>
 
         <Footer />
-      </Router>
-    </>
+      </>
+    </Router>
   )
 }
 

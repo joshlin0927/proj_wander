@@ -71,8 +71,8 @@ function MultiLevelBreadCrumb(props) {
 
   return (
     <>
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
+      <nav aria-label="breadcrumb" className="w-100">
+        <ol className="breadcrumb col col-md-10 col-lg-12 m-0">
           <li className="breadcrumb-item">
             <Link to="/">首頁</Link>
           </li>
