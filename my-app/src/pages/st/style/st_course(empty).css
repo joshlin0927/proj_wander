@@ -1,0 +1,690 @@
+* {
+  font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+}
+
+.bgc-img {
+  background: #f1f0e9;
+  position: relative;
+  /* overflow: hidden; */
+}
+
+/* 全頁包覆(為了色塊動畫) */
+.TCallwraper {
+  z-index: -1;
+  position: absolute;
+  top: -110px;
+  width: 100%;
+
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 115px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+/* 網站導覽列 */
+.navbar {
+  display: none;
+}
+
+
+
+/* 上面的黃色色塊 */
+.dec-block {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  width: 56%;
+  height: 335px;
+  z-index: -2;
+  background: #f1ef5b;
+  border-radius: 0px 0px 0px 180px;
+  animation: TChy 12s linear infinite;
+}
+
+/* 藍色倒三角 */
+.bluetriangle {
+  display: none;
+}
+
+
+/* 黃色色塊的動畫 */
+@keyframes TChy {
+  0% {
+    right: 0%;
+    width: 56%;
+  }
+
+  50% {
+    right: 0%;
+    width: 60%;
+  }
+
+  100% {
+    right: 0%;
+    width: 56%;
+
+  }
+}
+
+
+/* 麵包屑 */
+.breadcrumb {
+  background-color: transparent;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  margin-left: .25rem;
+  padding: 0px 0px 15px;
+}
+
+/* 頁碼 */
+.Mypagination {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 50px 0px 30px;
+}
+
+.Mypage-item {
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  line-height: 26px;
+  text-align: center;
+}
+
+.Mypage-item a {
+  font-size: 12px;
+  color: black;
+  text-align: center;
+}
+
+.Mypage-item a i {
+  color: #065F8E;
+}
+
+/* 頁碼被選中時 */
+.Mypage-item.active {
+  background-color: #065F8E;
+}
+
+.Mypage-item.active a {
+  color: white;
+}
+
+/* 手機logo */
+.logo-m {
+  margin: 40px auto 40px;
+}
+
+/* 會員中心sidebar */
+.sidebar {
+  display: none;
+}
+
+
+
+
+
+
+/* 手機板會變小的按鈕(有display變化) */
+.TCbtn-sm-w-switch {
+  display: flex;
+  width: 73px;
+  height: 30px;
+}
+
+
+
+
+
+/* 教師頁面返回按鈕 */
+.TCback-btn {
+  padding: 0px 15px;
+  color: #065F8E;
+}
+
+/* 頁面英文標題 */
+.pageName {
+  display: none;
+}
+
+.triangle-left {
+  /* position: absolute;
+    top: 147px;
+    left: 60px; */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 30px 20px 0;
+  border-color: transparent #F1F0E9 transparent transparent;
+}
+
+.coursesection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.courseitem {
+  width: 100%;
+  height: 271px;
+  border: 1.25px solid rgba(255, 255, 255, 1);
+  border-radius: 30px;
+  position: relative;
+  margin-bottom: 30px;
+  margin-left: 10px;
+}
+
+.courseitem img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+}
+
+.coursename {
+  color: white;
+  font-size: 14px;
+  font-style: bold;
+  top: 65%;
+  left: 5%;
+  margin-left: auto;
+  position: absolute;
+}
+
+.teachername {
+  color: white;
+  font-size: 8px;
+  font-style: bold;
+  position: absolute;
+  top: 75%;
+  left: 5%;
+}
+
+
+.subtitle {
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin: 100px 0px 0px 15px;
+}
+
+.t_avatar {
+  width: 200px;
+  height: fit-height;
+  border-radius: 50%;
+  /* overflow: hidden; */
+
+}
+
+.t_avatar img {
+  width: 100%;
+  /* height:100%; */
+  object-fit: contain;
+  border-radius: 50%;
+
+
+}
+
+.nametag {
+  text-align: center;
+  margin-top: 45px;
+  font-size: 24px;
+  margin-bottom: 0px;
+
+}
+
+.mo-none {
+  display: none
+}
+
+.teacherrow {
+  margin: 0;
+  justify-content: center;
+  display: row;
+}
+
+.btblock {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.remindingtext {
+  font-size: 36px;
+  color: #065F8E;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 185px;
+}
+
+.buy-btn {
+  background-color: transparent;
+  border: #065F8E 1px solid;
+  color: #065F8E;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.buy-btn:hover {
+  background-color: #065F8E;
+  border: 1px solid transparent;
+  color: white;
+}
+
+.bgcwhite {
+  background-color: #ffffff;
+}
+
+.reminding {
+  margin: 0px;
+}
+
+
+
+
+
+/* -------------以上為公用------------ */
+
+
+
+@media (min-width: 768px) {
+
+
+  /* 右上角白圈 */
+  .whitecircle {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    right: 0px;
+    top: -126px;
+    border: white 2px dashed;
+    border-radius: 50%;
+  }
+
+  /* 藍色倒三角 */
+  .bluetriangle {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 615px;
+  }
+
+  /* 網站主要導覽列 */
+  .navbar {
+    z-index: 5;
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    padding: 0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .mainContent {
+    margin-top: 110px;
+  }
+
+  /* 麵包屑 */
+  .breadcrumb {
+    padding: 0px;
+  }
+
+
+  /* 黃色色塊(上) */
+  .dec-block {
+    height: 310px;
+  }
+
+  /* 手機版logo */
+  .logo-m {
+    display: none;
+  }
+
+  /* 頁碼 */
+  .Mypagination {
+    display: flex;
+  }
+
+
+  /* 頁面英文標題 */
+  .pageName {
+    display: block;
+    margin-bottom: 96px;
+    margin-top: 96px;
+    padding: 0;
+  }
+
+  .pageNameText {
+    position: relative;
+    color: black;
+    font-size: 6rem;
+    font-weight: bold;
+    line-height: 1.0;
+  }
+
+
+
+  .course::before {
+    content: "";
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #f1ef5b;
+    position: absolute;
+    z-index: -5;
+    left: 20%;
+    top: 42%;
+  }
+
+
+
+  /* 會員中心sidebar */
+  .sidebar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  /* 頭像 */
+  .sidebar .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+
+  /* sidebar選項列 */
+  .sidebar .nav-list {
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  /* sidebar選項 */
+  .sidebar .nav-item {
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    align-items: center;
+    height: 50px;
+    border-radius: 0px 10px 10px 0px;
+    margin-bottom: 10px;
+    color: #065f8e;
+  }
+
+  .sidebar .nav-item>i {
+    font-size: 25px;
+    width: 40px;
+    margin-left: 10%;
+    background-color: transparent;
+  }
+
+  /* 選中的選項狀態 */
+  .sidebar .nav-item.active {
+    background-color: white;
+  }
+
+  .sidebar .nav-item.active::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 50px;
+    background: #f1ef5b;
+  }
+
+  .sidebar .nav-item:hover {
+    background-color: white;
+  }
+
+
+  /* 這裡開始是課程商品 */
+
+  .coursesection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .courseitem {
+    width: 215px;
+    height: 215px;
+    border: 1.25px solid rgba(255, 255, 255, 1);
+    border-radius: 30px;
+    position: relative;
+    margin-bottom: 30px;
+    margin-left: 10px;
+  }
+
+  .courseitem img {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+  }
+
+  .coursename {
+    color: white;
+    font-size: 14px;
+    font-style: bold;
+    top: 65%;
+    left: 5%;
+    margin-left: auto;
+    position: absolute;
+  }
+
+  .teachername {
+    color: white;
+    font-size: 8px;
+    font-style: bold;
+    position: absolute;
+    top: 75%;
+    left: 5%;
+  }
+
+  /* 以下提供給商品頁面及教師頁面使用 */
+
+  /* .fa-star {
+        color: #BCC831;
+      }
+
+      .score {
+        font-size: 10px;
+        color: white;
+        font-style: bold;
+        position: absolute;
+        top: 85%;
+        left: 5%;
+      }
+
+      .price {
+        font-size: 14px;
+        color: white;
+        font-weight: bold;
+        position: absolute;
+        top: 87%;
+        right: 5%;
+      } */
+
+
+
+  .subtitle {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 100px 0px 0px 15px;
+  }
+
+  .t_avatar {
+    width: 200px;
+
+    border-radius: 50%;
+    /* overflow: hidden; */
+
+  }
+
+  .t_avatar img {
+    width: 100%;
+    /* height: 200px; */
+    object-fit: cover;
+    border-radius: 50%;
+
+
+  }
+
+  .nametag {
+    text-align: center;
+    margin-top: 45px;
+    font-size: 24px;
+    margin-bottom: 0px;
+
+  }
+
+
+
+  /* -------------以上為公用--------- */
+
+  /* 手機板會變小的按鈕 */
+  .TCbtn-sm {
+    display: flex;
+    width: 115px;
+    height: 40px;
+  }
+
+  /* 手機板會變小的按鈕(有display變化) */
+  .TCbtn-sm-w-switch {
+    display: none;
+  }
+
+
+
+  /* 教師頁面返回按鈕 */
+  .TCback-btn {
+    display: none;
+  }
+
+
+  /* 會員中心sidebar */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  /* 頭像 */
+  .sidebar .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+
+  /* sidebar選項列 */
+  .sidebar .nav_list {
+    list-style: none;
+    padding-left: 0;
+    /* width: 100%; */
+  }
+
+  /* sidebar選項 */
+  .sidebar .nav-item {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-radius: 0px 10px 10px 0px;
+    margin-bottom: 10px;
+  }
+
+  .sidebar .nav-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    color: #065f8e;
+    margin-left: 25px;
+    background-color: transparent;
+  }
+
+  .sidebar .nav-item>a>i {
+    font-size: 25px;
+    width: 30px;
+    background-color: transparent;
+  }
+
+  /* 選中的選項狀態 */
+  .nav-item.active {
+    background-color: white;
+  }
+
+  .nav-item.active::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 50px;
+    background: #f1ef5b;
+  }
+
+  .sidebar .nav-item:hover {
+    background-color: white;
+  }
+
+  .mo-none {
+    display: block;
+  }
+
+  .btblock {
+    width: 100%;
+    margin-bottom: 150px;
+  }
+
+
+
+  .remindingtext {
+    font-size: 36px;
+    color: #065F8E;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 145px;
+  }
+
+  .buy-btn {
+    background-color: transparent;
+    border: #065F8E 1px solid;
+    color: #065F8E;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+  .buy-btn:hover {
+    background-color: #065F8E;
+    border: 1px solid transparent;
+    color: white;
+  }
+
+  .bgcwhite {
+    background-color: #ffffff;
+  }
+
+
+
+
+}
+

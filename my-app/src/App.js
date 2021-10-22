@@ -13,7 +13,7 @@ import React, { useState } from 'react'
 import TCindex from './pages/tc/index'
 import TcCourse from './pages/tc/TcCourse'
 import ThreeStepsIndex from './pages/tc/ThreeSteps/ThreeStepsIndex'
-
+import Login from './pages/st/Login'
 // 全頁通用元件
 import Footer from './components/Footer'
 
@@ -21,6 +21,7 @@ function App() {
   return (
     <Router>
       <>
+        <Login />
         <Switch>
           <Route to="/TCindex">
             <TCindex />

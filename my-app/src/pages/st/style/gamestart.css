@@ -1,0 +1,243 @@
+* {
+  font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+}
+
+.navbar {
+  display: none;
+}
+
+.breadcrumb {
+  background-color: transparent;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  color: #065f8e;
+  padding-bottom: 15px;
+  margin: 0px;
+  padding-left: 0px;
+}
+
+.bread>ol {
+  list-style-type: none;
+}
+
+.logo-m {
+  margin: 40px auto 40px;
+}
+
+.mainpic {
+  padding: 0;
+  background-image: none;
+
+
+}
+
+
+.dec-side,
+.dec-insideblock {
+  display: none;
+}
+
+.dec-side-m {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 64%;
+  height: 371px;
+  border-radius: 0px 0px 0px 50px;
+  background-color: #F1EF5B;
+  margin-left: auto;
+  padding: 0;
+  margin-bottom: 30px;
+  z-index: -1;
+}
+
+.dec-insideblock-m {
+  display: block;
+  width: 90%;
+  height: 334px;
+  background-color: #ffffff;
+  border-radius: 20px 0px 0px 80px;
+  margin-left: auto;
+  padding: 0;
+  position: relative;
+}
+
+.mylanguage {
+  display: block;
+  border: 3px solid black;
+
+  height: 63px;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  line-height: 63px;
+  position: absolute;
+  top: 60%;
+  left: 20%;
+  z-index: 1;
+}
+
+.gamestart {
+  display: block;
+  border: 3px solid black;
+  height: 63px;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  line-height: 63px;
+  position: absolute;
+  top: 80%;
+  left: 20%;
+  z-index: 1;
+}
+
+.dot {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: #F1EF5B;
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  z-index: -1;
+}
+
+.full {
+  height: 100vh;
+}
+
+.bgc-img {
+  background-image: url('../public/imgs/背景圖素材/218e6e75.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* 透明度0.6的黑色半透明遮罩 */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* 設置背景混和模式為相乘模式 */
+  background-blend-mode: multiply;
+}
+
+
+
+
+
+
+@media (min-width: 768px) {
+
+  .bgc-img {
+    background-color: #F1F0E9;
+    background-image: none;
+
+  }
+
+  .full {
+    height: fit-content;
+  }
+
+
+  .navbar {
+    display: flex;
+    height: 80px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* margin-bottom: 30px; */
+  }
+
+  .logo-m {
+    display: none;
+  }
+
+  .mainpic {
+    background-image: url('../public/imgs/背景圖素材/218e6e75.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 446px;
+    background-size: cover;
+  }
+
+  .dec-side {
+    display: block;
+    height: 600px;
+    border-radius: 0px 0px 0px 180px;
+    background-color: #F1EF5B;
+    margin-left: auto;
+    padding: 0;
+    margin-bottom: 150px;
+  }
+
+  .dec-insideblock {
+    display: block;
+    width: 100%;
+    height: 470px;
+    background-color: #ffffff;
+    border-radius: 20px 0px 0px 180px;
+    margin-left: auto;
+    padding: 0;
+    position: relative;
+  }
+
+  .mylanguage {
+    display: block;
+    border: 3px solid black;
+    width: 100%;
+    height: 125px;
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    line-height: 125px;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    z-index: 1;
+  }
+
+  .gamestart {
+    display: block;
+    border: 3px solid black;
+    width: 100%;
+    height: 125px;
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    line-height: 125px;
+    position: absolute;
+    top: 60%;
+    left: 20%;
+    z-index: 1;
+  }
+
+  .breadcrumb {
+    background-color: transparent;
+    font-size: 14px;
+    letter-spacing: -0.015em;
+    font-weight: 500;
+    color: #065f8e;
+    padding-bottom: 15px;
+    margin-top: 30px;
+
+  }
+
+  .bread>ol {
+    list-style-type: none;
+  }
+
+  .dot {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #F1EF5B;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    z-index: -1;
+  }
+
+  .dec-side-m,
+  .dec-insideblock-m {
+    display: none;
+  }
+
+
+}
+
