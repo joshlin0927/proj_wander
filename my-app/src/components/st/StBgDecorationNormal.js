@@ -1,5 +1,5 @@
 import React from 'react'
-import { devUrl } from 'react-router-dom'
+import { devUrl } from '../../config'
 
 export default function StBgDecorationNormal() {
   return (
