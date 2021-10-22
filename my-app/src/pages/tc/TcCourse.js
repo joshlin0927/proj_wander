@@ -9,6 +9,7 @@ import MyPagination from '../../components/MyPagination'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 
 function TcCourse() {
+  const [searchWord, setSearchWord] = useState('')
   return (
     <>
       <div className="container mainContent">
@@ -38,7 +39,10 @@ function TcCourse() {
               </div>
               {/* desktop search bar */}
               <div class="TCsearch mr-auto col-6">
-                <TcSearchBar />
+                <TcSearchBar
+                  searchWord={searchWord}
+                  setSearchWord={setSearchWord}
+                />
               </div>
               <div class="d-flex justify-content-end">
                 <Link to="/TCindex/TcCourseEdit">
@@ -53,7 +57,10 @@ function TcCourse() {
             </div>
             {/* mobile search bar */}
             <div class="TCsearch-mobile">
-              <TcSearchBar />
+              <TcSearchBar
+                searchWord={searchWord}
+                setSearchWord={setSearchWord}
+              />
             </div>
             {/* TCcourse card label */}
             <div class="TCcourseLabel col-12">
