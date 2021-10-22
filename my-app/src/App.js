@@ -19,6 +19,7 @@ import WanderIndex from './pages/home/WanderIndex'
 // 教師頁面
 import TCindex from './pages/tc/index'
 
+import StIndex from './pages/st/index'
 // import Login from './pages/st/Login'
 
 // 全頁通用元件
@@ -37,8 +38,8 @@ function App() {
             <TCindex />
           </Route>
 
-          <Route path="/Login">
-            {/* <Login /> */}
+          <Route path="/StIndex">
+            <StIndex />
           </Route>
 
           <Route path="/">

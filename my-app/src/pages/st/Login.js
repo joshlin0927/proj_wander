@@ -16,7 +16,7 @@ function Login(props) {
           <div className="m-wrap row justify-content-center">
             <div className="logo-m">
               <img
-                src="./imgs/logo/log_mobile.png"
+                src="http://localhost:3000/images/logo/log_mobile.png"
                 alt=""
               />
             </div>
@@ -24,6 +24,8 @@ function Login(props) {
           <div className="row m-wrap">
             <div className="back">Back</div>
           </div>
+          <div className="mt95"></div>
+
           <div className="login col-md-6">
             <form className="form-sm">
               <div className="title">Welcome Back!</div>
@@ -67,15 +69,18 @@ function Login(props) {
                 </button>
               </div>
 
-              <div className="joinus">
+              <div className="joinusblack">
                 還沒加入我們？
                 <Link to="#/" className="joinus">
                   前往註冊
                 </Link>
               </div>
+              <div className="mb30"></div>
             </form>
           </div>
         </div>
+
+        <div className="mb150"></div>
       </div>
       {/* <p>目前登入情況: {auth ? '登入中' : '未登入'}</p> */}
       {/* <button
