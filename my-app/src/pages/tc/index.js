@@ -22,33 +22,31 @@ import ChatWindow from '../../components/chatroom/ChatWindow'
 function index() {
   return (
     <>
-      <Router>
-        {/* Main Content */}
-        <div className="container mainContent">
-          <TcPageName />
-          <div className="row">
-            <TcSideBar />
-            <Switch>
-              <Route path="/TcProfile">
-                <TcProfile />
-              </Route>
-              <Route path="/TcPassword">
-                <TcPassword />
-              </Route>
-              <Route path="/TcCourse">
-                <TcCourse />
-              </Route>
-              <Route path="/TcCourse/ThreeStepsIndex">
-                <ThreeStepsIndex />
-              </Route>
-              <Route path="/TcAnalytic">
-                <TcAnalytic />
-              </Route>
-            </Switch>
-          </div>
+      {/* Main Content */}
+      <div className="container mainContent">
+        <TcPageName />
+        <div className="row">
+          <TcSideBar />
+          <Switch>
+            <Route path="/TcProfile">
+              <TcProfile />
+            </Route>
+            <Route path="/TcPassword">
+              <TcPassword />
+            </Route>
+            <Route path="/TcCourse">
+              <TcCourse />
+            </Route>
+            <Route path="/TcCourse/ThreeStepsIndex">
+              <ThreeStepsIndex />
+            </Route>
+            <Route path="/TcAnalytic">
+              <TcAnalytic />
+            </Route>
+          </Switch>
         </div>
-        <TcBgDecorationNormal />
-      </Router>
+      </div>
+      <TcBgDecorationNormal />
     </>
   )
 }

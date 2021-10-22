@@ -19,8 +19,8 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <>
-      <Router>
+    <Router>
+      <>
         <MultiLevelBreadCrumb />
 
         <Switch>
@@ -30,8 +30,8 @@ function App() {
         </Switch>
 
         <Footer />
-      </Router>
-    </>
+      </>
+    </Router>
   )
 }
 
