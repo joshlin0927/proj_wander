@@ -892,8 +892,7 @@ body {
 }
 
 .TCcourse-delete:hover {
-  color: white;
-  background-color: #065f8e;
+  color: rgb(224, 22, 22);
 }
 
 /* 影片上傳 */
