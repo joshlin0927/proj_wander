@@ -12,14 +12,18 @@ function Footer() {
       <footer className="footerWrap">
         <div className="wanderFooter container">
           <div className="row footer-left">
-            <img
-              id="Footer-Desktop-Logo"
-              src="../images/logo/footer_desktop.png"
-            />
-            <img
-              id="Footer-Mobile-Logo"
-              src="../images/logo/footer_mobile.png"
-            />
+            <Link to="/">
+              <img
+                id="Footer-Desktop-Logo"
+                src="../images/logo/footer_desktop.png"
+              />
+            </Link>
+            <Link to="/">
+              <img
+                id="Footer-Mobile-Logo"
+                src="../images/logo/footer_mobile.png"
+              />
+            </Link>
             <div className="Footer-page-links">
               <Link to="">關於我們</Link>
               <Link to="">常見問題</Link>

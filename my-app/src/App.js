@@ -21,14 +21,11 @@ function App() {
   return (
     <>
       <Router>
-        {/* <MultiLevelBreadCrumb /> */}
+        <MultiLevelBreadCrumb />
 
         <Switch>
           <Route to="/TCindex">
             <TCindex />
-          </Route>
-          <Route to="/ThreeStepsIndex">
-            <ThreeStepsIndex />
           </Route>
         </Switch>
 

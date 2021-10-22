@@ -243,6 +243,7 @@ body {
   display: flex;
   width: 73px;
   height: 30px;
+  cursor: pointer;
 }
 
 /* 手機板會變小的按鈕(有display變化)  */
@@ -250,6 +251,7 @@ body {
   display: flex;
   width: 73px;
   height: 30px;
+  cursor: pointer;
 }
 
 /* 審核提示窗 */

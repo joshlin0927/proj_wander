@@ -28,11 +28,14 @@ function TcCourse() {
             <TcSearchBar />
           </div>
           <div class="d-flex justify-content-end">
-            <button class="btn TCbtn-sm btn-primary">
-              <Link to="TcCourse/ThreeStepsIndex">
+            <Link to="TcCourse/ThreeStepsIndex">
+              <button
+                type="submit"
+                class="btn TCbtn-sm btn-primary"
+              >
                 <span>新增</span>
-              </Link>
-            </button>
+              </button>
+            </Link>
           </div>
         </div>
         {/* mobile search bar */}
@@ -42,7 +45,6 @@ function TcCourse() {
         {/* TCcourse card label */}
         <div class="TCcourseLabel col-12">
           <div class="Labelitem">課程封面</div>
-
           <div class="Labelitem">課程名稱</div>
           <div class="TCcourseLabel-right">
             <div class="Labelitem">課程種類</div>
@@ -58,7 +60,6 @@ function TcCourse() {
         {/* Pagination */}
         <MyPagination />
       </div>
-
     </>
   )
 }

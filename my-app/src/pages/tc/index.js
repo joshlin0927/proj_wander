@@ -9,16 +9,15 @@ import {
 import TcProfile from './TcProfile'
 import TcPassword from './TcPassword'
 import TcCourse from './TcCourse'
+import ThreeStepsIndex from './ThreeSteps/ThreeStepsIndex'
 import TcAnalytic from './TcAnalytic'
 
 // 共用元件
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcPageName from '../../components/tc/TcPageName'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
-import TcBgDecorationThreeSteps from '../../components/tc/TcBgDecorationThreeSteps'
 import ChatList from '../../components/chatroom/ChatList'
 import ChatWindow from '../../components/chatroom/ChatWindow'
-import TcCourseEdit from './ThreeSteps/TcCourseEdit'
 
 function index() {
   return (
@@ -29,8 +28,6 @@ function index() {
           <TcPageName />
           <div className="row">
             <TcSideBar />
-            {/* <ChatList /> */}
-            {/* <ChatWindow /> */}
             <Switch>
               <Route path="/TcProfile">
                 <TcProfile />
@@ -40,6 +37,9 @@ function index() {
               </Route>
               <Route path="/TcCourse">
                 <TcCourse />
+              </Route>
+              <Route path="/TcCourse/ThreeStepsIndex">
+                <ThreeStepsIndex />
               </Route>
               <Route path="/TcAnalytic">
                 <TcAnalytic />
