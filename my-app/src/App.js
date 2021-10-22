@@ -41,13 +41,8 @@ function App() {
             <TCindex />
           </Route>
 
-<<<<<<< HEAD
           <Route path="/StIndex">
             <StIndex />
-=======
-          <Route path="/Login">
-            {/* <Login /> */}
->>>>>>> fe54d3ade61f5d462385c42abe731a3bf5eac2cc
           </Route>
 
           <Route path="/">

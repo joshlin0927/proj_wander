@@ -20,7 +20,7 @@ export default function index() {
         <Route path="/StIndex/Login">
           <Login />
         </Route>
-        <Route path="/StIndex/SignUp">
+        <Route path="/StIndex/StEditProfile">
           <StEditProfile />
         </Route>
       </Switch>
