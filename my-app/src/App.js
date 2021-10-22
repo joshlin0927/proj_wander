@@ -19,6 +19,7 @@ import WanderIndex from './pages/home/WanderIndex'
 // 教師頁面
 import TCindex from './pages/tc/index'
 
+import StIndex from './pages/st/index'
 // import Login from './pages/st/Login'
 
 // 購物車
@@ -36,11 +37,11 @@ function App() {
             {/* exact 要加回去 */}
             <TCindex />
           </Route>
-
-          <Route path="/Login">{/* <Login /> */}</Route>
-
           <Route path="/Cart">
             <CartStep01 />
+          </Route>
+          <Route path="/StIndex">
+            <StIndex />
           </Route>
 
           <Route path="/">

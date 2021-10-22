@@ -1,7 +1,18 @@
 import React from 'react'
 
 function TcCourseCard(props) {
-  const {} = props
+  const {
+    sid,
+    teacher_sid,
+    course_category,
+    course_name,
+    course_img,
+    course_price,
+    course_data,
+    hours,
+    course_introduction,
+    created_at,
+  } = props
   return (
     <>
       <div class="TCcourse-card col-12">
@@ -9,18 +20,16 @@ function TcCourseCard(props) {
           <img src="../images/course/日文課程.jpeg" />
         </div>
         <div class="TCcourse-info">
-          <div class="TCcourse-title">
-            Thomas老師：從零開始的日文基礎課程3
-          </div>
+          <div class="TCcourse-title">{course_name}</div>
           <div class="TCcourse-info-right">
             <div class="TCcourse-detail">
-              <span>課程種類：</span> 日文
+              <span>課程種類：</span> {course_category}
             </div>
             <div class="TCcourse-detail">
-              <span>上架日期：</span> 2021/09/08
+              <span>上架日期：</span> {course_data}
             </div>
             <div class="TCcourse-detail">
-              <span>課程長度：</span> 01:02:30
+              <span>課程長度：</span> {hours}
             </div>
           </div>
         </div>

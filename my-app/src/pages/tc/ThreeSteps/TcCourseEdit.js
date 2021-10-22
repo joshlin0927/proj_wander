@@ -15,12 +15,7 @@ function TcCourseEdit() {
       <div class="container mainContent">
         {/* logo */}
         <div class="row">
-          <div class="logo-m">
-            <img
-              src="../images/logo/log_mobile.png"
-              alt=""
-            />
-          </div>
+          <MultiLevelBreadCrumb />
         </div>
         <div class="row justify-content-center">
           {/* TCcourse-TCcourse-process bar */}

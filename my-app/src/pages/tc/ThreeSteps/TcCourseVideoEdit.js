@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 // components
+import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
 import TcSearchBar from '../../../components/tc/TcSearchBar'
 import TcCourseCard from '../../../components/tc/TcCourseCard'
@@ -11,8 +12,8 @@ import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThree
 function TcCourseVideoEdit() {
   return (
     <>
-      {' '}
       <div class="container mainContent">
+        <MultiLevelBreadCrumb />
         <div class="row justify-content-center">
           {/* TCcourse-TCcourse-process bar */}
           <TcCourseProcessBar />
@@ -30,7 +31,7 @@ function TcCourseVideoEdit() {
               </div>
               <div class="d-flex justify-content-end">
                 <Link>
-                  <button class="btn TCbtn-sm-w-switch btn-primary">
+                  <button class="TCbtn TCbtn-sm-w-switch btn-primary">
                     <span>儲存</span>
                   </button>
                 </Link>

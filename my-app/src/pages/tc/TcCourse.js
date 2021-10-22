@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import asiox from 'axios'
 
 // components
+import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcSearchBar from '../../components/tc/TcSearchBar'
 import TcCourseCard from '../../components/tc/TcCourseCard'
@@ -10,10 +12,25 @@ import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 
 function TcCourse() {
   const [searchWord, setSearchWord] = useState('')
+  let [data, setData] = useState({})
+  let [totalRows, setTotalRows] = useState(0)
+
+  useEffect(() => {
+    ;(async () => {
+      let r = await asiox.get(ADDRESS_BOOK_LIST)
+      console.log(r)
+      if (r.status === 200) {
+        setTotalRows(r.data.totalRows)
+        setData(r.data)
+      }
+    })()
+  }, [])
+
   return (
     <>
       <div className="container mainContent">
         <div className="row">
+          <MultiLevelBreadCrumb />
           <div className="logo-m">
             <img
               src="../images/logo/log_mobile.png"
