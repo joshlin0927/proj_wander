@@ -1,16 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom'
-
-// page
-import ThreeStepsIndex from './ThreeSteps/ThreeStepsIndex'
 
 // components
-import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcSearchBar from '../../components/tc/TcSearchBar'
 import TcCourseCard from '../../components/tc/TcCourseCard'
@@ -21,7 +12,6 @@ function TcCourse() {
   return (
     <>
       <div className="container mainContent">
-        <MultiLevelBreadCrumb />
         <div className="row">
           <div className="logo-m">
             <img
@@ -54,7 +44,7 @@ function TcCourse() {
                 <Link to="/TCindex/TcCourseEdit">
                   <button
                     type="submit"
-                    class="btn TCbtn-sm btn-primary"
+                    class="TCbtn TCbtn-sm btn-primary"
                   >
                     <span>新增</span>
                   </button>

@@ -29,10 +29,11 @@ function App() {
     <Router>
       <>
         <PcNavbar />
-        <MultiLevelBreadCrumb />
+        {/* <MultiLevelBreadCrumb /> */}
 
         <Switch>
-          <Route path="/TCindex" exact>
+          <Route path="/TCindex"> 
+          {/* exact 要加回去 */}
             <TCindex />
           </Route>
           <Route path="/">

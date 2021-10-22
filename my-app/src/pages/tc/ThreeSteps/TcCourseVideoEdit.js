@@ -18,9 +18,9 @@ function TcCourseVideoEdit() {
           <TcCourseProcessBar />
           <form class="TCform col-12 col-md-10 px-4">
             <div class="TCform-head ml-1 p-0">
-              <a href="">
+              <Link to="">
                 <i class="fas fa-chevron-left TCback-btn"></i>
-              </a>
+              </Link>
               <div class="TCform-title mr-auto">
                 課程內容管理
               </div>
