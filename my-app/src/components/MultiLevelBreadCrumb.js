@@ -2,7 +2,11 @@ import React from 'react'
 // 高階元件樣式(HOC)，增強元件用的
 import { withRouter, Link } from 'react-router-dom'
 // 中文路徑對照陣列，移出到config/index.js中設定
-import { pathnameList, pathnameTextList } from '../config'
+import {
+  pathnameList,
+  pathnameTextList,
+  devUrl,
+} from '../config'
 
 function MultiLevelBreadCrumb(props) {
   const { location } = props
@@ -71,10 +75,19 @@ function MultiLevelBreadCrumb(props) {
 
   return (
     <>
-      <nav aria-label="breadcrumb" className="w-100">
+      <nav
+        aria-label="breadcrumb"
+        className="container customBread p-0"
+      >
+        <div class="logo-m">
+          <img
+            src={`${devUrl}/images/logo/log_mobile.png`}
+            alt=""
+          />
+        </div>
         <ol className="breadcrumb col col-md-10 col-lg-12 m-0">
           <li className="breadcrumb-item">
-            <Link to="/">首頁</Link>
+            <Link to="/">&nbsp;</Link>
           </li>
           {formatText(findPathnameIndex(location.pathname))}
         </ol>

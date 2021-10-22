@@ -1,16 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom'
-
-// page
-import ThreeStepsIndex from './ThreeSteps/ThreeStepsIndex'
 
 // components
-import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcSearchBar from '../../components/tc/TcSearchBar'
 import TcCourseCard from '../../components/tc/TcCourseCard'
@@ -18,10 +9,10 @@ import MyPagination from '../../components/MyPagination'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 
 function TcCourse() {
+  const [searchWord, setSearchWord] = useState('')
   return (
     <>
       <div className="container mainContent">
-        <MultiLevelBreadCrumb />
         <div className="row">
           <div className="logo-m">
             <img
@@ -48,13 +39,16 @@ function TcCourse() {
               </div>
               {/* desktop search bar */}
               <div class="TCsearch mr-auto col-6">
-                <TcSearchBar />
+                <TcSearchBar
+                  searchWord={searchWord}
+                  setSearchWord={setSearchWord}
+                />
               </div>
               <div class="d-flex justify-content-end">
                 <Link to="/TCindex/TcCourseEdit">
                   <button
                     type="submit"
-                    class="btn TCbtn-sm btn-primary"
+                    class="TCbtn TCbtn-sm btn-primary"
                   >
                     <span>新增</span>
                   </button>
@@ -63,7 +57,10 @@ function TcCourse() {
             </div>
             {/* mobile search bar */}
             <div class="TCsearch-mobile">
-              <TcSearchBar />
+              <TcSearchBar
+                searchWord={searchWord}
+                setSearchWord={setSearchWord}
+              />
             </div>
             {/* TCcourse card label */}
             <div class="TCcourseLabel col-12">

@@ -44,7 +44,7 @@ function TcProfile() {
                 </Link>
                 <div className="TCform-title">個人資料</div>
                 <i className="TCback-btn"></i>
-                <button className="btn btn-primary preview-btn-top">
+                <button className="TCbtn btn-primary preview-btn-top">
                   <span>個人頁面預覽</span>
                 </button>
               </div>
@@ -143,13 +143,13 @@ function TcProfile() {
             </div>
             <button
               id="TcSaveBtn"
-              className="btn btn-secondary mx-auto TCsave-btn"
+              className="TCbtn btn-secondary mx-auto TCsave-btn"
             >
               <span>儲存</span>
             </button>
             <button
               id="TcPreviewBtn"
-              className="btn btn-primary preview-btn"
+              className="TCbtn btn-primary preview-btn"
             >
               <span>個人頁面預覽</span>
             </button>

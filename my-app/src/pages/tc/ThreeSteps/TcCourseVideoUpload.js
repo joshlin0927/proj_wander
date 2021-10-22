@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 // components
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
-import TcSearchBar from '../../../components/tc/TcSearchBar'
 import TcCourseCard from '../../../components/tc/TcCourseCard'
 import MyPagination from '../../../components/MyPagination'
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'
@@ -18,9 +17,9 @@ function TcCourseVideoUpload() {
           <form class="TCform col-12 col-md-10">
             <div class="TCform-content">
               <div class="TCform-head">
-                <a href="">
+                <Link to="">
                   <i class="fas fa-chevron-left TCback-btn"></i>
-                </a>
+                </Link>
                 <div class="TCform-title">課程內容上傳</div>
                 <div class="d-flex justify-content-end">
                   <button class="btn TCbtn-sm-w-switch btn-primary">

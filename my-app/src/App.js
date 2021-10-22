@@ -9,25 +9,48 @@ import {
 } from 'react-router-dom'
 import React, { useState } from 'react'
 
+// Navbar
+import PcNavbar from './components/PcNavbar'
+import MobileNavbar from './components/MobileNavbar'
+
+// 首頁
+import WanderIndex from './pages/home/WanderIndex'
+
 // 教師頁面
 import TCindex from './pages/tc/index'
-import TcCourse from './pages/tc/TcCourse'
-import ThreeStepsIndex from './pages/tc/ThreeSteps/ThreeStepsIndex'
+
 import Login from './pages/st/Login'
+
+
 // 全頁通用元件
 import Footer from './components/Footer'
+import MultiLevelBreadCrumb from './components/MultiLevelBreadCrumb'
 
 function App() {
   return (
     <Router>
       <>
-        <Login />
+        
+        <PcNavbar />
+        {/* <MultiLevelBreadCrumb /> */}
+      
+
         <Switch>
-          <Route to="/TCindex">
+          <Route path="/TCindex"> 
+          {/* exact 要加回去 */}
             <TCindex />
           </Route>
-        </Switch>
 
+           <Route path = "/Login">
+           <Login />
+             </Route>
+           
+
+          <Route path="/">
+            <WanderIndex />
+          </Route>
+        </Switch>
+        <MobileNavbar />
         <Footer />
       </>
     </Router>

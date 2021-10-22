@@ -10,13 +10,12 @@ import TcProfile from './TcProfile'
 import TcPassword from './TcPassword'
 import TcCourse from './TcCourse'
 import TcCourseEdit from './ThreeSteps/TcCourseEdit'
+import TcCourseVideoUpload from './ThreeSteps/TcCourseVideoUpload'
 import TcCourseVideoEdit from './ThreeSteps/TcCourseVideoEdit'
 import TcAnalytic from './TcAnalytic'
 
 // 共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
-import TcSideBar from '../../components/tc/TcSideBar'
-import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import ChatList from '../../components/chatroom/ChatList'
 import ChatWindow from '../../components/chatroom/ChatWindow'
 
@@ -37,8 +36,8 @@ function index() {
         <Route path="/TCindex/TcCourseVideoEdit">
           <TcCourseVideoEdit />
         </Route>
-        <Route path="/TCindex/TcCourseEdit">
-          <TcCourseEdit />
+        <Route path="/TCindex/TcCourseVideoUpload">
+          <TcCourseVideoUpload />
         </Route>
         <Route path="/TCindex/TcCourseEdit">
           <TcCourseEdit />
