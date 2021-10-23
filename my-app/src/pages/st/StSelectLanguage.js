@@ -21,11 +21,11 @@ export default function StSelectLanguage() {
               <div className="dec-insideblock col-md-9 col-lg-8">
                 <div className="selectlanguage col-md-6 col-lg-6">
                   選擇語系
-                  <ul>
-                    <li>英文</li>
-                    <li>西文</li>
-                    <li>法文</li>
-                    <li>德文</li>
+                  <ul claaName="languagelist">
+                    <li className="selection">英文</li>
+                    <li className="selection"> 西文 </li>
+                    <li className="selection"> 法文 </li>
+                    <li className="selection"> 德文 </li>
                   </ul>
                 </div>
               </div>

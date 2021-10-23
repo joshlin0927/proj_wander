@@ -5,7 +5,7 @@ import { devUrl } from '../../config'
 export default function SignUp() {
   return (
     <>
-      <div className="bgc-img">
+      <div className="stbg-img">
         <div className="container">
           <div className="m-wrap row justify-content-center">
             <div className="logo-m">

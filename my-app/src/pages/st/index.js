@@ -18,10 +18,6 @@ export default function index() {
   return (
     <>
       <Switch>
-        {/* <Route path="/StIndex/">
-          <Redirect to="/StIndex/StEditProfile" />
-        </Route> */}
-
         <Route path="/StIndex/StEditProfile">
           <StEditProfile />
         </Route>

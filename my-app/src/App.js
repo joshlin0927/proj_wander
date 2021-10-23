@@ -17,8 +17,8 @@ import MobileNavbar from './components/MobileNavbar'
 import WanderIndex from './pages/home/WanderIndex'
 
 //會員登入、註冊
-// import Login from './pages/st/Login'
-// import SignUp from './pages/st/SignUp'
+import Login from './pages/st/Login'
+import SignUp from './pages/st/SignUp'
 
 // 教師頁面
 import TCindex from './pages/tc/index'
@@ -47,18 +47,17 @@ function App() {
           <Route path="/StIndex">
             <StIndex />
           </Route>
+          <Route path="/Login">
+            <Login />
+          </Route>
+
+          <Route path="/SignUp">
+            <SignUp />
+          </Route>
 
           <Route path="/">
             <WanderIndex />
           </Route>
-
-          {/* <Route path="/Login">
-            <Login />
-          </Route> */}
-
-          {/* <Route path="/SignUp">
-            <SignUp />
-          </Route> */}
         </Switch>
 
         <MobileNavbar />
