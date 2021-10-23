@@ -16,8 +16,13 @@ import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
 
 function TcCourse() {
+  // 搜尋列
   const [searchWord, setSearchWord] = useState('')
-  const [hasCourse, setHasCourse] = useState('')
+
+  // 判斷是否有課程
+  const [hasCourse, setHasCourse] = useState('1')
+
+  // 課程陣列排出
   let [data, setData] = useState({})
   let [totalRows, setTotalRows] = useState(0)
 

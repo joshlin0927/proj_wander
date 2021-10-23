@@ -222,6 +222,7 @@ body {
   background-color: transparent;
   border-radius: 10px;
   margin-bottom: 30px;
+  font-size: 15px;
 }
 
 /* 預覽頁面 */
@@ -480,7 +481,7 @@ body {
   overflow: hidden;
 }
 
-.TCcourse-img img {
+.TCcourse-img>img {
   max-width: auto;
   height: 100%;
 }

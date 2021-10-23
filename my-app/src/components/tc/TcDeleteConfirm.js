@@ -2,10 +2,7 @@ import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
 
 function TcDeleteConfirm(props) {
-  const [show, setShow] = useState(false)
-
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  const {} = props
   return (
     <>
       <Modal
