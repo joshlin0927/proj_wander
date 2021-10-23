@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { devUrl } from '../../../config'
 
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
@@ -12,7 +13,6 @@ function TcCourseEdit() {
   const [selectedOption, setSelectedOption] =
     useState('none')
 
-    
   return (
     <>
       {/* Main Content */}
@@ -44,7 +44,7 @@ function TcCourseEdit() {
               <div className="TCcourse-img-selector">
                 <div className="TCcourse-pic-square">
                   <img
-                    src="../images/course/商用英文.jpeg"
+                    src={`${devUrl}/images/course/AdobeStock_339695471.jpg`}
                     className="img-fluid"
                     alt=""
                   />

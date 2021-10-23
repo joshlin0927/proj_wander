@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Nav } from 'react-bootstrap'
 
+import { devUrl } from '../../config'
 // 要使用能有active css效果的NavLink元件
 import { NavLink } from 'react-router-dom'
 
@@ -12,7 +13,7 @@ function TcSideBar() {
       <Nav className="sidebar col-2">
         <div className="avatar">
           <img
-            src="../images/teacher/Thomas_Lillard.jpg"
+            src={`${devUrl}/images/teacher/Thomas_Lillard.jpg`}
             alt=""
             className="img-fluid"
           />
@@ -23,7 +24,7 @@ function TcSideBar() {
               as={NavLink}
               to="/TCindex/TcProfile"
               className="nav-item"
-              activeClassName="active"
+              activeclassname="active"
               onClick={() => {
                 setIsActive('個人資料')
               }}
@@ -37,7 +38,7 @@ function TcSideBar() {
               as={NavLink}
               to="/TCindex/TcPassword"
               className="nav-item"
-              activeClassName="active"
+              activeclassname="active"
               onClick={() => {
                 setIsActive('密碼更改')
               }}
@@ -51,7 +52,7 @@ function TcSideBar() {
               as={NavLink}
               to="/TCindex/TcCourse"
               className="nav-item"
-              activeClassName="active"
+              activeclassname="active"
               onClick={() => {
                 setIsActive('課程列表')
               }}
@@ -67,7 +68,7 @@ function TcSideBar() {
                   ? 'nav-item' + ' ' + 'active'
                   : 'nav-item'
               }
-              activeClassName="active"
+              activeclassname="active"
               onClick={() => {
                 setIsActive('聊天室')
               }}
@@ -81,7 +82,7 @@ function TcSideBar() {
               as={NavLink}
               to="/TCindex/TcAnalytic"
               className="nav-item"
-              activeClassName="active"
+              activeclassname="active"
               onClick={() => {
                 setIsActive('數據分析')
               }}

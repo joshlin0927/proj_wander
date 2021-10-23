@@ -7,14 +7,14 @@ function TcSearchBar(props) {
     <>
       <input
         type="text"
-        class="TCsearchbar"
+        className="TCsearchbar"
         id="TCsearchbar"
         placeholder="請輸入課程名稱"
         value={searchWord}
         onChange={(e) => setSearchWord(e.target.value)}
       />
-      <button type="submit" class="">
-        <i class="fas fa-search"></i>
+      <button type="submit" className="">
+        <i className="fas fa-search"></i>
       </button>
     </>
   )

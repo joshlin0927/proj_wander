@@ -52,26 +52,26 @@ function TcCourse() {
         <div className="row">
           <TcSideBar />
           {/* form */}
-          <div class="TCform col-12 col-md-10">
-            <div class="TCform-head ml-1 p-0">
+          <div className="TCform col-12 col-md-10">
+            <div className="TCform-head ml-1 p-0">
               <Link to="/">
-                <i class="fas fa-chevron-left TCback-btn"></i>
+                <i className="fas fa-chevron-left TCback-btn"></i>
               </Link>
-              <div class="TCform-title mr-auto">
+              <div className="TCform-title mr-auto">
                 我的課程
               </div>
               {/* desktop search bar */}
-              <div class="TCsearch mr-auto col-6">
+              <div className="TCsearch mr-auto col-6">
                 <TcSearchBar
                   searchWord={searchWord}
                   setSearchWord={setSearchWord}
                 />
               </div>
-              <div class="d-flex justify-content-end">
+              <div className="d-flex justify-content-end">
                 <Link to="/TCindex/TcCourseEdit">
                   <button
                     type="submit"
-                    class="TCbtn TCbtn-sm btn-primary"
+                    className="TCbtn TCbtn-sm btn-primary"
                   >
                     <span>新增</span>
                   </button>
@@ -79,22 +79,22 @@ function TcCourse() {
               </div>
             </div>
             {/* mobile search bar */}
-            <div class="TCsearch-mobile">
+            <div className="TCsearch-mobile">
               <TcSearchBar
                 searchWord={searchWord}
                 setSearchWord={setSearchWord}
               />
             </div>
             {/* TCcourse card label */}
-            <div class="TCcourseLabel col-12">
-              <div class="Labelitem">課程封面</div>
-              <div class="Labelitem">課程名稱</div>
-              <div class="TCcourseLabel-right">
-                <div class="Labelitem">課程種類</div>
-                <div class="Labelitem">上架日期</div>
-                <div class="Labelitem">課程長度</div>
-                <div class="TCcourse-delete">
-                  <i class="far fa-times-circle opacity-0"></i>
+            <div className="TCcourseLabel col-12">
+              <div className="Labelitem">課程封面</div>
+              <div className="Labelitem">課程名稱</div>
+              <div className="TCcourseLabel-right">
+                <div className="Labelitem">課程種類</div>
+                <div className="Labelitem">上架日期</div>
+                <div className="Labelitem">課程長度</div>
+                <div className="TCcourse-delete">
+                  <i className="far fa-times-circle opacity-0"></i>
                 </div>
               </div>
             </div>

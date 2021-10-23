@@ -4,27 +4,27 @@ import { Link } from 'react-router-dom'
 function MyPagination() {
   return (
     <>
-      <nav class="">
-        <ul class="Mypagination justify-content-end">
+      <nav className="">
+        <ul className="Mypagination justify-content-end">
           <li>
             <Link
-              class="Mypage-link"
+              className="Mypage-link"
               to="#"
               aria-label="Previous"
             >
-              <div class="Mypage-item">
-                <i class="fas fa-chevron-left"></i>
+              <div className="Mypage-item">
+                <i className="fas fa-chevron-left"></i>
               </div>
             </Link>
           </li>
           <li>
-            <Link class="Mypage-link" to="#">
-              <div class="Mypage-item active">1</div>
+            <Link className="Mypage-link" to="#">
+              <div className="Mypage-item active">1</div>
             </Link>
           </li>
           <li>
-            <Link class="Mypage-link" to="#">
-              <div class="Mypage-item">2</div>
+            <Link className="Mypage-link" to="#">
+              <div className="Mypage-item">2</div>
             </Link>
           </li>
           <li>
@@ -33,8 +33,8 @@ function MyPagination() {
               href="#"
               aria-label="Next"
             >
-              <div class="Mypage-item">
-                <i class="fas fa-chevron-right"></i>
+              <div className="Mypage-item">
+                <i className="fas fa-chevron-right"></i>
               </div>
             </Link>
           </li>
