@@ -17,8 +17,6 @@ export default function index() {
   return (
     <>
       <Switch>
-        <Route path="/StIndex/"></Route>
-
         <Route path="/StIndex/StEditProfile">
           <StEditProfile />
         </Route>

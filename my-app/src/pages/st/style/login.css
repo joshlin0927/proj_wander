@@ -2,7 +2,7 @@
    font-family: Noto Sans, Noto Sans TC;
  }
 
- .bgc-img {
+ .stbg-img {
   background-image: url('http://localhost:3000/images/pic/其他/AdobeStock_408070902.jpeg'); 
    background-position: left;
    background-repeat: no-repeat;

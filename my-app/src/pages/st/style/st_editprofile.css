@@ -2,7 +2,7 @@
    font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
  }
 
- .bgc-img {
+ .stbg-img {
    background-image: url('http://localhost:3000/images/pic/其他/AdobeStock_408070902.jpeg');
    background-position: top;
    background-repeat: no-repeat;
@@ -11,7 +11,7 @@
    background-color: rgba(0, 0, 0, 0.4);
    /* 設置背景混和模式為相乘模式 */
    background-blend-mode: multiply;
-   z-index: -4;;
+   z-index:
  }
 
  /* 全頁背景色 */

@@ -12,7 +12,7 @@ import ConfirmMsg from '../../components/ConfirmMsg'
 export default function StEditProfile() {
   return (
     <>
-      <div className="bgc-img">
+      <div className="stbg-img">
         <div className="container mainContent">
           {/* <!-- breadcrumb --> */}
 

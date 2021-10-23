@@ -4,7 +4,7 @@ import { devUrl } from '../../config'
 
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
-//import SideBar2 from '../../components/SideBar2'
+import SideBar2 from '../../components/st/SideBar2'
 import RemindingText from '../../components/st/RemindingText'
 
 export default function StCourseEmpty() {
@@ -19,7 +19,7 @@ export default function StCourseEmpty() {
           </div>
         </div>
         <div class="row">
-          {/* <SideBar2 /> */}
+          <SideBar2 />
 
           <div class="col-12 col-md-8  reminding">
             <RemindingText />

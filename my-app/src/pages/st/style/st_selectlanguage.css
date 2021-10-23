@@ -98,7 +98,7 @@
   z-index: 1;
 }
 
-ul {
+.languagelist {
   display: block;
   line-height: 20px;
   background-color: hsl(0, 0%, 100%);
@@ -108,7 +108,7 @@ ul {
   transform: translate(0%, -10%);
 }
 
-ul li {
+.selection {
   line-height: 20px;
   font-size: 14px;
   font-weight: normal;
@@ -219,7 +219,7 @@ ul li {
     z-index: -1;
   }
 
-  ul {
+  .languagelist {
     display: block;
     line-height: 20px;
     background-color: hsl(0, 0%, 100%);
@@ -229,7 +229,7 @@ ul li {
     transform: translate(40%, -20%);
   }
 
-  ul li {
+  .selection {
     line-height: 40px;
     font-size: 24px;
     font-weight: normal;
