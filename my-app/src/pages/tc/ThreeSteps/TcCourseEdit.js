@@ -9,7 +9,10 @@ import Footer from '../../../components/Footer'
 function TcCourseEdit() {
   const [courseTitle, setCourseTitle] = useState('')
   const [coursePrice, setCoursePrice] = useState('')
+  const [selectedOption, setSelectedOption] =
+    useState('none')
 
+    
   return (
     <>
       {/* Main Content */}
@@ -68,10 +71,13 @@ function TcCourseEdit() {
                 className="col-12 allInputs"
                 placeholder="課程種類"
                 name="course_category"
-                defaultValue="none"
+                value={selectedOption}
+                onChange={(e) => {
+                  setSelectedOption(e.target.value)
+                }}
               >
                 <option value="none" disabled>
-                  請選擇
+                  -------------請選擇-------------
                 </option>
                 <option value="Japanese">日文</option>
                 <option value="English">英文</option>

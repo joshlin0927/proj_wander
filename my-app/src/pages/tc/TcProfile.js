@@ -48,7 +48,7 @@ function TcProfile() {
               <div className="fullname d-flex">
                 <div className="col-6 pl-0">
                   <input
-                    name="TcFirstName"
+                    name="firstname"
                     type="text"
                     className="nameInputs"
                     placeholder="名字"

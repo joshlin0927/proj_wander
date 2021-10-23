@@ -2,30 +2,35 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import asiox from 'axios'
 
+// 後端檔案路徑
+import { Course_LIST } from '../../config'
+
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcSearchBar from '../../components/tc/TcSearchBar'
 import TcCourseCard from '../../components/tc/TcCourseCard'
+import TcHasNoCourse from '../../components/tc/TcHasNoCourse'
 import MyPagination from '../../components/MyPagination'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
 
 function TcCourse() {
   const [searchWord, setSearchWord] = useState('')
+  const [hasCourse, setHasCourse] = useState('')
   let [data, setData] = useState({})
   let [totalRows, setTotalRows] = useState(0)
 
-  // useEffect(() => {
-  //   ;(async () => {
-  //     let r = await asiox.get(ADDRESS_BOOK_LIST)
-  //     console.log(r)
-  //     if (r.status === 200) {
-  //       setTotalRows(r.data.totalRows)
-  //       setData(r.data)
-  //     }
-  //   })()
-  // }, [])
+  useEffect(() => {
+    ;(async () => {
+      let r = await asiox.get(Course_LIST)
+      console.log(r)
+      if (r.status === 200) {
+        setTotalRows(r.data.totalRows)
+        setData(r.data)
+      }
+    })()
+  }, [])
 
   return (
     <>
@@ -94,7 +99,12 @@ function TcCourse() {
               </div>
             </div>
             {/* course cards */}
-            <TcCourseCard />
+            {hasCourse ? (
+              <TcCourseCard />
+            ) : (
+              <TcHasNoCourse />
+            )}
+
             {/* Pagination */}
             <MyPagination />
           </div>

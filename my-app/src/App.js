@@ -24,7 +24,7 @@ import SignUp from './pages/st/SignUp'
 import TCindex from './pages/tc/index'
 
 // 學生頁面
-import StIndex from './pages/st/index'
+// import StIndex from './pages/st/index'
 
 // 購物車
 import CartStep01 from './pages/cart/CartStep01'
@@ -44,9 +44,9 @@ function App() {
           <Route path="/Cart">
             <CartStep01 />
           </Route>
-          <Route path="/StIndex">
+          {/* <Route path="/StIndex">
             <StIndex />
-          </Route>
+          </Route> */}
 
           <Route path="/">
             <WanderIndex />

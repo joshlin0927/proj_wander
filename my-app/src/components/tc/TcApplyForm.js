@@ -1,7 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import TcAvatarSelector from './TcAvatarSelector'
+
 function TcApplyForm() {
+  const realFileInput = document.querySelector(
+    '#realFileInput'
+  )
+
   return (
     <>
       <div className="TCform col-12 col-md-8 col-lg-6 col-xl-4 mx-auto">
@@ -14,25 +20,13 @@ function TcApplyForm() {
               <div className="TCform-title">審核資料</div>
               <i className="TCback-btn"></i>
             </div>
-            <div className="d-flex align-items-center ml-1 TCmb-50">
-              <div className="profile-pic">
-                <img
-                  src="../images/teacher/Thomas_Lillard.jpg"
-                  className="img-fluid"
-                  alt=""
-                />
-              </div>
-              <div className="btn btn-border-only ml-0">
-                <span>請選擇圖片</span>
-              </div>
-            </div>
-
+            <TcAvatarSelector />
             <input
               type="text"
               className="col-12 allInputs"
               placeholder="國籍"
             />
-            <label className="TCnotice" for="">
+            <label className="TCnotice" htmlFor="">
               請填寫國籍
             </label>
             <div className="TCmb-50">
@@ -49,7 +43,9 @@ function TcApplyForm() {
             />
             <div
               className="resume"
-              onclick="realFileInput.click()"
+              onclick={() => {
+                realFileInput.click()
+              }}
             >
               <input
                 disabled
@@ -65,7 +61,7 @@ function TcApplyForm() {
                 <span>瀏覽</span>
               </button>
             </div>
-            <label className="TCnotice" for="">
+            <label className="TCnotice" htmlFor="">
               請選擇檔案
             </label>
           </div>

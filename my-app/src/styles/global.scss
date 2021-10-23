@@ -801,4 +801,224 @@ a {
     margin-top: 0px;
     top: 0;
   }
+  .customBread{
+    
+  }
 }
+
+
+/*============= 聊天室 =============*/
+/* 對象選單 */
+.chatList {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: #fff;
+  height: 922px;
+  width: 100%;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chatList-content {
+  margin-bottom: 30px;
+}
+
+.chatList .title {
+  margin: 50px 0px;
+  color: #065f8e;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.chatCard {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 0.75rem;
+  background-color: #f1f0e9;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.chatCard-info {
+  width: 75%;
+}
+
+.chatCard .chatCardAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.chatName {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.chatCard .notification {
+  width: 12px;
+  height: 12px;
+  margin-left: auto;
+  border-radius: 50%;
+  background-color: #065f8e;
+}
+
+.LastMessageAndTime {
+  white-space: nowrap;
+  width: 100%;
+  font-size: 12px;
+  margin: 0px;
+  line-height: 15px;
+  padding-bottom: 5px;
+}
+
+.lastMessage {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0px;
+}
+
+.chatCard:hover {
+  background-color: #f1ef5b;
+}
+
+/* 對話視窗 */
+.chatWindow {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  height: 690px;
+}
+
+.chatWindowHead {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  box-shadow: 0px 2px #f1f0e9;
+}
+
+.talkTo {
+  display: flex;
+  align-items: center;
+}
+
+.talkToAvatar {
+  width: 50px;
+  height: 50px;
+  margin: 17px 10px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.talkToName {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.closeWindow {
+  font-size: 27px;
+  padding: 0px 30px;
+  margin: auto 0px;
+  margin-left: auto;
+}
+
+.chatWindowBody {
+  height: 540px;
+}
+
+/* 對話框(左) */
+.messageLeft {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.messageRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.messageAvatar {
+  display: flex;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-right: 0.625rem;
+  margin-left: 0.625rem;
+}
+
+.messageAvatarFilter {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.Ltriangle::before {
+  position: absolute;
+  left: 35px;
+  top: 5px;
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 30px 20px 0;
+  border-color: transparent #f1f0e9 transparent transparent;
+}
+
+.Rtriangle::before {
+  position: absolute;
+  left: -25px;
+  top: 5px;
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 30px 20px 0;
+  border-color: transparent #f1ef5b transparent transparent;
+  transform: rotateZ(60deg);
+}
+
+.message {
+  z-index: 1;
+  border-radius: 10px;
+  width: 75%;
+  padding: 0.5rem;
+  font-size: 18px;
+}
+
+.message.left {
+  background-color: #f1f0e9;
+}
+
+.message.right {
+  background-color: #f1ef5b;
+}
+
+.chatWindowFoot {
+  display: flex;
+  align-items: center;
+}
+
+.chatInsertButton {
+  width: 100%;
+  height: 48px;
+  border: 0px;
+  color: black;
+  background-color: #f1ef5b;
+  margin-left: -100px;
+  margin-bottom: 5px;
+  border-radius: 0px 10px 10px 0px;
+}
+

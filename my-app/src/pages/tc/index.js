@@ -18,30 +18,29 @@ function index() {
   return (
     <>
       <Switch>
-        {/* Main Content */}
-        <Route exact path="/TCindex">
-          <Redirect to="/TCindex/TcCourse" />
-        </Route>
-        <Route path="/TCindex/TcProfile">
-          <TcProfile />
-        </Route>
-        <Route path="/TCindex/TcPassword">
-          <TcPassword />
-        </Route>
-        <Route path="/TCindex/TcCourse">
-          <TcCourse />
-        </Route>
-        <Route path="/TCindex/TcCourseVideoEdit">
+        <Route path="/TCindex/TcCourseVideoEdit/:id?">
           <TcCourseVideoEdit />
         </Route>
         <Route path="/TCindex/TcCourseVideoUpload">
           <TcCourseVideoUpload />
         </Route>
-        <Route path="/TCindex/TcCourseEdit">
+        <Route path="/TCindex/TcCourseEdit/:id?">
           <TcCourseEdit />
+        </Route>
+        <Route path="/TCindex/TcCourse/">
+          <TcCourse />
+        </Route>
+        <Route path="/TCindex/TcPassword">
+          <TcPassword />
         </Route>
         <Route path="/TCindex/TcAnalytic">
           <TcAnalytic />
+        </Route>
+        <Route path="/TCindex/TcProfile">
+          <TcProfile />
+        </Route>
+        <Route exact path="/TCindex">
+          <Redirect to="/TCindex/TcCourse" />
         </Route>
       </Switch>
     </>

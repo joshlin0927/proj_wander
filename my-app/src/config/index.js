@@ -2,9 +2,11 @@ export const debug = true
 // 測試開發/營運網址
 export const devUrl = 'http://localhost:3000'
 export const prodUrl = 'http://www.abc.com'
-export const ADDRESS_BOOK_LIST =
-  devUrl + '/address-book/api/list'
-export const UPLOAD_AVATAR = devUrl + '/try-upload2'
+export const API_HOST = 'http://localhost:3200'
+
+export const Course_LIST =
+  API_HOST + '/address-book/api/list'
+export const UPLOAD_AVATAR = API_HOST + '/try-upload2'
 
 export const pathnameList = [
   '/about',
