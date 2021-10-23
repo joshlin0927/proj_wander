@@ -10,7 +10,7 @@ import {
 import StEditProfile from './StEditProfile'
 import StPasswordModify from './StPasswordModify'
 import StStartMyCourse from './StStartMyCourse'
-// import StSelectLanguage from './StSelectLanguage'
+import StSelectLanguage from './StSelectLanguage'
 import StGameStart from './StGameStart'
 import StCourseEmpty from './StCourseEmpty'
 
@@ -30,7 +30,7 @@ export default function index() {
           <StStartMyCourse />
         </Route>
         <Route path="/StIndex/StSelectLanguage">
-          {/* <StSelectLanguage /> */}
+          <StSelectLanguage />
         </Route>
         <Route path="/StIndex/StGameStart">
           <StGameStart />

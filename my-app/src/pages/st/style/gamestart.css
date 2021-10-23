@@ -67,7 +67,7 @@
 .mylanguage {
   display: block;
   border: 3px solid black;
-
+  width: 70%;
   height: 63px;
   font-weight: bold;
   font-size: 18px;
@@ -82,6 +82,7 @@
 .gamestart {
   display: block;
   border: 3px solid black;
+  width: 70%;
   height: 63px;
   font-weight: bold;
   font-size: 18px;
@@ -104,20 +105,20 @@
   z-index: -1;
 }
 
-.full {
+/* .full {
   height: 100vh;
-}
+} */
 
-.bgc-img {
+/* .bgc-img {
   background-image: url('http://localhost:3000/images/pic/背景圖素材/218e6e75.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* 透明度0.6的黑色半透明遮罩 */
+  /* 透明度0.6的黑色半透明遮罩 
   background-color: rgba(0, 0, 0, 0.4);
-  /* 設置背景混和模式為相乘模式 */
+  /* 設置背景混和模式為相乘模式 
   background-blend-mode: multiply;
-}
+} */
 
 
 
@@ -126,11 +127,11 @@
 
 @media (min-width: 768px) {
 
-  .bgc-img {
+  /* .bgc-img {
     background-color: #F1F0E9;
     background-image: none;
 
-  }
+  } */
 
   .full {
     height: fit-content;

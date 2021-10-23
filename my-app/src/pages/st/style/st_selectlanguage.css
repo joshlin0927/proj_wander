@@ -2,16 +2,16 @@
   font-family: "Noto Sans", "Noto Sans TC", sans-serif;
 }
 
-.bgc-img {
+.stcoursebgc-img {
   /* background-color: #F1F0E9; */
-  background-image: url('http://localhost:3000/images/pic/背景圖素材/7656d57f.jpg');
+  /* background-image: url('http://localhost:3000/images/pic/背景圖素材/7656d57f.jpg');
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  /* 透明度0.6的黑色半透明遮罩 */
+  /* 透明度0.6的黑色半透明遮罩 
   background-color: rgba(0, 0, 0, 0.4);
-  /* 設置背景混和模式為相乘模式 */
-  background-blend-mode: multiply;
+  /* 設置背景混和模式為相乘模式 
+  background-blend-mode: multiply; */
 
 }
 
@@ -83,7 +83,7 @@
   z-index: -1;
 }
 
-.selectlanguage {
+.selectlanguage-m {
   display: block;
   border: 3px solid black;
   height: 63px;
@@ -98,20 +98,20 @@
   z-index: 1;
 }
 
-.languagelist {
+.languagelist-m {
   display: block;
   line-height: 20px;
-  background-color: hsl(0, 0%, 100%);
-  position: absolute;
-  width: 70%;
-
-  transform: translate(0%, -10%);
+  background-color: hsl(0, 76%, 33%);
+  /* position: absolute; */
+  
+  
 }
 
-.selection {
+.selection-m {
   line-height: 20px;
   font-size: 14px;
   font-weight: normal;
+  
 }
 
 .full {
@@ -125,14 +125,10 @@
 
 @media (min-width: 768px) {
 
-  .bgc-img {
-    background-color: #F1F0E9;
-    background-image: none;
-
-  }
+  
 
   .full {
-    height: fit-content;
+    /* height: fit-content; */
   }
 
   .navbar {

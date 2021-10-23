@@ -1,10 +1,15 @@
 import React from 'react'
 import './style/gamestart.css'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
+
+
+
 export default function StGameStart() {
   return (
     <>
-      <div class="bgc-img">
+
+    
+     <div class="">
         <div className="container-fluid mainpic">
           <div className="container">
             <div className="row">
@@ -31,19 +36,19 @@ export default function StGameStart() {
           </div>
         </div>
 
-        <div className="dec-side-m col-8">
-          <div className="dec-insideblock-m col-11">
-            <div className="mylanguage col-6">
+        <div className="dec-side-m col-9">
+          <div className="dec-insideblock-m col-9">
+            <div className="mylanguage col-9">
               <div className="dot"></div>
               西班牙文
             </div>
-            <div className="gamestart col-6">
+            <div className="gamestart col-9">
               <div className="dot"></div>
               課程測驗
             </div>
           </div>
         </div>
-      </div>
+      </div> 
     </>
   )
 }

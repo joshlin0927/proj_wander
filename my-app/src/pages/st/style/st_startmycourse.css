@@ -3,13 +3,14 @@
   font-family: "Noto Sans", "Noto Sans TC", sans-serif;
 }
 
-.bgc-img {
-  background-image: url('http://localhost:3000/images/pic/背景圖素材/218e6e75.jpg');
+ /* .stcoursebg-img { 
+  background-image: url('http://localhost:3000/images/pic/背景圖素材/7656d57f.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: transparent;
-}
+  background-color: transparent; 
+
+ }  */
 
 
 .navbar {
@@ -50,7 +51,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 64%;
+  width: 70%;
   height: 315px;
   border-radius: 0px 0px 0px 50px;
   background-color: #F1EF5B;
@@ -107,7 +108,7 @@
 
 @media (min-width: 768px) {
 
-  .bgc-img {
+  .stbg-img {
     background-image: none;
 
   }

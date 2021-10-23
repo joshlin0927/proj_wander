@@ -11,7 +11,7 @@ import ConfirmMsg from '../../components/ConfirmMsg'
 export default function StPasswordModify() {
   return (
     <>
-      <div class="bgc-img">
+      <div class="stbg-img">
         <div className="container">
           <div className="row">
             <MultiLevelBreadCrumb />
