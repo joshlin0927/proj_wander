@@ -10,7 +10,7 @@ function TcSideBar() {
 
   return (
     <>
-      <Nav className="sidebar col-2">
+      <Nav className="TCsidebar col-2">
         <div className="avatar">
           <img
             src={`${devUrl}/images/teacher/Thomas_Lillard.jpg`}
@@ -30,7 +30,7 @@ function TcSideBar() {
               }}
             >
               <i className="fas fa-user"></i>
-              <div>個人資料</div>
+              <div className="nav-item-text">個人資料</div>
             </Nav.Link>
           </li>
           <li>
@@ -44,7 +44,7 @@ function TcSideBar() {
               }}
             >
               <i className="fas fa-key"></i>
-              <div>密碼更改</div>
+              <div className="nav-item-text">密碼更改</div>
             </Nav.Link>
           </li>
           <li>
@@ -58,7 +58,7 @@ function TcSideBar() {
               }}
             >
               <i className="fas fa-th-list"></i>
-              <div>課程列表</div>
+              <div className="nav-item-text">課程列表</div>
             </Nav.Link>
           </li>
           <li>
@@ -74,7 +74,7 @@ function TcSideBar() {
               }}
             >
               <i className="fas fa-comment-alt"></i>
-              <div>聊天室</div>
+              <div className="nav-item-text">聊天室</div>
             </div>
           </li>
           <li>
@@ -88,7 +88,7 @@ function TcSideBar() {
               }}
             >
               <i className="fas fa-chart-line"></i>
-              <div>數據分析</div>
+              <div className="nav-item-text">數據分析</div>
             </Nav.Link>
           </li>
         </ul>

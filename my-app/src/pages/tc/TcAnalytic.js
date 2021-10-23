@@ -18,7 +18,7 @@ function TcAnalytic() {
         <div className="row">
           <MultiLevelBreadCrumb />
           <div className="col-10 ml-auto pageName">
-            <span className="pageNameText analytics">
+            <span className="pageNameText TCanalytics">
               Analytics
             </span>
           </div>

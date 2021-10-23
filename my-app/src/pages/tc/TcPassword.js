@@ -18,7 +18,7 @@ function TcPassword() {
         <div className="row">
           <MultiLevelBreadCrumb />
           <div className="col-10 ml-auto pageName">
-            <span className="pageNameText password">
+            <span className="pageNameText TCpassword">
               Password
             </span>
           </div>

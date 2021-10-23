@@ -23,7 +23,7 @@ function TcProfile() {
         <div className="row">
           <MultiLevelBreadCrumb />
           <div className="col-10 ml-auto pageName">
-            <span className="pageNameText profile">
+            <span className="pageNameText TCprofile">
               Profile
             </span>
           </div>

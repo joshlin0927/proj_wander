@@ -44,7 +44,7 @@ function TcCourse() {
             />
           </div>
           <div className="col-10 ml-auto pageName">
-            <span className="pageNameText course">
+            <span className="pageNameText TCcourse">
               Course
             </span>
           </div>

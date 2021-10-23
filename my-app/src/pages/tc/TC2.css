@@ -65,8 +65,8 @@ body {
   margin: 40px auto 40px;
 }
 
-/* 會員中心sidebar */
-.sidebar {
+/* 會員中心TCsidebar */
+.TCsidebar {
   display: none;
 }
 
@@ -603,7 +603,7 @@ body {
     line-height: 1;
   }
 
-  .profile::before {
+  .TCprofile::before {
     content: '';
     width: 2.5rem;
     height: 2.5rem;
@@ -615,7 +615,7 @@ body {
     top: 42%;
   }
 
-  .course::before {
+  .TCcourse::before {
     content: '';
     width: 2.5rem;
     height: 2.5rem;
@@ -627,7 +627,7 @@ body {
     top: 42%;
   }
 
-  .password::before {
+  .TCpassword::before {
     content: '';
     width: 1.5rem;
     height: 1.5rem;
@@ -639,7 +639,7 @@ body {
     top: 55%;
   }
 
-  .analytics::before {
+  .TCanalytics::before {
     content: '';
     width: 1.6rem;
     height: 1.6rem;
@@ -651,8 +651,8 @@ body {
     top: 55%;
   }
 
-  /* 會員中心sidebar */
-  .sidebar {
+  /* 會員中心TCsidebar */
+  .TCsidebar {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -660,7 +660,7 @@ body {
   }
 
   /* 頭像 */
-  .sidebar .avatar {
+  .TCsidebar .avatar {
     width: 120px;
     height: 120px;
     border-radius: 50%;
@@ -668,20 +668,19 @@ body {
     margin-bottom: 30px;
   }
 
-  /* sidebar選項列 */
-  .sidebar .nav-list {
+  /* TCsidebar選項列 */
+  .TCsidebar .nav-list {
     width: 100%;
     list-style: none;
     padding-left: 0;
   }
 
-  /* sidebar選項 */
-  .sidebar .nav-item {
+  /* TCsidebar選項 */
+  .TCsidebar .nav-item {
     display: flex;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
-    font-size: 16px;
     align-items: center;
     height: 50px;
     border-radius: 0px 10px 10px 0px;
@@ -692,18 +691,22 @@ body {
     cursor: pointer;
   }
 
-  .sidebar .nav-item > i {
-    font-size: 25px;
+  .TCsidebar .nav-item > i {
+    font-size: 1.5rem;
     margin: auto 8% auto 17%;
     background-color: transparent;
   }
 
+  .nav-item-text{
+    font-size: 1.2rem;
+  }
+
   /* 選中的選項狀態 */
-  .sidebar .nav-item.active {
+  .TCsidebar .nav-item.active {
     background-color: white;
   }
 
-  .sidebar .nav-item.active::after {
+  .TCsidebar .nav-item.active::after {
     content: '';
     position: absolute;
     left: 0;
@@ -713,7 +716,7 @@ body {
     background: #f1ef5b;
   }
 
-  .sidebar li > .nav-item:hover {
+  .TCsidebar li > .nav-item:hover {
     background-color: white;
   }
 
@@ -901,75 +904,7 @@ body {
     background-color: #065f8e;
   }
 
-  /* 會員中心sidebar */
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-  }
-
-  /* 頭像 */
-  .sidebar .avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 30px;
-  }
-
-  /* sidebar選項列 */
-  .sidebar .nav-list {
-    list-style: none;
-    padding-left: 0;
-    width: 100%;
-  }
-
-  /* sidebar選項 */
-  .sidebar .nav-item {
-    display: flex;
-    position: relative;
-    align-items: center;
-    height: 50px;
-    border-radius: 0px 10px 10px 0px;
-    margin-bottom: 10px;
-  }
-
-  .sidebar .nav-item a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    color: #065f8e;
-    margin-left: 25px;
-    background-color: transparent;
-  }
-
-  .sidebar .nav-item > a > i {
-    font-size: 25px;
-    width: 30px;
-    background-color: transparent;
-  }
-
-  /* 選中的選項狀態 */
-  .nav-item.active {
-    background-color: white;
-  }
-
-  .nav-item.active::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 15px;
-    height: 50px;
-    background: #f1ef5b;
-  }
-
-  .sidebar .nav-item:hover {
-    background-color: white;
-  }
+  
 
   /* 自我介紹欄位 */
   .TC-intro {
