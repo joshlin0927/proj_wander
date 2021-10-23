@@ -5,34 +5,32 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 export default function StStartMyCourse() {
   return (
     <>
-      <div class="stcoursebg-img">
-        <div className="container-fluid mainpic">
-          <div className="container">
-            <div className="row">
-              <MultiLevelBreadCrumb />
-            </div>
+      <div className="container-fluid mainpic mainContent">
+        <div className="container">
+          <div className="row">
+            <MultiLevelBreadCrumb />
           </div>
         </div>
+      </div>
 
-        <div className="container-fluid ">
-          <div className="row">
-            <div className="dec-side col-md-8 col-lg-8">
-              <div className="dec-insideblock col-md-8 col-lg-8">
-                <div className="startmycourse col-md-6 col-lg-6">
-                  <div className="dot"></div>
-                  開始課程
-                </div>
+      <div className="container-fluid ">
+        <div className="row">
+          <div className="dec-side col-md-8 col-lg-8">
+            <div className="dec-insideblock col-md-8 col-lg-8">
+              <div className="startmycourse col-md-6 col-lg-6">
+                <div className="dot"></div>
+                開始課程
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="dec-side-m col-9">
-          <div className="dec-insideblock-m col-9">
-            <div className="startmycourse-m col-9">
-              <div className="dot"></div>
-              開始課程
-            </div>
+      <div className="dec-side-m col-9">
+        <div className="dec-insideblock-m col-9">
+          <div className="startmycourse-m col-9">
+            <div className="dot"></div>
+            開始課程
           </div>
         </div>
       </div>

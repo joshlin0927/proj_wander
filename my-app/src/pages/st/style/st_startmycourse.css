@@ -118,7 +118,7 @@
 
   .mainpic {
     background-image: url('http://localhost:3000/images/pic/背景圖素材/7656d57f.jpg');
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     height: 446px;
     background-size: cover;
