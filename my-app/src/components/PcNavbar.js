@@ -18,7 +18,7 @@ function PcNavbar() {
         <div className="nav__singheader container">
           <div className="row flex-nowrap">
             <div className="col-3 p-0">
-              <Link to="#/" className="logo_desktop">
+              <Link to="/" className="logo_desktop">
                 <img
                   src={`${devUrl}/images/logo/logo_desktop.png`}
                   alt="logo"

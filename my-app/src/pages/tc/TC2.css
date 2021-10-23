@@ -839,6 +839,7 @@ body {
     margin-bottom: 96px;
     margin-top: 96px;
     padding: 0;
+    z-index: 1;
   }
 
   .pageNameText {
@@ -851,8 +852,8 @@ body {
 
   .profile::before {
     content: '';
-    width: 42px;
-    height: 42px;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     background: #f1ef5b;
     position: absolute;
@@ -863,8 +864,8 @@ body {
 
   .course::before {
     content: '';
-    width: 42px;
-    height: 42px;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     background: #f1ef5b;
     position: absolute;
@@ -875,8 +876,8 @@ body {
 
   .password::before {
     content: '';
-    width: 25px;
-    height: 25px;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
     background: #f1ef5b;
     position: absolute;
@@ -887,8 +888,8 @@ body {
 
   .analytics::before {
     content: '';
-    width: 28px;
-    height: 28px;
+    width: 1.6rem;
+    height: 1.6rem;
     border-radius: 50%;
     background: #f1ef5b;
     position: absolute;

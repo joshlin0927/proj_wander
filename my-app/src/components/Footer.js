@@ -13,31 +13,34 @@ function Footer(props) {
             : 'footerWrap'
         }
       >
+      <div className="footerFill"></div>
         <div className="wanderFooter container">
-          <div className="row footer-left">
-            <Link to="/">
-              <img
-                id="Footer-Desktop-Logo"
-                src={`${devUrl}/images/logo/footer_desktop.png`}
-                alt=""
-              />
-            </Link>
+          <div className="footer-left">
+            <div className="Footer-Desktop-Logo">
+              <Link to="/">
+                <img
+                  src={`${devUrl}/images/logo/footer_desktop.png`}
+                  alt=""
+                />
+              </Link>
+            </div>
+
             <div className="mx-auto">
               <Link to="/">
                 <img
-                  id="Footer-Mobile-Logo"
+                  className="Footer-Mobile-Logo"
                   src={`${devUrl}/images/logo/footer_mobile.png`}
                   alt=""
                 />
               </Link>
             </div>
             <div className="Footer-page-links">
-              <Link to="">關於我們</Link>
-              <Link to="">常見問題</Link>
-              <Link to="">國際角落</Link>
+              <Link to="#/">關於我們</Link>
+              <Link to="#/">常見問題</Link>
+              <Link to="#/">國際角落</Link>
             </div>
           </div>
-          <div className="row footer-right">
+          <div className="footer-right">
             <div className="icons">
               <i className="fab fa-facebook"></i>
               <i className="fab fa-twitter"></i>
