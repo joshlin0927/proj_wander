@@ -82,7 +82,7 @@ function MultiLevelBreadCrumb(props) {
             alt=""
           />
         </div>
-        <ol className="breadcrumb col col-md-10 col-lg-12 m-0">
+        <ol className="breadcrumb col m-0">
           <li className="breadcrumb-item">
             <Link to="/">&nbsp;</Link>
           </li>

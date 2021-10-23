@@ -1,5 +1,9 @@
+// 套件
 import React, { useState } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
+
+// Css 擺放位置
+import './TC2.css'
 
 // 頁面
 import TcProfile from './TcProfile'

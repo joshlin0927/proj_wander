@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { devUrl } from '../../config'
 
@@ -15,6 +15,10 @@ function TcCourseCard(props) {
     course_introduction,
     created_at,
   } = props
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
   return (
     <>
       <div className="TCcourse-card col-12">
@@ -25,7 +29,9 @@ function TcCourseCard(props) {
           />
         </div>
         <div className="TCcourse-info">
-          <div className="TCcourse-title">{course_name}</div>
+          <div className="TCcourse-title">
+            {course_name}
+          </div>
           <div className="TCcourse-info-right">
             <div className="TCcourse-detail">
               <span>課程種類：</span> {course_category}

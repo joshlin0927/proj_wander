@@ -3,85 +3,6 @@ body {
   position: relative;
 }
 
-/* 頁面背景(手機) */
-/* 背景包覆(為了色塊動畫) */
-/* .TCallwraper {
-  z-index: -1;
-  position: absolute;
-  top: -110px;
-  width: 100%;
-  height: 100%;
-} */
-
-/* 地球背景圖 */
-/* .earth {
-  display: none;
-} */
-
-/* 上面的黃色色塊 */
-/* .dec-block {
-  display: block;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  width: 56%;
-  height: 335px;
-  z-index: -2;
-  background: #f1ef5b;
-  border-radius: 0px 0px 0px 180px;
-  animation: TChy 12s linear infinite;
-} */
-
-/* 黃色色塊的動畫 */
-/* @keyframes TChy {
-  0% {
-    right: 0%;
-    width: 56%;
-  }
-
-  50% {
-    right: 0%;
-    width: 60%;
-  }
-
-  100% {
-    right: 0%;
-    width: 56%;
-  }
-} */
-
-/* 新增課程的黃色色塊 */
-/* .dec-block-lg {
-  display: block;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  width: 95%;
-  height: 250px;
-  z-index: -2;
-  background: #f1ef5b;
-  border-radius: 0px 0px 0px 180px;
-  animation: TChy2 12s linear infinite;
-} */
-
-/* 新增課程的黃色色塊的動畫 */
-/* @keyframes TChy2 {
-  0% {
-    right: 0%;
-    width: 95%;
-  }
-
-  50% {
-    right: 0%;
-    width: 90%;
-  }
-
-  100% {
-    right: 0%;
-    width: 95%;
-  }
-} */
-
 .TCmb-50 {
   margin-bottom: 50px;
 }
@@ -132,72 +53,12 @@ body {
   opacity: 0;
 }
 
-/* footer */
-/* .footerWrap {
-  margin-bottom: 80px;
+.TcHasNoCourse {
+  color: #065f8e;
+  font-weight: bold;
+  font-size: 24px;
+  margin: 40px auto;
 }
-
-.wanderFooter {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 220px;
-  background-color: #065f8e;
-}
-
-.footer-left {
-  margin: auto;
-  width: 100%;
-}
-
-#Footer-Desktop-Logo {
-  display: none;
-}
-
-#Footer-Mobile-Logo {
-  display: block;
-  margin: 18px auto 35px;
-}
-
-.Footer-page-links {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 25px;
-  width: 100%;
-  padding: 0px;
-}
-
-.Footer-page-links > a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.footer-right {
-  display: flex;
-  justify-content: space-evenly;
-  margin: auto;
-  width: 100%;
-}
-
-.icons {
-  color: white;
-  font-size: 25px;
-}
-
-.version-icon {
-  display: flex;
-  margin-left: 0px;
-}
-
-.icon-sp {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  font-size: 12px;
-  color: white;
-  margin: 5px;
-} */
 
 /* 手機logo */
 .logo-m {
@@ -438,7 +299,7 @@ body {
 }
 
 /* 商城顯示的課程(手機) */
-.BuyCourseSection {
+/* .BuyCourseSection {
   display: flex;
   flex-wrap: wrap;
 }
@@ -504,7 +365,7 @@ body {
   position: absolute;
   bottom: 6%;
   right: 5%;
-}
+} */
 
 /* -------------以上為公用------------ */
 
@@ -702,114 +563,6 @@ body {
   .mainContent {
     margin-top: 100px;
   }
-
-  /* 頁面背景(桌機) */
-  /* 圓圈的動畫 */
-  /* @keyframes bc {
-    0% {
-      transform: scale(0.9);
-    }
-
-    10% {
-      transform: scale(1);
-    }
-
-    20% {
-      transform: scale(0.9);
-    }
-
-    30% {
-      transform: scale(1);
-    }
-
-    40% {
-      transform: scale(0.9);
-    }
-
-    50% {
-      transform: scale(1);
-    }
-
-    60% {
-      transform: scale(0.9);
-    }
-
-    70% {
-      transform: scale(1);
-    }
-
-    80% {
-      transform: scale(0.9);
-    }
-
-    90% {
-      transform: scale(1);
-    }
-
-    100% {
-      transform: scale(0.9);
-    }
-  } */
-
-  /* 圓圈 */
-  /* .dec-circle {
-    display: block;
-    position: absolute;
-    z-index: -1;
-    width: 262px;
-    height: 262px;
-    right: 26px;
-    top: 189px;
-    border: 4px dashed #065f8e;
-    border-radius: 50%;
-    animation: bc 150s linear infinite;
-  } */
-
-  /* 圓圈-白 */
-  /* .dec-circle-w {
-    display: block;
-    position: absolute;
-    z-index: -1;
-    width: 412px;
-    height: 412px;
-    right: 0;
-    top: -12rem;
-    border: 4px dashed white;
-    border-radius: 50%;
-    animation: bc 150s linear infinite;
-  }
-
-  .dec-white {
-    position: absolute;
-    z-index: -3;
-    width: 80%;
-    height: 840px;
-    background: #fff;
-    border-radius: 0px 0px 20px 0px;
-  } */
-
-  /* 黃色色塊(上) */
-  /* .dec-block {
-    height: 310px;
-  } */
-
-  /* 地球 */
-  /* .earth {
-    display: block;
-    position: absolute;
-    z-index: -1;
-    right: 0;
-    top: 724px;
-  } */
-
-  /* 藍色色塊(下) */
-  /* .dec-blue-block {
-    display: block;
-    position: absolute;
-    top: 1100px;
-    left: 0px;
-    z-index: -1;
-  } */
 
   /* 所有input欄位 */
   .allInputs {
@@ -1310,7 +1063,6 @@ body {
 
   .p-page-info .TCp-intro-title {
     top: -20px;
-    /* left: 65px; */
     width: 165px;
     font-size: 24px;
   }
@@ -1409,79 +1161,5 @@ body {
     position: absolute;
     bottom: 6%;
     right: 5%;
-  } */
-
-  /* footer */
-  /* .footerWrap {
-    width: 90%;
-    border-radius: 0px 50px 0px 0px;
-    background-color: #065f8e;
-    margin-bottom: 0px;
-  }
-
-  .wanderFooter {
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-    height: 250px;
-  }
-
-  .footer-left {
-    margin-right: 0px;
-  }
-
-  #Footer-Desktop-Logo {
-    display: block;
-    margin-bottom: 40px;
-  }
-
-  #Footer-Mobile-Logo {
-    display: none;
-  }
-
-  .Footer-page-links {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
-    width: 100%;
-  }
-
-  .Footer-page-links > a {
-    text-decoration: none;
-    color: #fff;
-  }
-
-  .footer-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-top: 4.5rem;
-    margin-right: 10%;
-    width: 100%;
-  }
-
-  .icons {
-    color: white;
-    font-size: 25px;
-    margin-bottom: 60px;
-  }
-
-  .icons i {
-    margin-left: 26px;
-  }
-
-  .version-icon {
-    display: flex;
-    margin-left: 0px;
-  }
-
-  .icon-sp {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    font-size: 12px;
-    color: white;
-    margin: 0px 0px 0px 10px;
   } */
 }
