@@ -3,13 +3,14 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
+  Redirect,
 } from 'react-router-dom'
 
 //引用頁面
 import StEditProfile from './StEditProfile'
 import StPasswordModify from './StPasswordModify'
 import StStartMyCourse from './StStartMyCourse'
-import StSelectLanguage from './StSelectLanguage'
+// import StSelectLanguage from './StSelectLanguage'
 import StGameStart from './StGameStart'
 import StCourseEmpty from './StCourseEmpty'
 
@@ -17,7 +18,9 @@ export default function index() {
   return (
     <>
       <Switch>
-        <Route path="/StIndex/"></Route>
+        {/* <Route path="/StIndex/">
+          <Redirect to="/StIndex/StEditProfile" />
+        </Route> */}
 
         <Route path="/StIndex/StEditProfile">
           <StEditProfile />
@@ -31,7 +34,7 @@ export default function index() {
           <StStartMyCourse />
         </Route>
         <Route path="/StIndex/StSelectLanguage">
-          <StSelectLanguage />
+          {/* <StSelectLanguage /> */}
         </Route>
         <Route path="/StIndex/StGameStart">
           <StGameStart />

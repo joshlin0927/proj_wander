@@ -97,8 +97,8 @@ export default function StEditProfile() {
             </form>
           </div>
         </div>
+        <StBgDecorationNormal />
       </div>
-      <StBgDecorationNormal />
     </>
   )
 }
