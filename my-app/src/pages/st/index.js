@@ -1,9 +1,7 @@
 import React from 'react'
 import {
-  BrowserRouter as Router,
-  Route,
+  BrowserRouter as Route,
   Switch,
-  Redirect,
 } from 'react-router-dom'
 
 //引用頁面
@@ -13,30 +11,42 @@ import StStartMyCourse from './StStartMyCourse'
 import StSelectLanguage from './StSelectLanguage'
 import StGameStart from './StGameStart'
 import StCourseEmpty from './StCourseEmpty'
+import StCourse from './StCourse'
+import StCalendar from './StCalendar'
+import StClassroom from './StClassroom'
 
 export default function index() {
   return (
     <>
       <Switch>
-        <Route path="/StIndex/StEditProfile">
+        <Route exact path="/StIndex/StEditProfile">
           <StEditProfile />
         </Route>
 
-        <Route path="/StIndex/StPasswordModify">
+        <Route exact path="/StIndex/StPasswordModify">
           <StPasswordModify />
         </Route>
 
-        <Route path="/StIndex/StStartMyCourse">
+        <Route exact path="/StIndex/StStartMyCourse">
           <StStartMyCourse />
         </Route>
-        <Route path="/StIndex/StSelectLanguage">
+        <Route exact path="/StIndex/StSelectLanguage">
           <StSelectLanguage />
         </Route>
-        <Route path="/StIndex/StGameStart">
+        <Route exact path="/StIndex/StGameStart">
           <StGameStart />
         </Route>
-        <Route path="/StIndex/StCourseEmpty">
+        <Route exact path="/StIndex/StCourseEmpty">
           <StCourseEmpty />
+        </Route>
+        <Route exact path="/StIndex/StCourse">
+          <StCourse />
+        </Route>
+        <Route exact path="/StIndex/StCalendar">
+          <StCalendar />
+        </Route>
+        <Route exact path="/StIndex/StClassroom">
+          <StClassroom />
         </Route>
       </Switch>
     </>

@@ -20,7 +20,7 @@ export default function StSelectLanguage() {
             <div className="dec-side col-md-8 col-lg-8">
               <div className="dec-insideblock col-md-9 col-lg-8">
                 <div className="selectlanguage col-md-6 col-lg-6">
-                  選擇語系
+                  選擇語言
                   <ul claaName="languagelist">
                     <li className="selection">英文</li>
                     <li className="selection"> 西文 </li>
@@ -36,7 +36,7 @@ export default function StSelectLanguage() {
         <div className="dec-side-m col-8">
           <div className="dec-insideblock-m col-11">
             <div className="selectlanguage-m col-8 ">
-              選擇語系
+              選擇語言
               <ul claaName="languagelist-m">
                 <li className="selection-m"> 英文 </li>
                 <li className="selection-m"> 西文 </li>

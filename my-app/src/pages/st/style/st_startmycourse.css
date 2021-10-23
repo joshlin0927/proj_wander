@@ -3,15 +3,6 @@
   font-family: "Noto Sans", "Noto Sans TC", sans-serif;
 }
 
- /* .stcoursebg-img { 
-  background-image: url('http://localhost:3000/images/pic/背景圖素材/7656d57f.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: transparent; 
-
- }  */
-
 
 .navbar {
   display: none;
@@ -98,20 +89,17 @@
   z-index: -1;
 }
 
-.full {
+/* .full {
   height: 100vh;
   width: 100%;
-}
+} */
 
 
 
 
 @media (min-width: 768px) {
 
-  .stbg-img {
-    background-image: none;
 
-  }
 
   .full {
     height: fit-content;

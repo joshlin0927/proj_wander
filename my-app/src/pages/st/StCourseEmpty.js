@@ -4,41 +4,40 @@ import { devUrl } from '../../config'
 
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
-import SideBar2 from '../../components/st/SideBar2'
+import StSideBar2 from '../../components/st/StSideBar2'
 import RemindingText from '../../components/st/RemindingText'
 
 export default function StCourseEmpty() {
   return (
-    <div class="bgc-img">
-      <div class="container mainContent">
-        <div class="row">
-          <MultiLevelBreadCrumb />
+    <div className="container mainContent">
+      <div className="row">
+        <MultiLevelBreadCrumb />
 
-          <div class="col-10 ml-auto pageName">
-            <span class="pageNameText course">Course</span>
-          </div>
-        </div>
-        <div class="row">
-          <SideBar2 />
-
-          <div class="col-12 col-md-8  reminding">
-            <RemindingText />
-          </div>
-        </div>
-
-        <div class="row mb-5 ">
-          <div class="subtitle">推薦教師</div>
-        </div>
-        <div class="row teacherrow btblock">
-          <div class="t_avatar col-12 col-md-3 col-lg-3">
-            <img
-              src={`${devUrl}/images/pic/老師照片/Tarin Johnson.jpg`}
-              alt=""
-            />
-            <p class="nametag">Tarin</p>
-          </div>
+        <div className="col-10 ml-auto pageName">
+          <span className="pageNameText course">Course</span>
         </div>
       </div>
+      <div className="row">
+        <StSideBar2 />
+
+        <div className="col-12 offset-0 col-md-8 offset-md-1 reminding">
+          <RemindingText />
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="coursesubtitle">推薦教師</div>
+      </div>
+      <div className="row teacherrow">
+        <div className="t_avatar col-12 col-md-3 col-lg-3">
+          <img
+            src={`${devUrl}/images/pic/老師照片/Tarin Johnson.jpg`}
+            alt=""
+          />
+          <p className="nametag">Tarin</p>
+        </div>
+      </div>
+      <div className="btblock"> </div>
     </div>
   )
 }

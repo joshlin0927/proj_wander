@@ -2,17 +2,6 @@
    font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
  }
 
- .stbg-img {
-   background-image: url('http://localhost:3000/images/pic/其他/AdobeStock_408070902.jpeg');
-   background-position: top;
-   background-repeat: no-repeat;
-   background-size: cover;
-   /* 透明度0.6的黑色半透明遮罩 */
-   background-color: rgba(0, 0, 0, 0.4);
-   /* 設置背景混和模式為相乘模式 */
-   background-blend-mode: multiply;
-   z-index:
- }
 
  /* 全頁背景色 */
  .TCsp-bgc {
@@ -21,14 +10,27 @@
  }
 
  /* 全頁包覆(為了色塊動畫) */
- .TCallwraper {
+ .STallwraper {
    z-index: -1;
    position: absolute;
    top: -110px;
    width: 100%;
  }
 
- .modal-dialog {
+ /* .stbgimg {
+   width: 100%;
+   height:fit-content;
+   background-image: url('http://localhost:3000/images/pic/其他/AdobeStock_408070902.jpeg');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   /* 透明度0.6的黑色半透明遮罩 
+ background-color: rgba(0, 0, 0, 0.4);
+ /* 設置背景混和模式為相乘模式 
+ background-blend-mode: multiply;
+ }
+
+ */ .modal-dialog {
    margin: 0;
  }
 
@@ -407,7 +409,7 @@
      z-index: -5;
      left: 36%;
      top: 42%;
-     
+
    }
 
    /* 表單 */

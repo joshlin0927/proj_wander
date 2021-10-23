@@ -4,7 +4,7 @@ import { devUrl } from '../../config'
 export default function StBgDecorationNormal() {
   return (
     <>
-      <div className="TCallwraper">
+      <div className="STallwraper">
         <div className="confirmmsg">
           <i className="far fa-check-circle"></i>
           資料已修改完成

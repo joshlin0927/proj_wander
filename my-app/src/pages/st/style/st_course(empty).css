@@ -2,14 +2,9 @@
   font-family: "Noto Sans", "Noto Sans TC", sans-serif;
 }
 
-.bgc-img {
-  background: #f1f0e9;
-  position: relative;
-  /* overflow: hidden; */
-}
 
 /* 全頁包覆(為了色塊動畫) */
-.TCallwraper {
+.STallwraper {
   z-index: -1;
   position: absolute;
   top: -110px;
@@ -171,54 +166,8 @@
   border-color: transparent #F1F0E9 transparent transparent;
 }
 
-.coursesection {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.courseitem {
-  width: 100%;
-  height: 271px;
-  border: 1.25px solid rgba(255, 255, 255, 1);
-  border-radius: 30px;
-  position: relative;
-  margin-bottom: 30px;
-  margin-left: 10px;
-}
-
-.courseitem img {
-  width: 100%;
-  height: 100%;
-  border-radius: 30px;
-}
-
-.coursename {
-  color: white;
-  font-size: 14px;
-  font-style: bold;
-  top: 65%;
-  left: 5%;
-  margin-left: auto;
-  position: absolute;
-}
-
-.teachername {
-  color: white;
-  font-size: 8px;
-  font-style: bold;
-  position: absolute;
-  top: 75%;
-  left: 5%;
-}
 
 
-.subtitle {
-  font-size: 36px;
-  font-weight: bold;
-  margin-top: 20px;
-  margin: 100px 0px 0px 15px;
-}
 
 .t_avatar {
   width: 200px;
@@ -256,8 +205,8 @@
 }
 
 .btblock {
-  margin-bottom: 30px;
-  width: 100%;
+  width: 100px;
+  height: 30px;
 }
 
 .remindingtext {
@@ -265,7 +214,7 @@
   color: #065F8E;
   font-weight: bold;
   text-align: center;
-  margin-top: 185px;
+
 }
 
 .buy-btn {
@@ -289,6 +238,12 @@
 
 .reminding {
   margin: 0px;
+}
+
+.coursesubtitle {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 100px 0px 55px 15px;
 }
 
 
@@ -454,79 +409,10 @@
   }
 
 
-  /* 這裡開始是課程商品 */
-
-  .coursesection {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .courseitem {
-    width: 215px;
-    height: 215px;
-    border: 1.25px solid rgba(255, 255, 255, 1);
-    border-radius: 30px;
-    position: relative;
-    margin-bottom: 30px;
-    margin-left: 10px;
-  }
-
-  .courseitem img {
-    width: 100%;
-    height: 100%;
-    border-radius: 30px;
-  }
-
-  .coursename {
-    color: white;
-    font-size: 14px;
-    font-style: bold;
-    top: 65%;
-    left: 5%;
-    margin-left: auto;
-    position: absolute;
-  }
-
-  .teachername {
-    color: white;
-    font-size: 8px;
-    font-style: bold;
-    position: absolute;
-    top: 75%;
-    left: 5%;
-  }
-
-  /* 以下提供給商品頁面及教師頁面使用 */
-
-  /* .fa-star {
-        color: #BCC831;
-      }
-
-      .score {
-        font-size: 10px;
-        color: white;
-        font-style: bold;
-        position: absolute;
-        top: 85%;
-        left: 5%;
-      }
-
-      .price {
-        font-size: 14px;
-        color: white;
-        font-weight: bold;
-        position: absolute;
-        top: 87%;
-        right: 5%;
-      } */
-
-
-
-  .subtitle {
+  .coursesubtitle {
     font-size: 36px;
     font-weight: bold;
-    margin: 100px 0px 0px 15px;
+    margin: 70px 0px 50px 15px;
   }
 
   .t_avatar {
@@ -687,4 +573,3 @@
 
 
 }
-
