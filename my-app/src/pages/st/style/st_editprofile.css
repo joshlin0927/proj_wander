@@ -479,69 +479,7 @@
      margin-bottom: 10px;
    }
 
-   /* 會員中心sidebar */
-   .sidebar {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     padding: 0;
-   }
-
-   /* 頭像 */
-   .sidebar .avatar {
-     width: 120px;
-     height: 120px;
-     border-radius: 50%;
-     overflow: hidden;
-     margin-bottom: 30px;
-   }
-
-   /* sidebar選項列 */
-   .sidebar .nav-list {
-     width: 100%;
-     list-style: none;
-     padding-left: 0;
-   }
-
-   /* sidebar選項 */
-   .nav-item {
-     display: flex;
-     text-align: center;
-     font-weight: bold;
-     font-size: 16px;
-     align-items: center;
-     height: 50px;
-     border-radius: 0px 10px 10px 0px;
-     margin-bottom: 10px;
-     color: #065f8e;
-     position: relative;
-   }
-
-   .sidebar .nav-item i {
-     font-size: 25px;
-     width: 40px;
-     margin-left: 10%;
-     background-color: transparent;
-   }
-
-   /* 選中的選項狀態 */
-   .sidebar .nav-item.active {
-     background-color: white;
-   }
-
-   .sidebar .nav-item.active::after {
-     content: '';
-     position: absolute;
-     left: 0;
-     top: 0;
-     width: 15px;
-     height: 50px;
-     background: #f1ef5b;
-   }
-
-   .sidebar .nav-item:hover {
-     background-color: white;
-   }
+ 
 
    .save-btn {
      margin: 60px 0;

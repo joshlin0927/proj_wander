@@ -17,25 +17,25 @@ export default function StSideBar() {
           <li>
             <Link href="" className="nav-item active">
               <i className="fas fa-user"> </i>
-              <div> 個人資料 </div>
+              <div className="nav-item-text">個人資料</div>
             </Link>
           </li>
           <li>
             <Link href="" className="nav-item">
               <i className="fas fa-key"> </i>
-              <div>密碼更改</div>
+              <div className="nav-item-text">密碼更改</div>
             </Link>
           </li>
           <li>
             <Link to="" className="nav-item">
               <i className="fas fa-shopping-bag"> </i>
-              <div>訂單查詢</div>
+              <div className="nav-item-text">訂單查詢</div>
             </Link>
           </li>
           <li>
             <Link to="" className="nav-item">
               <i className="fas fa-comment-alt"> </i>
-              <div> 聊天室 </div>
+              <div className="nav-item-text"> 聊天室 </div>
             </Link>
           </li>
         </ul>

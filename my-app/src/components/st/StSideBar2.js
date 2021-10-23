@@ -17,25 +17,25 @@ export default function StSideBar2() {
           <li>
             <Link href="" className="nav-item active">
               <i class="fas fa-user"> </i>
-              <div> 聊天室 </div>
+              <div className="nav-item-text"> 聊天室 </div>
             </Link>
           </li>
           <li>
             <Link href="" className="nav-item">
               <i class="far fa-play-circle"> </i>
-              <div> 我的課程 </div>
+              <div className="nav-item-text">我的課程</div>
             </Link>
           </li>
           <li>
             <Link to="" className="nav-item">
               <i class="fal fa-users-class"> </i>
-              <div> 教室上課 </div>
+              <div className="nav-item-text">教室上課</div>
             </Link>
           </li>
           <li>
             <Link to="" className="nav-item">
               <i class="fal fa-table"> </i>
-              <div> 課程管理 </div>
+              <div className="nav-item-text">課程管理</div>
             </Link>
           </li>
         </ul>
