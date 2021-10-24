@@ -8,7 +8,7 @@ export default function SignUp() {
       <div className="stbg-img">
         <div className="container">
           <div className="m-wrap row justify-content-center">
-            <div className="logo-m">
+            <div className="logo-m-login">
               <img
                 src={`${devUrl}/images/logo/log_mobile.png`}
                 alt=""

@@ -53,6 +53,9 @@
  .mb-50 {
    margin-bottom: 50px;
  }
+ .mb-45{
+   margin-bottom: 45px;
+ }
 
  /* -------------以上為公用--------- */
 
@@ -143,10 +146,7 @@
    color: #065f8e;
  }
 
- /* 手機logo */
- .logo-m {
-   margin: 40px auto 40px;
- }
+ 
 
  /* 會員中心sidebar */
  .sidebar {
@@ -213,7 +213,7 @@
 
  /* 姓名的input */
  .nameInputs {
-   margin: 27px 0 50px;
+   margin: 27px 0 5px;
    border: 1px solid rgba(0, 0, 0, 0.5);
    border-radius: 10px;
    width: 100%;
@@ -250,7 +250,7 @@
    font-size: 14px;
    letter-spacing: -0.015em;
    color: #cf2727;
-   margin-bottom: 26px;
+   /* margin-bottom: 26px; */
  }
 
  /* 預覽按鈕(桌機板) */
@@ -378,10 +378,6 @@
      padding-right: 1rem;
    }
 
-   /* 手機版logo */
-   .logo-m {
-     display: none;
-   }
 
    /* 頁面英文標題*/
    .pageName {

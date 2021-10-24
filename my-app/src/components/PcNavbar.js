@@ -51,7 +51,7 @@ function PcNavbar() {
               <Link to="#/" className="nav_login">
                 <span className="nav_login_txt">登入</span>
               </Link>
-              <Link to="#/" className="nav_cart">
+              <Link to="/Cart" className="nav_cart">
                 <img
                   src={`${devUrl}/images/cart/cart_icon.svg`}
                   alt=""

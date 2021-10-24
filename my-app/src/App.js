@@ -5,7 +5,6 @@ import {
   Switch,
 } from 'react-router-dom'
 import React from 'react'
-
 import ScrollToTop from './components/ScrollToTop'
 
 // Navbar
@@ -26,7 +25,7 @@ import TCindex from './pages/tc/index'
 import StIndex from './pages/st/index'
 
 // 購物車
-import CartStep01 from './pages/cart/CartStep01'
+import Cart from './pages/cart'
 
 // 會員管理後台
 import CompanyBackend from './pages/CompanyBackend'
@@ -35,9 +34,8 @@ function App() {
   return (
     <Router>
       <>
-        <PcNavbar />
-        {/* <MultiLevelBreadCrumb /> */}
         <ScrollToTop>
+          <PcNavbar />
           <Switch>
             <Route path="/CompanyBackend">
               <CompanyBackend />
@@ -47,7 +45,7 @@ function App() {
               <TCindex />
             </Route>
             <Route path="/Cart">
-              <CartStep01 />
+              <Cart />
             </Route>
             <Route path="/StIndex">
               <StIndex />
@@ -64,7 +62,6 @@ function App() {
               <WanderIndex />
             </Route>
           </Switch>
-
           <MobileNavbar />
         </ScrollToTop>
       </>

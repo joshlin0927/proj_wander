@@ -14,9 +14,7 @@
 
  }
 
- .logo-m {
-   margin-top: 90px;
- }
+ 
 
  .back {
    width: 80px;
@@ -160,9 +158,6 @@
      margin-bottom: 30px;
    }
 
-   .logo-m {
-     display: none;
-   }
 
    .forgetPassword {
      text-align: center;
