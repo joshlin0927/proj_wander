@@ -7,6 +7,7 @@
   height: 40px;
   font-size: 14px;
   font-weight: bold;
+  cursor: pointer;
 }
 .confirmBtn {
   background-color: #ffffff;
@@ -548,7 +549,7 @@
   font-size: 2rem;
 }
 #counponModal .modal-content {
-  background-color: #c7c6c1;
+  background-color: #F1F0E9;
 }
 .modal-body-title {
   background-color: rgba(255, 255, 255, 0.6);

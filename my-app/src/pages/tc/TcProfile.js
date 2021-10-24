@@ -160,22 +160,22 @@ function TcProfile() {
                   <input
                     name="firstname"
                     type="text"
-                    className="nameInputs"
+                    className="TCnameInputs"
                     placeholder="名字"
                     value={fields.firstname}
                     onChange={handleFieldChange}
-                    readOnly
+                    disabled
                   />
                 </div>
                 <div className="col-6 pr-0">
                   <input
                     name="lastname"
                     type="text"
-                    className="nameInputs"
+                    className="TCnameInputs"
                     placeholder="姓氏"
                     value={fields.lastname}
                     onChange={handleFieldChange}
-                    readOnly
+                    disabled
                   />
                 </div>
               </div>
@@ -187,7 +187,7 @@ function TcProfile() {
                   placeholder="信箱"
                   value={fields.email}
                   onChange={handleFieldChange}
-                  readOnly
+                  disabled
                 />
               </div>
               <div className="TCmb-50">

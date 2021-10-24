@@ -27,7 +27,7 @@ function TcCourse() {
   let [totalRows, setTotalRows] = useState(0)
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       let r = await axios.get(Course_LIST)
       console.log(r)
       if (r.status === 200) {
@@ -73,7 +73,7 @@ function TcCourse() {
                 />
               </div>
               <div className="d-flex justify-content-end">
-                <Link to="/TCindex/TcCourseEdit">
+                <Link to="/TCindex/TcCourseEdit/:id?">
                   <button
                     type="submit"
                     className="TCbtn TCbtn-sm btn-primary"

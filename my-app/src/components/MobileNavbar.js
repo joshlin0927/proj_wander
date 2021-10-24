@@ -15,7 +15,10 @@ function MobileNavbar() {
             />
             <span>課程總覽</span>
           </Link>
-          <Link to="#/" className="mobile-nav-item col-2">
+          <Link
+            to="/Cart"
+            className="mobile-nav-item col-2"
+          >
             <img
               src={`${devUrl}/images/mobile-nav-alter/nav-icon-cart.svg`}
               alt=""

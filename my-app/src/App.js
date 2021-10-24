@@ -27,7 +27,10 @@ import TCindex from './pages/tc/index'
 import StIndex from './pages/st/index'
 
 // 購物車
-import CartStep01 from './pages/cart/CartStep01'
+import Cart from './pages/cart'
+
+// 會員管理後台
+import CompanyBackend from './pages/CompanyBackend'
 
 function App() {
   return (
@@ -37,12 +40,15 @@ function App() {
         {/* <MultiLevelBreadCrumb /> */}
 
         <Switch>
+          <Route path="/CompanyBackend">
+            <CompanyBackend />
+          </Route>
           <Route path="/TCindex">
             {/* exact 要加回去 */}
             <TCindex />
           </Route>
           <Route path="/Cart">
-            <CartStep01 />
+            <Cart />
           </Route>
           <Route path="/StIndex">
             <StIndex />
