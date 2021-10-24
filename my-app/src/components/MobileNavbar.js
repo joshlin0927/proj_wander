@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { devUrl } from '../config'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
-function MobileNavbar() {
+function MobileNavbar(props) {
+  useEffect(() => {
+    const path = props.location.pathname
+    const navItem = document.querySelectorAll(
+      '.mobile-nav-item'
+    )
+    console.log(path)
+    console.log(navItem[0])
+  }, [props.location.pathname])
   return (
     <>
       <div className="mobile-nav container-fluid">
@@ -43,7 +51,7 @@ function MobileNavbar() {
             <span>我的課程</span>
           </Link>
           <Link
-            to="#/"
+            to="/TCIndex"
             className="mobile-nav-item active col-2"
           >
             <img
@@ -59,4 +67,4 @@ function MobileNavbar() {
   )
 }
 
-export default MobileNavbar
+export default withRouter(MobileNavbar)
