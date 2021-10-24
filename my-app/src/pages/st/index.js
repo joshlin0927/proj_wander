@@ -19,11 +19,11 @@ export default function index() {
   return (
     <>
       <Switch>
-        <Route exact path="/StIndex/StEditProfile">
+        <Route exact path="/StIndex/StEditProfile/:id?">
           <StEditProfile />
         </Route>
 
-        <Route exact path="/StIndex/StPasswordModify">
+        <Route exact path="/StIndex/StPasswordModify/:id?">
           <StPasswordModify />
         </Route>
 
@@ -39,13 +39,13 @@ export default function index() {
         <Route exact path="/StIndex/StCourseEmpty">
           <StCourseEmpty />
         </Route>
-        <Route exact path="/StIndex/StCourse">
+        <Route exact path="/StIndex/StCourse/:id?">
           <StCourse />
         </Route>
-        <Route exact path="/StIndex/StCalendar">
+        <Route exact path="/StIndex/StCalendar/:id?">
           <StCalendar />
         </Route>
-        <Route exact path="/StIndex/StClassroom">
+        <Route exact path="/StIndex/StClassroom/:id?">
           <StClassroom />
         </Route>
       </Switch>
