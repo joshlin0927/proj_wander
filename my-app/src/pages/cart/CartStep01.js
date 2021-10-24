@@ -1,13 +1,23 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Modal } from 'react-bootstrap'
+import { Link, withRouter } from 'react-router-dom'
 import { devUrl } from '../../config'
-import './cart_step.css'
+
 // 全頁通用元件
+import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import Footer from '../../components/Footer'
-function CartStep01() {
+function CartStep01(props) {
   const [cartFooterMb, setCartFooterMb] = useState(true)
+  // modal
+  const [counponModalShow, setCounponModalShow] =
+    useState(false)
+  const handleCounponModalClose = () =>
+    setCounponModalShow(false)
+  const handleCounponModalShow = () =>
+    setCounponModalShow(true)
   return (
     <>
+      <MultiLevelBreadCrumb />
       {/* <!-- Main --> */}
       <div className="container-fluid p-0 mb-footer">
         <div className="row align-items-start m-0">
@@ -229,15 +239,14 @@ function CartStep01() {
                   />
                 </div>
                 {/* <!-- <div className="w-100 mt-3"></div>
-                        <a href="#" className="ml-auto mr-auto" data-toggle="modal" data-target="#counponModal">
+                        <a href="#" className="ml-auto mr-auto" onClick={handleCounponModalShow}>
                             <span className="selectCoupon">點我選擇優惠券</span>
                         </a> --> */}
                 <div className="w-100 mt-3"></div>
                 <Link
                   to="#/"
                   className="ml-auto"
-                  data-toggle="modal"
-                  data-target="#counponModal"
+                  onClick={handleCounponModalShow}
                 >
                   <span className="selectOtherCoupon">
                     選擇其他優惠券
@@ -272,7 +281,9 @@ function CartStep01() {
               </div>
               <button
                 className="btn checkoutBtn"
-                onClick="location.href='./cart_step2.html'"
+                onClick={() => {
+                  props.history.push('/Cart/Step02')
+                }}
               >
                 我要結帳
               </button>
@@ -280,6 +291,207 @@ function CartStep01() {
           </div>
         </div>
       </div>
+      <Modal
+        show={counponModalShow}
+        onHide={handleCounponModalClose}
+        id="counponModal"
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title id="counponModalTitle">
+            選擇優惠券
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body id="counponModalBody">
+          <div className="container-fluid">
+            {/* <!-- 分類標題 --> */}
+            <div className="row modal-body-title">
+              <div className="col-4 text-center">
+                優惠券類別
+              </div>
+              <div className="col-4 text-center">
+                詳細說明
+              </div>
+              <div className="col-2 text-center">
+                有效期限
+              </div>
+              <div className="col-2 text-center">選取</div>
+            </div>
+            {/* <!-- 可用/不可用標題 --> */}
+            <div className="row">
+              <div className="col-12 modal-card-title">
+                可使用的優惠券
+              </div>
+            </div>
+          </div>
+          <div
+            id="counponCanUse"
+            className="container-fluid "
+          >
+            {/* <!-- 優惠券 --> */}
+            <div className="row modal-card">
+              <div className="col-6 col-md-4 text-center p-0">
+                <img
+                  src={`${devUrl}/images/cart/coupon.svg`}
+                  alt=""
+                />
+              </div>
+              <div className="col-6 col-md-4">
+                <span>帳號內首筆訂單可使用</span>
+                <div className="w-100"></div>
+                <span>不限制訂單內課程購買數量</span>
+              </div>
+              <div className="col-6 col-md-2 text-center">
+                2021.12.31
+              </div>
+              <div className="col-2 offset-4 offset-md-0 text-center p-0">
+                <img
+                  src={`${devUrl}/images/cart/check_icon.svg`}
+                  alt=""
+                />
+              </div>
+            </div>
+            <div className="row modal-card">
+              <div className="col-6 col-md-4 text-center p-0">
+                <img
+                  src={`${devUrl}/images/cart/coupon.svg`}
+                  alt=""
+                />
+              </div>
+              <div className="col-6 col-md-4">
+                <span>帳號內首筆訂單可使用</span>
+                <div className="w-100"></div>
+                <span>不限制訂單內課程購買數量</span>
+              </div>
+              <div className="col-6 col-md-2 text-center">
+                2021.12.31
+              </div>
+              <div className="col-2 offset-4 offset-md-0 text-center p-0">
+                <img
+                  src={`${devUrl}/images/cart/check_icon.svg`}
+                  alt=""
+                />
+              </div>
+            </div>
+            <div className="row modal-card">
+              <div className="col-6 col-md-4 text-center p-0">
+                <img
+                  src={`${devUrl}/images/cart/coupon.svg`}
+                  alt=""
+                />
+              </div>
+              <div className="col-6 col-md-4">
+                <span>帳號內首筆訂單可使用</span>
+                <div className="w-100"></div>
+                <span>不限制訂單內課程購買數量</span>
+              </div>
+              <div className="col-6 col-md-2 text-center">
+                2021.12.31
+              </div>
+              <div className="col-2 offset-4 offset-md-0 text-center p-0">
+                <img
+                  src={`${devUrl}/images/cart/check_icon.svg`}
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div className="container-fluid mt-5">
+            {/* <!-- 不可用標題 --> */}
+            <div className="row">
+              <div className="col-12 modal-card-title">
+                無法套用的優惠券
+              </div>
+            </div>
+            {/* <!-- disable優惠券 --> */}
+            <div className="row modal-card disable">
+              <div className="col-6 col-md-4 text-center p-0">
+                <img
+                  src={`${devUrl}/images/cart/coupon.svg`}
+                  alt=""
+                />
+              </div>
+              <div className="col-6 col-md-4">
+                <span>帳號內首筆訂單可使用</span>
+                <div className="w-100"></div>
+                <span>不限制訂單內課程購買數量</span>
+              </div>
+              <div className="col-6 col-md-2 text-center">
+                2021.12.31
+              </div>
+              <div className="col-2 offset-4 offset-md-0 text-center p-0">
+                <img
+                  src={`${devUrl}/images/cart/check_icon.svg`}
+                  alt=""
+                />
+              </div>
+            </div>
+            <div className="row modal-card disable">
+              <div className="col-6 col-md-4 text-center p-0">
+                <img
+                  src={`${devUrl}/images/cart/coupon.svg`}
+                  alt=""
+                />
+              </div>
+              <div className="col-6 col-md-4">
+                <span>帳號內首筆訂單可使用</span>
+                <div className="w-100"></div>
+                <span>不限制訂單內課程購買數量</span>
+              </div>
+              <div className="col-6 col-md-2 text-center">
+                2021.12.31
+              </div>
+              <div className="col-2 offset-4 offset-md-0 text-center p-0">
+                <img
+                  src={`${devUrl}/images/cart/check_icon.svg`}
+                  alt=""
+                />
+              </div>
+            </div>
+            <div className="row modal-card disable">
+              <div className="col-6 col-md-4 text-center p-0">
+                <img
+                  src={`${devUrl}/images/cart/coupon.svg`}
+                  alt=""
+                />
+              </div>
+              <div className="col-6 col-md-4">
+                <span>帳號內首筆訂單可使用</span>
+                <div className="w-100"></div>
+                <span>不限制訂單內課程購買數量</span>
+              </div>
+              <div className="col-6 col-md-2 text-center">
+                2021.12.31
+              </div>
+              <div className="col-2 offset-4 offset-md-0 text-center p-0">
+                <img
+                  src={`${devUrl}/images/cart/check_icon.svg`}
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            type="button"
+            className="btn confirmBtn"
+            id="checkBtn"
+            onClick={handleCounponModalClose}
+          >
+            確認
+          </button>
+          <button
+            type="button"
+            className="btn confirmBtn"
+            onClick={handleCounponModalClose}
+          >
+            取消
+          </button>
+        </Modal.Footer>
+      </Modal>
       <Footer
         cartFooterMb={cartFooterMb}
         setCartFooterMb={setCartFooterMb}
@@ -288,4 +500,4 @@ function CartStep01() {
   )
 }
 
-export default CartStep01
+export default withRouter(CartStep01)

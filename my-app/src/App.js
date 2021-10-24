@@ -27,7 +27,7 @@ import TCindex from './pages/tc/index'
 import StIndex from './pages/st/index'
 
 // 購物車
-import CartStep01 from './pages/cart/CartStep01'
+import Cart from './pages/cart'
 
 function App() {
   return (
@@ -42,7 +42,7 @@ function App() {
             <TCindex />
           </Route>
           <Route path="/Cart">
-            <CartStep01 />
+            <Cart />
           </Route>
           <Route path="/StIndex">
             <StIndex />
