@@ -26,21 +26,12 @@
   padding: 0px 0px 15px;
 }
 
-/* 頁碼 */
 
-/* 手機logo */
-.logo-m {
-  margin: 40px auto 40px;
-}
 
 /* 會員中心sidebar */
 .sidebar {
   display: none;
 }
-
-
-
-
 
 
 /* 手機板會變小的按鈕(有display變化) */
@@ -225,10 +216,6 @@
   }
 
 
-  /* 手機版logo */
-  .logo-m {
-    display: none;
-  }
 
   /* 頁面英文標題 */
   .pageName {
