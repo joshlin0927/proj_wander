@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- font-family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <style>
+        * {
+            font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+        }
+
+        /* 全頁背景色 */
+        .TCsp-bgc {
+            background: #F1F0E9;
+            position: relative;
+            /* overflow: hidden; */
+        }
+
+        /* 全頁包覆(為了色塊動畫) */
+        .TCallwraper {
+            z-index: -1;
+            position: absolute;
+            top: -110px;
+            width: 100%;
+        }
+
+        .TCallwrapera{
+            z-index: -1;
+            position: absolute;
+            top: -110px;
+            width: 100%;
+        }
+
+
+
+
+
+        .TCallwraperb{
+            z-index: 15;            
+            position: absolute;
+            top: 500px;
+            width: 100%;
+        }
+
+        .TCallwraperc{
+            z-index: 15;            
+            position: absolute;
+            top: 920px;
+            width: 100%;
+        }
+
+        .TCallwraperw {
+            display: block;
+            position: absolute;
+            z-index:-5;
+            right: 0;
+            top: 100px;
+        }
+
+
+        .TCallwraperimg{
+            z-index: -1;
+            position: absolute;
+            width: 100%;
+        }
+
+        .TCmb-50 {
+            margin-bottom: 50px;
+        }
+
+        .TCmb-70 {
+            margin-bottom: 70px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 115px;
+            height: 40px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .opacity-0 {
+            opacity: 0;
+        }
+
+      /*=============== Navbar ===============*/
+      ul {
+        list-style: none !important;
+      }
+
+      a {
+        text-decoration: none !important;
+      }
+
+      .nav__header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background-color: transparent;
+        color: #065f8e;
+      }
+
+
+      @media (max-width: 768px) {
+
+          
+        .nav__header {
+          display: none;
+        }
+
+        .TCallwrapera{
+            display: none;
+
+        }
+
+        .TCallwraperb{
+            display: none;
+
+        }
+
+        .sns .nav_footer ,
+        .sns .nav_footera {
+            display: none;
+
+        }
+
+
+      }
+
+
+      .nav__header .nav__singheader {
+        position: relative;
+        height: 80px;
+      }
+
+      .nav__header .nav__singheader .nav__pc_menu {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        margin: 0;
+      }
+
+      .nav__header .nav__singheader .nav__pc_menu li {
+        display: inline-block;
+      }
+
+      .nav__en {
+        color: #065f8e;
+        display: block;
+        font-weight: bold;
+        position: relative;
+        padding: 0 15px;
+        /* TODO */
+      }
+
+      .nav_cart,
+      .nav_login {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: 0.3s ease;
+      }
+
+      .nav_login_txt {
+        color: #065f8e;
+        font-weight: bold;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+      }
+
+      .nav_cart_icon {
+        width: 24px;
+        height: 24px;
+        left: -50%;
+        top: 50%;
+        filter: drop-shadow(#065f8e 60px 0);
+        transform: translate(-50%, -50%);
+        position: absolute;
+        z-index: 5;
+      }
+
+      .nav_cart:hover,
+      .nav_login:hover {
+        background-color: #065f8e;
+      }
+
+      .nav_cart:hover .nav_cart_icon,
+      .nav_login:hover .nav_login_txt {
+        filter: drop-shadow(#ffffff 60px 0);
+        color: white;
+      }
+
+      /* hover底線動畫 */
+      .nav__en::after {
+        position: absolute;
+        bottom: -28px;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: #242424;
+        transform: scale(0, 1);
+        transform-origin: left top;
+        transition: transform 0.3s;
+        z-index: 10;
+      }
+
+      .nav__en:hover::after {
+        transform: scale(1, 1);
+      }
+
+      /* scroll後變色 */
+      .nav__scroll-header {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 4px rgba(14, 55, 63, 0.15);
+        transition: 0.3s ease;
+      }
+
+        /* 地球背景圖 */
+        .earth {
+            display: none;
+        }
+
+        /* 上面的黃色色塊 */
+        .dec-block {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0px;
+            width: 55%;
+            height: 335px;
+            z-index: -2;
+            background: #f1ef5b;
+            border-radius: 0px 0px 0px 180px;
+            animation: TChy 12s linear infinite;
+        }
+
+        .white-block {
+          position: relative;
+            width: 590px;
+            height: 400px;
+            background: #FFFFFF;
+            border-radius: 180px 0px 0px 180px;
+
+        }
+
+        /* 黃色色塊的動畫 */
+        /* @keyframes TChy {
+    0% {
+    left: 50%;
+    }
+    50% {
+    left: 46%;
+    }
+    100% {
+    left: 50%;
+    }
+    } */
+
+
+        /* 麵包屑 */
+        .breadcrumb {
+            background-color: transparent;
+            font-size: 14px;
+            letter-spacing: -0.015em;
+            font-weight: 500;
+            margin-left: .25rem;
+            padding: 0px 0px 15px;
+        }
+
+        /* 頁碼 */
+        .Mypagination {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: 70px 0px 60px;
+        }
+
+        .Mypage-item {
+            width: 28px;
+            height: 28px;
+            border-radius: 5px;
+            line-height: 26px;
+            text-align: center;
+        }
+
+        .Mypage-item a {
+            font-size: 12px;
+            color: black;
+            text-align: center;
+        }
+
+        .Mypage-item a i {
+            color: #065F8E;
+        }
+
+        /* 頁碼被選中時 */
+        .Mypage-item.active {
+            background-color: #065F8E;
+        }
+
+        .Mypage-item.active a {
+            color: white;
+        }
+
+        /* 手機logo */
+        .logo-m {
+            margin: 40px auto 40px;
+        }
+
+        /* 會員中心sidebar */
+        .sidebar {
+            display: none;
+        }
+
+        /* 表單儲存的字體顏色 */
+        .TCsave-btn {
+            color: black;
+        }
+
+
+        /* 新增課程(手機板) */
+        .TCbtn-sm {
+            display: flex;
+            width: 73px;
+            height: 30px;
+        }
+
+
+        /* 手機板會變小的按鈕(有display變化) */
+        .TCbtn-sm-w-switch {
+            display: flex;
+            width: 73px;
+            height: 30px;
+        }
+
+
+        /* 審核提示窗 */
+        .TCnotify {
+            display: flex;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 15px;
+        }
+
+        .TCnotify-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #065F8E;
+            letter-spacing: -0.015em;
+            text-align: center;
+        }
+
+        /* 教師頁面返回按鈕 */
+        .TCback-btn {
+            padding: 0px 15px;
+            color: #065F8E;
+        }
+
+        /* 頁面英文標題 */
+        .pageName {
+            display: none;
+        }
+
+        .triangle-left {
+            /* position: absolute;
+    top: 147px;
+    left: 60px; */
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 20px 30px 20px 0;
+            border-color: transparent #F1F0E9 transparent transparent;
+        }
+
+
+
+        /* -------------以上為公用------------ */
+
+
+        .btn-border-only {
+            display: flex;
+            height: 50px;
+            border: 1px solid #065f8e;
+            border-radius: 10px;
+            background-color: transparent;
+            color: black;
+            font-size: 15px;
+            font-weight: normal;
+        }
+
+        /* 課程新增的返回列表按鈕 */
+        .btn-border-only-no-h {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border: 1px solid #065f8e;
+            border-radius: 10px;
+            color: #065f8e;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+
+        /* 單獨一個按鈕在表單底部時 */
+        .one-btn {
+            color: black;
+            margin-bottom: 30px;
+        }
+
+        /* 單獨一個按鈕的顯示 */
+        .onebtn-switch {
+            display: none;
+        }
+
+
+
+        /* 課程刪除按鈕 */
+        .TCcourse-delete {
+            color: #065f8e;
+            font-size: 18px;
+            padding: 3px 10px 0px;
+            margin-left: auto;
+        }
+
+        /* 以下為1019新增的手機板 */
+        .TCform-head {
+            display: none;
+        }
+
+        .coursesection {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+        }
+
+
+        .coursesectiona {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+
+        }
+
+        .articleitem {
+            width: 260px;
+            height: 308px;
+            border: 1.25px solid rgba(255, 255, 255, 1);
+            position: relative;
+            margin-bottom: 30px;
+            margin-left: 10px;
+            background-color:#fff;
+        }
+
+        .articleitem img {
+            position: absolute;
+            width: 160px;
+            height: 208px;
+            left: 50px;
+            top: 32px;
+        }
+
+
+        .coursename {
+            font-size: 16px;
+            top: 80%;
+            left: 5%;
+            left: 4.63%;
+            margin-left: auto;
+            font-family: Noto Sans;
+            font-weight: bold;
+            line-height: 36px;
+            position: absolute;
+
+            /* or 150% */
+
+            letter-spacing: -0.015em;
+
+            color: #000000;
+        }
+
+
+        .teachername {
+            color: #065F8E;
+            font-size: 14px;
+            font-style: bold;
+            position: absolute;
+            top: 90%;
+            left: 5%;
+        }
+
+
+        .artpicture {
+            width: 100px;
+    height: 100px;
+    border: 1px solid rgba(255, 255, 255, 1);
+    position: relative;
+
+    /* margin-bottom: 30px; */
+    /* margin-left: 10px; */
+    background-color: #fff;
+        }
+
+        .artpicture img {
+            
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            left: 5px;
+            top: 5px;
+        }
+
+
+        .artpicture-card {
+            width: 10px;
+    height: 10px;
+    border: 1px solid rgba(255, 255, 255, 1);
+    position: relative;
+
+    /* margin-bottom: 30px; */
+    /* margin-left: 10px; */
+    background-color: #fff;
+        }
+
+
+        .artpicture-card a {
+            
+            position: absolute;
+            left: 5px;
+            top: 40px;
+        }
+
+
+        
+        .artpicture-card {
+            width: 100px;
+    height: 100px;
+    border: 1px solid rgba(255, 255, 255, 1);
+    position: relative;
+
+    /* margin-bottom: 30px; */
+    /* margin-left: 10px; */
+    background-color: #fff;
+        }
+
+
+        /* btn更多課程 */
+
+        .btn-outline-b {
+            color: #ffffff;
+            background-color: #065F8E;
+            border-color: #065F8E;
+        }
+
+        .btn-outline-b:hover {
+            color: #065F8E;
+            background-color: #ffffff;
+            border-color: #065F8E;
+        }
+
+        .btn-outline-b:focus,
+        .btn-outline-b.focus {
+            box-shadow: 0 0 0 0.2rem #065F8E;
+            background-color: #ffffff;
+            color: #065F8E;
+        }
+
+        .btn-outline-b.disabled,
+        .btn-outline-b:disabled {
+            color: #065F8E;
+            background-color: transparent;
+        }
+
+        .btn-outline-b:not(:disabled):not(.disabled):active,
+        .btn-outline-b:not(:disabled):not(.disabled).active,
+        .show>.btn-outline-b.dropdown-toggle {
+            color: #212529;
+            background-color: #ffffff;
+            border-color: #212529;
+        }
+
+        .btn-outline-b:not(:disabled):not(.disabled):active:focus,
+        .btn-outline-b:not(:disabled):not(.disabled).active:focus,
+        .show>.btn-outline-b.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.2rem #065F8E;
+            ;
+        }
+
+        .btn-b {
+            width: 115px;
+            height: 40px;
+            margin-top: 25px
+        }
+        /* btn更多課程 */
+
+
+        .span-a {
+            display: flex;
+            justify-content: center;
+            font-size: 15px;
+            margin-bottom: 25px
+        }
+        /* 查詢框 */
+        .pageName {
+                display: block;
+                margin-bottom: 35px;
+                margin-top: 15px;
+                padding: 0;
+            }
+        .search {
+                display: flex;
+                justify-content: center;
+            }
+            .searchbar {
+                width:100%;
+                height: 40px;
+                padding-left: 17px;
+                padding-right: 50px;
+                border: 1px solid #065F8E;
+                border-radius: 6px;
+            }
+
+            .searchbar+button[type="submit"] {
+                width: 76px;
+                background: #065F8E;
+                color: white;
+                margin-left: -50px;
+                border: 0;
+                border-radius: 0px 6px 6px 0px;
+            }
+        
+             /* 查詢框 */
+        
+
+
+
+        
+
+        /* 新增的手機板 */
+
+        .w-100{
+                margin-left: 15px;
+            }
+
+            .col-10 {
+            margin-left: -20px;
+
+            }
+
+
+     
+            .yellow-area-but-1   {
+          display: flex;
+          justify-content: center;
+          border: 1px solid #000000;
+          position: absolute;
+          width: 200px;
+          height: 58px;
+          background: #FFFFFF;
+          box-sizing: border-box;
+          font-family: Noto Sans;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 41px;
+          /* identical to box height */
+          top:60px;
+          left:80px;
+          display: flex;
+          align-items: center;
+          letter-spacing: 0.15em;
+
+          color: #000000;
+        }
+
+         .sns {
+             z-index: 15;
+        position: absolute;
+        right: 380px;
+        top:190px;
+      -js-display: flex;
+      display:-webkit-box;
+      display: -webkit-flex;
+      display:-moz-box;
+      display:-ms-flexbox;
+      display: flex;
+      -webkit-justify-content: space-between;
+        justify-content: space-between;
+      -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+    }
+ 
+
+    .sns .nav_footer {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      background-color: #065f8e;
+      border-radius: 50%;
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+
+    .sns .nav_footera {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      left: 30px;
+      background-color: #065f8e;
+      border-radius: 50%;
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+
+
+
+    .sns .Facebook {
+      width: 30px;
+      height: 30px;
+      left: -50%;
+      top: 50%;
+      filter: drop-shadow(#fff 60px 0);
+      transform: translate(-50%, -50%);
+      position: absolute;
+      z-index: 5;
+    }
+
+
+    .sns .nav_footer:hover,
+    .sns .nav_footera:hover {
+      background-color: #fff;
+    }
+
+    .sns .nav_footer:hover .Facebook,
+    .sns .nav_footera:hover .Facebook{
+      filter: drop-shadow(#065f8e 60px 0);
+      color: #065f8e;
+    }
+
+
+
+
+        @media (min-width: 768px) {
+
+
+          
+
+       
+
+            /* 網站主要導覽列 */
+            .navbar {
+                z-index: 5;
+                position: fixed;
+                display: flex;
+                top: 0;
+                width: 100%;
+                height: 80px;
+                padding: 0;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+
+            .mainContent {
+                margin-top: 110px;
+            }
+
+            /* 麵包屑 */
+            .breadcrumb {
+                padding: 0px;
+            }
+
+            /* 頁面背景 */
+            /* 圓圈的動畫 */
+            @keyframes bc {
+                0% {
+                    transform: scale(0.9);
+                }
+
+                10% {
+                    transform: scale(1);
+                }
+
+                20% {
+                    transform: scale(0.9);
+                }
+
+                30% {
+                    transform: scale(1);
+                }
+
+                40% {
+                    transform: scale(0.9);
+                }
+
+                50% {
+                    transform: scale(1);
+                }
+
+                60% {
+                    transform: scale(0.9);
+                }
+
+                70% {
+                    transform: scale(1);
+                }
+
+                80% {
+                    transform: scale(0.9);
+                }
+
+                90% {
+                    transform: scale(1);
+                }
+
+                100% {
+                    transform: scale(0.9);
+                }
+            }
+
+            /* 黃色色塊(上) */
+            .dec-block {
+                height: 310px;
+            }
+
+            /* 地球 */
+            .earth {
+                display: block;
+                position: absolute;
+                z-index: -1;
+                right: 0;
+                top: 724px;
+            }
+
+            /* 黃色色塊(下) */
+            .dec-low-block {
+                display: block;
+                position: absolute;
+                left: 70px;
+                top: 1068px;
+                width: 367px;
+                height: 789px;
+                transform: skew(-24.76deg);
+                z-index: -1;
+                background: #f1ef5b;
+                border-radius: 30px;
+                animation: 12s linear infinite;
+            }
+
+
+
+            /* 手機版logo */
+            .logo-m {
+                display: none;
+            }
+
+            /* 頁碼 */
+            .Mypagination {
+                display: flex;
+            }
+
+
+            /* 頁面英文標題 */
+            .pageName {
+                display: block;
+                margin-bottom: 96px;
+                margin-top: 96px;
+                padding: 0;
+            }
+
+            .pageNameText {
+                position: relative;
+                color: black;
+                font-size: 6rem;
+                font-weight: bold;
+                line-height: 1.0;
+            }
+
+
+
+            .course::before {
+                content: "";
+                width: 42px;
+                height: 42px;
+                border-radius: 50%;
+                background: #f1ef5b;
+                position: absolute;
+                z-index: -5;
+                left: 20%;
+                top: 42%;
+            }
+
+
+
+            /* 會員中心sidebar */
+            .sidebar {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                padding: 0;
+            }
+
+            /* 頭像 */
+            .sidebar .avatar {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-bottom: 30px;
+            }
+
+            /* sidebar選項列 */
+            .sidebar .nav-list {
+                width: 100%;
+                list-style: none;
+                padding-left: 0;
+            }
+
+            /* sidebar選項 */
+            .sidebar .nav-item {
+                display: flex;
+                text-align: center;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 16px;
+                align-items: center;
+                height: 50px;
+                border-radius: 0px 10px 10px 0px;
+                margin-bottom: 10px;
+                color: #065f8e;
+            }
+
+            .sidebar .nav-item>i {
+                font-size: 25px;
+                width: 40px;
+                margin-left: 10%;
+                background-color: transparent;
+            }
+
+            /* 選中的選項狀態 */
+            .sidebar .nav-item.active {
+                background-color: white;
+            }
+
+            .sidebar .nav-item.active::after {
+                content: "";
+                position: absolute;
+                width: 15px;
+                height: 50px;
+                background: #f1ef5b;
+            }
+
+            .sidebar .nav-item:hover {
+                background-color: white;
+            }
+
+            /* 表單名稱 */
+            .TCform-title {
+                display: flex;
+                margin: 50px 0px;
+                font-size: 36px;
+            }
+
+            /* 這裡開始是課程商品 */
+            /* .courserow {
+        display: flex;
+        justify-content: center;
+      }
+
+      .lowerlayer {
+        margin-top: 30px;
+        margin-bottom: 120px;
+      } */
+
+
+            .coursesection {
+                display: flex;
+                flex-wrap: wrap;
+                /* justify-content:center; */
+
+
+            }
+
+
+             .coursesectiona {
+                display: flex;
+                flex-wrap: wrap;
+                /* justify-content:center; */
+                position: relative;
+                background-color:#fff;
+            }
+
+            .articleitem {
+                width: 260px;
+                height: 308px;
+                border: 1.25px solid rgba(255, 255, 255, 1);
+                /* border-radius: 30px; */
+                position: relative;
+                margin-bottom: 30px;
+                margin-left: 10px;
+                background-color:#fff;
+                
+
+            }
+
+            .articleitem img {
+                position: absolute;
+            width: 160px;
+            height: 208px;
+            left: 50px;
+            top: 32px;
+                
+            
+            }
+
+
+            .coursename {
+                color: #000000;
+                font-size: 14px;
+                top: 80%;
+                left: 5%;
+                margin-left: auto;
+                position: absolute;
+            }
+
+            .teachername {
+                color: #065F8E;
+                font-size: 8px;
+                font-style: bold;
+                position: absolute;
+                top: 90%;
+                left: 5%;
+            }
+
+            .fa-star {
+                color: #BCC831;
+            }
+
+            .score {
+                font-size: 10px;
+                color: white;
+                font-style: bold;
+                position: absolute;
+                top: 85%;
+                left: 5%;
+            }
+
+            .price {
+                font-size: 14px;
+                color: white;
+                font-weight: bold;
+                position: absolute;
+                top: 87%;
+                right: 5%;
+            }
+
+
+            /* -------------以上為公用--------- */
+
+      
+            /* 手機板會變小的按鈕 */
+            .TCbtn-sm {
+                display: flex;
+                width: 115px;
+                height: 40px;
+            }
+
+            /* 手機板會變小的按鈕(有display變化) */
+            .TCbtn-sm-w-switch {
+                display: none;
+            }
+
+
+            /* 課程欄位列 */
+            .TCcourseLabel {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 25px;
+            }
+
+            .TCcourseLabel-right {
+                display: flex;
+                justify-content: space-evenly;
+                padding-right: 0;
+            }
+
+            .TCcourseLabel .Labelitem {
+                width: 80px;
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            /* 課程卡片 */
+            .TCcourse-info {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+
+            /* 課程名稱 */
+            .TCcourse-title {
+                font-size: 16px;
+                margin-bottom: 0px;
+            }
+
+            .TCcourse-info-right {
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            .TCcourse-detail {
+                transform: scale(1);
+                width: 80px;
+                text-align: center;
+                font-size: 14px;
+            }
+
+            .TCcourse-detail span {
+                display: none;
+            }
+
+            .TCcourse-delete {
+                color: #065f8e;
+                font-size: 18px;
+                padding: 0px;
+                margin: auto 15px;
+            }
+
+            /* 瀏覽按鈕 */
+            .browse {
+                height: 50px;
+            }
+
+            .TCnotify-text {
+                font-size: 28px;
+                margin: 0px auto
+            }
+
+            /* 課程圖片 */
+            .TCcourse-img-selector {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-bottom: 50px;
+            }
+
+            /* 課程表單裡的圖 */
+            .TCcourse-pic-square {
+                width: 271px;
+                height: 271px;
+                margin-right: 20px;
+                border: 1px solid #868686;
+                border-radius: 10px;
+            }
+
+
+            /* 預覽按鈕(桌機板) */
+            .preview-btn-top {
+                display: block;
+                margin-left: auto;
+            }
+
+            /* 預覽按鈕(手機) */
+            .preview-btn {
+                display: none;
+            }
+
+            /* 教師頁面返回按鈕 */
+            .TCback-btn {
+                display: none;
+            }
+
+
+            /* 課程新增的進度 */
+            .TCcourse-processBar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                padding: auto 5rem;
+                margin: 30px 0px 96px;
+            }
+
+            .TCcourse-processBarList {
+                display: flex;
+                list-style: none;
+                margin: 0;
+            }
+
+            .TCcourse-processBar-item {
+                position: relative;
+                text-decoration: none;
+                width: 150px;
+            }
+
+            .TCcourse-processBar-item a {
+                display: flex;
+                align-items: center;
+                font-weight: bold;
+                font-size: 16px;
+                color: #065f8e;
+            }
+
+            .TCcourse-processBar-item a i {
+                padding-right: .5rem;
+            }
+
+            /* 目前所在的頁面 */
+            .processBar-item::after {
+                position: absolute;
+                bottom: 4px;
+                width: 70%;
+                height: 5px;
+                background-color: #065f8e;
+
+            }
+
+            /* 會員中心sidebar */
+            .sidebar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0;
+            }
+
+            /* 頭像 */
+            .sidebar .avatar {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-bottom: 30px;
+            }
+
+            /* sidebar選項列 */
+            .sidebar .nav_list {
+                list-style: none;
+                padding-left: 0;
+                /* width: 100%; */
+            }
+
+            /* sidebar選項 */
+            .sidebar .nav-item {
+                display: flex;
+                align-items: center;
+                height: 50px;
+                border-radius: 0px 10px 10px 0px;
+                margin-bottom: 10px;
+            }
+
+            .sidebar .nav-item a {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 16px;
+                color: #065f8e;
+                margin-left: 25px;
+                background-color: transparent;
+            }
+
+            .sidebar .nav-item>a>i {
+                font-size: 25px;
+                width: 30px;
+                background-color: transparent;
+            }
+
+            /* 選中的選項狀態 */
+            .nav-item.active {
+                background-color: white;
+            }
+
+            .nav-item.active::after {
+                content: "";
+                position: absolute;
+                width: 15px;
+                height: 50px;
+                background: #f1ef5b;
+            }
+
+            .sidebar .nav-item:hover {
+                background-color: white;
+            }
+
+
+
+
+            /* 單獨一個按鈕在表單底部時 */
+            .one-btn {
+                margin: 50px 0px 60px;
+            }
+
+            /* 單獨一個按鈕的顯示 */
+            .onebtn-switch {
+                display: block;
+            }
+
+            /*  */
+            /*  */
+            /* 1019課程html */
+            /* 搜尋列 */
+            /* .search {
+                display: none;
+            } */
+
+            .search-mobile {
+                display: flex;
+                margin-bottom: 30px;
+            }
+
+            .searchbar {
+                width: 100%;
+                height: 70px;
+                padding-left: 17px;
+                padding-right: 50px;
+                border: 1px solid #065F8E;
+                border-radius: 6px;
+            }
+
+            .searchbar+button[type="submit"] {
+                width: 76px;
+                background: #065F8E;
+                color: white;
+                margin-left: -50px;
+                border: 0;
+                border-radius: 0px 6px 6px 0px;
+            }
+
+            /* 搜尋列 */
+            .search {
+                display: flex;
+                justify-content: center;
+            }
+
+            .search-mobile {
+                display: none;
+            }
+
+            .searchbar {
+                width: 473px;
+            }
+
+            .pageName {
+                display: block;
+                margin-bottom: 31px;
+                margin-top: 31px;
+                padding: 0;
+            }
+
+            .TCform-head {
+                display: flex;
+                align-items: center;
+                margin-bottom: -25px;
+            }
+
+            /* 查詢按鈕顏色hover黃 */
+            .btn-outline-y {
+                color: #212529;
+                background-color: #F1EF5B;
+                border-color: #F1EF5B;
+            }
+
+            .btn-outline-y:hover {
+                color: #212529;
+                background-color: #ffffff;
+                border-color: #212529;
+            }
+
+            .btn-outline-y:focus,
+            .btn-outline-y.focus {
+                box-shadow: 0 0 0 0.2rem #F1EF5B;
+                background-color: #ffffff;
+            }
+
+            .btn-outline-y.disabled,
+            .btn-outline-y:disabled {
+                color: #F1EF5B;
+                background-color: transparent;
+            }
+
+            .btn-outline-y:not(:disabled):not(.disabled):active,
+            .btn-outline-y:not(:disabled):not(.disabled).active,
+            .show>.btn-outline-y.dropdown-toggle {
+                color: #212529;
+                background-color: #ffffff;
+                border-color: #212529;
+            }
+
+            .btn-outline-y:not(:disabled):not(.disabled):active:focus,
+            .btn-outline-y:not(:disabled):not(.disabled).active:focus,
+            .show>.btn-outline-y.dropdown-toggle:focus {
+                box-shadow: 0 0 0 0.2rem #F1EF5B;
+                ;
+            }
+
+            .btn-y {
+                width: 130px;
+            }
+
+            /* 查詢按鈕顏色hover藍 */
+            .btn-outline-b {
+                color: #ffffff;
+                background-color: #065F8E;
+                border-color: #065F8E;
+            }
+
+            .btn-outline-b:hover {
+                color: #065F8E;
+                background-color: #ffffff;
+                border-color: #065F8E;
+            }
+
+            .btn-outline-b:focus,
+            .btn-outline-b.focus {
+                box-shadow: 0 0 0 0.2rem #065F8E;
+                background-color: #ffffff;
+                color: #065F8E;
+            }
+
+            .btn-outline-b.disabled,
+            .btn-outline-b:disabled {
+                color: #065F8E;
+                background-color: transparent;
+            }
+
+            .btn-outline-b:not(:disabled):not(.disabled):active,
+            .btn-outline-b:not(:disabled):not(.disabled).active,
+            .show>.btn-outline-b.dropdown-toggle {
+                color: #212529;
+                background-color: #ffffff;
+                border-color: #212529;
+            }
+
+            .btn-outline-b:not(:disabled):not(.disabled):active:focus,
+            .btn-outline-b:not(:disabled):not(.disabled).active:focus,
+            .show>.btn-outline-b.dropdown-toggle:focus {
+                box-shadow: 0 0 0 0.2rem #065F8E;
+                ;
+            }
+
+            .btn-b {
+                width: 250px;
+                height: 40px;
+                margin-top: 20px
+            }
+
+
+
+
+            .span-a {
+                display: flex;
+                justify-content: center;
+                font-size: 15px;
+                margin-bottom: 5px
+            }
+
+
+
+        }
+    </style>
+
+    <title>熱門文章</title>
+</head>
+
+<body class="TCsp-bgc">
+    <!-- top nav -->
+    <nav class="nav__header" id="nav__header">
+        <div class="nav__singheader container">
+          <div class="row flex-nowrap">
+            <div class="col-3 p-0">
+              <a href="#">
+                <img src="../images/logo/logo_desktop.png" />
+              </a>
+            </div>
+            <ul class="nav__pc_menu col-7">
+              <li>
+                <a href="#"><span class="nav__en">關於我們</span></a>
+              </li>
+              <li>
+                <a href="#"><span class="nav__en">課程總覽</span></a>
+              </li>
+              <li>
+                <a href="#"><span class="nav__en">我的課程</span></a>
+              </li>
+              <li>
+                <a href="#"><span class="nav__en">國際角落</span></a>
+              </li>
+            </ul>
+            <div class="col d-flex align-items-center justify-content-around">
+              <a href="#" class="nav_login">
+                <span class="nav_login_txt">登入</span>
+              </a>
+              <a href="#" class="nav_cart">
+                <img
+                  src="../images/cart/cart_icon.svg"
+                  alt=""
+                  class="nav_cart_icon"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <!-- Main Content -->
+    <div class="container mainContent">
+        <!-- breadcrumb -->
+        <div class="row">
+            <div class="logo-m">
+                <img src="../images/logo/log_mobile.png" alt="" />
+            </div>
+            <nav class="w-100">
+                <ol class="breadcrumb col col-md-10 col-lg-12 m-0">
+                    <li class="breadcrumb-item"><a href="">首頁</a></li>
+                    <li class="breadcrumb-item"><a href="">熱門文章</a></li>
+
+                </ol>
+            </nav>
+
+            <!-- <div class="col-10 ml-auto pageName">
+        <span class="pageNameText course">Course</span>
+      </div> -->
+        </div>
+
+
+    
+        <div class="pageName   ml-auto">
+            <div class="search ml-0  ">
+                <input type="text" class="searchbar" placeholder="請輸入想搜尋文章標題" />
+                <button type="submit" class="">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+        </div> 
+
+
+
+        <div class="row justify-content-center d-flex">
+
+            <div class="coursesection col-md-10 col-lg-10">
+
+                <div class="articleitem">
+                    <img src="../images/article/01-1.jpg" alt="">  
+                    <a href=""> 
+                        <div class="coursename">柏捷頓家族名門韻事</div>
+                    </a>
+                    <span class="teachername">#熱門文章</span>
+                </div>
+                <div class="articleitem">
+                    <img src="../images/article/02.jpeg" alt="">
+                    <a href="">
+                        <div class="coursename ">紐約新醫革命</div>
+                    </a>
+                    <span class="teachername">#熱門文章</span>
+                </div>
+                <div class="articleitem">
+                    <img src="../images/article/03.jpeg" alt="">
+                    <a href="">
+                    <div class="coursename ">誰殺了莎拉？</div>
+                </a>
+                    <span class="teachername">#熱門文章</span>
+                </div>
+                <div class="articleitem">
+                    <img src="../images/article/04.jpeg" alt="">
+                    <a href="">
+                    <div class="coursename ">亞森羅蘋</div>
+                </a>
+                    <span class="teachername">#熱門文章</span>
+
+                </div>
+                <div class="articleitem ">
+                    <img src="../images/article/05.jpeg" alt="">
+                    <a href="">
+                    <div class="coursename">亞森羅蘋</div>
+                </a>
+                    <span class="teachername">#熱門文章</span>
+                </div>
+                <div class="articleitem ">
+                    <img src="../images/article/06.jpg" alt="">
+                    <a href="">
+                    <div class="coursename">黑道律師文森佐</div>
+                </a>
+                    <span class="teachername">#熱門文章</span>
+
+                </div>
+                <div class="articleitem ">
+                    <img src="../images/article/21.jpg" alt="">
+                    <a href="">
+                        <div class="coursename">藏著「上頭」不願被人記得的事</div>
+                    </a>
+                    <span class="teachername">#熱門文章</span>
+
+                </div>
+                <div class="articleitem ">
+                    <img src="../images/article/22.jpg" alt="">
+                    <a href="">
+                        <div class="coursename">英文二十六個字母的起源</div>
+                    </a>
+                    <span class="teachername">#熱門文章</span>
+
+                </div>
+                <div class="articleitem ">
+                    <img src="../images/article/26.jpg" alt="">
+                    <a href="">
+                        <div class="coursename">為失語者開啟一扇溝通的窗</div>
+                    </a>
+                    <span class="teachername">#熱門文章</span>
+                </div>
+                <div class="articleitem ">
+                    <img src="../images/article/23.jpg" alt="">
+                    <a href="">
+                        <div class="coursename">外來語所組成的語言</div>
+                    </a>
+                    <span class="teachername">#熱門文章</span>
+                </div>
+                <div class="articleitem img-fluid ">
+                    <img src="../images/article/24.jpeg" alt="">
+                    <img src="../images/article/25.jpeg" alt="">
+                    <a href="">
+                        <div class="coursename">職場中的專業精神、善意</div>
+                    </a>
+                    <span class="teachername">#熱門文章</span>
+
+                </div>
+                <div class="articleitem img-fluid ">
+                    <img src="../images/article/25.jpeg" alt="">
+                    <a href="">
+                        <div class="coursename">寬容的公司文化</div>
+                    </a>
+                    <span class="teachername">#熱門文章</span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+    
+
+
+
+
+    <div class="TCallwraper">
+
+        <div class="dec-block"></div>
+    </div>
+
+
+
+
+    <!-- <div class="TCallwraper">
+  
+    </div> -->
+
+    <div class="TCallwrapera">
+        <div class="TCallwraperw">
+            <div class="white-block">
+                <div class='yellow-area-but-1 '>
+                    熱門文章
+                  </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="sns">
+        <a href="#" class="nav_footer">
+          <img
+            src="../images/index/icon/Facebook.svg"
+            alt=""
+            class="Facebook"
+          />
+        </a>
+        <a href="#" class="nav_footera">
+          <img
+            src="../images/index/icon/twitter.svg"
+            alt=""
+            class="Facebook"
+          />
+        </a>
+      </div>
+
+
+      <div class="TCallwraperb">
+        <!-- <div class="TCallwraperw">
+            <div class="white-block">
+                <div class='yellow-area-but-1 '>
+                    123
+                  </div>
+
+            </div>
+        </div> -->
+
+
+                <div class="coursesectiona col-md-2 offset-md-9">
+    
+                    <div class="artpicture">
+                        <a href="#"><img src="../images/article/01-1.jpg" alt=""></a>
+
+                    </div>
+    
+    
+                    <div class="artpicture">
+                        <a href="#"><img src="../images/article/02.jpeg" alt=""></a>
+
+                    </div>
+                    <div class="artpicture">
+                        <a href="#"><img src="../images/article/03.jpeg" alt=""></a>
+
+                    </div>
+                    <div class="artpicture">
+                        <a href="#"><img src="../images/article/04.jpeg" alt=""></a>
+
+    
+                    </div>
+                    <div class="artpicture ">
+                        <a href="#"><img src="../images/article/05.jpeg" alt=""></a>
+
+    
+                    </div>
+                    <div class="artpicture ">
+                        <a href="#"><img src="../images/article/06.jpg" alt=""></a>
+
+                    </div>
+                    <div class="artpicture ">
+                        <a href="#"><img src="../images/article/21.jpg" alt=""></a>
+
+    
+                    </div>
+                    <div class="artpicture ">
+                    <a href="#"><img src="../images/article/22.jpg" alt=""></a>
+                    </div>
+                    <div class="artpicture ">
+                        <a href="#"><img src="../images/article/26.jpg" alt=""></a>
+    
+                    </div>
+                    <div class="artpicture ">
+                        <a href="#"><img src="../images/article/23.jpg" alt=""></a>
+    
+                    </div>
+                    <div class="artpicture img-fluid ">
+                        <a href="#"><img src="../images/article/24.jpeg" alt=""></a>
+
+                    </div>
+                    <div class="artpicture img-fluid ">
+                        <a href="#"><img src="../images/article/25.jpeg" alt=""></a>
+
+    
+                    </div>
+    
+    
+    
+    </div>
+
+    </div>
+
+    <div class="TCallwraperc">
+        <div class="coursesectiona col-md-2 offset-md-9">
+    
+            <div class="artpicture-card">
+                <a href="#">#熱門影集</a>
+
+            </div>
+
+
+            <div class="artpicture-card">
+                <a href="#">#專欄文章</a>
+
+            </div>
+
+
+</div>
+
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../navbar(放上去)/assets/js/main.js"></script>
+</body>
+
+</html>
