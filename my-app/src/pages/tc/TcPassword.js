@@ -10,8 +10,6 @@ import Footer from '../../components/Footer'
 function TcPassword() {
   const formRef = useRef(null)
 
-  const showPass = (e) => {}
-
   //儲存所有欄位的值
   const [fields, setFields] = useState({
     origin: '',
@@ -152,7 +150,7 @@ function TcPassword() {
               )}
               <input
                 name="newPass"
-                type="text"
+                type="password"
                 className="col-12 allInputs"
                 placeholder="請輸入新密碼"
                 value={fields.newPass}
@@ -171,7 +169,7 @@ function TcPassword() {
               )}
               <input
                 name="newPassConfirm"
-                type="text"
+                type="password"
                 className="col-12 allInputs"
                 placeholder="請再次輸入新密碼"
                 value={fields.newPassConfirm}

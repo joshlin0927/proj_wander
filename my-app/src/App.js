@@ -29,6 +29,9 @@ import StIndex from './pages/st/index'
 // 購物車
 import CartStep01 from './pages/cart/CartStep01'
 
+// 會員管理後台
+import CompanyBackend from './pages/CompanyBackend'
+
 function App() {
   return (
     <Router>
@@ -37,6 +40,9 @@ function App() {
         {/* <MultiLevelBreadCrumb /> */}
 
         <Switch>
+          <Route path="/CompanyBackend">
+            <CompanyBackend />
+          </Route>
           <Route path="/TCindex">
             {/* exact 要加回去 */}
             <TCindex />

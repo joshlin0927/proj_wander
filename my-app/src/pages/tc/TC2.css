@@ -60,10 +60,6 @@ body {
   margin: 40px auto;
 }
 
-/* 手機logo */
-.logo-m {
-  margin: 40px auto 40px;
-}
 
 /* 會員中心TCsidebar */
 .TCsidebar {
@@ -186,7 +182,7 @@ body {
 }
 
 /* 姓名的input */
-.nameInputs {
+.TCnameInputs {
   margin: 27px 0 50px;
   border: 1px solid #868686;
   border-radius: 10px;

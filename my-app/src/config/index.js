@@ -4,14 +4,15 @@ export const devUrl = 'http://localhost:3000'
 export const prodUrl = 'http://www.abc.com'
 export const API_HOST = 'http://localhost:3200'
 
-export const Course_LIST =
-  API_HOST + '/course/api/list'
+export const Course_LIST = API_HOST + '/course/api/list'
+export const Member_LIST = API_HOST + '/member/api/list'
 export const UPLOAD_AVATAR = API_HOST + '/try-upload2'
 
 export const pathnameList = [
   '/about',
   '/signup',
   '/login',
+  '/CompanyBackend',
   '/TCindex',
   '/TCindex/TcProfile',
   '/TCindex/TcPassword',
@@ -35,6 +36,7 @@ export const pathnameTextList = [
   '/關於我們',
   '/會員註冊',
   '/會員登入',
+  '/教師會員管理',
   '/教師頁面',
   '/教師頁面/個人資料',
   '/教師頁面/密碼更改',
