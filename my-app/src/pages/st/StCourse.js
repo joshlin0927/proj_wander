@@ -9,6 +9,7 @@ import StBgDecoration from '../../components/st/StBgDecoration'
 import MyPagination from '../../components/MyPagination'
 import CourseItem from '../../components/st/CourseItem'
 import RecommandedTC from '../../components/st/RecommandedTC'
+import Footer from '../../components/Footer'
 
 export default function StCourse() {
   return (
@@ -46,6 +47,7 @@ export default function StCourse() {
       </div>
 
       <StBgDecoration />
+      <Footer />
     </>
   )
 }

@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom'
 
 //引用頁面
-import StEditProfile from './StEditProfile'
+import StProfile from './StProfile'
 import StPasswordModify from './StPasswordModify'
 import StStartMyCourse from './StStartMyCourse'
 import StSelectLanguage from './StSelectLanguage'
@@ -19,8 +19,8 @@ export default function index() {
   return (
     <>
       <Switch>
-        <Route exact path="/StIndex/StEditProfile/:id?">
-          <StEditProfile />
+        <Route exact path="/StIndex/StProfile/:id?">
+          <StProfile />
         </Route>
 
         <Route exact path="/StIndex/StPasswordModify/:id?">

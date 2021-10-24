@@ -1,11 +1,12 @@
 import React from 'react'
 import './style/gamestart.css'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
+import Footer from '../../components/Footer'
 
 export default function StGameStart() {
   return (
     <>
-      <div className="container-fluid mainpic mainContent">
+      <div className="container-fluid mainpic mainContent full">
         <div className="container">
           <div className="row">
             <MultiLevelBreadCrumb />
@@ -13,7 +14,7 @@ export default function StGameStart() {
         </div>
       </div>
 
-      <div className="container-fluid full">
+      <div className="container-fluid">
         <div className="row">
           <div className="dec-side col-md-8 col-lg-8">
             <div className="dec-insideblock col-md-9 col-lg-8">
@@ -43,6 +44,7 @@ export default function StGameStart() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

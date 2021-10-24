@@ -6,6 +6,7 @@ import './style/st_calendar.css'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar2 from '../../components/st/StSideBar2'
 import CourseItem from '../../components/st/CourseItem'
+import Footer from '../../components/Footer'
 
 export default function StCalendar() {
   return (
@@ -190,6 +191,7 @@ export default function StCalendar() {
           </Link>
         </div> */}
       </div>
+      <Footer />
     </>
   )
 }

@@ -8,8 +8,9 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar from '../../components/st/StSideBar'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import ConfirmMsg from '../../components/ConfirmMsg'
+import Footer from '../../components/Footer'
 
-export default function StEditProfile() {
+export default function StProfile() {
   return (
     <>
       <div className="container mainContent">
@@ -97,6 +98,7 @@ export default function StEditProfile() {
         </div>
       </div>
       <StBgDecorationNormal />
+      <Footer />
     </>
   )
 }

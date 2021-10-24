@@ -1,11 +1,14 @@
 import React from 'react'
 import './style/st_startmycourse.css'
+
+//共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
+import Footer from '../../components/Footer'
 
 export default function StStartMyCourse() {
   return (
     <>
-      <div className="container-fluid mainpic mainContent">
+      <div className="container-fluid mainpic mainContent full">
         <div className="container">
           <div className="row">
             <MultiLevelBreadCrumb />
@@ -34,6 +37,7 @@ export default function StStartMyCourse() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

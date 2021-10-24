@@ -7,6 +7,8 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import StSidebar from '../../components/st/StSideBar'
 import ConfirmMsg from '../../components/ConfirmMsg'
+import Footer from '../../components/Footer'
+
 
 export default function StPasswordModify() {
   return (
@@ -67,6 +69,7 @@ export default function StPasswordModify() {
         </div>
       </div>
       <StBgDecorationNormal />
+      <Footer />
     </>
   )
 }

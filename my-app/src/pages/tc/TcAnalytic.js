@@ -64,9 +64,9 @@ function TcAnalytic() {
             <MyPagination />
           </form>
         </div>
+        <Footer />
       </div>
       <TcBgDecorationNormal />
-      <Footer />
     </>
   )
 }
