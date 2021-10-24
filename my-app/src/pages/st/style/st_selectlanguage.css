@@ -34,10 +34,6 @@
   list-style-type: none;
 }
 
-.logo-m {
-  margin: 40px auto 40px;
-}
-
 .mainpic {
   padding: 0;
 }
@@ -131,10 +127,7 @@
     /* margin-bottom: 30px; */
   }
 
-  .logo-m {
-    display: none;
-  }
-
+ 
   .mainpic {
     background-image: url('http://localhost:3000/images/pic/背景圖素材/7656d57f.jpg');
     ;

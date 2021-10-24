@@ -94,10 +94,7 @@
 .Mypage-item.active a {
   color: white;
 }
-/* 手機logo */
-.logo-m {
-  margin: 40px auto 40px;
-}
+
 /* 會員中心sidebar */
 .sidebar {
   display: none;
@@ -227,10 +224,7 @@
   .dec-block {
     height: 310px;
   }
-  /* 手機版logo */
-  .logo-m {
-    display: none;
-  }
+  
   /* 頁碼 */
   .Mypagination {
     display: flex;
