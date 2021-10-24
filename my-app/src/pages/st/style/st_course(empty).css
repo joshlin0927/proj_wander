@@ -126,14 +126,14 @@
 }
 .t_avatar {
   width: 200px;
-  height: fit-height;
+  height: 200px;
   border-radius: 50%;
-  /* overflow: hidden; */
 }
+
 .t_avatar img {
-  width: 100%;
-  /* height:100%; */
-  object-fit: contain;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 50%;
 }
 .nametag {
@@ -263,13 +263,13 @@
 
   .t_avatar {
     width: 200px;
+    height: 200px;
     border-radius: 50%;
-    /* overflow: hidden; */
   }
 
   .t_avatar img {
-    width: 100%;
-    /* height: 200px; */
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 50%;
   }

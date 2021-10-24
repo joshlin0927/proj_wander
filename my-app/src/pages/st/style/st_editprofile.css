@@ -195,11 +195,20 @@
  /* 表單裡的頭圖 */
  .pic {
    width: 116px;
+   height:116px;
    border-radius: 50%;
-   overflow: hidden;
    margin-right: 21px;
- }
 
+ }
+ 
+ .pic img{
+   object-fit: cover;
+   width: 100%;
+   height:100%;
+   border-radius: 50%;
+ }
+ 
+ 
  .btn-border-only {
    width: 117px;
    height: 50px;
