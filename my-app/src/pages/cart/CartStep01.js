@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
 import { Link, withRouter } from 'react-router-dom'
 import { devUrl } from '../../config'
+import $ from 'jquery'
 
 // 全頁通用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -15,6 +16,40 @@ function CartStep01(props) {
     setCounponModalShow(false)
   const handleCounponModalShow = () =>
     setCounponModalShow(true)
+  useEffect(() => {
+    $('#counponCanUse .modal-card').on(
+      'click',
+      function () {
+        if ($(this).attr('isChecked') !== 'checked') {
+          $(this).attr('isChecked', 'checked')
+          $(this)
+            .addClass('active')
+            .siblings()
+            .removeClass('active')
+          $(this).siblings().attr('isChecked', '')
+          $(this)
+            .children()
+            .last()
+            .html(
+              `<img src="${devUrl}/images/cart/checked_icon.svg" alt="">`
+            )
+          $('#counponCanUse .modal-card').each(function (
+            i,
+            v
+          ) {
+            if ($(this).attr('isChecked') !== 'checked') {
+              $(this)
+                .children()
+                .last()
+                .html(
+                  `<img src="${devUrl}/images/cart/check_icon.svg" alt="">`
+                )
+            }
+          })
+        }
+      }
+    )
+  }, [counponModalShow])
   return (
     <>
       <MultiLevelBreadCrumb />
