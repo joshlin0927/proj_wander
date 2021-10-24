@@ -10,6 +10,7 @@ import MyPagination from '../components/MyPagination'
 import TcBgDecorationNormal from '../components/tc/TcBgDecorationNormal'
 
 function CompanyBackend() {
+  const [selectedOption, setSelectedOption] = useState('')
   let [data, setData] = useState({})
   let [totalRows, setTotalRows] = useState(0)
 
@@ -25,26 +26,26 @@ function CompanyBackend() {
   }, [])
   return (
     <>
-      <div class="container mainContent">
-        <div class="row">
+      <div className="container mainContent">
+        <div className="row">
           <MultiLevelBreadCrumb />
           {/* content */}
-          <form class="col-12">
-            <div class="TCform-head ml-1 p-0">
-              <Link href="">
-                <i class="fas fa-chevron-left TCback-btn"></i>
+          <form className="col-12">
+            <div className="TCform-head ml-1 p-0">
+              <Link to="">
+                <i className="fas fa-chevron-left TCback-btn"></i>
               </Link>
-              <div class="TCform-title mr-auto">
+              <div className="TCform-title mr-auto">
                 教師會員管理
               </div>
               {/* desktop search bar */}
-              <div class="col-6 d-flex">
-                <TcSearchBar />
+              <div className="col-6 d-flex">
+                <TcSearchBar placeholder="請輸入姓名" />
               </div>
             </div>
 
-            <div class="table-responsive company-table">
-              <table class="table">
+            <div className="table-responsive company-table">
+              <table className="table">
                 <thead>
                   <tr>
                     <th scope="col">姓氏</th>
@@ -75,15 +76,20 @@ function CompanyBackend() {
                           <td>{el.language}</td>
                           <td>{el.email}</td>
                           <td>
-                            <Link href="">
-                              <i class="far fa-file-alt"></i>
+                            <Link to="">
+                              <i className="far fa-file-alt"></i>
                             </Link>
                           </td>
                           <td>
                             <select
-                              name=""
-                              id=""
-                              class="custom-select"
+                              name="verification"
+                              className="custom-select"
+                              value={selectedOption}
+                              onChange={(e) => {
+                                setSelectedOption(
+                                  e.target.value
+                                )
+                              }}
                             >
                               <option value="0">
                                 未審核

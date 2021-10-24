@@ -1,6 +1,3 @@
-// Css 擺放位置
-import '../src/pages/tc/TC2.css'
-
 // 使用套件
 import {
   BrowserRouter as Router,
@@ -8,6 +5,8 @@ import {
   Switch,
 } from 'react-router-dom'
 import React from 'react'
+
+import ScrollToTop from './components/ScrollToTop'
 
 // Navbar
 import PcNavbar from './components/PcNavbar'
@@ -38,35 +37,36 @@ function App() {
       <>
         <PcNavbar />
         {/* <MultiLevelBreadCrumb /> */}
+        <ScrollToTop>
+          <Switch>
+            <Route path="/CompanyBackend">
+              <CompanyBackend />
+            </Route>
+            <Route path="/TCindex">
+              {/* exact 要加回去 */}
+              <TCindex />
+            </Route>
+            <Route path="/Cart">
+              <CartStep01 />
+            </Route>
+            <Route path="/StIndex">
+              <StIndex />
+            </Route>
+            <Route path="/Login">
+              <Login />
+            </Route>
 
-        <Switch>
-          <Route path="/CompanyBackend">
-            <CompanyBackend />
-          </Route>
-          <Route path="/TCindex">
-            {/* exact 要加回去 */}
-            <TCindex />
-          </Route>
-          <Route path="/Cart">
-            <CartStep01 />
-          </Route>
-          <Route path="/StIndex">
-            <StIndex />
-          </Route>
-          <Route path="/Login">
-            <Login />
-          </Route>
+            <Route path="/SignUp">
+              <SignUp />
+            </Route>
 
-          <Route path="/SignUp">
-            <SignUp />
-          </Route>
+            <Route path="/">
+              <WanderIndex />
+            </Route>
+          </Switch>
 
-          <Route path="/">
-            <WanderIndex />
-          </Route>
-        </Switch>
-
-        <MobileNavbar />
+          <MobileNavbar />
+        </ScrollToTop>
       </>
     </Router>
   )

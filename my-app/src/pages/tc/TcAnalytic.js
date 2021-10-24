@@ -1,5 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+
+// 後端檔案路徑
+import { TcCourse_LIST } from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -12,6 +16,23 @@ import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
 
 function TcAnalytic() {
+  // 搜尋列
+  const [searchWord, setSearchWord] = useState('')
+
+  // 課程陣列排出
+  let [data, setData] = useState({})
+  let [totalRows, setTotalRows] = useState(0)
+
+  useEffect(() => {
+    ;(async () => {
+      let r = await axios.get(TcCourse_LIST)
+      console.log(r)
+      if (r.status === 200) {
+        setTotalRows(r.data.totalRows)
+        setData(r.data)
+      }
+    })()
+  }, [])
   return (
     <>
       <div className="container mainContent">
@@ -36,12 +57,12 @@ function TcAnalytic() {
               </div>
               {/* desktop search bar */}
               <div className="TCsearch ml-0">
-                <TcSearchBar />
+                <TcSearchBar placeholder="請輸入課程名稱" />
               </div>
             </div>
             {/* mobile search bar */}
             <div className="TCsearch-mobile">
-              <TcSearchBar />
+              <TcSearchBar placeholder="請輸入課程名稱" />
             </div>
             {/* chart */}
             <div class="mb-5">
