@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import asiox from 'axios'
+import axios from 'axios'
 
 // 後端檔案路徑
 import { Course_LIST } from '../../config'
@@ -27,8 +27,8 @@ function TcCourse() {
   let [totalRows, setTotalRows] = useState(0)
 
   useEffect(() => {
-    ;(async () => {
-      let r = await asiox.get(Course_LIST)
+    (async () => {
+      let r = await axios.get(Course_LIST)
       console.log(r)
       if (r.status === 200) {
         setTotalRows(r.data.totalRows)
@@ -73,7 +73,7 @@ function TcCourse() {
                 />
               </div>
               <div className="d-flex justify-content-end">
-                <Link to="/TCindex/TcCourseEdit">
+                <Link to="/TCindex/TcCourseEdit/:id?">
                   <button
                     type="submit"
                     className="TCbtn TCbtn-sm btn-primary"
@@ -98,9 +98,6 @@ function TcCourse() {
                 <div className="Labelitem">課程種類</div>
                 <div className="Labelitem">上架日期</div>
                 <div className="Labelitem">課程長度</div>
-                <div className="TCcourse-delete">
-                  <i className="far fa-times-circle opacity-0"></i>
-                </div>
               </div>
             </div>
             {/* course cards */}

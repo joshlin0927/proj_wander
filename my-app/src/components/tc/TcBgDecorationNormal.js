@@ -1,7 +1,7 @@
 import React from 'react'
 import { devUrl } from '../../config'
 
-function TcBgDecoration() {
+function TcBgDecorationNormal() {
   return (
     <>
       {/* bg decoration */}
@@ -19,4 +19,4 @@ function TcBgDecoration() {
   )
 }
 
-export default TcBgDecoration
+export default TcBgDecorationNormal
