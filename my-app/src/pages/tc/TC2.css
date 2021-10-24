@@ -516,7 +516,6 @@ body {
   font-size: 18px;
   padding: 3px 10px 0px;
   margin-left: auto;
-  cursor: pointer;
 }
 
 .TCcourse-delete:hover {
@@ -772,7 +771,7 @@ body {
   .TCcourseLabel-right {
     display: flex;
     justify-content: space-evenly;
-    padding-right: 0;
+    padding-right: 18px;
   }
 
   .TCcourseLabel .Labelitem {
@@ -815,7 +814,10 @@ body {
     color: #065f8e;
     font-size: 18px;
     padding: 0px;
-    margin: auto 15px;
+  }
+
+  .TCcourse-delete i {
+    margin: 46px auto;
   }
 
   /* 瀏覽按鈕 */

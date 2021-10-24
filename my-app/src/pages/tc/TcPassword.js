@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // components
@@ -8,9 +8,98 @@ import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
 
 function TcPassword() {
-  const [origin, setOrigin] = useState('')
-  const [newPass, setNewPass] = useState('')
-  const [newPassCopy, setNewPassCopy] = useState('')
+  const formRef = useRef(null)
+
+  const showPass = (e) => {}
+
+  //儲存所有欄位的值
+  const [fields, setFields] = useState({
+    origin: '',
+    newPass: '',
+    newPassConfirm: '',
+  })
+
+  // 存入錯誤訊息
+  const [fieldErrors, setFieldErrors] = useState({
+    origin: '',
+    newPass: '',
+    newPassConfirm: '',
+  })
+
+  // 專門用來處理每個欄位的輸入用
+  const handleFieldChange = (e) => {
+    // 1. 從原本的狀態物件拷貝新物件
+    // 2. 在拷貝的新物件上處理
+    const updatedFields = {
+      ...fields,
+      [e.target.name]: e.target.value,
+    }
+    // 3. 設定回原狀態物件
+    setFields(updatedFields)
+  }
+
+  // 當整個表單有變動時觸發
+  // 認定使用者正在輸入有錯誤的欄位
+  // 清除某個欄位錯誤訊息
+  const handleFormChange = (e) => {
+    // 設定錯誤訊息狀態
+    const updatedFieldErrors = {
+      ...fieldErrors,
+      [e.target.name]: '',
+    }
+
+    // 3. 設定回原錯誤訊息狀態物件
+    setFieldErrors(updatedFieldErrors)
+  }
+
+  // 當表單有檢查有不合法出現時觸發
+  const handleFormInvalid = (e) => {
+    // 阻擋form的預設行為(泡泡訊息)
+    e.preventDefault()
+
+    // 設定錯誤訊息狀態
+    const updatedFieldErrors = {
+      ...fieldErrors,
+      [e.target.name]: e.target.validationMessage,
+    }
+
+    // 3. 設定回原錯誤訊息狀態物件
+    setFieldErrors(updatedFieldErrors)
+  }
+
+  // 在 表單完成驗証 之後，才會觸發
+  const handleSubmit = (e) => {
+    // 阻擋form的預設送出行為
+    e.preventDefault()
+
+    // 利用FormData Api 得到各欄位的值 or 利用狀態值
+    // FormData 利用的是表單元素的 name
+    const formData = new FormData(e.target)
+    console.log(formData.get('origin'))
+    console.log(formData.get('newPass'))
+    console.log(formData.get('newPassConfirm'))
+
+    // 檢查確認密碼&密碼欄位
+    if (
+      formData.get('newPass') !==
+      formData.get('newPassConfirm')
+    ) {
+      // 設定錯誤訊息狀態
+      const updatedFieldErrors = {
+        ...fieldErrors,
+        newPass: '密碼與確認密碼欄位輸入值不相同',
+        newPassConfirm: '密碼與確認密碼欄位輸入值不相同',
+      }
+
+      // 3. 設定回原錯誤訊息狀態物件
+      setFieldErrors(updatedFieldErrors)
+
+      // 不送出資料到伺服器
+      return
+    }
+
+    // ex. 以下用fetch api/axios送到伺服器
+  }
 
   return (
     <>
@@ -26,7 +115,13 @@ function TcPassword() {
         <div className="row">
           <TcSideBar />
           {/* form */}
-          <form className="TCform col-12 offset-0 col-md-8 offset-md-1">
+          <form
+            className="TCform col-12 offset-0 col-md-8 offset-md-1"
+            ref={formRef}
+            onSubmit={handleSubmit}
+            onChange={handleFormChange}
+            onInvalid={handleFormInvalid}
+          >
             <div className="TCform-content w-100 col-md-10 col-lg-8">
               <div className="TCform-head p-0">
                 <Link to="/">
@@ -38,41 +133,61 @@ function TcPassword() {
                 </Link>
               </div>
               <input
+                name="origin"
                 type="password"
                 className="col-12 allInputs"
                 placeholder="請輸入原密碼"
-                value={origin}
-                onChange={(e) => {
-                  setOrigin(e.target.value)
-                }}
+                value={fields.origin}
+                onChange={handleFieldChange}
+                required
               />
-              <label className="TCnotice" for="">
-                請填寫正確密碼
-              </label>
+              {fieldErrors.origin === '' ? (
+                <label className="TCnotice" htmlFor="">
+                  &nbsp;
+                </label>
+              ) : (
+                <label className="TCnotice" htmlFor="">
+                  {fieldErrors.origin}
+                </label>
+              )}
               <input
+                name="newPass"
                 type="text"
                 className="col-12 allInputs"
                 placeholder="請輸入新密碼"
-                value={newPass}
-                onChange={(e) => {
-                  setNewPass(e.target.value)
-                }}
+                value={fields.newPass}
+                onChange={handleFieldChange}
+                required
+                minLength="5"
               />
-              <label className="TCnotice" for="">
-                請填寫至少6位數密碼
-              </label>
+              {fieldErrors.newPass === '' ? (
+                <label className="TCnotice" htmlFor="">
+                  &nbsp;
+                </label>
+              ) : (
+                <label className="TCnotice" htmlFor="">
+                  {fieldErrors.newPass}
+                </label>
+              )}
               <input
+                name="newPassConfirm"
                 type="text"
                 className="col-12 allInputs"
                 placeholder="請再次輸入新密碼"
-                value={newPassCopy}
-                onChange={(e) => {
-                  setNewPassCopy(e.target.value)
-                }}
+                value={fields.newPassConfirm}
+                onChange={handleFieldChange}
+                required
+                minLength="5"
               />
-              <label className="TCnotice" for="">
-                與上列密碼不符
-              </label>
+              {fieldErrors.newPassConfirm === '' ? (
+                <label className="TCnotice" htmlFor="">
+                  &nbsp;
+                </label>
+              ) : (
+                <label className="TCnotice" htmlFor="">
+                  {fieldErrors.newPassConfirm}
+                </label>
+              )}
               <button className="TCbtn btn-secondary mx-auto one-btn">
                 <span>更改</span>
               </button>

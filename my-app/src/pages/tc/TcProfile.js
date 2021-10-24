@@ -41,29 +41,29 @@ function TcProfile() {
   }
 
   // 在 表單完成驗証 之後，才會觸發
-  const handleSubmit = (e) => {
+  const ProfileFormSubmit = (e) => {
     // 阻擋form的預設送出行為
     e.preventDefault()
 
     // 利用FormData Api 得到各欄位的值 or 利用狀態值
     // FormData 利用的是表單元素的 name
-    const formData = new FormData(e.target)
-    console.log(formData.get('firstname'))
-    console.log(formData.get('lastname'))
-    console.log(formData.get('email'))
-    console.log(formData.get('birthday'))
-    console.log(formData.get('nickname'))
-    console.log(formData.get('language'))
+    const TcProfileFormData = new FormData(e.target)
+    console.log(TcProfileFormData.get('firstname'))
+    console.log(TcProfileFormData.get('lastname'))
+    console.log(TcProfileFormData.get('email'))
+    console.log(TcProfileFormData.get('birthday'))
+    console.log(TcProfileFormData.get('nickname'))
+    console.log(TcProfileFormData.get('language'))
 
     // 利用狀態來得到輸入的值
-    console.log(fields)
+
     // ex. 用fetch api/axios送到伺服器
   }
 
   // 當整個表單有變動時觸發
   // 認定使用者正在輸入有錯誤的欄位
   // 清除某個欄位錯誤訊息
-  const handleFormChange = (e) => {
+  const ProfileFormChange = (e) => {
     // console.log('更動欄位：', e.target.name)
 
     // 該欄位錯誤訊息清空
@@ -77,7 +77,7 @@ function TcProfile() {
   }
 
   // 有錯誤的訊息會觸發在這裡
-  const handleInvalid = (e) => {
+  const ProfileFormInvalid = (e) => {
     e.preventDefault()
 
     // 表單實體的物件參照
@@ -135,9 +135,9 @@ function TcProfile() {
           <form
             className="TCform col-12 offset-0 col-md-8 offset-md-1"
             ref={formRef}
-            onSubmit={handleSubmit}
-            onChange={handleFormChange}
-            onInvalid={handleInvalid}
+            onSubmit={ProfileFormSubmit}
+            onChange={ProfileFormChange}
+            onInvalid={ProfileFormInvalid}
           >
             <div className="TCform-content">
               <div className="TCform-head">
@@ -146,7 +146,10 @@ function TcProfile() {
                 </Link>
                 <div className="TCform-title">個人資料</div>
                 <i className="TCback-btn"></i>
-                <button className="TCbtn btn-primary preview-btn-top">
+                <button
+                  className="TCbtn btn-primary preview-btn-top"
+                  to="/"
+                >
                   <span>個人頁面預覽</span>
                 </button>
               </div>
@@ -241,6 +244,7 @@ function TcProfile() {
                 </label>
               )}
               <textarea
+                id="intro"
                 name="intro"
                 rows="5"
                 className="TC-intro w-100 col-12"

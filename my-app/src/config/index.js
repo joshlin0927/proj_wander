@@ -5,7 +5,7 @@ export const prodUrl = 'http://www.abc.com'
 export const API_HOST = 'http://localhost:3200'
 
 export const Course_LIST =
-  API_HOST + '/address-book/api/list'
+  API_HOST + '/course/api/list'
 export const UPLOAD_AVATAR = API_HOST + '/try-upload2'
 
 export const pathnameList = [
