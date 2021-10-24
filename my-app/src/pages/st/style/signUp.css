@@ -17,7 +17,7 @@
   display: none;
 }
 
-.logo-m {
+.logo-m-login {
   margin-top: 90px;
 }
 
@@ -212,7 +212,7 @@ input::-webkit-input-placeholder {
 }
 
 @media (min-width: 768px) {
- 
+
   .navbar {
     display: flex;
     height: 80px;
@@ -220,10 +220,6 @@ input::-webkit-input-placeholder {
     margin-bottom: 30px;
   }
 
-
-  .logo-m {
-    display: none;
-  }
 
   .form-sm {
     width: 80%;
@@ -376,6 +372,10 @@ input::-webkit-input-placeholder {
   }
 
   .m-wrap {
+    display: none;
+  }
+
+  .logo-m-login {
     display: none;
   }
 }

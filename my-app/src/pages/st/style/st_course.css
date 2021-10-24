@@ -86,12 +86,7 @@
   padding: 0px 0px 15px;
 }
 
-/* 頁碼 */
 
-/* 手機logo */
-.logo-m {
-  margin: 40px auto 40px;
-}
 
 /* 會員中心sidebar */
 .sidebar {
@@ -286,10 +281,7 @@
 
 
 
-  /* 手機版logo */
-  .logo-m {
-    display: none;
-  }
+
 
   /* 頁面英文標題 */
   .pageName {
