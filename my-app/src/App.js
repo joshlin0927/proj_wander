@@ -1,3 +1,6 @@
+// Css 擺放位置
+import '../src/pages/tc/TC2.css'
+
 // 使用套件
 import {
   BrowserRouter as Router,
