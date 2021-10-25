@@ -186,7 +186,7 @@ export default function StProfile() {
                   />
                 </div>
                 <button
-                  className="btn btn-border-only"
+                  className="Stbtn btn-border-only"
                   onClick={(e) => {
                     e.preventDefault()
                     inputRef.current.click()
@@ -267,7 +267,7 @@ export default function StProfile() {
                 onChange={handleFieldChange}
               />
             </div>
-            <button className="btn btn-secondary row mx-auto save-btn">
+            <button className="Stbtn btn-secondary row mx-auto save-btn">
               儲存
             </button>
           </form>

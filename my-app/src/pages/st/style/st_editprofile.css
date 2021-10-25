@@ -111,16 +111,6 @@
    list-style-type: none;
  }
 
- .btn {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   width: 115px;
-   height: 40px;
-   font-size: 14px;
-   font-weight: bold;
- }
-
  /* 新增課程(手機板) */
  .btn-sm {
    width: 73px;
