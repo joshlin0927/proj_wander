@@ -4,7 +4,7 @@ import { devUrl } from '../../config'
 export default function CourseItem() {
   return (
     <>
-      <div class="courseitem carousel-item active">
+      <div class="courseitem">
         <img
           src={`${devUrl}/images/pic/課程圖片/英文課程2.jpeg`}
           alt=""

@@ -37,6 +37,7 @@ export default function StClassroom() {
         </div>
         <div className="h30"> </div>
       </div>
+      <div className="Classallwraper"></div>
       <Footer />
     </>
   )

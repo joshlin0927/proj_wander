@@ -2,6 +2,10 @@ import '../st/style/signUp.css'
 import React, { useState, useRef } from 'react'
 import { devUrl } from '../../config'
 
+//共用元件
+import FBLogin from '../../components/st/FBLogin'
+import GooLogin from '../../components/st/GooLogin'
+
 export default function SignUp() {
   //切換身份鈕功能
   const mySwitch = document.querySelector('#mySwitch')
@@ -80,18 +84,13 @@ export default function SignUp() {
             ...errorMsg,
             [element.name]: element.title,
           }
-        } else {
-          errorMsg = {
-            ...errorMsg,
-            [element.name]: element.title,
-          }
         }
       }
     }
 
     const updatedFieldErrors = {
       ...fieldsErrors,
-      ...errorMsg,
+      [e.target.name]: e.target.validationMessage,
     }
 
     setFieldsErrors(updatedFieldErrors)
@@ -180,7 +179,6 @@ export default function SignUp() {
                     name="firstname"
                     value={fields.firstname}
                     onChange={handleFieldChange}
-                    title="請填寫這個欄位。"
                     required
                   />
                   <input
@@ -190,7 +188,6 @@ export default function SignUp() {
                     name="lastname"
                     value={fields.lastname}
                     onChange={handleFieldChange}
-                    title="請填寫這個欄位。"
                     required
                   />
                 </div>
@@ -220,10 +217,8 @@ export default function SignUp() {
                     name="email"
                     className="allInputs-login col-10"
                     placeholder="請填寫電子信箱"
-                    title="請填寫正確格式"
                     value={fields.email}
                     onChange={handleFieldChange}
-                    required
                   />
                 </div>
                 {fieldsErrors.email === '' ? (
@@ -244,9 +239,7 @@ export default function SignUp() {
                     placeholder="請輸入密碼*"
                     value={fields.password}
                     onChange={handleFieldChange}
-                    required
                     minLength="5"
-                    title="請輸入5個以上字元"
                   />
                 </div>
                 {fieldsErrors.password === '' ? (
@@ -279,15 +272,8 @@ export default function SignUp() {
                   <div className="or">OR</div>
                 </div>
                 <div className="d-flex d-md-block">
-                  <button className="socialBtn btn btn-lg btn-block col-md-10 col-4 mt-0 mx-auto">
-                    facebook 快速註冊
-                  </button>
-                  <button
-                    className="socialBtn btn btn-lg btn-block col-md-10 col-4 mt-0 mx-auto"
-                    id="google"
-                  >
-                    Google 快速註冊
-                  </button>
+                  <FBLogin />
+                  <GooLogin />
                 </div>
                 <div>
                   <button className="signUpBtn-m mx-auto col-10 ">
