@@ -17,7 +17,6 @@ function MobileNavbar(props) {
         navItem[4].classList.add('active')
       }
     }
-    console.log('目前路由:', path)
   }, [props.location.pathname])
   return (
     <>

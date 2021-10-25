@@ -27,12 +27,12 @@ function PcNavbar() {
             </div>
             <ul className="nav__pc_menu col-7">
               <li>
-                <Link to="#/">
+                <Link to="/StIndex/StProfile">
                   <span className="nav__en">關於我們</span>
                 </Link>
               </li>
               <li>
-                <Link to="#/">
+                <Link to="/StIndex/StPasswordModify">
                   <span className="nav__en">課程總覽</span>
                 </Link>
               </li>

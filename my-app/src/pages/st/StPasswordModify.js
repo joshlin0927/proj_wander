@@ -5,12 +5,11 @@ import { Link } from 'react-router-dom'
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
-import StSidebar from '../../components/st/StSideBar'
+import StSideBar from '../../components/st/StSideBar'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
 
-
-export default function StPasswordModify() {
+function StPasswordModify() {
   return (
     <>
       <div className="container mainContent">
@@ -23,7 +22,7 @@ export default function StPasswordModify() {
           </div>
         </div>
         <div className="row justify-content-center">
-          <StSidebar />
+          <StSideBar />
 
           <form className="form col-12 offset-0 col-md-7 offset-md-1 col-lg-7">
             <ConfirmMsg />
@@ -73,3 +72,4 @@ export default function StPasswordModify() {
     </>
   )
 }
+export default StPasswordModify
