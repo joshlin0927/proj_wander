@@ -23,6 +23,7 @@ const socketIo = require('socket.io');
 const {
     emit
 } = require('process');
+
 /*
 因為我們已經有連線的設定，也就是connect-mysql，所以在大括號裡面不需要放任何東西，只要在最後放上要連到哪裡就好
 */
@@ -45,7 +46,6 @@ app.use(session({
         maxAge: 1200000, //20分鐘，這裡寫得是毫秒
     }
 }));
-
 
 const corsOptions = {
     credentials: true,
@@ -74,7 +74,7 @@ app.use('/@fortawesome/fontawesome-free', express.static('node_modules/@fortawes
 
 // 自訂middleware
 app.use(async (req, res, next) => {
-    res.locals.title = '小心的網站';
+    res.locals.title = 'Wander';
     // 這裡可以設定所有網站的title
     res.locals.pageName = '';
     res.locals.keyword = '';
@@ -100,9 +100,8 @@ app.get('/', (req, res) => {
 
 app.use('/teacher', require('./routes/teacher'));
 app.use('/member', require('./routes/member'));
-app.use('/course', require('./routes/course'));
+app.use('/TcCourse', require('./routes/TcCourse'));
 app.use(require('./routes/login'));
-app.use('/members-ctrl', require('./routes/members-ctrl'));
 // app.use('/chat', require('./routes/chat'));
 
 // 聊天室設定
@@ -184,7 +183,7 @@ app.get('/try-sess', (req, res) => {
 })
 
 app.get('/try-db', async (req, res) => {
-    const [result] = await db.query('SELECT * FROM member WHERE `_name` LIKE ?', ['%e%'])
+    const [result] = await db.query('SELECT * FROM member WHERE `name` LIKE ?', ['%e%'])
     res.json(result);
 });
 // ***路由定義結束 ：END

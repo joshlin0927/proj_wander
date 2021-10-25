@@ -1,7 +1,7 @@
 import React from 'react'
 
 function TcSearchBar(props) {
-  const { searchWord, setSearchWord } = props
+  const { searchWord, setSearchWord, placeholder } = props
 
   return (
     <>
@@ -9,7 +9,7 @@ function TcSearchBar(props) {
         type="text"
         className="TCsearchbar"
         id="TCsearchbar"
-        placeholder="請輸入課程名稱"
+        placeholder={placeholder}
         value={searchWord}
         onChange={(e) => setSearchWord(e.target.value)}
       />

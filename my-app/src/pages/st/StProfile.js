@@ -6,6 +6,7 @@ import { devUrl } from '../../config'
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar from '../../components/st/StSideBar'
+import TcSideBar from '../../components/tc/TcSideBar'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
@@ -92,6 +93,32 @@ export default function StProfile() {
     setFieldsErrors(updatedFieldErrors)
   }
 
+  //預覽大頭貼的地方
+  const imgRef = useRef(null)
+
+  //實際擁有預覽功能的input因為太醜藏起來
+  const inputRef = useRef(null)
+
+
+  //預覽大頭貼功能
+  const previewFile = () => {
+    var preview = imgRef.current
+    var file = inputRef.current.files[0]
+    var reader = new FileReader()
+
+    reader.addEventListener(
+      'load',
+      function () {
+        preview.src = reader.result
+      },
+      false
+    )
+
+    if (file) {
+      reader.readAsDataURL(file)
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     //阻止表單預設送出行為
@@ -120,8 +147,8 @@ export default function StProfile() {
             ref={formRef}
             className="form col-12 offset-0 col-md-8 offset-md-1"
             onSubmit={handleSubmit}
-            onInvalid={handleFormInvalid}
             onChange={handleFormChange}
+            onInvalid={handleFormInvalid}
           >
             <ConfirmMsg />
             <div className="form-head ml-1">
@@ -134,16 +161,37 @@ export default function StProfile() {
               </Link>
             </div>
 
+            <form
+              name="form1"
+              style={{
+                display: 'none',
+              }}
+            >
+              <input
+                type="file"
+                name="avatar"
+                accept="image/*"
+                ref={inputRef}
+                onChange={previewFile}
+              />
+            </form>
             <div className="form-content">
               <div className="d-flex align-items-center ml-1">
                 <div className="pic">
                   <img
-                    src={`${devUrl}/images/pic/學生照片/Anne Hathaway.jpg`}
+                    src=""
                     className="img-fluid"
                     alt=""
+                    ref={imgRef}
                   />
                 </div>
-                <button className="btn btn-border-only">
+                <button
+                  className="Stbtn btn-border-only"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    inputRef.current.click()
+                  }}
+                >
                   <span>請選擇圖片</span>
                 </button>
               </div>
@@ -219,7 +267,7 @@ export default function StProfile() {
                 onChange={handleFieldChange}
               />
             </div>
-            <button className="btn btn-secondary row mx-auto save-btn">
+            <button className="Stbtn btn-secondary row mx-auto save-btn">
               儲存
             </button>
           </form>

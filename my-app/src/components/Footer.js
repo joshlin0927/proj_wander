@@ -13,7 +13,6 @@ function Footer(props) {
             : 'footerWrap'
         }
       >
-        <div className="footerFill"></div>
         <div className="wanderFooter container">
           <div className="footer-left">
             <div className="Footer-Desktop-Logo">
@@ -34,7 +33,7 @@ function Footer(props) {
                 />
               </Link>
             </div>
-            <div className="Footer-page-links col-8">
+            <div className="Footer-page-links col-12 col-md-8">
               <Link to="#/">關於我們</Link>
               <Link to="#/">常見問題</Link>
               <Link to="#/">國際角落</Link>
@@ -64,6 +63,7 @@ function Footer(props) {
             </div>
           </div>
         </div>
+        <div className="footerFill"></div>
       </footer>
     </>
   )

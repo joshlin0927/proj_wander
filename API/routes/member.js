@@ -22,8 +22,6 @@ async function getListData(req,res){
     }
     // 有其他條件可以用差不多的寫法加在sql後面
 
-
-
     const t_sql = `SELECT COUNT(1) totalRows FROM member ${where}`;
     const [[{ totalRows }]] = await db.query(t_sql);
     
@@ -60,8 +58,6 @@ async function getListData(req,res){
     }
     return output;
 }
-
-router.getListData = getListData; // 將 function 掛在 router 物件上做匯出
 
 router.get('/', (req, res) => {
     res.render('member/main');

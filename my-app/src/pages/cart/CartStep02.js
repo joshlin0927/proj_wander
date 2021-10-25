@@ -3,13 +3,17 @@ import { Modal } from 'react-bootstrap'
 import { Link, withRouter } from 'react-router-dom'
 import { devUrl } from '../../config'
 
-// 全頁通用元件
+// 頁面元件
+import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
+import PayMethodSelectInfo from '../../components/cart/PayMethodSelectInfo'
+import PayInfo from '../../components/cart/PayInfo'
 import Footer from '../../components/Footer'
+
 function CartStep02(props) {
+  // footer css
   const [cartFooterMb, setCartFooterMb] = useState(true)
-  const textLength = (e) => {
-    e.target.value = e.target.value.replace(/[^\d]/g, '')
-  }
+  // 下拉選單state
+  const [payMethodSelect, setPayMethodSelect] = useState('')
   // modal
   const [checkModalShow, setCheckModalShow] =
     useState(false)
@@ -18,6 +22,7 @@ function CartStep02(props) {
   const handleCheckModalShow = () => setCheckModalShow(true)
   return (
     <>
+      <MultiLevelBreadCrumb />
       {/* <!-- Main --> */}
       <div className="container-fluid p-0 mb-footer">
         <div className="row align-items-start m-0">
@@ -82,9 +87,13 @@ function CartStep02(props) {
               <div className="col-12 col-md-6 payMethodSelect">
                 <select
                   className="custom-select"
-                  id="inputGroupSelect01"
+                  id="payMethodSelect"
+                  value={payMethodSelect}
+                  onChange={(e) => {
+                    setPayMethodSelect(e.target.value)
+                  }}
                 >
-                  <option defaultValue="0">
+                  <option value="">
                     請選擇付款方式...
                   </option>
                   <option value="1">
@@ -94,349 +103,16 @@ function CartStep02(props) {
                   <option value="3">ATM轉帳匯款</option>
                 </select>
               </div>
-              <div
-                id="payMethodSelectInfo1"
-                className="col-12 col-md-6 payMethodSelectInfo"
-              >
-                <img
-                  src={`${devUrl}/images/cart/credit_VISA.png`}
-                  alt=""
-                />
-                <img
-                  src={`${devUrl}/images/cart/credit_MSCard.png`}
-                  alt=""
-                />
-                <img
-                  src={`${devUrl}/images/cart/credit_JCB.png`}
-                  alt=""
-                />
-              </div>
-              <div
-                id="payMethodSelectInfo2"
-                className="col-12 col-md-6 payMethodSelectInfo"
-              >
-                <span className="text-danger">
-                  注意事項：
-                </span>
-                <div className="w-100"></div>
-                <span>
-                  超商代碼繳費時限為7天，請務必於期限內進行繳費。
-                </span>
-              </div>
-              <div
-                id="payMethodSelectInfo3"
-                className="col-12 col-md-6 payMethodSelectInfo"
-              >
-                <span className="text-danger">
-                  注意事項：
-                </span>
-                <div className="w-100"></div>
-                <span>
-                  平台僅提供部分銀行，如有跨行轉帳之手續費需由買方負擔。
-                </span>
-                <div className="w-100"></div>
-                <span>
-                  請於取得平台轉帳帳號後於48小時內完成匯款。
-                </span>
-              </div>
+              <PayMethodSelectInfo
+                payMethodSelect={payMethodSelect}
+              />
             </div>
             {/* <!-- 付款資訊 --> */}
             <div className="row payInfo">
               <div className="col-12 payTitle">
                 <span>付款資訊</span>
               </div>
-              <div className="w-100 mt-4"></div>
-              {/* <!-- 信用卡 --> */}
-              <div className="col-12 payInfoInput">
-                <div className="input-group align-items-center flex-wrap">
-                  <label className="inputCategory">
-                    信用卡號
-                  </label>
-                  <input
-                    type="text"
-                    className="allInputs fourLengthInput"
-                    maxLength="4"
-                    onInput={(e) => {
-                      textLength(e)
-                    }}
-                  />
-                  <span>-</span>
-                  <input
-                    type="text"
-                    className="allInputs fourLengthInput"
-                    maxLength="4"
-                    onInput={(e) => {
-                      textLength(e)
-                    }}
-                  />
-                  <span>-</span>
-                  <input
-                    type="text"
-                    className="allInputs fourLengthInput"
-                    maxLength="4"
-                    onInput={(e) => {
-                      textLength(e)
-                    }}
-                  />
-                  <span>-</span>
-                  <input
-                    type="text"
-                    className="allInputs fourLengthInput"
-                    maxLength="4"
-                    onInput={(e) => {
-                      textLength(e)
-                    }}
-                  />
-                </div>
-                <div className="input-group align-items-center mt-3 flex-wrap">
-                  <label className="inputCategory">
-                    有效期限
-                  </label>
-                  <input
-                    type="text"
-                    className="allInputs fourLengthInput"
-                    maxLength="2"
-                    placeholder="YY"
-                    onInput={(e) => {
-                      textLength(e)
-                    }}
-                  />
-                  <span>-</span>
-                  <input
-                    type="text"
-                    className="allInputs fourLengthInput"
-                    maxLength="2"
-                    placeholder="MM"
-                    onInput={(e) => {
-                      textLength(e)
-                    }}
-                  />
-                </div>
-                <div className="input-group align-items-center mt-3 flex-wrap">
-                  <label className="inputCategory">
-                    檢核碼
-                  </label>
-                  <input
-                    type="text"
-                    className="allInputs fourLengthInput"
-                    maxLength="3"
-                    placeholder="000"
-                    onInput={(e) => {
-                      textLength(e)
-                    }}
-                  />
-                </div>
-                <div className="input-group align-items-center mt-3 flex-wrap">
-                  <label className="inputCategory">
-                    持卡人姓名
-                  </label>
-                  <input
-                    type="text"
-                    className="allInputs longLengthInput"
-                    placeholder="請輸入姓名"
-                  />
-                </div>
-                <div className="input-group align-items-center mt-3 flex-wrap">
-                  <label className="inputCategory">
-                    手機號碼
-                  </label>
-                  <input
-                    type="text"
-                    className="allInputs longLengthInput"
-                    onInput={(e) => {
-                      textLength(e)
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="w-100 mt-4"></div>
-              {/* <!-- 信用卡圖背面 --> */}
-              <div className="creditCard">
-                <div className="creditCardBack">
-                  <div className="credit-blackbar"></div>
-                  <div className="credit-graybar"></div>
-                  <div className="credit-CVC">888</div>
-                  <div className="credit-whitebar1"></div>
-                  <div className="credit-whitebar2"></div>
-                  <div className="credit-whitebar3"></div>
-                  <div className="credit-whitebar4"></div>
-                </div>
-              </div>
-              {/* <!-- 信用卡圖正面 --> */}
-              <div className="creditCard">
-                <div className="creditCardFront">
-                  <img
-                    src={`${devUrl}/images/cart/credit_icon.svg`}
-                    alt=""
-                    className="credit-icon"
-                  />
-                  <span className="credit-title">
-                    Credit Card
-                  </span>
-                  <span className="credit-num">
-                    0000 0000 0000 0000
-                  </span>
-                  <span className="credit-name">
-                    Xiao-Ming Wang
-                  </span>
-                  <span className="credit-MY">
-                    Month/Year
-                  </span>
-                  <span className="credit-date">11/24</span>
-                </div>
-              </div>
-              <div className="w-100 mt-4"></div>
-              {/* <!-- 超商代碼 --> */}
-              <div className="col-12 d-flex flex-wrap">
-                <div className="form-check col-12 col-md-6 d-flex align-items-center my-3">
-                  <input
-                    className="form-check-input mt-0"
-                    type="radio"
-                    name="RadioCStore"
-                    id="Radio7-Eleven"
-                  />
-                  <label
-                    className="form-check-label mx-2"
-                    htmlFor="Radio7-Eleven"
-                  >
-                    7-Eleven
-                  </label>
-                  <img
-                    src={`${devUrl}/images/cart/7-Eleven.png`}
-                    alt=""
-                  />
-                </div>
-                <div className="form-check col-12 col-md-6 d-flex align-items-center my-3">
-                  <input
-                    className="form-check-input mt-0"
-                    type="radio"
-                    name="RadioCStore"
-                    id="RadioFamiMart"
-                  />
-                  <label
-                    className="form-check-label mx-2"
-                    htmlFor="RadioFamiMart"
-                  >
-                    全家FamilyMart
-                  </label>
-                  <img
-                    src={`${devUrl}/images/cart/FamiMart.png`}
-                    alt=""
-                  />
-                </div>
-                <div className="form-check col-12 col-md-6 d-flex align-items-center my-3">
-                  <input
-                    className="form-check-input mt-0"
-                    type="radio"
-                    name="RadioCStore"
-                    id="RadioOKMart"
-                  />
-                  <label
-                    className="form-check-label mx-2"
-                    htmlFor="RadioOKMart"
-                  >
-                    OK Mart
-                  </label>
-                  <img
-                    src={`${devUrl}/images/cart/OKMart.png`}
-                    alt=""
-                  />
-                </div>
-                <div className="form-check col-12 col-md-6 d-flex align-items-center my-3">
-                  <input
-                    className="form-check-input mt-0"
-                    type="radio"
-                    name="RadioCStore"
-                    id="RadioHiLife"
-                  />
-                  <label
-                    className="form-check-label mx-2"
-                    htmlFor="RadioHiLife"
-                  >
-                    萊爾富HiLife
-                  </label>
-                  <img
-                    src={`${devUrl}/images/cart/HiLife.png`}
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div className="w-100 mt-4"></div>
-              {/* <!-- ATM銀行轉帳 --> */}
-              <div className="col-12 d-flex flex-wrap">
-                <div className="form-check col-12 d-flex align-items-center my-3">
-                  <input
-                    className="form-check-input mt-0"
-                    type="radio"
-                    name="RadioBank"
-                    id="RadioCTBC"
-                  />
-                  <label
-                    className="form-check-label mx-2"
-                    htmlFor="RadioCTBC"
-                  >
-                    中國信託銀行
-                  </label>
-                  <img
-                    src={`${devUrl}/images/cart/CTBC.png`}
-                    alt=""
-                  />
-                </div>
-                <div className="form-check col-12 d-flex align-items-center my-3">
-                  <input
-                    className="form-check-input mt-0"
-                    type="radio"
-                    name="RadioBank"
-                    id="RadioCUB"
-                  />
-                  <label
-                    className="form-check-label mx-2"
-                    htmlFor="RadioCUB"
-                  >
-                    國泰世華銀行
-                  </label>
-                  <img
-                    src={`${devUrl}/images/cart/CUB.png`}
-                    alt=""
-                  />
-                </div>
-                <div className="form-check col-12 d-flex align-items-center my-3">
-                  <input
-                    className="form-check-input mt-0"
-                    type="radio"
-                    name="RadioBank"
-                    id="RadioTFB"
-                  />
-                  <label
-                    className="form-check-label mx-2"
-                    htmlFor="RadioTFB"
-                  >
-                    台北富邦銀行
-                  </label>
-                  <img
-                    src={`${devUrl}/images/cart/TFB.png`}
-                    alt=""
-                  />
-                </div>
-                <div className="form-check col-12 d-flex align-items-center my-3">
-                  <input
-                    className="form-check-input mt-0"
-                    type="radio"
-                    name="RadioBank"
-                    id="RadioESB"
-                  />
-                  <label
-                    className="form-check-label mx-2"
-                    htmlFor="RadioESB"
-                  >
-                    玉山銀行
-                  </label>
-                  <img
-                    src={`${devUrl}/images/cart/ESB.png`}
-                    alt=""
-                  />
-                </div>
-              </div>
+              <PayInfo payMethodSelect={payMethodSelect} />
             </div>
           </div>
           {/* <!-- Checkout Detail --> */}
@@ -572,7 +248,7 @@ function CartStep02(props) {
         <Modal.Footer>
           <button
             type="button"
-            class="btn confirmBtn"
+            className="btn confirmBtn"
             id="checkBtn"
             onClick={() => {
               props.history.push('/Cart/Step03')

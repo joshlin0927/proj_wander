@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import dayjs from 'dayjs'
 import axios from 'axios'
 
 // 後端檔案路徑
-import { Course_LIST } from '../../config'
+import { TcCourse_LIST } from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -19,16 +20,13 @@ function TcCourse() {
   // 搜尋列
   const [searchWord, setSearchWord] = useState('')
 
-  // 判斷是否有課程
-  const [hasCourse, setHasCourse] = useState('1')
-
   // 課程陣列排出
   let [data, setData] = useState({})
   let [totalRows, setTotalRows] = useState(0)
 
   useEffect(() => {
-    (async () => {
-      let r = await axios.get(Course_LIST)
+    ;(async () => {
+      let r = await axios.get(TcCourse_LIST)
       console.log(r)
       if (r.status === 200) {
         setTotalRows(r.data.totalRows)
@@ -42,12 +40,6 @@ function TcCourse() {
       <div className="container mainContent">
         <div className="row">
           <MultiLevelBreadCrumb />
-          <div className="logo-m">
-            <img
-              src="../images/logo/log_mobile.png"
-              alt=""
-            />
-          </div>
           <div className="col-10 ml-auto pageName">
             <span className="pageNameText TCcourse">
               Course
@@ -68,6 +60,7 @@ function TcCourse() {
               {/* desktop search bar */}
               <div className="TCsearch mr-auto col-6">
                 <TcSearchBar
+                  placeholder="請輸入課程名稱"
                   searchWord={searchWord}
                   setSearchWord={setSearchWord}
                 />
@@ -86,6 +79,7 @@ function TcCourse() {
             {/* mobile search bar */}
             <div className="TCsearch-mobile">
               <TcSearchBar
+                placeholder="請輸入課程名稱"
                 searchWord={searchWord}
                 setSearchWord={setSearchWord}
               />
@@ -101,8 +95,21 @@ function TcCourse() {
               </div>
             </div>
             {/* course cards */}
-            {hasCourse ? (
-              <TcCourseCard />
+            {data.rows ? (
+              data.rows.map((v, i) => {
+                return (
+                  <TcCourseCard
+                    key={v.sid}
+                    course_img={v.course_img}
+                    course_name={v.course_name}
+                    course_category={v.course_category}
+                    course_data={dayjs(
+                      v.course_data
+                    ).format('YYYY-MM-DD')}
+                    hours={v.hours}
+                  />
+                )
+              })
             ) : (
               <TcHasNoCourse />
             )}
