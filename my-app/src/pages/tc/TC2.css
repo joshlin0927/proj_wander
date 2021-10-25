@@ -1,5 +1,4 @@
 body {
-  font-size: 12px;
   position: relative;
 }
 
@@ -20,33 +19,6 @@ body {
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-}
-
-.btn-primary {
-  border: 1px solid #065f8e;
-  border-radius: 6px;
-  background-color: transparent;
-  color: #065f8e;
-}
-
-.btn-primary:hover {
-  color: white;
-  border: 1px solid #065f8e;
-  background-color: #065f8e;
-}
-
-.btn-secondary {
-  border: 1px solid black;
-  border-radius: 6px;
-  background-color: transparent;
-  color: black;
-  transition: 0.12s linear;
-}
-
-.btn-secondary:hover {
-  color: black;
-  border: 1px solid #f1ef5b;
-  background-color: #f1ef5b;
 }
 
 .opacity-0 {
@@ -554,10 +526,6 @@ body {
 }
 
 @media (min-width: 768px) {
-  .mainContent {
-    margin-top: 100px;
-  }
-
   /* 所有input欄位 */
   .allInputs {
     height: 50px;

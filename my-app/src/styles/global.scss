@@ -24,7 +24,6 @@ $danger: rgb(224, 22, 22);
   font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
   font-size: 16px;
   position: relative;
-  background-color: #f1f0e9;
 }
 @media (max-width: 767px) {
   * {
@@ -34,6 +33,63 @@ $danger: rgb(224, 22, 22);
 
 a {
   text-decoration: none !important;
+}
+
+.mainContent {
+  padding-top: 0px;
+}
+
+@media (min-width: 768px) {
+  .mainContent {
+    padding-top: 100px;
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 115px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.Stbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 115px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  border: 1px solid #065f8e;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #065f8e;
+}
+
+.btn-primary:hover {
+  color: white;
+  border: 1px solid #065f8e;
+  background-color: #065f8e;
+}
+
+.btn-secondary {
+  border: 1px solid black;
+  border-radius: 6px;
+  background-color: transparent;
+  color: black;
+  transition: 0.12s linear;
+}
+
+.btn-secondary:hover {
+  color: black;
+  border: 1px solid #f1ef5b;
+  background-color: #f1ef5b;
 }
 
 /*=============== 頁碼 ===============*/
@@ -122,7 +178,7 @@ a {
   font-weight: bold;
   position: relative;
   padding: 0 15px;
-  
+
   /* TODO */
 }
 
@@ -308,9 +364,8 @@ a {
 .TCallwraper {
   z-index: -1;
   position: absolute;
-  top: -110px;
+  top: 0px;
   width: 100%;
-  height: calc(100% + 110px);
   background-color: #f1f0e9;
 }
 
@@ -385,6 +440,7 @@ a {
 
 @media (min-width: 768px) {
   /* 頁面背景(桌機) */
+
   /* 圓圈的動畫 */
   @keyframes bc {
     0% {
@@ -498,6 +554,7 @@ a {
 /* footer(手機) */
 .footerWrap {
   position: relative;
+  margin-bottom: 80px;
   // background-color: #065f8e;
 }
 
@@ -812,11 +869,11 @@ a {
 .logo-m {
   display: none;
 }
-.breadcrumbNav{
+.breadcrumbNav {
   padding: 0;
 }
 @media (max-width: 767px) {
-  .breadcrumbNav{
+  .breadcrumbNav {
     padding-top: 40px;
   }
   .logo-m {

@@ -17,11 +17,11 @@ function index() {
   return (
     <>
       <Switch>
-        <Route exact path="/StIndex/StProfile/:id?">
+        <Route path="/StIndex/StProfile/:id?">
           <StProfile />
         </Route>
 
-        <Route exact path="/StIndex/StPasswordModify/:id?">
+        <Route path="/StIndex/StPasswordModify/:id?">
           <StPasswordModify />
         </Route>
 

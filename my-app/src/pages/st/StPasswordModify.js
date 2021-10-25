@@ -60,7 +60,7 @@ function StPasswordModify() {
               <label className="notice" for="">
                 與上列密碼不符
               </label>
-              <button className="btn btn-secondary row mx-auto one-btn">
+              <button className="Stbtn btn-secondary row mx-auto one-btn">
                 更改
               </button>
             </div>

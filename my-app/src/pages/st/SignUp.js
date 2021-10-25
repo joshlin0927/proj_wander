@@ -1,5 +1,6 @@
 import '../st/style/signUp.css'
 import React from 'react'
+import { Route } from 'react-router'
 import { devUrl } from '../../config'
 
 export default function SignUp() {
