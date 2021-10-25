@@ -103,10 +103,9 @@ function Login(props) {
             </div>
           </div>
           <div className="row m-wrap">
-            <div className="back">Back</div>
+            <div className="back"> Back </div>
           </div>
-          <div className="h95"></div>
-
+          <div className="h95"> </div>
           <div className="login col-md-6">
             <form
               className="form-sm"
@@ -115,7 +114,7 @@ function Login(props) {
               onInvalid={handleFormInvalid}
               ref={formRef}
             >
-              <div className="title">Welcome Back!</div>
+              <div className="title"> Welcome Back! </div>
               <div className="d-flex justify-content-center">
                 <input
                   type="email"
@@ -142,7 +141,6 @@ function Login(props) {
                   請填寫正確的信箱
                 </label>
               )}
-
               <div className="d-flex justify-content-center">
                 <input
                   type="password"
@@ -180,46 +178,44 @@ function Login(props) {
                   登入
                 </button>
               </div>
-
               <div className="joinusblack">
                 還沒加入我們？
                 <Link to="/SignUp" className="joinus">
                   前往註冊
                 </Link>
               </div>
-              <div className="h30"></div>
+              <div className="h30"> </div>
             </form>
           </div>
         </div>
-
-        <div className="h150"></div>
+        <div className="h150"> </div>
       </div>
       {/* <p>目前登入情況: {auth ? '登入中' : '未登入'}</p> */}
       {/* <button
-        onClick={() => {
-          setAuth(true)
-          //出現歡迎訊息
-          alert('你好，登入已完成！')
-          //跳回首頁
-          props.history.push('/')
-        }}
-      >
-        登入
-      </button>
-      <button
-        onClick={() => {
-          props.history.push('/about')
-        }}
-      >
-        連到 關於我們
-      </button>
-      <button
-        onClick={() => {
-          props.history.goBack()
-        }}
-      >
-        回到上一頁
-      </button> */}
+              onClick={() => {
+                setAuth(true)
+                //出現歡迎訊息
+                alert('你好，登入已完成！')
+                //跳回首頁
+                props.history.push('/')
+              }}
+            >
+              登入
+            </button>
+            <button
+              onClick={() => {
+                props.history.push('/about')
+              }}
+            >
+              連到 關於我們
+            </button>
+            <button
+              onClick={() => {
+                props.history.goBack()
+              }}
+            >
+              回到上一頁
+            </button> */}
     </>
   )
 }
