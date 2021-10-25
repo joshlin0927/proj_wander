@@ -134,12 +134,14 @@ function Login(props) {
             </div>
           </div>
           <div className="row m-wrap">
-            <div className="back"> Back </div>
+            <div className="back">
+              <Link to="/">Back </Link>
+            </div>
           </div>
           <div className="h95"> </div>
           <div className="login col-md-6">
             <form
-            name="form_login"
+              name="form_login"
               className="form-sm"
               onSubmit={handleSubmit}
               onChange={handleFormChange}
