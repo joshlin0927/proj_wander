@@ -98,7 +98,6 @@ export default function StProfile() {
   //實際擁有預覽功能的input因為太醜藏起來
   const inputRef = useRef(null)
 
-
   //預覽大頭貼功能
   const previewFile = () => {
     var preview = imgRef.current
@@ -178,9 +177,10 @@ export default function StProfile() {
               <div className="d-flex align-items-center ml-1">
                 <div className="pic">
                   <img
-                    src=""
+                    src={`${devUrl}/images/pic/presetAvatar.jpeg`}
                     className="img-fluid"
                     alt=""
+                    name="avatar"
                     ref={imgRef}
                   />
                 </div>
@@ -204,7 +204,6 @@ export default function StProfile() {
                     value={fields.firstname}
                     onChange={handleFieldChange}
                     required
-                    minLength="1"
                   />
                   {fieldsErrors.firstname && (
                     <small className="notice">
@@ -222,7 +221,6 @@ export default function StProfile() {
                     value={fields.lastname}
                     onChange={handleFieldChange}
                     required
-                    minLength="1"
                   />
                   {fieldsErrors.lastname && (
                     <small className="notice">
