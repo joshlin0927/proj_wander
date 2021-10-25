@@ -156,7 +156,7 @@ function TcPassword() {
                 value={fields.newPass}
                 onChange={handleFieldChange}
                 required
-                minLength="5"
+                minLength="6"
               />
               {fieldErrors.newPass === '' ? (
                 <label className="TCnotice" htmlFor="">
