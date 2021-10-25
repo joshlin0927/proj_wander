@@ -28,7 +28,7 @@
 .stOrders{
     padding: 0 0 1rem 0;
     background-color:#F1F0E9;
-    border-radius: 0px 10px 10px 10px;
+    border-radius: 0 0 10px 10px;
 }
 .stOrderDetailTitle{
     margin: 1rem;

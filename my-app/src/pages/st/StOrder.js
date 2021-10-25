@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React from 'react'
 import './style/st_order.css'
 import { Link } from 'react-router-dom'
 import { devUrl } from '../../config'
@@ -14,8 +14,8 @@ function StOrder() {
   return (
     <>
       <div className="container mainContent">
+        <MultiLevelBreadCrumb />
         <div className="row">
-          <MultiLevelBreadCrumb />
           <div class="col-10 ml-auto pageName">
             <span class="pageNameText order">Order</span>
           </div>
@@ -219,7 +219,6 @@ function StOrder() {
                       </Link>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>

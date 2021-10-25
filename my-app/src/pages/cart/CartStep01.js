@@ -7,6 +7,8 @@ import $ from 'jquery'
 // 全頁通用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import Footer from '../../components/Footer'
+import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
+
 function CartStep01(props) {
   const [cartFooterMb, setCartFooterMb] = useState(true)
   // modal
@@ -527,6 +529,7 @@ function CartStep01(props) {
           </button>
         </Modal.Footer>
       </Modal>
+      <TcBgDecorationNormal />
       <Footer
         cartFooterMb={cartFooterMb}
         setCartFooterMb={setCartFooterMb}
