@@ -1,10 +1,5 @@
 import '../st/style/signUp.css'
-<<<<<<< HEAD
 import React, { useState, useRef } from 'react'
-=======
-import React from 'react'
-import { Route } from 'react-router'
->>>>>>> d891261842a629488ca72b4db44b0c3361837cba
 import { devUrl } from '../../config'
 
 export default function SignUp() {

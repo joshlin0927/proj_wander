@@ -9,7 +9,6 @@ import StSideBar from '../../components/st/StSideBar'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
 
-<<<<<<< HEAD
 export default function StPasswordModify() {
   const formRef = useRef(null)
 
@@ -102,9 +101,6 @@ export default function StPasswordModify() {
     //TODO:用axios把資料送到後端
   }
 
-=======
-function StPasswordModify() {
->>>>>>> d891261842a629488ca72b4db44b0c3361837cba
   return (
     <>
       <div className="container mainContent ">
@@ -116,13 +112,8 @@ function StPasswordModify() {
             </span>
           </div>
         </div>
-<<<<<<< HEAD
         <div className="row ">
-          <StSidebar />
-=======
-        <div className="row justify-content-center">
           <StSideBar />
->>>>>>> d891261842a629488ca72b4db44b0c3361837cba
 
           <form
             className="form col-12 offset-0 col-md-7 offset-md-1 col-lg-7"
@@ -190,7 +181,6 @@ function StPasswordModify() {
                 required
                 minLength="5"
               />
-<<<<<<< HEAD
               {fieldErrors.newPassConfirm === '' ? (
                 <label className="notice" htmlFor="">
                   &nbsp;
@@ -201,12 +191,6 @@ function StPasswordModify() {
                 </label>
               )}
               <button className="btn btn-secondary row mx-auto one-btn">
-=======
-              <label className="notice" for="">
-                與上列密碼不符
-              </label>
-              <button className="Stbtn btn-secondary row mx-auto one-btn">
->>>>>>> d891261842a629488ca72b4db44b0c3361837cba
                 更改
               </button>
             </div>
@@ -218,4 +202,3 @@ function StPasswordModify() {
     </>
   )
 }
-export default StPasswordModify

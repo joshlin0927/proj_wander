@@ -6,7 +6,7 @@ import { devUrl } from '../../config'
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar from '../../components/st/StSideBar'
-import TcSideBar from '../../components/tc/TcSideBar'
+
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
