@@ -1,19 +1,18 @@
 {
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#630101",
-        "titleBar.activeBackground": "#8B0101",
-        "titleBar.activeForeground": "#FFFBFB"
-    },
-    "editor.formatOnSave": true,
-    "[javascript]": {
-      "editor.formatOnSave": false
-    },
-    "prettier.disableLanguages": ["js"],
-    "eslint.autoFixOnSave": true,
-    "eslint.alwaysShowStatus": true,
-    "files.autoSave": "afterDelay",
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-  
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#630101",
+    "titleBar.activeBackground": "#8B0101",
+    "titleBar.activeForeground": "#FFFBFB"
+  },
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "prettier.disableLanguages": ["js"],
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "files.autoSave": "off",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

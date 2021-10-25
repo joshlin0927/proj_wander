@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-10-25 12:22:04
--- 伺服器版本： 10.4.20-MariaDB
--- PHP 版本： 7.4.21
+-- 產生時間： 2021-10-25 14:23:53
+-- 伺服器版本： 10.4.21-MariaDB
+-- PHP 版本： 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -233,6 +233,32 @@ INSERT INTO `order_main` (`sid`, `order_id`, `member_sid`, `total_price`, `creat
 -- --------------------------------------------------------
 
 --
+-- 資料表結構 `sentence_game`
+--
+
+CREATE TABLE `sentence_game` (
+  `sid` int(11) NOT NULL,
+  `language` varchar(30) NOT NULL,
+  `ques` varchar(1000) NOT NULL,
+  `ans` varchar(1000) NOT NULL,
+  `easiness` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `sentence_game`
+--
+
+INSERT INTO `sentence_game` (`sid`, `language`, `ques`, `ans`, `easiness`) VALUES
+(1, 'English', '我喜歡和我的朋友一起去看電影', 'I like to watch movies with my friends', 2),
+(2, 'English', '閱讀是我的興趣之一', 'Reading is one of my interest', 2),
+(3, 'English', '放學後我會去圖書館', 'I will go to library after school', 1),
+(4, 'English', '我的同學正在教室唱歌', 'My classmate is singing in classroom', 1),
+(5, 'Japanese', '這就是我的忍道', 'これ が 私 の 忍道 です', 2),
+(6, 'Japanese', '真相只有一個', '真実 は いつも ひとつ', 2);
+
+-- --------------------------------------------------------
+
+--
 -- 資料表結構 `sessions`
 --
 
@@ -339,6 +365,12 @@ ALTER TABLE `order_main`
   ADD PRIMARY KEY (`sid`);
 
 --
+-- 資料表索引 `sentence_game`
+--
+ALTER TABLE `sentence_game`
+  ADD PRIMARY KEY (`sid`);
+
+--
 -- 資料表索引 `sessions`
 --
 ALTER TABLE `sessions`
@@ -383,6 +415,12 @@ ALTER TABLE `order_detail`
 --
 ALTER TABLE `order_main`
   MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `sentence_game`
+--
+ALTER TABLE `sentence_game`
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `video_list`
