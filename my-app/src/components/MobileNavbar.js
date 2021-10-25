@@ -4,18 +4,30 @@ import { Link, withRouter } from 'react-router-dom'
 
 function MobileNavbar(props) {
   useEffect(() => {
-    const path = props.location.pathname
-    const navItem = document.querySelectorAll(
-      '.mobile-nav-item'
+    const path = props.location.pathname.toString()
+    const navItem = document.getElementsByClassName(
+      'mobile-nav-item'
     )
-    console.log(path)
-    console.log(navItem[0])
+    for (let i = 0; i < 5; i++) {
+      navItem[i].classList.remove('active')
+      if (path.includes('Cart')) {
+        navItem[1].classList.add('active')
+      }
+      if (path.includes('TC')) {
+        navItem[4].classList.add('active')
+      }
+    }
+    console.log('目前路由:', path)
   }, [props.location.pathname])
   return (
     <>
       <div className="mobile-nav container-fluid">
         <div className="row justify-content-center flex-nowrap">
-          <Link to="#/" className="mobile-nav-item col-2">
+          <Link
+            to="#/"
+            className="mobile-nav-item col-2"
+            id="mNavCourse"
+          >
             <img
               src={`${devUrl}/images/mobile-nav-alter/nav-icon-course.svg`}
               alt=""
@@ -26,6 +38,7 @@ function MobileNavbar(props) {
           <Link
             to="/Cart"
             className="mobile-nav-item col-2"
+            id="mNavCart"
           >
             <img
               src={`${devUrl}/images/mobile-nav-alter/nav-icon-cart.svg`}
@@ -34,7 +47,11 @@ function MobileNavbar(props) {
             />
             <span>購物車</span>
           </Link>
-          <Link to="#/" className="mobile-nav-item col-2">
+          <Link
+            to="#/"
+            className="mobile-nav-item col-2"
+            id="mNavChat"
+          >
             <img
               src={`${devUrl}/images/mobile-nav-alter/nav-icon-chat.svg`}
               alt=""
@@ -42,7 +59,11 @@ function MobileNavbar(props) {
             />
             <span>聊天室</span>
           </Link>
-          <Link to="#/" className="mobile-nav-item col-2">
+          <Link
+            to="#/"
+            className="mobile-nav-item col-2"
+            id="mNavMy"
+          >
             <img
               src={`${devUrl}/images/mobile-nav-alter/nav-icon-my.svg`}
               alt=""
@@ -53,6 +74,7 @@ function MobileNavbar(props) {
           <Link
             to="/TCIndex"
             className="mobile-nav-item active col-2"
+            id="mNavTC"
           >
             <img
               src={`${devUrl}/images/mobile-nav-alter/nav-icon-member.svg`}
