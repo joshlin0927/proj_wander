@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './style/gamestart.css'
 import { devUrl } from '../../config'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'

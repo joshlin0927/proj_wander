@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import $ from 'jquery'
 import { devUrl } from '../../config'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 import './style/gamestart.css'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
