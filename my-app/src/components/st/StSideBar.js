@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Nav } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import { devUrl } from '../../config'
 import { withRouter, NavLink } from 'react-router-dom'
 
-export default withRouter(function StSideBar(props) {
+function StSideBar(props) {
+  const [isActive, setIsActive] = useState('')
   return (
     <>
       <Nav className="sidebar col-2">
@@ -19,7 +19,7 @@ export default withRouter(function StSideBar(props) {
           <li>
             <Nav.Link
               as={NavLink}
-              to="/StIndex"
+              to="/StIndex/StProfile/:id?"
               className="nav-item"
               activeclassname="active"
             >
@@ -32,6 +32,10 @@ export default withRouter(function StSideBar(props) {
               as={NavLink}
               to="/StIndex/StPasswordModify/:id?"
               className="nav-item"
+              activeClassName="active"
+              onClick={() => {
+                setIsActive('密碼更改')
+              }}
             >
               <i className="fas fa-key"> </i>
               <div className="nav-item-text">密碼更改</div>
@@ -40,7 +44,7 @@ export default withRouter(function StSideBar(props) {
           <li>
             <Nav.Link
               as={NavLink}
-              to="/#"
+              to="/StIndex/StOrder"
               className="nav-item"
             >
               <i className="fas fa-shopping-bag"> </i>
@@ -57,4 +61,5 @@ export default withRouter(function StSideBar(props) {
       </Nav>
     </>
   )
-})
+}
+export default StSideBar

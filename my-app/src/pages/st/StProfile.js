@@ -11,7 +11,7 @@ import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
 
-export default function StProfile() {
+function StProfile() {
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
     firstname: '',
@@ -278,3 +278,5 @@ export default function StProfile() {
     </>
   )
 }
+
+export default StProfile

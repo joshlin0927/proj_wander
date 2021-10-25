@@ -1,14 +1,4 @@
 /* 通用 */
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 115px;
-  height: 40px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-}
 .confirmBtn {
   background-color: #ffffff;
   border: 2px solid #065f8e;
