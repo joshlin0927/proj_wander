@@ -163,16 +163,7 @@ body {
   padding: 17px;
 }
 
-/* 所有input的格式 */
-.allInputs {
-  border: 1px solid #868686;
-  border-radius: 10px;
-  width: 100%;
-  height: 48px;
-  font-size: 15px;
-  margin-bottom: 5px;
-  background-color: transparent;
-}
+
 
 /* 欄位提示小字 */
 .TCnotice {
@@ -526,10 +517,6 @@ body {
 }
 
 @media (min-width: 768px) {
-  /* 所有input欄位 */
-  .allInputs {
-    height: 50px;
-  }
 
   #fakeFileInput {
     content: '123';

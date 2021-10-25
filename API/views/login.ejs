@@ -35,6 +35,7 @@
     function checkForm() {
         const fd = new FormData(document.form1);
 
+        console.log(fd);
         // 以URLencoded 的方式送出，fetch 裡面放的是空字串，代表的是它適用於目前這個頁面，當然也可以指定某個頁面
 
         fetch('', {

@@ -7,7 +7,7 @@ const db = require('./../modules/connect-mysql');
 const upload = require('./../modules/upload-images');
 
 
-// 這邊要提取的是address-book裡面的function，所以要把getListData包起來
+// 這邊要提取的是member裡面的function，所以要把getListData包起來
 const { getListData } = require('./member');
 
 const router = express.Router();
@@ -63,7 +63,7 @@ router.post('/register', async (req, res) => {
     // TODO:欄位檢查
 
     const hash = await bcrypt.hash(req.body.password, 10);
-    const sql = "INSERT INTO `member`(`identity`, `email`, `password`, `nickname`, `birth`, `create_at`) VALUES (1, ?, ?, ?, ?, NOW())";
+    const sql = "INSERT INTO `member`(`identity`, `email`, `password`, `nickname`, `birth`, `create_at`) VALUES (?, ?, ?, ?, ?, NOW())";
 
     let result;
     try {
@@ -123,6 +123,7 @@ router.post('/login-jwt', async (req, res) => {
 
     if (!rs.length) {
         // 帳號錯誤
+        console.log('帳號錯誤');
         return res.json({
             output
         });

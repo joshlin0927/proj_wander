@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { API_HOST, Member_LIST } from '../../config'
+import UserDataService from '../../services/UserDataService'
 
 import { devUrl } from '../../config'
 
@@ -52,19 +52,15 @@ function Login(props) {
     setFieldErrors(updatedFieldErrors)
   }
 
-  // 當表單有檢查有不合法出現時觸發
-  const handleFormInvalid = (e) => {
-    // 阻擋form的預設行為(泡泡訊息)
-    e.preventDefault()
+  const login = async () => {
+    const fd = new FormData(document.form_login)
+    const r = await fetch(UserDataService.login, {
+      method: 'POST',
+      body: fd,
+    })
+    const j = await r.json()
 
-    // 設定錯誤訊息狀態
-    const updatedFieldErrors = {
-      ...fieldErrors,
-      [e.target.name]: e.target.validationMessage,
-    }
-
-    // 3. 設定回原錯誤訊息狀態物件
-    setFieldErrors(updatedFieldErrors)
+    console.log(r)
   }
 
   // 在 表單完成驗証 之後，才會觸發
@@ -78,16 +74,51 @@ function Login(props) {
     console.log(formData.get('email'))
     console.log(formData.get('password'))
 
-    // 設定錯誤訊息狀態
+    // ex. 以下用fetch api/axios送到伺服器
+  }
+
+  // 當表單有檢查有不合法出現時觸發
+  const handleFormInvalid = (e) => {
+    // 阻擋form的預設行為(泡泡訊息)
+    e.preventDefault()
+
+    // 表單實體的物件參照
+    const form = formRef.current
+
+    let errorMsg = {}
+
+    for (let i = 0; i < form.elements.length; i++) {
+      const element = form.elements[i]
+
+      if (
+        element.tagName !== 'button' &&
+        element.willValidate &&
+        !element.validity.valid
+      ) {
+        // 必填用預設訊息，但錯誤格式驗証用title中的字串
+        if (element.validity.valueMissing) {
+          errorMsg = {
+            ...errorMsg,
+            [element.name]: element.validationMessage,
+          }
+        } else {
+          errorMsg = {
+            ...errorMsg,
+            [element.name]: element.title,
+          }
+        }
+
+        // console.log([element.name], element.title)
+      }
+    }
+
     const updatedFieldErrors = {
       ...fieldErrors,
-      [e.target.name]: e.target.validationMessage,
+      ...errorMsg,
     }
 
     // 3. 設定回原錯誤訊息狀態物件
     setFieldErrors(updatedFieldErrors)
-
-    // ex. 以下用fetch api/axios送到伺服器
   }
 
   return (
@@ -108,11 +139,13 @@ function Login(props) {
           <div className="h95"> </div>
           <div className="login col-md-6">
             <form
+            name="form_login"
               className="form-sm"
               onSubmit={handleSubmit}
               onChange={handleFormChange}
               onInvalid={handleFormInvalid}
               ref={formRef}
+              onSubmit={(e) => e.preventDefault()}
             >
               <div className="title"> Welcome Back! </div>
               <div className="d-flex justify-content-center">
@@ -121,6 +154,7 @@ function Login(props) {
                   name="email"
                   className="allInputs col-10"
                   placeholder="請填寫電子信箱"
+                  title="電子信箱地址必須要有「@」"
                   value={fields.email}
                   onChange={handleFieldChange}
                   required
@@ -128,17 +162,17 @@ function Login(props) {
               </div>
               {fieldErrors.email === '' ? (
                 <label
-                  className="notice col-10 ml-2  ml-lg-4"
-                  for=""
+                  className="notice col-10 ml-2  ml-lg-4 "
+                  htmlFor=""
                 >
                   &nbsp;
                 </label>
               ) : (
                 <label
-                  className="notice col-10 ml-2  ml-lg-4"
-                  for=""
+                  className="notice col-10 ml-2  ml-lg-4 "
+                  htmlFor=""
                 >
-                  請填寫正確的信箱
+                  {fieldErrors.email}
                 </label>
               )}
               <div className="d-flex justify-content-center">
@@ -149,32 +183,34 @@ function Login(props) {
                   placeholder="密碼*"
                   value={fields.password}
                   onChange={handleFieldChange}
+                  required
                 />
               </div>
               {fieldErrors.password === '' ? (
                 <label
-                  className="notice col-10 ml-2  ml-lg-4"
-                  for=""
+                  className="notice col-10 ml-2  ml-lg-4 "
+                  htmlFor=""
                 >
                   &nbsp;
                 </label>
               ) : (
                 <label
-                  className="notice col-10 ml-2  ml-lg-4"
-                  for=""
+                  className="notice col-10 ml-2  ml-lg-4 "
+                  htmlFor=""
                 >
-                  密碼錯誤
+                  {fieldErrors.password}
                 </label>
               )}
               <p className="forgetPassword">忘記密碼？</p>
               <div className="d-flex justify-content-center">
                 <button
-                  type="button"
+                  type="submit"
                   className="signUpBtn-m mx-auto col-10"
+                  onClick={login}
                 >
                   登入
                 </button>
-                <button type="button" className="signUpBtn">
+                <button type="submit" className="signUpBtn">
                   登入
                 </button>
               </div>

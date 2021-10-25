@@ -2,8 +2,12 @@ export const debug = true
 // 測試開發/營運網址
 export const devUrl = 'http://localhost:3000'
 export const prodUrl = 'http://www.abc.com'
-export const API_HOST = 'http://localhost:3200'
+export const API_HOST = 'http://localhost:3001'
 
+//登入
+export const MemberLogin = API_HOST + '/login'
+
+//讀取資料列表
 export const TcCourse_LIST = API_HOST + '/TcCourse/api/list'
 export const Member_LIST = API_HOST + '/member/api/list'
 

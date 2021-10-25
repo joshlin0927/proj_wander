@@ -99,12 +99,8 @@ function TcProfile() {
             ...errorMsg,
             [element.name]: element.title,
           }
-        } else {
-          errorMsg = {
-            ...errorMsg,
-            [element.name]: element.title,
-          }
         }
+
         // console.log([element.name], element.title)
       }
     }
