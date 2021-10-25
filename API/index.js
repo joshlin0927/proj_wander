@@ -176,6 +176,10 @@ app.get("/video", function (req, res) {
 });
 */
 
+// 模組化路由
+app.use('/sentence-game', require(__dirname + '/routes/sentence-game'));
+
+
 app.get('/try-sess', (req, res) => {
     req.session.myVar = req.session.myVar || 0;
     req.session.myVar++;
