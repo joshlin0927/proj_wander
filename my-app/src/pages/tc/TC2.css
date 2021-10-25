@@ -1,5 +1,4 @@
 body {
-  font-size: 12px;
   position: relative;
 }
 
@@ -22,33 +21,6 @@ body {
   cursor: pointer;
 }
 
-.btn-primary {
-  border: 1px solid #065f8e;
-  border-radius: 6px;
-  background-color: transparent;
-  color: #065f8e;
-}
-
-.btn-primary:hover {
-  color: white;
-  border: 1px solid #065f8e;
-  background-color: #065f8e;
-}
-
-.btn-secondary {
-  border: 1px solid black;
-  border-radius: 6px;
-  background-color: transparent;
-  color: black;
-  transition: 0.12s linear;
-}
-
-.btn-secondary:hover {
-  color: black;
-  border: 1px solid #f1ef5b;
-  background-color: #f1ef5b;
-}
-
 .opacity-0 {
   opacity: 0;
 }
@@ -56,10 +28,9 @@ body {
 .TcHasNoCourse {
   color: #065f8e;
   font-weight: bold;
-  font-size: 24px;
-  margin: 40px auto;
+  font-size: 1.5rem;
+  margin: auto;
 }
-
 
 /* 會員中心TCsidebar */
 .TCsidebar {
@@ -464,6 +435,7 @@ body {
   background: #f1f0e9;
   border-radius: 10px;
   width: 100%;
+  height: 8rem;
   overflow: hidden;
   margin-bottom: 15px;
   cursor: pointer;
@@ -471,14 +443,12 @@ body {
 
 /* 課程圖片 */
 .TCcourse-img {
-  width: 8rem;
-  height: 100px;
   margin-left: -15px;
   overflow: hidden;
 }
 
-.TCcourse-img>img {
-  max-width: auto;
+.TCcourse-img > img {
+  width: auto;
   height: 100%;
 }
 
@@ -499,7 +469,7 @@ body {
 
 /* 課程名稱除外的細節 */
 .TCcourse-detail {
-  font-size: 10px;
+  font-size: 12px;
   transform: scale(0.8);
   transform-origin: left center;
   line-height: 15px;
@@ -556,10 +526,6 @@ body {
 }
 
 @media (min-width: 768px) {
-  .mainContent {
-    margin-top: 100px;
-  }
-
   /* 所有input欄位 */
   .allInputs {
     height: 50px;
@@ -693,7 +659,7 @@ body {
     background-color: transparent;
   }
 
-  .nav-item-text{
+  .nav-item-text {
     font-size: 1.2rem;
   }
 
@@ -766,40 +732,51 @@ body {
 
   .TCcourseLabel-right {
     display: flex;
-    justify-content: space-evenly;
     padding-right: 18px;
   }
 
   .TCcourseLabel .Labelitem {
-    width: 80px;
-    text-align: center;
-    font-size: 16px;
+    width: 4.8rem;
+    font-size: 1rem;
     font-weight: bold;
+  }
+
+  /* 課程圖片 */
+  .TCcourse-img {
+    margin-left: -15px;
+    overflow: hidden;
+  }
+
+  .TCcourse-img > img {
+    max-width: auto;
+    height: 100%;
   }
 
   /* 課程卡片 */
   .TCcourse-info {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    text-align: center;
   }
 
   /* 課程名稱 */
   .TCcourse-title {
-    font-size: 16px;
+    font-size: 1rem;
     margin-bottom: 0px;
   }
 
   .TCcourse-info-right {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: nowrap;
   }
 
-  .TCcourse-detail {
+  .TCcourse-card .TCcourse-detail {
     transform: scale(1);
-    width: 80px;
+    font-size: 1rem;
+    width: 5.8rem;
     text-align: center;
-    font-size: 14px;
+    transform-origin: center;
   }
 
   .TCcourse-detail span {
@@ -813,7 +790,7 @@ body {
   }
 
   .TCcourse-delete i {
-    margin: 46px auto;
+    margin: 3.55rem auto;
   }
 
   /* 瀏覽按鈕 */
@@ -903,8 +880,6 @@ body {
     background-color: #065f8e;
   }
 
-  
-
   /* 自我介紹欄位 */
   .TC-intro {
     margin-bottom: 0px;
@@ -918,11 +893,6 @@ body {
   /* 單獨一個按鈕的顯示 */
   .onebtn-switch {
     display: block;
-  }
-
-  /* 課程名稱 */
-  .TCcourse-title {
-    width: 80%;
   }
 
   /* 審核提示窗 */
@@ -1096,4 +1066,15 @@ body {
     bottom: 6%;
     right: 5%;
   } */
+}
+
+@media (min-width: 1024px) {
+  .TCcourse-card .TCcourse-detail {
+    transform: scale(1);
+    font-size: 1rem;
+    width: 5.4rem;
+    text-align: center;
+    transform-origin: center;
+  }
+  
 }

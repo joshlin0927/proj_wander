@@ -5,6 +5,8 @@ import { devUrl } from '../../config'
 // 全頁通用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import Footer from '../../components/Footer'
+import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
+
 function CartStep03(props) {
   const [cartFooterMb, setCartFooterMb] = useState(true)
   return (
@@ -213,6 +215,7 @@ function CartStep03(props) {
           </div>
         </div>
       </div>
+      <TcBgDecorationNormal />
       <Footer
         cartFooterMb={cartFooterMb}
         setCartFooterMb={setCartFooterMb}

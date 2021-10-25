@@ -31,7 +31,7 @@ function TcCourseCard(props) {
         </div>
         <div className="TCcourse-info">
           <div className="TCcourse-title">
-            {course_name}
+            <span>{course_name}</span>
           </div>
           <div className="TCcourse-info-right">
             <div className="TCcourse-detail">

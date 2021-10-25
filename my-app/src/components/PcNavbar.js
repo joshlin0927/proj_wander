@@ -12,6 +12,8 @@ function scrollHeader() {
 window.addEventListener('scroll', scrollHeader)
 
 function PcNavbar() {
+
+
   return (
     <>
       <nav className="nav__header" id="nav__header">
@@ -27,12 +29,12 @@ function PcNavbar() {
             </div>
             <ul className="nav__pc_menu col-7">
               <li>
-                <Link to="#/">
+                <Link to="/StIndex/StProfile">
                   <span className="nav__en">關於我們</span>
                 </Link>
               </li>
               <li>
-                <Link to="#/">
+                <Link to="/StIndex/StPasswordModify">
                   <span className="nav__en">課程總覽</span>
                 </Link>
               </li>
@@ -48,7 +50,7 @@ function PcNavbar() {
               </li>
             </ul>
             <div className="col d-flex align-items-center justify-content-around">
-              <Link to="#/" className="nav_login">
+              <Link to="/Login" className="nav_login">
                 <span className="nav_login_txt">登入</span>
               </Link>
               <Link to="/Cart" className="nav_cart">

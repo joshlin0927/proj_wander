@@ -5,9 +5,10 @@ import { devUrl } from '../../config'
 
 // 頁面元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
-import PayMethodSelectInfo from './PayMethodSelectInfo'
-import PayInfo from './PayInfo'
+import PayMethodSelectInfo from '../../components/cart/PayMethodSelectInfo'
+import PayInfo from '../../components/cart/PayInfo'
 import Footer from '../../components/Footer'
+import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 
 function CartStep02(props) {
   // footer css
@@ -265,6 +266,7 @@ function CartStep02(props) {
           </button>
         </Modal.Footer>
       </Modal>
+      <TcBgDecorationNormal />
       <Footer
         cartFooterMb={cartFooterMb}
         setCartFooterMb={setCartFooterMb}

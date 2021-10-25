@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 function TcAvatarSelector(props) {
   const { avatar } = props
 
-  
   const realFileInput = document.querySelector(
     '#realFileInput'
   )
@@ -32,12 +31,14 @@ function TcAvatarSelector(props) {
       <div className="d-flex align-items-center">
         <input
           type="file"
+          accept="image/*"
           id="realFileInput"
           className="d-none"
           name={avatar}
           onChange={() => {
             previewFile()
           }}
+          multiple
         />
         <div className="profile-pic">
           <img

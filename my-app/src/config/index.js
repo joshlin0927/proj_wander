@@ -4,8 +4,9 @@ export const devUrl = 'http://localhost:3000'
 export const prodUrl = 'http://www.abc.com'
 export const API_HOST = 'http://localhost:3200'
 
-export const Course_LIST = API_HOST + '/course/api/list'
+export const TcCourse_LIST = API_HOST + '/TcCourse/api/list'
 export const Member_LIST = API_HOST + '/member/api/list'
+
 export const UPLOAD_AVATAR = API_HOST + '/try-upload2'
 
 export const pathnameList = [

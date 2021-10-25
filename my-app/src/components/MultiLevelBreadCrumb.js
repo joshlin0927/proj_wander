@@ -75,7 +75,10 @@ function MultiLevelBreadCrumb(props) {
 
   return (
     <>
-      <nav aria-label="breadcrumb" className="p-0">
+      <nav
+        aria-label="breadcrumb"
+        className="breadcrumbNav"
+      >
         <div className="logo-m">
           <img
             src={`${devUrl}/images/logo/log_mobile.png`}

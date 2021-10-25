@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  BrowserRouter as Route,
-  Switch,
-} from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 //引用頁面
 import StProfile from './StProfile'
@@ -14,16 +11,17 @@ import StCourseEmpty from './StCourseEmpty'
 import StCourse from './StCourse'
 import StCalendar from './StCalendar'
 import StClassroom from './StClassroom'
+import StOrder from './StOrder'
 
-export default function index() {
+function index() {
   return (
     <>
       <Switch>
-        <Route exact path="/StIndex/StProfile/:id?">
+        <Route path="/StIndex/StProfile/:id?">
           <StProfile />
         </Route>
 
-        <Route exact path="/StIndex/StPasswordModify/:id?">
+        <Route path="/StIndex/StPasswordModify/:id?">
           <StPasswordModify />
         </Route>
 
@@ -48,7 +46,11 @@ export default function index() {
         <Route exact path="/StIndex/StClassroom/:id?">
           <StClassroom />
         </Route>
+        <Route exact path="/StIndex/StOrder">
+          <StOrder />
+        </Route>
       </Switch>
     </>
   )
 }
+export default index

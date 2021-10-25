@@ -6,11 +6,12 @@ import { devUrl } from '../../config'
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar from '../../components/st/StSideBar'
+import TcSideBar from '../../components/tc/TcSideBar'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
 
-export default function StProfile() {
+function StProfile() {
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
     firstname: '',
@@ -185,7 +186,7 @@ export default function StProfile() {
                   />
                 </div>
                 <button
-                  className="btn btn-border-only"
+                  className="Stbtn btn-border-only"
                   onClick={(e) => {
                     e.preventDefault()
                     inputRef.current.click()
@@ -264,7 +265,7 @@ export default function StProfile() {
                 onChange={handleFieldChange}
               />
             </div>
-            <button className="btn btn-secondary row mx-auto save-btn">
+            <button className="Stbtn btn-secondary row mx-auto save-btn">
               儲存
             </button>
           </form>
@@ -275,3 +276,5 @@ export default function StProfile() {
     </>
   )
 }
+
+export default StProfile

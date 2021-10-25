@@ -24,7 +24,7 @@ router.get('/password',async (req,res)=>{
     res.send('<h2></h2>')
 });
 
-router.get('/tc_course', require('./course'));
+router.get('/tc_course', require('./TcCourse'));
 
 router.get('/analytic',async (req,res)=>{
     res.send('<h2></h2>')
