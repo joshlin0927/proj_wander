@@ -12,23 +12,18 @@ function Login(props) {
   console.log(props)
   const { auth, setAuth } = props
 
-  let [data, setData] = useState({})
-  let [totalRows, setTotalRows] = useState(0)
-
   const formRef = useRef(null)
 
   //儲存所有欄位的值
   const [fields, setFields] = useState({
-    origin: '',
-    newPass: '',
-    newPassConfirm: '',
+    email: '',
+    password: '',
   })
 
   // 存入錯誤訊息
   const [fieldErrors, setFieldErrors] = useState({
-    origin: '',
-    newPass: '',
-    newPassConfirm: '',
+    email: '',
+    password: '',
   })
 
   // 專門用來處理每個欄位的輸入用
@@ -95,16 +90,6 @@ function Login(props) {
     // ex. 以下用fetch api/axios送到伺服器
   }
 
-  useEffect(() => {
-    ;(async () => {
-      let r = await axios.post(Member_LIST)
-      console.log(r)
-      if (r.status === 200) {
-        setTotalRows(r.data.totalRows)
-        setData(r.data)
-      }
-    })()
-  })
   return (
     <>
       <div className="stbg-img">
@@ -125,7 +110,6 @@ function Login(props) {
           <div className="login col-md-6">
             <form
               className="form-sm"
-              name="login"
               onSubmit={handleSubmit}
               onChange={handleFormChange}
               onInvalid={handleFormInvalid}
@@ -134,20 +118,30 @@ function Login(props) {
               <div className="title">Welcome Back!</div>
               <div className="d-flex justify-content-center">
                 <input
-                  type="text"
+                  type="email"
                   name="email"
                   className="allInputs col-10"
                   placeholder="請填寫電子信箱"
                   value={fields.email}
                   onChange={handleFieldChange}
+                  required
                 />
               </div>
-              <label
-                className="notice col-10 ml-2  ml-lg-4"
-                for=""
-              >
-                請填寫正確的信箱
-              </label>
+              {fieldErrors.email === '' ? (
+                <label
+                  className="notice col-10 ml-2  ml-lg-4"
+                  for=""
+                >
+                  &nbsp;
+                </label>
+              ) : (
+                <label
+                  className="notice col-10 ml-2  ml-lg-4"
+                  for=""
+                >
+                  請填寫正確的信箱
+                </label>
+              )}
 
               <div className="d-flex justify-content-center">
                 <input
@@ -159,12 +153,21 @@ function Login(props) {
                   onChange={handleFieldChange}
                 />
               </div>
-              <label
-                className="notice col-10 ml-2 ml-lg-4"
-                for=""
-              >
-                密碼錯誤
-              </label>
+              {fieldErrors.password === '' ? (
+                <label
+                  className="notice col-10 ml-2  ml-lg-4"
+                  for=""
+                >
+                  &nbsp;
+                </label>
+              ) : (
+                <label
+                  className="notice col-10 ml-2  ml-lg-4"
+                  for=""
+                >
+                  密碼錯誤
+                </label>
+              )}
               <p className="forgetPassword">忘記密碼？</p>
               <div className="d-flex justify-content-center">
                 <button
