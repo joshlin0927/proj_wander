@@ -1,5 +1,4 @@
 body {
-  font-size: 12px;
   position: relative;
 }
 
@@ -554,10 +553,6 @@ body {
 }
 
 @media (min-width: 768px) {
-  .mainContent {
-    margin-top: 100px;
-  }
-
   /* 所有input欄位 */
   .allInputs {
     height: 50px;

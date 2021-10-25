@@ -1,9 +1,8 @@
 import '../st/style/signUp.css'
 import React from 'react'
-import { Route } from 'react-router'
 import { devUrl } from '../../config'
 
-export default function SignUp() {
+function TcSignUp() {
   return (
     <>
       <div className="stbg-img">
@@ -161,3 +160,5 @@ export default function SignUp() {
     </>
   )
 }
+
+export default TcSignUp

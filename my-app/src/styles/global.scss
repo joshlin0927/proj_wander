@@ -24,7 +24,6 @@ $danger: rgb(224, 22, 22);
   font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
   font-size: 16px;
   position: relative;
-  background-color: #f1f0e9;
 }
 @media (max-width: 767px) {
   * {
@@ -34,7 +33,10 @@ $danger: rgb(224, 22, 22);
 
 a {
   text-decoration: none !important;
-  padding: 0 !important;
+}
+
+.mainContent{
+  padding-top: 100px;
 }
 
 /*=============== 頁碼 ===============*/
@@ -309,7 +311,7 @@ a {
 .TCallwraper {
   z-index: -1;
   position: absolute;
-  top: -110px;
+  top: 0px;
   width: 100%;
   height: calc(100% + 110px);
   background-color: #f1f0e9;

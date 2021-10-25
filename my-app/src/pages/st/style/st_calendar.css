@@ -9,13 +9,6 @@
   display: none;
 }
 
-.TCallwraper {
-  z-index: -1;
-  position: absolute;
-  top: -110px;
-  width: 100%;
-}
-
 /* 麵包屑 */
 .breadcrumb {
   background-color: transparent;
@@ -204,10 +197,6 @@
     height: 80px;
     padding: 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-
-  .mainContent {
-    margin-top: 110px;
   }
 
   /* 麵包屑 */
