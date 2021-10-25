@@ -5,8 +5,8 @@ import { devUrl } from '../../config'
 
 // 頁面元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
-import PayMethodSelectInfo from './PayMethodSelectInfo'
-import PayInfo from './PayInfo'
+import PayMethodSelectInfo from '../../components/cart/PayMethodSelectInfo'
+import PayInfo from '../../components/cart/PayInfo'
 import Footer from '../../components/Footer'
 
 function CartStep02(props) {

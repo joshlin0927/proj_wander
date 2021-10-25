@@ -13,8 +13,7 @@ function Footer(props) {
             : 'footerWrap'
         }
       >
-        <div className="footerFill"></div>
-        <div className="wanderFooter container-fluid">
+        <div className="wanderFooter container">
           <div className="footer-left">
             <div className="Footer-Desktop-Logo">
               <Link to="/">
@@ -64,6 +63,7 @@ function Footer(props) {
             </div>
           </div>
         </div>
+        <div className="footerFill"></div>
       </footer>
     </>
   )
