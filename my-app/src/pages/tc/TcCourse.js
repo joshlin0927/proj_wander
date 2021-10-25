@@ -40,12 +40,6 @@ function TcCourse() {
       <div className="container mainContent">
         <div className="row">
           <MultiLevelBreadCrumb />
-          <div className="logo-m">
-            <img
-              src="../images/logo/log_mobile.png"
-              alt=""
-            />
-          </div>
           <div className="col-10 ml-auto pageName">
             <span className="pageNameText TCcourse">
               Course

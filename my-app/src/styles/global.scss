@@ -35,8 +35,14 @@ a {
   text-decoration: none !important;
 }
 
-.mainContent{
-  padding-top: 100px;
+.mainContent {
+  padding-top: 0px;
+}
+
+@media (min-width: 768px) {
+  .mainContent {
+    padding-top: 100px;
+  }
 }
 
 .btn {
@@ -48,7 +54,6 @@ a {
   font-size: 14px;
   font-weight: bold;
 }
-
 
 .Stbtn {
   display: flex;
@@ -173,7 +178,7 @@ a {
   font-weight: bold;
   position: relative;
   padding: 0 15px;
-  
+
   /* TODO */
 }
 
@@ -361,7 +366,6 @@ a {
   position: absolute;
   top: 0px;
   width: 100%;
-  height: calc(100% + 110px);
   background-color: #f1f0e9;
 }
 
@@ -436,6 +440,7 @@ a {
 
 @media (min-width: 768px) {
   /* 頁面背景(桌機) */
+
   /* 圓圈的動畫 */
   @keyframes bc {
     0% {
@@ -549,6 +554,7 @@ a {
 /* footer(手機) */
 .footerWrap {
   position: relative;
+  margin-bottom: 80px;
   // background-color: #065f8e;
 }
 
@@ -863,11 +869,11 @@ a {
 .logo-m {
   display: none;
 }
-.breadcrumbNav{
+.breadcrumbNav {
   padding: 0;
 }
 @media (max-width: 767px) {
-  .breadcrumbNav{
+  .breadcrumbNav {
     padding-top: 40px;
   }
   .logo-m {
