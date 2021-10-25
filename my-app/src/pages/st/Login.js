@@ -9,7 +9,7 @@ import { devUrl } from '../../config'
 import '../st/style/login.css'
 
 function Login(props) {
-  console.log(props)
+  // console.log(props)
   const { auth, setAuth } = props
 
   const formRef = useRef(null)

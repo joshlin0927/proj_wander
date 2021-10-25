@@ -3,7 +3,7 @@
 }
 
 .stbg-img {
-  background-image: url('http://localhost:3000/images/pic/其他/AdobeStock_408070902.jpeg');
+  background-image: url('http://localhost:3000/images/pic/其他/AdobeStock_408070902.jpg');
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
@@ -93,6 +93,13 @@ input:checked+.slider:before {
   transform: translateX(36px);
 }
 
+.notice {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+  color: #cf2727;
+  margin-bottom: 26px;
+}
 
 .slider.round {
 
@@ -140,24 +147,23 @@ input::-webkit-input-placeholder {
 
 }
 
-.allInputs {
+.allInputs-login {
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  height: 50px;
+  width: 100%;
+  height: 48px;
   font-size: 15px;
+  margin-bottom: 5px;
   background-color: transparent;
+  
+}
 
+::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.5);
 }
 
 
-.notice {
-  font-weight: bold;
-  font-size: 14px;
-  letter-spacing: -0.015em;
-  color: #CF2727;
-  margin-bottom: 22px;
-  /* margin-left: 50px; */
-}
+
 
 .title,
 .tab_css {
@@ -209,6 +215,12 @@ input::-webkit-input-placeholder {
 
 #google {
   margin-bottom: 60px;
+}
+
+.h26{
+  height: 26px;
+  width:100%;
+
 }
 
 @media (min-width: 768px) {

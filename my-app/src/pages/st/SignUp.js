@@ -1,9 +1,113 @@
 import '../st/style/signUp.css'
-import React from 'react'
-import { Route } from 'react-router'
+import React, { useState, useRef } from 'react'
 import { devUrl } from '../../config'
 
 export default function SignUp() {
+  //切換身份鈕功能
+  const mySwitch = document.querySelector('#mySwitch')
+  const signUpBtn_m = document.querySelector('.signUpBtn-m')
+  const identity = () => {
+    if (mySwitch.checked === true) {
+      signUpBtn_m.textContent = '學生註冊'
+    } else {
+      signUpBtn_m.textContent = '教師註冊'
+    }
+  }
+
+  //將所有欄位的值以物件形式存在一個狀態
+  const [fields, setFields] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    nickname: '',
+  })
+
+  const [fieldsErrors, setFieldsErrors] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+  })
+
+  //將使用者在欄位輸入的值進行更新
+  const handleFieldChange = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+
+    let newValue = value
+    const updatedFields = {
+      ...fields,
+      [name]: newValue,
+    }
+    setFields(updatedFields)
+  }
+
+  //使用者輸入表單時錯誤訊息會自動更新
+  const handleFormChange = (e) => {
+    // 設定錯誤訊息狀態
+    const updatedFieldErrors = {
+      ...fieldsErrors,
+      [e.target.name]: '',
+    }
+
+    // 3. 設定回原錯誤訊息狀態物件
+    setFieldsErrors(updatedFieldErrors)
+  }
+
+  //表單的ref
+  const formRef = useRef(null)
+  //自訂欄位檢查訊息提示
+  const handleFormInvalid = (e) => {
+    e.preventDefault()
+
+    // 表單實體的物件參照
+    const form = formRef.current
+
+    let errorMsg = {}
+
+    for (let i = 0; i < form.elements.length; i++) {
+      const element = form.elements[i]
+
+      if (
+        element.tagName !== 'button' &&
+        element.willValidate &&
+        !element.validity.valid
+      ) {
+        // 必填用預設訊息，但錯誤格式驗証用title中的字串
+        if (element.validity.valueMissing) {
+          errorMsg = {
+            ...errorMsg,
+            [element.name]: element.title,
+          }
+        } else {
+          errorMsg = {
+            ...errorMsg,
+            [element.name]: element.title,
+          }
+        }
+      }
+    }
+
+    const updatedFieldErrors = {
+      ...fieldsErrors,
+      ...errorMsg,
+    }
+
+    setFieldsErrors(updatedFieldErrors)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    //阻止表單預設送出行為
+
+    const fd = new FormData(e.target)
+    console.log(fd.get('firstname'))
+    // 測試有得到表單欄位的輸入值
+
+    // TODO:用axios把表單送出
+  }
+
   return (
     <>
       <div className="stbg-img">
@@ -24,7 +128,7 @@ export default function SignUp() {
               <input
                 type="checkbox"
                 id="mySwitch"
-                onclick="identity()"
+                onClick={identity}
               />
               <span className="slider round switch">
                 學生 教師
@@ -61,98 +165,139 @@ export default function SignUp() {
                   </div>
                 </div>
               </div>
-              <form className="form-sm">
+              <form
+                className="form-sm"
+                ref={formRef}
+                onSubmit={handleSubmit}
+                onChange={handleFormChange}
+                onInvalid={handleFormInvalid}
+              >
                 <div className="d-flex justify-content-center">
                   <input
                     type="text"
                     className="shortInputs col-5"
                     placeholder="名字*"
+                    name="firstname"
+                    value={fields.firstname}
+                    onChange={handleFieldChange}
+                    title="請填寫這個欄位。"
+                    required
                   />
                   <input
                     type="text"
                     className="shortInputs col-5 lastName"
                     placeholder="姓氏*"
+                    name="lastname"
+                    value={fields.lastname}
+                    onChange={handleFieldChange}
+                    title="請填寫這個欄位。"
+                    required
                   />
                 </div>
                 <div className="d-flex justify-content-start">
-                  <label
-                    className="notice col-5 ml-3 ml-md-2 ml-lg-4"
-                    for=""
-                  >
-                    請填寫名字
-                  </label>
-                  <label
-                    className="notice col-5 ml-2 labelName"
-                    for=""
-                  >
-                    請填寫姓氏
-                  </label>
+                  {fieldsErrors.firstname === '' ? (
+                    <label className="notice col-5 ml-3 ml-md-2 ml-lg-4  labelName">
+                      &nbsp;
+                    </label>
+                  ) : (
+                    <label className="notice col-5 ml-3 ml-md-2 ml-lg-4  labelName">
+                      {fieldsErrors.firstname}
+                    </label>
+                  )}
+                  {fieldsErrors.lastname === '' ? (
+                    <label className="notice col-5 ml-2 labelName">
+                      &nbsp;
+                    </label>
+                  ) : (
+                    <label className="notice col-5 ml-2 labelName">
+                      {fieldsErrors.lastname}
+                    </label>
+                  )}
                 </div>
+                <div className="d-flex justify-content-center">
+                  <input
+                    type="email"
+                    name="email"
+                    className="allInputs-login col-10"
+                    placeholder="請填寫電子信箱"
+                    title="請填寫正確格式"
+                    value={fields.email}
+                    onChange={handleFieldChange}
+                    required
+                  />
+                </div>
+                {fieldsErrors.email === '' ? (
+                  <label className="notice col-10 ml-3 ml-md-2 ml-lg-4 labelName">
+                    &nbsp;
+                  </label>
+                ) : (
+                  <label className="notice col-10 ml-3 ml-md-2 ml-lg-4 labelName">
+                    {fieldsErrors.email}
+                  </label>
+                )}
+
                 <div className="d-flex justify-content-center">
                   <input
                     type="password"
-                    className="allInputs col-10"
-                    placeholder="請填寫電子信箱"
+                    name="password"
+                    className="allInputs-login col-10"
+                    placeholder="請輸入密碼*"
+                    value={fields.password}
+                    onChange={handleFieldChange}
+                    required
+                    minLength="5"
+                    title="請輸入5個以上字元"
                   />
                 </div>
-                <label
-                  className="notice col-10 ml-3 ml-md-2 ml-lg-4"
-                  for=""
-                >
-                  信箱格式不符
-                </label>
+                {fieldsErrors.password === '' ? (
+                  <label
+                    className="notice col-10 ml-3 ml-md-2 ml-lg-4 labelName"
+                    htmlFor=""
+                  >
+                    &nbsp;
+                  </label>
+                ) : (
+                  <label
+                    className="notice col-10 ml-3 ml-md-2 ml-lg-4 labelName"
+                    htmlFor=""
+                  >
+                    {fieldsErrors.password}
+                  </label>
+                )}
+
                 <div className="d-flex justify-content-center">
                   <input
                     type="text"
-                    className="allInputs col-10"
-                    placeholder="密碼*"
-                  />
-                </div>
-                <label
-                  className="notice col-10 ml-3 ml-md-2 ml-lg-4"
-                  for=""
-                >
-                  請填寫至少6位數密碼
-                </label>
-                <div className="d-flex justify-content-center">
-                  <input
-                    type="text"
-                    className="allInputs col-10"
-                    placeholder="暱稱"
+                    name="nickname"
+                    className="allInputs-login col-10"
+                    placeholder="請填寫暱稱"
+                    value={fields.nickname}
+                    onChange={handleFieldChange}
                   />
                 </div>
                 <div className="separator col-10 mx-auto">
                   <div className="or">OR</div>
                 </div>
                 <div className="d-flex d-md-block">
-                  <button
-                    type="button"
-                    className="socialBtn btn btn-lg btn-block col-md-10 col-4 mt-0 mx-auto"
-                  >
+                  <button className="socialBtn btn btn-lg btn-block col-md-10 col-4 mt-0 mx-auto">
                     facebook 快速註冊
                   </button>
                   <button
-                    type="button"
                     className="socialBtn btn btn-lg btn-block col-md-10 col-4 mt-0 mx-auto"
                     id="google"
                   >
                     Google 快速註冊
                   </button>
                 </div>
-                <div className="d-flex justify-content-center">
-                  <button
-                    type="button"
-                    className="signUpBtn-m mx-auto col-10"
-                  >
+                <div>
+                  <button className="signUpBtn-m mx-auto col-10 ">
                     教師註冊
                   </button>
-                  <button
-                    type="button"
-                    className="signUpBtn"
-                  >
+                  <button className="signUpBtn col-12 mx-auto">
                     註冊
                   </button>
                 </div>
+                <div className="h30 des-none"></div>
               </form>
             </div>
           </div>
