@@ -25,16 +25,6 @@ function CompanyBackend() {
     })()
   }, [])
 
-  useEffect(() => {
-    ;(async () => {
-      let r = await axios.post(Member_LIST)
-      console.log(r)
-      if (r.status === 200) {
-        setTotalRows(r.data.totalRows)
-        setData(r.data)
-      }
-    })()
-  }, [])
   return (
     <>
       <div className="container mainContent">

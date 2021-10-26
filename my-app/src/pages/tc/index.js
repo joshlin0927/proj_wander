@@ -22,13 +22,13 @@ function index() {
   return (
     <>
       <Switch>
-        <Route path="/TCindex/TcCourseVideoEdit/:id?">
+        <Route path="/TCindex/TcCourseVideoEdit/:sid?">
           <TcCourseVideoEdit />
         </Route>
         <Route path="/TCindex/TcCourseVideoUpload">
           <TcCourseVideoUpload />
         </Route>
-        <Route path="/TCindex/TcCourseEdit/:id?">
+        <Route path="/TCindex/TcCourseEdit/:sid?">
           <TcCourseEdit />
         </Route>
         <Route path="/TCindex/TcCourse/">

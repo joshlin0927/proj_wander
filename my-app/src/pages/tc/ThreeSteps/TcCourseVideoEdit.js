@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 
 // components
@@ -11,9 +12,14 @@ import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThree
 import Footer from '../../../components/Footer'
 
 function TcCourseVideoEdit() {
+  const [searchWord, setSearchWord] = useState('')
+  const history = useHistory()
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (!token) {
+      history.push('/')
+    } else {
+      return
     }
   })
 
@@ -26,7 +32,7 @@ function TcCourseVideoEdit() {
           <TcCourseProcessBar />
           <form className="TCform col-12 col-md-10 px-4">
             <div className="TCform-head ml-1 p-0">
-              <Link to="">
+              <Link to="/TCindex/TcCourseVideoUpload">
                 <i className="fas fa-chevron-left TCback-btn"></i>
               </Link>
               <div className="TCform-title mr-auto">
@@ -34,19 +40,23 @@ function TcCourseVideoEdit() {
               </div>
               {/* desktop search bar */}
               <div className="TCsearch ml-0">
-                <TcSearchBar />
+                <TcSearchBar
+                  placeholder="請輸入課程名稱"
+                  searchWord={searchWord}
+                  setSearchWord={setSearchWord}
+                />
               </div>
               <div className="d-flex justify-content-end">
-                <Link>
-                  <button className="TCbtn TCbtn-sm-w-switch btn-primary">
-                    <span>儲存</span>
-                  </button>
-                </Link>
+                <div className="TCback-btn mr-4"></div>
               </div>
             </div>
             {/* mobile search bar */}
             <div className="TCsearch-mobile">
-              <TcSearchBar />
+              <TcSearchBar
+                placeholder="請輸入課程名稱"
+                searchWord={searchWord}
+                setSearchWord={setSearchWord}
+              />
             </div>
             {/* TCcourse card label */}
             <div className="TCcourseLabel col-12">

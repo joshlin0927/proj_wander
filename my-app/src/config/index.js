@@ -10,6 +10,10 @@ export const MemberLogin = API_HOST + '/login-jwt'
 //登出
 export const MemberLogout = API_HOST + '/logout'
 
+//修改個人資料
+export const MemberEdit =
+  API_HOST + 'SingleMember/profileEdit/:sid'
+
 //讀取資料列表
 export const TcCourse_LIST = API_HOST + '/TcCourse/api/list'
 export const Member_LIST = API_HOST + '/member/api/list'

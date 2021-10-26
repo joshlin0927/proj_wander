@@ -16,20 +16,32 @@ function TcCourseCard(props) {
     course_introduction,
     created_at,
   } = props
-  const [show, setShow] = useState(false)
 
+  // 刪除課程
+  const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+
+  //修改課程
+  const [isShow, setIsShow] = useState(false)
+  const handleIsClose = () => setIsShow(false)
+  const handleIsShow = () => setIsShow(true)
   return (
     <>
       <div className="TCcourse-card col-12">
-        <div className="TCcourse-img">
+        <div
+          className="TCcourse-img"
+          onClick={handleIsShow}
+        >
           <img
             src={`${devUrl}/images/course/AdobeStock_339695471.jpg`}
             alt=""
           />
         </div>
-        <div className="TCcourse-info">
+        <div
+          className="TCcourse-info"
+          onClick={handleIsShow}
+        >
           <div className="TCcourse-title">
             <span>{course_name}</span>
           </div>
@@ -53,31 +65,55 @@ function TcCourseCard(props) {
           <i className="far fa-times-circle"></i>
         </div>
       </div>
-      <Modal show={show} centered>
+      <Modal show={isShow} onHide={handleIsClose} centered>
+        <Modal.Header>
+          <Modal.Title className="TCform-title">
+            影片資訊
+          </Modal.Title>
+        </Modal.Header>
         <Modal.Body>
-          <h5
-            className="modal-title d-flex justify-content-center my-5"
-            id="exampleModalLabel"
-          >
-            是否要刪除課程?
-          </h5>
-          <div className="d-flex justify-content-center mb-5">
+          <div className="resume">
+            <input
+              className="col-12 allInputs bgt"
+              placeholder="請輸入影片標題 "
+            />
             <button
-              type="button"
-              className="btn btn-primary mx-2"
-              onClick={handleClose}
+              type="submit"
+              className="btn-secondary browse"
             >
-              <span>是</span>
-            </button>
-            <button
-              type="button"
-              className="btn btn-primary mx-2"
-              onClick={handleClose}
-            >
-              <span>否</span>
+              更改名稱
             </button>
           </div>
         </Modal.Body>
+      </Modal>
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header>
+          <Modal.Title>刪除課程</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h5
+            className="modal-title text-center my-4"
+            id="exampleModalLabel"
+          >
+            確定要刪除課程?
+          </h5>
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            type="button"
+            className="btn confirmBtn"
+            onClick={handleClose}
+          >
+            <span>是</span>
+          </button>
+          <button
+            type="button"
+            className="btn confirmBtn"
+            onClick={handleClose}
+          >
+            <span>否</span>
+          </button>
+        </Modal.Footer>
       </Modal>
     </>
   )

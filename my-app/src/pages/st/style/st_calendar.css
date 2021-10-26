@@ -1,8 +1,6 @@
 * {
-  font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+  font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
 }
-
-
 
 /* 網站導覽列 */
 .navbar {
@@ -15,35 +13,20 @@
   font-size: 14px;
   letter-spacing: -0.015em;
   font-weight: 500;
-  margin-left: .25rem;
+  margin-left: 0.25rem;
   padding: 0px 0px 15px;
 }
-
-
-
-
-/* 手機板會變小的按鈕(有display變化) */
-.TCbtn-sm-w-switch {
-  display: flex;
-  width: 73px;
-  height: 30px;
-}
-
-
-
-
 
 /* 教師頁面返回按鈕 */
 .TCback-btn {
   padding: 0px 15px;
-  color: #065F8E;
+  color: #065f8e;
 }
 
 /* 頁面英文標題 */
 .pageName {
   display: none;
 }
-
 
 .calendardec-side,
 .calendardec-insideblock {
@@ -58,7 +41,7 @@
   width: 64%;
   height: 315px;
   border-radius: 0px 0px 0px 50px;
-  background-color: #F1EF5B;
+  background-color: #f1ef5b;
   margin-left: auto;
   padding: 0;
   margin-bottom: 30px;
@@ -78,9 +61,7 @@
 .coursesection-m {
   display: block;
   width: 100%;
-
 }
-
 
 .courseitem {
   width: 100%;
@@ -125,11 +106,10 @@
 .minicalendar {
   display: block;
 
-    width: 100%;
-    height:100%;
-    background-color: white;
-  }
-
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
 
 .year_month-m {
   display: flex;
@@ -158,16 +138,9 @@
   background-color: white;
 }
 
-
-
-
-
-
 /* -------------以上為公用------------ */
 
-
 @media (min-width: 768px) {
-
   /* 右上角白圈 */
   .whitecircle {
     position: absolute;
@@ -177,10 +150,7 @@
     top: -126px;
     border: white 2px dashed;
     border-radius: 50%;
-
   }
-
- 
 
   /* 網站主要導覽列 */
   .navbar {
@@ -199,8 +169,6 @@
     padding: 0px;
   }
 
-
-
   /* 頁面英文標題 */
   .pageName {
     display: block;
@@ -214,13 +182,11 @@
     color: black;
     font-size: 6rem;
     font-weight: bold;
-    line-height: 1.0;
+    line-height: 1;
   }
 
-
-
   .calendar::before {
-    content: "";
+    content: '';
     width: 22px;
     height: 22px;
     border-radius: 50%;
@@ -230,10 +196,6 @@
     left: 18%;
     top: 55%;
   }
-
-
-
-  
 
   /* -------------以上為公用--------- */
 
@@ -246,7 +208,6 @@
     padding: 0px;
     overflow: hidden;
     z-index: -1;
-
   }
 
   .year_month {
@@ -254,8 +215,6 @@
     background-color: white;
     display: flex;
     justify-content: center;
-
-
   }
 
   .month,
@@ -289,13 +248,10 @@
     height: 112px;
   }
 
-
-
   .search {
     display: flex;
     justify-content: end;
     margin-bottom: 25px;
-
   }
 
   .search span {
@@ -311,13 +267,12 @@
     width: 45%;
     height: 800px;
     border-radius: 180px 0px 0px 180px;
-    background-color: #F1EF5B;
+    background-color: #f1ef5b;
     position: absolute;
     right: 0px;
     top: 300px;
     padding: 0;
     z-index: 1;
-
   }
 
   .calendardec-insideblock {
@@ -356,20 +311,13 @@
     justify-content: center;
     position: absolute;
     top: 50%;
-
-
   }
-
-
 
   .courseitem {
     max-width: 215px;
     height: 215px;
     border: 1.25px solid rgba(255, 255, 255, 1);
     border-radius: 30px;
-
-
-
   }
 
   .courseitem img {
@@ -397,8 +345,6 @@
     left: 5%;
   }
 
-
-
   .coursesection-m {
     display: none;
   }
@@ -420,7 +366,6 @@
     transform: translate(30%, -50%);
     text-align: center;
     z-index: 1;
-   
   }
 
   .fa-arrow-right,
@@ -429,8 +374,7 @@
     font-size: 32px;
     position: absolute;
     top: 14%;
-    right:12%;
-    
+    right: 12%;
   }
 
   .leftarr {
@@ -440,10 +384,9 @@
     border-radius: 50%;
     position: absolute;
     top: 80%;
-    left:70%;
+    left: 70%;
     /* transform: translateY(-50%); */
     text-align: center;
     z-index: 1;
-
   }
 }

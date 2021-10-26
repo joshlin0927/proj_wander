@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
 import TcCourseCard from '../../../components/tc/TcCourseCard'
-import MyPagination from '../../../components/MyPagination'
+
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'
 import Footer from '../../../components/Footer'
 
@@ -20,14 +20,19 @@ function TcCourseVideoUpload() {
           <form className="TCform col-12 col-md-10">
             <div className="TCform-content">
               <div className="TCform-head">
-                <Link to="">
+                <Link to="/TCindex/TcCourseEdit/:sid?">
                   <i className="fas fa-chevron-left TCback-btn"></i>
                 </Link>
-                <div className="TCform-title">課程內容上傳</div>
+                <div className="TCform-title">
+                  課程內容上傳
+                </div>
                 <div className="d-flex justify-content-end">
-                  <button className="btn TCbtn-sm-w-switch btn-primary">
-                    儲存
-                  </button>
+                  <Link
+                    to="/TCindex/TcCourseVideoEdit"
+                    className="TCbtn-sm-w-switch btn-primary"
+                  >
+                    <span>下一步</span>
+                  </Link>
                 </div>
               </div>
               <div className="TCvideo-drop-zone">
@@ -43,9 +48,6 @@ function TcCourseVideoUpload() {
               </div>
             </div>
           </form>
-          {/* course cards */}
-          <TcCourseCard />
-          <MyPagination />
         </div>
       </div>
       <TcBgDecorationThreeSteps />

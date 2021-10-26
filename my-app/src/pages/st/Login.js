@@ -12,20 +12,6 @@ function Login(props) {
 
   const formRef = useRef(null)
 
-  const getData = () => {
-    const token = localStorage.getItem('token')
-    if (!token) {
-      return
-    }
-
-    fetch('', {
-      method: 'GET',
-      headers: { Authorization: 'Bearer ' + token },
-    })
-      .then((r) => r.json())
-      .then((obj) => {})
-  }
-
   //儲存所有欄位的值
   const [fields, setFields] = useState({
     email: '',
@@ -92,9 +78,10 @@ function Login(props) {
           )
 
           setAuth(true)
-          setIdentity(obj.member.identity)
-          setUser(obj.member.sid)
-
+          setUser({
+            sid: obj.member.sid,
+            identity: obj.member.identity,
+          })
           history.push('/')
         } else {
           setAuth(false)

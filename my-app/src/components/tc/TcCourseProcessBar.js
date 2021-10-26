@@ -22,7 +22,6 @@ function TcCourseProcessBar() {
               as={NavLink}
               to="/TCindex/TcCourseEdit"
             >
-              <i className="far fa-check-circle"></i>
               <div>課程細節頁面</div>
             </Nav.Link>
           </li>
@@ -31,7 +30,6 @@ function TcCourseProcessBar() {
               as={NavLink}
               to="/TCindex/TcCourseVideoUpload"
             >
-              <i className="far fa-check-circle"></i>
               <div>課程內容上傳</div>
             </Nav.Link>
           </li>
@@ -40,7 +38,6 @@ function TcCourseProcessBar() {
               as={NavLink}
               to="/TCindex/TcCourseVideoEdit"
             >
-              <i className="far fa-check-circle"></i>
               <div>課程內容管理</div>
             </Nav.Link>
           </li>

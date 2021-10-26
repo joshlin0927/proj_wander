@@ -1,5 +1,5 @@
 * {
-  font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+  font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
 }
 
 /* 全頁背景色 */
@@ -16,8 +16,6 @@
   top: -110px;
   width: 100%;
 }
-
-
 
 .opacity-0 {
   opacity: 0;
@@ -62,10 +60,8 @@
   100% {
     right: 0%;
     width: 56%;
-
   }
 }
-
 
 /* 麵包屑 */
 .breadcrumb {
@@ -73,32 +69,14 @@
   font-size: 14px;
   letter-spacing: -0.015em;
   font-weight: 500;
-  margin-left: .25rem;
+  margin-left: 0.25rem;
   padding: 0px 0px 15px;
 }
-
-
-
-
-
-
-
-
-/* 手機板會變小的按鈕(有display變化) */
-.TCbtn-sm-w-switch {
-  display: flex;
-  width: 73px;
-  height: 30px;
-}
-
-
-
-
 
 /* 教師頁面返回按鈕 */
 .TCback-btn {
   padding: 0px 15px;
-  color: #065F8E;
+  color: #065f8e;
 }
 
 /* 頁面英文標題 */
@@ -114,7 +92,7 @@
   height: 0;
   border-style: solid;
   border-width: 20px 30px 20px 0;
-  border-color: transparent #F1F0E9 transparent transparent;
+  border-color: transparent #f1f0e9 transparent transparent;
 }
 
 .coursesection {
@@ -155,21 +133,15 @@
   left: 5%;
 }
 
-
-
-
-
-
 .nametag {
   text-align: center;
   margin-top: 45px;
   font-size: 24px;
   margin-bottom: 0px;
-
 }
 
 .mo-none {
-  display: none
+  display: none;
 }
 
 .teacherrow {
@@ -183,22 +155,13 @@
   width: 100%;
 }
 
-
-.pageName{
-  display:none;
+.pageName {
+  display: none;
 }
-
-
-
-
-
 
 /* -------------以上為公用------------ */
 
-
-
 @media (min-width: 768px) {
-
   /* 右上角白圈 */
   .whitecircle {
     position: absolute;
@@ -208,9 +171,7 @@
     top: -126px;
     border: white 2px dashed;
     border-radius: 50%;
-
   }
-
 
   /* 網站主要導覽列 */
   .navbar {
@@ -229,7 +190,6 @@
     padding: 0px;
   }
 
-
   /* 黃色色塊(上) */
   .dec-block {
     height: 310px;
@@ -244,12 +204,6 @@
     top: 724px;
   }
 
-
-
-
-
-
-
   /* 頁面英文標題 */
   .pageName {
     display: block;
@@ -263,13 +217,11 @@
     color: black;
     font-size: 6rem;
     font-weight: bold;
-    line-height: 1.0;
+    line-height: 1;
   }
 
-
-
   .course::before {
-    content: "";
+    content: '';
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -279,10 +231,6 @@
     left: 20%;
     top: 42%;
   }
-
-
-
-
 
   /* 這裡開始是課程商品 */
 
@@ -351,7 +299,6 @@
         right: 5%;
       } */
 
-
   .Mypagination {
     display: flex;
     list-style: none;
@@ -359,7 +306,6 @@
     margin: 70px 0px 60px;
     padding-left: 0px;
     justify-content: end;
-
   }
 
   .Mypage-item {
@@ -377,12 +323,12 @@
   }
 
   .Mypage-item a i {
-    color: #065F8E;
+    color: #065f8e;
   }
 
   /* 頁碼被選中時 */
   .Mypage-item.active {
-    background-color: #065F8E;
+    background-color: #065f8e;
   }
 
   .Mypage-item.active a {
@@ -399,7 +345,4 @@
     width: 100%;
     margin-bottom: 150px;
   }
-
-
 }
-

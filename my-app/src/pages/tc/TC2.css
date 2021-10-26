@@ -43,22 +43,6 @@ body {
   cursor: pointer;
 }
 
-/* 新增課程(手機板) */
-.TCbtn-sm {
-  display: flex;
-  width: 73px;
-  height: 30px;
-  cursor: pointer;
-}
-
-/* 手機板會變小的按鈕(有display變化)  */
-.TCbtn-sm-w-switch {
-  display: flex;
-  width: 73px;
-  height: 30px;
-  cursor: pointer;
-}
-
 /* 審核提示窗 */
 .TCnotify {
   display: flex;
@@ -183,7 +167,7 @@ body {
 /* 自我介紹欄位 */
 .TC-intro {
   border: 1px solid #868686;
-  background-color: transparent;
+  background-color: #fff;
   border-radius: 10px;
   margin-bottom: 30px;
   font-size: 15px;
@@ -385,17 +369,6 @@ body {
 
 .resume > input {
   cursor: pointer;
-}
-
-/* 瀏覽按鈕 */
-.browse {
-  width: 100%;
-  height: 48px;
-  border: 0px;
-  color: black;
-  background-color: #f1ef5b;
-  margin-left: -100px;
-  border-radius: 0px 10px 10px 0px;
 }
 
 /* 預覽按鈕(桌機板) */
@@ -703,19 +676,6 @@ body {
 
   /* -------------以上為公用--------- */
 
-  /* 手機板會變小的按鈕 */
-  .TCbtn-sm {
-    display: flex;
-    width: 115px;
-    height: 40px;
-  }
-
-  /* 手機板會變小的按鈕(有display變化)  */
-  .TCbtn-sm-w-switch {
-    display: none;
-    height: 40px;
-  }
-
   /* 課程欄位列 */
   .TCcourseLabel {
     display: flex;
@@ -784,11 +744,6 @@ body {
 
   .TCcourse-delete i {
     margin: 3.55rem auto;
-  }
-
-  /* 瀏覽按鈕 */
-  .browse {
-    height: 50px;
   }
 
   .TCnotify-text {
