@@ -261,6 +261,20 @@ a {
   transition: 0.3s ease;
 }
 
+.NavAvatar {
+  position: relative;
+  cursor: pointer;
+}
+
+.NavAvatarMenu {
+  position: absolute;
+  background-color: #fff;
+  width: 10rem;
+  padding: 1rem;
+  border-radius: 5px;
+  top: 80px;
+}
+
 /*============= mobile nav =============*/
 @media (min-width: 768px) {
   .mobile-nav {
@@ -351,7 +365,7 @@ a {
   height: 48px;
   font-size: 15px;
   margin-bottom: 5px;
-  background-color: #f1f0e9;
+  background-color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -1251,7 +1265,6 @@ input::-webkit-input-placeholder {
 .lastName {
   margin-left: 5px;
 }
-
 
 .notice {
   font-weight: bold;

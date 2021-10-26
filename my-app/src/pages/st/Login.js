@@ -75,6 +75,7 @@ function Login(props) {
 
     if (data.success === true) {
       setAuth(true)
+      // setUser()
       // history.push('/')
     } else {
       setAuth(false)
