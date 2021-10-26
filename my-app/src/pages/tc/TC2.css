@@ -147,9 +147,17 @@ body {
 /* 表單裡的頭圖 */
 .profile-pic {
   width: 116px;
+  height: 116px;
   border-radius: 50%;
   overflow: hidden;
   margin-right: 21px;
+}
+
+.profile-pic img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 /* 姓名的input */
@@ -162,8 +170,6 @@ body {
   font-size: 15px;
   padding: 17px;
 }
-
-
 
 /* 欄位提示小字 */
 .TCnotice {
@@ -517,7 +523,6 @@ body {
 }
 
 @media (min-width: 768px) {
-
   #fakeFileInput {
     content: '123';
   }
@@ -1063,5 +1068,4 @@ body {
     text-align: center;
     transform-origin: center;
   }
-  
 }

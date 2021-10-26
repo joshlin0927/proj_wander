@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
+
+import { devUrl } from '../../config'
 
 function TcAvatarSelector(props) {
-  const { avatar } = props
+  //預覽大頭貼的地方
+  const imgRef = useRef(null)
+  //實際擁有預覽功能的input因為太醜藏起來
+  const inputRef = useRef(null)
 
-  const realFileInput = document.querySelector(
-    '#realFileInput'
-  )
-  const loadFile = document.querySelector('#loadFile')
-
-  function previewFile() {
-    const avatarImg = document.querySelector('#avatarImg')
-    const file = realFileInput
-    const reader = new FileReader()
+  const previewFile = () => {
+    var preview = imgRef.current
+    var file = inputRef.current.files[0]
+    var reader = new FileReader()
 
     reader.addEventListener(
       'load',
-      () => {
-        avatarImg.src = reader.result
+      function () {
+        preview.src = reader.result
       },
       false
     )
@@ -31,32 +31,31 @@ function TcAvatarSelector(props) {
       <div className="d-flex align-items-center">
         <input
           type="file"
+          name="avatar"
           accept="image/*"
-          id="realFileInput"
           className="d-none"
-          name={avatar}
-          onChange={() => {
-            previewFile()
-          }}
-          multiple
+          ref={inputRef}
+          onChange={previewFile}
         />
         <div className="profile-pic">
           <img
-            id="avatarImg"
-            src="../images/teacher/Thomas_Lillard.jpg"
+            src={`${devUrl}/images/pic/presetAvatar.jpeg`}
             className="img-fluid"
             alt=""
+            name="avatar"
+            ref={imgRef}
           />
         </div>
-        <div
+        <button
           className="TCbtn btn-border-only"
           id="loadFile"
-          onClick={() => {
-            realFileInput.click()
+          onClick={(e) => {
+            e.preventDefault()
+            inputRef.current.click()
           }}
         >
           <span>請選擇圖片</span>
-        </div>
+        </button>
       </div>
     </>
   )

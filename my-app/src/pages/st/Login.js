@@ -57,9 +57,6 @@ function Login(props) {
 
     // 利用FormData Api 得到各欄位的值 or 利用狀態值
     // FormData 利用的是表單元素的 name
-    const formData = new FormData(e.target)
-    console.log(formData.get('email'))
-    console.log(formData.get('password'))
 
     const usp = new URLSearchParams(new FormData(e.target))
     const r = await fetch(MemberLogin, {
@@ -147,11 +144,9 @@ function Login(props) {
             </div>
           </div>
           <div className="row m-wrap">
-            <Link to="/">
-              <div className="back">
-                <span>Back</span>
-              </div>
-            </Link>
+            <div className="back" onClick={history.goBack}>
+              <span>Back</span>
+            </div>
           </div>
           <div className="h95"> </div>
           <div className="login col-md-6">
@@ -241,32 +236,6 @@ function Login(props) {
         </div>
         <div className="h150"> </div>
       </div>
-      {/* <p>目前登入情況: {auth ? '登入中' : '未登入'}</p> */}
-      {/* <button
-              onClick={() => {
-                setAuth(true)
-                //出現歡迎訊息
-                alert('你好，登入已完成！')
-                //跳回首頁
-                props.history.push('/')
-              }}
-            >
-              登入
-            </button>
-            <button
-              onClick={() => {
-                props.history.push('/about')
-              }}
-            >
-              連到 關於我們
-            </button>
-            <button
-              onClick={() => {
-                props.history.goBack()
-              }}
-            >
-              回到上一頁
-            </button> */}
     </>
   )
 }

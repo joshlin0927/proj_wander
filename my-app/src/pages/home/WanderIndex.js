@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import { devUrl } from '../../config'
 import './index2.css'
 
@@ -50,4 +51,4 @@ function WanderIndex() {
   )
 }
 
-export default WanderIndex
+export default withRouter(WanderIndex)

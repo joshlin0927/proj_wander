@@ -1,11 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { devUrl } from '../config'
 import { Link } from 'react-router-dom'
-import {
-  DropdownButton,
-  Dropdown,
-  FormControl,
-} from 'react-bootstrap'
+import axios from 'axios'
+import { MemberLogout } from '../config'
 
 function scrollHeader() {
   const header = document.getElementById('nav__header')
@@ -22,9 +19,24 @@ function PcNavbar(props) {
 
   const menuToggle = () => {
     const memberMenu = document.querySelector('#memberMenu')
-
     memberMenu.classList.toggle('d-none')
   }
+
+  const logout = async () => {
+    const r = await fetch(MemberLogout, {
+      method: 'GET',
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(),
+    })
+    const j = await r.json()
+
+    console.log(r)
+  }
+
   return (
     <>
       <nav className="nav__header" id="nav__header">
@@ -61,7 +73,7 @@ function PcNavbar(props) {
               </li>
             </ul>
             <div className="col d-flex align-items-center justify-content-around">
-              {!auth ? (
+              {auth === false ? (
                 <Link to="/Login" className="nav_login">
                   <span className="nav_login_txt">
                     登入
@@ -97,9 +109,9 @@ function PcNavbar(props) {
                       </Link>
                     </div>
                     <div className="mb-1">
-                      <Link href="#">
+                      <div onClick={logout}>
                         <span>登出</span>
-                      </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
