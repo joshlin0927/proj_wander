@@ -27,73 +27,56 @@ function StGameStart(props) {
 
   return (
     <>
-      <div className="container-fluid mainpic mainContent full">
+      <div className="mainContent mhhundred">
         <div className="container">
-          <div className="row">
+          <div className="row mb-5">
             <MultiLevelBreadCrumb />
           </div>
-        </div>
-      </div>
-
-      <div className="container-fluid">
-        <div className="row">
-          <div className="dec-side col-md-8 col-lg-8">
-            <div className="dec-insideblock col-md-9 col-lg-8">
-              <div
-                className="mylanguage col-md-6 col-lg-6"
-                onClick={() => {
-                  setData({
-                    language: 'English',
-                    easiness: 2,
-                  })
-                }}
-              >
-                <div className="dot"></div>
-                西班牙文
-              </div>
-              <br />
-              <div
-                className="gamestart col-md-6 col-lg-6"
-                onClick={() => {
-                  localStorage.clear()
-                  console.log(dataArr)
-                  if (dataArr.length === 0) {
-                    alert('未選擇語系或難度!!')
-                  } else {
-                    const newArr = [...dataArr]
-                    localStorage.setItem(
-                      'array',
-                      JSON.stringify(newArr)
-                    )
-                    props.history.push('/StIndex/StGaming')
-                  }
-                }}
-              >
-                <div className="dot"></div>
-                <span>課程測驗</span>
-                <div className="gamestartHoverDot">
-                  <img
-                    src={`${devUrl}/images/gaming/game_entrance.png`}
-                    alt=""
-                  />
-                </div>
+          <div>
+            <div
+              className="mylanguage col-md-2 col-lg-2 ml-auto"
+              onClick={() => {
+                setData({
+                  language: 'English',
+                  easiness: 2,
+                })
+              }}
+            >
+              <div className="dot"> </div>
+              西班牙文
+            </div>
+            <br />
+            <div
+              className="gamestart col-md-2 col-lg-2 ml-auto"
+              onClick={() => {
+                localStorage.clear()
+                console.log(dataArr)
+                if (dataArr.length === 0) {
+                  alert('未選擇語系或難度!!')
+                } else {
+                  const newArr = [...dataArr]
+                  localStorage.setItem(
+                    'array',
+                    JSON.stringify(newArr)
+                  )
+                  props.history.push('/StIndex/StGaming')
+                }
+              }}
+            >
+              <div className="dot"> </div>
+              <span> 課程測驗 </span>
+              <div className="gamestartHoverDot">
+                <img
+                  src={`${devUrl}/images/gaming/game_entrance.png`}
+                  alt=""
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div className="dec-side-m col-9">
-        <div className="dec-insideblock-m col-9">
-          <div className="mylanguage col-9">
-            <div className="dot"></div>
-            西班牙文
-          </div>
-          <div className="gamestart col-9">
-            <div className="dot"></div>
-            課程測驗
-          </div>
-        </div>
+      <div className="dec-side col-md-6 col-lg-6">
+        <div className="dec-insideblock col-md-9 col-lg-8"></div>
       </div>
       <Footer />
     </>
