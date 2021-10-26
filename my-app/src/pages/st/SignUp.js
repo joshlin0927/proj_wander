@@ -1,15 +1,17 @@
 import '../st/style/signUp.css'
 import React, { useState, useRef } from 'react'
 import { devUrl } from '../../config'
-
+import axios from 'axios'
+import { withRouter } from 'react-router-dom'
 //共用元件
 import FBLogin from '../../components/st/FBLogin'
 import GooLogin from '../../components/st/GooLogin'
 
-export default function SignUp() {
+export default withRouter(function SignUp(props) {
   //切換身份鈕功能
   const mySwitch = document.querySelector('#mySwitch')
   const signUpBtn_m = document.querySelector('.signUpBtn-m')
+
   const identity = () => {
     if (mySwitch.checked === true) {
       signUpBtn_m.textContent = '學生註冊'
@@ -105,6 +107,24 @@ export default function SignUp() {
     // 測試有得到表單欄位的輸入值
 
     // TODO:用axios把表單送出
+    if (
+      fields.lastname !== '' &&
+      fields.firstname !== '' &&
+      fields.email !== '' &&
+      fields.password !== ''
+    ) {
+      axios
+        .post('api', {
+          lastname: fields.lastname,
+          firstname: fields.firstname,
+          email: fields.email,
+          password: fields.password,
+        })
+        .then((res) => {
+          console.log('success')
+          props.history.push('/login')
+        })
+    }
   }
 
   return (
@@ -174,7 +194,7 @@ export default function SignUp() {
                 <div className="d-flex justify-content-center">
                   <input
                     type="text"
-                    className="shortInputs col-5"
+                    className="shortInputs  col-5"
                     placeholder="名字*"
                     name="firstname"
                     value={fields.firstname}
@@ -183,7 +203,7 @@ export default function SignUp() {
                   />
                   <input
                     type="text"
-                    className="shortInputs col-5 lastName"
+                    className="shortInputs  col-5 lastName"
                     placeholder="姓氏*"
                     name="lastname"
                     value={fields.lastname}
@@ -215,7 +235,7 @@ export default function SignUp() {
                   <input
                     type="email"
                     name="email"
-                    className="allInputs-login col-10"
+                    className="allInputs-login   col-10"
                     placeholder="請填寫電子信箱"
                     value={fields.email}
                     onChange={handleFieldChange}
@@ -235,7 +255,7 @@ export default function SignUp() {
                   <input
                     type="password"
                     name="password"
-                    className="allInputs-login col-10"
+                    className="allInputs-login   col-10"
                     placeholder="請輸入密碼*"
                     value={fields.password}
                     onChange={handleFieldChange}
@@ -262,7 +282,7 @@ export default function SignUp() {
                   <input
                     type="text"
                     name="nickname"
-                    className="allInputs-login col-10"
+                    className="allInputs-login  col-10"
                     placeholder="請填寫暱稱"
                     value={fields.nickname}
                     onChange={handleFieldChange}
@@ -291,4 +311,4 @@ export default function SignUp() {
       </div>
     </>
   )
-}
+})
