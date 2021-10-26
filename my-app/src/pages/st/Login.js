@@ -154,7 +154,7 @@ function Login(props) {
                 <input
                   type="email"
                   name="email"
-                  className="allInputs col-10"
+                  className="allInputs  col-10"
                   placeholder="請填寫電子信箱"
                   title="電子信箱地址必須要有「@」"
                   value={fields.email}
@@ -181,7 +181,7 @@ function Login(props) {
                 <input
                   type="password"
                   name="password"
-                  className="allInputs col-10"
+                  className="allInputs   col-10"
                   placeholder="密碼*"
                   value={fields.password}
                   onChange={handleFieldChange}
