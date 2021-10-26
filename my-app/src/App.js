@@ -4,7 +4,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import React from 'react'
+import React, { useState } from 'react'
 import ScrollToTop from './components/ScrollToTop'
 
 // Navbar
@@ -32,11 +32,13 @@ import Cart from './pages/cart'
 import CompanyBackend from './pages/CompanyBackend'
 
 function App() {
+  const [auth, setAuth] = useState(false)
+
   return (
     <Router>
       <>
         <ScrollToTop>
-          <PcNavbar />
+          <PcNavbar auth={auth} />
           <Switch>
             <Route path="/CompanyBackend">
               <CompanyBackend />
@@ -52,7 +54,7 @@ function App() {
               <StIndex />
             </Route>
             <Route path="/Login">
-              <Login />
+              <Login auth={auth} setAuth={setAuth} />
             </Route>
 
             <Route path="/SignUp">
@@ -63,7 +65,7 @@ function App() {
               <WanderIndex />
             </Route>
           </Switch>
-          <MobileNavbar />
+          <MobileNavbar auth={auth} setAuth={setAuth} />
         </ScrollToTop>
       </>
     </Router>

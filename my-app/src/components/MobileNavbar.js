@@ -3,6 +3,8 @@ import { devUrl } from '../config'
 import { Link, withRouter } from 'react-router-dom'
 
 function MobileNavbar(props) {
+  const { auth, setAuth } = props
+
   useEffect(() => {
     const path = props.location.pathname.toString()
     const navItem = document.getElementsByClassName(
