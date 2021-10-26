@@ -7,13 +7,16 @@ export const API_HOST = 'http://localhost:3001'
 //登入
 export const MemberLogin = API_HOST + '/login'
 
+//登出
+export const MemberLogout = API_HOST + '/logout'
+
 //讀取資料列表
 export const TcCourse_LIST = API_HOST + '/TcCourse/api/list'
 export const Member_LIST = API_HOST + '/member/api/list'
 export const SentenceGame_LIST =
   API_HOST + '/sentence-game/api/list'
 
-export const UPLOAD_AVATAR = API_HOST + '/try-upload2'
+// export const UPLOAD_AVATAR = API_HOST + '/try-upload2'
 
 export const pathnameList = [
   '/about',
