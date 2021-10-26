@@ -43,7 +43,7 @@ function StGameStart(props) {
                 className="mylanguage col-md-6 col-lg-6"
                 onClick={() => {
                   setData({
-                    language: 'Japanese',
+                    language: 'English',
                     easiness: 2,
                   })
                 }}

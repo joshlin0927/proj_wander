@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import $ from 'jquery'
-import { devUrl } from '../../config'
+import { devUrl, SentenceGame_SOT } from '../../config'
 import { withRouter } from 'react-router-dom'
 
 import './style/gamestart.css'
@@ -9,6 +9,30 @@ import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import Footer from '../../components/Footer'
 
 function StGaming() {
+  function wordSound(e) {
+    const word = e.target.innerText
+    //urlencoded法
+    fetch(`${SentenceGame_SOT}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ word: word, lang: 'en-US' }),
+      // body: JSON.stringify({ word: word, lang: 'ja-JP' }),
+    })
+      .then((r) => r.json())
+      .then((obj) => {
+        console.log('SOT ID:', JSON.stringify(obj, null, 4))
+        if (obj.success) {
+          const audio = new Audio(
+            `https://storage.soundoftext.com/${obj.id}.mp3`
+          )
+          audio.play()
+        } else {
+          alert('發送失敗')
+        }
+      })
+  }
   useEffect(() => {
     const dataArr = localStorage.getItem('array')
       ? JSON.parse(localStorage.getItem('array'))
@@ -71,6 +95,7 @@ function StGaming() {
         parseInt($(this).css('padding-right'))
 
       if ($(this).parent().hasClass('word-bg')) {
+        wordSound(e)
         // 把原本的word藏起來
         $(this).css('opacity', 0).prop('disabled', true)
         const wordToUp = $(this)
