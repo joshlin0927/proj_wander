@@ -61,21 +61,7 @@ async function getListData(req,res){
     return output;
 }
 
-router.get('/', (req, res) => {
-    res.render('course/main');
-});
 
-router.get('/list', async (req, res) => {
-    res.locals.pageName = 'ab-list';
- 
-    const output = await getListData(req,res);
-    if(output.redirect){
-        return res.redirect(output.redirect);
-    }
-
-    // res.json(output);
-    res.render('TcCourse/list', output);
-});
 
 router.get('/api/list', async (req, res)=>{
     const output = await getListData(req, res);

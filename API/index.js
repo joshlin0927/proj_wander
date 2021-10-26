@@ -98,10 +98,10 @@ app.get('/', (req, res) => {
     // res.sendFile(__dirname + "/public/home.html");
 })
 
-app.use('/teacher', require('./routes/teacher'));
-app.use('/member', require('./routes/member'));
-app.use('/TcCourse', require('./routes/TcCourse'));
-app.use(require('./routes/login'));
+app.use('/SingleMember', require(__dirname + '/routes/SingleMember'));
+app.use('/member', require(__dirname + '/routes/member'));
+app.use('/TcCourse', require(__dirname + '/routes/TcCourse'));
+app.use(require(__dirname + '/routes/login'));
 // app.use('/chat', require('./routes/chat'));
 
 // 聊天室設定
