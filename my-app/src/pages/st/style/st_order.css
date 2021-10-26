@@ -1,270 +1,269 @@
 /*============= orderContent =============*/
-.stOrderContent{
-    width: 95%;
-    margin: 0 1rem 50px 1rem;
+.stOrderContent {
+  width: 95%;
+  margin: 0 1rem 50px 1rem;
 }
-.stOrderContentTitle{
-    text-align: center;
-    margin: 0 0.5rem 0 0;
-    padding: 1rem 0.5rem;
-    color: black;
-    text-decoration: none !important;
+.stOrderContentTitle {
+  text-align: center;
+  margin: 0 0.5rem 0 0;
+  padding: 1rem 0.5rem;
+  color: black;
+  text-decoration: none !important;
 }
-.stOrderContentTitle:hover{
-    border-radius: 10px 10px 0px 0px;
-    background-color: #F1F0E9;
-    color: #065F8E;
+.stOrderContentTitle:hover {
+  border-radius: 10px 10px 0px 0px;
+  background-color: #f1f0e9;
+  color: #065f8e;
 }
-.stOrderContentTitle span{
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
+.stOrderContentTitle span {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
-.stOrderContentTitle.active{
-    border-radius: 10px 10px 0px 0px;
-    background-color: #F1F0E9;
-    color: #065F8E;
+.stOrderContentTitle.active {
+  border-radius: 10px 10px 0px 0px;
+  background-color: #f1f0e9;
+  color: #065f8e;
 }
-.stOrders{
-    padding: 0 0 1rem 0;
-    background-color:#F1F0E9;
-    border-radius: 0 0 10px 10px;
+.stOrders {
+  padding: 0 0 1rem 0;
+  background-color: #f1f0e9;
+  border-radius: 0 0 10px 10px;
 }
-.stOrderDetailTitle{
-    margin: 1rem;
+.stOrderDetailTitle {
+  margin: 1rem;
 }
-.stOrderDetailTitleTxt{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem 0;
-    color: #065F8E;
+.stOrderDetailTitleTxt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+  color: #065f8e;
 }
-.stOrderDetail{
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-    margin: 1rem 1rem;
-    padding: 0.5rem 0;
+.stOrderDetail {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  margin: 1rem 1rem;
+  padding: 0.5rem 0;
 }
-.stOrderDetailItem{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.stOrderDetailItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.stOrderDetailItem span{
-    text-align: center;
+.stOrderDetailItem span {
+  text-align: center;
 }
-.stOrderDetailItem-t{
-    display: none;
+.stOrderDetailItem-t {
+  display: none;
 }
 @media (max-width: 992px) {
-    .stOrderContentTitle span, .stOrderDetailItem span{
-        font-size: 14px;
-    }
+  .stOrderContentTitle span,
+  .stOrderDetailItem span {
+    font-size: 14px;
+  }
 }
 @media (max-width: 767px) {
-    .stOrderContentTitle{
-        margin: 0;
-    }
-    .stOrderDetail{
-        flex-direction: column;
-    }
-    .stOrderDetailItem{
-        padding: 0;
-        padding-left: 4rem;
-        justify-content: flex-start;
-    }
-    .stOrderDetailItem-t{
-        display: block;
-        margin-right: 1rem;
-        color: #065f8e;
-    }
+  .stOrderContentTitle {
+    margin: 0;
+  }
+  .stOrderDetail {
+    flex-direction: column;
+  }
+  .stOrderDetailItem {
+    padding: 0;
+    padding-left: 4rem;
+    justify-content: flex-start;
+  }
+  .stOrderDetailItem-t {
+    display: block;
+    margin-right: 1rem;
+    color: #065f8e;
+  }
 }
 
 /*============= orderDetail =============*/
-.payMethod{
-    background-color: #fff;
-    margin-top: 2rem;
-    padding: 1rem;
-  }
-  .payTitle{
-    border-bottom: 2px solid black;
-    position: relative;
-  }
-  .payTitle span{
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  #payTimeDL{
-    position: absolute;
-    right: 0;
-    bottom: -100%;
-    color: red;
-    font-size: 0.8rem;
-  }
-  .orderContent{
-    margin: 1rem 0;
-    padding-left: 10%;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .orderContentRow{
-    padding: 0;
-    margin-top: 1rem;
-    position: relative;
-  }
-  .orderContentRow span{
-    font-size: 1.2rem;
-  }
-  .orderDetail{
-    margin: 1rem 0;
-    padding: 0 10%;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .orderDetailContent{
-    background-color: rgba(198, 195, 180, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1rem;
-  }
-  .orderDetailTitle{
-    display: flex;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-  .orderDetailTitle span{
-    font-size: 1.2rem;
-    text-align: center;
-    font-weight: bold;
-  }
-  .orderDetailItem{
-    display: flex;
-    border-radius: 10px;
-    background-color: #fff;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    align-items: center;
-  }
-  .orderDetailItemTxt span{
-    text-align: center;
-    font-size: 1.2rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  .orderDetailItemImg{
-    padding: 1rem;
-  }
-  .orderDetailItemTxt{
-    display: flex;
-    padding: 0;
-    align-items: center;
-  }
-  .stOrderCancelBtn{
-      color: #8E0606;
-      font-weight: bold;
-      border: 2px solid #8E0606;
-      width: 90px;
-      height: 30px;
-      position: absolute;
-      left: 170px;
-      bottom: 0;
-  }
-  .stOrderCancelBtn:hover{
-      background-color: #8E0606;
-      color: white;
-  }
-  .stOrderBackBtn{
-      color: #065f8e;
-      font-weight: bold;
-      border: 2px solid #065f8e;
-      width: 90px;
-      height: 30px;
-      position: absolute;
-      right: 5%;
-      bottom: 5px;
-  }
-  .stOrderBackBtn span{
-      font-size: 1rem;
-      margin-left: 5px;
-  }
-  .stOrderBackBtn:hover{
-      background-color: #065f8e;
-      color: white;
-  }
+.stPayMethod {
+  background-color: #fff;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+.payTitle {
+  border-bottom: 2px solid black;
+  position: relative;
+}
+.payTitle span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+#payTimeDL {
+  position: absolute;
+  right: 0;
+  bottom: -100%;
+  color: red;
+  font-size: 0.8rem;
+}
+.orderContent {
+  margin: 1rem 0;
+  padding-left: 10%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.orderContentRow {
+  padding: 0;
+  margin-top: 1rem;
+  position: relative;
+}
+.orderContentRow span {
+  font-size: 1.2rem;
+}
+.orderDetail {
+  margin: 1rem 0;
+  padding: 0 10%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.orderDetailContent {
+  background-color: rgba(198, 195, 180, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+.orderDetailTitle {
+  display: flex;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.orderDetailTitle span {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+}
+.orderDetailItem {
+  display: flex;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  align-items: center;
+}
+.orderDetailItemTxt span {
+  text-align: center;
+  font-size: 1.2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.orderDetailItemImg {
+  padding: 1rem;
+}
+.orderDetailItemTxt {
+  display: flex;
+  padding: 0;
+  align-items: center;
+}
+.stOrderCancelBtn {
+  color: #8e0606;
+  font-weight: bold;
+  border: 2px solid #8e0606;
+  width: 90px;
+  height: 30px;
+  position: absolute;
+  left: 170px;
+  bottom: 0;
+}
+.stOrderCancelBtn:hover {
+  background-color: #8e0606;
+  color: white;
+}
+.stOrderBackBtn {
+  color: #065f8e;
+  font-weight: bold;
+  border: 2px solid #065f8e;
+  width: 90px;
+  height: 30px;
+  position: absolute;
+  right: 5%;
+  bottom: 5px;
+}
+.stOrderBackBtn span {
+  font-size: 1rem;
+  margin-left: 5px;
+}
+.stOrderBackBtn:hover {
+  background-color: #065f8e;
+  color: white;
+}
 @media (max-width: 767px) {
-    .stOrderCancelBtn{
-        width: 70px;
-        height: 22px;
-        padding: 0;
-        left: 130px;
-        bottom: 0;
-    }
-    .stOrderBackBtn{
-        width: 70px;
-        height: 22px;
-        padding: 0;
-        right: 15px;
-        bottom: 3px;
-    }
+  .stOrderCancelBtn {
+    width: 70px;
+    height: 22px;
+    padding: 0;
+    left: 130px;
+    bottom: 0;
   }
-  @media (max-width: 992px) {
-    .orderDetail{
-      padding: 0;
-    }
-    .orderDetailTitle{
-      display: none;
-    }
-    .orderDetailItemTxt{
-      flex-direction: column;
-      padding: 0.5rem;
-    }
-    .orderDetailItemTxt span{
-      padding: 0;
-      text-align: left;
-    }
-    .orderDetailItemImg{
-      padding: 0.5rem;
-    }
+  .stOrderBackBtn {
+    width: 70px;
+    height: 22px;
+    padding: 0;
+    right: 15px;
+    bottom: 3px;
   }
-
-
+}
+@media (max-width: 992px) {
+  .orderDetail {
+    padding: 0;
+  }
+  .orderDetailTitle {
+    display: none;
+  }
+  .orderDetailItemTxt {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+  .orderDetailItemTxt span {
+    padding: 0;
+    text-align: left;
+  }
+  .orderDetailItemImg {
+    padding: 0.5rem;
+  }
+}
 
 /*============= 效果模組 =============*/
 
 .c-blue {
-    color: #065f8e;
+  color: #065f8e;
+}
+.c-white {
+  color: #ffffff;
+}
+.c-gray {
+  color: #c6c3b4;
+}
+.bgc-blue {
+  background-color: #065f8e;
+}
+.bgc-white {
+  background-color: #ffffff;
+}
+.bgc-gray {
+  background-color: #c6c3b4;
+}
+.bgc-main {
+  background-color: #f1f0e9;
+}
+.bd-blue {
+  border-color: #065f8e;
+}
+.bd-white {
+  border-color: #ffffff;
+}
+.bd-radius-10 {
+  border-radius: 10px;
+}
+@media (max-width: 767px) {
+  .m-d-none {
+    display: none;
   }
-  .c-white {
-    color: #ffffff;
-  }
-  .c-gray {
-    color: #c6c3b4;
-  }
-  .bgc-blue {
-    background-color: #065f8e;
-  }
-  .bgc-white {
-    background-color: #ffffff;
-  }
-  .bgc-gray {
-    background-color: #c6c3b4;
-  }
-  .bgc-main {
-    background-color: #F1F0E9;
-  }
-  .bd-blue {
-    border-color: #065f8e;
-  }
-  .bd-white {
-    border-color: #ffffff;
-  }
-  .bd-radius-10{
-    border-radius: 10px;
-  }
-  @media (max-width: 767px) {
-    .m-d-none{
-        display: none;
-    }
 }

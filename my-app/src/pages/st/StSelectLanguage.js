@@ -6,7 +6,6 @@ import './style/st_selectlanguage.css'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import Footer from '../../components/Footer'
 
-
 export default function StSelectLanguage() {
   return (
     <>
@@ -26,9 +25,7 @@ export default function StSelectLanguage() {
                 選擇語言
                 <ul claaName="languagelist">
                   <li className="selection">英文</li>
-                  <li className="selection"> 西文 </li>
-                  <li className="selection"> 法文 </li>
-                  <li className="selection"> 德文 </li>
+                  <li className="selection">日文</li>
                 </ul>
               </div>
             </div>
@@ -42,9 +39,7 @@ export default function StSelectLanguage() {
             選擇語言
             <ul claaName="languagelist-m">
               <li className="selection-m"> 英文 </li>
-              <li className="selection-m"> 西文 </li>
-              <li className="selection-m"> 法文 </li>
-              <li className="selection-m"> 德文 </li>
+              <li className="selection-m"> 日文 </li>
             </ul>
           </div>
         </div>

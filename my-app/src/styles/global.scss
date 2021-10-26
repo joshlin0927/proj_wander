@@ -261,13 +261,17 @@ a {
   transition: 0.3s ease;
 }
 
-.NavAvatar{
+.NavAvatar {
   position: relative;
+  cursor: pointer;
 }
 
-.NavAvatarMenu{
+.NavAvatarMenu {
   position: absolute;
   background-color: #fff;
+  width: 10rem;
+  padding: 1rem;
+  border-radius: 5px;
   top: 80px;
 }
 
@@ -1261,7 +1265,6 @@ input::-webkit-input-placeholder {
 .lastName {
   margin-left: 5px;
 }
-
 
 .notice {
   font-weight: bold;

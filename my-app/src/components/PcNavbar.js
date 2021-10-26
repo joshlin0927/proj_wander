@@ -19,10 +19,11 @@ window.addEventListener('scroll', scrollHeader)
 
 function PcNavbar(props) {
   const { auth, user } = props
-  const [isShow, setIsShow] = useState('NavAvatarMenu')
+
   const menuToggle = () => {
     const memberMenu = document.querySelector('#memberMenu')
-    memberMenu.className = 'd-none'
+
+    memberMenu.classList.toggle('d-none')
   }
   return (
     <>
@@ -49,7 +50,7 @@ function PcNavbar(props) {
                 </Link>
               </li>
               <li>
-                <Link to="#/">
+                <Link to="/StIndex/StCourse">
                   <span className="nav__en">我的課程</span>
                 </Link>
               </li>
@@ -60,20 +61,18 @@ function PcNavbar(props) {
               </li>
             </ul>
             <div className="col d-flex align-items-center justify-content-around">
-              {/* {!auth ? (
+              {!auth ? (
                 <Link to="/Login" className="nav_login">
                   <span className="nav_login_txt">
                     登入
                   </span>
                 </Link>
-              ) : ( */}
+              ) : (
                 <div className="NavAvatar">
                   <div
                     className="nav_login"
                     id="memberAvatar"
-                    onClick={setIsShow(
-                      'NavAvatarMenu' + 'd-none'
-                    )}
+                    onClick={menuToggle}
                   >
                     <img
                       src={`${devUrl}/images/teacher/Thomas_Lillard.jpg`}
@@ -81,27 +80,30 @@ function PcNavbar(props) {
                     />
                   </div>
 
-                  <div id="memberMenu" className={isShow}>
-                    <div>
-                      <Link href="#">
+                  <div
+                    id="memberMenu"
+                    className="NavAvatarMenu d-none"
+                  >
+                    <div className="mb-1">
+                      <Link to="/Tcindex">
                         <span className="mx-0">
                           會員中心
                         </span>
                       </Link>
                     </div>
-                    <div>
-                      <Link href="#">
+                    <div className="mb-1">
+                      <Link to="#">
                         <span>常見問題</span>
                       </Link>
                     </div>
-                    <div>
+                    <div className="mb-1">
                       <Link href="#">
                         <span>登出</span>
                       </Link>
                     </div>
                   </div>
                 </div>
-              {/* )} */}
+              )}
               <Link to="/Cart" className="nav_cart">
                 <img
                   src={`${devUrl}/images/cart/cart_icon.svg`}
