@@ -67,6 +67,20 @@ export default function StSideBar2() {
               <div className="nav-item-text">課程管理</div>
             </Nav.Link>
           </li>
+          <li>
+            <Nav.Link
+              as={NavLink}
+              to="/StIndex/StStartMyCourse"
+              className="nav-item"
+              activeClassName="active"
+              onClick={() => {
+                setIsActive('推薦課程')
+              }}
+            >
+              <i class="fal fa-thumbs-up"> </i>
+              <div className="nav-item-text">推薦課程</div>
+            </Nav.Link>
+          </li>
         </ul>
       </Nav>
     </>

@@ -4,7 +4,7 @@ import { devUrl } from '../../config'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 //共用元件
-import FBLogin from '../../components/st/FBLogin'
+// import FBLogin from '../../components/st/FBLogin'
 import GooLogin from '../../components/st/GooLogin'
 
 export default withRouter(function SignUp(props) {
@@ -103,7 +103,7 @@ export default withRouter(function SignUp(props) {
     //阻止表單預設送出行為
 
     const fd = new FormData(e.target)
-    console.log(fd.get('firstname'))
+    console.log(fd)
     // 測試有得到表單欄位的輸入值
 
     // TODO:用axios把表單送出
@@ -113,8 +113,7 @@ export default withRouter(function SignUp(props) {
       fields.email !== '' &&
       fields.password !== ''
     ) {
-      axios
-        .post('api', {
+      axios.post('http://localhost:3001/SignUp', {
           lastname: fields.lastname,
           firstname: fields.firstname,
           email: fields.email,
@@ -123,6 +122,12 @@ export default withRouter(function SignUp(props) {
         .then((res) => {
           console.log('success')
           props.history.push('/login')
+        })
+        .catch((e) => {
+          console.log('failed')
+          if (e.response.status === 500) {
+            alert('Email已被使用過')
+          }
         })
     }
   }
@@ -292,7 +297,7 @@ export default withRouter(function SignUp(props) {
                   <div className="or">OR</div>
                 </div>
                 <div className="d-flex d-md-block">
-                  <FBLogin />
+                  {/* <FBLogin /> */}
                   <GooLogin />
                 </div>
                 <div>

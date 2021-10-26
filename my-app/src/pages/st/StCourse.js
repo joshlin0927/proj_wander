@@ -45,7 +45,6 @@ export default function StCourse() {
         </div>
         <div className="btblock"></div>
       </div>
-
       <StBgDecoration />
       <Footer />
     </>
