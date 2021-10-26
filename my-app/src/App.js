@@ -4,7 +4,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ScrollToTop from './components/ScrollToTop'
 
 // Navbar
@@ -33,13 +33,25 @@ import CompanyBackend from './pages/CompanyBackend'
 
 function App() {
   const [auth, setAuth] = useState(false)
-  const [user, setUser] = useState({ id: '', name: '' })
+  const [user, setUser] = useState()
+  const [identity, setIdentity] = useState()
+
+  // const token = localStorage.getItem('token')
+  // if (token) {
+  //   store.dispatch({ type: AUTHENTICATE_THE_USER })
+  // }
+
+  console.log(user)
 
   return (
     <Router>
       <>
         <ScrollToTop>
-          <PcNavbar auth={auth} user={user} />
+          <PcNavbar
+            auth={auth}
+            setAuth={setAuth}
+            user={user}
+          />
           <Switch>
             <Route path="/CompanyBackend">
               <CompanyBackend />
@@ -59,6 +71,7 @@ function App() {
                 auth={auth}
                 setAuth={setAuth}
                 setUser={setUser}
+                setIdentity={setIdentity}
               />
             </Route>
 
@@ -70,7 +83,11 @@ function App() {
               <WanderIndex />
             </Route>
           </Switch>
-          <MobileNavbar auth={auth} user={user} />
+          <MobileNavbar
+            auth={auth}
+            setAuth={setAuth}
+            user={user}
+          />
         </ScrollToTop>
       </>
     </Router>

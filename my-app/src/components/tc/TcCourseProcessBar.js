@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom'
 function TcCourseProcessBar() {
   return (
     <>
-      <Nav className="TCcourse-processBar col-10">
+      <div className="TCcourse-processBar col-10 ">
         <Nav.Link
           as={NavLink}
           to="/TCindex/TcCourse"
@@ -45,7 +45,7 @@ function TcCourseProcessBar() {
             </Nav.Link>
           </li>
         </ul>
-      </Nav>
+      </div>
     </>
   )
 }

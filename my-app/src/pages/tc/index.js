@@ -1,5 +1,5 @@
 // 套件
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
 // Css 擺放位置

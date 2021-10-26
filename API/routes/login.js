@@ -135,6 +135,7 @@ router.post('/login-jwt', async (req, res) => {
     if (success) {
         const {
             sid,
+            identity,
             email,
             nickname
         } = rs[0];
@@ -142,11 +143,13 @@ router.post('/login-jwt', async (req, res) => {
         output.success = true;
         output.member = {
             sid,
+            identity,
             email,
             nickname
         }
         output.token = await jwt.sign({
             sid,
+            identity,
             email,
             nickname
         }, process.env.JWT_SECRET);

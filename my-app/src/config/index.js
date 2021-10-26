@@ -5,7 +5,7 @@ export const prodUrl = 'http://www.abc.com'
 export const API_HOST = 'http://localhost:3001'
 
 //登入
-export const MemberLogin = API_HOST + '/login'
+export const MemberLogin = API_HOST + '/login-jwt'
 
 //登出
 export const MemberLogout = API_HOST + '/logout'

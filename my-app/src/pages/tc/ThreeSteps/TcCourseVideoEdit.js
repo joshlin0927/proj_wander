@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 // components
@@ -11,6 +11,12 @@ import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThree
 import Footer from '../../../components/Footer'
 
 function TcCourseVideoEdit() {
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+    }
+  })
+
   return (
     <>
       <div className="container mainContent">

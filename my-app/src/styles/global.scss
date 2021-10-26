@@ -92,6 +92,38 @@ a {
   background-color: #f1ef5b;
 }
 
+/*=============== 小按鈕 ===============*/
+
+/* 新增課程(手機板) */
+.TCbtn-sm {
+  display: flex;
+  width: 73px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* 手機板會變小的按鈕(有display變化)  */
+.TCbtn-sm-w-switch {
+  display: flex;
+  width: 73px;
+  height: 30px;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  /* 手機板會變小的按鈕 */
+  .TCbtn-sm {
+    display: flex;
+    width: 115px;
+    height: 40px;
+  }
+
+  /* 手機板會變小的按鈕(有display變化)  */
+  .TCbtn-sm-w-switch {
+    display: none;
+    height: 40px;
+  }
+}
+
 .nav-link {
   padding: 0;
 }

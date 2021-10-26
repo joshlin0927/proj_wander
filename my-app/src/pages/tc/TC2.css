@@ -713,6 +713,7 @@ body {
   /* 手機板會變小的按鈕(有display變化)  */
   .TCbtn-sm-w-switch {
     display: none;
+    height: 40px;
   }
 
   /* 課程欄位列 */
