@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { devUrl } from '../config'
 import { Link } from 'react-router-dom'
+import {
+  DropdownButton,
+  Dropdown,
+  FormControl,
+} from 'react-bootstrap'
+
 function scrollHeader() {
   const header = document.getElementById('nav__header')
   if (this.scrollY >= 1) {
@@ -11,9 +17,13 @@ function scrollHeader() {
 }
 window.addEventListener('scroll', scrollHeader)
 
-function PcNavbar() {
-
-
+function PcNavbar(props) {
+  const { auth, user } = props
+  const [isShow, setIsShow] = useState('NavAvatarMenu')
+  const menuToggle = () => {
+    const memberMenu = document.querySelector('#memberMenu')
+    memberMenu.className = 'd-none'
+  }
   return (
     <>
       <nav className="nav__header" id="nav__header">
@@ -50,9 +60,48 @@ function PcNavbar() {
               </li>
             </ul>
             <div className="col d-flex align-items-center justify-content-around">
-              <Link to="/Login" className="nav_login">
-                <span className="nav_login_txt">登入</span>
-              </Link>
+              {/* {!auth ? (
+                <Link to="/Login" className="nav_login">
+                  <span className="nav_login_txt">
+                    登入
+                  </span>
+                </Link>
+              ) : ( */}
+                <div className="NavAvatar">
+                  <div
+                    className="nav_login"
+                    id="memberAvatar"
+                    onClick={setIsShow(
+                      'NavAvatarMenu' + 'd-none'
+                    )}
+                  >
+                    <img
+                      src={`${devUrl}/images/teacher/Thomas_Lillard.jpg`}
+                      alt=""
+                    />
+                  </div>
+
+                  <div id="memberMenu" className={isShow}>
+                    <div>
+                      <Link href="#">
+                        <span className="mx-0">
+                          會員中心
+                        </span>
+                      </Link>
+                    </div>
+                    <div>
+                      <Link href="#">
+                        <span>常見問題</span>
+                      </Link>
+                    </div>
+                    <div>
+                      <Link href="#">
+                        <span>登出</span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              {/* )} */}
               <Link to="/Cart" className="nav_cart">
                 <img
                   src={`${devUrl}/images/cart/cart_icon.svg`}
