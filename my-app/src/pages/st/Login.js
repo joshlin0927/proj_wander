@@ -1,16 +1,14 @@
 // css
 import '../st/style/login.css'
-import { Redirect, useHistory } from 'react-router'
+import { useHistory } from 'react-router'
 import React, { useState, useRef, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { devUrl, MemberLogin } from '../../config'
 
-import ConfirmMsg from '../../components/ConfirmMsg'
-
 function Login(props) {
   const history = useHistory()
-  const { auth, setAuth } = props
+  const { auth, setAuth, setUser } = props
 
   const formRef = useRef(null)
 
@@ -77,7 +75,7 @@ function Login(props) {
 
     if (data.success === true) {
       setAuth(true)
-      history.push('/')
+      // history.push('/')
     } else {
       setAuth(false)
       if (auth === false) {

@@ -3,7 +3,7 @@ import { devUrl } from '../config'
 import { Link, withRouter } from 'react-router-dom'
 
 function MobileNavbar(props) {
-  const { auth, setAuth } = props
+  const { auth, user } = props
 
   useEffect(() => {
     const path = props.location.pathname.toString()
@@ -72,18 +72,34 @@ function MobileNavbar(props) {
             />
             <span>我的課程</span>
           </Link>
-          <Link
-            to="/TCIndex"
-            className="mobile-nav-item active col-2"
-            id="mNavTC"
-          >
-            <img
-              src={`${devUrl}/images/mobile-nav-alter/nav-icon-member.svg`}
-              alt=""
-              className="mobile-nav-icon"
-            />
-            <span>會員中心</span>
-          </Link>
+
+          {!auth ? (
+            <Link
+              to="/Login"
+              className="mobile-nav-item active col-2"
+              id="mNavTC"
+            >
+              <img
+                src={`${devUrl}/images/mobile-nav-alter/nav-icon-member.svg`}
+                alt=""
+                className="mobile-nav-icon"
+              />
+              <span>會員中心</span>
+            </Link>
+          ) : (
+            <Link
+              to="/TCIndex"
+              className="mobile-nav-item active col-2"
+              id="mNavTC"
+            >
+              <img
+                src={`${devUrl}/images/mobile-nav-alter/nav-icon-member.svg`}
+                alt=""
+                className="mobile-nav-icon"
+              />
+              <span>會員中心</span>
+            </Link>
+          )}
         </div>
       </div>
     </>
