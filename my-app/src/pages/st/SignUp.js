@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 //共用元件
 // import FBLogin from '../../components/st/FBLogin'
-import GooLogin from '../../components/st/GooLogin'
+// import GooLogin from '../../components/st/GooLogin'
 
 export default withRouter(function SignUp(props) {
   const [asTeacherOrStudent, setasTeacherOrStudent] =
@@ -212,7 +212,7 @@ export default withRouter(function SignUp(props) {
                 <div className="d-flex justify-content-center">
                   <input
                     type="text"
-                    className="shortInputs  col-5"
+                    className="shortInputs  col-4"
                     placeholder="名字*"
                     name="firstname"
                     value={fields.firstname}
@@ -221,7 +221,7 @@ export default withRouter(function SignUp(props) {
                   />
                   <input
                     type="text"
-                    className="shortInputs  col-5 lastName"
+                    className="shortInputs  col-4 lastName"
                     placeholder="姓氏*"
                     name="lastname"
                     value={fields.lastname}
@@ -253,7 +253,7 @@ export default withRouter(function SignUp(props) {
                   <input
                     type="email"
                     name="email"
-                    className="allInputs-login   col-10"
+                    className="allInputs-login col-8"
                     placeholder="請填寫電子信箱"
                     value={fields.email}
                     onChange={handleFieldChange}
@@ -273,7 +273,7 @@ export default withRouter(function SignUp(props) {
                   <input
                     type="password"
                     name="password"
-                    className="allInputs-login   col-10"
+                    className="allInputs-login col-8"
                     placeholder="請輸入密碼*"
                     value={fields.password}
                     onChange={handleFieldChange}
@@ -289,7 +289,7 @@ export default withRouter(function SignUp(props) {
                   </label>
                 ) : (
                   <label
-                    className="notice col-10 ml-3 ml-md-2 ml-lg-4 labelName"
+                    className="notice col-8 ml-3 ml-md-2 ml-lg-4 labelName"
                     htmlFor=""
                   >
                     {fieldsErrors.password}
@@ -300,18 +300,18 @@ export default withRouter(function SignUp(props) {
                   <input
                     type="text"
                     name="nickname"
-                    className="allInputs-login  col-10"
+                    className="allInputs-login  col-8"
                     placeholder="請填寫暱稱"
                     value={fields.nickname}
                     onChange={handleFieldChange}
                   />
                 </div>
-                <div className="separator col-10 mx-auto">
+                <div className="separator col-8 mx-auto">
                   <div className="or">OR</div>
                 </div>
                 <div className="d-flex d-md-block">
                   {/* <FBLogin /> */}
-                  <GooLogin />
+                  {/* <GooLogin /> */}
                 </div>
                 <div>
                   <button className="signUpBtn-m mx-auto col-10 ">

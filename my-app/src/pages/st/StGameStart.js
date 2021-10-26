@@ -78,6 +78,7 @@ function StGameStart(props) {
       <div className="dec-side col-md-6 col-lg-6">
         <div className="dec-insideblock col-md-9 col-lg-8"></div>
       </div>
+      <div className="bg"> </div>
       <Footer />
     </>
   )

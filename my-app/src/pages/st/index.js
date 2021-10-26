@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 //引用頁面
 import StProfile from './StProfile'
 import StPasswordModify from './StPasswordModify'
-// import StStartMyCourse from './StStartMyCourse'
+import StStartMyCourse from './StStartMyCourse'
 import StSelectLanguage from './StSelectLanguage'
 import StGameStart from './StGameStart'
 import StGaming from './StGaming'
@@ -27,7 +27,7 @@ function index() {
         </Route>
 
         <Route exact path="/StIndex/StStartMyCourse">
-          {/* <StStartMyCourse /> */}
+          <StStartMyCourse />
         </Route>
         <Route exact path="/StIndex/StSelectLanguage">
           <StSelectLanguage />
