@@ -3,22 +3,14 @@ import React, { useState, useRef } from 'react'
 import { devUrl } from '../../config'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 //共用元件
 // import FBLogin from '../../components/st/FBLogin'
 import GooLogin from '../../components/st/GooLogin'
 
 export default withRouter(function SignUp(props) {
-  //切換身份鈕功能
-  const mySwitch = document.querySelector('#mySwitch')
-  const signUpBtn_m = document.querySelector('.signUpBtn-m')
-
-  const identity = () => {
-    if (mySwitch.checked === true) {
-      signUpBtn_m.textContent = '學生註冊'
-    } else {
-      signUpBtn_m.textContent = '教師註冊'
-    }
-  }
+  const [asTeacherOrStudent, setasTeacherOrStudent] =
+    useState(0)
 
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
@@ -113,14 +105,16 @@ export default withRouter(function SignUp(props) {
       fields.email !== '' &&
       fields.password !== ''
     ) {
-      axios.post('http://localhost:3001/SignUp', {
+      axios
+        .post('http://localhost:3001/SignUp', {
           lastname: fields.lastname,
           firstname: fields.firstname,
           email: fields.email,
           password: fields.password,
+          identity: asTeacherOrStudent,
         })
         .then((res) => {
-          console.log('success')
+          alert('恭喜成為Wander會員')
           props.history.push('/login')
         })
         .catch((e) => {
@@ -145,14 +139,22 @@ export default withRouter(function SignUp(props) {
             </div>
           </div>
           <div className="row m-wrap">
-            <div className="back">Back</div>
+            <Link to="/">
+              <div className="back">Back</div>
+            </Link>
           </div>
           <div className="row m-wrap justify-content-end col-11">
             <label className="toggle">
               <input
                 type="checkbox"
                 id="mySwitch"
-                onClick={identity}
+                onChange={(e) => {
+                  setasTeacherOrStudent(+!e.target.checked)
+                  console.log(+!e.target.checked)
+
+                  //測試將布林值轉為數字
+                  // console.log(+e.target.checked)
+                }}
               />
               <span className="slider round switch">
                 學生 教師
@@ -162,33 +164,6 @@ export default withRouter(function SignUp(props) {
 
           <div className="row d-flex justify-content-center">
             <div className="signUp col-12 col-md-6 col-lg-6">
-              <div className="tab_css">
-                {/* <!--TAB1--> */}
-                <input
-                  id="tab1"
-                  type="radio"
-                  name="tab"
-                  checked="checked"
-                />
-                <label for="tab1" id="asTeacher">
-                  成為教師
-                </label>
-                <div className="tab_content">
-                  <div className="title">
-                    Wander With Us!
-                  </div>
-                </div>
-                {/* <!-- TAB2 --> */}
-                <input id="tab2" type="radio" name="tab" />
-                <label for="tab2" id="asStudent">
-                  成為學生
-                </label>
-                <div className="tab_content">
-                  <div className="title">
-                    Wander With Us!
-                  </div>
-                </div>
-              </div>
               <form
                 className="form-sm"
                 ref={formRef}
@@ -196,6 +171,44 @@ export default withRouter(function SignUp(props) {
                 onChange={handleFormChange}
                 onInvalid={handleFormInvalid}
               >
+                <div className="tab_css">
+                  {/* <!--TAB1--> */}
+                  <input
+                    id="tab1"
+                    type="radio"
+                    name="tab"
+                    value="1"
+                    onChange={(e) => {
+                      setasTeacherOrStudent(e.target.value)
+                    }}
+                  />
+                  <label for="tab1" id="asTeacher">
+                    成為教師
+                  </label>
+                  <div className="tab_content">
+                    <div className="title">
+                      Wander With Us!
+                    </div>
+                  </div>
+                  {/* <!-- TAB2 --> */}
+                  <input
+                    id="tab2"
+                    type="radio"
+                    name="tab"
+                    value="0"
+                    onChange={(e) => {
+                      setasTeacherOrStudent(e.target.value)
+                    }}
+                  />
+                  <label for="tab2" id="asStudent">
+                    成為學生
+                  </label>
+                  <div className="tab_content">
+                    <div className="title">
+                      Wander With Us!
+                    </div>
+                  </div>
+                </div>
                 <div className="d-flex justify-content-center">
                   <input
                     type="text"
@@ -302,7 +315,7 @@ export default withRouter(function SignUp(props) {
                 </div>
                 <div>
                   <button className="signUpBtn-m mx-auto col-10 ">
-                    教師註冊
+                    註冊
                   </button>
                   <button className="signUpBtn col-12 mx-auto">
                     註冊
