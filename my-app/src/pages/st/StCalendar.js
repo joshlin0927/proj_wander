@@ -180,17 +180,8 @@ export default function StCalendar() {
             </div>
           </div>
         </div>
-        {/* <div class="leftarr">
-          <Link to="">
-            <i class="fal fa-arrow-left"> </i>
-          </Link>
-        </div>
-        <div class="rightarr">
-          <Link to="">
-            <i class="fal fa-arrow-right"> </i>
-          </Link>
-        </div> */}
       </div>
+      <div className="bgicalendar"></div>
       <Footer />
     </>
   )

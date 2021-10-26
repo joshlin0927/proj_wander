@@ -17,6 +17,22 @@
   padding: 0px 0px 15px;
 }
 
+.Calendarallwraper {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url('http://localhost:3000/images/pic/課程圖片/英文課程2.jpg');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* 透明度0.6的黑色半透明遮罩 */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* 設置背景混和模式為相乘模式 */
+  background-blend-mode: multiply;
+}
+
 /* 教師頁面返回按鈕 */
 .TCback-btn {
   padding: 0px 15px;
@@ -138,6 +154,22 @@
   background-color: white;
 }
 
+.bgicalendar {
+  z-index: -2;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url('http://localhost:3000/images/pic/背景圖素材/AdobeStock_367262423.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* 設置背景混和模式為相乘模式 */
+  background-blend-mode: multiply;
+  z-index: -3;
+}
+
 /* -------------以上為公用------------ */
 
 @media (min-width: 768px) {
@@ -215,6 +247,7 @@
     background-color: white;
     display: flex;
     justify-content: center;
+    z-index: -1;
   }
 
   .month,
@@ -307,6 +340,7 @@
   }
 
   .schedulecoursesection {
+    width: 100%;
     display: flex;
     justify-content: center;
     position: absolute;

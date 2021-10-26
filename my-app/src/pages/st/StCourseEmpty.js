@@ -41,6 +41,7 @@ export default function StCourseEmpty() {
         </div>
         <div className="btblock"> </div>
       </div>
+      <div className="bg"> </div>
       <Footer />
     </>
   )
