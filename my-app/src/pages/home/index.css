@@ -840,7 +840,7 @@ color: #FFFFFF;
 
       .popular-card-but{
         position: absolute;
-        left:370px;
+        left:800px;
         /* top: 4200px; */
       z-index: 3;
       }
@@ -859,6 +859,23 @@ color: #FFFFFF;
       }
       
       .checkoutBtn:hover {
+        color: #065f8e;
+        background-color: #ffffff;
+        border: 2px solid #065f8e;
+      }
+
+        .checkoutBtn-a{
+        position: absolute;
+        width: 30%;
+        font-size: 1.2rem;
+        height: 50px;
+        color: #ffffff;
+        background-color: #065f8e;
+        margin: 0;
+      }
+
+
+      .checkoutBtn-a:hover {
         color: #065f8e;
         background-color: #ffffff;
         border: 2px solid #065f8e;

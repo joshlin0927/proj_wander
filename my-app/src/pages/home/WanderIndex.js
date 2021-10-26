@@ -329,7 +329,7 @@ function WanderIndex() {
             <div className="row w-100 m-0">
               <div className="col-md-12 offset-md-0 ">
                 <div className="card-a">
-                  <div className="yellow-area-but-1 ">
+                  <div className="yellow-area-but-1 offset-1">
                     <button className="btn checkoutBtn-y">
                       我是老師
                     </button>
@@ -403,7 +403,7 @@ function WanderIndex() {
         </div>
         <div className="indexBigImg19 ">
           <div className="popular-card-but">
-            <button className="btn checkoutBtn">
+            <button className="btn checkoutBtn-a">
               更多文章
             </button>
           </div>
@@ -466,7 +466,7 @@ function WanderIndex() {
                         />
                         <div>
                           <h6>王大雄</h6>
-                          <p class="recommend-text">
+                          <p className="recommend-text">
                             XXX老師的初階英語
                           </p>
                         </div>
