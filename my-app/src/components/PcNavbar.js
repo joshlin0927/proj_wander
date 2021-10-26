@@ -12,8 +12,6 @@ function scrollHeader() {
 window.addEventListener('scroll', scrollHeader)
 
 function PcNavbar() {
-
-
   return (
     <>
       <nav className="nav__header" id="nav__header">
@@ -39,7 +37,7 @@ function PcNavbar() {
                 </Link>
               </li>
               <li>
-                <Link to="#/">
+                <Link to="/StIndex/StCourse">
                   <span className="nav__en">我的課程</span>
                 </Link>
               </li>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './style/gamestart.css'
-import { devUrl } from '../../config'
+import { devUrl, SentenceGame_LIST } from '../../config'
 import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 
@@ -16,7 +16,7 @@ function StGameStart(props) {
     const easi = data.easiness
     ;(async () => {
       let r = await axios.get(
-        `http://localhost:3001/sentence-game/api/list?language=${lang}&easiness=${easi}`
+        `${SentenceGame_LIST}?language=${lang}&easiness=${easi}`
       )
       console.log(r)
       if (r.status === 200) {

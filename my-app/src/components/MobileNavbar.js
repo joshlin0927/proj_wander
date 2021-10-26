@@ -59,7 +59,7 @@ function MobileNavbar(props) {
             <span>聊天室</span>
           </Link>
           <Link
-            to="#/"
+            to="/StIndex/StCourse"
             className="mobile-nav-item col-2"
             id="mNavMy"
           >

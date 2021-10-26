@@ -50,7 +50,7 @@ function index() {
         <Route exact path="/StIndex/StClassroom/:id?">
           <StClassroom />
         </Route>
-        <Route exact path="/StIndex/StOrder">
+        <Route exact path="/StIndex/StOrder/:id?">
           <StOrder />
         </Route>
       </Switch>
