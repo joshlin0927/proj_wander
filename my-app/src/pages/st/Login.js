@@ -1,16 +1,14 @@
+// css
+import '../st/style/login.css'
+import { useHistory } from 'react-router'
 import React, { useState, useRef, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
-import UserDataService from '../../services/UserDataService'
-
-import { devUrl } from '../../config'
-
-import '../st/style/login.css'
+import { devUrl, MemberLogin } from '../../config'
 
 function Login(props) {
-  // console.log(props)
-  const { auth, setAuth } = props
+  const history = useHistory()
+  const { auth, setAuth, setUser } = props
 
   const formRef = useRef(null)
 
@@ -52,19 +50,8 @@ function Login(props) {
     setFieldErrors(updatedFieldErrors)
   }
 
-  const login = async () => {
-    const fd = new FormData(document.form_login)
-    const r = await fetch(UserDataService.login, {
-      method: 'POST',
-      body: fd,
-    })
-    const j = await r.json()
-
-    console.log(r)
-  }
-
   // 在 表單完成驗証 之後，才會觸發
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // 阻擋form的預設送出行為
     e.preventDefault()
 
@@ -74,7 +61,32 @@ function Login(props) {
     console.log(formData.get('email'))
     console.log(formData.get('password'))
 
-    // ex. 以下用fetch api/axios送到伺服器
+    const usp = new URLSearchParams(new FormData(e.target))
+    const r = await fetch(MemberLogin, {
+      method: 'POST',
+      body: usp.toString(),
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
+    const data = await r.json()
+
+    console.log(data)
+
+    if (data.success === true) {
+      setAuth(true)
+      // history.push('/')
+    } else {
+      setAuth(false)
+      if (auth === false) {
+        const updatedFieldErrors = {
+          ...fieldErrors,
+          email: '帳號或密碼錯誤',
+          password: '帳號或密碼錯誤',
+        }
+        setFieldErrors(updatedFieldErrors)
+      }
+    }
   }
 
   // 當表單有檢查有不合法出現時觸發
@@ -134,9 +146,11 @@ function Login(props) {
             </div>
           </div>
           <div className="row m-wrap">
-            <div className="back">
-              <Link to="/">Back </Link>
-            </div>
+            <Link to="/">
+              <div className="back">
+                <span>Back</span>
+              </div>
+            </Link>
           </div>
           <div className="h95"> </div>
           <div className="login col-md-6">
@@ -147,14 +161,13 @@ function Login(props) {
               onChange={handleFormChange}
               onInvalid={handleFormInvalid}
               ref={formRef}
-              onSubmit={(e) => e.preventDefault()}
             >
               <div className="title"> Welcome Back! </div>
               <div className="d-flex justify-content-center">
                 <input
                   type="email"
                   name="email"
-                  className="allInputs col-10"
+                  className="allInputs  col-10"
                   placeholder="請填寫電子信箱"
                   title="電子信箱地址必須要有「@」"
                   value={fields.email}
@@ -181,7 +194,7 @@ function Login(props) {
                 <input
                   type="password"
                   name="password"
-                  className="allInputs col-10"
+                  className="allInputs   col-10"
                   placeholder="密碼*"
                   value={fields.password}
                   onChange={handleFieldChange}
@@ -208,7 +221,6 @@ function Login(props) {
                 <button
                   type="submit"
                   className="signUpBtn-m mx-auto col-10"
-                  onClick={login}
                 >
                   登入
                 </button>
