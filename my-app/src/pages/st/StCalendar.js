@@ -98,12 +98,12 @@ export default function StCalendar() {
         <div className="minicalendar col-12">
           <div className="year_month-m">
             <Link href="">
-              <i className="fas fa-chevron-left"></i>
+              <i className="miniarrowleft fas fa-chevron-left"></i>
             </Link>
             <span> December</span>
             <span>2021 </span>
             <Link href="">
-              <i className="fas fa-chevron-right"></i>
+              <i className="miniarowright fas fa-chevron-right"></i>
             </Link>
           </div>
           <table className="minitable table table-responsive ">

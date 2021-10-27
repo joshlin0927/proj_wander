@@ -137,13 +137,13 @@
   color: black;
 }
 
-.fa-chevron-left {
+.miniarrowleft {
   margin-right: 25px;
 }
-
-.fa-chevron-right {
+.miniarrowright{
   margin-left: 25px;
 }
+
 
 .weekday-m,
 .firstweek-m,
@@ -173,6 +173,7 @@
 /* -------------以上為公用------------ */
 
 @media (min-width: 768px) {
+
   /* 右上角白圈 */
   .whitecircle {
     position: absolute;

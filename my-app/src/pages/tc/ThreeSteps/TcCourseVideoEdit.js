@@ -12,16 +12,22 @@ import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThree
 import Footer from '../../../components/Footer'
 
 function TcCourseVideoEdit() {
-  const [searchWord, setSearchWord] = useState('')
+  //判斷是否登入並為教師身分
   const history = useHistory()
   useEffect(() => {
     const token = localStorage.getItem('token')
+    const member = localStorage.getItem('member')
+
     if (!token) {
+      history.push('/')
+    } else if (member.identity !== 1) {
       history.push('/')
     } else {
       return
     }
   })
+  //搜尋列
+  const [searchWord, setSearchWord] = useState('')
 
   return (
     <>
