@@ -45,10 +45,10 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  color:black;
+  color: black;
 }
-.cartBackStep:hover{
-  color:#065f8e;
+.cartBackStep:hover {
+  color: #065f8e;
 }
 @media (max-width: 992px) {
   .cartQuality {
@@ -112,7 +112,7 @@
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .cartItemImage {
-  background: url("http://localhost:3000/images/cart/jp_course.jpg");
+  background: url('http://localhost:3000/images/cart/jp_course.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -348,7 +348,7 @@
   border-bottom: 2px solid black;
 }
 @media (max-width: 992px) {
-  .checkoutTitle{
+  .checkoutTitle {
     font-size: 1rem;
   }
 }
@@ -391,7 +391,7 @@
   position: absolute;
   bottom: 0px;
   left: 0;
-  content: "";
+  content: '';
   width: 100%;
   height: 2px;
   background: #065f8e;
@@ -409,7 +409,7 @@
   justify-content: center;
   display: flex;
 }
-.checkoutBtn {
+.cartCheckoutBtn {
   width: 60%;
   font-size: 1.2rem;
   height: 50px;
@@ -419,7 +419,7 @@
   margin: 0;
   min-width: 105px;
 }
-.editCheckBtn{
+.editCheckBtn {
   position: absolute;
   right: 5px;
   bottom: 5px;
@@ -430,19 +430,20 @@
   border: 2px solid #065f8e;
 }
 @media (max-width: 992px) {
-  .editCheckBtn{
+  .editCheckBtn {
     width: 40px;
     height: 20px;
     padding: 0;
     font-size: 0.8rem;
   }
 }
-.checkoutBtn:hover, .editCheckBtn:hover {
+.cartCheckoutBtn:hover,
+.editCheckBtn:hover {
   color: #ffffff;
   background-color: #065f8e;
   border: 2px solid #065f8e;
 }
-.editCheckList{
+.editCheckList {
   border-bottom: 2px solid black;
   height: 200px;
   overflow: scroll;
@@ -501,7 +502,7 @@
     border-top: 1px solid black;
     z-index: 5;
   }
-  .checkoutBtn {
+  .cartCheckoutBtn {
     min-width: 85px;
     width: 30%;
     border-radius: 0;
@@ -539,7 +540,7 @@
   font-size: 2rem;
 }
 #counponModal .modal-content {
-  background-color: #F1F0E9;
+  background-color: #f1f0e9;
 }
 .modal-body-title {
   background-color: rgba(255, 255, 255, 0.6);
@@ -614,34 +615,34 @@
 }
 
 /*============= payment =============*/
-.payMethod{
+.payMethod {
   background-color: #fff;
   margin-top: 2rem;
   padding: 1rem;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.payTitle{
+.payTitle {
   border-bottom: 2px solid black;
   position: relative;
 }
-.payTitle span{
+.payTitle span {
   font-size: 1.5rem;
   font-weight: bold;
 }
-.payMethodSelectInfo{
+.payMethodSelectInfo {
   display: inline-block;
 }
-.payMethodSelectInfo img{
+.payMethodSelectInfo img {
   padding: 0.3rem 2%;
   /* min-width: 70px; */
 }
-.payMethodSelectInfo span{
+.payMethodSelectInfo span {
   font-size: 0.8rem;
 }
-.payInfoInput{
+.payInfoInput {
   padding: 0;
 }
-.payInfo{
+.payInfo {
   position: relative;
   background-color: #fff;
   margin-top: 2rem;
@@ -649,13 +650,13 @@
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.inputCategory{
+.inputCategory {
   min-width: 80px;
   padding: 0.5rem 0;
   margin: 0;
   text-align: right;
 }
-.fourLengthInput{
+.fourLengthInput {
   padding: 0.5rem;
   width: 12%;
   min-width: 55px;
@@ -666,7 +667,7 @@
   text-align: center;
   border: 2px solid black;
 }
-.longLengthInput{
+.longLengthInput {
   padding: 0.5rem;
   width: 25%;
   height: 35px;
@@ -678,96 +679,95 @@
 }
 
 @media (max-width: 992px) {
-  .inputCategory{
+  .inputCategory {
     width: 100%;
     text-align: left;
   }
-  .fourLengthInput{
+  .fourLengthInput {
     margin: 0 2px;
   }
-  .payInfoInput{
+  .payInfoInput {
     padding: 0 15px;
   }
 }
 @media (max-width: 767px) {
-
 }
 
 /*============= confirm check modal =============*/
-#confirmCheckModal .modal-content{
-  background-color: #F1F0E9;
+#confirmCheckModal .modal-content {
+  background-color: #f1f0e9;
 }
-#confirmCheckModal .modal-title{
+#confirmCheckModal .modal-title {
   color: #065f8e;
   font-weight: bold;
   font-size: 2rem;
 }
-#confirmCheckModal .modal-body span{
+#confirmCheckModal .modal-body span {
   color: #065f8e;
   font-weight: bold;
   font-size: 1.5rem;
 }
 
 /*============= finish order =============*/
-.finishContent{
+.finishContent {
   margin: 1rem 0;
   padding-left: 10%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.finishContentRow{
+.finishContentRow {
   position: relative;
   margin-top: 1rem;
   width: 100%;
 }
-.finishContentRow span{
+.finishContentRow span {
   font-size: 1.2rem;
   font-weight: normal;
 }
-#payTimeDL{
+#payTimeDL {
   position: absolute;
   left: 0;
   bottom: -70%;
   color: red;
   font-size: 0.8rem;
 }
-.orderContent{
+.orderContent {
   margin: 1rem 0;
   padding-left: 10%;
   display: flex;
   flex-wrap: wrap;
 }
-.orderContentRow{
+.orderContentRow {
   padding: 0;
   margin-top: 1rem;
 }
-.orderContentRow span{
+.orderContentRow span {
   font-size: 1.2rem;
 }
-.orderDetail{
+.orderDetail {
   margin: 1rem 0;
   padding: 0 10%;
   display: flex;
   flex-wrap: wrap;
 }
-.orderDetailContent{
+.orderDetailContent {
   background-color: rgba(198, 195, 180, 0.5);
   display: flex;
   flex-wrap: wrap;
   padding: 1rem;
 }
-.orderDetailTitle{
+.orderDetailTitle {
   display: flex;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.orderDetailTitle span{
+.orderDetailTitle span {
   font-size: 1.2rem;
   text-align: center;
   font-weight: bold;
 }
-.orderDetailItem{
+.orderDetailItem {
   display: flex;
   border-radius: 10px;
   background-color: #fff;
@@ -775,40 +775,40 @@
   margin-bottom: 0.5rem;
   align-items: center;
 }
-.orderDetailItemTxt span{
+.orderDetailItemTxt span {
   text-align: center;
   font-size: 1.2rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.orderDetailItemImg{
+.orderDetailItemImg {
   padding: 1rem;
 }
-.orderDetailItemTxt{
+.orderDetailItemTxt {
   display: flex;
   padding: 0;
   align-items: center;
 }
 @media (max-width: 992px) {
-  .orderDetail{
+  .orderDetail {
     padding: 0;
   }
-  .orderDetailTitle{
+  .orderDetailTitle {
     display: none;
   }
-  .orderDetailItemTxt{
+  .orderDetailItemTxt {
     flex-direction: column;
     padding: 0.5rem;
   }
-  .orderDetailItemTxt span{
+  .orderDetailItemTxt span {
     padding: 0;
     text-align: left;
   }
-  .orderDetailItemImg{
+  .orderDetailItemImg {
     padding: 0.5rem;
   }
 }
-.orderGoBtn{
+.orderGoBtn {
   color: #065f8e;
   font-weight: bold;
   border: 2px solid #065f8e;
@@ -818,35 +818,35 @@
   right: 0;
   bottom: 5px;
 }
-.orderGoBtn span{
+.orderGoBtn span {
   font-size: 1rem;
   margin-left: 5px;
 }
-.orderGoBtn:hover{
+.orderGoBtn:hover {
   background-color: #065f8e;
   color: white;
 }
 @media (max-width: 767px) {
-  .orderGoBtn{
-      width: 120px;
-      height: 22px;
-      padding: 0;
-      right: 0;
-      bottom: 3px;
+  .orderGoBtn {
+    width: 120px;
+    height: 22px;
+    padding: 0;
+    right: 0;
+    bottom: 3px;
   }
-  .orderGoBtn{
+  .orderGoBtn {
     font-size: 10px;
   }
 }
 
 /*============= creditCard =============*/
-.creditCard{
+.creditCard {
   position: absolute;
   bottom: 2.5rem;
   right: 2rem;
 }
 @media (max-width: 1440px) {
-  .creditCard{
+  .creditCard {
     display: none;
   }
 }
@@ -920,15 +920,15 @@
   height: 31px;
   left: 16px;
   top: 90px;
-  background: #C4C4C4;
+  background: #c4c4c4;
 }
-.credit-CVC{
+.credit-CVC {
   position: absolute;
   width: 49px;
   height: 31px;
   left: 137px;
   top: 90px;
-  background: #F0F0F0;
+  background: #f0f0f0;
   text-align: center;
   line-height: 31px;
   font-weight: bold;
@@ -940,7 +940,7 @@
   height: 5px;
   left: 16px;
   top: 140px;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 .credit-whitebar2 {
   position: absolute;
@@ -948,7 +948,7 @@
   height: 5px;
   left: 16px;
   top: 155px;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 .credit-whitebar3 {
   position: absolute;
@@ -956,7 +956,7 @@
   height: 5px;
   left: 149px;
   top: 155px;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 .credit-whitebar4 {
   position: absolute;
@@ -965,7 +965,7 @@
   left: 233px;
   top: 164px;
   border-radius: 5px;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 /*============= 效果模組 =============*/
@@ -994,6 +994,6 @@
 .bd-white {
   border-color: #ffffff;
 }
-.mb-footer{
+.mb-footer {
   margin-bottom: 150px;
 }

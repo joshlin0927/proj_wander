@@ -380,7 +380,7 @@ function WanderIndex() {
             <div className="row col-12 justify-content-center d-flex">
               <div className="coursesection col-md-12 col-lg-12">
                 <div className="articleitem">
-                <img
+                  <img
                     src={`${devUrl}/images/index/06.png`}
                     alt=""
                   />

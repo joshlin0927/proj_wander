@@ -220,7 +220,7 @@ function CartStep02(props) {
                 </span>
               </div>
               <button
-                className="btn checkoutBtn"
+                className="btn cartCheckoutBtn"
                 data-toggle="modal"
                 data-target="#checkModal"
                 onClick={handleCheckModalShow}
@@ -252,6 +252,7 @@ function CartStep02(props) {
             className="btn confirmBtn"
             id="checkBtn"
             onClick={() => {
+              console.log(props)
               props.history.push('/Cart/Step03')
             }}
           >

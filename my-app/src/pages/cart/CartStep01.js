@@ -317,7 +317,7 @@ function CartStep01(props) {
                 </span>
               </div>
               <button
-                className="btn checkoutBtn"
+                className="btn cartCheckoutBtn"
                 onClick={() => {
                   props.history.push('/Cart/Step02')
                 }}
