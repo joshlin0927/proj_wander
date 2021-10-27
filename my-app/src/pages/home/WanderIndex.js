@@ -271,7 +271,7 @@ function WanderIndex() {
             <div className="mobile-card">
               <div className="row col-12 offset-0 p-0">
                 <div className="imge-12-Text abc">
-                  <span>快加入我1們吧!!</span>
+                  <span>快加入我們吧!!</span>
                 </div>
               </div>
               <div className="row imge-12-Text-a offset-1 bcd">
@@ -316,7 +316,7 @@ function WanderIndex() {
           <div className="row col-12 offset-0 p-0">
             <div className="imge-2-Text offset-1">
               <div className="top-a">
-                <span>快加入2我們吧!!</span>
+                <span>快加入我們吧!!</span>
               </div>
             </div>
             <div className="imge-3-Text  offset-0">
