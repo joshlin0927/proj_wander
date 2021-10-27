@@ -27,15 +27,12 @@ function TcProfile(props) {
     } else {
       ;(async () => {
         const sid = JSON.parse(member).sid
-        const r = await fetch(`${MemberEdit}sid=${sid}`, {
-          method: 'GET',
-        })
+        let r = await axios.get(`${MemberEdit}${sid}`)
+        console.log(r.data[0][0])
+        setFields(r.data[0][0])
       })()
     }
   }, [])
-
-  const test = `${MemberEdit}=${JSON.parse(member).sid}`
-  console.log(test)
 
   // 課程陣列排出
   let [data, setData] = useState({})
