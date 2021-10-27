@@ -18,7 +18,7 @@ function index() {
   return (
     <>
       <Switch>
-        <Route path="/StIndex/StProfile/:id?">
+        <Route path="/StIndex/StProfile/:sid?">
           <StProfile />
         </Route>
 

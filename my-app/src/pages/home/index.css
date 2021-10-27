@@ -451,7 +451,7 @@
 }
 
 .checkoutBtn-y {
-  width: 60%;
+  /* width: 60%; */
   font-size: 1.2rem;
   height: 50px;
   color: #065f8e;
@@ -515,27 +515,35 @@
   /* left: 335px; */
   top: 325px;
   z-index: 3;
-  width: 60%;
+  width: 400px;
 
-  /* width: 1000px; */
 }
 
-.yellow-area-but-1 button {
+/* .yellow-area-but-1 button {
   width: 500px;
-}
+} */
 
 .yellow-area-but-2 {
   position: absolute;
-  /* left: 900px;  */
+  /* left: 335px; */
+  top: 325px;
+  z-index: 3;
+  width:400px;
+
+}
+
+/* .yellow-area-but-2 {
+  position: absolute;
+  left: 900px; 
   top: 325px;
   z-index: 3;
   width: 1000px;
-  /* width: 1000px; */
-}
+  width: 1000px;
+} */
 
-.yellow-area-but-2 button {
+/* .yellow-area-but-2 button {
   width: 500px;
-}
+} */
 
 .checkoutBtn-y {
   width: 30%;
@@ -635,6 +643,7 @@
   text-align: center;
   font-size: 1.75rem;
   margin-bottom: 30px;
+  right: 50px;
 }
 
 .section-title-span1 {
@@ -777,13 +786,14 @@ li {
 
 .popular-card-but {
   position: absolute;
-  left: 800px;
-  /* top: 4200px; */
+  left: 60px;
+   /* top: 4200px;  */
   z-index: 3;
 }
-.popular-card-but button {
+
+/* .popular-card-but button {
   width: 500px;
-}
+} */
 
 .checkoutBtn {
   position: absolute;
@@ -801,9 +811,9 @@ li {
   border: 2px solid #065f8e;
 }
 
-.checkoutBtn-a {
+.a-checkoutBtn-a {
   position: absolute;
-  width: 30%;
+   width: 20%; 
   font-size: 1.2rem;
   height: 50px;
   color: #ffffff;
@@ -811,7 +821,7 @@ li {
   margin: 0;
 }
 
-.checkoutBtn-a:hover {
+.a-checkoutBtn-a:hover {
   color: #065f8e;
   background-color: #ffffff;
   border: 2px solid #065f8e;
@@ -1119,7 +1129,7 @@ li {
     width: 30%;
     left: 120px;
     font-size: 1.2rem;
-    height: 50px;
+    height: 51px;
     color: #ffffff;
     background-color: #065f8e;
     margin: 0;

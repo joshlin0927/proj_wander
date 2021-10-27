@@ -16,11 +16,10 @@ export default function StStartMyCourse() {
           </div>
           <div>
             <div className="h30"></div>
-            <div className="gamestart col-md-2 col-lg-2 ml-auto">
+            <div className="mylanguage col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10">
               <div className="dot"> </div>
               開始課程
             </div>
-           
           </div>
         </div>
       </div>

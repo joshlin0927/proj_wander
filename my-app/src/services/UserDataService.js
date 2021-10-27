@@ -14,8 +14,8 @@ class UserDataService {
     return http.get('/users')
   }
 
-  getById(id) {
-    return http.get(`/users/${id}`)
+  getById(userId) {
+    return http.get(`/stprofile/${userId}`)
   }
 
   uploadAvatar(data) {

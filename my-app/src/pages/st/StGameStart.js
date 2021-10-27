@@ -18,7 +18,8 @@ function StGameStart(props) {
       let r = await axios.get(
         `${SentenceGame_LIST}?language=${lang}&easiness=${easi}`
       )
-      console.log(r)
+      console.log('lang/easi:', lang, '/', easi)
+      console.log('rows:', r.data.rows)
       if (r.status === 200) {
         setDataArr(r.data.rows)
       }
@@ -29,12 +30,12 @@ function StGameStart(props) {
     <>
       <div className="mainContent mhhundred">
         <div className="container">
-          <div className="row mb-5">
+          <div className="row">
             <MultiLevelBreadCrumb />
           </div>
-          <div className="row">
+          <div className="row flex-column">
             <div
-              className="mylanguage col-md-2 col-lg-2 ml-auto"
+              className="mylanguage col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10"
               onClick={() => {
                 setData({
                   language: 'English',
@@ -43,11 +44,11 @@ function StGameStart(props) {
               }}
             >
               <div className="dot"> </div>
-              西班牙文
+              <span> 英文 </span>
             </div>
             <br />
             <div
-              className="gamestart col-md-2 col-lg-2 ml-auto"
+              className="gamestart col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10"
               onClick={() => {
                 localStorage.clear()
                 console.log(dataArr)
@@ -64,7 +65,7 @@ function StGameStart(props) {
               }}
             >
               <div className="dot"> </div>
-              <span> 課程測驗 </span>
+              <span> 開始測驗 </span>
               <div className="gamestartHoverDot">
                 <img
                   src={`${devUrl}/images/gaming/game_entrance.png`}
@@ -75,8 +76,8 @@ function StGameStart(props) {
           </div>
         </div>
       </div>
-      <div className="dec-side col-md-6 col-lg-6">
-        <div className="dec-insideblock col-md-9 col-lg-8"></div>
+      <div className="dec-side col-md-6 col-lg-6 ">
+        <div className="dec-insideblock col-10 col-md-9 col-lg-8"></div>
       </div>
       <div className="bg"> </div>
       <Footer />

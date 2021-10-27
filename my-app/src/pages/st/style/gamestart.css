@@ -1,7 +1,6 @@
-.bread>ol {
+.bread > ol {
   list-style-type: none;
 }
-
 
 /* .mainpic {
   padding: 0;
@@ -13,8 +12,8 @@
   display: none;
 } */
 
-.mhhundred{
-  min-height: 100vh;
+.mhhundred {
+  min-height: calc(100vh - 300px);
 }
 
 .dec-insideblock {
@@ -31,25 +30,28 @@
 .mylanguage {
   display: block;
   border: 3px solid black;
-  
   height: 63px;
   font-weight: bold;
   font-size: 18px;
   text-align: center;
-  line-height: 63px; 
+  line-height: 63px;
   z-index: 1;
 }
 
 .gamestart {
-   display: block;
-   border: 3px solid black;
-   height: 63px;
-   font-weight: bold;
-   font-size: 18px;
-   text-align: center;
-   line-height: 63px;
-   z-index: 1;
-   cursor: pointer;
+  display: block;
+  border: 3px solid black;
+  height: 63px;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  line-height: 63px;
+  z-index: 1;
+  cursor: pointer;
+}
+.mylanguage span,
+.gamestart span {
+  font-size: 1.5rem;
 }
 
 .gamestartHoverDot {
@@ -90,8 +92,9 @@
 }
 
 @media (min-width: 768px) {
-  
-
+  .mhhundred {
+    min-height: calc(100vh - 250px);
+  }
   .dec-side {
     display: block;
     height: 600px;
@@ -106,15 +109,12 @@
     display: block;
     width: 100%;
     height: 470px;
-    background-color: #ffffff;
+    background-color: #f1f0e9;
     border-radius: 20px 0px 0px 180px;
     margin-left: auto;
     padding: 0;
     position: relative;
   }
-
-
-  
 
   .breadcrumb {
     background-color: transparent;
@@ -126,7 +126,7 @@
     margin-top: 30px;
   }
 
-  .bread>ol {
+  .bread > ol {
     list-style-type: none;
   }
 
@@ -140,11 +140,12 @@
     left: 30%;
     z-index: -1;
   }
-
-  
 }
 
 /* ---------------Gaming Content--------------- */
+.stGamingContent {
+  padding-top: 30px;
+}
 .question-pic {
   height: 200px;
   margin-right: 20px;
@@ -154,7 +155,7 @@
   height: 100%;
 }
 
-.question-text>span {
+.question-text > span {
   font-size: 20px;
   border: 2px solid gray;
   border-radius: 10px;
@@ -162,7 +163,7 @@
   position: relative;
 }
 
-.question-text>span::before {
+.question-text > span::before {
   position: absolute;
   content: '';
   width: 0;
@@ -175,7 +176,7 @@
   border-color: transparent gray transparent transparent;
 }
 
-.question-text>span::after {
+.question-text > span::after {
   position: absolute;
   content: '';
   width: 0;

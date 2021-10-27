@@ -269,7 +269,7 @@ function WanderIndex() {
         <div className="indexBigImg12 container-fluid">
           <div className="row">
             <div className="mobile-card">
-              <div className="row col-12 offset-1 p-0">
+              <div className="row col-12 offset-0 p-0">
                 <div className="imge-12-Text abc">
                   <span>快加入我們吧!!</span>
                 </div>
@@ -334,7 +334,7 @@ function WanderIndex() {
                       我是老師
                     </button>
                   </div>
-                  <div className="yellow-area-but-2 offset-5">
+                  <div className="yellow-area-but-2 offset-3">
                     <button className="btn checkoutBtn-y">
                       我是學生
                     </button>
@@ -401,14 +401,19 @@ function WanderIndex() {
             </div>
           </div>
         </div>
-        <div className="indexBigImg19 ">
-          <div className="popular-card-but">
-            <button className="btn checkoutBtn-a">
-              更多文章
-            </button>
+        <div className="indexBigImg19 container-fluid">
+          <div className="row col-12 ">
+            <div className="row w-100 m-0 ">
+              <div className="col-md-6 offset-5 p-0 popular-card-but">
+                <button className="btn a-checkoutBtn-a ">
+                  更多文章
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="indexBigImg20 ">
+
+        <div className="indexBigImg20 container-fluid">
           <div className="mobile-card">
             <button className="btn checkoutBtn-m">
               更多文章
