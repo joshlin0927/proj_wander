@@ -1,6 +1,7 @@
 import React from 'react'
 import './style/st_course.css'
 import { devUrl } from '../../config'
+import axios from 'axios'
 
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -12,6 +13,16 @@ import RecommandedTC from '../../components/st/RecommandedTC'
 import Footer from '../../components/Footer'
 
 export default function StCourse() {
+  const getData = async () => {
+    try {
+      const Data = await axios.get(
+        'http://localhost:3001/stcourse'
+      )
+      console.log(Data.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <>
       <div className="container mainContent">
@@ -23,6 +34,7 @@ export default function StCourse() {
             </span>
           </div>
         </div>
+        <button onClick={getData}> Get </button>
 
         <div className="row justify-content-center d-flex">
           <StSideBar2 />

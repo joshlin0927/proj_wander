@@ -12,23 +12,21 @@ import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
 
-//處理會員資料CRUD
-// import UserDataService from '../../services/UserDataService'
-
 export default withRouter(function StProfile(props) {
+  const userId = props.match.params
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
     avatar: '',
     firstname: '',
     lastname: '',
-    birthday: '',
+    birth: '',
     nickname: '',
   })
 
   const [fieldsErrors, setFieldsErrors] = useState({
     firstname: '',
     lastname: '',
-    birthday: '',
+    birth: '',
   })
 
   //將使用者在欄位輸入的值進行更新
@@ -137,23 +135,21 @@ export default withRouter(function StProfile(props) {
     if (
       fields.lastname !== '' &&
       fields.firstname !== '' &&
-      fields.birthday !== ''
+      fields.birth !== ''
     ) {
       axios
-        .post('http://localhost:3001/stprofile', {
-          avatar: 'fields.avatar',
-          firstname: 'fields.firstname',
-          lastname: 'fields.lastname',
-          birthday: 'fields.birthday',
-          nickname: 'fields.nickname',
+        .post('http://localhost:3001/stprofile/' + userId, {
+          avatar: fields.avatar,
+          firstname: fields.firstname,
+          lastname: fields.lastname,
+          birth: fields.birth,
+          nickname: fields.nickname,
         })
         .then((res) => {
-          console.log('修改資料完成')
+          console.log(res)
         })
     }
   }
-
-  const [showUp, setShowUp] = useState('')
 
   return (
     <>
@@ -175,10 +171,7 @@ export default withRouter(function StProfile(props) {
             onChange={handleFormChange}
             onInvalid={handleFormInvalid}
           >
-            <ConfirmMsg
-              showUp={showUp}
-              setShowUp={setShowUp}
-            />
+            <ConfirmMsg />
             <div className="form-head ml-1">
               <Link href="">
                 <i className="fas fa-chevron-left TCback-btn"></i>
@@ -271,7 +264,7 @@ export default withRouter(function StProfile(props) {
                 <input
                   type="date"
                   className="col-12 allInputs px-2"
-                  name="birthday"
+                  name="birth"
                   value={fields.birthday}
                   onChange={handleFieldChange}
                   required
