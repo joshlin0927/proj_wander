@@ -23,19 +23,18 @@ function TcCourse() {
 
   //判斷是否登入並為教師身分
   const history = useHistory()
+  const token = localStorage.getItem('token')
+  const member = localStorage.getItem('member')
+  const identity = JSON.parse(member).sid
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    const member = localStorage.getItem('member')
-
     if (!token) {
       history.push('/')
-    } else if (member.identity !== 1) {
+    } else if (identity !== 1) {
       history.push('/')
     } else {
       return
     }
-  })
-
+  }, [])
   // 課程陣列排出
   let [data, setData] = useState({})
   let [totalRows, setTotalRows] = useState(0)
@@ -43,7 +42,7 @@ function TcCourse() {
   useEffect(() => {
     ;(async () => {
       let r = await axios.get(TcCourse_LIST)
-      console.log(r)
+      // console.log(r)
       if (r.status === 200) {
         setTotalRows(r.data.totalRows)
         setData(r.data)

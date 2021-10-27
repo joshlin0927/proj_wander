@@ -10,19 +10,20 @@ import Footer from '../../components/Footer'
 
 function TcPassword() {
   const formRef = useRef(null)
+  //判斷是否登入並為教師身分
   const history = useHistory()
+  const token = localStorage.getItem('token')
+  const member = localStorage.getItem('member')
+  const identity = JSON.parse(member).sid
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    const member = localStorage.getItem('member')
-
     if (!token) {
       history.push('/')
-    } else if (member.identity !== 1) {
+    } else if (identity !== 1) {
       history.push('/')
     } else {
       return
     }
-  })
+  }, [])
 
   //儲存所有欄位的值
   const [fields, setFields] = useState({

@@ -35,8 +35,6 @@ function App() {
   const [auth, setAuth] = useState(false)
   const [user, setUser] = useState()
 
-  console.log(user)
-
   return (
     <Router>
       <>
@@ -50,8 +48,7 @@ function App() {
             <Route path="/CompanyBackend">
               <CompanyBackend />
             </Route>
-            <Route path="/TCindex">
-              {/* exact 要加回去 */}
+            <Route path="/TCindex" auth={auth} user={user}>
               <TCindex />
             </Route>
             <Route path="/Cart">

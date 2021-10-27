@@ -8,7 +8,7 @@ import { devUrl, MemberLogin } from '../../config'
 
 function Login(props) {
   const history = useHistory()
-  const { auth, setAuth, setUser, setIdentity } = props
+  const { auth, setAuth, setUser } = props
 
   const formRef = useRef(null)
 
@@ -78,10 +78,7 @@ function Login(props) {
           )
 
           setAuth(true)
-          setUser({
-            sid: obj.member.sid,
-            identity: obj.member.identity,
-          })
+          setUser(obj.member.sid)
           history.push('/')
         } else {
           setAuth(false)

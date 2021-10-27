@@ -14,7 +14,20 @@ function scrollHeader() {
 window.addEventListener('scroll', scrollHeader)
 
 function PcNavbar(props) {
+  //判斷是否登入並為教師身分
   const history = useHistory()
+  const token = localStorage.getItem('token')
+  const member = localStorage.getItem('member')
+  const memberObj = JSON.parse(member)
+  console.log('memberObj', memberObj)
+  useEffect(() => {
+    if (token) {
+      setAuth(true)
+      history.push('/')
+    } else {
+      return
+    }
+  }, [])
   const { auth, setAuth, user } = props
 
   const menuToggle = () => {
@@ -26,15 +39,6 @@ function PcNavbar(props) {
     localStorage.removeItem('token')
     setAuth(false)
   }
-
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (!token) {
-      history.push('/')
-    } else {
-      setAuth(true)
-    }
-  })
 
   return (
     <>
@@ -78,7 +82,7 @@ function PcNavbar(props) {
                     登入
                   </span>
                 </Link>
-              ) : (
+              ) : memberObj.identity === 1 ? (
                 <div className="NavAvatar">
                   <div
                     className="nav_login"
@@ -87,6 +91,42 @@ function PcNavbar(props) {
                   >
                     <img
                       src={`${devUrl}/images/teacher/Thomas_Lillard.jpg`}
+                      alt=""
+                    />
+                  </div>
+
+                  <div
+                    id="memberMenu"
+                    className="NavAvatarMenu d-none"
+                  >
+                    <div className="mb-1">
+                      <Link to="/Tcindex">
+                        <span className="mx-0">
+                          會員中心
+                        </span>
+                      </Link>
+                    </div>
+                    <div className="mb-1">
+                      <Link to="#">
+                        <span>常見問題</span>
+                      </Link>
+                    </div>
+                    <div className="mb-1">
+                      <div onClick={logout}>
+                        <span>登出</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="NavAvatar">
+                  <div
+                    className="nav_login"
+                    id="memberAvatar"
+                    onClick={menuToggle}
+                  >
+                    <img
+                      src={`${devUrl}/images/students/Anne_Hathaway.jpg`}
                       alt=""
                     />
                   </div>
