@@ -1,5 +1,5 @@
 * {
-  font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+  font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
 }
 /* 全頁包覆(為了色塊動畫) */
 .STallwraper {
@@ -54,7 +54,7 @@
   font-size: 14px;
   letter-spacing: -0.015em;
   font-weight: 500;
-  margin-left: .25rem;
+  margin-left: 0.25rem;
   padding: 0px 0px 15px;
 }
 /* 頁碼 */
@@ -77,16 +77,15 @@
   text-align: center;
 }
 .Mypage-item a i {
-  color: #065F8E;
+  color: #065f8e;
 }
 /* 頁碼被選中時 */
 .Mypage-item.active {
-  background-color: #065F8E;
+  background-color: #065f8e;
 }
 .Mypage-item.active a {
   color: white;
 }
-
 
 /* 頁面英文標題 */
 .pageName {
@@ -100,7 +99,7 @@
   height: 0;
   border-style: solid;
   border-width: 20px 30px 20px 0;
-  border-color: transparent #F1F0E9 transparent transparent;
+  border-color: transparent #f1f0e9 transparent transparent;
 }
 .t_avatar {
   width: 200px;
@@ -121,7 +120,7 @@
   margin-bottom: 0px;
 }
 .mo-none {
-  display: none
+  display: none;
 }
 .teacherrow {
   margin: 0;
@@ -134,19 +133,19 @@
 }
 .remindingtext {
   font-size: 36px;
-  color: #065F8E;
+  color: #065f8e;
   font-weight: bold;
   text-align: center;
 }
 .buy-btn {
   background-color: transparent;
-  border: #065F8E 1px solid;
-  color: #065F8E;
+  border: #065f8e 1px solid;
+  color: #065f8e;
   margin-left: auto;
   margin-right: auto;
 }
 .buy-btn:hover {
-  background-color: #065F8E;
+  background-color: #065f8e;
   border: 1px solid transparent;
   color: white;
 }
@@ -200,7 +199,7 @@
   .dec-block {
     height: 310px;
   }
-  
+
   /* 頁碼 */
   .Mypagination {
     display: flex;
@@ -217,10 +216,10 @@
     color: black;
     font-size: 6rem;
     font-weight: bold;
-    line-height: 1.0;
+    line-height: 1;
   }
   .course::before {
-    content: "";
+    content: '';
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -257,60 +256,51 @@
     margin-bottom: 0px;
   }
 
+  /* -------------以上為公用--------- */
+  /* 手機板會變小的按鈕 */
+  .TCbtn-sm {
+    display: flex;
+    width: 115px;
+    height: 40px;
+  }
 
-/* -------------以上為公用--------- */
-/* 手機板會變小的按鈕 */
-.TCbtn-sm {
-  display: flex;
-  width: 115px;
-  height: 40px;
-}
+  /* 教師頁面返回按鈕 */
+  .TCback-btn {
+    display: none;
+  }
 
-/* 手機板會變小的按鈕(有display變化) */
-.TCbtn-sm-w-switch {
-  display: none;
-}
+  .mo-none {
+    display: block;
+  }
 
-/* 教師頁面返回按鈕 */
-.TCback-btn {
-  display: none;
-}
+  .btblock {
+    width: 100%;
+    margin-bottom: 150px;
+  }
 
+  .remindingtext {
+    font-size: 36px;
+    color: #065f8e;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 145px;
+  }
 
+  .buy-btn {
+    background-color: transparent;
+    border: #065f8e 1px solid;
+    color: #065f8e;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
+  .buy-btn:hover {
+    background-color: #065f8e;
+    border: 1px solid transparent;
+    color: white;
+  }
 
-.mo-none {
-  display: block;
-}
-
-.btblock {
-  width: 100%;
-  margin-bottom: 150px;
-}
-
-.remindingtext {
-  font-size: 36px;
-  color: #065F8E;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 145px;
-}
-
-.buy-btn {
-  background-color: transparent;
-  border: #065F8E 1px solid;
-  color: #065F8E;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.buy-btn:hover {
-  background-color: #065F8E;
-  border: 1px solid transparent;
-  color: white;
-}
-
-.bgcwhite {
-  background-color: #ffffff;
-}
+  .bgcwhite {
+    background-color: #ffffff;
+  }
 }

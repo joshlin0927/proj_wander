@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { devUrl } from '../config'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 import { MemberLogout } from '../config'
 
 function scrollHeader() {
@@ -15,7 +14,7 @@ function scrollHeader() {
 window.addEventListener('scroll', scrollHeader)
 
 function PcNavbar(props) {
-  const { auth, user } = props
+  const { auth, setAuth, user } = props
 
   const menuToggle = () => {
     const memberMenu = document.querySelector('#memberMenu')
@@ -23,18 +22,8 @@ function PcNavbar(props) {
   }
 
   const logout = async () => {
-    const r = await fetch(MemberLogout, {
-      method: 'GET',
-      withCredentials: true,
-      headers: {
-        'Content-Type': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: JSON.stringify(),
-    })
-    const j = await r.json()
-
-    console.log(r)
+    localStorage.removeItem('token')
+    setAuth(false)
   }
 
   return (

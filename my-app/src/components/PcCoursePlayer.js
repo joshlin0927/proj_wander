@@ -13,7 +13,7 @@ export default function PcCoursePlayer() {
         </div>
         <div class="video">
           <img
-            src={`${devUrl}/images/pic/課程圖片/韓國文化.jpeg`}
+            src={`${devUrl}/images/pic/課程圖片/韓國文化.jpg`}
             alt=""
           />
         </div>

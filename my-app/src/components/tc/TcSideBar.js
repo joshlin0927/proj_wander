@@ -12,7 +12,7 @@ function TcSideBar() {
     <>
       <Nav className="TCsidebar col-2">
         <div className="avatar">
-          <imgI
+          <img
             src={`${devUrl}/images/teacher/Thomas_Lillard.jpg`}
             alt=""
             className="img-fluid"

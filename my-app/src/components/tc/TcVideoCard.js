@@ -3,18 +3,16 @@ import { Modal } from 'react-bootstrap'
 
 import { devUrl } from '../../config'
 
-function TcCourseCard(props) {
+function TcVideoCard(props) {
   const {
     sid,
+    course_sid,
+    video_cover,
+    video_name,
     teacher_sid,
-    course_category,
-    course_name,
-    course_img,
-    course_price,
-    course_data,
-    hours,
-    course_introduction,
     created_at,
+    duration,
+    view_count,
   } = props
 
   // 刪除課程
@@ -43,17 +41,14 @@ function TcCourseCard(props) {
           onClick={handleIsShow}
         >
           <div className="TCcourse-title">
-            <span>{course_name}</span>
+            <span>{video_name}</span>
           </div>
           <div className="TCcourse-info-right">
             <div className="TCcourse-detail">
-              <span>課程種類：</span> {course_category}
+              <span>上傳日期：</span> {created_at}
             </div>
             <div className="TCcourse-detail">
-              <span>上架日期：</span> {course_data}
-            </div>
-            <div className="TCcourse-detail">
-              <span>課程長度：</span> {hours}
+              <span>影片長度：</span> {duration}
             </div>
           </div>
         </div>
@@ -86,14 +81,14 @@ function TcCourseCard(props) {
       </Modal>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header>
-          <Modal.Title>刪除課程</Modal.Title>
+          <Modal.Title>刪除影片</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <h5
             className="modal-title text-center my-4"
             id="exampleModalLabel"
           >
-            確定要刪除課程?
+            確定要刪除影片?
           </h5>
         </Modal.Body>
         <Modal.Footer>
@@ -117,4 +112,4 @@ function TcCourseCard(props) {
   )
 }
 
-export default TcCourseCard
+export default TcVideoCard

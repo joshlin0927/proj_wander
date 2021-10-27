@@ -8,7 +8,7 @@ import { devUrl, MemberLogin } from '../../config'
 
 function Login(props) {
   const history = useHistory()
-  const { auth, setAuth, setUser } = props
+  const { auth, setAuth, setUser, setIdentity } = props
 
   const formRef = useRef(null)
 
@@ -61,30 +61,40 @@ function Login(props) {
     const usp = new URLSearchParams(new FormData(e.target))
     const r = await fetch(MemberLogin, {
       method: 'POST',
-      body: usp.toString(),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
+      body: usp.toString(),
     })
-    const data = await r.json()
+      .then((r) => r.json())
+      .then((obj) => {
+        // 查看附帶的數值
+        console.log(JSON.stringify(obj, null, 4))
+        if (obj.success === true) {
+          localStorage.setItem('token', obj.token)
+          localStorage.setItem(
+            'member',
+            JSON.stringify(obj.member)
+          )
 
-    console.log(data)
-
-    if (data.success === true) {
-      setAuth(true)
-      // setUser()
-      // history.push('/')
-    } else {
-      setAuth(false)
-      if (auth === false) {
-        const updatedFieldErrors = {
-          ...fieldErrors,
-          email: '帳號或密碼錯誤',
-          password: '帳號或密碼錯誤',
+          setAuth(true)
+          setUser({
+            sid: obj.member.sid,
+            identity: obj.member.identity,
+          })
+          history.push('/')
+        } else {
+          setAuth(false)
+          if (auth === false) {
+            const updatedFieldErrors = {
+              ...fieldErrors,
+              email: '帳號或密碼錯誤',
+              password: '帳號或密碼錯誤',
+            }
+            setFieldErrors(updatedFieldErrors)
+          }
         }
-        setFieldErrors(updatedFieldErrors)
-      }
-    }
+      })
   }
 
   // 當表單有檢查有不合法出現時觸發

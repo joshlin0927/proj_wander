@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import dayjs from 'dayjs'
 import axios from 'axios'
-import { API_HOST, Member_LIST } from '../config'
+import { Member_LIST } from '../config'
 
 import MultiLevelBreadCrumb from '../components/MultiLevelBreadCrumb'
 import TcSearchBar from '../components/tc/TcSearchBar'
@@ -24,6 +24,7 @@ function CompanyBackend() {
       }
     })()
   }, [])
+
   return (
     <>
       <div className="container mainContent">

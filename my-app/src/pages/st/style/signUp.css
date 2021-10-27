@@ -233,10 +233,6 @@ input::-webkit-input-placeholder {
   }
 
 
-  .form-sm {
-    width: 80%;
-
-  }
 
   .separator {
     border-bottom: 1px solid black;
@@ -295,6 +291,7 @@ input::-webkit-input-placeholder {
   #asTeacher,
   #asStudent {
     margin-bottom: 0px;
+   
   }
 
   .tab_css input:checked+#asTeacher,

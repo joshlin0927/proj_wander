@@ -92,44 +92,113 @@ a {
   background-color: #f1ef5b;
 }
 
+.bgt {
+  background-color: transparent !important;
+}
+/*=============== 小按鈕 ===============*/
+
+/* 新增課程(手機板) */
+.TCbtn-sm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 73px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* 手機板會變小的按鈕(有display變化)  */
+.TCbtn-sm-w-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 73px;
+  height: 30px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  /* 手機板會變小的按鈕 */
+  .TCbtn-sm {
+    display: flex;
+    width: 115px;
+    height: 40px;
+  }
+
+  /* 手機板會變小的按鈕(有display變化)  */
+  .TCbtn-sm-w-switch {
+    display: none;
+    height: 40px;
+  }
+}
+
 .nav-link {
   padding: 0;
 }
-/*=============== 頁碼 ===============*/
-.Mypagination {
-  list-style: none;
-  display: none;
-  align-items: center;
-  margin: 70px 0px 60px;
-}
 
-.Mypage-item {
-  width: 28px;
-  height: 28px;
-  border-radius: 5px;
-  line-height: 26px;
-  font-size: 12px;
+/* 瀏覽按鈕 */
+.browse {
+  width: 100%;
+  height: 48px;
+  border: 0px;
   color: black;
-  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #f1ef5b;
+  margin-left: -100px;
+  border-radius: 0px 10px 10px 0px;
 }
 
-.Mypage-item:hover {
-  border: 1px solid #065f8e;
+@media (min-width: 768px) {
+  /* 瀏覽按鈕 */
+  .browse {
+    height: 50px;
+  }
+}
+/*=============== 頁碼 ===============*/
+.display-ctrl {
+  display: none;
 }
 
-.Mypage-item i {
-  color: #065f8e;
-}
+@media (min-width: 768px) {
+  .display-ctrl {
+    display: flex;
+  }
 
-/* 頁碼被選中時 */
-.Mypage-item.active {
-  background-color: #065f8e;
-}
+  .Mypagination {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 70px 0px 60px;
+  }
 
-.Mypage-item.active {
-  color: white;
-}
+  .Mypage-item {
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
+    line-height: 26px;
+    font-size: 12px;
+    color: black;
+    text-align: center;
+  }
 
+  .Mypage-item:hover {
+    border: 1px solid #065f8e;
+  }
+
+  .Mypage-item i {
+    color: #065f8e;
+  }
+
+  /* 頁碼被選中時 */
+  .Mypage-item.active {
+    background-color: #065f8e;
+  }
+
+  .Mypage-item.active {
+    color: white;
+  }
+}
 /*=============== Navbar ===============*/
 ul {
   list-style: none !important;

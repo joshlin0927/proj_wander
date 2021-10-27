@@ -1,5 +1,5 @@
 // 套件
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
 // Css 擺放位置
@@ -22,13 +22,13 @@ function index() {
   return (
     <>
       <Switch>
-        <Route path="/TCindex/TcCourseVideoEdit/:id?">
+        <Route path="/TCindex/TcCourseVideoEdit/:sid?">
           <TcCourseVideoEdit />
         </Route>
         <Route path="/TCindex/TcCourseVideoUpload">
           <TcCourseVideoUpload />
         </Route>
-        <Route path="/TCindex/TcCourseEdit/:id?">
+        <Route path="/TCindex/TcCourseEdit/:sid?">
           <TcCourseEdit />
         </Route>
         <Route path="/TCindex/TcCourse/">

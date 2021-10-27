@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 function MyPagination() {
   return (
     <>
-      <nav className="">
-        <ul className="Mypagination justify-content-end">
+      <nav className="display-ctrl justify-content-end">
+        <ul className="Mypagination ">
           <li>
             <Link
               className="Mypage-link"

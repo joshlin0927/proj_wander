@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { MemberEdit } from '../../config'
+
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
@@ -41,7 +43,7 @@ function TcProfile() {
   }
 
   // 在 表單完成驗証 之後，才會觸發
-  const ProfileFormSubmit = (e) => {
+  const ProfileFormSubmit = async (e) => {
     // 阻擋form的預設送出行為
     e.preventDefault()
 
@@ -58,6 +60,21 @@ function TcProfile() {
     // 利用狀態來得到輸入的值
 
     // ex. 用fetch api/axios送到伺服器
+    const usp = new URLSearchParams(TcProfileFormData)
+    const r = await fetch(MemberEdit, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: usp.toString(),
+    })
+      .then((r) => r.json())
+      .then((obj) => {
+        // 查看附帶的數值
+        console.log(JSON.stringify(obj, null, 4))
+        if (obj.success === true) {
+        }
+      })
   }
 
   // 當整個表單有變動時觸發
