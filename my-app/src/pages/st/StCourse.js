@@ -1,6 +1,6 @@
 import React from 'react'
 import './style/st_course.css'
-import { devUrl } from '../../config'
+// import { devUrl } from '../../config'
 import axios from 'axios'
 
 //共用元件
@@ -12,17 +12,17 @@ import CourseItem from '../../components/st/CourseItem'
 import RecommandedTC from '../../components/st/RecommandedTC'
 import Footer from '../../components/Footer'
 
+//取得後端課程資料
+const getData = async () => {
+  const Data = await axios.get(
+    'http://localhost:3001/stcourse//api/coursedata'
+  )
+  const courses = Data.data.rows
+  console.log(courses)
+}
+//
+
 export default function StCourse() {
-  const getData = async () => {
-    try {
-      const Data = await axios.get(
-        'http://localhost:3001/stcourse'
-      )
-      console.log(Data.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
   return (
     <>
       <div className="container mainContent">
