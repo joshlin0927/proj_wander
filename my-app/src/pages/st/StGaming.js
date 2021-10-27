@@ -42,12 +42,18 @@ function StGaming() {
     let wordArr = []
     let questionID = -1
 
-    $('#NextBtn').on('click', function () {
+    function setQuestion() {
       // 先清空陣列跟頁面顯示的word
       question = []
       document.querySelector('.selectWord').innerHTML = ''
       document.querySelector('.answer').innerHTML = ''
-      document.querySelector('.result').innerHTML = ''
+      $('.sendAns').show()
+      $('.showAns').hide()
+      $('#NextBtn').hide()
+      $('.doneCover').hide()
+      $('.answer')
+        .removeClass('correct-shadow')
+        .removeClass('wrong-shadow')
       // 把dataArr中的問題與答案顯示在頁面上
       questionID++
       $('#quesID').text(questionID + 1)
@@ -82,6 +88,15 @@ function StGaming() {
           y: word.position().top,
         }
       })
+    }
+    // 設定問題&點next再觸發
+    setQuestion()
+    $('#NextBtn').on('click', function () {
+      if (questionID < dataArr.length - 1) {
+        setQuestion()
+      } else {
+        console.log('好了')
+      }
     })
 
     // 動畫部分
@@ -193,51 +208,42 @@ function StGaming() {
       $('.answer>.word').each(function () {
         str += $(this).text() + ' '
       })
-      console.log(
-        '送出:',
-        str.indexOf(dataArr[questionID].ans)
-      )
+      $('.sendAns').hide()
+      $('#NextBtn').show()
+      $('.doneCover').show()
+
       if (str.indexOf(dataArr[questionID].ans) === 0) {
-        $('.result').text('Correct!')
+        $('.ansCorrect').fadeIn(500).fadeOut(1000)
+        $('.answer').addClass('correct-shadow')
       } else {
-        $('.result').text('Wrong!')
+        $('.ansWrong').fadeIn(500).fadeOut(1000)
+        $('.answer').addClass('wrong-shadow')
+        $('.showAns')
+          .text(`正確答案： ${dataArr[questionID].ans}`)
+          .fadeIn(500)
       }
+      console.log('QID:', questionID)
     })
   }, [])
   return (
     <>
-      <div className="container-fluid mainpic mainContent full">
+      <div className="container-fluid mainpic mainContent">
         <div className="container">
-          <div className="row">
+          <div className="row justify-content-center">
             <MultiLevelBreadCrumb />
           </div>
           <div className="row">
             <div className="stGamingContent container">
-              <div className="row my-3">
-                <h1>用英文拼出此句子</h1>
-                <div
-                  className="btn-group ml-2"
-                  role="group"
-                  aria-label="First group"
-                >
-                  <div
-                    className="btn btn-secondary"
-                    id="NextBtn"
-                  >
-                    Next
-                  </div>
-                  <div
-                    className="btn btn-secondary"
-                    id="quesID"
-                  >
-                    0
-                  </div>
+              <div className="row my-3 no-wrap align-items-center">
+                <h2 className="m-0">請用英文拼出此句子</h2>
+                <div className="quesID" id="quesID">
+                  0
                 </div>
               </div>
               <div className="row flex-nowrap">
                 <div className="question-pic">
                   <img
-                    src={`${devUrl}/images/gaming/000.gif`}
+                    src={`${devUrl}/images/gaming/stickman.png`}
                     alt=""
                   />
                 </div>
@@ -246,20 +252,37 @@ function StGaming() {
                 </div>
               </div>
               <div className="row position-relative">
-                <div className="col-12 mt-5">
+                <div className="col-12 mt-3">
                   <span>作答區：</span>
                 </div>
                 <div className="answer"></div>
                 <div className="col-12">
-                  <span>選擇區：</span>
+                  <span>單字選擇區：</span>
                 </div>
                 <div className="selectWord"></div>
                 <div className="animationWord"></div>
+                <div className="doneCover"></div>
+                <div className="ansCorrect">
+                  <img
+                    src={`${devUrl}/images/gaming/correct_icon.svg`}
+                    alt=""
+                  />
+                </div>
+                <div className="ansWrong">
+                  <img
+                    src={`${devUrl}/images/gaming/wrong_icon.svg`}
+                    alt=""
+                  />
+                </div>
               </div>
-              <div className="row justify-content-end align-items-center">
-                <span className="result"></span>
-                <div className="btn btn-success ml-5 sendAns">
-                  送出
+              <div className="row gameBtns">
+                <div className="showAns">正確答案：</div>
+                <div className="btn sendAns">Done</div>
+                <div
+                  className="btn gameNextBtn"
+                  id="NextBtn"
+                >
+                  Next
                 </div>
               </div>
             </div>

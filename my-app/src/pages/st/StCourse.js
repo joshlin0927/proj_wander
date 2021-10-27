@@ -1,6 +1,7 @@
 import React from 'react'
 import './style/st_course.css'
-import { devUrl } from '../../config'
+// import { devUrl } from '../../config'
+import axios from 'axios'
 
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -10,6 +11,16 @@ import MyPagination from '../../components/MyPagination'
 import CourseItem from '../../components/st/CourseItem'
 import RecommandedTC from '../../components/st/RecommandedTC'
 import Footer from '../../components/Footer'
+
+//取得後端課程資料
+const getData = async () => {
+  const Data = await axios.get(
+    'http://localhost:3001/stcourse//api/coursedata'
+  )
+  const courses = Data.data.rows
+  console.log(courses)
+}
+//
 
 export default function StCourse() {
   return (
@@ -23,6 +34,7 @@ export default function StCourse() {
             </span>
           </div>
         </div>
+        <button onClick={getData}> Get </button>
 
         <div className="row justify-content-center d-flex">
           <StSideBar2 />

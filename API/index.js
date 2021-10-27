@@ -98,6 +98,9 @@ app.get('/', (req, res) => {
     // res.sendFile(__dirname + "/public/home.html");
 })
 
+//註冊
+app.use('/SignUp', require(__dirname +'/routes/signup'));
+
 app.use('/SingleMember', require(__dirname + '/routes/SingleMember'));
 app.use('/member', require(__dirname + '/routes/member'));
 app.use('/TcCourse', require(__dirname + '/routes/TcCourse'));
@@ -175,6 +178,11 @@ app.get("/video", function (req, res) {
 
 });
 */
+
+
+//學生
+app.use('/stprofile', require(__dirname + '/routes/stprofile'))
+app.use('/stcourse', require(__dirname + '/routes/stcourse'))
 
 // 模組化路由
 app.use('/sentence-game', require(__dirname + '/routes/sentence-game'));
