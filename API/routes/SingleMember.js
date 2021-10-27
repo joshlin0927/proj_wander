@@ -28,7 +28,9 @@ router
     const input = {
       ...req.body,
     };
-    const sql = "UPDATE `member` SET ? WHERE sid=?";
+
+
+    const sql = `UPDATE \`member\` SET ? WHERE sid=?`;
     let result = {};
     // 處理修改資料時可能的錯誤
     try {

@@ -59,86 +59,11 @@ async function getListData(req,res){
     return output;
 }
 
-router.get('/', (req, res) => {
-    res.render('member/main');
-});
-
-router.get('/list', async (req, res) => {
-    res.locals.pageName = 'ab-list';
- 
-    const output = await getListData(req,res);
-    if(output.redirect){
-        return res.redirect(output.redirect);
-    }
-
-    // res.json(output);
-    res.render('member/list', output);
-});
-
 router.get('/api/list', async (req, res)=>{
     const output = await getListData(req, res);
     res.json(output);
 });
 
-router.delete('/delete/:sid([0-9]+)', async (req, res) => {
-    // '/delete/:sid([0-9]+' 以防用戶在網址列輸入數值以外的東西
-    const sql = "DELETE FROM member WHERE sid=?";
-    const [result] = await db.query(sql, [req.params.sid]);
-    console.log({
-        result
-    });
-    res.json(result);
-});
-
-router.route('/add')
-    .get(async (req, res) => {
-        res.locals.pageName = 'ab-add';
-        res.render('member/add');
-    })
-    .post(async (req, res) => {
-        // TODO: 欄位檢查
-        const output = {
-            success: false,
-        }
-
-        // const sql = "INSERT INTO `address_book`(" +
-        //     "`name`, `email`, `mobile`, `birthday`, `address`, `created_at`) VALUES (?, ?, ?, ?, ?, NOW())";
-
-        // const [result] = await db.query(sql, [
-        //     req.body.name,
-        //     req.body.email,
-        //     req.body.mobile,
-        //     req.body.birthday,
-        //     req.body.address,
-        // ]);
-
-
-        // mysql2 的套件語法，並不是標準的sql寫法
-        const input = {
-            ...req.body,
-            created_at: new Date()
-        };
-        const sql = "INSERT INTO `member` SET ?"
-        let result = {};
-        // 處理新增資料時可能的錯誤
-        try {
-            [result] = await db.query(sql, [input]);
-        } catch (ex) {
-            output.error = ex.toString();
-        }
-        output.result = result;
-        if (result.affectedRows && result.insertId) {
-            output.success = true;
-        }
-
-        console.log({
-            result
-        });
-
-
-
-        res.json(output);
-    });
 
 router.route('/edit/:sid')
     .get(async (req, res) => {

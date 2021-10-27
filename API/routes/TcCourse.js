@@ -15,16 +15,17 @@ async function getListData(req,res){
 
     };
 
-    let where = "WHERE 1 ";
+ 
+    let where = `WHERE \`teacher_sid\` = ${sid} `;
     if(keyword){
         output.keyword = keyword;
-        where += ` AND \`name\` LIKE ${ db.escape('%' + keyword + '%') } `;
+        where += ` AND \`course_name\` LIKE ${ db.escape('%' + keyword + '%') } `;
     }
     // 有其他條件可以用差不多的寫法加在sql後面
 
 
 
-    const t_sql = `SELECT COUNT(1) totalRows FROM course ${where}`;
+    const t_sql = `SELECT COUNT(1) totalRows FROM \`course\` ${where}`;
     const [[{ totalRows }]] = await db.query(t_sql);
     
     output.totalRows = totalRows;
@@ -63,8 +64,10 @@ async function getListData(req,res){
 
 
 
+
 router.get('/api/list', async (req, res)=>{
     const output = await getListData(req, res);
+console.log(getListData);
     res.json(output);
 });
 
@@ -79,10 +82,6 @@ router.delete('/delete/:sid([0-9]+)', async (req, res) => {
 });
 
 router.route('/add')
-    .get(async (req, res) => {
-        res.locals.pageName = 'ab-add';
-        res.render('course/add');
-    })
     .post(async (req, res) => {
         // TODO: 欄位檢查
         const output = {
@@ -132,14 +131,6 @@ router.route('/edit/:sid')
     .get(async (req, res) => {
         const sql = "SELECT * FROM course WHERE sid=?";
         const [rs] = await db.query(sql, [req.params.sid]);
-
-        if (rs.length) {
-            res.render('course/edit', {
-                row: rs[0]
-            });
-        } else {
-            res.redirect('/course/list');
-        }
     })
     .post(async (req, res) => {
         // TODO: 欄位檢查
