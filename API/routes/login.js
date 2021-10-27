@@ -6,10 +6,6 @@ const jwt = require('jsonwebtoken')
 const db = require('./../modules/connect-mysql');
 const upload = require('./../modules/upload-images');
 
-
-// 這邊要提取的是member裡面的function，所以要把getListData包起來
-const { getListData } = require('./member');
-
 const router = express.Router();
 
 // 登入
@@ -50,46 +46,6 @@ router.post('/login', async (req, res) => {
 });
 
 
-// 註冊
-router.get('/register', (req, res) => {
-    res.locals.pageName = "register";
-    res.render('register');
-});
-router.post('/register', async (req, res) => {
-    const output = {
-        success: false,
-        postData: req.body,
-        error: '',
-    }
-    // TODO:欄位檢查
-
-    const hash = await bcrypt.hash(req.body.password, 10);
-    const sql = "INSERT INTO `member`(`identity`, `email`, `password`, `nickname`, `birth`, `create_at`) VALUES (?, ?, ?, ?, ?, NOW())";
-
-    let result;
-    try {
-        [result] = await db.query(sql, [
-            req.body.identity,
-            req.body.email.toLowerCase().trim(),
-            hash,
-            req.body.mobile,
-            req.body.birthday,
-            req.body.nickname,
-        ]);
-
-        if (result.affectedRows === 1) {
-            output.success = true;
-        } else {
-            output.error = "無法新增會員"
-        }
-    } catch (ex) {
-        console.log(ex);
-        output.error = 'Email已被使用過';
-    }
-
-
-    res.json(output);
-});
 
 router.get('/account-check', async (req, res) => {
     const sql = "SELECT `email` FROM member WHERE `email`=?";
@@ -158,22 +114,6 @@ router.post('/login-jwt', async (req, res) => {
     res.json(output);
 });
 
-router.get('/get-data-jwt', async (req, res) => {
-    const output = {
-        success: false,
-        data: null
-    };
-    // 判斷有沒有通過 jwt 驗證
 
-    if (req.myAuth && req.myAuth.id) {
-        output.member = req.myAuth;
-        output.success = true;
-        output.data = await getListData(req, res)
-    } else {
-        output.error = 'no token or illegal token';
-    }
-
-    res.json(output);
-});
 
 module.exports = router;

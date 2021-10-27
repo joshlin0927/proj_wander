@@ -30,12 +30,12 @@ function StGameStart(props) {
     <>
       <div className="mainContent mhhundred">
         <div className="container">
-          <div className="row mb-5">
+          <div className="row">
             <MultiLevelBreadCrumb />
           </div>
           <div className="row flex-column">
             <div
-              className="mylanguage col-10 col-md-2 offset-1 offset-md-10"
+              className="mylanguage col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10"
               onClick={() => {
                 setData({
                   language: 'English',
@@ -48,7 +48,7 @@ function StGameStart(props) {
             </div>
             <br />
             <div
-              className="gamestart col-10 col-md-2 offset-1 offset-md-10"
+              className="gamestart col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10"
               onClick={() => {
                 localStorage.clear()
                 console.log(dataArr)
@@ -76,8 +76,8 @@ function StGameStart(props) {
           </div>
         </div>
       </div>
-      <div className="dec-side col-md-6 col-lg-6">
-        <div className="dec-insideblock col-md-9 col-lg-8"></div>
+      <div className="dec-side col-md-6 col-lg-6 ">
+        <div className="dec-insideblock col-10 col-md-9 col-lg-8"></div>
       </div>
       <div className="bg"> </div>
       <Footer />

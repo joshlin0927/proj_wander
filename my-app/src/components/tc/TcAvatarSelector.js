@@ -3,6 +3,9 @@ import React, { useRef, useState } from 'react'
 import { devUrl } from '../../config'
 
 function TcAvatarSelector(props) {
+  const member = localStorage.getItem('member')
+  const sid = JSON.parse(member).sid
+  // console.log(sid)
   //預覽大頭貼的地方
   const imgRef = useRef(null)
   //實際擁有預覽功能的input因為太醜藏起來

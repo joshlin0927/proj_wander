@@ -59,7 +59,7 @@ function Login(props) {
     // FormData 利用的是表單元素的 name
 
     const usp = new URLSearchParams(new FormData(e.target))
-    const r = await fetch(MemberLogin, {
+    const r = fetch(MemberLogin, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

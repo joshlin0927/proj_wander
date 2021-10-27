@@ -1,19 +1,24 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import './style/st_editprofile.css'
 import { Link } from 'react-router-dom'
 import { devUrl } from '../../config'
+import axios from 'axios'
+import { withRouter } from 'react-router-dom'
 
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar from '../../components/st/StSideBar'
-
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
 
-function StProfile() {
+//處理會員資料CRUD
+// import UserDataService from '../../services/UserDataService'
+
+export default withRouter(function StProfile(props) {
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
+    avatar: '',
     firstname: '',
     lastname: '',
     birthday: '',
@@ -41,7 +46,7 @@ function StProfile() {
 
   //表單的ref
   const formRef = useRef(null)
-  //自訂欄位檢查訊息提示
+  //自訂欄位錯誤訊息
   const handleFormInvalid = (e) => {
     e.preventDefault()
 
@@ -123,11 +128,32 @@ function StProfile() {
     //阻止表單預設送出行為
 
     const fd = new FormData(e.target)
-    console.log(fd.get('firstname'))
-    // 測試有得到表單欄位的輸入值
+    //看表單傳送的資料
+    console.log('FormData中的填入資料')
+    for (let i of fd.entries()) {
+      console.log(i)
+    }
 
-    // TODO:用axios把表單送出
+    if (
+      fields.lastname !== '' &&
+      fields.firstname !== '' &&
+      fields.birthday !== ''
+    ) {
+      axios
+        .post('http://localhost:3001/stprofile', {
+          avatar: 'fields.avatar',
+          firstname: 'fields.firstname',
+          lastname: 'fields.lastname',
+          birthday: 'fields.birthday',
+          nickname: 'fields.nickname',
+        })
+        .then((res) => {
+          console.log('修改資料完成')
+        })
+    }
   }
+
+  const [showUp, setShowUp] = useState('')
 
   return (
     <>
@@ -149,7 +175,10 @@ function StProfile() {
             onChange={handleFormChange}
             onInvalid={handleFormInvalid}
           >
-            <ConfirmMsg />
+            <ConfirmMsg
+              showUp={showUp}
+              setShowUp={setShowUp}
+            />
             <div className="form-head ml-1">
               <Link href="">
                 <i className="fas fa-chevron-left TCback-btn"></i>
@@ -275,6 +304,4 @@ function StProfile() {
       <Footer />
     </>
   )
-}
-
-export default StProfile
+})

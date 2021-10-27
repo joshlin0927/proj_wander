@@ -95,10 +95,10 @@ export default withRouter(function SignUp(props) {
     //阻止表單預設送出行為
 
     const fd = new FormData(e.target)
-    console.log(fd)
+    console.log(fd.get('lastname'))
     // 測試有得到表單欄位的輸入值
 
-    // TODO:用axios把表單送出
+    // 用axios把表單送出
     if (
       fields.lastname !== '' &&
       fields.firstname !== '' &&
