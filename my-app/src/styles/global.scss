@@ -30,7 +30,9 @@ $danger: rgb(224, 22, 22);
     font-size: 12px;
   }
 }
-
+img {
+  max-width: 100%;
+}
 a {
   text-decoration: none !important;
 }
