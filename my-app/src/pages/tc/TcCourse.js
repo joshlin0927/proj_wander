@@ -25,8 +25,9 @@ function TcCourse() {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).sid
+
   useEffect(() => {
+    const identity = JSON.parse(member).identity
     if (!token) {
       history.push('/')
     } else if (identity !== 1) {
@@ -84,7 +85,7 @@ function TcCourse() {
                 <Link to="/TCindex/TcCourseEdit/:id?">
                   <button
                     type="submit"
-                    className="TCbtn TCbtn-sm btn-primary"
+                    className="TCbtn-sm btn-primary"
                   >
                     <span>新增</span>
                   </button>

@@ -1,9 +1,25 @@
 import React, { useEffect } from 'react'
+import { useHistory } from 'react-router'
 import { devUrl } from '../config'
 import { Link, withRouter } from 'react-router-dom'
 
 function MobileNavbar(props) {
-  const { auth, user } = props
+  const { auth, setAuth } = props
+
+  //判斷是否登入
+  const history = useHistory()
+  const token = localStorage.getItem('token')
+  const member = localStorage.getItem('member')
+  const memberObj = JSON.parse(member)
+  console.log('memberObj', memberObj)
+  useEffect(() => {
+    if (token) {
+      setAuth(true)
+      history.push('/')
+    } else {
+      return
+    }
+  }, [])
 
   useEffect(() => {
     const path = props.location.pathname.toString()

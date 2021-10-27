@@ -14,7 +14,7 @@ function scrollHeader() {
 window.addEventListener('scroll', scrollHeader)
 
 function PcNavbar(props) {
-  //判斷是否登入並為教師身分
+  //判斷是否登入
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
@@ -38,6 +38,7 @@ function PcNavbar(props) {
   const logout = async () => {
     localStorage.removeItem('token')
     setAuth(false)
+    history.push('/login')
   }
 
   return (
@@ -136,7 +137,7 @@ function PcNavbar(props) {
                     className="NavAvatarMenu d-none"
                   >
                     <div className="mb-1">
-                      <Link to="/Tcindex">
+                      <Link to="/StIndex">
                         <span className="mx-0">
                           會員中心
                         </span>
