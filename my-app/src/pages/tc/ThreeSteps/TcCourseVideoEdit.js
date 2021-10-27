@@ -16,7 +16,7 @@ function TcCourseVideoEdit() {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).sid
+  const identity = JSON.parse(member).identity
   useEffect(() => {
     if (!token) {
       history.push('/')

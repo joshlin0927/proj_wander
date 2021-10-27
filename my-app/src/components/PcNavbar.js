@@ -28,6 +28,7 @@ function PcNavbar(props) {
       return
     }
   }, [])
+
   const { auth, setAuth, user } = props
 
   const menuToggle = () => {

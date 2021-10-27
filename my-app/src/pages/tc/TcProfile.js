@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
+import axios from 'axios'
 
 import { MemberEdit } from '../../config'
 
@@ -17,16 +18,28 @@ function TcProfile(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).sid
+  const identity = JSON.parse(member).identity
   useEffect(() => {
     if (!token) {
       history.push('/')
     } else if (identity !== 1) {
       history.push('/')
     } else {
-      return
+      ;(async () => {
+        const sid = JSON.parse(member).sid
+        const r = await fetch(`${MemberEdit}sid=${sid}`, {
+          method: 'GET',
+        })
+      })()
     }
   }, [])
+
+  const test = `${MemberEdit}=${JSON.parse(member).sid}`
+  console.log(test)
+
+  // 課程陣列排出
+  let [data, setData] = useState({})
+  let [totalRows, setTotalRows] = useState(0)
 
   // 使用物件值作為狀態值，儲存所有欄位的值
   const [fields, setFields] = useState({
@@ -76,20 +89,21 @@ function TcProfile(props) {
 
     // ex. 用fetch api/axios送到伺服器
     const usp = new URLSearchParams(TcProfileFormData)
-    const r = await fetch(MemberEdit, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: usp.toString(),
-    })
-      .then((r) => r.json())
-      .then((obj) => {
-        // 查看附帶的數值
-        console.log(JSON.stringify(obj, null, 4))
-        if (obj.success === true) {
-        }
-      })
+    console.log(usp)
+    // const r = await fetch(MemberEdit, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/x-www-form-urlencoded',
+    //   },
+    //   body: usp.toString(),
+    // })
+    //   .then((r) => r.json())
+    //   .then((obj) => {
+    //     // 查看附帶的數值
+    //     console.log(JSON.stringify(obj, null, 4))
+    //     if (obj.success === true) {
+    //     }
+    //   })
   }
 
   // 當整個表單有變動時觸發

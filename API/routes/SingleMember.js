@@ -4,22 +4,13 @@ const upload = require("../modules/upload-images");
 
 const router = express.Router();
 
-
-
-
 router
   .route("/edit/:sid")
   .get(async (req, res) => {
-    const sql = "SELECT * FROM member WHERE sid=?";
-    const [rs] = await db.query(sql, [req.params.sid]);
+    const sql = `SELECT * FROM \`member\` WHERE sid=?${sid}`;
+    const [rs] = await db.query(sql);
 
-    if (rs.length) {
-      res.render("SingleMember/edit", {
-        row: rs[0],
-      });
-    } else {
-      res.redirect("/SingleMember/list");
-    }
+    res.json([rs]);
   })
   .post(async (req, res) => {
     // TODO: 欄位檢查
