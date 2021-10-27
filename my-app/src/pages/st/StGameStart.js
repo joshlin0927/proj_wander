@@ -18,7 +18,8 @@ function StGameStart(props) {
       let r = await axios.get(
         `${SentenceGame_LIST}?language=${lang}&easiness=${easi}`
       )
-      console.log(r)
+      console.log('lang/easi:', lang, '/', easi)
+      console.log('rows:', r.data.rows)
       if (r.status === 200) {
         setDataArr(r.data.rows)
       }
@@ -32,9 +33,9 @@ function StGameStart(props) {
           <div className="row mb-5">
             <MultiLevelBreadCrumb />
           </div>
-          <div className="row">
+          <div className="row flex-column">
             <div
-              className="mylanguage col-md-2 col-lg-2 ml-auto"
+              className="mylanguage col-10 col-md-2 offset-1 offset-md-10"
               onClick={() => {
                 setData({
                   language: 'English',
@@ -43,11 +44,11 @@ function StGameStart(props) {
               }}
             >
               <div className="dot"> </div>
-              西班牙文
+              <span> 英文 </span>
             </div>
             <br />
             <div
-              className="gamestart col-md-2 col-lg-2 ml-auto"
+              className="gamestart col-10 col-md-2 offset-1 offset-md-10"
               onClick={() => {
                 localStorage.clear()
                 console.log(dataArr)
@@ -64,7 +65,7 @@ function StGameStart(props) {
               }}
             >
               <div className="dot"> </div>
-              <span> 課程測驗 </span>
+              <span> 開始測驗 </span>
               <div className="gamestartHoverDot">
                 <img
                   src={`${devUrl}/images/gaming/game_entrance.png`}

@@ -41,18 +41,21 @@ function StGaming() {
     let question = []
     let wordArr = []
     let questionID = -1
-    $('.btn-secondary').on('click', function () {
+
+    $('#NextBtn').on('click', function () {
       // 先清空陣列跟頁面顯示的word
       question = []
       document.querySelector('.selectWord').innerHTML = ''
       document.querySelector('.answer').innerHTML = ''
       document.querySelector('.result').innerHTML = ''
       // 把dataArr中的問題與答案顯示在頁面上
-      const index = $(this).text() - 1
-      questionID = index
-      $('.question-text>span').text(dataArr[index].ques)
+      questionID++
+      $('#quesID').text(questionID + 1)
+      $('.question-text>span').text(
+        dataArr[questionID].ques
+      )
       question = question.concat(
-        dataArr[index].ans.split(' ')
+        dataArr[questionID].ans.split(' ')
       )
       // 隨機排列
       question.sort((a, b) => {
@@ -208,63 +211,62 @@ function StGaming() {
           <div className="row">
             <MultiLevelBreadCrumb />
           </div>
+          <div className="row">
+            <div className="stGamingContent container">
+              <div className="row my-3">
+                <h1>用英文拼出此句子</h1>
+                <div
+                  className="btn-group ml-2"
+                  role="group"
+                  aria-label="First group"
+                >
+                  <div
+                    className="btn btn-secondary"
+                    id="NextBtn"
+                  >
+                    Next
+                  </div>
+                  <div
+                    className="btn btn-secondary"
+                    id="quesID"
+                  >
+                    0
+                  </div>
+                </div>
+              </div>
+              <div className="row flex-nowrap">
+                <div className="question-pic">
+                  <img
+                    src={`${devUrl}/images/gaming/000.gif`}
+                    alt=""
+                  />
+                </div>
+                <div className="question-text d-flex align-items-center">
+                  <span></span>
+                </div>
+              </div>
+              <div className="row position-relative">
+                <div className="col-12 mt-5">
+                  <span>作答區：</span>
+                </div>
+                <div className="answer"></div>
+                <div className="col-12">
+                  <span>選擇區：</span>
+                </div>
+                <div className="selectWord"></div>
+                <div className="animationWord"></div>
+              </div>
+              <div className="row justify-content-end align-items-center">
+                <span className="result"></span>
+                <div className="btn btn-success ml-5 sendAns">
+                  送出
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="container mt-3">
-        <div className="row my-3">
-          <h3>用英文拼出此句子</h3>
-          <div
-            className="btn-group ml-2"
-            role="group"
-            aria-label="First group"
-          >
-            <button
-              type="button"
-              className="btn btn-secondary"
-            >
-              1
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary"
-            >
-              2
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary"
-            >
-              3
-            </button>
-          </div>
-        </div>
-        <div className="row flex-nowrap">
-          <div className="question-pic">
-            <img
-              src={`${devUrl}/images/gaming/000.gif`}
-              alt=""
-            />
-          </div>
-          <div className="question-text d-flex align-items-center">
-            <span></span>
-          </div>
-        </div>
-        <div className="row position-relative">
-          <div className="answer"></div>
-          <div className="selectWord"></div>
-          <div className="animationWord"></div>
-        </div>
-        <div className="row justify-content-end align-items-center">
-          <span className="result"></span>
-          <button
-            type="button"
-            className="btn btn-success ml-5 sendAns"
-          >
-            送出
-          </button>
-        </div>
-      </div>
       <StBgDecorationNormal />
       <Footer />
     </>
