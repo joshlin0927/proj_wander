@@ -353,7 +353,7 @@ body {
 /* 課程新增的返回列表按鈕 */
 .btn-border-only-no-h {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   border: 1px solid #065f8e;
   border-radius: 10px;

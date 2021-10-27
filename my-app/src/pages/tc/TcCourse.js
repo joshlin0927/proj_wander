@@ -85,7 +85,7 @@ function TcCourse() {
               />
             </div>
             {/* TCcourse card label */}
-            <div className="TCcourseLabel col-12">
+            <div className="TCcourseLabel col-12 mb-3">
               <div className="Labelitem">課程封面</div>
               <div className="Labelitem">課程名稱</div>
               <div className="TCcourseLabel-right">

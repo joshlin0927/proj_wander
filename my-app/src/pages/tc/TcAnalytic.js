@@ -55,6 +55,9 @@ function TcAnalytic() {
               <div className="TCform-title mr-auto">
                 數據分析
               </div>
+              <Link to="">
+                <i className="fas fa-chevron-left TCback-btn opacity-0"></i>
+              </Link>
               {/* desktop search bar */}
               <div className="TCsearch ml-0">
                 <TcSearchBar placeholder="請輸入課程名稱" />
@@ -65,8 +68,8 @@ function TcAnalytic() {
               <TcSearchBar placeholder="請輸入課程名稱" />
             </div>
             {/* chart */}
-            <div class="mb-5">
-              <TcChart width={700} height={300} />
+            <div className="mb-5">
+              <TcChart />
             </div>
             {/* TCcourse card label */}
             <div className="TCcourseLabel col-12">
@@ -85,9 +88,9 @@ function TcAnalytic() {
             <MyPagination />
           </form>
         </div>
-        <Footer />
       </div>
       <TcBgDecorationNormal />
+      <Footer />
     </>
   )
 }

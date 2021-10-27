@@ -156,40 +156,49 @@ a {
   }
 }
 /*=============== 頁碼 ===============*/
-.Mypagination {
-  list-style: none;
+.display-ctrl {
   display: none;
-  align-items: center;
-  margin: 70px 0px 60px;
 }
 
-.Mypage-item {
-  width: 28px;
-  height: 28px;
-  border-radius: 5px;
-  line-height: 26px;
-  font-size: 12px;
-  color: black;
-  text-align: center;
-}
+@media (min-width: 768px) {
+  .display-ctrl {
+    display: flex;
+  }
 
-.Mypage-item:hover {
-  border: 1px solid #065f8e;
-}
+  .Mypagination {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 70px 0px 60px;
+  }
 
-.Mypage-item i {
-  color: #065f8e;
-}
+  .Mypage-item {
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
+    line-height: 26px;
+    font-size: 12px;
+    color: black;
+    text-align: center;
+  }
 
-/* 頁碼被選中時 */
-.Mypage-item.active {
-  background-color: #065f8e;
-}
+  .Mypage-item:hover {
+    border: 1px solid #065f8e;
+  }
 
-.Mypage-item.active {
-  color: white;
-}
+  .Mypage-item i {
+    color: #065f8e;
+  }
 
+  /* 頁碼被選中時 */
+  .Mypage-item.active {
+    background-color: #065f8e;
+  }
+
+  .Mypage-item.active {
+    color: white;
+  }
+}
 /*=============== Navbar ===============*/
 ul {
   list-style: none !important;
