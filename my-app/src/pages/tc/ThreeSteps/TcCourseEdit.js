@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
+import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import { devUrl } from '../../../config'
 
@@ -8,6 +9,21 @@ import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThree
 import Footer from '../../../components/Footer'
 
 function TcCourseEdit() {
+  //判斷是否登入並為教師身分
+  const history = useHistory()
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    const member = localStorage.getItem('member')
+
+    if (!token) {
+      history.push('/')
+    } else if (member.identity !== 1) {
+      history.push('/')
+    } else {
+      return
+    }
+  })
+
   const formRef = useRef(null)
 
   //預覽大頭貼的地方

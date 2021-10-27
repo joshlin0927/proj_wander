@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router'
 import dayjs from 'dayjs'
 import axios from 'axios'
 
@@ -19,6 +20,21 @@ import Footer from '../../components/Footer'
 function TcCourse() {
   // 搜尋列
   const [searchWord, setSearchWord] = useState('')
+
+  //判斷是否登入並為教師身分
+  const history = useHistory()
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    const member = localStorage.getItem('member')
+
+    if (!token) {
+      history.push('/')
+    } else if (member.identity !== 1) {
+      history.push('/')
+    } else {
+      return
+    }
+  })
 
   // 課程陣列排出
   let [data, setData] = useState({})

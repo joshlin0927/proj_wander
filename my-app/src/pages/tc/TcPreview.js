@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router'
 
 import { devUrl } from '../../config'
 
@@ -10,6 +11,21 @@ import MyPagination from '../../components/MyPagination'
 import Footer from '../../components/Footer'
 
 function TcPreview() {
+  //判斷是否登入並為教師身分
+  const history = useHistory()
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    const member = localStorage.getItem('member')
+
+    if (!token) {
+      history.push('/')
+    } else if (member.identity !== 1) {
+      history.push('/')
+    } else {
+      return
+    }
+  })
+
   return (
     <>
       <div className="container mainContent">

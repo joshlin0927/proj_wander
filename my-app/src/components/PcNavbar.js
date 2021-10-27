@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { devUrl } from '../config'
 import { Link } from 'react-router-dom'
-import { MemberLogout } from '../config'
+import { useHistory } from 'react-router'
 
 function scrollHeader() {
   const header = document.getElementById('nav__header')
@@ -14,6 +14,7 @@ function scrollHeader() {
 window.addEventListener('scroll', scrollHeader)
 
 function PcNavbar(props) {
+  const history = useHistory()
   const { auth, setAuth, user } = props
 
   const menuToggle = () => {
@@ -25,6 +26,15 @@ function PcNavbar(props) {
     localStorage.removeItem('token')
     setAuth(false)
   }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      history.push('/')
+    } else {
+      setAuth(true)
+    }
+  })
 
   return (
     <>

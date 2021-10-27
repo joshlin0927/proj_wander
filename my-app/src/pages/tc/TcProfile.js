@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router'
 
 import { MemberEdit } from '../../config'
 
@@ -12,6 +13,20 @@ import Footer from '../../components/Footer'
 
 function TcProfile() {
   const formRef = useRef(null)
+  //判斷是否登入並為教師身分
+  const history = useHistory()
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    const member = localStorage.getItem('member')
+
+    if (!token) {
+      history.push('/')
+    } else if (member.identity !== 1) {
+      history.push('/')
+    } else {
+      return
+    }
+  })
 
   // 使用物件值作為狀態值，儲存所有欄位的值
   const [fields, setFields] = useState({
