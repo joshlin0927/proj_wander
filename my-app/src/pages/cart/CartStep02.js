@@ -252,7 +252,8 @@ function CartStep02(props) {
             className="btn confirmBtn"
             id="checkBtn"
             onClick={() => {
-              props.history.push('/Cart/Step03')
+              console.log(props)
+              // props.history.push('/Cart/Step03')
             }}
           >
             確認

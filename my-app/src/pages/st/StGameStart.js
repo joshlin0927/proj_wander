@@ -32,7 +32,7 @@ function StGameStart(props) {
           <div className="row mb-5">
             <MultiLevelBreadCrumb />
           </div>
-          <div>
+          <div className="row">
             <div
               className="mylanguage col-md-2 col-lg-2 ml-auto"
               onClick={() => {
