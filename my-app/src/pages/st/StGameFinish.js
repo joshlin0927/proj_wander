@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react'
-import $ from 'jquery'
-import { devUrl, SentenceGame_SOT } from '../../config'
+import React from 'react'
 import { withRouter } from 'react-router-dom'
 
 import './style/gamestart.css'

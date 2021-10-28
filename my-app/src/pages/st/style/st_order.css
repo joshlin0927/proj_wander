@@ -9,6 +9,7 @@
   padding: 1rem 0.5rem;
   color: black;
   text-decoration: none !important;
+  cursor: pointer;
 }
 .stOrderContentTitle:hover {
   border-radius: 10px 10px 0px 0px;
@@ -19,11 +20,6 @@
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
-}
-.stOrderContentTitle.active {
-  border-radius: 10px 10px 0px 0px;
-  background-color: #f1f0e9;
-  color: #065f8e;
 }
 .stOrders {
   padding: 0 0 1rem 0;
@@ -40,17 +36,30 @@
   padding: 0.5rem 0;
   color: #065f8e;
 }
+.stOrderDetailContent {
+  width: 100%;
+  margin: 0;
+}
 .stOrderDetail {
+  position: relative;
+  display: flex;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-  margin: 1rem 1rem;
+  margin: 1rem;
   padding: 0.5rem 0;
+  width: 100%;
 }
 .stOrderDetailItem {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.stOrderDetailBtn {
+  cursor: pointer;
+}
+.stOrderDetailBtn:hover {
+  opacity: 0.6;
 }
 .stOrderDetailItem span {
   text-align: center;
@@ -59,6 +68,10 @@
   display: none;
 }
 @media (max-width: 992px) {
+  .stOrderContent {
+    margin: 0 auto;
+    padding: 0;
+  }
   .stOrderContentTitle span,
   .stOrderDetailItem span {
     font-size: 14px;
@@ -69,7 +82,7 @@
     margin: 0;
   }
   .stOrderDetail {
-    flex-direction: column;
+    flex-wrap: wrap;
   }
   .stOrderDetailItem {
     padding: 0;
@@ -194,6 +207,21 @@
   background-color: #065f8e;
   color: white;
 }
+.tabCtrl,
+.stODC1,
+.stODC2,
+.stODC3,
+.stODC4 {
+  display: none;
+}
+.stOrderContentTitle.active {
+  border-radius: 10px 10px 0px 0px;
+  background-color: #f1f0e9;
+  color: #065f8e;
+}
+.stOrderDetailBtn-m {
+  display: none;
+}
 @media (max-width: 767px) {
   .stOrderCancelBtn {
     width: 70px;
@@ -208,6 +236,15 @@
     padding: 0;
     right: 15px;
     bottom: 3px;
+  }
+  .stOrderDetailBtn-m {
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 21px;
+    height: 22px;
   }
 }
 @media (max-width: 992px) {
@@ -266,4 +303,15 @@
   .m-d-none {
     display: none;
   }
+}
+@media (min-width: 768px) {
+  .p-d-block {
+    display: block;
+  }
+}
+.tab-d-flex {
+  display: flex;
+}
+.tab-d-none {
+  display: none;
 }
