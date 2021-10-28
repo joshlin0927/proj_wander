@@ -5,11 +5,6 @@ import { Modal } from 'react-bootstrap'
 import { API_HOST, TcCourse_DELETE } from '../../config'
 
 function TcCourseCard(props) {
-  useEffect(() => {
-    let r = axios.delete(TcCourse_DELETE)
-
-    console.log(r)
-  }, [])
   const {
     sid,
     teacher_sid,
@@ -28,26 +23,22 @@ function TcCourseCard(props) {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-  //修改課程
-  const [isShow, setIsShow] = useState(false)
-  const handleIsClose = () => setIsShow(false)
-  const handleIsShow = () => setIsShow(true)
+  const deleteCourse = async () => {
+    let r = await axios.delete(TcCourse_DELETE + '/' + sid)
+
+    handleClose()
+  }
+
   return (
     <>
       <div className="TCcourse-card col-12">
-        <div
-          className="TCcourse-img"
-          onClick={handleIsShow}
-        >
+        <div className="TCcourse-img">
           <img
             src={`${API_HOST}/img/${course_img}`}
             alt=""
           />
         </div>
-        <div
-          className="TCcourse-info"
-          onClick={handleIsShow}
-        >
+        <div className="TCcourse-info">
           <div className="TCcourse-title">
             <span>
               {course_name} {sid}
@@ -89,7 +80,7 @@ function TcCourseCard(props) {
           <button
             type="button"
             className="btn confirmBtn"
-            onClick={handleClose}
+            onClick={deleteCourse}
           >
             <span>是</span>
           </button>

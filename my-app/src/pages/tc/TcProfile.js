@@ -28,7 +28,7 @@ function TcProfile(props) {
         let r = await axios.get(
           `${MemberEdit}?teacherSid=${teacherSid}`
         )
-        // 為什麼生日填不上去?
+        // 為什麼生日填不上去? ANS:在node就先處理，在mysql-connect就設定dateToString為true
         setFields(r.data[0][0])
       })()
     }
