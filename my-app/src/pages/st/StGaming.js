@@ -8,7 +8,7 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import Footer from '../../components/Footer'
 
-function StGaming() {
+function StGaming(props) {
   function wordSound(e) {
     const word = e.target.innerText
     //urlencoded法
@@ -49,7 +49,7 @@ function StGaming() {
       document.querySelector('.answer').innerHTML = ''
       $('.sendAns').show()
       $('.showAns').hide()
-      $('#NextBtn').hide()
+      $('.gameNextBtn').hide()
       $('.doneCover').hide()
       $('.answer')
         .removeClass('correct-shadow')
@@ -91,7 +91,7 @@ function StGaming() {
     }
     // 設定問題&點next再觸發
     setQuestion()
-    $('#NextBtn').on('click', function () {
+    $('.gameNextBtn').on('click', function () {
       if (questionID < dataArr.length - 1) {
         setQuestion()
       } else {
@@ -209,7 +209,7 @@ function StGaming() {
         str += $(this).text() + ' '
       })
       $('.sendAns').hide()
-      $('#NextBtn').show()
+      $('.gameNextBtn').show()
       $('.doneCover').show()
 
       if (str.indexOf(dataArr[questionID].ans) === 0) {
@@ -223,6 +223,12 @@ function StGaming() {
           .fadeIn(500)
       }
       console.log('QID:', questionID)
+      console.log('length:', dataArr.length)
+      if (questionID === dataArr.length - 1) {
+        $('.gameNextBtn').hide()
+        $('.finishBtn').show()
+        console.log('到底了')
+      }
     })
   }, [])
   return (
@@ -278,11 +284,16 @@ function StGaming() {
               <div className="row gameBtns">
                 <div className="showAns">正確答案：</div>
                 <div className="btn sendAns">Done</div>
+                <div className="btn gameNextBtn">Next</div>
                 <div
-                  className="btn gameNextBtn"
-                  id="NextBtn"
+                  className="btn finishBtn"
+                  onClick={() => {
+                    props.history.push(
+                      '/StIndex/StGameFinish'
+                    )
+                  }}
                 >
-                  Next
+                  Finish
                 </div>
               </div>
             </div>
