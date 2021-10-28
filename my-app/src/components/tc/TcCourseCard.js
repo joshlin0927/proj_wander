@@ -43,7 +43,9 @@ function TcCourseCard(props) {
           onClick={handleIsShow}
         >
           <div className="TCcourse-title">
-            <span>{course_name}</span>
+            <span>
+              {course_name} {sid}
+            </span>
           </div>
           <div className="TCcourse-info-right">
             <div className="TCcourse-detail">
@@ -65,25 +67,6 @@ function TcCourseCard(props) {
           <i className="far fa-times-circle"></i>
         </div>
       </div>
-      <Modal show={isShow} onHide={handleIsClose} centered>
-        <Modal.Header>
-          <Modal.Title>影片資訊</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="resume">
-            <input
-              className="col-12 allInputs bgt"
-              placeholder="請輸入影片標題 "
-            />
-            <button
-              type="submit"
-              className="btn-secondary browse"
-            >
-              更改名稱
-            </button>
-          </div>
-        </Modal.Body>
-      </Modal>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header>
           <Modal.Title>刪除課程</Modal.Title>

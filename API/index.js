@@ -66,8 +66,9 @@ app.use(express.urlencoded({
 app.use(express.json());
 /* 上面的兩個才算是Top-level Middleware*/
 
-
+// 直接訪問跟目錄
 app.use('/', express.static('public'));
+
 app.use('/jquery', express.static('node_modules/jquery/dist'));
 app.use('/bootstrap', express.static('node_modules/bootstrap/dist'));
 app.use('/@fortawesome/fontawesome-free', express.static('node_modules/@fortawesome/fontawesome-free/css/all.css'))
@@ -184,6 +185,7 @@ app.get("/video", function (req, res) {
 
 });
 */
+
 
 
 //學生

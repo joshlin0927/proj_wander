@@ -26,7 +26,7 @@ function TcCourse() {
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
-  const sid = JSON.parse(member).sid
+  const teacherSid = JSON.parse(member).sid
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -35,12 +35,13 @@ function TcCourse() {
     } else {
       ;(async () => {
         let r = await axios.get(
-          `${TcCourse_LIST}?sid=${sid}`
+          `${TcCourse_LIST}?teacherSid=${teacherSid}`
         )
         if (r.status === 200) {
           setTotalRows(r.data.totalRows)
           setData(r.data)
         }
+        console.log(r.data)
       })()
     }
   }, [])
@@ -113,6 +114,7 @@ function TcCourse() {
                 return (
                   <TcCourseCard
                     key={v.sid}
+                    sid={v.sid}
                     course_img={v.course_img}
                     course_name={v.course_name}
                     course_category={v.course_category}
