@@ -1,7 +1,10 @@
 const express = require("express");
+const multer = require("multer");
 const db = require("../modules/connect-mysql");
-const upload = require("../modules/upload-images");
-
+const uploadImg = require("../modules/upload-images");
+const upload = multer({
+  dest: 'tmp_uploads/'
+});
 const router = express.Router();
 
 router
@@ -18,6 +21,8 @@ router
     res.json([rs]);
   })
   .post(async (req, res) => {
+
+    
     // TODO: 欄位檢查
     const output = {
       success: false,
@@ -32,7 +37,7 @@ router
     let result = {};
     // 處理修改資料時可能的錯誤
     try {
-      [result] = await db.query(sql, [input, req.params.teacherSid]);
+      [result] = await db.query(sql, [input, req.query.teacherSid]);
     } catch (ex) {
       output.error = ex.toString();
     }

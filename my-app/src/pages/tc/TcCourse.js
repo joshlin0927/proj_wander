@@ -5,7 +5,10 @@ import dayjs from 'dayjs'
 import axios from 'axios'
 
 // 後端檔案路徑
-import { TcCourse_LIST } from '../../config'
+import {
+  TcCourse_LIST,
+  TcCourse_DELETE,
+} from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -27,6 +30,11 @@ function TcCourse() {
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
   const teacherSid = JSON.parse(member).sid
+
+  // 課程陣列排出
+  let [data, setData] = useState({})
+  let [totalRows, setTotalRows] = useState(0)
+
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -44,10 +52,8 @@ function TcCourse() {
         console.log(r.data)
       })()
     }
+    // 為什麼沒有寫[]就會無限fetch
   }, [])
-  // 課程陣列排出
-  let [data, setData] = useState({})
-  let [totalRows, setTotalRows] = useState(0)
 
   return (
     <>
@@ -104,7 +110,7 @@ function TcCourse() {
               <div className="Labelitem">課程名稱</div>
               <div className="TCcourseLabel-right">
                 <div className="Labelitem">課程種類</div>
-                <div className="Labelitem">上架日期</div>
+                <div className="Labelitem">上傳日期</div>
                 <div className="Labelitem">課程長度</div>
               </div>
             </div>
@@ -118,9 +124,7 @@ function TcCourse() {
                     course_img={v.course_img}
                     course_name={v.course_name}
                     course_category={v.course_category}
-                    course_data={dayjs(
-                      v.course_data
-                    ).format('YYYY-MM-DD')}
+                    course_data={v.course_data}
                     hours={v.hours}
                   />
                 )

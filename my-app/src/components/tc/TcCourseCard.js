@@ -1,9 +1,15 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Modal } from 'react-bootstrap'
 
-import { devUrl } from '../../config'
+import { API_HOST, TcCourse_DELETE } from '../../config'
 
 function TcCourseCard(props) {
+  useEffect(() => {
+    let r = axios.delete(TcCourse_DELETE)
+
+    console.log(r)
+  }, [])
   const {
     sid,
     teacher_sid,
@@ -34,7 +40,7 @@ function TcCourseCard(props) {
           onClick={handleIsShow}
         >
           <img
-            src={`${devUrl}/images/course/AdobeStock_339695471.jpg`}
+            src={`${API_HOST}/img/${course_img}`}
             alt=""
           />
         </div>
@@ -52,7 +58,7 @@ function TcCourseCard(props) {
               <span>課程種類：</span> {course_category}
             </div>
             <div className="TCcourse-detail">
-              <span>上架日期：</span> {course_data}
+              <span>上傳日期：</span> {course_data}
             </div>
             <div className="TCcourse-detail">
               <span>課程長度：</span> {hours}

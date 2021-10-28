@@ -23,9 +23,6 @@ function PcNavbar(props) {
   useEffect(() => {
     if (token) {
       setAuth(true)
-      history.push('/')
-    } else {
-      return
     }
   }, [])
 
@@ -38,6 +35,7 @@ function PcNavbar(props) {
 
   const logout = async () => {
     localStorage.removeItem('token')
+    localStorage.removeItem('member')
     setAuth(false)
     history.push('/login')
   }
