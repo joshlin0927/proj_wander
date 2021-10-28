@@ -3,8 +3,7 @@ import React, { useRef, useState } from 'react'
 import { devUrl } from '../../config'
 
 function TcAvatarSelector(props) {
-  const member = localStorage.getItem('member')
-  const sid = JSON.parse(member).sid
+  const { name } = props
   // console.log(sid)
   //預覽大頭貼的地方
   const imgRef = useRef(null)
@@ -34,7 +33,7 @@ function TcAvatarSelector(props) {
       <div className="d-flex align-items-center">
         <input
           type="file"
-          name="avatar"
+          name={name}
           accept="image/*"
           className="d-none"
           ref={inputRef}

@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import TcAvatarSelector from './TcAvatarSelector'
-
 function TcApplyForm() {
   const realFileInput = document.querySelector(
     '#realFileInput'
@@ -20,7 +18,6 @@ function TcApplyForm() {
               <div className="TCform-title">審核資料</div>
               <i className="TCback-btn"></i>
             </div>
-            <TcAvatarSelector />
             <input
               type="text"
               className="col-12 allInputs"

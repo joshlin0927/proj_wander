@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { devUrl } from '../config'
 
 function Footer(props) {
   const { cartFooterMb } = props
+
+  //修改課程
+  const [isShow, setIsShow] = useState(false)
+  const handleIsClose = () => setIsShow(false)
+  const handleIsShow = () => setIsShow(true)
   return (
     <>
       <footer
@@ -65,6 +71,25 @@ function Footer(props) {
         </div>
         <div className="footerFill"></div>
       </footer>
+      <Modal show={isShow} onHide={handleIsClose} centered>
+        <Modal.Header>
+          <Modal.Title>影片資訊</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="resume">
+            <input
+              className="col-12 allInputs bgt"
+              placeholder="請輸入影片標題 "
+            />
+            <button
+              type="submit"
+              className="btn-secondary browse"
+            >
+              更改名稱
+            </button>
+          </div>
+        </Modal.Body>
+      </Modal>
     </>
   )
 }

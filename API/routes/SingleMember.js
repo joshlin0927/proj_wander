@@ -7,8 +7,14 @@ const router = express.Router();
 router
   .route("/edit/:sid")
   .get(async (req, res) => {
-    const sql = `SELECT * FROM \`member\` WHERE sid=?${sid}`;
+    // console.log("sid", req.params.sid);
+
+    let sid = req.params.sid;
+
+    const sql = `SELECT * FROM \`member\` WHERE \`sid\` = ${sid}`;
     const [rs] = await db.query(sql);
+    // console.log(sql);
+    // console.log(res.json([rs]));
 
     res.json([rs]);
   })
@@ -22,7 +28,9 @@ router
     const input = {
       ...req.body,
     };
-    const sql = "UPDATE `member` SET ? WHERE sid=?";
+
+
+    const sql = `UPDATE \`member\` SET ? WHERE sid=?`;
     let result = {};
     // 處理修改資料時可能的錯誤
     try {

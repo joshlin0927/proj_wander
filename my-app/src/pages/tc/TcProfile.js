@@ -2,8 +2,9 @@ import React, { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
 import axios from 'axios'
+import dayjs from 'dayjs'
 
-import { MemberEdit } from '../../config'
+import { MemberEdit, devUrl } from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -19,34 +20,56 @@ function TcProfile(props) {
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
+  const sid = JSON.parse(member).sid
   useEffect(() => {
     if (!token) {
       history.push('/')
     } else if (identity !== 1) {
       history.push('/')
     } else {
-      ;(async () => {
-        const sid = JSON.parse(member).sid
-        const r = await fetch(`${MemberEdit}sid=${sid}`, {
-          method: 'GET',
-        })
+      ; (async () => {
+        let r = await axios.get(`${MemberEdit}${sid}`)
+        console.log(
+          dayjs(r.data[0][0].birth).format('YYYY-MM-DD')
+        )
+        setFields(
+          r.data[0][0]
+          // dayjs(r.data[0][0].birth).format('YYYY-MM-DD')
+        )
       })()
     }
   }, [])
 
-  const test = `${MemberEdit}=${JSON.parse(member).sid}`
-  console.log(test)
+  //預覽大頭貼的地方
+  const imgRef = useRef(null)
+  //實際擁有預覽功能的input因為太醜藏起來
+  const inputRef = useRef(null)
 
-  // 課程陣列排出
-  let [data, setData] = useState({})
-  let [totalRows, setTotalRows] = useState(0)
+  const previewFile = () => {
+    var preview = imgRef.current
+    var file = inputRef.current.files[0]
+    var reader = new FileReader()
+
+    reader.addEventListener(
+      'load',
+      function () {
+        preview.src = reader.result
+      },
+      false
+    )
+
+    if (file) {
+      reader.readAsDataURL(file)
+    }
+  }
 
   // 使用物件值作為狀態值，儲存所有欄位的值
   const [fields, setFields] = useState({
+    avatar: '',
     firstname: '',
     lastname: '',
     email: '',
-    birthday: '',
+    birth: '',
     nickname: '',
     language: '',
     intro: '',
@@ -88,22 +111,24 @@ function TcProfile(props) {
     // 利用狀態來得到輸入的值
 
     // ex. 用fetch api/axios送到伺服器
-    const usp = new URLSearchParams(TcProfileFormData)
-    console.log(usp)
-    // const r = await fetch(MemberEdit, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/x-www-form-urlencoded',
-    //   },
-    //   body: usp.toString(),
-    // })
-    //   .then((r) => r.json())
-    //   .then((obj) => {
-    //     // 查看附帶的數值
-    //     console.log(JSON.stringify(obj, null, 4))
-    //     if (obj.success === true) {
-    //     }
-    //   })
+
+    const r = fetch(`${MemberEdit}${sid}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(TcProfileFormData),
+    })
+      .then((r) => r.json())
+      .then((obj) => {
+        console.log(JSON.stringify(obj, null, 4))
+        if (obj.success) {
+          alert('資料修改成功')
+        } else {
+          alert(obj.error || '資料修改失敗')
+        }
+      })
+
   }
 
   // 當整個表單有變動時觸發
@@ -146,8 +171,6 @@ function TcProfile(props) {
             [element.name]: element.title,
           }
         }
-
-        // console.log([element.name], element.title)
       }
     }
 
@@ -175,6 +198,7 @@ function TcProfile(props) {
           <TcSideBar />
           {/* form */}
           <form
+            name="profile"
             className="TCform col-12 offset-0 col-md-8 offset-md-1"
             ref={formRef}
             onSubmit={ProfileFormSubmit}
@@ -188,15 +212,42 @@ function TcProfile(props) {
                 </Link>
                 <div className="TCform-title">個人資料</div>
                 <i className="TCback-btn"></i>
-                <button
+                {/* <button
                   className="TCbtn btn-primary preview-btn-top"
-                  to="/"
+                  to=""
                 >
                   <span>個人頁面預覽</span>
-                </button>
+                </button> */}
               </div>
               {/* HeadImgSelector */}
-              <TcAvatarSelector />
+              <div className="d-flex align-items-center">
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="d-none"
+                  ref={inputRef}
+                  onChange={previewFile}
+                />
+                <div className="profile-pic">
+                  <img
+                    src={`${devUrl}/images/pic/presetAvatar.jpeg`}
+                    className="img-fluid"
+                    alt=""
+                    name="avatar"
+                    ref={imgRef}
+                  />
+                </div>
+                <button
+                  className="TCbtn btn-border-only"
+                  id="loadFile"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    inputRef.current.click()
+                  }}
+                >
+                  <span>請選擇圖片</span>
+                </button>
+              </div>
               <div className="fullname d-flex">
                 <div className="col-6 pl-0">
                   <input
@@ -234,11 +285,12 @@ function TcProfile(props) {
               </div>
               <div className="TCmb-50">
                 <input
-                  name="birthday"
+                  name="birth"
                   type="date"
                   className="col-12 allInputs px-2"
                   placeholder="生日"
                   title="請選擇生日"
+                  defaultValue={fields.birthday}
                   value={fields.birthday}
                   onChange={handleFieldChange}
                   min="1900-01-01"

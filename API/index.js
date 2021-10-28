@@ -101,10 +101,16 @@ app.get('/', (req, res) => {
 //註冊
 app.use('/SignUp', require(__dirname +'/routes/signup'));
 
+//登入
+app.use(require(__dirname + '/routes/login'));
+
+//教師
 app.use('/SingleMember', require(__dirname + '/routes/SingleMember'));
 app.use('/member', require(__dirname + '/routes/member'));
 app.use('/TcCourse', require(__dirname + '/routes/TcCourse'));
-app.use(require(__dirname + '/routes/login'));
+
+
+//聊天室
 // app.use('/chat', require('./routes/chat'));
 
 // 聊天室設定

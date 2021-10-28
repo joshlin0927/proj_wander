@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-10-25 14:23:53
--- 伺服器版本： 10.4.21-MariaDB
--- PHP 版本： 8.0.11
+-- 產生時間： 2021-10-28 02:47:44
+-- 伺服器版本： 10.4.20-MariaDB
+-- PHP 版本： 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -109,6 +109,7 @@ INSERT INTO `course` (`sid`, `teacher_sid`, `course_category`, `course_name`, `c
 CREATE TABLE `member` (
   `sid` int(11) NOT NULL,
   `identity` tinyint(1) NOT NULL,
+  `verification` int(11) NOT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
@@ -119,7 +120,7 @@ CREATE TABLE `member` (
   `gender` int(2) DEFAULT NULL,
   `language` varchar(255) DEFAULT NULL,
   `nationality` varchar(255) DEFAULT NULL,
-  `intro` longtext DEFAULT NULL,
+  `intro` longtext NOT NULL,
   `created_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -127,42 +128,42 @@ CREATE TABLE `member` (
 -- 傾印資料表的資料 `member`
 --
 
-INSERT INTO `member` (`sid`, `identity`, `avatar`, `firstname`, `lastname`, `nickname`, `email`, `password`, `birth`, `gender`, `language`, `nationality`, `intro`, `created_date`) VALUES
-(1, 1, 'f5cddb88be8a07f97cf3d376dc5359b4c851a6b5.jpg', 'Ai', '', 'Ai', 't1@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '英文、日文', '日本', NULL, '2020-04-13'),
-(2, 1, '7adc6043cb34201875ab786456b2ec7372a423da.jpg', '艾莉絲', '', '艾莉絲', 't2@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、日文', '日本', NULL, '2020-04-13'),
-(3, 1, '83633b85d70a873c1d98f16cf39a25a3d5791239.jpg', 'Yumika', '', 'Yumika', 't3@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、日文', '日本', NULL, '2020-04-13'),
-(4, 1, '4fffcb7567638244d8dbbe1265ff2a7f7197fd19.png', 'Tracy', '', 'Tracy', 't4@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文', '美國', NULL, '2020-04-13'),
-(5, 1, 'd39b0f23d3266b895d7830e8f73a07ba62f54505.jpg', 'Jeffrey', '', 'Jeffrey', 't5@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '英文', '美國', NULL, '2020-04-13'),
-(6, 0, NULL, '裴儀', '', 'Amanda', 'mebycute@yahoo.com.tw', '$2y$10$.oYcT2djWelQuNUzsdyKLehgNWg09A/Pt7iowdtbgwDp4KxN0De0y', '1998-03-12', 2, '', '', NULL, '2021-08-12'),
-(7, 0, '96adc7698b628b64a29d48eb22fd264d1f65de35.png', '林以凡', '', 'Michael', 'mic@gmail.com', '$2y$10$5hC69ZuXurE/z8WA0QDwKeXHjNtwY61QsvP.FH4Vv73eViROyqU6K', '1993-12-31', 1, '', '', NULL, '2021-08-12'),
-(8, 0, NULL, '楊宗翰', '', 'Jeffrey', 'hanyang@yahoo.com.tw', '$2y$10$.xN3DJmZJ.Bl6z3IWmHRX.BRbwwU69.Qo20FYGEkFBKvd88JtqR4C', '1991-04-15', 1, '', '', NULL, '2021-08-12'),
-(9, 0, NULL, '余舒旻', '', 'yuki', 'littleyu@gmail.com', '$2y$10$NGO/9qhSCLzMaK.A1.zIoO1.SyHkw1yeLHfWkTmRkQjmGhbKmG/nS', '1997-05-12', 2, '', '', NULL, '2021-08-12'),
-(10, 0, NULL, '沈菀如', '', 'Ruby', 'rsheng@hotmail.com', '$2y$10$fYYlJLdna6D4Y6mG0leDX.aB9B9/E2rXlP95mI0ZQjVhiMHLbsR9y\n', '1995-03-04', 2, '', '', NULL, '2021-08-12'),
-(11, 0, 'd661827a77042a0ec631e1a824b09915b4d850fd.jpg', '卓藝岑', '', 'Lisa', 'yicen1992@yahoo.com.tw', '$2y$10$lVTcfPCWj73e3Yayctkf5.Sq4MYfeLaf4gP712n6e8UpZmO8oHaHK', '1992-04-01', 2, '', '', NULL, '2021-08-12'),
-(12, 0, '61f8a60c92cd21187baae02003b70a94fa925ba7.jpg', '林子勛', '', 'Ken', 'walker@gmail.com', '$2y$10$d8qooauoK8hI83od5MYk6.r.YPrYRJ5stVW/LCi7O9ptg1gnolK0e', '1996-01-01', 1, '', '', NULL, '2021-08-12'),
-(13, 0, NULL, '范兆廷', '', 'John', 'john@hotmail.com', '$2y$10$cCfeLN6TvktpbslwmSE5neGV93TREUW3oDwk13JWLI9iJbsOn7onm', '1992-09-09', 1, '', '', NULL, '2021-08-12'),
-(15, 0, '489d0b705bef3bd4ad6abce5369dfef0116716a7.jpg', '羅嘉玲', '', 'Emily', 'emilylo@yahoo.com.tw', '$2y$10$xImMJIFbeGue5gQSZEP8mejXPx0kMB.YXlbj4Xof7VMCp8JLiymDq', '1995-05-01', 2, '', '', NULL, '2021-08-15'),
-(16, 0, NULL, '王小明', '', 'Ming', 'ming@gmail.com', '$2y$10$uIg3cyWN7Igyhy0dIMplOOvymEEP/zQxU31MZyGvWi9hsePVDEaiy', '1995-01-01', 1, '', '', NULL, '2021-08-15'),
-(18, 0, 'e38f611a1be39ebec264f2c4ce2b50495a5859e5.jpg', '李安', '', 'An', 'anlee@gmail.com', '$2y$10$T4JEmTv.2rw7wlKnZMQ9HulJB0SWK7zo5fMz2PAkc0vP6rdHBwORe', '1954-10-23', 1, '', '', NULL, '2021-08-15'),
-(19, 0, 'd2c0829bfb0a43cabc0a32ede44405d01b8e3580.jpg', '李準基', '', '이준기', 'jg@gmail.com', '$2y$10$Mh5aUI331FtJoDsFLM4HhuQhouAuPKi8.nB8KHYdOjVySK0PPYBBy', '1982-04-17', 1, '', '', NULL, '2021-08-15'),
-(20, 0, '803b54747075f540d80e2ede9ce9c1b291a92169.jpg', '李知恩', '', 'IU', 'dlwlrma@gmail.com', '$2y$10$XgC4dKN50xKoAkEEEa0I3eKYh2AGJ17yjdRJaQCmZHspWJz5trVNO', '1993-05-16', 2, '', '', NULL, '2021-08-15'),
-(21, 0, '76b58651ad0adb8120b11d57351ef75e5382d591.jpg', 'Archie James Beale', '', 'Mal', 'mal@gmail.com', '$2y$10$iraN5SqSaLimH0y.DUyd9OmmULanMotrLQjuxZJ3X7McFWeOw8XkK', '1997-11-22', 1, '', '', NULL, '2021-08-15'),
-(22, 0, '829812276e6b7d89335ab37445bbdce8a6838e13.jpg', 'Danielle Galligan', '', 'Danielle', 'danielle@gmail.com', '$2y$10$0D7jPZvEOp9tsl8WTLTJ7uDTN1y71ZQyA6hO7A2wzCbDsFK1UAKEu', '1992-12-01', 2, '', '', NULL, '2021-08-15'),
-(27, 0, NULL, '徐晏逸', '', 'Sabrina', 'sasainter@hotmail.com', '$2y$10$t/eI1k3tJxJGyrWDtwA21eeZN6BvbsjibGToQ7LfnDihzMf0LNWYC', '1998-06-05', 2, '', '', NULL, '2021-08-16'),
-(62, 1, NULL, '呂遠智', '', 'L50544', 'l5054@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '英文、日文', '日本', NULL, '2020-04-13'),
-(63, 1, NULL, '魏嘉萱', '', 'wei', 'jiawei@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '2000-02-25', 2, '中文、英文、日文', '中國', NULL, '2020-07-01'),
-(64, 1, NULL, '蔣正名', '', 'wright', 'wright@hotmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1998-04-08', 1, '中文、英文', '台灣', NULL, '2020-10-14'),
-(65, 1, NULL, 'Miller Michael', '', 'MM', 'mm03495@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1974-08-07', 1, '中文、英文', '加拿大', NULL, '2020-10-14'),
-(66, 1, 'b7bddd60ce592fe99ae1344b7883232b037db63e.jpg', 'Jackson Willy', '', 'Will', 'jwilly@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1977-12-31', 1, '中文、英文', '澳洲', NULL, '2020-10-19'),
-(67, 1, NULL, 'Thompson Klay Alexander', '', 'AK', 'thomak223@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1991-07-04', 1, '英文', '美國', NULL, '2020-10-20'),
-(68, 1, NULL, 'Key Kaitlin', '', 'Kait', 'kait09372@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1988-12-03', 1, '英文', '英國', NULL, '2021-04-15'),
-(69, 1, NULL, 'Dominguez Rose Lilly', '', 'Lily', 'lily2431@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1999-01-01', 2, '英文、日文', '美國', NULL, '2021-04-16'),
-(70, 1, NULL, '大川實禰', '', 'oka', 'oka0293@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1994-11-24', 2, '英文、日文', '日本', NULL, '2021-06-11'),
-(71, 1, NULL, '杉原岩雄', '', 'iwa', 'iwa8984@yahoo.com.jp', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1990-10-17', 1, '中文、日文', '日本', NULL, '2021-08-18'),
-(74, 0, NULL, '測試01', '', '測試01', 't01@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1992-09-09', 1, '', '', NULL, '2021-08-12'),
-(75, 0, NULL, '測試02', '', '測試02', 't02@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1992-09-09', 1, '', '', NULL, '0000-00-00'),
-(1003, 1, '6b5f08c895b032a3751d594b35f9df3f0daee08b.jpg', '123', '', '123', '123@gmail.com', '$2y$10$mvwUDOEgGfmTuvFpiHwHF.hr3beq62UVQXCsbTQ3iXPLhzZbpmtfi', '2021-08-10', 1, '', '', NULL, '2021-08-24'),
-(1004, 1, 'f5cddb88be8a07f97cf3d376dc5359b4c851a6b5.jpg', 'Ai1', '', 'Ai1', 'ming@gg.com', '$2y$10$HNfX2Kekv48kr976JCGZ..xjMkHhT6r/WqTSMeSz..gQru9paljk.', '1982-05-24', 1, '英文、日文', '日本', NULL, '2020-04-13');
+INSERT INTO `member` (`sid`, `identity`, `verification`, `avatar`, `firstname`, `lastname`, `nickname`, `email`, `password`, `birth`, `gender`, `language`, `nationality`, `intro`, `created_date`) VALUES
+(1, 1, 0, '[object File]', 'Ai', 'lee', 'Ai', 't1@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '0000-00-00', 1, '英文、日文', '日本', '123', '2020-04-13'),
+(2, 1, 0, '7adc6043cb34201875ab786456b2ec7372a423da.jpg', '艾莉絲', '', '艾莉絲', 't2@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、日文', '日本', '', '2020-04-13'),
+(3, 1, 0, '83633b85d70a873c1d98f16cf39a25a3d5791239.jpg', 'Yumika', '', 'Yumika', 't3@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、日文', '日本', '', '2020-04-13'),
+(4, 1, 0, '4fffcb7567638244d8dbbe1265ff2a7f7197fd19.png', 'Tracy', '', 'Tracy', 't4@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文', '美國', '', '2020-04-13'),
+(5, 1, 0, 'd39b0f23d3266b895d7830e8f73a07ba62f54505.jpg', 'Jeffrey', '', 'Jeffrey', 't5@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '英文', '美國', '', '2020-04-13'),
+(6, 0, 0, NULL, '裴儀', '', 'Amanda', 'mebycute@yahoo.com.tw', '$2y$10$.oYcT2djWelQuNUzsdyKLehgNWg09A/Pt7iowdtbgwDp4KxN0De0y', '1998-03-12', 2, '', '', '', '2021-08-12'),
+(7, 0, 0, '96adc7698b628b64a29d48eb22fd264d1f65de35.png', '林以凡', '', 'Michael', 'mic@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1993-12-31', 1, '', '', '', '2021-08-12'),
+(8, 0, 0, NULL, '楊宗翰', '', 'Jeffrey', 'hanyang@yahoo.com.tw', '$2y$10$.xN3DJmZJ.Bl6z3IWmHRX.BRbwwU69.Qo20FYGEkFBKvd88JtqR4C', '1991-04-15', 1, '', '', '', '2021-08-12'),
+(9, 0, 0, NULL, '余舒旻', '', 'yuki', 'littleyu@gmail.com', '$2y$10$NGO/9qhSCLzMaK.A1.zIoO1.SyHkw1yeLHfWkTmRkQjmGhbKmG/nS', '1997-05-12', 2, '', '', '', '2021-08-12'),
+(10, 0, 0, NULL, '沈菀如', '', 'Ruby', 'rsheng@hotmail.com', '$2y$10$fYYlJLdna6D4Y6mG0leDX.aB9B9/E2rXlP95mI0ZQjVhiMHLbsR9y\n', '1995-03-04', 2, '', '', '', '2021-08-12'),
+(11, 0, 0, 'd661827a77042a0ec631e1a824b09915b4d850fd.jpg', '卓藝岑', '', 'Lisa', 'yicen1992@yahoo.com.tw', '$2y$10$lVTcfPCWj73e3Yayctkf5.Sq4MYfeLaf4gP712n6e8UpZmO8oHaHK', '1992-04-01', 2, '', '', '', '2021-08-12'),
+(12, 0, 0, '61f8a60c92cd21187baae02003b70a94fa925ba7.jpg', '林子勛', '', 'Ken', 'walker@gmail.com', '$2y$10$d8qooauoK8hI83od5MYk6.r.YPrYRJ5stVW/LCi7O9ptg1gnolK0e', '1996-01-01', 1, '', '', '', '2021-08-12'),
+(13, 0, 0, NULL, '范兆廷', '', 'John', 'john@hotmail.com', '$2y$10$cCfeLN6TvktpbslwmSE5neGV93TREUW3oDwk13JWLI9iJbsOn7onm', '1992-09-09', 1, '', '', '', '2021-08-12'),
+(15, 0, 0, '489d0b705bef3bd4ad6abce5369dfef0116716a7.jpg', '羅嘉玲', '', 'Emily', 'emilylo@yahoo.com.tw', '$2y$10$xImMJIFbeGue5gQSZEP8mejXPx0kMB.YXlbj4Xof7VMCp8JLiymDq', '1995-05-01', 2, '', '', '', '2021-08-15'),
+(16, 0, 0, NULL, '王小明', '', 'Ming', 'ming@gmail.com', '$2y$10$uIg3cyWN7Igyhy0dIMplOOvymEEP/zQxU31MZyGvWi9hsePVDEaiy', '1995-01-01', 1, '', '', '', '2021-08-15'),
+(18, 0, 0, 'e38f611a1be39ebec264f2c4ce2b50495a5859e5.jpg', '李安', '', 'An', 'anlee@gmail.com', '$2y$10$T4JEmTv.2rw7wlKnZMQ9HulJB0SWK7zo5fMz2PAkc0vP6rdHBwORe', '1954-10-23', 1, '', '', '', '2021-08-15'),
+(19, 0, 0, 'd2c0829bfb0a43cabc0a32ede44405d01b8e3580.jpg', '李準基', '', '이준기', 'jg@gmail.com', '$2y$10$Mh5aUI331FtJoDsFLM4HhuQhouAuPKi8.nB8KHYdOjVySK0PPYBBy', '1982-04-17', 1, '', '', '', '2021-08-15'),
+(20, 0, 0, '803b54747075f540d80e2ede9ce9c1b291a92169.jpg', '李知恩', '', 'IU', 'dlwlrma@gmail.com', '$2y$10$XgC4dKN50xKoAkEEEa0I3eKYh2AGJ17yjdRJaQCmZHspWJz5trVNO', '1993-05-16', 2, '', '', '', '2021-08-15'),
+(21, 0, 0, '76b58651ad0adb8120b11d57351ef75e5382d591.jpg', 'Archie James Beale', '', 'Mal', 'mal@gmail.com', '$2y$10$iraN5SqSaLimH0y.DUyd9OmmULanMotrLQjuxZJ3X7McFWeOw8XkK', '1997-11-22', 1, '', '', '', '2021-08-15'),
+(22, 0, 0, '829812276e6b7d89335ab37445bbdce8a6838e13.jpg', 'Danielle Galligan', '', 'Danielle', 'danielle@gmail.com', '$2y$10$0D7jPZvEOp9tsl8WTLTJ7uDTN1y71ZQyA6hO7A2wzCbDsFK1UAKEu', '1992-12-01', 2, '', '', '', '2021-08-15'),
+(27, 0, 0, NULL, '徐晏逸', '', 'Sabrina', 'sasainter@hotmail.com', '$2y$10$t/eI1k3tJxJGyrWDtwA21eeZN6BvbsjibGToQ7LfnDihzMf0LNWYC', '1998-06-05', 2, '', '', '', '2021-08-16'),
+(62, 1, 0, NULL, '呂遠智', '', 'L50544', 'l5054@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '英文、日文', '日本', '', '2020-04-13'),
+(63, 1, 0, NULL, '魏嘉萱', '', 'wei', 'jiawei@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '2000-02-25', 2, '中文、英文、日文', '中國', '', '2020-07-01'),
+(64, 1, 0, NULL, '蔣正名', '', 'wright', 'wright@hotmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1998-04-08', 1, '中文、英文', '台灣', '', '2020-10-14'),
+(65, 1, 0, NULL, 'Miller Michael', '', 'MM', 'mm03495@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1974-08-07', 1, '中文、英文', '加拿大', '', '2020-10-14'),
+(66, 1, 0, 'b7bddd60ce592fe99ae1344b7883232b037db63e.jpg', 'Jackson Willy', '', 'Will', 'jwilly@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1977-12-31', 1, '中文、英文', '澳洲', '', '2020-10-19'),
+(67, 1, 0, NULL, 'Thompson Klay Alexander', '', 'AK', 'thomak223@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1991-07-04', 1, '英文', '美國', '', '2020-10-20'),
+(68, 1, 0, NULL, 'Key Kaitlin', '', 'Kait', 'kait09372@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1988-12-03', 1, '英文', '英國', '', '2021-04-15'),
+(69, 1, 0, NULL, 'Dominguez Rose Lilly', '', 'Lily', 'lily2431@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1999-01-01', 2, '英文、日文', '美國', '', '2021-04-16'),
+(70, 1, 0, NULL, '大川實禰', '', 'oka', 'oka0293@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1994-11-24', 2, '英文、日文', '日本', '', '2021-06-11'),
+(71, 1, 0, NULL, '杉原岩雄', '', 'iwa', 'iwa8984@yahoo.com.jp', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1990-10-17', 1, '中文、日文', '日本', '', '2021-08-18'),
+(74, 0, 0, NULL, '測試01', '', '測試01', 't01@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1992-09-09', 1, '', '', '', '2021-08-12'),
+(75, 0, 0, NULL, '測試02', '', '測試02', 't02@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1992-09-09', 1, '', '', '', '0000-00-00'),
+(1003, 1, 0, '6b5f08c895b032a3751d594b35f9df3f0daee08b.jpg', '123', '', '123', '123@gmail.com', '$2y$10$mvwUDOEgGfmTuvFpiHwHF.hr3beq62UVQXCsbTQ3iXPLhzZbpmtfi', '2021-08-10', 1, '', '', '', '2021-08-24'),
+(1004, 1, 0, 'f5cddb88be8a07f97cf3d376dc5359b4c851a6b5.jpg', 'Ai1', '', 'Ai1', 'ming@gg.com', '$2y$10$HNfX2Kekv48kr976JCGZ..xjMkHhT6r/WqTSMeSz..gQru9paljk.', '1982-05-24', 1, '英文、日文', '日本', '', '2020-04-13');
 
 -- --------------------------------------------------------
 
@@ -350,7 +351,9 @@ ALTER TABLE `course`
 -- 資料表索引 `member`
 --
 ALTER TABLE `member`
-  ADD PRIMARY KEY (`sid`);
+  ADD PRIMARY KEY (`sid`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `email_2` (`email`);
 
 --
 -- 資料表索引 `order_detail`

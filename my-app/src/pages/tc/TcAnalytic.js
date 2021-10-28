@@ -76,12 +76,20 @@ function TcAnalytic() {
               </Link>
               {/* desktop search bar */}
               <div className="TCsearch ml-0">
-                <TcSearchBar placeholder="請輸入課程名稱" />
+                <TcSearchBar
+                  placeholder="請輸入課程名稱"
+                  searchWord={searchWord}
+                  setSearchWord={setSearchWord}
+                />
               </div>
             </div>
             {/* mobile search bar */}
             <div className="TCsearch-mobile">
-              <TcSearchBar placeholder="請輸入課程名稱" />
+              <TcSearchBar
+                placeholder="請輸入課程名稱"
+                searchWord={searchWord}
+                setSearchWord={setSearchWord}
+              />
             </div>
             {/* chart */}
             <div className="mb-5">
