@@ -212,18 +212,17 @@ function TcProfile(props) {
                 </Link>
                 <div className="TCform-title">個人資料</div>
                 <i className="TCback-btn"></i>
-                <button
+                {/* <button
                   className="TCbtn btn-primary preview-btn-top"
-                  to="/"
+                  to=""
                 >
                   <span>個人頁面預覽</span>
-                </button>
+                </button> */}
               </div>
               {/* HeadImgSelector */}
               <div className="d-flex align-items-center">
                 <input
                   type="file"
-                  name="avatar"
                   accept="image/*"
                   className="d-none"
                   ref={inputRef}
@@ -234,7 +233,7 @@ function TcProfile(props) {
                     src={`${devUrl}/images/pic/presetAvatar.jpeg`}
                     className="img-fluid"
                     alt=""
-                    name="avatar-img"
+                    name="avatar"
                     ref={imgRef}
                   />
                 </div>
