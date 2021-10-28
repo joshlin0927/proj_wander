@@ -5,18 +5,18 @@ const upload = require('./../modules/upload-images');
 
 
 router.route('/:sid')
- .get(async (req, res) => {
-     const sql = "SELECT * FROM `member` WHERE sid=?";
-     const [rs] = await db.query(sql, [req.params.sid]);
+//  .get(async (req, res) => {
+//      const sql = "SELECT * FROM `member` WHERE sid=?";
+//      const [rs] = await db.query(sql, [req.params.sid]);
 
-     if (rs.length) {
-       res.render('/stprofile', {
-         row: rs[0]
-       });
-     } else {
-       res.redirect('/stprofile')
-     }
-   })
+//      if (rs.length) {
+//        res.render('/stprofile/:sid', {
+//          row: rs[0]
+//        });
+//      } else {
+//        res.redirect('/stprofile')
+//      }
+//    })
    .post(async (req, res) => {
      // TODO: 欄位檢查
      const output = {
