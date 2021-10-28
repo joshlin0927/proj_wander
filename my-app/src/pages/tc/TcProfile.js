@@ -20,14 +20,14 @@ function TcProfile(props) {
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
+  const sid = JSON.parse(member).sid
   useEffect(() => {
     if (!token) {
       history.push('/')
     } else if (identity !== 1) {
       history.push('/')
     } else {
-      ;(async () => {
-        const sid = JSON.parse(member).sid
+      ; (async () => {
         let r = await axios.get(`${MemberEdit}${sid}`)
         console.log(
           dayjs(r.data[0][0].birth).format('YYYY-MM-DD')
@@ -111,15 +111,13 @@ function TcProfile(props) {
     // 利用狀態來得到輸入的值
 
     // ex. 用fetch api/axios送到伺服器
-    const usp = new URLSearchParams(
-      new FormData(TcProfileFormData)
-    )
-    const r = fetch(MemberEdit, {
+
+    const r = fetch(`${MemberEdit}${sid}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: usp.toString(),
+      body: new URLSearchParams(TcProfileFormData),
     })
       .then((r) => r.json())
       .then((obj) => {
@@ -131,7 +129,6 @@ function TcProfile(props) {
         }
       })
 
-    console.log(r)
   }
 
   // 當整個表單有變動時觸發

@@ -128,7 +128,7 @@ function PcNavbar(props) {
                     onClick={menuToggle}
                   >
                     <img
-                      src={`${devUrl}/images/students/Anne_Hathaway.jpg`}
+                      src={`${devUrl}/images/students/Anne Hathaway.jpg`}
                       alt=""
                     />
                   </div>
@@ -138,7 +138,7 @@ function PcNavbar(props) {
                     className="NavAvatarMenu d-none"
                   >
                     <div className="mb-1">
-                      <Link to="/StIndex">
+                      <Link to="/StIndex/StProfile">
                         <span className="mx-0">
                           會員中心
                         </span>
