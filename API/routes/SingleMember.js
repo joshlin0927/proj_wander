@@ -8,9 +8,9 @@ router
   .route("/edit")
   .get(async (req, res) => {
 
-    let sid = req.query.sid;
+    let teacherSid = req.query.teacherSid;
 
-    const sql = `SELECT * FROM \`member\` WHERE \`sid\` = ${sid}`;
+    const sql = `SELECT * FROM \`member\` WHERE \`sid\` = ${teacherSid}`;
     const [rs] = await db.query(sql);
     // console.log(sql);
     // console.log(res.json([rs]));
@@ -32,7 +32,7 @@ router
     let result = {};
     // 處理修改資料時可能的錯誤
     try {
-      [result] = await db.query(sql, [input, req.params.sid]);
+      [result] = await db.query(sql, [input, req.params.teacherSid]);
     } catch (ex) {
       output.error = ex.toString();
     }

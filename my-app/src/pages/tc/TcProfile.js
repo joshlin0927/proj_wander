@@ -20,7 +20,7 @@ function TcProfile(props) {
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
-  const sid = JSON.parse(member).sid
+  const teacherSid = JSON.parse(member).sid
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -28,7 +28,9 @@ function TcProfile(props) {
       history.push('/')
     } else {
       ;(async () => {
-        let r = await axios.get(`${MemberEdit}?sid=${sid}`)
+        let r = await axios.get(
+          `${MemberEdit}?teacherSid=${teacherSid}`
+        )
         console.log(
           dayjs(r.data[0][0].birth).format('YYYY-MM-DD')
         )
@@ -112,7 +114,7 @@ function TcProfile(props) {
 
     // ex. 用fetch api/axios送到伺服器
 
-    const r = fetch(`${MemberEdit}${sid}`, {
+    const r = fetch(`${MemberEdit}${teacherSid}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
