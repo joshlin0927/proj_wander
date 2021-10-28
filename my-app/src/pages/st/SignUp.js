@@ -1,16 +1,17 @@
 import '../st/style/signUp.css'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { devUrl } from '../../config'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+
 //共用元件
 // import FBLogin from '../../components/st/FBLogin'
 // import GooLogin from '../../components/st/GooLogin'
 
 export default withRouter(function SignUp(props) {
   const [asTeacherOrStudent, setasTeacherOrStudent] =
-    useState(0)
+    useState(3)
 
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
@@ -98,6 +99,16 @@ export default withRouter(function SignUp(props) {
     console.log(fd.get('lastname'))
     // 測試有得到表單欄位的輸入值
 
+    for (let i of account.data.rows) {
+      if (i.email === fields.email) {
+        alert('帳號重複了')
+        return
+      }
+    }
+    if (asTeacherOrStudent === 3) {
+      alert('請選擇註冊身份')
+      return
+    }
     // 用axios把表單送出
     if (
       fields.lastname !== '' &&
@@ -115,16 +126,27 @@ export default withRouter(function SignUp(props) {
         })
         .then((res) => {
           alert('恭喜成為Wander會員')
-          props.history.push('/login')
         })
         .catch((e) => {
-          console.log('failed')
-          if (e.response.status === 500) {
-            alert('Email已被使用過')
-          }
+          console.log(e)
         })
     }
   }
+  const [account, setAccount] = useState('')
+
+  useEffect(() => {
+    ;(async () => {
+      const data = await axios.get(
+        'http://localhost:3001/api/accountdata'
+      )
+      if (data) {
+        setAccount(data)
+        // console.log(data)
+      } else {
+        console.log('failed')
+      }
+    })()
+  }, [])
 
   return (
     <>
@@ -185,11 +207,6 @@ export default withRouter(function SignUp(props) {
                   <label for="tab1" id="asTeacher">
                     成為教師
                   </label>
-                  <div className="tab_content">
-                    <div className="title">
-                      Wander With Us!
-                    </div>
-                  </div>
                   {/* <!-- TAB2 --> */}
                   <input
                     id="tab2"
@@ -203,16 +220,14 @@ export default withRouter(function SignUp(props) {
                   <label for="tab2" id="asStudent">
                     成為學生
                   </label>
-                  <div className="tab_content">
-                    <div className="title">
-                      Wander With Us!
-                    </div>
+                  <div className="title">
+                    Wander With Us!
                   </div>
                 </div>
                 <div className="d-flex justify-content-center">
                   <input
                     type="text"
-                    className="shortInputs  col-4"
+                    className="shortInputs  col-5 col-lg-4"
                     placeholder="名字*"
                     name="firstname"
                     value={fields.firstname}
@@ -221,7 +236,7 @@ export default withRouter(function SignUp(props) {
                   />
                   <input
                     type="text"
-                    className="shortInputs  col-4 lastName"
+                    className="shortInputs  col-5 col-lg-4 lastName"
                     placeholder="姓氏*"
                     name="lastname"
                     value={fields.lastname}
@@ -231,20 +246,32 @@ export default withRouter(function SignUp(props) {
                 </div>
                 <div className="d-flex justify-content-start">
                   {fieldsErrors.firstname === '' ? (
-                    <label className="notice col-5 ml-3 ml-md-2 ml-lg-4  labelName">
+                    <label
+                      className="stnotice  col-4 offset-1 col-lg-4 offset-lg-2 p-0"
+                      htmlFor=""
+                    >
                       &nbsp;
                     </label>
                   ) : (
-                    <label className="notice col-5 ml-3 ml-md-2 ml-lg-4  labelName">
+                    <label
+                      className="stnotice  col-4 offset-1 col-lg-4 offset-lg-2 p-0"
+                      htmlFor=""
+                    >
                       {fieldsErrors.firstname}
                     </label>
                   )}
                   {fieldsErrors.lastname === '' ? (
-                    <label className="notice col-5 ml-2 labelName">
+                    <label
+                      className="stnotice col-4 offset-1 col-lg-4 offset-lg-0 p-0"
+                      htmlFor=""
+                    >
                       &nbsp;
                     </label>
                   ) : (
-                    <label className="notice col-5 ml-2 labelName">
+                    <label
+                      className="stnotice  col-4 offset-1 col-lg-4 offset-lg-0 p-0"
+                      htmlFor=""
+                    >
                       {fieldsErrors.lastname}
                     </label>
                   )}
@@ -253,18 +280,24 @@ export default withRouter(function SignUp(props) {
                   <input
                     type="email"
                     name="email"
-                    className="allInputs-login col-8"
+                    className="allInputs-login col-10 col-lg-8"
                     placeholder="請填寫電子信箱"
                     value={fields.email}
                     onChange={handleFieldChange}
                   />
                 </div>
                 {fieldsErrors.email === '' ? (
-                  <label className="notice col-10 ml-3 ml-md-2 ml-lg-4 labelName">
+                  <label
+                    className="stnotice col-10 offset-1 col-lg-8 offset-lg-2 p-0"
+                    htmlFor=""
+                  >
                     &nbsp;
                   </label>
                 ) : (
-                  <label className="notice col-10 ml-3 ml-md-2 ml-lg-4 labelName">
+                  <label
+                    className="stnotice col-10 offset-1 col-lg-8 offset-lg-2 p-0"
+                    htmlFor=""
+                  >
                     {fieldsErrors.email}
                   </label>
                 )}
@@ -273,7 +306,7 @@ export default withRouter(function SignUp(props) {
                   <input
                     type="password"
                     name="password"
-                    className="allInputs-login col-8"
+                    className="allInputs-login col-10 col-lg-8"
                     placeholder="請輸入密碼*"
                     value={fields.password}
                     onChange={handleFieldChange}
@@ -282,14 +315,14 @@ export default withRouter(function SignUp(props) {
                 </div>
                 {fieldsErrors.password === '' ? (
                   <label
-                    className="notice col-10 ml-3 ml-md-2 ml-lg-4 labelName"
+                    className="stnotice col-8 offset-1 col-lg-8 offset-lg-2 p-0"
                     htmlFor=""
                   >
                     &nbsp;
                   </label>
                 ) : (
                   <label
-                    className="notice col-8 ml-3 ml-md-2 ml-lg-4 labelName"
+                    className="stnotice col-10 offset-1 col-lg-8 offset-lg-2 p-0"
                     htmlFor=""
                   >
                     {fieldsErrors.password}
@@ -300,13 +333,13 @@ export default withRouter(function SignUp(props) {
                   <input
                     type="text"
                     name="nickname"
-                    className="allInputs-login  col-8"
+                    className="allInputs-login  col-10 col-lg-8"
                     placeholder="請填寫暱稱"
                     value={fields.nickname}
                     onChange={handleFieldChange}
                   />
                 </div>
-                <div className="separator col-8 mx-auto">
+                <div className="separator col-10 col-lg-8 mx-auto">
                   <div className="or">OR</div>
                 </div>
                 <div className="d-flex d-md-block">

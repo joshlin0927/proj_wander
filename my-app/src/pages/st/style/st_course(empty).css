@@ -1,6 +1,7 @@
 * {
   font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
 }
+
 /* 全頁包覆(為了色塊動畫) */
 .STallwraper {
   z-index: -1;
@@ -12,10 +13,12 @@
 .opacity-0 {
   opacity: 0;
 }
+
 /* 網站導覽列 */
 .navbar {
   display: none;
 }
+
 /* 上面的黃色色塊 */
 .dec-block {
   display: block;
@@ -29,25 +32,30 @@
   border-radius: 0px 0px 0px 180px;
   animation: TChy 12s linear infinite;
 }
+
 /* 藍色倒三角 */
 .bluetriangle {
   display: none;
 }
+
 /* 黃色色塊的動畫 */
 @keyframes TChy {
   0% {
     right: 0%;
     width: 56%;
   }
+
   50% {
     right: 0%;
     width: 60%;
   }
+
   100% {
     right: 0%;
     width: 56%;
   }
 }
+
 /* 麵包屑 */
 .breadcrumb {
   background-color: transparent;
@@ -57,6 +65,7 @@
   margin-left: 0.25rem;
   padding: 0px 0px 15px;
 }
+
 /* 頁碼 */
 .Mypagination {
   list-style: none;
@@ -64,6 +73,7 @@
   align-items: center;
   margin: 50px 0px 30px;
 }
+
 .Mypage-item {
   width: 28px;
   height: 28px;
@@ -71,18 +81,22 @@
   line-height: 26px;
   text-align: center;
 }
+
 .Mypage-item a {
   font-size: 12px;
   color: black;
   text-align: center;
 }
+
 .Mypage-item a i {
   color: #065f8e;
 }
+
 /* 頁碼被選中時 */
 .Mypage-item.active {
   background-color: #065f8e;
 }
+
 .Mypage-item.active a {
   color: white;
 }
@@ -91,6 +105,7 @@
 .pageName {
   display: none;
 }
+
 .triangle-left {
   /* position: absolute;
     top: 147px;
@@ -101,42 +116,53 @@
   border-width: 20px 30px 20px 0;
   border-color: transparent #f1f0e9 transparent transparent;
 }
+
 .t_avatar {
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  margin-bottom: 80px;
+  padding:0;
 }
 
-.t_avatar img {
+.t_avatar>img {
   width: 200px;
   height: 200px;
   object-fit: cover;
   border-radius: 50%;
+
 }
+
 .nametag {
   text-align: center;
-  margin-top: 45px;
+  margin-top: 0px;
   font-size: 24px;
   margin-bottom: 0px;
 }
+
 .mo-none {
   display: none;
 }
+
 .teacherrow {
   margin: 0;
-  justify-content: center;
-  display: row;
+ 
+
+
 }
+
 .btblock {
   width: 100px;
   height: 30px;
 }
+
 .remindingtext {
   font-size: 36px;
   color: #065f8e;
   font-weight: bold;
   text-align: center;
 }
+
 .buy-btn {
   background-color: transparent;
   border: #065f8e 1px solid;
@@ -144,24 +170,30 @@
   margin-left: auto;
   margin-right: auto;
 }
+
 .buy-btn:hover {
   background-color: #065f8e;
   border: 1px solid transparent;
   color: white;
 }
+
 .bgcwhite {
   background-color: #ffffff;
 }
+
 .reminding {
   margin: 0px;
 }
+
 .coursesubtitle {
   font-size: 36px;
   font-weight: bold;
   margin: 100px 0px 55px 15px;
 }
+
 /* -------------以上為公用------------ */
 @media (min-width: 768px) {
+
   /* 右上角白圈 */
   .whitecircle {
     position: absolute;
@@ -172,6 +204,7 @@
     border: white 2px dashed;
     border-radius: 50%;
   }
+
   /* 藍色倒三角 */
   .bluetriangle {
     display: block;
@@ -179,6 +212,7 @@
     right: 0;
     top: 615px;
   }
+
   /* 網站主要導覽列 */
   .navbar {
     z-index: 5;
@@ -195,6 +229,7 @@
   .breadcrumb {
     padding: 0px;
   }
+
   /* 黃色色塊(上) */
   .dec-block {
     height: 310px;
@@ -204,6 +239,7 @@
   .Mypagination {
     display: flex;
   }
+
   /* 頁面英文標題 */
   .pageName {
     display: block;
@@ -211,6 +247,7 @@
     margin-top: 96px;
     padding: 0;
   }
+
   .pageNameText {
     position: relative;
     color: black;
@@ -218,6 +255,7 @@
     font-weight: bold;
     line-height: 1;
   }
+
   .course::before {
     content: '';
     width: 42px;
@@ -240,11 +278,13 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
+   
+   
   }
 
-  .t_avatar img {
+  .t_avatar>img {
     width: 200px;
-    height: 200px;
+    margin: auto;
     object-fit: cover;
     border-radius: 50%;
   }

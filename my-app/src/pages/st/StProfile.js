@@ -233,7 +233,7 @@ export default withRouter(function StProfile(props) {
                     required
                   />
                   {fieldsErrors.firstname && (
-                    <small className="notice">
+                    <small className="ststnotice">
                       {fieldsErrors.firstname}
                     </small>
                   )}
@@ -250,7 +250,7 @@ export default withRouter(function StProfile(props) {
                     required
                   />
                   {fieldsErrors.lastname && (
-                    <small className="notice">
+                    <small className="ststnotice">
                       {fieldsErrors.lastname}
                     </small>
                   )}
@@ -276,7 +276,7 @@ export default withRouter(function StProfile(props) {
                   max="2003-01-01"
                 />
                 {fieldsErrors.birthday && (
-                  <small className="notice">
+                  <small className="stnotice">
                     {fieldsErrors.birthday}
                   </small>
                 )}

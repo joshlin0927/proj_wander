@@ -180,14 +180,14 @@ function Login(props) {
               </div>
               {fieldErrors.email === '' ? (
                 <label
-                  className="notice col-10 ml-2  ml-lg-4 "
+                  className="stnotice col-10 ml-3  ml-lg-4 "
                   htmlFor=""
                 >
                   &nbsp;
                 </label>
               ) : (
                 <label
-                  className="notice col-10 ml-2  ml-lg-4 "
+                  className="stnotice col-10 ml-3  ml-lg-4 "
                   htmlFor=""
                 >
                   {fieldErrors.email}
@@ -206,14 +206,14 @@ function Login(props) {
               </div>
               {fieldErrors.password === '' ? (
                 <label
-                  className="notice col-10 ml-2  ml-lg-4 "
+                  className="stnotice col-10 ml-3  ml-lg-4 "
                   htmlFor=""
                 >
                   &nbsp;
                 </label>
               ) : (
                 <label
-                  className="notice col-10 ml-2  ml-lg-4 "
+                  className="stnotice col-10 ml-3  ml-lg-4 "
                   htmlFor=""
                 >
                   {fieldErrors.password}

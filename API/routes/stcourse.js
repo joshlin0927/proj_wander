@@ -5,17 +5,17 @@ const app = express();
 
 async function getListData(req, res) {
 
-  const perPage = 5;
+  const perPage = 6;
   let page = parseInt(req.query.page) || 1;
  
   const output = {
 
   };
 
-  let where = "WHERE 1";
+  let where = " WHERE \`order_main\`.\`member_sid\` = 1";
   
 
-  const t_sql = `SELECT COUNT(1) totalRows FROM course ${where}`;
+  const t_sql = `SELECT COUNT(1) totalRows FROM \`order_detail\` LEFT JOIN \`order_main\` ON \`order_detail\`.\`order_main_id\` = \`order_main\`.\`order_id\` LEFT JOIN \`course\` ON \`order_detail\`.\`product_sid\` = \`course\`.\`sid\` LEFT JOIN \`member\` ON \`course\`.\`teacher_sid\` = \`member\`.\`sid\` ${where}`;
   const [
     [{
       totalRows
@@ -37,7 +37,8 @@ async function getListData(req, res) {
       return output.redirect = '?page=' + output.totalPages;
       return output;
     }
-    const sql = `SELECT * FROM \`course\` ${where} ORDER BY sid DESC LIMIT ${(page-1)*perPage},${perPage}`;
+    const sql = `SELECT * FROM \`order_detail\` LEFT JOIN \`order_main\` ON \`order_detail\`.\`order_main_id\` = \`order_main\`.\`order_id\` LEFT JOIN \`course\` ON \`order_detail\`.\`product_sid\` = \`course\`.\`sid\` LEFT JOIN \`member\` ON \`course\`.\`teacher_sid\` = \`member\`.\`sid\` WHERE \`order_main\`.\`member_sid\` = 1 ORDER BY \`course\`.\`sid\` DESC LIMIT ${(page-1)*perPage},${perPage}`;
+
     const [rows] = await db.query(sql)
     output.rows = rows;
 

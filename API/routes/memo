@@ -1,0 +1,1 @@
+SELECT * FROM order_detail LEFT JOIN order_main ON order_detail.order_main_id = order_main.order_id LEFT JOIN course ON order_detail.product_sid = course.sid LEFT JOIN member ON course.teacher_sid = member.sid;

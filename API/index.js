@@ -191,6 +191,8 @@ app.use('/stprofile', require(__dirname + '/routes/stprofile'))
 app.use('/stcourse', require(__dirname + '/routes/stcourse'))
 //取得推薦教師資料
 app.use('/api/teacherdata', require(__dirname + '/routes/recommandtc'))
+//取得member資料
+app.use('/api/accountdata', require(__dirname + '/routes/getaccount'))
 
 // 模組化路由
 app.use('/sentence-game', require(__dirname + '/routes/sentence-game'));

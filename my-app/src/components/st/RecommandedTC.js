@@ -1,15 +1,18 @@
 import React from 'react'
-import { devUrl } from '../../config'
+import { API_HOST } from '../../config'
 
-export default function RecommandedTC() {
+export default function RecommandedTC(props) {
+  const { teachersname, teacherimg } = props
+
   return (
     <>
-      <div className="t_avatar col-12 col-md-3 col-lg-3">
+      <div className="t_avatar col-md-3 col-lg-3 ">
         <img
-          src={`${devUrl}/images/pic/老師照片/Tarin Johnson.jpg`}
+          className="mx-auto"
+          src={`${API_HOST}/img/dog-puppy-on-garden-royalty-free-image-1586966191.jpg`}
           alt=""
         />
-        <p className="nametag">Tarin</p>
+        <p className="nametag">{teachersname}</p>
       </div>
     </>
   )

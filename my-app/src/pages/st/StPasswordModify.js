@@ -143,11 +143,11 @@ export default function StPasswordModify() {
                 required
               />
               {fieldErrors.origin === '' ? (
-                <label className="notice" htmlFor="">
+                <label className="stnotice" htmlFor="">
                   &nbsp;
                 </label>
               ) : (
-                <label className="notice" htmlFor="">
+                <label className="stnotice" htmlFor="">
                   {fieldErrors.origin}
                 </label>
               )}
@@ -162,11 +162,11 @@ export default function StPasswordModify() {
                 minLength="5"
               />
               {fieldErrors.newPass === '' ? (
-                <label className="notice" htmlFor="">
+                <label className="stnotice" htmlFor="">
                   &nbsp;
                 </label>
               ) : (
-                <label className="notice" htmlFor="">
+                <label className="stnotice" htmlFor="">
                   {fieldErrors.newPass}
                 </label>
               )}
@@ -182,11 +182,11 @@ export default function StPasswordModify() {
                 minLength="5"
               />
               {fieldErrors.newPassConfirm === '' ? (
-                <label className="notice" htmlFor="">
+                <label className="stnotice" htmlFor="">
                   &nbsp;
                 </label>
               ) : (
-                <label className="notice" htmlFor="">
+                <label className="stnotice" htmlFor="">
                   {fieldErrors.newPassConfirm}
                 </label>
               )}

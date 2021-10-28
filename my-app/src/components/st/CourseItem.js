@@ -1,18 +1,17 @@
 import React from 'react'
-import { devUrl } from '../../config'
+import { devUrl, API_HOST } from '../../config'
 
-export default function CourseItem() {
+export default function CourseItem(props) {
+  const { name, courseimg, teacher } = props
   return (
     <>
       <div class="courseitem">
         <img
-          src={`${devUrl}/images/pic/課程圖片/英文課程2.jpeg`}
+          src={`${API_HOST}/img/dog-puppy-on-garden-royalty-free-image-1586966191.jpg`}
           alt=""
         />
-        <div class="coursename">
-          課程名稱： 填上課程名稱
-        </div>
-        <span class="teachername"> Thoms Lillard </span>
+        <div class="coursename">{name}</div>
+        <span class="teachername"> {teacher} </span>
       </div>
     </>
   )

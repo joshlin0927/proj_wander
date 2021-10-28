@@ -109,6 +109,7 @@
   border: 1.25px solid rgba(255, 255, 255, 1);
   border-radius: 30px;
   position: relative;
+  margin-bottom: 15px;
 }
 
 .courseitem img {
@@ -137,7 +138,6 @@
 
 .nametag {
   text-align: center;
-  margin-top: 45px;
   font-size: 24px;
   margin-bottom: 0px;
 }
@@ -149,7 +149,7 @@
 .teacherrow {
   margin: 0;
   justify-content: center;
-  display: row;
+
 }
 
 .btblock {
@@ -273,8 +273,8 @@
     font-size: 8px;
     font-style: bold;
     position: absolute;
-    top: 75%;
-    left: 5%;
+    top: 85%;
+    left: 10%;
   }
 
   /* 以下提供給商品頁面及教師頁面使用 */

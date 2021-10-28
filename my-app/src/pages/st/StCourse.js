@@ -10,21 +10,40 @@ import StBgDecoration from '../../components/st/StBgDecoration'
 import MyPagination from '../../components/MyPagination'
 import CourseItem from '../../components/st/CourseItem'
 import RecommandedTC from '../../components/st/RecommandedTC'
+import RemindingText from '../../components/st/RemindingText'
 import Footer from '../../components/Footer'
 
-//取得後端課程資料
-
 export default function StCourse() {
-  const [courses, setCourses] = useState('')
-
+  //畫面掛載元件就向後端要課程資料
   useEffect(() => {
-    const getData = async () => {
+    ;(async () => {
       const Data = await axios.get(
         'http://localhost:3001/stcourse/api/coursedata'
       )
-      setCourses(Data.data.rows)
-    }
-  })
+      if (Data) {
+        setCourses(Data.data)
+        console.log(Data.data)
+      } else {
+        return
+      }
+    })()
+  }, [])
+  //這裡要記得掛上空格讓他有相依可以判斷，不然會fetch完會再次render，等於狀態又改變，又fetch造成無限迴圈
+
+  useEffect(() => {
+    ;(async () => {
+      const RecommandedTeacher = await axios.get(
+        'http://localhost:3001/api/teacherdata'
+      )
+      if (RecommandedTeacher) {
+        setRecommandedTeacher(RecommandedTeacher.data)
+        console.log(RecommandedTeacher.data)
+      }
+    })()
+  }, [])
+  const [courses, setCourses] = useState({})
+  const [RecommandedTeacher, setRecommandedTeacher] =
+    useState({})
   return (
     <>
       <div className="container mainContent">
@@ -39,17 +58,21 @@ export default function StCourse() {
 
         <div className="row justify-content-center d-flex">
           <StSideBar2 />
-
           <div className="coursesection col-md-8 col-lg-8 col-12">
-            {courses.map((course, i) => {
-              return (
-                <CourseItem
-                  key={course.sid}
-                  name={course.course_name}
-                  
-                />
-              )
-            })}
+            {courses.rows ? (
+              courses.rows.map((course, i) => {
+                return (
+                  <CourseItem
+                    key={course.sid + '_' + i}
+                    name={course.course_name}
+                    courseimg={course.course_img}
+                    teacher={course.firstname}
+                  />
+                )
+              })
+            ) : (
+              <RemindingText />
+            )}
           </div>
         </div>
 
@@ -62,7 +85,19 @@ export default function StCourse() {
         </div>
 
         <div className="row teacherrow">
-          <RecommandedTC />
+          {RecommandedTeacher.rows ? (
+            RecommandedTeacher.rows.map((teacher, i) => {
+              return (
+                <RecommandedTC
+                  key={teacher.sid + '_' + i}
+                  teacherimg={teacher.avatar}
+                  teachersname={teacher.firstname}
+                />
+              )
+            })
+          ) : (
+            <h1>Hello, world!</h1>
+          )}
         </div>
         <div className="btblock"></div>
       </div>

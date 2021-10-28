@@ -185,7 +185,6 @@
 .pic img {
   object-fit: cover;
   width: 100%;
-  height: 100%;
   border-radius: 50%;
 }
 
@@ -211,14 +210,7 @@
   padding: 17px;
 }
 
-/* 欄位提示小字 */
-.notice {
-  font-weight: bold;
-  font-size: 14px;
-  letter-spacing: -0.015em;
-  color: #cf2727;
-  /* margin-bottom: 26px; */
-}
+
 
 /* 預覽按鈕(桌機板) */
 .preview-btn-top {
@@ -240,6 +232,7 @@
 }
 
 .confirmmsg-m {
+  display:none;
   width: 50%;
   height: 70px;
   background-color: rgb(255, 255, 255);
@@ -438,7 +431,7 @@
 
   /* 表單送出後彈框 */
   .confirmmsg {
-    display: block;
+    display: none;
     width: 20%;
     height: 70px;
     background-color: white;
