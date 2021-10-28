@@ -7,15 +7,15 @@ async function getListData(req, res) {
 
   const perPage = 5;
   let page = parseInt(req.query.page) || 1;
- 
+
   const output = {
 
   };
 
   let where = "WHERE 1";
-  
 
-  const t_sql = `SELECT COUNT(1) totalRows FROM course ${where}`;
+
+  const t_sql = `SELECT COUNT(1) totalRows FROM member ${where}`;
   const [
     [{
       totalRows
@@ -37,7 +37,7 @@ async function getListData(req, res) {
       return output.redirect = '?page=' + output.totalPages;
       return output;
     }
-    const sql = `SELECT * FROM \`course\` ${where} ORDER BY sid DESC LIMIT ${(page-1)*perPage},${perPage}`;
+    const sql = `SELECT * FROM \`member\` ${where} ORDER BY sid DESC LIMIT ${(page-1)*perPage},${perPage}`;
     const [rows] = await db.query(sql)
     output.rows = rows;
 
@@ -48,9 +48,9 @@ async function getListData(req, res) {
 
 router.getListData = getListData; //將function掛在router物件上
 
-router.get('/api/coursedata', async (req, res) => {
+router.get('/', async (req, res) => {
   const output = await getListData(req, res);
   res.json(output);
 });
 
- module.exports = router;
+module.exports = router;
