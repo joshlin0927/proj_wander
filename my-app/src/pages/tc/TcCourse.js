@@ -25,31 +25,28 @@ function TcCourse() {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-
+  const identity = JSON.parse(member).identity
+  const sid = JSON.parse(member).sid
   useEffect(() => {
-    const identity = JSON.parse(member).identity
     if (!token) {
       history.push('/')
     } else if (identity !== 1) {
       history.push('/')
     } else {
-      return
+      ;(async () => {
+        let r = await axios.get(
+          `${TcCourse_LIST}?sid=${sid}`
+        )
+        if (r.status === 200) {
+          setTotalRows(r.data.totalRows)
+          setData(r.data)
+        }
+      })()
     }
   }, [])
   // 課程陣列排出
   let [data, setData] = useState({})
   let [totalRows, setTotalRows] = useState(0)
-
-  useEffect(() => {
-    ;(async () => {
-      let r = await axios.get(TcCourse_LIST)
-      // console.log(r)
-      if (r.status === 200) {
-        setTotalRows(r.data.totalRows)
-        setData(r.data)
-      }
-    })()
-  }, [])
 
   return (
     <>

@@ -14,7 +14,8 @@ export const MemberLogout = API_HOST + '/logout'
 export const MemberEdit = API_HOST + '/SingleMember/edit/'
 
 //讀取資料列表
-export const TcCourse_LIST = API_HOST + '/TcCourse/api/list'
+export const TcCourse_LIST =
+  API_HOST + '/TcCourse/api/list/'
 export const Member_LIST = API_HOST + '/member/api/list'
 export const SentenceGame_LIST =
   API_HOST + '/sentence-game/api/list'
