@@ -41,6 +41,7 @@ function StGaming(props) {
     let question = []
     let wordArr = []
     let questionID = -1
+    let result = []
 
     function setQuestion() {
       // 先清空陣列跟頁面顯示的word
@@ -215,20 +216,26 @@ function StGaming(props) {
       if (str.indexOf(dataArr[questionID].ans) === 0) {
         $('.ansCorrect').fadeIn(500).fadeOut(1000)
         $('.answer').addClass('correct-shadow')
+        result.push(1)
       } else {
         $('.ansWrong').fadeIn(500).fadeOut(1000)
         $('.answer').addClass('wrong-shadow')
         $('.showAns')
           .text(`正確答案： ${dataArr[questionID].ans}`)
           .fadeIn(500)
+        result.push(0)
       }
       console.log('QID:', questionID)
-      console.log('length:', dataArr.length)
+      console.log('result:', result)
       if (questionID === dataArr.length - 1) {
         $('.gameNextBtn').hide()
         $('.finishBtn').show()
         console.log('到底了')
       }
+    })
+    $('.finishBtn').on('click', function () {
+      console.log('set result:', result)
+      localStorage.setItem('result', JSON.stringify(result))
     })
   }, [])
   return (

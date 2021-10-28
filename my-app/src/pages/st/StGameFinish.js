@@ -9,6 +9,14 @@ import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import Footer from '../../components/Footer'
 
 function StGameFinish() {
+  const resultRate = () => {
+    const r = JSON.parse(localStorage.getItem('result'))
+    const n = r.filter((v) => {
+      return v === 1
+    })
+    console.log('Correct Nums:', n.length)
+    console.log('Correct Rate:', n.length / r.length)
+  }
   return (
     <>
       <div className="container-fluid mainpic mainContent">
@@ -20,6 +28,7 @@ function StGameFinish() {
             <div className="stGamingContent container">
               <div className="row my-3 no-wrap align-items-center">
                 <h2 className="m-0">為您推薦以下課程</h2>
+                {resultRate()}
               </div>
             </div>
           </div>
