@@ -9,6 +9,8 @@ const pool = mysql.createPool({
     waitForConnections: true,
     connectionLimit: 5, //最大連線數，一般測試環境不會設這麼高
     queueLimit: 0,
+
+    dateStrings: true,
 });
 
 module.exports = pool.promise(); // 匯出時promise包裝
