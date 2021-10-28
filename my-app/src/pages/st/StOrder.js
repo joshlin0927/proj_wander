@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './style/st_order.css'
 import { Link, withRouter } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
@@ -7,11 +7,39 @@ import { devUrl } from '../../config'
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar from '../../components/st/StSideBar'
+import StOrderDetail from '../../components/st/StOrderDetail'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
 
 function StOrder() {
+  // tab
+  const [tab, setTab] = useState(1)
+  // set order & orderdetail
+  const [showDetail, setShowDetail] = useState(false)
+  useEffect(() => {
+    if (!showDetail) {
+      let t = document.querySelector(
+        `.stOrderContentTitle${tab}`
+      )
+      let st = document.querySelector(`.stODC${tab}`)
+      for (let i = 1; i < 5; i++) {
+        document
+          .querySelector(`.stOrderContentTitle${i}`)
+          .classList.remove('active')
+        document
+          .querySelector(`.stODC${i}`)
+          .classList.remove('tab-d-flex')
+        document
+          .querySelector(`.stODC${i}`)
+          .classList.add('tab-d-none')
+      }
+      console.log('tab:', tab)
+      t.classList.add('active')
+      st.classList.remove('tab-d-none')
+      st.classList.add('tab-d-flex')
+    }
+  }, [tab, showDetail])
   // modal
   const [cancelModalShow, setCancelModalShow] =
     useState(false)
@@ -19,6 +47,314 @@ function StOrder() {
     setCancelModalShow(false)
   const handleCancelModalShow = () =>
     setCancelModalShow(true)
+  // stOrder
+  const stOrder = (
+    <>
+      {/* <!-- 分類欄 --> */}
+      <div className="row stOrderDetailTitle m-d-none">
+        <div className="col-3 stOrderDetailTitleTxt">
+          <span>成立時間</span>
+        </div>
+        <div className="col-3 stOrderDetailTitleTxt">
+          <span>訂單編號</span>
+        </div>
+        <div className="col-2 stOrderDetailTitleTxt">
+          <span>訂單狀態</span>
+        </div>
+        <div className="col-2 stOrderDetailTitleTxt">
+          <span>訂單金額</span>
+        </div>
+        <div className="col-2 stOrderDetailTitleTxt">
+          <span>詳情</span>
+        </div>
+      </div>
+      {/* <!-- orderItem --> */}
+      {/* 全部 */}
+      <div className="row stOrderDetailContent stODC1">
+        <div className="stOrderDetail">
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>成立時間</span>
+            </div>
+            <span>2021-12-01 23:00:12</span>
+          </div>
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單編號</span>
+            </div>
+            <span>AAA00123456</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單狀態</span>
+            </div>
+            <span>已付款</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單金額</span>
+            </div>
+            <span>NT$7310</span>
+          </div>
+          <div
+            className="col-12 col-md-2 stOrderDetailItem m-d-none stOrderDetailBtn"
+            onClick={() => {
+              setShowDetail(true)
+            }}
+          >
+            <img
+              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
+              alt=""
+            />
+          </div>
+          <div
+            className="stOrderDetailBtn-m"
+            onClick={() => {
+              setShowDetail(true)
+            }}
+          >
+            <img
+              src={`${devUrl}/images/st_order/orderDetail_icon_m.svg`}
+              alt=""
+            />
+          </div>
+        </div>
+        <div className="stOrderDetail">
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>成立時間</span>
+            </div>
+            <span>2021-12-01 23:00:12</span>
+          </div>
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單編號</span>
+            </div>
+            <span>BBB00123456</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單狀態</span>
+            </div>
+            <span>已付款</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單金額</span>
+            </div>
+            <span>NT$7310</span>
+          </div>
+          <div className="col-2 stOrderDetailItem m-d-none stOrderDetailBtn">
+            <img
+              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
+              alt=""
+            />
+          </div>
+        </div>
+        <div className="stOrderDetail">
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>成立時間</span>
+            </div>
+            <span>2021-12-01 23:00:12</span>
+          </div>
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單編號</span>
+            </div>
+            <span>CCC00123456</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem text-danger">
+            <div className="stOrderDetailItem-t">
+              <span>訂單狀態</span>
+            </div>
+            <span>待付款</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單金額</span>
+            </div>
+            <span>NT$7310</span>
+          </div>
+          <div className="col-2 stOrderDetailItem m-d-none stOrderDetailBtn">
+            <img
+              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
+              alt=""
+            />
+          </div>
+        </div>
+        <div className="stOrderDetail">
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>成立時間</span>
+            </div>
+            <span>2021-12-01 23:00:12</span>
+          </div>
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單編號</span>
+            </div>
+            <span>DDD00123456</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單狀態</span>
+            </div>
+            <span>已取消</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單金額</span>
+            </div>
+            <span>NT$7310</span>
+          </div>
+          <div className="col-2 stOrderDetailItem m-d-none stOrderDetailBtn">
+            <img
+              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      {/* 待付款 */}
+      <div className="row stOrderDetailContent stODC2">
+        <div className="stOrderDetail">
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>成立時間</span>
+            </div>
+            <span>2021-12-01 23:00:12</span>
+          </div>
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單編號</span>
+            </div>
+            <span>CCC00123456</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem text-danger">
+            <div className="stOrderDetailItem-t">
+              <span>訂單狀態</span>
+            </div>
+            <span>待付款</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單金額</span>
+            </div>
+            <span>NT$7310</span>
+          </div>
+          <div className="col-2 stOrderDetailItem m-d-none stOrderDetailBtn">
+            <img
+              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      {/* 已付款 */}
+      <div className="row stOrderDetailContent stODC3">
+        <div className="stOrderDetail">
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>成立時間</span>
+            </div>
+            <span>2021-12-01 23:00:12</span>
+          </div>
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單編號</span>
+            </div>
+            <span>AAA00123456</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單狀態</span>
+            </div>
+            <span>已付款</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單金額</span>
+            </div>
+            <span>NT$7310</span>
+          </div>
+          <div className="col-2 stOrderDetailItem m-d-none stOrderDetailBtn">
+            <img
+              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
+              alt=""
+            />
+          </div>
+        </div>
+        <div className="stOrderDetail">
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>成立時間</span>
+            </div>
+            <span>2021-12-01 23:00:12</span>
+          </div>
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單編號</span>
+            </div>
+            <span>BBB00123456</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單狀態</span>
+            </div>
+            <span>已付款</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單金額</span>
+            </div>
+            <span>NT$7310</span>
+          </div>
+          <div className="col-2 stOrderDetailItem m-d-none stOrderDetailBtn">
+            <img
+              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      {/* 已取消 */}
+      <div className="row stOrderDetailContent stODC4">
+        <div className="stOrderDetail">
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>成立時間</span>
+            </div>
+            <span>2021-12-01 23:00:12</span>
+          </div>
+          <div className="col-12 col-md-3 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單編號</span>
+            </div>
+            <span>DDD00123456</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單狀態</span>
+            </div>
+            <span>已取消</span>
+          </div>
+          <div className="col-12 col-md-2 stOrderDetailItem">
+            <div className="stOrderDetailItem-t">
+              <span>訂單金額</span>
+            </div>
+            <span>NT$7310</span>
+          </div>
+          <div className="col-2 stOrderDetailItem m-d-none stOrderDetailBtn">
+            <img
+              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  )
   return (
     <>
       <div className="container mainContent">
@@ -45,302 +381,97 @@ function StOrder() {
             </div>
 
             <div className="stOrderContent container">
+              {/* 假input radio */}
               <div className="row">
-                <Link
-                  to="#/"
-                  className="col-3 col-md-2 stOrderContentTitle active"
+                <input
+                  type="radio"
+                  name="tabCtrl"
+                  id="stOrderContentTitleTab1"
+                  className="tabCtrl"
+                  value="1"
+                  onChange={(e) => {
+                    setTab(e.target.value)
+                  }}
+                />
+                <input
+                  type="radio"
+                  name="tabCtrl"
+                  id="stOrderContentTitleTab2"
+                  className="tabCtrl"
+                  value="2"
+                  onChange={(e) => {
+                    setTab(e.target.value)
+                  }}
+                />
+                <input
+                  type="radio"
+                  name="tabCtrl"
+                  id="stOrderContentTitleTab3"
+                  className="tabCtrl"
+                  value="3"
+                  onChange={(e) => {
+                    setTab(e.target.value)
+                  }}
+                />
+                <input
+                  type="radio"
+                  name="tabCtrl"
+                  id="stOrderContentTitleTab4"
+                  className="tabCtrl"
+                  value="4"
+                  onChange={(e) => {
+                    setTab(e.target.value)
+                  }}
+                />
+              </div>
+              {/* Title Tab */}
+              <div className="row stOrderContentTitleTab">
+                <label
+                  for="stOrderContentTitleTab1"
+                  class="col-3 col-md-2 stOrderContentTitle stOrderContentTitle1"
                 >
                   <span>全部</span>
-                </Link>
-                <Link
-                  to="#/"
-                  className="col-3 col-md-2 stOrderContentTitle"
+                </label>
+                <label
+                  for="stOrderContentTitleTab2"
+                  class="col-3 col-md-2 stOrderContentTitle stOrderContentTitle2"
                 >
                   <span>待付款</span>
-                </Link>
-                <Link
-                  to="#/"
-                  className="col-3 col-md-2 stOrderContentTitle"
+                </label>
+                <label
+                  for="stOrderContentTitleTab3"
+                  class="col-3 col-md-2 stOrderContentTitle stOrderContentTitle3"
                 >
                   <span>已付款</span>
-                </Link>
-                <Link
-                  to="#/"
-                  className="col-3 col-md-2 stOrderContentTitle"
+                </label>
+                <label
+                  for="stOrderContentTitleTab4"
+                  class="col-3 col-md-2 stOrderContentTitle stOrderContentTitle4"
                 >
                   <span>已取消</span>
-                </Link>
+                </label>
               </div>
               {/* <!-- orders --> */}
               <div className="row">
                 <div className="container stOrders">
-                  {/* <!-- 分類欄 --> */}
-                  <div className="row stOrderDetailTitle m-d-none">
-                    <div className="col-3 stOrderDetailTitleTxt">
-                      <span>成立時間</span>
-                    </div>
-                    <div className="col-3 stOrderDetailTitleTxt">
-                      <span>訂單編號</span>
-                    </div>
-                    <div className="col-2 stOrderDetailTitleTxt">
-                      <span>訂單狀態</span>
-                    </div>
-                    <div className="col-2 stOrderDetailTitleTxt">
-                      <span>訂單金額</span>
-                    </div>
-                    <div className="col-2 stOrderDetailTitleTxt">
-                      <span>詳情</span>
-                    </div>
-                  </div>
-                  {/* <!-- orderItem --> */}
-                  <div className="row stOrderDetail">
-                    <div className="col-12 col-md-3 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>成立時間</span>
-                      </div>
-                      <span>2021-12-01 23:00:12</span>
-                    </div>
-                    <div className="col-12 col-md-3 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>訂單編號</span>
-                      </div>
-                      <span>AAA00123456</span>
-                    </div>
-                    <div className="col-12 col-md-2 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>訂單狀態</span>
-                      </div>
-                      <span>已付款</span>
-                    </div>
-                    <div className="col-12 col-md-2 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>訂單金額</span>
-                      </div>
-                      <span>NT$7310</span>
-                    </div>
-                    <div className="col-12 col-md-2 stOrderDetailItem m-d-none">
-                      <Link to="#/">
-                        <img
-                          src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
-                          alt=""
-                        />
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="row stOrderDetail">
-                    <div className="col-12 col-md-3 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>成立時間</span>
-                      </div>
-                      <span>2021-12-01 23:00:12</span>
-                    </div>
-                    <div className="col-12 col-md-3 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>訂單編號</span>
-                      </div>
-                      <span>BBB00123456</span>
-                    </div>
-                    <div className="col-12 col-md-2 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>訂單狀態</span>
-                      </div>
-                      <span>已付款</span>
-                    </div>
-                    <div className="col-12 col-md-2 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>訂單金額</span>
-                      </div>
-                      <span>NT$7310</span>
-                    </div>
-                    <div className="col-2 stOrderDetailItem m-d-none">
-                      <Link to="#/">
-                        <img
-                          src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
-                          alt=""
-                        />
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="row stOrderDetail">
-                    <div className="col-12 col-md-3 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>成立時間</span>
-                      </div>
-                      <span>2021-12-01 23:00:12</span>
-                    </div>
-                    <div className="col-12 col-md-3 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>訂單編號</span>
-                      </div>
-                      <span>CCC00123456</span>
-                    </div>
-                    <div className="col-12 col-md-2 stOrderDetailItem text-danger">
-                      <div className="stOrderDetailItem-t">
-                        <span>訂單狀態</span>
-                      </div>
-                      <span>待付款</span>
-                    </div>
-                    <div className="col-12 col-md-2 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>訂單金額</span>
-                      </div>
-                      <span>NT$7310</span>
-                    </div>
-                    <div className="col-2 stOrderDetailItem m-d-none">
-                      <Link to="#/">
-                        <img
-                          src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
-                          alt=""
-                        />
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="row stOrderDetail">
-                    <div className="col-12 col-md-3 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>成立時間</span>
-                      </div>
-                      <span>2021-12-01 23:00:12</span>
-                    </div>
-                    <div className="col-12 col-md-3 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>訂單編號</span>
-                      </div>
-                      <span>DDD00123456</span>
-                    </div>
-                    <div className="col-12 col-md-2 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>訂單狀態</span>
-                      </div>
-                      <span>已取消</span>
-                    </div>
-                    <div className="col-12 col-md-2 stOrderDetailItem">
-                      <div className="stOrderDetailItem-t">
-                        <span>訂單金額</span>
-                      </div>
-                      <span>NT$7310</span>
-                    </div>
-                    <div className="col-2 stOrderDetailItem m-d-none">
-                      <Link to="#/">
-                        <img
-                          src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
-                          alt=""
-                        />
-                      </Link>
-                    </div>
-                  </div>
+                  {showDetail ? (
+                    <StOrderDetail
+                      handleCancelModalShow={
+                        handleCancelModalShow
+                      }
+                      setShowDetail={setShowDetail}
+                    />
+                  ) : (
+                    stOrder
+                  )}
                   {/* <!-- 訂單明細 --> */}
-                  <div className="row stPayMethod m-0 bgc-main">
-                    <div className="col-12 payTitle">
-                      <span>訂單明細</span>
-                      <div className="btn stOrderBackBtn">
-                        &larr; 回上層
-                      </div>
-                    </div>
-                    <div className="orderContent col-12">
-                      <div className="orderContentRow col-12 col-xl-6">
-                        <span>訂單編號：</span>
-                        <span>ABC - 00123456</span>
-                      </div>
-                      <div className="orderContentRow col-12 col-xl-6">
-                        <span>付款方式：</span>
-                        <span>信用卡</span>
-                      </div>
-                      <div className="orderContentRow col-12 col-xl-6">
-                        <span>訂單金額：</span>
-                        <span>NT$7310</span>
-                      </div>
-                      <div className="orderContentRow col-12 col-xl-6">
-                        <span>支付狀態：</span>
-                        <span>已付款</span>
-                        <div
-                          className="btn stOrderCancelBtn"
-                          data-toggle="modal"
-                          data-target="#cancelModal"
-                          onClick={handleCancelModalShow}
-                        >
-                          我要取消
-                        </div>
-                      </div>
-                      <div className="orderContentRow col-12 col-xl-6">
-                        <span>成立時間：</span>
-                        <span>2021-12-01 23:00:12</span>
-                      </div>
-                      <div className="orderContentRow col-12 col-xl-6">
-                        <span>付款代碼：</span>
-                        <span>000123456789</span>
-                      </div>
-                      <div className="orderContentRow col-12">
-                        <span>購買細項：</span>
-                      </div>
-                    </div>
-                    <div className="orderDetail col-12">
-                      <div className="orderDetailContent col-12">
-                        <div className="orderDetailTitle col-12">
-                          <span className="col-4">
-                            課程預覽
-                          </span>
-                          <span className="col-4">
-                            課程名稱
-                          </span>
-                          <span className="col-4">
-                            課程售價
-                          </span>
-                        </div>
-                        <div className="orderDetailItem col-12">
-                          <img
-                            src={`${devUrl}/images/cart/jp_course.jpg`}
-                            alt=""
-                            className="col-4 orderDetailItemImg"
-                          />
-                          <div className="col-8 orderDetailItemTxt">
-                            <span className="col-12 col-lg-6">
-                              日本自由行必學的實用日語會話
-                            </span>
-                            <span className="col-12 col-lg-6 c-blue">
-                              NT$2700
-                            </span>
-                          </div>
-                        </div>
-                        <div className="orderDetailItem col-12">
-                          <img
-                            src={`${devUrl}/images/cart/jp_course.jpg`}
-                            alt=""
-                            className="col-4 orderDetailItemImg"
-                          />
-                          <div className="col-8 orderDetailItemTxt">
-                            <span className="col-12 col-lg-6">
-                              日本自由行必學的實用日語會話
-                            </span>
-                            <span className="col-12 col-lg-6 c-blue">
-                              NT$2700
-                            </span>
-                          </div>
-                        </div>
-                        <div className="orderDetailItem col-12">
-                          <img
-                            src={`${devUrl}/images/cart/jp_course.jpg`}
-                            alt=""
-                            className="col-4 orderDetailItemImg"
-                          />
-                          <div className="col-8 orderDetailItemTxt">
-                            <span className="col-12 col-lg-6">
-                              日本自由行必學的實用日語會話
-                            </span>
-                            <span className="col-12 col-lg-6 c-blue">
-                              NT$2700
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </form>
         </div>
       </div>
+      {/* Cancel Modal */}
       <Modal
         show={cancelModalShow}
         onHide={handleCancelModalClose}
