@@ -5,7 +5,6 @@ const upload = require("../modules/upload-images");
 const router = express.Router();
 
 async function getListData(req, res) {
-  
   const perPage = 5;
   let page = parseInt(req.query.page) || 1;
   let keyword = req.query.keyword || "";
@@ -17,7 +16,6 @@ async function getListData(req, res) {
   // sql = SELECT * FROM `course`LEFT JOIN `member` ON `course`.`teacher_sid`=`member`.`sid` WHERE `member`.`sid` = 1 AND `course`.`course_name` LIKE 'A%';
 
   let teacherSid = req.query.teacherSid;
-
 
   let where = `LEFT JOIN \`member\` ON \`course\`.\`teacher_sid\`=\`member\`.\`sid\` WHERE \`member\`.\`sid\` =${teacherSid} `;
   if (keyword) {
