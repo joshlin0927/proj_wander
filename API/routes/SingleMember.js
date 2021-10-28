@@ -5,11 +5,10 @@ const upload = require("../modules/upload-images");
 const router = express.Router();
 
 router
-  .route("/edit/:sid")
+  .route("/edit")
   .get(async (req, res) => {
-    // console.log("sid", req.params.sid);
 
-    let sid = req.params.sid;
+    let sid = req.query.sid;
 
     const sql = `SELECT * FROM \`member\` WHERE \`sid\` = ${sid}`;
     const [rs] = await db.query(sql);
@@ -28,7 +27,6 @@ router
     const input = {
       ...req.body,
     };
-
 
     const sql = `UPDATE \`member\` SET ? WHERE sid=?`;
     let result = {};

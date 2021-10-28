@@ -27,8 +27,8 @@ function TcProfile(props) {
     } else if (identity !== 1) {
       history.push('/')
     } else {
-      ; (async () => {
-        let r = await axios.get(`${MemberEdit}${sid}`)
+      ;(async () => {
+        let r = await axios.get(`${MemberEdit}?sid=${sid}`)
         console.log(
           dayjs(r.data[0][0].birth).format('YYYY-MM-DD')
         )
@@ -128,7 +128,6 @@ function TcProfile(props) {
           alert(obj.error || '資料修改失敗')
         }
       })
-
   }
 
   // 當整個表單有變動時觸發
