@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './style/st_editprofile.css'
 import { Link } from 'react-router-dom'
-import { devUrl } from '../../config'
+import { devUrl ,API_HOST} from '../../config'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import {useHistory} from 'react-router'
@@ -22,24 +22,7 @@ export default withRouter(function StProfile(props) {
 const identity = JSON.parse(member).identity
 const studentSid = JSON.parse(member).sid
 
- useEffect(() => {
-   if (!token) {
-     history.push('/')
-   } else if (identity !== 0) {
-     history.push('/')
-   } else {
-     ;
-     (async () => {
-       let r = await axios.get(
-         `http://localhost:3001?studentSid=${studentSid}`
-       )
-       console.log(r.data[0][0])
-     
-       setFields(r.data[0][0])
-     })()
-   }
- }, [])
-
+ 
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
     avatar: '',
@@ -179,6 +162,24 @@ const studentSid = JSON.parse(member).sid
     }
   }
 
+  useEffect(() => {
+    if (!token) {
+      history.push('/')
+    } else if (identity !== 0) {
+      history.push('/')
+    } else {
+      ;
+      (async () => {
+        let r = await axios.get(
+          `http://localhost:3001/list?studentSid=${studentSid}`
+        )
+        console.log(r.data[0][0])
+        setFields(r.data[0][0])
+      })()
+    }
+  }, [])
+
+
   return (
     <>
       <div className="container mainContent">
@@ -258,7 +259,7 @@ const studentSid = JSON.parse(member).sid
                     required
                   />
                   {fieldsErrors.firstname && (
-                    <small className="ststnotice">
+                    <small className="stnotice">
                       {fieldsErrors.firstname}
                     </small>
                   )}
@@ -275,7 +276,7 @@ const studentSid = JSON.parse(member).sid
                     required
                   />
                   {fieldsErrors.lastname && (
-                    <small className="ststnotice">
+                    <small className="stnotice">
                       {fieldsErrors.lastname}
                     </small>
                   )}
