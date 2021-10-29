@@ -1,12 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './style/st_editprofile.css'
 import { Link } from 'react-router-dom'
-import { devUrl } from '../../config'
+import { devUrl, API_HOST } from '../../config'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
-import {useHistory} from 'react-router'
-
-
+import { useHistory } from 'react-router'
 
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -16,29 +14,11 @@ import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
 
 export default withRouter(function StProfile(props) {
- const history = useHistory()
- const token = localStorage.getItem('token')
- const member = localStorage.getItem('member')
-const identity = JSON.parse(member).identity
-const studentSid = JSON.parse(member).sid
-
- useEffect(() => {
-   if (!token) {
-     history.push('/')
-   } else if (identity !== 0) {
-     history.push('/')
-   } else {
-     ;
-     (async () => {
-       let r = await axios.get(
-         `http://localhost:3001?studentSid=${studentSid}`
-       )
-       console.log(r.data[0][0])
-     
-       setFields(r.data[0][0])
-     })()
-   }
- }, [])
+  const history = useHistory()
+  const token = localStorage.getItem('token')
+  const member = localStorage.getItem('member')
+  const identity = JSON.parse(member).identity
+  const studentSid = JSON.parse(member).sid
 
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
@@ -54,7 +34,23 @@ const studentSid = JSON.parse(member).sid
     lastname: '',
     birth: '',
   })
-  
+
+  useEffect(() => {
+    if (!token) {
+      history.push('/')
+    } else if (identity !== 0) {
+      history.push('/')
+    } else {
+      ;(async () => {
+        let r = await axios.get(
+          `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
+        )
+        console.log('res:', r.data[0][0])
+
+        setFields(r.data[0][0])
+      })()
+    }
+  }, [])
 
   //將使用者在欄位輸入的值進行更新
   const handleFieldChange = (e) => {
@@ -152,7 +148,7 @@ const studentSid = JSON.parse(member).sid
     e.preventDefault()
     //阻止表單預設送出行為
 
-    const fd = new FormData(e.target)
+    const fd = new FormData(document.sendForm)
     //看表單傳送的資料
     console.log('FormData中的填入資料')
     for (let i of fd.entries()) {
@@ -165,13 +161,16 @@ const studentSid = JSON.parse(member).sid
       fields.birth !== ''
     ) {
       axios
-        .post(`http://localhost:3001/stprofile/edit?studentSid=${studentSid}`, {
-          avatar: fields.avatar,
-          firstname: fields.firstname,
-          lastname: fields.lastname,
-          birth: fields.birth,
-          nickname: fields.nickname,
-        })
+        .post(
+          `http://localhost:3001/stprofile/edit?studentSid=${studentSid}`,
+          {
+            avatar: fields.avatar,
+            firstname: fields.firstname,
+            lastname: fields.lastname,
+            birth: fields.birth,
+            nickname: fields.nickname,
+          }
+        )
         .then((res) => {
           console.log('res:', res)
           alert('資料修改成功')
@@ -193,9 +192,9 @@ const studentSid = JSON.parse(member).sid
         <div className="row">
           <StSideBar />
           <form
+            name="sendForm"
             ref={formRef}
             className="form col-12 offset-0 col-md-8 offset-md-1"
-            onSubmit={handleSubmit}
             onChange={handleFormChange}
             onInvalid={handleFormInvalid}
           >
@@ -228,8 +227,7 @@ const studentSid = JSON.parse(member).sid
               <div className="d-flex align-items-center ml-1">
                 <div className="pic">
                   <img
-                    src={`${API_HOST}/img/${fields.avatar}`
-                    }
+                    src={`${API_HOST}/img/${fields.avatar}`}
                     className="img-fluid"
                     alt=""
                     name="avatar"
@@ -316,7 +314,11 @@ const studentSid = JSON.parse(member).sid
                 onChange={handleFieldChange}
               />
             </div>
-            <button className="Stbtn btn-secondary row mx-auto save-btn">
+            <button
+              type="submit"
+              className="Stbtn btn-secondary row mx-auto save-btn"
+              onClick={handleSubmit}
+            >
               儲存
             </button>
           </form>
