@@ -4,12 +4,13 @@ import { devUrl } from '../../config'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-
+import { useHistory } from 'react-router'
 //共用元件
 // import FBLogin from '../../components/st/FBLogin'
 // import GooLogin from '../../components/st/GooLogin'
 
 export default withRouter(function SignUp(props) {
+  const history = useHistory()
   const [asTeacherOrStudent, setasTeacherOrStudent] =
     useState(3)
 
@@ -125,12 +126,20 @@ export default withRouter(function SignUp(props) {
           firstname: fields.firstname,
           email: fields.email,
           password: fields.password,
+          nickname: fields.nickname,
           identity: asTeacherOrStudent,
         })
         .then((res) => {
+<<<<<<< HEAD
+          console.log(res.data)
+          if (res.data.success === true) {
+            alert('恭喜成為Wander會員')
+            history.push('/')
+=======
           console.log(res)
           if (res.data.success === true) {
             alert('恭喜成為Wander會員')
+>>>>>>> f06c9d0b9ce0a394f8a51ccd2210b95975147a13
           } else {
             alert('失敗')
             return
