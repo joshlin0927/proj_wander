@@ -198,7 +198,7 @@ function Login(props) {
                   type="password"
                   name="password"
                   className="allInputs   col-10"
-                  placeholder="密碼*"
+                  placeholder="請填寫密碼*"
                   value={fields.password}
                   onChange={handleFieldChange}
                   required

@@ -1,6 +1,8 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import './style/st_passwordmodify.css'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useHistory } from 'react-router'
 
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -10,6 +12,15 @@ import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
 
 export default function StPasswordModify() {
+  const history = useHistory()
+  const token = localStorage.getItem('token')
+  const member = localStorage.getItem('member')
+  const identity = JSON.parse(member).identity
+  const studentSid = JSON.parse(member).sid
+
+  //設定確認表單送出訊息框的狀態
+  const [showUp, setShowUp] = useState('')
+
   const formRef = useRef(null)
 
   //儲存所有欄位的值
@@ -25,6 +36,22 @@ export default function StPasswordModify() {
     newPass: '',
     newPassConfirm: '',
   })
+
+  useEffect(() => {
+    if (!token) {
+      history.push('/')
+    } else if (identity !== 0) {
+      history.push('/')
+    } else {
+      ;(async () => {
+        let r = await axios.get(
+          `http://localhost:3001/passwordmodify/getdata?studentSid=${studentSid}`
+        )
+        const memberData = r.data[0][0]
+        console.log('result:', memberData)
+      })()
+    }g
+  }, [])
 
   // 處理表單欄位變動
   const handleFieldChange = (e) => {
@@ -97,8 +124,32 @@ export default function StPasswordModify() {
       // 修改密碼不用把資料傳到後台，在前端比對驗證就可以
       return
     }
-
-    //TODO:用axios把資料送到後端
+    //TODO:把資料庫密碼和原來為密碼做比對
+    if (
+      fields.origin !== '' &&
+      fields.newPass !== '' &&
+      fields.newPassConfirm !== '' &&
+      fields.newPass === fields.newPassConfirm
+    ) {
+      //透過axios把資料送到後端
+      axios
+        .post(
+          `http://localhost:3001/passwordmodify/modify?studentSid=${studentSid}`,
+          {
+            password: fields.newPass,
+          }
+        )
+        .then((res) => {
+          if (res.data.success === true) {
+            console.log(res.data)
+            setShowUp('showup')
+            setTimeout(() => {
+              setShowUp('none')
+            }, 1000)
+            history.push('/')
+          }
+        })
+    }
   }
 
   return (
@@ -122,7 +173,7 @@ export default function StPasswordModify() {
             onChange={handleFormChange}
             onInvalid={handleFormInvalid}
           >
-            <ConfirmMsg />
+            <ConfirmMsg showUp={showUp} />
             <div className="form-content w-100 col-md-8">
               <div className="form-head p-0">
                 <Link to="/">

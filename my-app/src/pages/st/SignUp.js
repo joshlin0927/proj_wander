@@ -133,7 +133,7 @@ export default withRouter(function SignUp(props) {
           console.log(res.data)
           if (res.data.success === true) {
             alert('恭喜成為Wander會員')
-            history.push('/')
+            history.push('/login')
           } else {
             alert('註冊失敗')
             return
