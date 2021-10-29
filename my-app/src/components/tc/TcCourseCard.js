@@ -2,10 +2,9 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Modal } from 'react-bootstrap'
 
-import { API_HOST, TcCourse_DELETE, TcCourse_LIST } from '../../config'
+import { API_HOST, TcCourse_DELETE } from '../../config'
 
 function TcCourseCard(props) {
-
   const {
     sid,
     teacher_sid,
@@ -17,7 +16,7 @@ function TcCourseCard(props) {
     hours,
     course_introduction,
     created_at,
-    remove
+    remove,
   } = props
 
   // 刪除課程
@@ -25,10 +24,9 @@ function TcCourseCard(props) {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-
-//TODO: 怎麼將sid傳上去
+  //TODO: 怎麼將sid傳上去
   const deleteCourse = async () => {
-    let r = await axios.delete(TcCourse_DELETE + '/' + sid)
+    let r = await axios.delete(TcCourse_DELETE + sid)
     handleClose()
   }
 

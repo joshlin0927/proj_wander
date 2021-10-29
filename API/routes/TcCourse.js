@@ -96,7 +96,7 @@ router.route("/add").post(async (req, res) => {
   let result = {};
   // 處理新增資料時可能的錯誤
   try {
-    [result] = await db.query(sql, [input]);
+    [result] = await db.query(sql);
   } catch (ex) {
     output.error = ex.toString();
   }

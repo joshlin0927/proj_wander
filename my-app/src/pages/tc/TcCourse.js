@@ -5,10 +5,7 @@ import dayjs from 'dayjs'
 import axios from 'axios'
 
 // 後端檔案路徑
-import {
-  TcCourse_LIST,
-  TcCourse_DELETE,
-} from '../../config'
+import { TcCourse_LIST, TcCourse_ADD } from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -55,10 +52,14 @@ function TcCourse() {
     }
     // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
   }, [RemoveCourse])
-  
+
   //RemoveCourse裡面是在前端被刪除過後的課程陣列
   // console.log(RemoveCourse)
 
+  //新增課程
+  const add = async () => {
+    let r = await axios.post(`${TcCourse_ADD}`)
+  }
 
   // 搜尋列
   const [searchWord, setSearchWord] = useState('')
@@ -120,14 +121,15 @@ function TcCourse() {
                 />
               </div>
               <div className="d-flex justify-content-end">
-                <Link to="/TCindex/TcCourseEdit/:id?">
-                  <button
-                    type="submit"
-                    className="TCbtn-sm btn-primary"
-                  >
-                    <span>新增</span>
-                  </button>
-                </Link>
+                {/* <Link to="/TCindex/TcCourseEdit/:id?"> */}
+                <button
+                  type="submit"
+                  className="TCbtn-sm btn-primary"
+                  onClick={add}
+                >
+                  <span>新增</span>
+                </button>
+                {/* </Link> */}
               </div>
             </div>
             {/* mobile search bar */}

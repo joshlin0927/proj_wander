@@ -14,11 +14,12 @@ export const MemberLogout = API_HOST + '/logout'
 export const MemberEdit = API_HOST + '/SingleMember/edit/'
 
 // TcCourse CRUD
-export const TcCourse_ADD = API_HOST + '/TcCourse/add'
+export const TcCourse_ADD = API_HOST + '/TcCourse/add/'
 export const TcCourse_LIST =
   API_HOST + '/TcCourse/api/list/'
 export const TcCourse_EDIT = API_HOST + '/TcCourse/edit'
-export const TcCourse_DELETE = API_HOST + '/TcCourse/delete'
+export const TcCourse_DELETE =
+  API_HOST + '/TcCourse/delete/'
 
 //讀取資料列表
 

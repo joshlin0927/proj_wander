@@ -127,8 +127,12 @@ export default withRouter(function SignUp(props) {
           identity: asTeacherOrStudent,
         })
         .then((res) => {
-          if (res.success === true) {
+          console.log(res.data.success)
+          if (res.data.success === true) {
             alert('恭喜成為Wander會員')
+          } else {
+            alert('失敗')
+            return
           }
         })
         .catch((e) => {
