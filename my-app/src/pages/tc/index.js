@@ -10,6 +10,7 @@ import './TC2.css'
 import TcProfile from './TcProfile'
 import TcPassword from './TcPassword'
 import TcCourse from './TcCourse'
+import TcCourseAdd from './ThreeSteps/TcCourseAdd'
 import TcCourseEdit from './ThreeSteps/TcCourseEdit'
 import TcCourseVideoUpload from './ThreeSteps/TcCourseVideoUpload'
 import TcCourseVideoEdit from './ThreeSteps/TcCourseVideoEdit'
@@ -20,28 +21,10 @@ import ChatList from '../../components/chatroom/ChatList'
 import ChatWindow from '../../components/chatroom/ChatWindow'
 
 function index(props) {
-  const { auth, setAuth } = props
-  //判斷是否登入並為教師身分
-  // const history = useHistory()
-  const token = localStorage.getItem('token')
-  const member = localStorage.getItem('member')
-  const sid = JSON.parse(member).sid
-  // console.log(sid)
-  // useEffect(() => {
-  //   if (!token) {
-  //     // history.push('/')
-  //   } else if (identity !== 1) {
-  //     // history.push('/')
-  //   } else {
-  //     return
-  //   }
-  // }, [])
   return (
     <>
       <Switch>
-        <Route
-          path={`/TCindex/TcCourseVideoEdit/:sid? = ${sid}`}
-        >
+        <Route path="TCindex/TcCourseVideoEdit/:sid?">
           <TcCourseVideoEdit />
         </Route>
         <Route path="/TCindex/TcCourseVideoUpload">
@@ -49,6 +32,9 @@ function index(props) {
         </Route>
         <Route path="/TCindex/TcCourseEdit/:sid?">
           <TcCourseEdit />
+        </Route>
+        <Route path="/TCindex/TcCourseAdd/">
+          <TcCourseAdd />
         </Route>
         <Route path="/TCindex/TcCourse/">
           <TcCourse />
@@ -59,7 +45,7 @@ function index(props) {
         <Route path="/TCindex/TcAnalytic">
           <TcAnalytic />
         </Route>
-        <Route path={`/TCindex/TcProfile/:sid?`}>
+        <Route path="/TCindex/TcProfile">
           <TcProfile />
         </Route>
         <Route exact path="/TCindex">

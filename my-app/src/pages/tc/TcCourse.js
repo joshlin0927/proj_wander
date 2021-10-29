@@ -128,11 +128,10 @@ function TcCourse() {
                 />
               </div>
               <div className="d-flex justify-content-end">
-                <Link to={`/TCindex/TcCourseEdit/${added}`}>
+                <Link to="/TCindex/TcCourseAdd/">
                   <button
                     type="submit"
                     className="TCbtn-sm btn-primary"
-                    onClick={add}
                   >
                     <span>新增</span>
                   </button>
