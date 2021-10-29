@@ -18,7 +18,6 @@ function StOrder() {
   // set order & orderdetail
   const [showDetail, setShowDetail] = useState(false)
   useEffect(() => {
-    const stPM = document.querySelector('.stPayMethod')
     if (!showDetail) {
       let t = document.querySelector(
         `.stOrderContentTitle${tab}`
@@ -39,25 +38,6 @@ function StOrder() {
       t.classList.add('active')
       st.classList.remove('tab-d-none')
       st.classList.add('tab-d-flex')
-      const stOrderHeight =
-        document.querySelector('.stOrders').scrollHeight
-      const stOrderDetailHeight =
-        document.querySelector('.stPayMethod').scrollHeight
-      console.log(stOrderHeight, stOrderDetailHeight)
-      stPM.style.transform = `translateX(100%)`
-      stPM.style.marginTop = `${
-        stOrderDetailHeight - stOrderHeight + 16
-      }px`
-    } else {
-      const stOrderHeight =
-        document.querySelector('.stOrders').scrollHeight
-      const stOrderDetailHeight =
-        document.querySelector('.stPayMethod').scrollHeight
-      console.log(stOrderHeight, stOrderDetailHeight)
-      stPM.style.transform = `translateX(0%)`
-      stPM.style.marginTop = `${
-        stOrderDetailHeight - stOrderHeight + 16
-      }px`
     }
   }, [tab, showDetail])
   // modal
@@ -474,14 +454,14 @@ function StOrder() {
               {/* <!-- orders --> */}
               <div className="row">
                 <div className="container stOrders">
-                  {stOrder}
+                  {/* {stOrder}
                   <StOrderDetail
                     handleCancelModalShow={
                       handleCancelModalShow
                     }
                     setShowDetail={setShowDetail}
-                  />
-                  {/* {showDetail ? (
+                  /> */}
+                  {showDetail ? (
                     <StOrderDetail
                       handleCancelModalShow={
                         handleCancelModalShow
@@ -490,7 +470,7 @@ function StOrder() {
                     />
                   ) : (
                     stOrder
-                  )} */}
+                  )}
                   {/* <!-- 訂單明細 --> */}
                 </div>
               </div>

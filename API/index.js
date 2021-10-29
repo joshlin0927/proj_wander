@@ -196,9 +196,10 @@ app.use('/api/teacherdata', require(__dirname + '/routes/recommandtc'))
 //取得member email資料判斷註冊有無重複使用帳號
 app.use('/api/accountdata', require(__dirname + '/routes/getaccount'))
 
-// 模組化路由
+// 測驗
 app.use('/sentence-game', require(__dirname + '/routes/sentence-game'));
-
+// 購物車
+app.use('/cart', require(__dirname + '/routes/cart'));
 
 app.get('/try-sess', (req, res) => {
     req.session.myVar = req.session.myVar || 0;
