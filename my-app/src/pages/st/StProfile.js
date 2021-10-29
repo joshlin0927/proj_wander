@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './style/st_editprofile.css'
 import { Link } from 'react-router-dom'
-import { devUrl ,API_HOST} from '../../config'
+import { devUrl, API_HOST } from '../../config'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import { useHistory } from 'react-router'
@@ -173,7 +173,6 @@ export default withRouter(function StProfile(props) {
         )
         .then((res) => {
           console.log('res:', res)
-          alert('資料修改成功')
         })
     }
   }
@@ -184,8 +183,7 @@ export default withRouter(function StProfile(props) {
     } else if (identity !== 0) {
       history.push('/')
     } else {
-      ;
-      (async () => {
+      ;(async () => {
         let r = await axios.get(
           `http://localhost:3001/list?studentSid=${studentSid}`
         )
@@ -195,6 +193,7 @@ export default withRouter(function StProfile(props) {
     }
   }, [])
 
+  const [showUp, setShowUp] = useState('')
 
   return (
     <>
@@ -216,7 +215,7 @@ export default withRouter(function StProfile(props) {
             onChange={handleFormChange}
             onInvalid={handleFormInvalid}
           >
-            <ConfirmMsg />
+            <ConfirmMsg showUp={showUp} />
             <div className="form-head ml-1">
               <Link href="">
                 <i className="fas fa-chevron-left TCback-btn"></i>
