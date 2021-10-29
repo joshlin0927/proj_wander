@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
 import { Link, withRouter } from 'react-router-dom'
-import { devUrl } from '../../config'
+import { devUrl, Cart_API } from '../../config'
+import axios from 'axios'
 import $ from 'jquery'
 
 // 全頁通用元件
@@ -11,6 +12,8 @@ import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import CartItem from '../../components/cart/CartItem'
 
 function CartStep01(props) {
+  const [cartData, setCartData] = useState([{}])
+  const [cartQty, setCartQty] = useState(0)
   const [cartFooterMb, setCartFooterMb] = useState(true)
   // modal
   const [counponModalShow, setCounponModalShow] =
@@ -19,6 +22,21 @@ function CartStep01(props) {
     setCounponModalShow(false)
   const handleCounponModalShow = () =>
     setCounponModalShow(true)
+  // 取得該會員購物車資料
+  const member = JSON.parse(localStorage.getItem('member'))
+  useEffect(() => {
+    ;(async () => {
+      let r = await axios.get(
+        `${Cart_API}/list?member_sid=${member.sid}`
+      )
+      console.log('rows:', r.data.result)
+      if (r.status === 200) {
+        setCartData(r.data.result)
+        setCartQty(r.data.result.length)
+      }
+    })()
+  }, [member.sid])
+  // counpon打勾效果
   useEffect(() => {
     $('#counponCanUse .modal-card').on(
       'click',
@@ -103,9 +121,12 @@ function CartStep01(props) {
                 />
                 <span className="cartTitleTxt">購物車</span>
                 <span className="cartQuality">
-                  已加入 3 堂課
+                  已加入 {cartQty} 堂課
                 </span>
               </div>
+              <div className="w-100"></div>
+              <div className="btn">新增product1</div>
+              <div className="btn">新增product2</div>
               <div className="w-100"></div>
               <div className="cartSort container">
                 <div className="row w-100">
@@ -126,7 +147,21 @@ function CartStep01(props) {
             </div>
             {/* <!-- 購物車item --> */}
             <div className="row">
-              <CartItem />
+              {cartData.map((v, i) => {
+                return (
+                  <CartItem
+                    key={i}
+                    index={i}
+                    product_sid={v.product_sid}
+                    name={v.course_name}
+                    price={v.course_price}
+                    status={v.course_status}
+                    img={v.course_img}
+                    cartData={cartData}
+                    setCartData={setCartData}
+                  />
+                )
+              })}
             </div>
           </div>
           {/* <!-- Checkout Detail --> */}

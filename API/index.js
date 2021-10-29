@@ -213,7 +213,7 @@ app.use('/api/accountdata', require(__dirname + '/routes/getaccount'))
 
 // 測驗
 app.use('/sentence-game', require(__dirname + '/routes/sentence-game'));
-// 購物車
+// cart
 app.use('/cart', require(__dirname + '/routes/cart'));
 
 app.get('/try-sess', (req, res) => {

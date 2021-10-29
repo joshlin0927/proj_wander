@@ -22,12 +22,14 @@ export const TcCourse_DELETE =
   API_HOST + '/TcCourse/delete/'
 
 //讀取資料列表
-
 export const Member_LIST = API_HOST + '/member/api/list'
 export const SentenceGame_LIST =
   API_HOST + '/sentence-game/api/list'
 export const SentenceGame_SOT =
   API_HOST + '/sentence-game/sound-of-text'
+
+// cart route
+export const Cart_API = API_HOST + '/cart'
 
 // export const UPLOAD_AVATAR = API_HOST + '/try-upload2'
 

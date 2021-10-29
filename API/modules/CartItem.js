@@ -8,9 +8,20 @@ class CartItem{
     }
     // 讀取會員ID對應的購物車內容(包含產品資料)
     static async getList(member_sid){
+        const output = {
+            success: false,
+            result: '',
+        }
         const sql = `SELECT cart.member_sid, cart.product_sid, course.course_name, course.course_img, course.course_price, course.course_status FROM cart LEFT JOIN course ON cart.product_sid=course.sid WHERE \`member_sid\`=?`;
         const [r] = await db.query(sql, [member_sid]);
-        return r;
+        if(r.length === 0){
+            output.success = false;
+            output.result = '沒有資料';
+        }else{
+            output.success = true;
+            output.result = r;
+        }
+        return output;
     }
 
 
@@ -53,9 +64,19 @@ class CartItem{
 
     // 刪除項目
     static async remove(member_sid, product_sid){
+        const output = {
+            success: false,
+            error: '',
+        }
         const sql = `DELETE FROM ${tableName} WHERE member_sid=? AND product_sid=?`;
         const [r] = await db.query(sql, [member_sid, product_sid]);
-        return r;
+        if(r.affectedRows===1){
+            output.success = true;
+        }else{
+            output.success = false;
+            output.error = '刪除失敗';
+        }
+        return output;
     }
 
     // 清空購物車

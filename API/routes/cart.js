@@ -14,7 +14,7 @@ const CartItem = require('./../modules/CartItem');
 
 // 讀取單一會員購物車(GET)
 router.get('/list', async(req, res)=>{
-    res.json(await CartItem.getList(req.body.member_sid));
+    res.json(await CartItem.getList(req.query.member_sid));
 })
 
 // 新增(POST)
