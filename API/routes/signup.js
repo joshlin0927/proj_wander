@@ -16,6 +16,20 @@ router.post('/',async(req,res)=>{
   }
 
   //TODO: 欄位檢查
+  if(lastname==='' || firstname===''){
+    output.success = false
+    output.error = '姓名欄位未填寫'
+  }
+  const emailRegexp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  if (!(emailRegexp.test(email))){
+    output.success=false
+    output.error='Email格式不符'
+  }
+  if (password.length<5){
+    output.success = false
+    output.error = '密碼長度太短'
+  }
+  
 
   //加密
   
@@ -41,8 +55,7 @@ router.post('/',async(req,res)=>{
       output.error = '無法新增會員';
     }
   } catch (ex) {
-    console.log(ex);
-    output.error = 'Email已被使用過'
+    console.log(ex)
   }
   res.json(output);
   });

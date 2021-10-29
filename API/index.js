@@ -66,8 +66,9 @@ app.use(express.urlencoded({
 app.use(express.json());
 /* 上面的兩個才算是Top-level Middleware*/
 
-
+// 直接訪問跟目錄
 app.use('/', express.static('public'));
+
 app.use('/jquery', express.static('node_modules/jquery/dist'));
 app.use('/bootstrap', express.static('node_modules/bootstrap/dist'));
 app.use('/@fortawesome/fontawesome-free', express.static('node_modules/@fortawesome/fontawesome-free/css/all.css'))
@@ -186,12 +187,13 @@ app.get("/video", function (req, res) {
 */
 
 
+
 //學生
 app.use('/stprofile', require(__dirname + '/routes/stprofile'))
 app.use('/stcourse', require(__dirname + '/routes/stcourse'))
 //取得推薦教師資料
 app.use('/api/teacherdata', require(__dirname + '/routes/recommandtc'))
-//取得member資料
+//取得member email資料判斷註冊有無重複使用帳號
 app.use('/api/accountdata', require(__dirname + '/routes/getaccount'))
 
 // 模組化路由

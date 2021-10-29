@@ -5,7 +5,6 @@ const upload = require("../modules/upload-images");
 const router = express.Router();
 
 async function getListData(req, res) {
-  
   const perPage = 5;
   let page = parseInt(req.query.page) || 1;
   let keyword = req.query.keyword || "";
@@ -16,10 +15,9 @@ async function getListData(req, res) {
 
   // sql = SELECT * FROM `course`LEFT JOIN `member` ON `course`.`teacher_sid`=`member`.`sid` WHERE `member`.`sid` = 1 AND `course`.`course_name` LIKE 'A%';
 
-  let sid = req.query.id;
-  console.log("sid", sid);
+  let teacherSid = req.query.teacherSid;
 
-  let where = `LEFT JOIN \`member\` ON \`course\`.\`teacher_sid\`=\`member\`.\`sid\` WHERE \`member\`.\`sid\` =${sid} `;
+  let where = `LEFT JOIN \`member\` ON \`course\`.\`teacher_sid\`=\`member\`.\`sid\` WHERE \`member\`.\`sid\` =${teacherSid} `;
   if (keyword) {
     output.keyword = keyword;
     where += ` AND \`course\`.\`course_name\` LIKE ${db.escape(
@@ -58,7 +56,7 @@ async function getListData(req, res) {
             // return res.redirect('?page=1' + output.totalPages);
             */
     }
-    const sql = `SELECT * FROM \`course\` ${where} ORDER BY \`course\`.\`sid\` DESC LIMIT ${
+    const sql = `SELECT \`course\`.*, \`member\`.\`firstname\`  FROM \`course\` ${where} ORDER BY \`course\`.\`sid\` DESC LIMIT ${
       (page - 1) * perPage
     }, ${perPage}`;
     /* 如果要用backtick，在名稱的地方要加上\`做跳脫 */
@@ -70,7 +68,6 @@ async function getListData(req, res) {
 
 router.get("/api/list", async (req, res) => {
   const output = await getListData(req, res);
-  console.log(getListData);
   res.json(output);
 });
 

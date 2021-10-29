@@ -15,9 +15,6 @@ function MobileNavbar(props) {
   useEffect(() => {
     if (token) {
       setAuth(true)
-      history.push('/')
-    } else {
-      return
     }
   }, [])
 

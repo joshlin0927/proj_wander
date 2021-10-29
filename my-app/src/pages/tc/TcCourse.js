@@ -5,28 +5,37 @@ import dayjs from 'dayjs'
 import axios from 'axios'
 
 // 後端檔案路徑
-import { TcCourse_LIST } from '../../config'
+import {
+  TcCourse_LIST,
+  TcCourse_DELETE,
+} from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcSearchBar from '../../components/tc/TcSearchBar'
-import TcCourseCard from '../../components/tc/TcCourseCard'
+import TcCourseList from '../../components/tc/TcCourseList'
 import TcHasNoCourse from '../../components/tc/TcHasNoCourse'
 import MyPagination from '../../components/MyPagination'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
 
 function TcCourse() {
-  // 搜尋列
-  const [searchWord, setSearchWord] = useState('')
-
   //判斷是否登入並為教師身分
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
-  const sid = JSON.parse(member).sid
+  const teacherSid = JSON.parse(member).sid
+
+  // 資料庫來的資料
+  const [TcCourses, setTcCourses] = useState([])
+
+  // 拿去做map排列的，取的是r.data.rows，或是其它處理
+  const [displayCourse, setDisplayCourse] = useState([])
+
+  const [totalRows, setTotalRows ] = useState('')
+
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -35,18 +44,44 @@ function TcCourse() {
     } else {
       ;(async () => {
         let r = await axios.get(
-          `${TcCourse_LIST}?sid=${sid}`
+          `${TcCourse_LIST}?teacherSid=${teacherSid}`
         )
         if (r.status === 200) {
-          setTotalRows(r.data.totalRows)
-          setData(r.data)
+          setTcCourses(r.data.rows)
+          setDisplayCourse(r.data.rows)
+          setTotalRows(r.data)
         }
       })()
     }
-  }, [])
-  // 課程陣列排出
-  let [data, setData] = useState({})
-  let [totalRows, setTotalRows] = useState(0)
+    // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
+  }, [totalRows])
+
+  // 搜尋列
+  const [searchWord, setSearchWord] = useState('')
+
+  const handleSearch = (TcCourses, searchWord) => {
+    let newTcCourses = []
+
+    if (searchWord) {
+      newTcCourses = TcCourses.filter((TcCourse) => {
+          // includes -> String API
+          return TcCourse.course_name.includes(searchWord)
+        })
+    } else {
+      newTcCourses = [...TcCourses]
+
+    }
+
+    return newTcCourses
+  }
+
+  useEffect(() => {
+    let newTcCourses = []
+
+    newTcCourses = handleSearch(TcCourses, searchWord)
+
+    setDisplayCourse(newTcCourses)
+  }, [searchWord, TcCourses, totalRows])
 
   return (
     <>
@@ -103,26 +138,13 @@ function TcCourse() {
               <div className="Labelitem">課程名稱</div>
               <div className="TCcourseLabel-right">
                 <div className="Labelitem">課程種類</div>
-                <div className="Labelitem">上架日期</div>
+                <div className="Labelitem">上傳日期</div>
                 <div className="Labelitem">課程長度</div>
               </div>
             </div>
             {/* course cards */}
-            {data.rows ? (
-              data.rows.map((v, i) => {
-                return (
-                  <TcCourseCard
-                    key={v.sid}
-                    course_img={v.course_img}
-                    course_name={v.course_name}
-                    course_category={v.course_category}
-                    course_data={dayjs(
-                      v.course_data
-                    ).format('YYYY-MM-DD')}
-                    hours={v.hours}
-                  />
-                )
-              })
+            {TcCourses ? (
+              <TcCourseList TcCourses={displayCourse} />
             ) : (
               <TcHasNoCourse />
             )}

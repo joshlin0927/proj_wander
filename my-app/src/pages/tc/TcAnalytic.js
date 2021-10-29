@@ -11,6 +11,7 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcSearchBar from '../../components/tc/TcSearchBar'
 import TcCourseCard from '../../components/tc/TcCourseCard'
+import TcHasNoCourse from '../../components/tc/TcHasNoCourse'
 import TcChart from '../../components/tc/TcChart'
 import MyPagination from '../../components/MyPagination'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
@@ -22,13 +23,23 @@ function TcAnalytic() {
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
+  const teacherSid = JSON.parse(member).sid
   useEffect(() => {
     if (!token) {
       history.push('/')
     } else if (identity !== 1) {
       history.push('/')
     } else {
-      return
+      ;(async () => {
+        let r = await axios.get(
+          `${TcCourse_LIST}?teacherSid=${teacherSid}`
+        )
+        if (r.status === 200) {
+          setTotalRows(r.data.totalRows)
+          setData(r.data)
+        }
+        console.log(r.data)
+      })()
     }
   }, [])
 
@@ -100,7 +111,7 @@ function TcAnalytic() {
               <div className="Labelitem">課程封面</div>
               <div className="Labelitem">課程名稱</div>
               <div className="TCcourseLabel-right">
-                <div className="Labelitem">上架日期</div>
+                <div className="Labelitem">上傳日期</div>
                 <div className="Labelitem">觀看次數</div>
                 <div className="TCcourse-delete">
                   <i className="far fa-times-circle opacity-0"></i>
@@ -108,7 +119,21 @@ function TcAnalytic() {
               </div>
             </div>
             {/* course cards */}
-            <TcCourseCard />
+            {data.rows ? (
+              data.rows.map((v, i) => {
+                return (
+                  <TcCourseCard
+                    key={v.sid}
+                    sid={v.sid}
+                    course_img={v.course_img}
+                    course_name={v.course_name}
+                    course_data={v.course_data}
+                  />
+                )
+              })
+            ) : (
+              <TcHasNoCourse />
+            )}
             <MyPagination />
           </form>
         </div>

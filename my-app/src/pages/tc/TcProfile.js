@@ -2,25 +2,22 @@ import React, { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
 import axios from 'axios'
-import dayjs from 'dayjs'
 
 import { MemberEdit, devUrl } from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
-import TcAvatarSelector from '../../components/tc/TcAvatarSelector'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
 
 function TcProfile(props) {
-  const formRef = useRef(null)
   //判斷是否登入並為教師身分
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
-  const sid = JSON.parse(member).sid
+  const teacherSid = JSON.parse(member).sid
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -28,14 +25,11 @@ function TcProfile(props) {
       history.push('/')
     } else {
       ;(async () => {
-        let r = await axios.get(`${MemberEdit}?sid=${sid}`)
-        console.log(
-          dayjs(r.data[0][0].birth).format('YYYY-MM-DD')
+        let r = await axios.get(
+          `${MemberEdit}?teacherSid=${teacherSid}`
         )
-        setFields(
-          r.data[0][0]
-          // dayjs(r.data[0][0].birth).format('YYYY-MM-DD')
-        )
+        // 為什麼生日填不上去? ANS:在node就先處理，在mysql-connect就設定dateToString為true
+        setFields(r.data[0][0])
       })()
     }
   }, [])
@@ -63,6 +57,7 @@ function TcProfile(props) {
     }
   }
 
+  const formRef = useRef(null)
   // 使用物件值作為狀態值，儲存所有欄位的值
   const [fields, setFields] = useState({
     avatar: '',
@@ -101,9 +96,7 @@ function TcProfile(props) {
     // 利用FormData Api 得到各欄位的值 or 利用狀態值
     // FormData 利用的是表單元素的 name
     const TcProfileFormData = new FormData(e.target)
-    console.log(TcProfileFormData.get('firstname'))
-    console.log(TcProfileFormData.get('lastname'))
-    console.log(TcProfileFormData.get('email'))
+    console.log(TcProfileFormData.get('avatar'))
     console.log(TcProfileFormData.get('birthday'))
     console.log(TcProfileFormData.get('nickname'))
     console.log(TcProfileFormData.get('language'))
@@ -112,18 +105,25 @@ function TcProfile(props) {
 
     // ex. 用fetch api/axios送到伺服器
 
-    const r = fetch(`${MemberEdit}${sid}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: new URLSearchParams(TcProfileFormData),
-    })
+    const r = fetch(
+      `${MemberEdit}?teacherSid=${teacherSid}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type':
+            'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(
+          TcProfileFormData
+        ).toString(),
+      }
+    )
       .then((r) => r.json())
       .then((obj) => {
         console.log(JSON.stringify(obj, null, 4))
         if (obj.success) {
           alert('資料修改成功')
+          // TODO: 修改alert成通知條形式(ConfirmMsg)
         } else {
           alert(obj.error || '資料修改失敗')
         }
@@ -224,15 +224,17 @@ function TcProfile(props) {
                   type="file"
                   accept="image/*"
                   className="d-none"
+                  name="avatar"
                   ref={inputRef}
-                  onChange={previewFile}
+                  onChange={handleFieldChange}
+                  onChangeCapture={previewFile}
                 />
                 <div className="profile-pic">
                   <img
                     src={`${devUrl}/images/pic/presetAvatar.jpeg`}
                     className="img-fluid"
                     alt=""
-                    name="avatar"
+                    id="avatar"
                     ref={imgRef}
                   />
                 </div>
@@ -289,8 +291,8 @@ function TcProfile(props) {
                   className="col-12 allInputs px-2"
                   placeholder="生日"
                   title="請選擇生日"
-                  defaultValue={fields.birthday}
-                  value={fields.birthday}
+                  defaultValue={fields.birth}
+                  value={fields.birth}
                   onChange={handleFieldChange}
                   min="1900-01-01"
                   max="2011-01-01"

@@ -10,12 +10,18 @@ export const MemberLogin = API_HOST + '/login-jwt'
 //登出
 export const MemberLogout = API_HOST + '/logout'
 
-//修改個人資料
+//讀取、修改個人資料
 export const MemberEdit = API_HOST + '/SingleMember/edit/'
 
-//讀取資料列表
+// TcCourse CRUD
+export const TcCourse_ADD = API_HOST + '/TcCourse/add'
 export const TcCourse_LIST =
   API_HOST + '/TcCourse/api/list/'
+export const TcCourse_EDIT = API_HOST + '/TcCourse/edit'
+export const TcCourse_DELETE = API_HOST + '/TcCourse/delete'
+
+//讀取資料列表
+
 export const Member_LIST = API_HOST + '/member/api/list'
 export const SentenceGame_LIST =
   API_HOST + '/sentence-game/api/list'

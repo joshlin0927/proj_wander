@@ -98,13 +98,15 @@ export default withRouter(function SignUp(props) {
     const fd = new FormData(e.target)
     console.log(fd.get('lastname'))
     // 測試有得到表單欄位的輸入值
-
-    for (let i of account.data.rows) {
-      if (i.email === fields.email) {
-        alert('帳號重複了')
-        return
+    if (account) {
+      for (let i of account.data.rows) {
+        if (i.email === fields.email) {
+          alert('帳號重複了')
+          return
+        }
       }
     }
+
     if (asTeacherOrStudent === 3) {
       alert('請選擇註冊身份')
       return
@@ -125,7 +127,9 @@ export default withRouter(function SignUp(props) {
           identity: asTeacherOrStudent,
         })
         .then((res) => {
-          alert('恭喜成為Wander會員')
+          if (res.success === true) {
+            alert('恭喜成為Wander會員')
+          }
         })
         .catch((e) => {
           console.log(e)

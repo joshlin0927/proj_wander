@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Modal } from 'react-bootstrap'
 
-import { devUrl } from '../../config'
+import { API_HOST, TcCourse_DELETE } from '../../config'
 
 function TcCourseCard(props) {
   const {
@@ -22,35 +23,33 @@ function TcCourseCard(props) {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-  //修改課程
-  const [isShow, setIsShow] = useState(false)
-  const handleIsClose = () => setIsShow(false)
-  const handleIsShow = () => setIsShow(true)
+  const deleteCourse = async () => {
+    let r = await axios.delete(TcCourse_DELETE + '/' + sid)
+
+    handleClose()
+  }
+
   return (
     <>
       <div className="TCcourse-card col-12">
-        <div
-          className="TCcourse-img"
-          onClick={handleIsShow}
-        >
+        <div className="TCcourse-img">
           <img
-            src={`${devUrl}/images/course/AdobeStock_339695471.jpg`}
+            src={`${API_HOST}/img/${course_img}`}
             alt=""
           />
         </div>
-        <div
-          className="TCcourse-info"
-          onClick={handleIsShow}
-        >
+        <div className="TCcourse-info">
           <div className="TCcourse-title">
-            <span>{course_name}</span>
+            <span>
+              {course_name} {sid}
+            </span>
           </div>
           <div className="TCcourse-info-right">
             <div className="TCcourse-detail">
               <span>課程種類：</span> {course_category}
             </div>
             <div className="TCcourse-detail">
-              <span>上架日期：</span> {course_data}
+              <span>上傳日期：</span> {course_data}
             </div>
             <div className="TCcourse-detail">
               <span>課程長度：</span> {hours}
@@ -65,25 +64,6 @@ function TcCourseCard(props) {
           <i className="far fa-times-circle"></i>
         </div>
       </div>
-      <Modal show={isShow} onHide={handleIsClose} centered>
-        <Modal.Header>
-          <Modal.Title>影片資訊</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="resume">
-            <input
-              className="col-12 allInputs bgt"
-              placeholder="請輸入影片標題 "
-            />
-            <button
-              type="submit"
-              className="btn-secondary browse"
-            >
-              更改名稱
-            </button>
-          </div>
-        </Modal.Body>
-      </Modal>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header>
           <Modal.Title>刪除課程</Modal.Title>
@@ -100,7 +80,7 @@ function TcCourseCard(props) {
           <button
             type="button"
             className="btn confirmBtn"
-            onClick={handleClose}
+            onClick={deleteCourse}
           >
             <span>是</span>
           </button>
