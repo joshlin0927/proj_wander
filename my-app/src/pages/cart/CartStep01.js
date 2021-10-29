@@ -36,6 +36,27 @@ function CartStep01(props) {
       }
     })()
   }, [member.sid])
+  // 新增購物車資料
+  function addCart(courseID) {
+    fetch(`${Cart_API}/add`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        member_sid: member.sid,
+        product_sid: courseID,
+      }),
+    })
+      .then((r) => r.json())
+      .then((obj) => {
+        if (obj.success) {
+          console.log('新增成功：', JSON.stringify(obj))
+        } else {
+          console.log(obj.error)
+        }
+      })
+  }
   // counpon打勾效果
   useEffect(() => {
     $('#counponCanUse .modal-card').on(
@@ -125,8 +146,12 @@ function CartStep01(props) {
                 </span>
               </div>
               <div className="w-100"></div>
-              <div className="btn">新增product1</div>
-              <div className="btn">新增product2</div>
+              <div className="btn" onClick={addCart(1)}>
+                新增product1
+              </div>
+              <div className="btn" onClick={addCart(2)}>
+                新增product2
+              </div>
               <div className="w-100"></div>
               <div className="cartSort container">
                 <div className="row w-100">
