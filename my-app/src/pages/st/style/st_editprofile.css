@@ -250,6 +250,13 @@
   display: none;
 }
 
+.none{
+  display: none;
+}
+.showup{
+  display: block
+}
+
 @media (min-width: 768px) {
   /* 右上角白圈 */
   .whitecircle {

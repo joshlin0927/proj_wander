@@ -173,10 +173,27 @@ export default withRouter(function StProfile(props) {
         )
         .then((res) => {
           console.log('res:', res)
-          alert('資料修改成功')
         })
     }
   }
+
+  useEffect(() => {
+    if (!token) {
+      history.push('/')
+    } else if (identity !== 0) {
+      history.push('/')
+    } else {
+      ;(async () => {
+        let r = await axios.get(
+          `http://localhost:3001/list?studentSid=${studentSid}`
+        )
+        console.log(r.data[0][0])
+        setFields(r.data[0][0])
+      })()
+    }
+  }, [])
+
+  const [showUp, setShowUp] = useState('')
 
   return (
     <>
@@ -198,7 +215,7 @@ export default withRouter(function StProfile(props) {
             onChange={handleFormChange}
             onInvalid={handleFormInvalid}
           >
-            <ConfirmMsg />
+            <ConfirmMsg showUp={showUp} />
             <div className="form-head ml-1">
               <Link href="">
                 <i className="fas fa-chevron-left TCback-btn"></i>
@@ -256,7 +273,7 @@ export default withRouter(function StProfile(props) {
                     required
                   />
                   {fieldsErrors.firstname && (
-                    <small className="ststnotice">
+                    <small className="stnotice">
                       {fieldsErrors.firstname}
                     </small>
                   )}
@@ -273,7 +290,7 @@ export default withRouter(function StProfile(props) {
                     required
                   />
                   {fieldsErrors.lastname && (
-                    <small className="ststnotice">
+                    <small className="stnotice">
                       {fieldsErrors.lastname}
                     </small>
                   )}
