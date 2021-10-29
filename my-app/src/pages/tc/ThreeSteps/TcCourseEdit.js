@@ -7,6 +7,7 @@ import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'
 import Footer from '../../../components/Footer'
+import axios from 'axios'
 
 function TcCourseEdit(props) {
   console.log(props.location)
@@ -21,7 +22,9 @@ function TcCourseEdit(props) {
     } else if (identity !== 1) {
       history.push('/')
     } else {
-      return
+      ;(async () => {
+        let r = await axios.get(TcCourse_EDIT)
+      })()
     }
   }, [])
 
@@ -93,26 +96,28 @@ function TcCourseEdit(props) {
     console.log(formData.get('course_name'))
     console.log(formData.get('course_category'))
     console.log(formData.get('course_price'))
-    console.log(formData.get('course_intro'))
-
+    console.log(formData.get('course_introduction'))
     // 利用狀態來得到輸入的值
 
     // ex. 用fetch api/axios送到伺服器
-    // const usp = new URLSearchParams(formData)
-    // const r = await fetch('', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/x-www-form-urlencoded',
-    //   },
-    //   body: usp.toString(),
-    // })
-    //   .then((r) => r.json())
-    //   .then((obj) => {
-    //     // 查看附帶的數值
-    //     console.log(JSON.stringify(obj, null, 4))
-    //     if (obj.success === true) {
-    //     }
-    //   })
+    // 修改課程
+    const r = fetch(TcCourse_EDIT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then((r) => r.json())
+      .then((obj) => {
+        console.log(JSON.stringify(obj, null, 4))
+        if (obj.success) {
+          alert('資料新增成功')
+          // TODO: 修改alert成通知條形式(ConfirmMsg)
+        } else {
+          alert(obj.error || '資料新增失敗')
+        }
+      })
   }
 
   // 當整個表單有變動時觸發

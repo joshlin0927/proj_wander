@@ -98,7 +98,6 @@ function TcCourseAdd() {
 
     // ex. 用fetch api/axios送到伺服器
     //新增課程
-
     const r = fetch(
       `${TcCourse_ADD}?teacherSid=${teacherSid}`,
       {
