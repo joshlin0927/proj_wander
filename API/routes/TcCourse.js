@@ -66,6 +66,8 @@ async function getListData(req, res) {
   return output;
 }
 
+
+
 router.get("/api/list", async (req, res) => {
   const output = await getListData(req, res);
   res.json(output);
@@ -114,14 +116,15 @@ router.route("/add").post(async (req, res) => {
   res.json(output);
 });
 
-router
-  .route("/edit/:sid")
-  .get(async (req, res) => {
-    let courseSid = req.query.courseSid;
-    const sql = `SELECT * FROM \`course\` WHERE sid= ${courseSid}`;
-    const [rs] = await db.query(sql);
-  })
-  .post(async (req, res) => {
+
+router.get('/edit', async (req, res) => {
+  // let courseSid = ;
+  const sql = `SELECT * FROM \`course\` WHERE sid=?`;
+  const [rs] = await db.query(sql, [req.query.courseSid]);
+  res.json(rs);
+})
+
+router.post('/edit', async (req, res) => {
     const output = {
       success: false,
       postData: req.body,

@@ -44,7 +44,7 @@ function TcCourseCard(props) {
         </div>
         <Link
           className="TCcourse-info"
-          to={`/TCindex/TcCourseEdit/${sid}`}
+          to={`/TCindex/TcCourseEdit/?courseSid=${sid}`}
         >
           <div className="TCcourse-title">
             <span>{course_name}</span>

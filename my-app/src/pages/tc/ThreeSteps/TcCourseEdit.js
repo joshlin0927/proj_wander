@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { useHistory } from 'react-router'
+import { useHistory, withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import { devUrl, TcCourse_EDIT } from '../../../config'
 
@@ -10,12 +10,12 @@ import Footer from '../../../components/Footer'
 import axios from 'axios'
 
 function TcCourseEdit(props) {
-  console.log(props.location)
   //判斷是否登入並為教師身分
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
+
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -23,7 +23,11 @@ function TcCourseEdit(props) {
       history.push('/')
     } else {
       ;(async () => {
-        let r = await axios.get(TcCourse_EDIT)
+        let r = await axios.get(
+          TcCourse_EDIT + props.location.search
+        )
+        setFields(r.data[0])
+        console.log('edit', r.data[0])
       })()
     }
   }, [])
@@ -341,4 +345,4 @@ function TcCourseEdit(props) {
   )
 }
 
-export default TcCourseEdit
+export default withRouter(TcCourseEdit)
