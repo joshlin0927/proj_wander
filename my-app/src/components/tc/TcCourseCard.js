@@ -97,6 +97,38 @@ function TcCourseCard(props) {
           </button>
         </Modal.Footer>
       </Modal>
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header>
+          <Modal.Title>刪除課程</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h5
+            className="modal-title text-center my-4"
+            id="exampleModalLabel"
+          >
+            確定要刪除課程?
+          </h5>
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            type="button"
+            className="btn confirmBtn"
+            onClick={remove}
+            onMouseUp={deleteCourse}
+            onTouchEnd={deleteCourse}
+            onTouchStart={deleteCourse}
+          >
+            <span>是</span>
+          </button>
+          <button
+            type="button"
+            className="btn confirmBtn"
+            onClick={handleClose}
+          >
+            <span>否</span>
+          </button>
+        </Modal.Footer>
+      </Modal>
     </>
   )
 }

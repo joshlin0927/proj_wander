@@ -92,11 +92,13 @@ router.route("/add").post(async (req, res) => {
     ...req.body,
     created_at: new Date(),
   };
+
+  console.log(input);
   const sql = "INSERT INTO `course` SET ?";
   let result = {};
   // 處理新增資料時可能的錯誤
   try {
-    [result] = await db.query(sql);
+    [result] = await db.query(sql,[input]);
   } catch (ex) {
     output.error = ex.toString();
   }

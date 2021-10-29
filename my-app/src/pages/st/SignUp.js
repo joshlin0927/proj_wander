@@ -120,6 +120,7 @@ export default withRouter(function SignUp(props) {
     ) {
       axios
         .post('http://localhost:3001/SignUp', {
+          nickname: fields.nickname,
           lastname: fields.lastname,
           firstname: fields.firstname,
           email: fields.email,
@@ -127,7 +128,7 @@ export default withRouter(function SignUp(props) {
           identity: asTeacherOrStudent,
         })
         .then((res) => {
-          console.log(res.data.success)
+          console.log(res)
           if (res.data.success === true) {
             alert('恭喜成為Wander會員')
           } else {
