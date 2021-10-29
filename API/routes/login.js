@@ -115,5 +115,21 @@ router.post('/login-jwt', async (req, res) => {
 });
 
 
+router.get('/get-data-jwt',async (req, res)=>{
+    const output = {
+        success: false,
+        data: null
+    }
 
+    // 判斷有沒有通過 jwt 驗證
+    if(req.myAuth && req.myAuth.id){
+        output.member = req.myAuth;
+        output.success = true;
+        output.data = await getListData(req, res);
+    } else {
+        output.error = '沒有 token 或者 token 不合法';
+    }
+
+    res.json(output);
+});
 module.exports = router;

@@ -1,14 +1,15 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
-import { devUrl } from '../../../config'
+import { devUrl, TcCourse_EDIT } from '../../../config'
 
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'
 import Footer from '../../../components/Footer'
 
-function TcCourseEdit() {
+function TcCourseEdit(props) {
+  console.log(props.location)
   //判斷是否登入並為教師身分
   const history = useHistory()
   const token = localStorage.getItem('token')
@@ -51,18 +52,22 @@ function TcCourseEdit() {
 
   // 使用物件值作為狀態值，儲存所有欄位的值
   const [fields, setFields] = useState({
+    teacher_sid: '',
+    course_img: '',
     course_name: '',
     course_category: '',
     course_price: '',
-    course_intro: '',
+    course_introduction: '',
   })
 
   // 存入錯誤訊息用
   const [fieldErrors, setFieldErrors] = useState({
+    teacher_sid: '',
+    course_img: '',
     course_name: '',
     course_category: '',
     course_price: '',
-    course_intro: '',
+    course_introduction: '',
   })
 
   // 專門用來處理每個欄位的輸入用
@@ -78,7 +83,7 @@ function TcCourseEdit() {
   }
 
   // 在 表單完成驗証 之後，才會觸發
-  const ProfileFormSubmit = (e) => {
+  const FormSubmit = (e) => {
     // 阻擋form的預設送出行為
     e.preventDefault()
 
@@ -113,7 +118,7 @@ function TcCourseEdit() {
   // 當整個表單有變動時觸發
   // 認定使用者正在輸入有錯誤的欄位
   // 清除某個欄位錯誤訊息
-  const ProfileFormChange = (e) => {
+  const FormChange = (e) => {
     // console.log('更動欄位：', e.target.name)
 
     // 該欄位錯誤訊息清空
@@ -127,7 +132,7 @@ function TcCourseEdit() {
   }
 
   // 有錯誤的訊息會觸發在這裡
-  const ProfileFormInvalid = (e) => {
+  const FormInvalid = (e) => {
     e.preventDefault()
 
     // 表單實體的物件參照
@@ -181,9 +186,9 @@ function TcCourseEdit() {
           <form
             className="TCform col-12 col-md-10"
             ref={formRef}
-            onSubmit={ProfileFormSubmit}
-            onChange={ProfileFormChange}
-            onInvalid={ProfileFormInvalid}
+            onSubmit={FormSubmit}
+            onChange={FormChange}
+            onInvalid={FormInvalid}
           >
             <div className="TCform-content">
               <div className="TCform-head">
@@ -202,11 +207,15 @@ function TcCourseEdit() {
                   </Link>
                 </div>
               </div>
-
+              <input
+                name="course_sid"
+                value={'3'}
+                className="d-none"
+              />
               <div className="TCcourse-img-selector">
                 <input
                   type="file"
-                  name="avatar"
+                  name="course_img"
                   accept="image/*"
                   className="d-none"
                   ref={inputRef}
@@ -217,7 +226,6 @@ function TcCourseEdit() {
                     src={`${devUrl}/images/pic/presetAvatar.jpeg`}
                     className="img-fluid"
                     alt=""
-                    name="avatar"
                     ref={imgRef}
                   />
                 </div>
@@ -302,10 +310,10 @@ function TcCourseEdit() {
                 type="text"
                 className="TC-intro w-100 col-12"
                 placeholder="課程介紹與說明"
-                name="course_intro"
-                id="course_intro"
+                name="course_introduction"
+                id="course_introduction"
                 rows="5"
-                value={fields.course_intro}
+                value={fields.course_introduction}
                 onChange={handleFieldChange}
               ></textarea>
             </div>

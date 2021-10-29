@@ -20,11 +20,11 @@ import TcAnalytic from './TcAnalytic'
 import ChatList from '../../components/chatroom/ChatList'
 import ChatWindow from '../../components/chatroom/ChatWindow'
 
-function index(props) {
+function index() {
   return (
     <>
       <Switch>
-        <Route path="TCindex/TcCourseVideoEdit/:sid?">
+        <Route path="/TCindex/TcCourseVideoEdit">
           <TcCourseVideoEdit />
         </Route>
         <Route path="/TCindex/TcCourseVideoUpload">
@@ -48,7 +48,7 @@ function index(props) {
         <Route path="/TCindex/TcProfile">
           <TcProfile />
         </Route>
-        <Route exact path="/TCindex">
+        <Route path="/TCindex">
           <Redirect to="/TCindex/TcCourse" />
         </Route>
       </Switch>

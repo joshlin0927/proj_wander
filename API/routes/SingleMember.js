@@ -2,9 +2,7 @@ const express = require("express");
 const multer = require("multer");
 const db = require("../modules/connect-mysql");
 const uploadImg = require("../modules/upload-images");
-const upload = multer({
-  dest: 'tmp_uploads/'
-});
+
 const router = express.Router();
 
 router
@@ -19,7 +17,7 @@ router
 
     res.json([rs]);
   })
-  .post(async (req, res) => {
+  .post(uploadImg.single(''), async (req, res) => {
 
     // TODO: 頭像上傳的引用
     

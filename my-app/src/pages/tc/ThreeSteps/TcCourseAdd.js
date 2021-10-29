@@ -53,6 +53,7 @@ function TcCourseAdd() {
   // 使用物件值作為狀態值，儲存所有欄位的值
   const [fields, setFields] = useState({
     teacher_sid: '',
+    course_img: '',
     course_name: '',
     course_category: '',
     course_price: '',
@@ -62,6 +63,7 @@ function TcCourseAdd() {
   // 存入錯誤訊息用
   const [fieldErrors, setFieldErrors] = useState({
     teacher_sid: '',
+    course_img: '',
     course_name: '',
     course_category: '',
     course_price: '',

@@ -59,15 +59,6 @@ function TcCourse() {
   //RemoveCourse裡面是在前端被刪除過後的課程陣列
   // console.log(RemoveCourse)
 
-  //新增課程
-  const add = async () => {
-    let r = await axios.post(`${TcCourse_ADD}`, {
-      teacher_sid: teacherSid,
-    })
-    console.log(r.data.result.insertId)
-    setAdded(r.data.result.insertId)
-  }
-
   // 搜尋列
   const [searchWord, setSearchWord] = useState('')
 

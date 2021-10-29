@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Modal } from 'react-bootstrap'
-
+import { Link } from 'react-router-dom'
 import { API_HOST, TcCourse_DELETE } from '../../config'
 
 function TcCourseCard(props) {
@@ -33,17 +33,21 @@ function TcCourseCard(props) {
   return (
     <>
       <div className="TCcourse-card col-12">
-        <div className="TCcourse-img">
+        <div
+          className="TCcourse-img"
+          to="/TCindex/TcCourseEdit/"
+        >
           <img
             src={`${API_HOST}/img/${course_img}`}
             alt=""
           />
         </div>
-        <div className="TCcourse-info">
+        <Link
+          className="TCcourse-info"
+          to={`/TCindex/TcCourseEdit/${sid}`}
+        >
           <div className="TCcourse-title">
-            <span>
-              {course_name} {sid}
-            </span>
+            <span>{course_name}</span>
           </div>
           <div className="TCcourse-info-right">
             <div className="TCcourse-detail">
@@ -56,7 +60,7 @@ function TcCourseCard(props) {
               <span>課程長度：</span> {hours}
             </div>
           </div>
-        </div>
+        </Link>
         <div
           className="TCcourse-delete"
           title="刪除"
