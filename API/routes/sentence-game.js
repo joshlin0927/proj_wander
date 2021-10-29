@@ -23,8 +23,6 @@ async function getListData(req, res) {
     
     return output;
 }
-router.getListData = getListData; //在router上使用一個與function相同的變數
-
 
 //SELECT
 router.get("/api/list", async (req, res) => {

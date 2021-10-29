@@ -25,6 +25,7 @@
   padding: 0 0 1rem 0;
   background-color: #f1f0e9;
   border-radius: 0 0 10px 10px;
+  overflow: hidden;
 }
 .stOrderDetailTitle {
   margin: 1rem;
@@ -99,8 +100,10 @@
 /*============= orderDetail =============*/
 .stPayMethod {
   background-color: #fff;
-  margin-top: 2rem;
   padding: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+  transition: 0.5s;
 }
 .payTitle {
   border-bottom: 2px solid black;
