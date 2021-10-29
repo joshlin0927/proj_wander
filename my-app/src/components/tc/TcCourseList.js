@@ -1,21 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TcCourseCard from './TcCourseCard'
 
 function TcCourseList(props) {
-  const { TcCourses } = props
+  const { Courses, RemoveCourse, setRemoveCourse } = props
+  // const [RemoveCourse, setRemoveCourse] = useState()
 
+  // console.log(RemoveCourse)
   return (
     <>
-      {TcCourses.map((v, i) => {
+      {Courses.map((Course, i) => {
         return (
           <TcCourseCard
-            key={v.sid}
-            sid={v.sid}
-            course_img={v.course_img}
-            course_name={v.course_name}
-            course_category={v.course_category}
-            course_data={v.course_data}
-            hours={v.hours}
+            key={Course.sid}
+            sid={Course.sid}
+            course_img={Course.course_img}
+            course_name={Course.course_name}
+            course_category={Course.course_category}
+            course_data={Course.course_data}
+            hours={Course.hours}
+            remove={() => {
+              const newCourses = [...Courses].filter(
+                (v, i) => {
+                  return v.sid !== Course.sid
+                }
+              )
+              setRemoveCourse(newCourses)
+            }}
           />
         )
       })}

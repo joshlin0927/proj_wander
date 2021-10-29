@@ -115,11 +115,11 @@ router.route("/add").post(async (req, res) => {
 router
   .route("/edit/:sid")
   .get(async (req, res) => {
-    const sql = "SELECT * FROM course WHERE sid=?";
-    const [rs] = await db.query(sql, [req.params.sid]);
+    let courseSid = req.query.courseSid;
+    const sql = `SELECT * FROM \`course\` WHERE sid= ${courseSid}`;
+    const [rs] = await db.query(sql);
   })
   .post(async (req, res) => {
-    // TODO: 欄位檢查
     const output = {
       success: false,
       postData: req.body,
