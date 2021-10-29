@@ -19,7 +19,7 @@ function index() {
   return (
     <>
       <Switch>
-        <Route path="/StIndex/StProfile/:sid?">
+        <Route path="/StIndex/StProfile">
           <StProfile />
         </Route>
 
@@ -45,13 +45,13 @@ function index() {
         <Route exact path="/StIndex/StCourseEmpty">
           <StCourseEmpty />
         </Route>
-        <Route exact path="/StIndex/StCourse/:id?">
+        <Route exact path="/StIndex/StCourse">
           <StCourse />
         </Route>
-        <Route exact path="/StIndex/StCalendar/:id?">
+        <Route exact path="/StIndex/StCalendar">
           <StCalendar />
         </Route>
-        <Route exact path="/StIndex/StClassroom/:id?">
+        <Route exact path="/StIndex/StClassroom">
           <StClassroom />
         </Route>
         <Route exact path="/StIndex/StOrder/:id?">
