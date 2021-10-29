@@ -14,11 +14,15 @@ import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
 
 export default withRouter(function StProfile(props) {
+  //從token取得學生id以取得資料
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
   const studentSid = JSON.parse(member).sid
+
+  //設定確認表單送出訊息框的狀態
+  const [showUp, setShowUp] = useState('')
 
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
@@ -172,7 +176,12 @@ export default withRouter(function StProfile(props) {
           }
         )
         .then((res) => {
-          console.log('res:', res)
+          if (res.data.success === true) {
+            setShowUp('showup')
+            setTimeout(() => {
+              setShowUp('none')
+            }, 1000)
+          }
         })
     }
   }
@@ -192,8 +201,6 @@ export default withRouter(function StProfile(props) {
       })()
     }
   }, [])
-
-  const [showUp, setShowUp] = useState('')
 
   return (
     <>
@@ -244,7 +251,7 @@ export default withRouter(function StProfile(props) {
               <div className="d-flex align-items-center ml-1">
                 <div className="pic">
                   <img
-                    src={`${API_HOST}/img/${fields.avatar}`}
+                    src={''}
                     className="img-fluid"
                     alt=""
                     name="avatar"
@@ -341,7 +348,7 @@ export default withRouter(function StProfile(props) {
           </form>
         </div>
       </div>
-      <StBgDecorationNormal />
+      <StBgDecorationNormal showUp={showUp} />
       <Footer />
     </>
   )

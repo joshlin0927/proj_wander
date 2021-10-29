@@ -1,14 +1,10 @@
 import React from 'react'
 import { devUrl } from '../../config'
 
-export default function StBgDecorationNormal() {
+export default function StBgDecorationNormal(props) {
   return (
     <>
       <div className="STallwraper">
-        <div className="confirmmsg">
-          <i className="far fa-check-circle"></i>
-          資料已修改完成
-        </div>
         <div className="dec-block"></div>
         <div className="whitecircle"></div>
         <div className="bluetriangle">
