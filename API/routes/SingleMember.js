@@ -10,7 +10,6 @@ const router = express.Router();
 router
   .route("/edit")
   .get(async (req, res) => {
-
     let teacherSid = req.query.teacherSid;
 
     const sql = `SELECT * FROM \`member\` WHERE \`sid\` = ${teacherSid}`;
@@ -22,8 +21,8 @@ router
   })
   .post(async (req, res) => {
 
+    // TODO: 頭像上傳的引用
     
-    // TODO: 欄位檢查
     const output = {
       success: false,
       postData: req.body,

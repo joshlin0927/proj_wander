@@ -5,7 +5,7 @@ function StOrderDetail(props) {
   const { handleCancelModalShow, setShowDetail } = props
   return (
     <>
-      <div className="row stPayMethod m-0 bgc-main">
+      <div className="row stPayMethod bgc-main">
         <div className="col-12 payTitle">
           <span>訂單明細</span>
           <div

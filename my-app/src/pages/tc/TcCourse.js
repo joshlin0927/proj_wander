@@ -28,13 +28,14 @@ function TcCourse() {
   const identity = JSON.parse(member).identity
   const teacherSid = JSON.parse(member).sid
 
-  // 資料庫來的資料
+  // 資料庫來的課程資料
   const [TcCourses, setTcCourses] = useState([])
 
   // 拿去做map排列的，取的是r.data.rows，或是其它處理
   const [displayCourse, setDisplayCourse] = useState([])
 
-  const [totalRows, setTotalRows ] = useState('')
+  // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
+  const [RemoveCourse, setRemoveCourse] = useState()
 
   useEffect(() => {
     if (!token) {
@@ -49,29 +50,34 @@ function TcCourse() {
         if (r.status === 200) {
           setTcCourses(r.data.rows)
           setDisplayCourse(r.data.rows)
-          setTotalRows(r.data)
         }
       })()
     }
     // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
-  }, [totalRows])
+  }, [RemoveCourse])
+  
+  //RemoveCourse裡面是在前端被刪除過後的課程陣列
+  // console.log(RemoveCourse)
+
 
   // 搜尋列
   const [searchWord, setSearchWord] = useState('')
 
+  // 將搜尋吧的字串與得到的資料帶入函式
   const handleSearch = (TcCourses, searchWord) => {
     let newTcCourses = []
 
     if (searchWord) {
       newTcCourses = TcCourses.filter((TcCourse) => {
-          // includes -> String API
-          return TcCourse.course_name.includes(searchWord)
-        })
+        // includes -> String API
+        return TcCourse.course_name.includes(searchWord)
+      })
     } else {
+      // 淺層拷貝
       newTcCourses = [...TcCourses]
-
     }
 
+    //丟回到外面
     return newTcCourses
   }
 
@@ -81,7 +87,7 @@ function TcCourse() {
     newTcCourses = handleSearch(TcCourses, searchWord)
 
     setDisplayCourse(newTcCourses)
-  }, [searchWord, TcCourses, totalRows])
+  }, [searchWord, TcCourses])
 
   return (
     <>
@@ -143,8 +149,12 @@ function TcCourse() {
               </div>
             </div>
             {/* course cards */}
-            {TcCourses ? (
-              <TcCourseList TcCourses={displayCourse} />
+            {TcCourses.length > 0 ? (
+              <TcCourseList
+                Courses={displayCourse}
+                RemoveCourse={RemoveCourse}
+                setRemoveCourse={setRemoveCourse}
+              />
             ) : (
               <TcHasNoCourse />
             )}
