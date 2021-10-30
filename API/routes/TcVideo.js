@@ -73,7 +73,7 @@ router.get("/api/list", async (req, res) => {
 
 router.delete("/delete/:sid([0-9]+)", async (req, res) => {
   // '/delete/:sid([0-9]+' 以防用戶在網址列輸入數值以外的東西
-  const sql = "DELETE FROM course WHERE sid=?";
+  const sql = "DELETE FROM video_list WHERE sid=?";
   const [result] = await db.query(sql, [req.params.sid]);
   console.log({
     result,

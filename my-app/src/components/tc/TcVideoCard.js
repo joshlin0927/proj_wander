@@ -2,12 +2,17 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
 
-import { API_HOST, devUrl } from '../../config'
+import {
+  API_HOST,
+  TcVideo__DELETE,
+  devUrl,
+} from '../../config'
 
 function TcVideoCard(props) {
   const {
     sid,
     course_sid,
+    course_name,
     video_cover,
     video_name,
     teacher_sid,
@@ -26,7 +31,7 @@ function TcVideoCard(props) {
   const handleIsShow = () => setIsShow(true)
 
   const deleteVideo = async () => {
-    // let r = await axios.delete(TcCourse_DELETE + sid)
+    let r = await axios.delete(TcVideo__DELETE + sid)
     handleClose()
   }
 
@@ -47,9 +52,7 @@ function TcVideoCard(props) {
           onClick={handleIsShow}
         >
           <div className="TCcourse-title">
-            <span>
-              {video_name} {sid}
-            </span>
+            <span>{video_name}</span>
           </div>
           <div className="TCcourse-info-right">
             <div className="TCcourse-detail">
@@ -77,6 +80,7 @@ function TcVideoCard(props) {
             <input
               className="col-12 allInputs bgt"
               placeholder="請輸入影片標題 "
+              value={video_name}
             />
             <button
               type="submit"

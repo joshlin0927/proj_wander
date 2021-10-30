@@ -51,34 +51,36 @@ function TcCourseVideoEdit() {
     }
   }, [RemoveVideo])
 
+  // console.log(TcVideos[0].sid)
+
   //搜尋列
   const [searchWord, setSearchWord] = useState('')
 
   // 將搜尋吧的字串與得到的資料帶入函式
-  // const handleSearch = (TcVideos, searchWord) => {
-  //   let newTcVideos = []
+  const handleSearch = (TcVideos, searchWord) => {
+    let newTcVideos = []
 
-  //   if (searchWord) {
-  //     newTcVideos = TcVideos.filter((TcVideo) => {
-  //       // includes -> String API
-  //       return TcVideo.video_name.includes(searchWord)
-  //     })
-  //   } else {
-  //     // 淺層拷貝
-  //     newTcVideos = [...TcVideos]
-  //   }
+    if (searchWord) {
+      newTcVideos = TcVideos.filter((TcVideo) => {
+        // includes -> String API
+        return TcVideo.video_name.includes(searchWord)
+      })
+    } else {
+      // 淺層拷貝
+      newTcVideos = [...TcVideos]
+    }
 
-  //   //丟回到外面
-  //   return newTcVideos
-  // }
+    //丟回到外面
+    return newTcVideos
+  }
 
-  // useEffect(() => {
-  //   let newTcVideos = []
+  useEffect(() => {
+    let newTcVideos = []
 
-  //   newTcVideos = handleSearch(TcVideos, searchWord)
+    newTcVideos = handleSearch(TcVideos, searchWord)
 
-  //   setDisplayVideo(newTcVideos)
-  // }, [searchWord, TcVideos])
+    setDisplayVideo(newTcVideos)
+  }, [searchWord, TcVideos])
 
   return (
     <>
@@ -127,7 +129,7 @@ function TcCourseVideoEdit() {
             {/* course cards */}
             {TcVideos.length > 0 ? (
               <TcVideoList
-                Videos={TcVideos}
+                Videos={displayVideo}
                 RemoveVideo={RemoveVideo}
                 setRemoveVideo={setRemoveVideo}
               />
@@ -145,20 +147,3 @@ function TcCourseVideoEdit() {
 }
 
 export default withRouter(TcCourseVideoEdit)
-
-// TcVideos.map((Video, i) => {
-//   return (
-//     <TcVideoCard
-//       key={Video.sid}
-//       video_name={Video.video_name}
-//       // remove={() => {
-//       //   const newVideos = [...Videos].filter(
-//       //     (v, i) => {
-//       //       return v.sid !== Video.sid
-//       //     }
-//       //   )
-//       //   setRemoveVideo(newVideos)
-//       // }}
-//     />
-//   )
-// })

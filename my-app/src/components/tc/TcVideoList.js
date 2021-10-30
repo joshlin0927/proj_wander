@@ -10,7 +10,8 @@ function TcVideoList(props) {
         return (
           <TcVideoCard
             key={Video.sid}
-            video={Video.sid}
+            sid={Video.sid}
+            course_sid={Video.course_sid}
             video_name={Video.video_name}
             created_at={Video.created_at}
             duration={Video.duration}

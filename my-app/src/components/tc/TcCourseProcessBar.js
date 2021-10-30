@@ -5,6 +5,10 @@ import { Nav } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 
 function TcCourseProcessBar() {
+  const CourseSid = localStorage.getItem(
+    'CourseSidForProcess'
+  )
+  // console.log(CourseSid)
   return (
     <>
       <div className="TCcourse-processBar col-10 ">
@@ -20,7 +24,7 @@ function TcCourseProcessBar() {
           <li className="TCcourse-processBar-item">
             <Nav.Link
               as={NavLink}
-              to="/TCindex/TcCourseEdit"
+              to={`/TCindex/TcCourseEdit/?courseSid=${CourseSid}`}
             >
               <div>課程細節頁面</div>
             </Nav.Link>

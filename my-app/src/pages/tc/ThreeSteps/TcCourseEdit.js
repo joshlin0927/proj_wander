@@ -27,6 +27,10 @@ function TcCourseEdit(props) {
           TcCourse_EDIT + props.location.search
         )
         setFields(r.data[0])
+        localStorage.setItem(
+          'CourseSidForProcess',
+          r.data[0].sid
+        )
         console.log('edit', r.data[0])
       })()
     }
