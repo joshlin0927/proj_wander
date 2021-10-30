@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router'
+import { useHistory, withRouter } from 'react-router'
 import dayjs from 'dayjs'
 import axios from 'axios'
 
@@ -34,9 +34,6 @@ function TcCourse() {
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
   const [RemoveCourse, setRemoveCourse] = useState()
 
-  // 課程新增後的通知
-  const [added, setAdded] = useState()
-
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -54,7 +51,7 @@ function TcCourse() {
       })()
     }
     // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
-  }, [RemoveCourse, added])
+  }, [RemoveCourse])
 
   //RemoveCourse裡面是在前端被刪除過後的課程陣列
   // console.log(RemoveCourse)
@@ -155,7 +152,9 @@ function TcCourse() {
                 setRemoveCourse={setRemoveCourse}
               />
             ) : (
-              <TcHasNoCourse />
+              <TcHasNoCourse
+                text={'請點擊右上角的按鈕以新增課程'}
+              />
             )}
 
             {/* Pagination */}
@@ -169,4 +168,4 @@ function TcCourse() {
   )
 }
 
-export default TcCourse
+export default withRouter(TcCourse)

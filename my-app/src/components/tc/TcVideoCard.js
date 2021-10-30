@@ -1,7 +1,8 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
 
-import { devUrl } from '../../config'
+import { API_HOST, devUrl } from '../../config'
 
 function TcVideoCard(props) {
   const {
@@ -12,18 +13,23 @@ function TcVideoCard(props) {
     teacher_sid,
     created_at,
     duration,
-    view_count,
+    remove,
   } = props
 
-  // 刪除課程
+  // 刪除影片
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-
-  //修改課程
+  //修改影片
   const [isShow, setIsShow] = useState(false)
   const handleIsClose = () => setIsShow(false)
   const handleIsShow = () => setIsShow(true)
+
+  const deleteVideo = async () => {
+    // let r = await axios.delete(TcCourse_DELETE + sid)
+    handleClose()
+  }
+
   return (
     <>
       <div className="TCcourse-card col-12">
@@ -41,7 +47,9 @@ function TcVideoCard(props) {
           onClick={handleIsShow}
         >
           <div className="TCcourse-title">
-            <span>{video_name}</span>
+            <span>
+              {video_name} {sid}
+            </span>
           </div>
           <div className="TCcourse-info-right">
             <div className="TCcourse-detail">
@@ -95,7 +103,10 @@ function TcVideoCard(props) {
           <button
             type="button"
             className="btn confirmBtn"
-            onClick={handleClose}
+            onClick={remove}
+            onMouseUp={deleteVideo}
+            onTouchEnd={deleteVideo}
+            onTouchStart={deleteVideo}
           >
             <span>是</span>
           </button>

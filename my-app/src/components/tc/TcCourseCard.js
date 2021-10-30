@@ -24,7 +24,6 @@ function TcCourseCard(props) {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-  //TODO: 怎麼將sid傳上去
   const deleteCourse = async () => {
     let r = await axios.delete(TcCourse_DELETE + sid)
     handleClose()

@@ -8,11 +8,14 @@ export const IMG_PATH = API_HOST + '/imgs'
 
 //登入
 export const MemberLogin = API_HOST + '/login-jwt'
+export const MemberLoginVerify =
+  API_HOST + '/login-jwt-verify'
 
 //登出
 export const MemberLogout = API_HOST + '/logout'
 
 //讀取、修改個人資料
+export const MemberVerify = API_HOST + '/SingleMember'
 export const MemberEdit = API_HOST + '/SingleMember/edit/'
 
 // TcCourse CRUD
@@ -22,6 +25,9 @@ export const TcCourse_LIST =
 export const TcCourse_EDIT = API_HOST + '/TcCourse/edit'
 export const TcCourse_DELETE =
   API_HOST + '/TcCourse/delete/'
+
+// TcVideo CRUD
+export const TcVideo_LIST = API_HOST + '/TcVideo/api/list/'
 
 //讀取資料列表
 export const Member_LIST = API_HOST + '/member/api/list'

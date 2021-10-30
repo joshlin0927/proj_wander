@@ -5,22 +5,40 @@ const uploadImg = require("../modules/upload-images");
 
 const router = express.Router();
 
+// router.use( async (req, res) => {
+//   const output = {
+//     success: false,
+//   };
+
+//   // 判斷有沒有通過 jwt 驗證
+//   if (req.myAuth && req.myAuth.sid) {
+
+//     console.log(req.myAuth.sid);
+
+//     output.member = req.myAuth;
+//     output.success = true;
+
+//   } else {
+//     output.error = "沒有 token 或者 token 不合法";
+//   }
+
+//   res.json(output);
+// });
+
 router
   .route("/edit")
   .get(async (req, res) => {
-    let teacherSid = req.query.teacherSid;
-
-    const sql = `SELECT * FROM \`member\` WHERE \`sid\` = ${teacherSid}`;
-    const [rs] = await db.query(sql);
+    const sql = `SELECT * FROM \`member\` WHERE \`sid\`=?`;
+    const [rs] = await db.query(sql, [req.query.teacherSid]);
     // console.log(sql);
     // console.log(res.json([rs]));
 
-    res.json([rs]);
+    res.json(rs);
   })
-  .post(uploadImg.single(''), async (req, res) => {
-
+  .post(uploadImg.single("avatar"), async (req, res) => {
+    console.log(req.body.avatar);
     // TODO: 頭像上傳的引用
-    
+
     const output = {
       success: false,
       postData: req.body,

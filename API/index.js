@@ -131,7 +131,7 @@ app.post('/try-upload2', uploadImg.single('avatar'), async (req, res) => {
 app.use('/SingleMember', require(__dirname + '/routes/SingleMember'));
 app.use('/member', require(__dirname + '/routes/member'));
 app.use('/TcCourse', require(__dirname + '/routes/TcCourse'));
-
+app.use('/TcVideo', require(__dirname + '/routes/TcVideo'));
 
 //聊天室
 // app.use('/chat', require('./routes/chat'));

@@ -1,9 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router'
+import { useHistory, withRouter } from 'react-router'
 import axios from 'axios'
 
-import { MemberEdit, devUrl } from '../../config'
+import {
+  MemberLoginVerify,
+  MemberEdit,
+  devUrl,
+} from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -29,7 +33,7 @@ function TcProfile(props) {
           `${MemberEdit}?teacherSid=${teacherSid}`
         )
         // 為什麼生日填不上去? ANS:在node就先處理，在mysql-connect就設定dateToString為true
-        setFields(r.data[0][0])
+        console.log(r.data[0])
       })()
     }
   }, [])
@@ -220,15 +224,6 @@ function TcProfile(props) {
               </div>
               {/* HeadImgSelector */}
               <div className="d-flex align-items-center">
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="d-none"
-                  name="avatar"
-                  ref={inputRef}
-                  onChange={handleFieldChange}
-                  onChangeCapture={previewFile}
-                />
                 <div className="profile-pic">
                   <img
                     src={`${devUrl}/images/pic/presetAvatar.jpeg`}
@@ -238,16 +233,25 @@ function TcProfile(props) {
                     ref={imgRef}
                   />
                 </div>
-                <button
+                <label
                   className="TCbtn btn-border-only"
-                  id="loadFile"
                   onClick={(e) => {
                     e.preventDefault()
                     inputRef.current.click()
                   }}
                 >
+                  {' '}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="d-none"
+                    name="avatar"
+                    ref={inputRef}
+                    onChange={handleFieldChange}
+                    onChangeCapture={previewFile}
+                  />
                   <span>請選擇圖片</span>
-                </button>
+                </label>
               </div>
               <div className="fullname d-flex">
                 <div className="col-6 pl-0">
@@ -291,7 +295,6 @@ function TcProfile(props) {
                   className="col-12 allInputs px-2"
                   placeholder="生日"
                   title="請選擇生日"
-                  defaultValue={fields.birth}
                   value={fields.birth}
                   onChange={handleFieldChange}
                   min="1900-01-01"
@@ -369,4 +372,4 @@ function TcProfile(props) {
   )
 }
 
-export default TcProfile
+export default withRouter(TcProfile)

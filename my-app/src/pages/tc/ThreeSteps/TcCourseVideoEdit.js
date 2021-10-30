@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router'
+import { useHistory, withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+
+import { TcVideo_LIST } from '../../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
+import TcHasNoCourse from '../../../components/tc/TcHasNoCourse'
 import TcSearchBar from '../../../components/tc/TcSearchBar'
 import TcVideoCard from '../../../components/tc/TcVideoCard'
+import TcVideoList from '../../../components/tc/TcVideoList'
 import MyPagination from '../../../components/MyPagination'
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'
 import Footer from '../../../components/Footer'
@@ -17,18 +22,63 @@ function TcCourseVideoEdit() {
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
+  const teacherSid = JSON.parse(member).sid
+
+  // 資料庫來的影片資料
+  const [TcVideos, setTcVideos] = useState([])
+
+  // 拿去做map排列的，取的是r.data.rows，或是其它處理
+  const [displayVideo, setDisplayVideo] = useState([])
+
+  // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
+  const [RemoveVideo, setRemoveVideo] = useState()
+
   useEffect(() => {
     if (!token) {
       history.push('/')
     } else if (identity !== 1) {
       history.push('/')
     } else {
-      return
+      ;(async () => {
+        let r = await axios.get(
+          `${TcVideo_LIST}?teacherSid=${teacherSid}`
+        )
+        if (r.status === 200) {
+          setTcVideos(r.data.rows)
+          setDisplayVideo(r.data.rows)
+        }
+      })()
     }
-  }, [])
+  }, [RemoveVideo])
 
   //搜尋列
   const [searchWord, setSearchWord] = useState('')
+
+  // 將搜尋吧的字串與得到的資料帶入函式
+  // const handleSearch = (TcVideos, searchWord) => {
+  //   let newTcVideos = []
+
+  //   if (searchWord) {
+  //     newTcVideos = TcVideos.filter((TcVideo) => {
+  //       // includes -> String API
+  //       return TcVideo.video_name.includes(searchWord)
+  //     })
+  //   } else {
+  //     // 淺層拷貝
+  //     newTcVideos = [...TcVideos]
+  //   }
+
+  //   //丟回到外面
+  //   return newTcVideos
+  // }
+
+  // useEffect(() => {
+  //   let newTcVideos = []
+
+  //   newTcVideos = handleSearch(TcVideos, searchWord)
+
+  //   setDisplayVideo(newTcVideos)
+  // }, [searchWord, TcVideos])
 
   return (
     <>
@@ -48,7 +98,7 @@ function TcCourseVideoEdit() {
               {/* desktop search bar */}
               <div className="TCsearch ml-0">
                 <TcSearchBar
-                  placeholder="請輸入課程名稱"
+                  placeholder="請輸入影片名稱"
                   searchWord={searchWord}
                   setSearchWord={setSearchWord}
                 />
@@ -60,7 +110,7 @@ function TcCourseVideoEdit() {
             {/* mobile search bar */}
             <div className="TCsearch-mobile">
               <TcSearchBar
-                placeholder="請輸入課程名稱"
+                placeholder="請輸入影片名稱"
                 searchWord={searchWord}
                 setSearchWord={setSearchWord}
               />
@@ -75,7 +125,15 @@ function TcCourseVideoEdit() {
               </div>
             </div>
             {/* course cards */}
-            <TcVideoCard />
+            {TcVideos.length > 0 ? (
+              <TcVideoList
+                Videos={TcVideos}
+                RemoveVideo={RemoveVideo}
+                setRemoveVideo={setRemoveVideo}
+              />
+            ) : (
+              <TcHasNoCourse text={'目前沒有任何影片'} />
+            )}
             <MyPagination />
           </form>
         </div>
@@ -86,4 +144,21 @@ function TcCourseVideoEdit() {
   )
 }
 
-export default TcCourseVideoEdit
+export default withRouter(TcCourseVideoEdit)
+
+// TcVideos.map((Video, i) => {
+//   return (
+//     <TcVideoCard
+//       key={Video.sid}
+//       video_name={Video.video_name}
+//       // remove={() => {
+//       //   const newVideos = [...Videos].filter(
+//       //     (v, i) => {
+//       //       return v.sid !== Video.sid
+//       //     }
+//       //   )
+//       //   setRemoveVideo(newVideos)
+//       // }}
+//     />
+//   )
+// })

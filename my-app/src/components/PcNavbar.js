@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { devUrl } from '../config'
+import { devUrl, API_HOST } from '../config'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
 
@@ -19,7 +19,6 @@ function PcNavbar(props) {
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const memberObj = JSON.parse(member)
-  console.log('memberObj', memberObj)
   useEffect(() => {
     if (token) {
       setAuth(true)
