@@ -1,5 +1,9 @@
 import { logDOM } from '@testing-library/dom'
 import React, { useState } from 'react'
+import dayjs from 'dayjs'
+import duration from 'dayjs/plugin/duration'
+
+// component
 import TcVideoCard from './TcVideoCard'
 
 function TcVideoList(props) {
@@ -22,7 +26,7 @@ function TcVideoList(props) {
             video_cover={Video.video_cover}
             video_name={Video.video_name}
             created_at={Video.created_at}
-            duration={Video.duration}
+            duration1={Video.duration}
             remove={() => {
               const newVideos = [...Videos].filter(
                 (v, i) => {

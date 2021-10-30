@@ -18,7 +18,7 @@ function TcVideoCard(props) {
     video_name,
     teacher_sid,
     created_at,
-    duration,
+    duration1,
     remove,
     status,
   } = props
@@ -58,6 +58,10 @@ function TcVideoCard(props) {
       handleIsClose()
     })()
   }
+
+  // const vidDuration = () => {
+  //   const time = dayjs.duration(duration).asSeconds()
+  // }
   return (
     <>
       <div className="TCcourse-card col-12">
@@ -89,7 +93,8 @@ function TcVideoCard(props) {
               <span>上傳日期：</span> {created_at}
             </div>
             <div className="TCcourse-detail">
-              <span>影片長度：</span> {duration}
+              <span>影片長度：</span>
+              {duration1}
             </div>
           </div>
         </div>

@@ -15,9 +15,9 @@ async function getListData(req, res) {
 
   // SELECT `video_list`.*, `member`.`firstname`, `course`.`course_name` FROM `video_list` LEFT JOIN `member` ON `video_list`.`teacher_sid`=`member`.`sid`LEFT JOIN `course` ON `course`.`sid`=`video_list`.`course_sid` WHERE `member`.`sid`=1;
 
-  let teacherSid = req.query.teacherSid;
+  let courseSid = req.query.courseSid;
 
-  let where = `LEFT JOIN \`member\` ON \`video_list\`.\`teacher_sid\`=\`member\`.\`sid\`LEFT JOIN \`course\` ON \`course\`.\`sid\`=\`video_list\`.\`course_sid\` WHERE \`member\`.\`sid\` = ${teacherSid} `;
+  let where = `LEFT JOIN \`member\` ON \`video_list\`.\`teacher_sid\`=\`member\`.\`sid\`LEFT JOIN \`course\` ON \`course\`.\`sid\`=\`video_list\`.\`course_sid\` WHERE \`video_list\`.\`course_sid\` = ${courseSid} `;
   if (keyword) {
     output.keyword = keyword;
     where += ` AND \`video_list\`.\`video_name\` LIKE ${db.escape(

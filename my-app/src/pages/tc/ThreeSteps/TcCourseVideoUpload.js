@@ -82,6 +82,8 @@ function TcCourseVideoUpload() {
                 </label>
                 <input
                   type="file"
+                  accept="video/mp4, video/mov,
+                  video/wmv"
                   id="durationReader"
                   onChange={durationReader}
                   className="d-none"
