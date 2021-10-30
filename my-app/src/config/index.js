@@ -4,7 +4,7 @@ export const devUrl = 'http://localhost:3000'
 export const prodUrl = 'http://www.abc.com'
 export const API_HOST = 'http://localhost:3001'
 export const UPLOAD_AVATAR = API_HOST + '/try-upload2'
-export const IMG_PATH = API_HOST + '/imgs'
+export const IMG_PATH = API_HOST + '/img'
 
 //登入
 export const MemberLogin = API_HOST + '/login-jwt'

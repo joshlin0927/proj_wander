@@ -1,11 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './style/st_editprofile.css'
 import { Link } from 'react-router-dom'
-import {
-  API_HOST,
-  IMG_PATH,
-  UPLOAD_AVATAR,
-} from '../../config'
+import { IMG_PATH, UPLOAD_AVATAR } from '../../config'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import { useHistory } from 'react-router'
@@ -27,6 +23,15 @@ export default withRouter(function StProfile(props) {
 
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
+  //大頭貼狀態
+  let [imgSrc, setImgSrc] = useState('')
+  const doUpload = async () => {
+    const fd = new FormData(document.form1)
+    const r = await axios.post(UPLOAD_AVATAR, fd)
+
+    console.log(r.data)
+    setImgSrc(r.data.filename)
+  }
 
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
@@ -112,30 +117,30 @@ export default withRouter(function StProfile(props) {
   }
 
   //預覽大頭貼的地方
-  const imgRef = useRef(null)
+  // const imgRef = useRef(null)
 
   //實際擁有預覽功能的input因為太醜藏起來
   const inputRef = useRef(null)
 
   //預覽大頭貼功能
-  const previewFile = () => {
-    var preview = imgRef.current
-    var file = inputRef.current.files[0]
-    var reader = new FileReader()
+  // const previewFile = () => {
+  //   var preview = imgRef.current
+  //   var file = inputRef.current.files[0]
+  //   var reader = new FileReader()
 
-    reader.addEventListener(
-      'load',
-      function () {
-        preview.src = reader.result
-      },
-      false
-    )
+  //   reader.addEventListener(
+  //     'load',
+  //     function () {
+  //       preview.src = reader.result
+  //     },
+  //     false
+  //   )
 
-    if (file) {
-      reader.readAsDataURL(file)
-      console.log(file.name)
-    }
-  }
+  //   if (file) {
+  //     reader.readAsDataURL(file)
+  //     console.log(file.name)
+  //   }
+  // }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -157,7 +162,6 @@ export default withRouter(function StProfile(props) {
         .post(
           `http://localhost:3001/stprofile/edit?studentSid=${studentSid}`,
           {
-            avatar: inputRef.current.files[0].name,
             firstname: fields.firstname,
             lastname: fields.lastname,
             email: fields.email,
@@ -204,7 +208,7 @@ export default withRouter(function StProfile(props) {
           </div>
         </div>
         <div className="row">
-          <StSideBar />
+          <StSideBar imgSrc={imgSrc} />
           <form
             enctype="multipart/form-data"
             name="sendForm"
@@ -224,13 +228,13 @@ export default withRouter(function StProfile(props) {
               </Link>
             </div>
 
-            <form name="form1" style={{}}>
+            <form name="form1" style={{ display: 'none' }}>
               <input
                 type="file"
                 name="avatar"
                 accept="image/*"
+                onChange={doUpload}
                 ref={inputRef}
-                onChange={previewFile}
               />
             </form>
             <div className="form-content">
@@ -238,14 +242,11 @@ export default withRouter(function StProfile(props) {
                 <div className="pic">
                   <img
                     src={
-                      fields.avatar === ''
-                        ? `${API_HOST}/img/dog-puppy-on-garden-royalty-free-image-1586966191.jpg`
-                        : `${API_HOST}/img/${fields.avatar}`
+                      imgSrc ? IMG_PATH + '/' + imgSrc : ''
                     }
                     className="img-fluid"
                     alt=""
                     name="avatar"
-                    ref={imgRef}
                   />
                 </div>
                 <button

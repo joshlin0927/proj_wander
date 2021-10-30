@@ -1,18 +1,22 @@
 import React, { useState } from 'react'
 import { Nav } from 'react-bootstrap'
-import { devUrl } from '../../config'
 
+import { IMG_PATH } from '../../config'
 //讓Link標籤可以有style(透過加className)
 import { withRouter, NavLink } from 'react-router-dom'
 
 function StSideBar(props) {
   const [isActive, setIsActive] = useState('')
-
+  const { imgSrc } = props
   return (
     <>
       <Nav className="sidebar col-2">
         <div className="avatar">
-          <img src={''} alt="" className="img-fluid" />
+          <img
+            src={imgSrc ? IMG_PATH + '/' + imgSrc : ''}
+            alt=""
+            className="img-fluid"
+          />
         </div>
         <ul className="nav-list">
           <li>

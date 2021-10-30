@@ -1,0 +1,48 @@
+
+<style>
+  nav.navbar .nav-items a.nav-link {}
+</style>
+<div class="containter">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link <%= pageName==='ab-list' ? 'active' : '' %>" href="/course/list">我的課程</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <%= pageName==='ab-list' ? 'active' : '' %>" href="/member/list">會員管理</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <%= pageName==='ab-add' ? 'active' : '' %>" href="/course/add">新增課程</a>
+          </li>
+          <% if(! session|| !session.member){ %> 
+            <li class="nav-item">
+              <a class="nav-link <%= pageName==='login' ? 'active' : '' %>" href="/login">登入</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <%= pageName==='register' ? 'active' : '' %>" href="/register">註冊</a>
+            </li>
+          <% }else{ %> 
+            <li class="nav-item">
+              <a class="nav-link"><i class="fas fa-user-circle"></i><%= session.member.nickname %></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <%= pageName==='logout' ? 'active' : '' %>" href="/logout">登出</a>
+            </li>
+          <% } %> 
+          
+        </ul>
+        <form class="d-flex" action="/member/list">
+          <input class="form-control me-2" type="search" placeholder="Search" name="keyword" aria-label="Search" value="<%= keyword %>">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</div>
