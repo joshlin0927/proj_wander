@@ -18,7 +18,10 @@ router.get('/list', async (req, res) => {
   
   //傳送表單
   router.post('/edit', upload.single('avatar'), async (req, res) => {
-    
+    const output ={
+      success:false,
+      error:''
+    }
      if (req.file && req.file.mimetype === 'image/jpeg') {
       
          await fs.rename(req.file.path, __dirname + '/public/imgs/' + req.file.originalname);
@@ -28,15 +31,8 @@ router.get('/list', async (req, res) => {
          });
     
 
-     } else {
-       await fs.unlink(req.file.path); // 刪除暫存檔案
-       res.json({
-         success: false,
-         error: '格式不對'
-       });
-     }
+     } 
 
-    
     const input = {
       ...req.body,
     };

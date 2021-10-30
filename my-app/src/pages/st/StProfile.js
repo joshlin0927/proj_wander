@@ -162,6 +162,7 @@ export default withRouter(function StProfile(props) {
         .post(
           `http://localhost:3001/stprofile/edit?studentSid=${studentSid}`,
           {
+      
             firstname: fields.firstname,
             lastname: fields.lastname,
             email: fields.email,
@@ -228,7 +229,7 @@ export default withRouter(function StProfile(props) {
               </Link>
             </div>
 
-            <form name="form1" style={{ display: 'none' }}>
+            <form name="form1" style={{}}>
               <input
                 type="file"
                 name="avatar"
@@ -242,7 +243,11 @@ export default withRouter(function StProfile(props) {
                 <div className="pic">
                   <img
                     src={
-                      imgSrc ? IMG_PATH + '/' + imgSrc : ''
+                      imgSrc
+                        ? IMG_PATH + '/' + imgSrc
+                        : IMG_PATH +
+                          '/' +
+                          'c943da4c-dd71-4e60-b598-ee44fdbd2fb6.jpg'
                     }
                     className="img-fluid"
                     alt=""
