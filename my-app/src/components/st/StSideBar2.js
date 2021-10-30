@@ -8,16 +8,12 @@ import { withRouter, NavLink } from 'react-router-dom'
 
 export default function StSideBar2(props) {
   const [isActive, setIsActive] = useState('')
-  const { personalAvatar } = props
+
   return (
     <>
       <Nav className="sidebar col-2">
         <div className="avatar">
-          <img
-            src={personalAvatar}
-            alt=""
-            className="img-fluid"
-          />
+          <img src={''} alt="" className="img-fluid" />
         </div>
         <ul className="nav-list">
           <li>

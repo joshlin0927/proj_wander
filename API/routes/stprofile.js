@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const db = require('./../modules/connect-mysql');
-const multer = require("multer");
-const uploadImg = require("../modules/upload-images");
+
+const multer = require('multer');
+const upload = multer({
+  dest: 'tmp_uploads/'
+}); //建立upload物件，圖片會存到暫存資料夾
+const uploadImg = require('../modules/upload-images'); //直接引用寫好的上傳圖檔模組
 
 // 讀取資料
 router.get('/list', async (req, res) => {
@@ -21,6 +25,7 @@ router.get('/list', async (req, res) => {
       success: false,
       postData: req.body,
       error: '',
+    
     };
 
     const input = {

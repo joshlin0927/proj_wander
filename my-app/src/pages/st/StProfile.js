@@ -1,7 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './style/st_editprofile.css'
 import { Link } from 'react-router-dom'
-import { devUrl, API_HOST } from '../../config'
+import {
+  API_HOST,
+  IMG_PATH,
+  UPLOAD_AVATAR,
+} from '../../config'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import { useHistory } from 'react-router'
@@ -23,15 +27,11 @@ export default withRouter(function StProfile(props) {
 
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
-
-  //設定個人頭貼預覽情況
-  const [personalAvatar, setPersonalAvatar] = useState(
+  const [imgSrc, setImgSrc] = useState(
     `${API_HOST}/img/dog-puppy-on-garden-royalty-free-image-1586966191.jpg`
   )
-
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
-    avatar: '',
     firstname: '',
     lastname: '',
     email: '',
@@ -173,16 +173,11 @@ export default withRouter(function StProfile(props) {
       axios
         .post(
           `http://localhost:3001/stprofile/edit?studentSid=${studentSid}`,
-          {
-            avatar: fields.avatar,
-            firstname: fields.firstname,
-            lastname: fields.lastname,
-            birth: fields.birth,
-            nickname: fields.nickname,
-          }
+          fd
         )
         .then((res) => {
           if (res.data.success === true) {
+            console.log('outcome:', res.data)
             setShowUp('showup')
             setTimeout(() => {
               setShowUp('none')
@@ -191,22 +186,6 @@ export default withRouter(function StProfile(props) {
         })
     }
   }
-
-  useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 0) {
-      history.push('/')
-    } else {
-      ;(async () => {
-        let r = await axios.get(
-          `http://localhost:3001/list?studentSid=${studentSid}`
-        )
-        console.log(r.data[0][0])
-        setFields(r.data[0][0])
-      })()
-    }
-  }, [])
 
   return (
     <>
@@ -220,7 +199,7 @@ export default withRouter(function StProfile(props) {
           </div>
         </div>
         <div className="row">
-          <StSideBar personalAvatar={personalAvatar} />
+          <StSideBar imgSrc={imgSrc} />
           <form
             name="sendForm"
             ref={formRef}
@@ -257,7 +236,7 @@ export default withRouter(function StProfile(props) {
               <div className="d-flex align-items-center ml-1">
                 <div className="pic">
                   <img
-                    src={personalAvatar}
+                    src={imgSrc}
                     className="img-fluid"
                     alt=""
                     name="avatar"

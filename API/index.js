@@ -120,6 +120,13 @@ app.use('/SignUp', require(__dirname +'/routes/signup'));
 //登入
 app.use(require(__dirname + '/routes/login'));
 
+//上傳單一照片使用
+app.post('/try-upload2', uploadImg.single('avatar'), async (req, res) => {
+    res.json(req.file);
+});
+
+
+
 //教師
 app.use('/SingleMember', require(__dirname + '/routes/SingleMember'));
 app.use('/member', require(__dirname + '/routes/member'));
