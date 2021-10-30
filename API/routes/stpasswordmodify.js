@@ -17,13 +17,13 @@ router.get('/getdata', async (req, res) => {
 
   //TODO:上面已經取出該筆資料，要怎麼和前端輸入密碼做比對？
 
-  // const success = await bcrypt.compare(req.body.password, rs[0][0].password);
-  // if (success) {
-  //   output.success = true;
-  // } else {
-  //   output.error = '密碼輸入錯誤'
-  // }
-  // res.json(output);
+  const success = await bcrypt.compare(req.body.password, rs[0][0].password);
+  if (success) {
+    output.success = true;
+  } else {
+    output.error = '密碼輸入錯誤'
+  }
+  res.json(output);
 
 })
 

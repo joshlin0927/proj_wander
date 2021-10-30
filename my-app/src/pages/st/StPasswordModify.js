@@ -124,6 +124,7 @@ export default function StPasswordModify() {
       // 修改密碼不用把資料傳到後台，在前端比對驗證就可以
       return
     }
+    
 
     if (
       fields.origin !== '' &&
@@ -142,10 +143,10 @@ export default function StPasswordModify() {
         .then((res) => {
           if (res.data) {
             console.log(res.data)
-            // setShowUp('showup')
-            // setTimeout(() => {
-            //   setShowUp('none')
-            // }, 1000)
+            setShowUp('showup')
+            setTimeout(() => {
+              setShowUp('none')
+            }, 1000)
           } else {
             console.log('失敗')
           }

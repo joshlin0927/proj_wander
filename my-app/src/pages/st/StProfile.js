@@ -24,6 +24,11 @@ export default withRouter(function StProfile(props) {
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
 
+  //設定個人頭貼預覽情況
+  const [personalAvatar, setPersonalAvatar] = useState(
+    `${API_HOST}/img/dog-puppy-on-garden-royalty-free-image-1586966191.jpg`
+  )
+
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
     avatar: '',
@@ -215,7 +220,7 @@ export default withRouter(function StProfile(props) {
           </div>
         </div>
         <div className="row">
-          <StSideBar />
+          <StSideBar personalAvatar={personalAvatar} />
           <form
             name="sendForm"
             ref={formRef}
@@ -252,7 +257,7 @@ export default withRouter(function StProfile(props) {
               <div className="d-flex align-items-center ml-1">
                 <div className="pic">
                   <img
-                    src={''}
+                    src={personalAvatar}
                     className="img-fluid"
                     alt=""
                     name="avatar"

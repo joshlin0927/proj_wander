@@ -7,12 +7,13 @@ import { withRouter, NavLink } from 'react-router-dom'
 
 function StSideBar(props) {
   const [isActive, setIsActive] = useState('')
+  const { personalAvatar } = props
   return (
     <>
       <Nav className="sidebar col-2">
         <div className="avatar">
           <img
-            src={`${devUrl}/images/pic/學生照片/Anne Hathaway.jpg`}
+            src={personalAvatar}
             alt=""
             className="img-fluid"
           />

@@ -15,7 +15,7 @@ router.get('/list', async (req, res) => {
   })
 
   //傳送表單
-  router.post('/edit',async (req, res) => {
+  router.post('/edit', uploadImg.single('avatar'), async (req, res) => {
 
     const output = {
       success: false,

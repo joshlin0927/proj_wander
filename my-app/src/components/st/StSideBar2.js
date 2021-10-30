@@ -6,14 +6,15 @@ import { Nav } from 'react-bootstrap'
 //讓Link標籤可以有style(透過加className)
 import { withRouter, NavLink } from 'react-router-dom'
 
-export default function StSideBar2() {
+export default function StSideBar2(props) {
   const [isActive, setIsActive] = useState('')
+  const { personalAvatar } = props
   return (
     <>
       <Nav className="sidebar col-2">
         <div className="avatar">
           <img
-            src={`${devUrl}/images/pic/學生照片/Anne Hathaway.jpg`}
+            src={personalAvatar}
             alt=""
             className="img-fluid"
           />
