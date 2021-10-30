@@ -34,7 +34,7 @@ router.get('/list', async (req, res) => {
      } 
 
     const input = {
-      ...req.body,
+      ...req.body, 
     };
     const sql = `UPDATE \`member\` SET ? WHERE \`sid\` = ?`;
     let result = {};

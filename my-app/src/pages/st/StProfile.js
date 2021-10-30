@@ -147,6 +147,7 @@ export default withRouter(function StProfile(props) {
     //阻止表單預設送出行為
 
     const fd = new FormData(document.sendForm)
+
     //看表單傳送的資料
     console.log('FormData中的填入資料')
     for (let i of fd.entries()) {
@@ -162,7 +163,7 @@ export default withRouter(function StProfile(props) {
         .post(
           `http://localhost:3001/stprofile/edit?studentSid=${studentSid}`,
           {
-      
+            avatar: inputRef.current.value,
             firstname: fields.firstname,
             lastname: fields.lastname,
             email: fields.email,
