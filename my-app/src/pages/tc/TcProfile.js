@@ -30,7 +30,7 @@ function TcProfile(props) {
     } else {
       ;(async () => {
         let r = await axios.get(
-          `${MemberEdit}?teacherSid=${teacherSid}`
+          `${MemberEdit}/?teacherSid=${teacherSid}`
         )
         // 為什麼生日填不上去? ANS:在node就先處理，在mysql-connect就設定dateToString為true
         console.log(r.data[0])
@@ -110,7 +110,7 @@ function TcProfile(props) {
     // ex. 用fetch api/axios送到伺服器
 
     const r = fetch(
-      `${MemberEdit}?teacherSid=${teacherSid}`,
+      `${MemberEdit}/?teacherSid=${teacherSid}`,
       {
         method: 'POST',
         headers: {

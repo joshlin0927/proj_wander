@@ -2,11 +2,14 @@ import React, { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
 
+import { PasswordChange } from '../../config'
+
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
+import axios from 'axios'
 
 function TcPassword() {
   const formRef = useRef(null)
@@ -15,6 +18,9 @@ function TcPassword() {
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
+  const teacherSid = JSON.parse(member).sid
+  const email = JSON.parse(member).email
+
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -112,6 +118,21 @@ function TcPassword() {
     }
 
     // ex. 以下用fetch api/axios送到伺服器
+
+    ;(async () => {
+      let r = await axios.post(
+        PasswordChange + '/?teacherSid=' + teacherSid,
+        {
+          email: email,
+          origin: fields.origin,
+          newPass: fields.newPass,
+          teacherSid: teacherSid,
+        }
+      )
+      if (r.stauts === 200) {
+        console.log(r.data)
+      }
+    })()
   }
 
   return (

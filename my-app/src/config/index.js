@@ -16,7 +16,11 @@ export const MemberLogout = API_HOST + '/logout'
 
 //讀取、修改個人資料
 export const MemberVerify = API_HOST + '/SingleMember'
-export const MemberEdit = API_HOST + '/SingleMember/edit/'
+export const MemberEdit = API_HOST + '/SingleMember/edit'
+
+// 密碼更改
+export const PasswordChange =
+  API_HOST + '/SingleMember/passEdit'
 
 // TcCourse CRUD
 export const TcCourse_ADD = API_HOST + '/TcCourse/add/'

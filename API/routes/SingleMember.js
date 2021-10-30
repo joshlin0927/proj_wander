@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require("bcryptjs");
 const multer = require("multer");
 const db = require("../modules/connect-mysql");
 const uploadImg = require("../modules/upload-images");
@@ -69,22 +70,25 @@ router
     res.json(output);
   });
 
-router.route("/passEdit").get(async (req, res) => {
+router.route("/passEdit").post(async (req, res) => {
   const output = {
     success: false,
     error: "",
     postData: req.body,
   };
 
-  const passCompare = await bcrypt.compare(req.body.password, rs[0].password);
+  const [rs] = await db.query("SELECT * FROM member WHERE `email`=?", [
+    req.body.email,
+  ]);
 
-  if (passCompare) {
-    const hash = await bcrypt.hash(req.body.password, 10);
+  const success = await bcrypt.compare(req.body.origin, rs[0].password);
 
-    const sql = `SELECT \`member\`.\`password\` FROM \`member\` WHERE \`sid\` = ?`;
+  if (success) {
+    const hash = await bcrypt.hash(req.body.newPass, 10);
+    const sql = `UPDATE \`member\` SET \`password\`= ? WHERE \`sid\` = ?`;
     let result = {};
     try {
-      [rs] = await db.query(sql, [hash, req.query.teacherSid]);
+      [result] = await db.query(sql, [hash, req.body.teacherSid]);
     } catch (ex) {
       output.error = ex.toString();
     }
@@ -96,7 +100,10 @@ router.route("/passEdit").get(async (req, res) => {
         output.error = "資料沒有變更";
       }
     }
+  } else {
+    output.error = "密碼錯誤";
   }
+
   res.json(output);
 });
 
