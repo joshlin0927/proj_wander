@@ -13,19 +13,17 @@ router.get('/list', async (req, res) => {
     let studentSid = req.query.studentSid
     const sql = `SELECT * FROM \`member\` WHERE \`sid\` = ?`;
     const [rs] = await db.query(sql, [studentSid]);
-
     res.json([rs]);
-
   })
 
-  //傳送表單
+  //傳送表單文字資料
   router.post('/edit', uploadImg.single('avatar'), async (req, res) => {
 
     const output = {
       success: false,
       postData: req.body,
       error: '',
-    
+      file:req.file,
     };
 
     const input = {
@@ -52,5 +50,6 @@ router.get('/list', async (req, res) => {
     res.json(output);
 
   });
+
 
 module.exports = router;

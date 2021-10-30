@@ -45,23 +45,6 @@ export default withRouter(function StProfile(props) {
     birth: '',
   })
 
-  useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 0) {
-      history.push('/')
-    } else {
-      ;(async () => {
-        let r = await axios.get(
-          `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
-        )
-        console.log('res:', r.data[0][0])
-
-        setFields(r.data[0][0])
-      })()
-    }
-  }, [])
-
   //將使用者在欄位輸入的值進行更新
   const handleFieldChange = (e) => {
     const name = e.target.name
@@ -151,6 +134,7 @@ export default withRouter(function StProfile(props) {
 
     if (file) {
       reader.readAsDataURL(file)
+      console.log(inputRef.current.files[0].name)
     }
   }
 
@@ -173,7 +157,14 @@ export default withRouter(function StProfile(props) {
       axios
         .post(
           `http://localhost:3001/stprofile/edit?studentSid=${studentSid}`,
-          fd
+          {
+            avatar: { imgSrc },
+            firstname: fields.firstname,
+            lastname: fields.lastname,
+            email: fields.email,
+            birth: fields.birthday,
+            nickname: fields.nickname,
+          }
         )
         .then((res) => {
           if (res.data.success === true) {
@@ -186,6 +177,21 @@ export default withRouter(function StProfile(props) {
         })
     }
   }
+  useEffect(() => {
+    if (!token) {
+      history.push('/')
+    } else if (identity !== 0) {
+      history.push('/')
+    } else {
+      ;(async () => {
+        let r = await axios.get(
+          `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
+        )
+        setFields(r.data[0][0])
+        console.log('res:', r)
+      })()
+    }
+  }, [])
 
   return (
     <>
@@ -201,6 +207,7 @@ export default withRouter(function StProfile(props) {
         <div className="row">
           <StSideBar imgSrc={imgSrc} />
           <form
+            enctype="multipart/form-data"
             name="sendForm"
             ref={formRef}
             className="form col-12 offset-0 col-md-8 offset-md-1"
@@ -218,12 +225,7 @@ export default withRouter(function StProfile(props) {
               </Link>
             </div>
 
-            <form
-              name="form1"
-              style={{
-                display: 'none',
-              }}
-            >
+            <form name="form1" style={{}}>
               <input
                 type="file"
                 name="avatar"
