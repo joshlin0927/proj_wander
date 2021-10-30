@@ -47,10 +47,10 @@ export default function StPasswordModify() {
         let r = await axios.get(
           `http://localhost:3001/passwordmodify/getdata?studentSid=${studentSid}`
         )
-        const memberData = r.data[0][0]
+        const memberData = r.data
         console.log('result:', memberData)
       })()
-    }g
+    }
   }, [])
 
   // 處理表單欄位變動
@@ -102,9 +102,9 @@ export default function StPasswordModify() {
     // 利用FormData Api 得到各欄位的值 or 利用狀態值
     // FormData 利用的是表單元素的 name
     const formData = new FormData(e.target)
-    console.log(formData.get('origin'))
-    console.log(formData.get('newPass'))
-    console.log(formData.get('newPassConfirm'))
+    // console.log(formData.get('origin'))
+    // console.log(formData.get('newPass'))
+    // console.log(formData.get('newPassConfirm'))
 
     // 檢查確認密碼&密碼欄位
     if (
@@ -124,7 +124,7 @@ export default function StPasswordModify() {
       // 修改密碼不用把資料傳到後台，在前端比對驗證就可以
       return
     }
-    //TODO:把資料庫密碼和原來為密碼做比對
+
     if (
       fields.origin !== '' &&
       fields.newPass !== '' &&
@@ -140,13 +140,14 @@ export default function StPasswordModify() {
           }
         )
         .then((res) => {
-          if (res.data.success === true) {
+          if (res.data) {
             console.log(res.data)
-            setShowUp('showup')
-            setTimeout(() => {
-              setShowUp('none')
-            }, 1000)
-            history.push('/')
+            // setShowUp('showup')
+            // setTimeout(() => {
+            //   setShowUp('none')
+            // }, 1000)
+          } else {
+            console.log('失敗')
           }
         })
     }

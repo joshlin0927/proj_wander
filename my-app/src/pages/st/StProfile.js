@@ -29,6 +29,7 @@ export default withRouter(function StProfile(props) {
     avatar: '',
     firstname: '',
     lastname: '',
+    email: '',
     birth: '',
     nickname: '',
   })
@@ -307,7 +308,7 @@ export default withRouter(function StProfile(props) {
                 <input
                   type="email"
                   className="col-12 allInputs"
-                  placeholder="abc@gmail.com"
+                  value={fields.email}
                   disabled
                 />
               </div>

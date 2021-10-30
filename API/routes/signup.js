@@ -15,7 +15,7 @@ router.post('/',async(req,res)=>{
     postData: req.body,
   }
 
-  //TODO: 欄位檢查
+  //欄位檢查
   if(lastname==='' || firstname===''){
     output.success = false
     output.error = '姓名欄位未填寫'
