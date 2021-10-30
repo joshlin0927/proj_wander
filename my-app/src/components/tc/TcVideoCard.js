@@ -5,6 +5,7 @@ import { Modal } from 'react-bootstrap'
 import {
   API_HOST,
   TcVideo__DELETE,
+  TcVideo_EDIT,
   devUrl,
 } from '../../config'
 
@@ -19,22 +20,44 @@ function TcVideoCard(props) {
     created_at,
     duration,
     remove,
+    status,
   } = props
 
   // 刪除影片
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-  //修改影片
-  const [isShow, setIsShow] = useState(false)
-  const handleIsClose = () => setIsShow(false)
-  const handleIsShow = () => setIsShow(true)
 
   const deleteVideo = async () => {
     let r = await axios.delete(TcVideo__DELETE + sid)
     handleClose()
   }
 
+  //修改影片
+  const [isShow, setIsShow] = useState(false)
+  const handleIsClose = () => setIsShow(false)
+  const handleIsShow = () => setIsShow(true)
+
+  // 影片名稱欄位
+  const [nameChange, setNameChange] = useState(video_name)
+
+  const FormSubmit = async (e) => {
+    e.preventDefault()
+
+    // console.log(new FormData(e.target).get('video_name'))
+    ;(async () => {
+      let r = await axios.post(
+        `${TcVideo_EDIT}?videoSid=${sid}`,
+        {
+          video_name: new FormData(e.target).get(
+            'video_name'
+          ),
+        }
+      )
+      // console.log(r)
+      handleIsClose()
+    })()
+  }
   return (
     <>
       <div className="TCcourse-card col-12">
@@ -42,10 +65,17 @@ function TcVideoCard(props) {
           className="TCcourse-img"
           onClick={handleIsShow}
         >
-          <img
-            src={`${devUrl}/images/course/AdobeStock_339695471.jpg`}
-            alt=""
-          />
+          {video_cover ? (
+            <img
+              src={`${API_HOST}/img/${video_cover}`}
+              alt=""
+            />
+          ) : (
+            <img
+              src={`${devUrl}/images/course/AdobeStock_339695471.jpg`}
+              alt=""
+            />
+          )}
         </div>
         <div
           className="TCcourse-info"
@@ -76,19 +106,24 @@ function TcVideoCard(props) {
           <Modal.Title>影片資訊</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="resume">
+          <form className="" onSubmit={FormSubmit}>
             <input
+              name="video_name"
               className="col-12 allInputs bgt"
               placeholder="請輸入影片標題 "
-              value={video_name}
+              value={nameChange}
+              onChange={(e) => {
+                setNameChange(e.target.value)
+              }}
             />
             <button
               type="submit"
-              className="btn-secondary browse"
+              className="btn btn-secondary mx-auto"
+              onClick={status}
             >
               更改名稱
             </button>
-          </div>
+          </form>
         </Modal.Body>
       </Modal>
       <Modal show={show} onHide={handleClose} centered>

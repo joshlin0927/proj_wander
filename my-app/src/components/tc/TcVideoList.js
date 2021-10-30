@@ -1,8 +1,15 @@
+import { logDOM } from '@testing-library/dom'
 import React, { useState } from 'react'
 import TcVideoCard from './TcVideoCard'
 
 function TcVideoList(props) {
-  const { Videos, RemoveVideo, setRemoveVideo } = props
+  const {
+    Videos,
+    RemoveVideo,
+    setRemoveVideo,
+    status,
+    setStatus,
+  } = props
 
   return (
     <>
@@ -12,6 +19,7 @@ function TcVideoList(props) {
             key={Video.sid}
             sid={Video.sid}
             course_sid={Video.course_sid}
+            video_cover={Video.video_cover}
             video_name={Video.video_name}
             created_at={Video.created_at}
             duration={Video.duration}
@@ -22,6 +30,14 @@ function TcVideoList(props) {
                 }
               )
               setRemoveVideo(newVideos)
+            }}
+            status={() => {
+              const newVideos = [...Videos].filter(
+                (v, i) => {
+                  return v.video_name !== Video.videoname
+                }
+              )
+              setStatus(newVideos)
             }}
           />
         )

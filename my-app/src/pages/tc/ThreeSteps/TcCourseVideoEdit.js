@@ -33,6 +33,9 @@ function TcCourseVideoEdit() {
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
   const [RemoveVideo, setRemoveVideo] = useState()
 
+  // 修改後的狀態紀錄
+  const [status, setStatus] = useState(false)
+
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -49,9 +52,9 @@ function TcCourseVideoEdit() {
         }
       })()
     }
-  }, [RemoveVideo])
+  }, [RemoveVideo, status])
 
-  // console.log(TcVideos[0].sid)
+  console.log(TcVideos)
 
   //搜尋列
   const [searchWord, setSearchWord] = useState('')
@@ -132,6 +135,8 @@ function TcCourseVideoEdit() {
                 Videos={displayVideo}
                 RemoveVideo={RemoveVideo}
                 setRemoveVideo={setRemoveVideo}
+                status={status}
+                setStatus={setStatus}
               />
             ) : (
               <TcHasNoCourse text={'目前沒有任何影片'} />

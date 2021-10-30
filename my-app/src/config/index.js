@@ -28,6 +28,7 @@ export const TcCourse_DELETE =
 
 // TcVideo CRUD
 export const TcVideo_LIST = API_HOST + '/TcVideo/api/list/'
+export const TcVideo_EDIT = API_HOST + '/TcVideo/edit'
 export const TcVideo__DELETE = API_HOST + '/TcVideo/delete/'
 
 //讀取資料列表

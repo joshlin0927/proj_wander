@@ -117,7 +117,7 @@ router.route("/add").post(async (req, res) => {
 router.get("/edit", async (req, res) => {
   // let courseSid = ;
   const sql = `SELECT * FROM \`video_list\` WHERE sid=?`;
-  const [rs] = await db.query(sql, [req.query.courseSid]);
+  const [rs] = await db.query(sql, [req.query.videoSid]);
   res.json(rs);
 });
 
@@ -130,11 +130,13 @@ router.post("/edit", async (req, res) => {
   const input = {
     ...req.body,
   };
-  const sql = "UPDATE `video_list` SET ? WHERE sid=?";
+
+  // console.log(input);
+  const sql = `UPDATE \`video_list\` SET ? WHERE sid=?`;
   let result = {};
   // 處理修改資料時可能的錯誤
   try {
-    [result] = await db.query(sql, [input, req.params.sid]);
+    [result] = await db.query(sql, [input, req.query.videoSid]);
   } catch (ex) {
     output.error = ex.toString();
   }
