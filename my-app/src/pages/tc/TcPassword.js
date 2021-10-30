@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router'
+import { useHistory, withRouter } from 'react-router'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -214,4 +214,4 @@ function TcPassword() {
   )
 }
 
-export default TcPassword
+export default withRouter(TcPassword)

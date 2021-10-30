@@ -41,6 +41,7 @@ router
 
     const output = {
       success: false,
+      error: "",
       postData: req.body,
     };
 
@@ -67,5 +68,36 @@ router
 
     res.json(output);
   });
+
+router.route("/passEdit").get(async (req, res) => {
+  const output = {
+    success: false,
+    error: "",
+    postData: req.body,
+  };
+
+  const passCompare = await bcrypt.compare(req.body.password, rs[0].password);
+
+  if (passCompare) {
+    const hash = await bcrypt.hash(req.body.password, 10);
+
+    const sql = `SELECT \`member\`.\`password\` FROM \`member\` WHERE \`sid\` = ?`;
+    let result = {};
+    try {
+      [rs] = await db.query(sql, [hash, req.query.teacherSid]);
+    } catch (ex) {
+      output.error = ex.toString();
+    }
+    output.result = result;
+    if (result.affectedRows === 1) {
+      if (result.changedRows === 1) {
+        output.success = true;
+      } else {
+        output.error = "資料沒有變更";
+      }
+    }
+  }
+  res.json(output);
+});
 
 module.exports = router;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router'
+import { useHistory, withRouter } from 'react-router'
 import axios from 'axios'
 
 // 後端檔案路徑
@@ -144,4 +144,4 @@ function TcAnalytic() {
   )
 }
 
-export default TcAnalytic
+export default withRouter(TcAnalytic)

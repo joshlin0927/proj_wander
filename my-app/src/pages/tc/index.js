@@ -1,7 +1,7 @@
 // 套件
 import React, { useState, useEffect } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
-import { useHistory } from 'react-router'
+import { useHistory, withRouter } from 'react-router'
 
 // Css 擺放位置
 import './TC2.css'
@@ -56,4 +56,4 @@ function index() {
   )
 }
 
-export default index
+export default withRouter(index)

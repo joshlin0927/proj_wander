@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { useHistory } from 'react-router'
+import { useHistory, withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import { devUrl, TcCourse_ADD } from '../../../config'
 
@@ -342,4 +342,4 @@ function TcCourseAdd() {
   )
 }
 
-export default TcCourseAdd
+export default withRouter(TcCourseAdd)
