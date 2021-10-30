@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require("bcryptjs");
 const multer = require("multer");
 const db = require("../modules/connect-mysql");
 const uploadImg = require("../modules/upload-images");
@@ -41,6 +42,7 @@ router
 
     const output = {
       success: false,
+      error: "",
       postData: req.body,
     };
 
@@ -67,5 +69,42 @@ router
 
     res.json(output);
   });
+
+router.route("/passEdit").post(async (req, res) => {
+  const output = {
+    success: false,
+    error: "",
+    postData: req.body,
+  };
+
+  const [rs] = await db.query("SELECT * FROM member WHERE `email`=?", [
+    req.body.email,
+  ]);
+
+  const success = await bcrypt.compare(req.body.origin, rs[0].password);
+
+  if (success) {
+    const hash = await bcrypt.hash(req.body.newPass, 10);
+    const sql = `UPDATE \`member\` SET \`password\`= ? WHERE \`sid\` = ?`;
+    let result = {};
+    try {
+      [result] = await db.query(sql, [hash, req.body.teacherSid]);
+    } catch (ex) {
+      output.error = ex.toString();
+    }
+    output.result = result;
+    if (result.affectedRows === 1) {
+      if (result.changedRows === 1) {
+        output.success = true;
+      } else {
+        output.error = "資料沒有變更";
+      }
+    }
+  } else {
+    output.error = "密碼錯誤";
+  }
+
+  res.json(output);
+});
 
 module.exports = router;

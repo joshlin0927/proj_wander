@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useHistory, withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-
 import { TcVideo_LIST } from '../../../config'
 
 // components
@@ -22,7 +21,9 @@ function TcCourseVideoEdit() {
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
-  const teacherSid = JSON.parse(member).sid
+  const courseSid = localStorage.getItem(
+    'CourseSidForProcess'
+  )
 
   // 資料庫來的影片資料
   const [TcVideos, setTcVideos] = useState([])
@@ -33,6 +34,9 @@ function TcCourseVideoEdit() {
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
   const [RemoveVideo, setRemoveVideo] = useState()
 
+  // 修改後的狀態紀錄
+  const [status, setStatus] = useState(false)
+
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -41,7 +45,7 @@ function TcCourseVideoEdit() {
     } else {
       ;(async () => {
         let r = await axios.get(
-          `${TcVideo_LIST}?teacherSid=${teacherSid}`
+          `${TcVideo_LIST}?courseSid=${courseSid}`
         )
         if (r.status === 200) {
           setTcVideos(r.data.rows)
@@ -49,9 +53,7 @@ function TcCourseVideoEdit() {
         }
       })()
     }
-  }, [RemoveVideo])
-
-  // console.log(TcVideos[0].sid)
+  }, [RemoveVideo, status])
 
   //搜尋列
   const [searchWord, setSearchWord] = useState('')
@@ -132,6 +134,8 @@ function TcCourseVideoEdit() {
                 Videos={displayVideo}
                 RemoveVideo={RemoveVideo}
                 setRemoveVideo={setRemoveVideo}
+                status={status}
+                setStatus={setStatus}
               />
             ) : (
               <TcHasNoCourse text={'目前沒有任何影片'} />

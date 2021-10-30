@@ -15,9 +15,9 @@ async function getListData(req, res) {
 
   // SELECT `video_list`.*, `member`.`firstname`, `course`.`course_name` FROM `video_list` LEFT JOIN `member` ON `video_list`.`teacher_sid`=`member`.`sid`LEFT JOIN `course` ON `course`.`sid`=`video_list`.`course_sid` WHERE `member`.`sid`=1;
 
-  let teacherSid = req.query.teacherSid;
+  let courseSid = req.query.courseSid;
 
-  let where = `LEFT JOIN \`member\` ON \`video_list\`.\`teacher_sid\`=\`member\`.\`sid\`LEFT JOIN \`course\` ON \`course\`.\`sid\`=\`video_list\`.\`course_sid\` WHERE \`member\`.\`sid\` = ${teacherSid} `;
+  let where = `LEFT JOIN \`member\` ON \`video_list\`.\`teacher_sid\`=\`member\`.\`sid\`LEFT JOIN \`course\` ON \`course\`.\`sid\`=\`video_list\`.\`course_sid\` WHERE \`video_list\`.\`course_sid\` = ${courseSid} `;
   if (keyword) {
     output.keyword = keyword;
     where += ` AND \`video_list\`.\`video_name\` LIKE ${db.escape(
@@ -117,7 +117,7 @@ router.route("/add").post(async (req, res) => {
 router.get("/edit", async (req, res) => {
   // let courseSid = ;
   const sql = `SELECT * FROM \`video_list\` WHERE sid=?`;
-  const [rs] = await db.query(sql, [req.query.courseSid]);
+  const [rs] = await db.query(sql, [req.query.videoSid]);
   res.json(rs);
 });
 
@@ -130,11 +130,13 @@ router.post("/edit", async (req, res) => {
   const input = {
     ...req.body,
   };
-  const sql = "UPDATE `video_list` SET ? WHERE sid=?";
+
+  // console.log(input);
+  const sql = `UPDATE \`video_list\` SET ? WHERE sid=?`;
   let result = {};
   // 處理修改資料時可能的錯誤
   try {
-    [result] = await db.query(sql, [input, req.params.sid]);
+    [result] = await db.query(sql, [input, req.query.videoSid]);
   } catch (ex) {
     output.error = ex.toString();
   }
