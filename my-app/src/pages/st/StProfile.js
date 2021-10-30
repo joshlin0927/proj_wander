@@ -27,11 +27,10 @@ export default withRouter(function StProfile(props) {
 
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
-  const [imgSrc, setImgSrc] = useState(
-    `${API_HOST}/img/dog-puppy-on-garden-royalty-free-image-1586966191.jpg`
-  )
+
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
+    avatar: '',
     firstname: '',
     lastname: '',
     email: '',
@@ -134,7 +133,7 @@ export default withRouter(function StProfile(props) {
 
     if (file) {
       reader.readAsDataURL(file)
-      console.log(inputRef.current.files[0].name)
+      console.log(file.name)
     }
   }
 
@@ -158,7 +157,7 @@ export default withRouter(function StProfile(props) {
         .post(
           `http://localhost:3001/stprofile/edit?studentSid=${studentSid}`,
           {
-            avatar: { imgSrc },
+            avatar: inputRef.current.files[0].name,
             firstname: fields.firstname,
             lastname: fields.lastname,
             email: fields.email,
@@ -205,7 +204,7 @@ export default withRouter(function StProfile(props) {
           </div>
         </div>
         <div className="row">
-          <StSideBar imgSrc={imgSrc} />
+          <StSideBar />
           <form
             enctype="multipart/form-data"
             name="sendForm"
@@ -238,7 +237,11 @@ export default withRouter(function StProfile(props) {
               <div className="d-flex align-items-center ml-1">
                 <div className="pic">
                   <img
-                    src={imgSrc}
+                    src={
+                      fields.avatar === ''
+                        ? `${API_HOST}/img/dog-puppy-on-garden-royalty-free-image-1586966191.jpg`
+                        : `${API_HOST}/img/${fields.avatar}`
+                    }
                     className="img-fluid"
                     alt=""
                     name="avatar"

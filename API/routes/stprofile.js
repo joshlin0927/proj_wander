@@ -23,7 +23,7 @@ router.get('/list', async (req, res) => {
       success: false,
       postData: req.body,
       error: '',
-      file:req.file,
+      
     };
 
     const input = {
