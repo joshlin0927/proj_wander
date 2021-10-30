@@ -3,9 +3,7 @@ import TcCourseCard from './TcCourseCard'
 
 function TcCourseList(props) {
   const { Courses, RemoveCourse, setRemoveCourse } = props
-  // const [RemoveCourse, setRemoveCourse] = useState()
 
-  // console.log(RemoveCourse)
   return (
     <>
       {Courses.map((Course, i) => {

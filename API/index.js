@@ -124,7 +124,7 @@ app.use(require(__dirname + '/routes/login'));
 app.use('/SingleMember', require(__dirname + '/routes/SingleMember'));
 app.use('/member', require(__dirname + '/routes/member'));
 app.use('/TcCourse', require(__dirname + '/routes/TcCourse'));
-
+app.use('/TcVideo', require(__dirname + '/routes/TcVideo'));
 
 //聊天室
 // app.use('/chat', require('./routes/chat'));
