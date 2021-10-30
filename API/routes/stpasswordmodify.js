@@ -12,7 +12,7 @@ router.get('/getdata', async (req, res) => {
   }
   let studentSid = req.query.studentSid
   const sql = `SELECT * FROM \`member\` WHERE \`sid\` = ?`;
-  
+
   const [rs] = await db.query(sql, [studentSid]);
 
   //TODO:上面已經取出該筆資料，要怎麼和前端輸入密碼做比對？
@@ -36,8 +36,8 @@ router.post('/modify', async (req, res) => {
 
   const hash = await bcrypt.hash(req.body.password, 10);
 
-  const sql = `UPDATE \`member\` SET ? WHERE \`sid\` = ?`;
-  let result = {};
+  const sql = `UPDATE \`member\` SET \`password\`= ? WHERE \`sid\` = ?`;
+  let result={};
 
   try {
     [result] = await db.query(sql, [hash, req.query.studentSid]);
