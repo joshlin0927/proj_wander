@@ -25,7 +25,6 @@ import TCindex from './pages/tc/index'
 
 import StIndex from './pages/st/index'
 
-
 // 文章頁面
 
 import Artindex from './pages/article/index'
@@ -76,7 +75,6 @@ function App() {
             <Route path="/Artindex">
               <Artindex />
             </Route>
-
 
             <Route path="/">
               <WanderIndex />
