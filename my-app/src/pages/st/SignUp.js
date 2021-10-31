@@ -162,216 +162,213 @@ export default withRouter(function SignUp(props) {
 
   return (
     <>
-      <div className="stbg-img">
-        <div className="container">
-          <div className="m-wrap row justify-content-center">
-            <div className="logo-m-login">
-              <img
-                src={`${devUrl}/images/logo/log_mobile.png`}
-                alt=""
-              />
-            </div>
+      <div className="container">
+        <div className="m-wrap row justify-content-center">
+          <div className="logo-m-login">
+            <img
+              src={`${devUrl}/images/logo/log_mobile.png`}
+              alt=""
+            />
           </div>
-          <div className="row m-wrap">
-            <Link to="/">
-              <div className="back">Back</div>
-            </Link>
-          </div>
-          <div className="row m-wrap justify-content-end col-11">
-            <label className="toggle">
-              <input
-                type="checkbox"
-                id="mySwitch"
-                onChange={(e) => {
-                  setasTeacherOrStudent(+!e.target.checked)
-                  console.log(+!e.target.checked)
+        </div>
+        <div className="row m-wrap">
+          <Link to="/">
+            <div className="back">Back</div>
+          </Link>
+        </div>
+        <div className="row m-wrap justify-content-end col-11">
+          <label className="toggle">
+            <input
+              type="checkbox"
+              id="mySwitch"
+              onChange={(e) => {
+                setasTeacherOrStudent(+!e.target.checked)
+                console.log(+!e.target.checked)
 
-                  //測試將布林值轉為數字
-                  // console.log(+e.target.checked)
-                }}
-              />
-              <span className="slider round switch">
-                學生 教師
-              </span>
-            </label>
-          </div>
+                //測試將布林值轉為數字
+                // console.log(+e.target.checked)
+              }}
+            />
+            <span className="slider round switch">
+              學生 教師
+            </span>
+          </label>
+        </div>
 
-          <div className="row d-flex justify-content-center">
-            <div className="signUp col-12 col-md-6 col-lg-6">
-              <form
-                className="form-sm"
-                ref={formRef}
-                onSubmit={handleSubmit}
-                onChange={handleFormChange}
-                onInvalid={handleFormInvalid}
-              >
-                <div className="tab_css">
-                  {/* <!--TAB1--> */}
-                  <input
-                    id="tab1"
-                    type="radio"
-                    name="tab"
-                    value="1"
-                    onChange={(e) => {
-                      setasTeacherOrStudent(e.target.value)
-                    }}
-                  />
-                  <label for="tab1" id="asTeacher">
-                    成為教師
-                  </label>
-                  {/* <!-- TAB2 --> */}
-                  <input
-                    id="tab2"
-                    type="radio"
-                    name="tab"
-                    value="0"
-                    onChange={(e) => {
-                      setasTeacherOrStudent(e.target.value)
-                    }}
-                  />
-                  <label for="tab2" id="asStudent">
-                    成為學生
-                  </label>
-                  <div className="title">
-                    Wander With Us!
-                  </div>
-                </div>
-                <div className="d-flex justify-content-center">
-                  <input
-                    type="text"
-                    className="shortInputs  col-5 col-lg-4"
-                    placeholder="名字*"
-                    name="firstname"
-                    value={fields.firstname}
-                    onChange={handleFieldChange}
-                    required
-                  />
-                  <input
-                    type="text"
-                    className="shortInputs  col-5 col-lg-4 lastName"
-                    placeholder="姓氏*"
-                    name="lastname"
-                    value={fields.lastname}
-                    onChange={handleFieldChange}
-                    required
-                  />
-                </div>
-                <div className="d-flex justify-content-start">
-                  {fieldsErrors.firstname === '' ? (
-                    <label
-                      className="stnotice  col-4 offset-1 col-lg-4 offset-lg-2 p-0"
-                      htmlFor=""
-                    >
-                      &nbsp;
-                    </label>
-                  ) : (
-                    <label
-                      className="stnotice  col-4 offset-1 col-lg-4 offset-lg-2 p-0"
-                      htmlFor=""
-                    >
-                      {fieldsErrors.firstname}
-                    </label>
-                  )}
-                  {fieldsErrors.lastname === '' ? (
-                    <label
-                      className="stnotice col-4 offset-1 col-lg-4 offset-lg-0 p-0"
-                      htmlFor=""
-                    >
-                      &nbsp;
-                    </label>
-                  ) : (
-                    <label
-                      className="stnotice  col-4 offset-1 col-lg-4 offset-lg-0 p-0"
-                      htmlFor=""
-                    >
-                      {fieldsErrors.lastname}
-                    </label>
-                  )}
-                </div>
-                <div className="d-flex justify-content-center">
-                  <input
-                    type="email"
-                    name="email"
-                    className="allInputs-login col-10 col-lg-8"
-                    placeholder="請填寫電子信箱"
-                    value={fields.email}
-                    onChange={handleFieldChange}
-                  />
-                </div>
-                {fieldsErrors.email === '' ? (
+        <div className="row d-flex justify-content-center">
+          <div className="signUp col-12 col-md-6 col-lg-6">
+            <form
+              className="form-sm"
+              ref={formRef}
+              onSubmit={handleSubmit}
+              onChange={handleFormChange}
+              onInvalid={handleFormInvalid}
+            >
+              <div className="tab_css">
+                {/* <!--TAB1--> */}
+                <input
+                  id="tab1"
+                  type="radio"
+                  name="tab"
+                  value="1"
+                  onChange={(e) => {
+                    setasTeacherOrStudent(e.target.value)
+                  }}
+                />
+                <label for="tab1" id="asTeacher">
+                  成為教師
+                </label>
+                {/* <!-- TAB2 --> */}
+                <input
+                  id="tab2"
+                  type="radio"
+                  name="tab"
+                  value="0"
+                  onChange={(e) => {
+                    setasTeacherOrStudent(e.target.value)
+                  }}
+                />
+                <label for="tab2" id="asStudent">
+                  成為學生
+                </label>
+                <div className="title">Wander With Us!</div>
+              </div>
+              <div className="d-flex justify-content-center">
+                <input
+                  type="text"
+                  className="shortInputs  col-5 col-lg-4"
+                  placeholder="名字*"
+                  name="firstname"
+                  value={fields.firstname}
+                  onChange={handleFieldChange}
+                  required
+                />
+                <input
+                  type="text"
+                  className="shortInputs  col-5 col-lg-4 lastName"
+                  placeholder="姓氏*"
+                  name="lastname"
+                  value={fields.lastname}
+                  onChange={handleFieldChange}
+                  required
+                />
+              </div>
+              <div className="d-flex justify-content-start">
+                {fieldsErrors.firstname === '' ? (
                   <label
-                    className="stnotice col-10 offset-1 col-lg-8 offset-lg-2 p-0"
+                    className="stnotice  col-4 offset-1 col-lg-4 offset-lg-2 p-0"
                     htmlFor=""
                   >
                     &nbsp;
                   </label>
                 ) : (
                   <label
-                    className="stnotice col-10 offset-1 col-lg-8 offset-lg-2 p-0"
+                    className="stnotice  col-4 offset-1 col-lg-4 offset-lg-2 p-0"
                     htmlFor=""
                   >
-                    {fieldsErrors.email}
+                    {fieldsErrors.firstname}
                   </label>
                 )}
-
-                <div className="d-flex justify-content-center">
-                  <input
-                    type="password"
-                    name="password"
-                    className="allInputs-login col-10 col-lg-8"
-                    placeholder="請輸入密碼*"
-                    value={fields.password}
-                    onChange={handleFieldChange}
-                    minLength="5"
-                  />
-                </div>
-                {fieldsErrors.password === '' ? (
+                {fieldsErrors.lastname === '' ? (
                   <label
-                    className="stnotice col-8 offset-1 col-lg-8 offset-lg-2 p-0"
+                    className="stnotice col-4 offset-1 col-lg-4 offset-lg-0 p-0"
                     htmlFor=""
                   >
                     &nbsp;
                   </label>
                 ) : (
                   <label
-                    className="stnotice col-10 offset-1 col-lg-8 offset-lg-2 p-0"
+                    className="stnotice  col-4 offset-1 col-lg-4 offset-lg-0 p-0"
                     htmlFor=""
                   >
-                    {fieldsErrors.password}
+                    {fieldsErrors.lastname}
                   </label>
                 )}
+              </div>
+              <div className="d-flex justify-content-center">
+                <input
+                  type="email"
+                  name="email"
+                  className="allInputs-login col-10 col-lg-8"
+                  placeholder="請填寫電子信箱"
+                  value={fields.email}
+                  onChange={handleFieldChange}
+                />
+              </div>
+              {fieldsErrors.email === '' ? (
+                <label
+                  className="stnotice col-10 offset-1 col-lg-8 offset-lg-2 p-0"
+                  htmlFor=""
+                >
+                  &nbsp;
+                </label>
+              ) : (
+                <label
+                  className="stnotice col-10 offset-1 col-lg-8 offset-lg-2 p-0"
+                  htmlFor=""
+                >
+                  {fieldsErrors.email}
+                </label>
+              )}
 
-                <div className="d-flex justify-content-center">
-                  <input
-                    type="text"
-                    name="nickname"
-                    className="allInputs-login  col-10 col-lg-8"
-                    placeholder="請填寫暱稱"
-                    value={fields.nickname}
-                    onChange={handleFieldChange}
-                  />
-                </div>
-                <div className="separator col-10 col-lg-8 mx-auto">
-                  <div className="or">OR</div>
-                </div>
-                <div className="d-flex d-md-block">
-                  {/* <FBLogin /> */}
-                  {/* <GooLogin /> */}
-                </div>
-                <div>
-                  <button className="signUpBtn-m mx-auto col-10 ">
-                    註冊
-                  </button>
-                  <button className="signUpBtn col-12 mx-auto">
-                    註冊
-                  </button>
-                </div>
-                <div className="h30 des-none"></div>
-              </form>
-            </div>
+              <div className="d-flex justify-content-center">
+                <input
+                  type="password"
+                  name="password"
+                  className="allInputs-login col-10 col-lg-8"
+                  placeholder="請輸入密碼*"
+                  value={fields.password}
+                  onChange={handleFieldChange}
+                  minLength="5"
+                />
+              </div>
+              {fieldsErrors.password === '' ? (
+                <label
+                  className="stnotice col-8 offset-1 col-lg-8 offset-lg-2 p-0"
+                  htmlFor=""
+                >
+                  &nbsp;
+                </label>
+              ) : (
+                <label
+                  className="stnotice col-10 offset-1 col-lg-8 offset-lg-2 p-0"
+                  htmlFor=""
+                >
+                  {fieldsErrors.password}
+                </label>
+              )}
+
+              <div className="d-flex justify-content-center">
+                <input
+                  type="text"
+                  name="nickname"
+                  className="allInputs-login  col-10 col-lg-8"
+                  placeholder="請填寫暱稱"
+                  value={fields.nickname}
+                  onChange={handleFieldChange}
+                />
+              </div>
+              <div className="separator col-10 col-lg-8 mx-auto">
+                <div className="or">OR</div>
+              </div>
+              <div className="d-flex d-md-block">
+                {/* <FBLogin /> */}
+                {/* <GooLogin /> */}
+              </div>
+              <div>
+                <button className="signUpBtn-m mx-auto col-10 ">
+                  註冊
+                </button>
+                <button className="signUpBtn col-12 mx-auto">
+                  註冊
+                </button>
+              </div>
+              <div className="h30 des-none"></div>
+            </form>
           </div>
         </div>
       </div>
+      <div className="stbg-img"></div>
     </>
   )
 })

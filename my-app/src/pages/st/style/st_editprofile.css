@@ -8,13 +8,7 @@
   /* overflow: hidden; */
 }
 
-/* 全頁包覆(為了色塊動畫) */
-.STallwraper {
-  z-index: -1;
-  position: absolute;
-  top: -110px;
-  width: 100%;
-}
+
 
 /* .stbgimg {
    width: 100%;

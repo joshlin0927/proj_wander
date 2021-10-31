@@ -6,7 +6,7 @@ export default function RecommandedTC(props) {
 
   return (
     <>
-      <div className="t_avatar col-md-3 col-lg-3 ">
+      <div className="t_avatar col-md-3 col-lg-3">
         <img
           className="mx-auto"
           src={`${API_HOST}/img/dog-puppy-on-garden-royalty-free-image-1586966191.jpg`}

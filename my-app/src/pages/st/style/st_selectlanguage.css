@@ -99,15 +99,15 @@
   line-height: 20px;
   background-color: hsl(0, 76%, 33%);
   /* position: absolute; */
-  
-  
+
+
 }
 
 .selection-m {
   line-height: 20px;
   font-size: 14px;
   font-weight: normal;
-  
+
 }
 
 
@@ -117,7 +117,7 @@
 
 @media (min-width: 768px) {
 
-  
+
 
 
   .navbar {
@@ -127,7 +127,7 @@
     /* margin-bottom: 30px; */
   }
 
- 
+
   /* .mainpic {
     background-image: url('http://localhost:3000/images/pic/背景圖素材/7656d57f.jpg');
     ;
@@ -213,9 +213,13 @@
 
   .selection {
     line-height: 40px;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: normal;
   }
 
-}
+  .selection:hover {
+    color: #065f8e;
+    font-size: 20px;
+  }
 
+}
