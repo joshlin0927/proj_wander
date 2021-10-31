@@ -11,9 +11,8 @@ import {
 } from '../../config'
 
 function Login(props) {
-  const history = useHistory()
   const { auth, setAuth, setUser } = props
-
+  const history = useHistory()
   const formRef = useRef(null)
 
   //儲存所有欄位的值

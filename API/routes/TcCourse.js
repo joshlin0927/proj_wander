@@ -1,6 +1,6 @@
 const express = require("express");
 const db = require("../modules/connect-mysql");
-const upload = require("../modules/upload-images");
+const uploadImg = require("../modules/upload-images");
 
 const router = express.Router();
 
@@ -56,7 +56,7 @@ async function getListData(req, res) {
             // return res.redirect('?page=1' + output.totalPages);
             */
     }
-    const sql = `SELECT \`course\`.*, \`member\`.\`firstname\`  FROM \`course\` ${where} ORDER BY \`course\`.\`sid\` DESC LIMIT ${
+    const sql = `SELECT \`course\`.*, \`member\`.\`firstname\`,\`member\`.\`avatar\` FROM \`course\` ${where} ORDER BY \`course\`.\`sid\` DESC LIMIT ${
       (page - 1) * perPage
     }, ${perPage}`;
     /* 如果要用backtick，在名稱的地方要加上\`做跳脫 */
@@ -81,6 +81,32 @@ router.delete("/delete/:sid([0-9]+)", async (req, res) => {
     result,
   });
   res.json(result);
+});
+
+router.route("/cover").post(uploadImg.single("avatar"), async (req, res) => {
+  const output = {
+    success: false,
+    error: "",
+    postData: req.body,
+  };
+
+  const sql = `UPDATE \`course\` SET \`course_img\` = ? WHERE \`sid\` = ?`;
+
+  try {
+    [result] = await db.query(sql, [req.file.filename, req.query.teacherSid]);
+  } catch (ex) {
+    output.error = ex.toString();
+  }
+  output.result = result;
+  if (result.affectedRows === 1) {
+    if (result.changedRows === 1) {
+      output.success = true;
+    } else {
+      output.error = "資料沒有變更";
+    }
+  }
+
+  res.json(output);
 });
 
 router.route("/add").post(async (req, res) => {
