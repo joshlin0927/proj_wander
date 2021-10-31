@@ -1,15 +1,15 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
-
+import axios from 'axios'
 import { PasswordChange } from '../../config'
 
 // components
+import ConfirmMsg from '../../components/ConfirmMsg'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
-import axios from 'axios'
 
 function TcPassword() {
   const formRef = useRef(null)
@@ -30,6 +30,9 @@ function TcPassword() {
       return
     }
   }, [])
+
+  //設定確認表單送出訊息框的狀態
+  const [showUp, setShowUp] = useState('')
 
   //儲存所有欄位的值
   const [fields, setFields] = useState({
@@ -94,9 +97,9 @@ function TcPassword() {
     // 利用FormData Api 得到各欄位的值 or 利用狀態值
     // FormData 利用的是表單元素的 name
     const formData = new FormData(e.target)
-    console.log(formData.get('origin'))
-    console.log(formData.get('newPass'))
-    console.log(formData.get('newPassConfirm'))
+    // console.log(formData.get('origin'))
+    // console.log(formData.get('newPass'))
+    // console.log(formData.get('newPassConfirm'))
 
     // 檢查確認密碼&密碼欄位
     if (
@@ -129,8 +132,18 @@ function TcPassword() {
           teacherSid: teacherSid,
         }
       )
-      if (r.stauts === 200) {
-        console.log(r.data)
+
+      if (r.data.success) {
+        setShowUp('showup')
+        setTimeout(() => {
+          setShowUp('none')
+        }, 1000)
+      } else {
+        setFieldErrors({
+          origin: r.data.error,
+          newPass: '',
+          newPassConfirm: '',
+        })
       }
     })()
   }
@@ -156,6 +169,7 @@ function TcPassword() {
             onChange={handleFormChange}
             onInvalid={handleFormInvalid}
           >
+            <ConfirmMsg showUp={showUp} />
             <div className="TCform-content w-100 col-md-10 col-lg-8">
               <div className="TCform-head p-0">
                 <Link to="/">
