@@ -34,7 +34,6 @@ export default withRouter(function StProfile(props) {
 
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
-    avatar: '',
     firstname: '',
     lastname: '',
     email: '',
@@ -162,7 +161,6 @@ export default withRouter(function StProfile(props) {
         .post(
           `http://localhost:3001/stprofile/edit?studentSid=${studentSid}`,
           {
-            avatar: { imgSrc },
             firstname: fields.firstname,
             lastname: fields.lastname,
             email: fields.email,
@@ -192,7 +190,7 @@ export default withRouter(function StProfile(props) {
           `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
         )
         setFields(r.data[0][0])
-        setImgSrc()
+        setImgSrc(r.data[0][0].avatar)
         console.log('res:', r.data)
       })()
     }
