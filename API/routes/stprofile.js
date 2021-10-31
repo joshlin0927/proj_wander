@@ -25,13 +25,14 @@ router.get('/list', async (req, res) => {
      if (req.file && req.file.mimetype === 'image/jpeg') {
       
          await fs.rename(req.file.path, __dirname + '/public/imgs/' + req.file.originalname);
-         return res.json({
+        
+         res.json({
            success: true,
            filename: req.file.originalname
          });
-    
-
      } 
+
+   
 
     const input = {
       ...req.body, 
