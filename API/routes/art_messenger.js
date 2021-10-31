@@ -77,48 +77,6 @@ router.get('/api/list', async (req, res)=>{
 });
 
 
-router.route('/edit/:sid')
-    .get(async (req, res) => {
-        const sql = "SELECT * FROM art_messenger WHERE sid=?";
-        const [rs] = await db.query(sql, [req.params.sid]);
-
-        if (rs.length) {
-            res.render('art_messenger/edit', {
-                row: rs[0]
-            });
-        } else {
-            res.redirect('/art_messenger/list');
-        }
-    })
-    .post(async (req, res) => {
-        // TODO: 欄位檢查
-        const output = {
-            success: false,
-            postData: req.body,
-        }
-
-        const input = {
-            ...req.body
-        };
-        const sql = "UPDATE `art_messenger` SET ? WHERE sid=?";
-        let result = {};
-        // 處理修改資料時可能的錯誤
-        try {
-            [result] = await db.query(sql, [input, req.params.sid]);
-        } catch (ex) {
-            output.error = ex.toString();
-        }
-        output.result = result;
-        if (result.affectedRows === 1) {
-            if (result.changedRows === 1) {
-                output.success = true;
-            } else {
-                output.error = '資料沒有變更';
-            }
-        }
-
-        res.json(output);
-    });
 
 
     router.route('/add')
@@ -181,5 +139,43 @@ router.route('/edit/:sid')
         res.json(result);
     });
 
+
+    router.get("/edit", async (req, res) => {
+        // let courseSid = ;
+        const sql = `SELECT * FROM \`art_messenger\` WHERE sid=?`;
+        const [rs] = await db.query(sql, [req.query.Sid]);
+        res.json(rs);
+      });
+      
+      router.post("/edit", async (req, res) => {
+        const output = {
+          success: false,
+          postData: req.body,
+        };
+      
+        const input = {
+          ...req.body,
+        };
+      
+        // console.log(input);
+        const sql = `UPDATE \`art_messenger\` SET ? WHERE sid=?`;
+        let result = {};
+        // 處理修改資料時可能的錯誤
+        try {
+          [result] = await db.query(sql, [input, req.query.Sid]);
+        } catch (ex) {
+          output.error = ex.toString();
+        }
+        output.result = result;
+        if (result.affectedRows === 1) {
+          if (result.changedRows === 1) {
+            output.success = true;
+          } else {
+            output.error = "資料沒有變更";
+          }
+        }
+      
+        res.json(output);
+      });
 
 module.exports = router;

@@ -60,7 +60,9 @@ function TcCourseCard(props) {
 
     ;(async () => {
       let r = await axios.post(
-        `${ArtMessage_EDIT}${sid}`,
+        // `${ArtMessage_EDIT}${sid}`,
+        `${ArtMessage_EDIT}?Sid=${sid}`,
+
 
         {
           messenger: new FormData(e.target).get(
@@ -68,7 +70,7 @@ function TcCourseCard(props) {
           ),
         }
       )
-//不知道為什麼直傳不進去
+
       // console.log(r)
       handleIsClose()
     }
@@ -131,7 +133,7 @@ function TcCourseCard(props) {
         <Modal.Body>
           <form className="" onSubmit={FormSubmit}>
             <input
-              name="video_name"
+              name="messenger"
               className="col-12 allInputs bgt"
               // placeholder="修改留言 "
               value={nameChange}

@@ -130,7 +130,7 @@ app.post('/try-upload2', uploadImg.single('avatar'), async (req, res) => {
     const sql = `UPDATE \`member\` SET \`avatar\` = ? WHERE \`sid\` = ?`
 
     try {
-        [result] = await db.query(sql, [myfilename, req.query.studentSid]);
+        [result] = await db.query(sql, [myfilename, req.body.studentSid]);
     } catch (ex) {
         output.error = ex.toString();
     }

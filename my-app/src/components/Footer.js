@@ -6,7 +6,7 @@ import { devUrl } from '../config'
 function Footer(props) {
   const { cartFooterMb } = props
 
-  //修改課程
+  //申請表的顯示
   const [isShow, setIsShow] = useState(false)
   const handleIsClose = () => setIsShow(false)
   const handleIsShow = () => setIsShow(true)

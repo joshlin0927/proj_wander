@@ -238,6 +238,11 @@ export default withRouter(function StProfile(props) {
                 onChange={doUpload}
                 ref={inputRef}
               />
+              <input
+                name="studentSid"
+                value={studentSid}
+                className="d-none"
+              />
             </form>
             <div className="form-content">
               <div className="d-flex align-items-center ml-1">
