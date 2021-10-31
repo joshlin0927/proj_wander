@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { devUrl, API_HOST } from '../config'
+import { devUrl, IMG_PATH, MemberEdit } from '../config'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
+import axios from 'axios'
 
 function scrollHeader() {
   const header = document.getElementById('nav__header')
@@ -14,18 +15,36 @@ function scrollHeader() {
 window.addEventListener('scroll', scrollHeader)
 
 function PcNavbar(props) {
+  const { auth, setAuth } = props
+  const [imgSrc, setImgSrc] = useState('')
+
   //判斷是否登入
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const memberObj = JSON.parse(member)
   useEffect(() => {
-    if (token) {
+    if (token && memberObj.identity === 1) {
       setAuth(true)
+      ;(async () => {
+        let r = await axios.get(
+          `${MemberEdit}/?teacherSid=${memberObj.sid}`
+        )
+        console.log('TCr', r)
+        setImgSrc(r.data[0].avatar)
+      })()
+    } else if (token && memberObj.identity === 0) {
+      ;(async () => {
+        let r = await axios.get(
+          `http://localhost:3001/stprofile/list?studentSid=${memberObj.sid}`
+        )
+        console.log('STr', r)
+        setImgSrc(r.data[0][0].avatar)
+      })()
     }
-  }, [])
+  }, [imgSrc, auth])
 
-  const { auth, setAuth, user } = props
+  console.log(imgSrc)
 
   const menuToggle = () => {
     const memberMenu = document.querySelector('#memberMenu')
@@ -81,42 +100,6 @@ function PcNavbar(props) {
                     登入
                   </span>
                 </Link>
-              ) : memberObj.identity === 1 ? (
-                <div className="NavAvatar">
-                  <div
-                    className="nav_login"
-                    id="memberAvatar"
-                    onClick={menuToggle}
-                  >
-                    <img
-                      src={`${devUrl}/images/teacher/Thomas_Lillard.jpg`}
-                      alt=""
-                    />
-                  </div>
-
-                  <div
-                    id="memberMenu"
-                    className="NavAvatarMenu d-none"
-                  >
-                    <div className="mb-1">
-                      <Link to="/Tcindex">
-                        <span className="mx-0">
-                          會員中心
-                        </span>
-                      </Link>
-                    </div>
-                    <div className="mb-1">
-                      <Link to="#">
-                        <span>常見問題</span>
-                      </Link>
-                    </div>
-                    <div className="mb-1">
-                      <div onClick={logout}>
-                        <span>登出</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               ) : (
                 <div className="NavAvatar">
                   <div
@@ -125,7 +108,11 @@ function PcNavbar(props) {
                     onClick={menuToggle}
                   >
                     <img
-                      src={`${devUrl}/images/students/Anne Hathaway.jpg`}
+                      src={
+                        imgSrc
+                          ? `${IMG_PATH}/${imgSrc}`
+                          : `${IMG_PATH}/presetAvatar.jpeg`
+                      }
                       alt=""
                     />
                   </div>
@@ -135,7 +122,13 @@ function PcNavbar(props) {
                     className="NavAvatarMenu d-none"
                   >
                     <div className="mb-1">
-                      <Link to="/StIndex/StProfile">
+                      <Link
+                        to={
+                          memberObj.identity === 1
+                            ? '/Tcindex'
+                            : '/StIndex/StProfile'
+                        }
+                      >
                         <span className="mx-0">
                           會員中心
                         </span>

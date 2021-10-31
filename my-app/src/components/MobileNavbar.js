@@ -99,22 +99,13 @@ function MobileNavbar(props) {
               />
               <span>會員中心</span>
             </Link>
-          ) : memberObj.identity === 1 ? (
-            <Link
-              to="/TCIndex"
-              className="mobile-nav-item active col-2"
-              id="mNavTC"
-            >
-              <img
-                src={`${devUrl}/images/mobile-nav-alter/nav-icon-member.svg`}
-                alt=""
-                className="mobile-nav-icon"
-              />
-              <span>會員中心</span>
-            </Link>
           ) : (
             <Link
-              to="/StIndex"
+              to={
+                memberObj.identity === 1
+                  ? '/Tcindex'
+                  : '/StIndex/StProfile'
+              }
               className="mobile-nav-item active col-2"
               id="mNavTC"
             >
