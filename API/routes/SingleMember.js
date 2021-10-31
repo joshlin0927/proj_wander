@@ -36,10 +36,8 @@ router
 
     res.json(rs);
   })
-  .post(uploadImg.single("avatar"), async (req, res) => {
-    console.log(req.body.avatar);
-    // TODO: 頭像上傳的引用
 
+  .post(async (req, res) => {
     const output = {
       success: false,
       error: "",
@@ -69,6 +67,34 @@ router
 
     res.json(output);
   });
+
+
+router.route("/avatar").post(uploadImg.single("avatar"), async (req, res) => {
+  const output = {
+    success: false,
+    error: "",
+    postData: req.body,
+  };
+
+  const sql = `UPDATE \`member\` SET \`avatar\` = ? WHERE \`sid\` = ?`;
+
+  try {
+    [result] = await db.query(sql, [req.file.filename, req.body.teacherSid]);
+  } catch (ex) {
+    output.error = ex.toString();
+  }
+  output.result = result;
+  if (result.affectedRows === 1) {
+    if (result.changedRows === 1) {
+      output.success = true;
+    } else {
+      output.error = "資料沒有變更";
+    }
+  }
+
+  res.json(output);
+});
+
 
 router.route("/passEdit").post(async (req, res) => {
   const output = {

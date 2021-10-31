@@ -146,7 +146,7 @@ body {
 
 /* 姓名的input */
 .TCnameInputs {
-  margin: 27px 0 50px;
+  margin-top: 27px;
   border: 1px solid #868686;
   border-radius: 10px;
   width: 100%;

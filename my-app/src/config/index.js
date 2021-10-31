@@ -17,6 +17,8 @@ export const MemberLogout = API_HOST + '/logout'
 //讀取、修改個人資料
 export const MemberVerify = API_HOST + '/SingleMember'
 export const MemberEdit = API_HOST + '/SingleMember/edit'
+export const MemberAvatar =
+  API_HOST + '/SingleMember/avatar'
 
 // 密碼更改
 export const PasswordChange =
