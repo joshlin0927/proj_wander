@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
 import axios from 'axios'
-import { PasswordChange } from '../../config'
+import { PasswordChange, MemberEdit } from '../../config'
 
 // components
 import ConfirmMsg from '../../components/ConfirmMsg'
@@ -26,8 +26,6 @@ function TcPassword() {
       history.push('/')
     } else if (identity !== 1) {
       history.push('/')
-    } else {
-      return
     }
   }, [])
 

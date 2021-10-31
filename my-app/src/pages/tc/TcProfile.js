@@ -4,9 +4,10 @@ import { useHistory, withRouter } from 'react-router'
 import axios from 'axios'
 
 import {
+  IMG_PATH,
+  MemberAvatar,
   MemberLoginVerify,
   MemberEdit,
-  devUrl,
 } from '../../config'
 
 // components
@@ -23,6 +24,17 @@ function TcProfile(props) {
   const identity = JSON.parse(member).identity
   const teacherSid = JSON.parse(member).sid
 
+  //大頭貼狀態
+  let [imgSrc, setImgSrc] = useState('')
+  const doUpload = async () => {
+    const r = await axios.post(
+      `${MemberAvatar}/?teacherSid=${teacherSid}`,
+      new FormData(document.formAvatar)
+    )
+    setImgSrc(r.data.filename)
+    console.log(r.data)
+  }
+
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -34,38 +46,39 @@ function TcProfile(props) {
           `${MemberEdit}/?teacherSid=${teacherSid}`
         )
         // 為什麼生日填不上去? ANS:在node就先處理，在mysql-connect就設定dateToString為true
-        console.log(r.data[0])
+        setFields(r.data[0])
+        setImgSrc(r.data[0].avatar)
       })()
     }
-  }, [])
+  }, [imgSrc])
+  //設定確認表單送出訊息框的狀態
+  const [showUp, setShowUp] = useState('')
 
   //預覽大頭貼的地方
-  const imgRef = useRef(null)
+  // const imgRef = useRef(null)
   //實際擁有預覽功能的input因為太醜藏起來
   const inputRef = useRef(null)
+  // const previewFile = () => {
+  //   var preview = imgRef.current
+  //   var file = inputRef.current.files[0]
+  //   var reader = new FileReader()
 
-  const previewFile = () => {
-    var preview = imgRef.current
-    var file = inputRef.current.files[0]
-    var reader = new FileReader()
+  //   reader.addEventListener(
+  //     'load',
+  //     function () {
+  //       preview.src = reader.result
+  //     },
+  //     false
+  //   )
 
-    reader.addEventListener(
-      'load',
-      function () {
-        preview.src = reader.result
-      },
-      false
-    )
-
-    if (file) {
-      reader.readAsDataURL(file)
-    }
-  }
+  //   if (file) {
+  //     reader.readAsDataURL(file)
+  //   }
+  // }
 
   const formRef = useRef(null)
   // 使用物件值作為狀態值，儲存所有欄位的值
   const [fields, setFields] = useState({
-    avatar: '',
     firstname: '',
     lastname: '',
     email: '',
@@ -77,8 +90,11 @@ function TcProfile(props) {
 
   // 存入錯誤訊息用
   const [fieldErrors, setFieldErrors] = useState({
+    firstname: '',
+    lastname: '',
     nickname: '',
     language: '',
+    birth: '',
   })
 
   // 專門用來處理每個欄位的輸入用
@@ -101,10 +117,10 @@ function TcProfile(props) {
     // 利用FormData Api 得到各欄位的值 or 利用狀態值
     // FormData 利用的是表單元素的 name
     const TcProfileFormData = new FormData(e.target)
-    console.log(TcProfileFormData.get('avatar'))
-    console.log(TcProfileFormData.get('birthday'))
-    console.log(TcProfileFormData.get('nickname'))
-    console.log(TcProfileFormData.get('language'))
+    // console.log(TcProfileFormData.get('avatar'))
+    // console.log(TcProfileFormData.get('birth'))
+    // console.log(TcProfileFormData.get('nickname'))
+    // console.log(TcProfileFormData.get('language'))
 
     // 利用狀態來得到輸入的值
 
@@ -120,6 +136,14 @@ function TcProfile(props) {
         },
         body: new URLSearchParams(
           TcProfileFormData
+          // {
+          // avatar: fields.avatar,
+          // firstname: fields.firstname,
+          // lastname: fields.lastname,
+          // email: fields.email,
+          // birth: fields.birth,
+          // nickname: fields.nickname,
+          // }
         ).toString(),
       }
     )
@@ -172,6 +196,11 @@ function TcProfile(props) {
         if (element.validity.valueMissing) {
           errorMsg = {
             ...errorMsg,
+            [element.name]: element.validationMessage,
+          }
+        } else {
+          errorMsg = {
+            ...errorMsg,
             [element.name]: element.title,
           }
         }
@@ -199,9 +228,10 @@ function TcProfile(props) {
           </div>
         </div>
         <div className="row">
-          <TcSideBar />
+          <TcSideBar imgSrc={imgSrc} />
           {/* form */}
           <form
+            encType="multipart/form-data"
             name="profile"
             className="TCform col-12 offset-0 col-md-8 offset-md-1"
             ref={formRef}
@@ -227,35 +257,38 @@ function TcProfile(props) {
               <div className="d-flex align-items-center">
                 <div className="profile-pic">
                   <img
-                    src={`${devUrl}/images/pic/presetAvatar.jpeg`}
+                    src={
+                      imgSrc
+                        ? IMG_PATH + '/' + imgSrc
+                        : IMG_PATH +
+                          '/' +
+                          'c943da4c-dd71-4e60-b598-ee44fdbd2fb6.jpg'
+                    }
                     className="img-fluid"
                     alt=""
-                    id="avatar"
-                    ref={imgRef}
                   />
                 </div>
-                <label
-                  className="TCbtn btn-border-only"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    inputRef.current.click()
-                  }}
-                >
-                  {' '}
-                  <input
-                    type="file"
-                    accept="image/*"
-                    className="d-none"
-                    name="avatar"
-                    ref={inputRef}
-                    onChange={handleFieldChange}
-                    onChangeCapture={previewFile}
-                  />
+                <label className="TCbtn btn-border-only">
+                  <form name="formAvatar">
+                    <input
+                      type="file"
+                      name="avatar"
+                      className="d-none"
+                      accept="image/*"
+                      onChange={doUpload}
+                      ref={inputRef}
+                    />
+                    <input
+                      name="teacherSid"
+                      value={teacherSid}
+                      className="d-none"
+                    />
+                  </form>
                   <span>請選擇圖片</span>
                 </label>
               </div>
-              <div className="fullname d-flex">
-                <div className="col-6 pl-0">
+              <div className="fullname row">
+                <div className="col-6 ">
                   <input
                     name="firstname"
                     type="text"
@@ -263,10 +296,19 @@ function TcProfile(props) {
                     placeholder="名字"
                     value={fields.firstname}
                     onChange={handleFieldChange}
-                    disabled
+                    required
                   />
+                  {fieldErrors.firstname === '' ? (
+                    <label className="TCnotice" htmlFor="">
+                      &nbsp;
+                    </label>
+                  ) : (
+                    <label className="TCnotice" htmlFor="">
+                      {fieldErrors.firstname}
+                    </label>
+                  )}
                 </div>
-                <div className="col-6 pr-0">
+                <div className="col-6 ">
                   <input
                     name="lastname"
                     type="text"
@@ -274,8 +316,17 @@ function TcProfile(props) {
                     placeholder="姓氏"
                     value={fields.lastname}
                     onChange={handleFieldChange}
-                    disabled
+                    required
                   />
+                  {fieldErrors.lastname === '' ? (
+                    <label className="TCnotice" htmlFor="">
+                      &nbsp;
+                    </label>
+                  ) : (
+                    <label className="TCnotice" htmlFor="">
+                      {fieldErrors.lastname}
+                    </label>
+                  )}
                 </div>
               </div>
               <div className="TCmb-50">
@@ -289,19 +340,28 @@ function TcProfile(props) {
                   disabled
                 />
               </div>
-              <div className="TCmb-50">
-                <input
-                  name="birth"
-                  type="date"
-                  className="col-12 allInputs px-2"
-                  placeholder="生日"
-                  title="請選擇生日"
-                  value={fields.birth}
-                  onChange={handleFieldChange}
-                  min="1900-01-01"
-                  max="2011-01-01"
-                />
-              </div>
+
+              <input
+                name="birth"
+                type="date"
+                className="col-12 allInputs px-2"
+                placeholder="生日"
+                title="請選擇生日"
+                value={fields.birth}
+                onChange={handleFieldChange}
+                min="1900-01-01"
+                max="2011-01-01"
+                required
+              />
+              {fieldErrors.birth === '' ? (
+                <label className="TCnotice" htmlFor="">
+                  &nbsp;
+                </label>
+              ) : (
+                <label className="TCnotice" htmlFor="">
+                  {fieldErrors.birth}
+                </label>
+              )}
               <input
                 name="nickname"
                 type="text"
