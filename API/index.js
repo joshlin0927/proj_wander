@@ -136,6 +136,10 @@ app.use('/TcVideo', require(__dirname + '/routes/TcVideo'));
 //聊天室
 // app.use('/chat', require('./routes/chat'));
 
+
+//文章-留言
+app.use('/art_messenger', require(__dirname + '/routes/art_messenger'));
+
 // 聊天室設定
 const publicPath = path.join(__dirname + "/public/chat.html");
 const server = http.createServer(app);
