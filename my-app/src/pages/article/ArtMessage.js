@@ -32,9 +32,6 @@ function ArtMessage() {
   // 課程陣列排出
   // let [data, setData] = useState([])
 
-  // console.log('status', status)
-  // console.log('setStatus', setStatus)
-
   let [totalRows, setTotalRows] = useState(0)
 
   // 資料庫來的影片資料
@@ -43,16 +40,13 @@ function ArtMessage() {
   // 拿去做map排列的，取的是r.data.rows，或是其它處理
   const [displayVideo, setDisplayVideo] = useState([])
 
-  // 資料庫來的課程資料
+  // 資料庫來的留言資料
   const [TcCourses, setTcCourses] = useState([])
 
   const [displayCourse, setDisplayCourse] = useState([])
 
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
   const [RemoveCourse, setRemoveCourse] = useState()
-
-  // 修改後的狀態紀錄
-  const [status, setStatus] = useState(false)
 
   useEffect(() => {
     if (!token) {
@@ -64,11 +58,6 @@ function ArtMessage() {
         let r = await axios.get(
           // `${ArtMessage_LIST}`
           `${ArtMessage_LIST}?Sid=${teacherSid}`
-
-          )
-
-        let a = await axios.get(
-          `${MemberEdit}?teacherSid=${teacherSid}`
         )
 
         // let c = await axios.get(
@@ -84,14 +73,11 @@ function ArtMessage() {
 
           setDisplayCourse(r.data.rows)
         }
-
-        console.log('a.data[0][0]', a.data[0][0])
-
-        console.log('r.data', r.data)
+        console.log('r.data.rows', r.data.rows)
       })()
     }
     // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
-  }, [RemoveCourse, status])
+  }, [])
 
   return (
     <>
@@ -168,11 +154,12 @@ function ArtMessage() {
                   : null} */}
                       {TcCourses.length > 0 ? (
                         <ArtList
-                          Courses={displayCourse}
+                          displayCourse={displayCourse}
+                          setDisplayCourse={
+                            setDisplayCourse
+                          }
                           RemoveCourse={RemoveCourse}
                           setRemoveCourse={setRemoveCourse}
-                          status={status}
-                          setStatus={setStatus}
                         />
                       ) : null}
                       {/* {data.rows.map((v, i) => {
@@ -336,20 +323,20 @@ function ArtMessage() {
         </div>
       </div>
       <div className="sns-sing">
-        <a href="#" className="nav_footer-sing">
+        <div className="nav_footer-sing">
           <img
             src="../images/index/icon/Facebook.svg"
             alt=""
             className="Facebook-sing"
           />
-        </a>
-        <a href="#" className="nav_footera-sing">
+        </div>
+        <div className="nav_footera-sing">
           <img
             src="../images/index/icon/twitter.svg"
             alt=""
             className="Facebook-sing"
           />
-        </a>
+        </div>
       </div>
       <ArBgDecorationNormal />
       <Footer />
