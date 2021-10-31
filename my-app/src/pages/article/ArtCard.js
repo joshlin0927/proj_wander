@@ -29,6 +29,7 @@ function ArtCard(props) {
     st_pictuer,
     messenger,
     great,
+    nickname,
     created_date,
     remove,
     setMess,
@@ -92,14 +93,14 @@ function ArtCard(props) {
             alt=""
           />
           <span className="TCcourse-img-selector-sin">
-            Ann{sid}
+            {nickname}
           </span>
         </div>
         <div className="TCcourse-info-sing">
           <div className="TCcourse-title-sin ">
             <p>{messenger}</p>
           </div>
-          <div className="TCcourse-info-right-sin">
+          {/* <div className="TCcourse-info-right-sin">
             <div className="TCcourse-detail-sin">
               <a href="#">
                 <img
@@ -108,7 +109,7 @@ function ArtCard(props) {
                 />
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {memberObj.sid === st_sid ? (

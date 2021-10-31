@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-10-30 07:43:15
+-- 產生時間： 2021-10-31 11:03:36
 -- 伺服器版本： 10.4.20-MariaDB
 -- PHP 版本： 7.4.21
 
@@ -55,6 +55,32 @@ INSERT INTO `article` (`sid`, `teacher_sid`, `artical_category`, `artical_title`
 (101, '4', '爆紅話題', '被韓劇輾壓！日劇跌落神壇關鍵是什麼？網精闢分析３理由', '139166cafcff98e8bf5b280e12e6aebba0284a45.png', '韓劇崛起不只靠顏值！「配音」是關鍵\r\n反觀韓劇，鄉民們認為製作經費、演員外型以及多元的題材都是取勝關鍵，「韓劇有能拍出深度的，就算是無腦的人家也有俊男美女」、「韓劇題材其實很多，殭屍、災難、穿越、刑偵都能混合」、「韓劇經費突破天際」。\r\n\r\n另外還有網友提到「中文配音」也是韓劇打入台灣市場的重要原因，早期的韓國肥皂劇多以中文配音播出，吸引不少婆媽族群收看，跟著媽媽一起看的女兒們也深受影響，隨著時間推進和韓劇題材的進步，才造就了現在主打年輕族群的韓劇天下！', '2021-08-18', 1515, 'https://www.youtube.com/embed/WygHZyE3ufQ', '2021-08-22 15:24:44'),
 (102, '5', '爆紅話題', '東奧馬王「聖男孩」不配合？選手爆哭照瘋傳　網憂馬遭安樂死⋯官方回應曝光', '40f9e05117df9b7e411dbd22bbf1a93d6e645384.jpg', '在東京奧運現代五項中被看好奪金的德國選手安妮卡·史勒（Annika Schleu），進行馬術障礙賽時，抽中馬匹「聖男孩」（Saint Boy），賽程中馬兒似乎配合度低，沒有跨越障礙，導致她成績最後是0分，當場直接痛哭模樣也被拍下，遭到眾多網友熱議。看到這樣的狀況，也引起民眾擔心起「聖男孩」會不會被執行安樂死，所幸國際現代五項總會（UIPM）已在推特聲明，「聖男孩」已順利返回家鄉。', '2021-08-18', 145, 'https://www.youtube.com/embed/NQazLXs-J4Q', '2021-08-22 15:26:03'),
 (103, '5', '世界新聞', '令台灣人感動! 日本參議院全體起立通過支持台灣參加WHA', 'dadbf031831e9d00c6437a23898053049d15bf77.jpg', '根據日本放送協會NHK的報導，台灣在中國及其他國家反對之下，被拒絕以觀察員身分參加WHA世界衛生大會。在6月11日出現令台灣人感動的畫面，日本參議院全體起立一致通過，呼籲各國能認可台灣參加WHA。\r\n\r\n日本參議院在決議時指出，「為終結傳染病，必須共享世界各地在公衛上取得成果的地區有用的知識與經驗」，「台灣作為強化檢疫的先驅，不能參加WHA是全球在國際防疫上的損失，這是各國的共識」，希望相關國家明年起能夠認可台灣參與。', '2021-08-16', 100000000, 'https://www.youtube.com/embed/NIVPCHE34sI', '2021-08-22 15:31:09');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `art_messenger`
+--
+
+CREATE TABLE `art_messenger` (
+  `sid` int(11) NOT NULL,
+  `ar_sid` int(11) DEFAULT NULL,
+  `st_sid` int(11) DEFAULT NULL,
+  `nickname` varchar(255) DEFAULT NULL,
+  `st_pictuer` varchar(255) DEFAULT NULL,
+  `messenger` varchar(255) NOT NULL,
+  `great` int(11) DEFAULT NULL,
+  `created_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `art_messenger`
+--
+
+INSERT INTO `art_messenger` (`sid`, `ar_sid`, `st_sid`, `nickname`, `st_pictuer`, `messenger`, `great`, `created_date`) VALUES
+(8, 0, 7, 'Michael', '555', '111', 0, '2021-10-30 19:17:22'),
+(9, 0, 8, 'Jeffrey', NULL, '36363', 0, '2021-10-31 16:53:37'),
+(10, 0, 12, 'Ken', NULL, '3333', 0, '2021-10-31 16:53:44');
 
 -- --------------------------------------------------------
 
@@ -374,6 +400,12 @@ ALTER TABLE `article`
   ADD PRIMARY KEY (`sid`);
 
 --
+-- 資料表索引 `art_messenger`
+--
+ALTER TABLE `art_messenger`
+  ADD PRIMARY KEY (`sid`);
+
+--
 -- 資料表索引 `cart`
 --
 ALTER TABLE `cart`
@@ -432,6 +464,12 @@ ALTER TABLE `video_list`
 --
 ALTER TABLE `article`
   MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `art_messenger`
+--
+ALTER TABLE `art_messenger`
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cart`
