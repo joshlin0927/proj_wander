@@ -142,109 +142,109 @@ function Login(props) {
 
   return (
     <>
-      <div className="stbg-img">
-        <div className="container">
-          <div className="m-wrap row justify-content-center">
-            <div className="logo-m-login">
-              <img
-                src={`${devUrl}/images/logo/log_mobile.png`}
-                alt=""
-              />
-            </div>
-          </div>
-          <div className="row m-wrap">
-            <div className="back" onClick={history.goBack}>
-              <span>Back</span>
-            </div>
-          </div>
-          <div className="h95"> </div>
-          <div className="login col-md-6">
-            <form
-              name="form_login"
-              className="form-sm"
-              onSubmit={handleSubmit}
-              onChange={handleFormChange}
-              onInvalid={handleFormInvalid}
-              ref={formRef}
-            >
-              <div className="title"> Welcome Back! </div>
-              <div className="d-flex justify-content-center">
-                <input
-                  type="email"
-                  name="email"
-                  className="allInputs  col-10"
-                  placeholder="請填寫電子信箱"
-                  title="電子信箱地址必須要有「@」"
-                  value={fields.email}
-                  onChange={handleFieldChange}
-                  required
-                />
-              </div>
-              {fieldErrors.email === '' ? (
-                <label
-                  className="stnotice col-12 ml-3  ml-lg-5 p-0"
-                  htmlFor=""
-                >
-                  &nbsp;
-                </label>
-              ) : (
-                <label
-                  className="stnotice col-12 ml-3  ml-lg-5 p-0"
-                  htmlFor=""
-                >
-                  {fieldErrors.email}
-                </label>
-              )}
-              <div className="d-flex justify-content-center">
-                <input
-                  type="password"
-                  name="password"
-                  className="allInputs   col-10"
-                  placeholder="請填寫密碼*"
-                  value={fields.password}
-                  onChange={handleFieldChange}
-                  required
-                />
-              </div>
-              {fieldErrors.password === '' ? (
-                <label
-                  className="stnotice col-12 ml-3  ml-lg-5 p-0"
-                  htmlFor=""
-                >
-                  &nbsp;
-                </label>
-              ) : (
-                <label
-                  className="stnotice col-12 ml-3  ml-lg-5 p-0"
-                  htmlFor=""
-                >
-                  {fieldErrors.password}
-                </label>
-              )}
-              <p className="forgetPassword">忘記密碼？</p>
-              <div className="d-flex justify-content-center">
-                <button
-                  type="submit"
-                  className="signUpBtn-m mx-auto col-10"
-                >
-                  登入
-                </button>
-                <button type="submit" className="signUpBtn">
-                  登入
-                </button>
-              </div>
-              <div className="joinusblack">
-                還沒加入我們？
-                <Link to="/SignUp" className="joinus">
-                  前往註冊
-                </Link>
-              </div>
-              <div className="h30"> </div>
-            </form>
+      <div className="container">
+        <div className="m-wrap row justify-content-center">
+          <div className="logo-m-login">
+            <img
+              src={`${devUrl}/images/logo/log_mobile.png`}
+              alt=""
+            />
           </div>
         </div>
-        <div className="h150"> </div>
+        <div className="row m-wrap">
+          <div className="back" onClick={history.goBack}>
+            <span>Back</span>
+          </div>
+        </div>
+        <div className="h95"> </div>
+        <div className="login col-md-6">
+          <form
+            name="form_login"
+            className="form-sm"
+            onSubmit={handleSubmit}
+            onChange={handleFormChange}
+            onInvalid={handleFormInvalid}
+            ref={formRef}
+          >
+            <div className="title"> Welcome Back! </div>
+            <div className="d-flex justify-content-center">
+              <input
+                type="email"
+                name="email"
+                className="allInputs  col-10"
+                placeholder="請填寫電子信箱"
+                title="電子信箱地址必須要有「@」"
+                value={fields.email}
+                onChange={handleFieldChange}
+                required
+              />
+            </div>
+            {fieldErrors.email === '' ? (
+              <label
+                className="stnotice col-12 ml-3  ml-lg-5 p-0"
+                htmlFor=""
+              >
+                &nbsp;
+              </label>
+            ) : (
+              <label
+                className="stnotice col-12 ml-3  ml-lg-5 p-0"
+                htmlFor=""
+              >
+                {fieldErrors.email}
+              </label>
+            )}
+            <div className="d-flex justify-content-center">
+              <input
+                type="password"
+                name="password"
+                className="allInputs   col-10"
+                placeholder="請填寫密碼*"
+                value={fields.password}
+                onChange={handleFieldChange}
+                required
+              />
+            </div>
+            {fieldErrors.password === '' ? (
+              <label
+                className="stnotice col-12 ml-3  ml-lg-5 p-0"
+                htmlFor=""
+              >
+                &nbsp;
+              </label>
+            ) : (
+              <label
+                className="stnotice col-12 ml-3  ml-lg-5 p-0"
+                htmlFor=""
+              >
+                {fieldErrors.password}
+              </label>
+            )}
+            <p className="forgetPassword">忘記密碼？</p>
+            <div className="d-flex justify-content-center">
+              <button
+                type="submit"
+                className="signUpBtn-m mx-auto col-10"
+              >
+                登入
+              </button>
+              <button type="submit" className="signUpBtn">
+                登入
+              </button>
+            </div>
+            <div className="joinusblack">
+              還沒加入我們？
+              <Link to="/SignUp" className="joinus">
+                前往註冊
+              </Link>
+            </div>
+            <div className="h30"> </div>
+          </form>
+        </div>
       </div>
+      <div className="h150"> </div>
+
+      <div className="bgisignup"> </div>
     </>
   )
 }

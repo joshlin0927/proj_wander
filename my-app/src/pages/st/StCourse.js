@@ -71,18 +71,20 @@ export default withRouter(function StCourse() {
         <div className="row justify-content-center d-flex">
           <StSideBar2 />
           <div className="coursesection col-md-8 col-lg-8 col-12">
-            {courses.data
-              ? courses.rows.map((course, i) => {
-                  return (
-                    <CourseItem
-                      key={course.sid + '_' + i}
-                      name={course.course_name}
-                      courseimg={course.course_img}
-                      teacher={course.firstname}
-                    />
-                  )
-                })
-              : () => <RemindingText />}
+            {courses.data ? (
+              courses.rows.map((course, i) => {
+                return (
+                  <CourseItem
+                    key={course.sid + '_' + i}
+                    name={course.course_name}
+                    courseimg={course.course_img}
+                    teacher={course.firstname}
+                  />
+                )
+              })
+            ) : (
+              <RemindingText />
+            )}
           </div>
         </div>
 
@@ -113,6 +115,7 @@ export default withRouter(function StCourse() {
         </div>
       </div>
       <StBgDecoration />
+      <div className="bgbeige"> </div>
       <Footer />
     </>
   )

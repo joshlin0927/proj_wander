@@ -368,7 +368,7 @@ export default withRouter(function SignUp(props) {
           </div>
         </div>
       </div>
-      <div className="stbg-img"></div>
+      <div className="bgisignup"></div>
     </>
   )
 })

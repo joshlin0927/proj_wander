@@ -349,6 +349,7 @@ export default withRouter(function StProfile(props) {
         </div>
       </div>
       <StBgDecorationNormal showUp={showUp} />
+      <div className="bgbeige"> </div>
       <Footer />
     </>
   )
