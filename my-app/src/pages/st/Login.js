@@ -4,7 +4,11 @@ import { useHistory } from 'react-router'
 import React, { useState, useRef, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import { devUrl, MemberLogin, MemberLoginVerify } from '../../config'
+import {
+  devUrl,
+  MemberLogin,
+  MemberLoginVerify,
+} from '../../config'
 
 function Login(props) {
   const history = useHistory()
@@ -124,8 +128,6 @@ function Login(props) {
             [element.name]: element.title,
           }
         }
-
-        // console.log([element.name], element.title)
       }
     }
 
