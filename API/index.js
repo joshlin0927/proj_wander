@@ -88,14 +88,14 @@ app.use(async (req, res, next) => {
 
 
     // jwt 驗證
-    req.myAuth = null;  // 自訂的屬性 myAuth
+    req.myAuth = null; // 自訂的屬性 myAuth
     const auth = req.get('Authorization');
-    if(auth && auth.indexOf('Bearer ')===0){
+    if (auth && auth.indexOf('Bearer ') === 0) {
         const token = auth.slice(7);
-        try{
+        try {
             req.myAuth = await jwt.verify(token, process.env.JWT_SECRET);
             console.log('req.myAuth:', req.myAuth);
-        } catch(ex) {
+        } catch (ex) {
             console.log('jwt-ex:', ex);
         }
     }
@@ -115,14 +115,36 @@ app.get('/', (req, res) => {
 })
 
 //註冊
-app.use('/SignUp', require(__dirname +'/routes/signup'));
+app.use('/SignUp', require(__dirname + '/routes/signup'));
 
 //登入
 app.use(require(__dirname + '/routes/login'));
 
 //上傳單一照片使用
 app.post('/try-upload2', uploadImg.single('avatar'), async (req, res) => {
-    res.json(req.file);
+    const output = {
+        success: false,
+        error: ''
+    }
+    const myfilename = req.file.filename
+    const sql = `UPDATE \`member\` SET \`avatar\` = ? WHERE \`sid\` = ?`
+
+    try {
+        [result] = await db.query(sql, [myfilename, req.body.studentSid]);
+    } catch (ex) {
+        output.error = ex.toString();
+    }
+    output.result = result;
+    if (result.affectedRows === 1) {
+        if (result.changedRows === 1) {
+            output.success = true;
+        } else {
+            output.error = "資料沒有變更";
+        }
+    }
+
+    res.json(output);
+
 });
 
 
@@ -221,7 +243,7 @@ app.use('/stcourse', require(__dirname + '/routes/stcourse'))
 app.use('/api/teacherdata', require(__dirname + '/routes/recommandtc'))
 //取得member email資料判斷註冊有無重複使用帳號
 app.use('/api/accountdata', require(__dirname + '/routes/getaccount'))
-app.use('/passwordmodify',require(__dirname + '/routes/stpasswordmodify'))
+app.use('/passwordmodify', require(__dirname + '/routes/stpasswordmodify'))
 
 // 測驗
 app.use('/sentence-game', require(__dirname + '/routes/sentence-game'));
