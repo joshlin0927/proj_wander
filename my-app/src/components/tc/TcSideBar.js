@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { Nav } from 'react-bootstrap'
 
-import { devUrl } from '../../config'
+import { devUrl, IMG_PATH } from '../../config'
 // 要使用能有active css效果的NavLink元件
 import { NavLink } from 'react-router-dom'
 
-function TcSideBar() {
+function TcSideBar(props) {
+  const { imgSrc } = props
   const [isActive, setIsActive] = useState('')
 
   return (
@@ -13,7 +14,11 @@ function TcSideBar() {
       <Nav className="TCsidebar col-2">
         <div className="avatar">
           <img
-            src={`${devUrl}/images/teacher/Thomas_Lillard.jpg`}
+            src={
+              imgSrc
+                ? `${IMG_PATH}/${imgSrc}`
+                : `${IMG_PATH}/presetAvatar.jpeg`
+            }
             alt=""
             className="img-fluid"
           />

@@ -1,17 +1,19 @@
 import axios from 'axios'
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import { Modal } from 'react-bootstrap'
 import { devUrl } from '../../config'
 
 import {
-  API_HOST,
   ArtMessage_DELETE,
   ArtMessage_EDIT,
-  ArtMessage_LIST,
 } from '../../config'
 
 function ArtCard(props) {
+  const member = localStorage.getItem('member')
+
+  const memberObj = JSON.parse(member)
+
   // useEffect(() => {
   //   let r = axios.delete(TcCourse_DELETE)
 
@@ -27,12 +29,13 @@ function ArtCard(props) {
     st_pictuer,
     messenger,
     great,
+    nickname,
     created_date,
     remove,
     setMess,
   } = props
 
-  // 刪除課程
+  // 刪除留言
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
@@ -48,12 +51,12 @@ function ArtCard(props) {
     })()
   }
 
-  //修改影片
+  //修改留言
   const [isShow, setIsShow] = useState(false)
   const handleIsClose = () => setIsShow(false)
   const handleIsShow = () => setIsShow(true)
 
-  // 影片名稱欄位
+  // 留言欄位
   const [nameChange, setNameChange] = useState(messenger)
 
   console.log(nameChange)
@@ -90,17 +93,14 @@ function ArtCard(props) {
             alt=""
           />
           <span className="TCcourse-img-selector-sin">
-            Ann{sid}
+            {nickname}
           </span>
         </div>
-        <div
-          className="TCcourse-info-sing"
-          onClick={handleIsShow}
-        >
+        <div className="TCcourse-info-sing">
           <div className="TCcourse-title-sin ">
             <p>{messenger}</p>
           </div>
-          <div className="TCcourse-info-right-sin">
+          {/* <div className="TCcourse-info-right-sin">
             <div className="TCcourse-detail-sin">
               <a href="#">
                 <img
@@ -109,24 +109,43 @@ function ArtCard(props) {
                 />
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
-        <div
-          className="TCcourse-delete-sing"
-          data-toggle="modal"
-          data-target="#exampleModal"
-        >
-          <div className="opp-icon-sing">
-            <i className="fas fa-edit"></i>
-          </div>
+
+        {memberObj.sid === st_sid ? (
           <div
-            className="opp-icon-sing"
-            title="刪除"
-            onClick={handleShow}
+            className="TCcourse-delete-sing"
+            data-toggle="modal"
+            data-target="#exampleModal"
           >
-            <i className="fas fa-trash"></i>
+            <div
+              className="opp-icon-sing"
+              onClick={handleIsShow}
+            >
+              <i className="fas fa-edit"></i>
+            </div>
+            <div
+              className="opp-icon-sing"
+              title="刪除"
+              onClick={handleShow}
+            >
+              <i className="fas fa-trash"></i>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div
+            className="TCcourse-delete-sing"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+            <div className="opp-icon-sing">
+              {/* <i className="fas fa-edit"></i> */}
+            </div>
+            <div className="opp-icon-sing" title="刪除">
+              {/* <i className="fas fa-trash"></i> */}
+            </div>
+          </div>
+        )}
       </li>
       <Modal show={isShow} onHide={handleIsClose} centered>
         <Modal.Header>
@@ -154,14 +173,14 @@ function ArtCard(props) {
       </Modal>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header>
-          <Modal.Title>刪除課程</Modal.Title>
+          <Modal.Title>刪除留言</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <h5
             className="modal-title text-center my-4"
             id="exampleModalLabel"
           >
-            確定要刪除課程?
+            確定要刪除留言?
           </h5>
         </Modal.Body>
         <Modal.Footer>

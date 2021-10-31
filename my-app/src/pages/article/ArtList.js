@@ -17,6 +17,7 @@ function TcCourseList(props) {
             sid={Course.sid}
             ar_sid={Course.ar_sid}
             st_sid={Course.st_sid}
+            nickname={Course.nickname}
             st_pictuer={Course.st_pictuer}
             messenger={Course.messenger}
             great={Course.great}

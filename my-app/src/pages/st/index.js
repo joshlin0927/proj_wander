@@ -15,6 +15,7 @@ import StCalendar from './StCalendar'
 import StClassroom from './StClassroom'
 import StOrder from './StOrder'
 
+
 function index() {
   return (
     <>
@@ -51,6 +52,7 @@ function index() {
         <Route exact path="/StIndex/StCalendar">
           <StCalendar />
         </Route>
+
         <Route exact path="/StIndex/StClassroom">
           <StClassroom />
         </Route>

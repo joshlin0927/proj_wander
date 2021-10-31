@@ -124,7 +124,6 @@ export default function StPasswordModify() {
       // 修改密碼不用把資料傳到後台，在前端比對驗證就可以
       return
     }
-    
 
     if (
       fields.origin !== '' &&
@@ -251,6 +250,7 @@ export default function StPasswordModify() {
         </div>
       </div>
       <StBgDecorationNormal />
+      <div className="bgbeige"></div>
       <Footer />
     </>
   )

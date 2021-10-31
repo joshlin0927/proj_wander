@@ -1,5 +1,5 @@
 import React from 'react'
-import { devUrl, API_HOST } from '../../config'
+import { API_HOST } from '../../config'
 
 export default function CourseItem(props) {
   const { name, courseimg, teacher } = props

@@ -34,6 +34,9 @@ function TcCourse() {
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
   const [RemoveCourse, setRemoveCourse] = useState()
 
+  // 取得頭圖
+  const [imgSrc, setImgSrc] = useState('')
+
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -47,7 +50,9 @@ function TcCourse() {
         if (r.status === 200) {
           setTcCourses(r.data.rows)
           setDisplayCourse(r.data.rows)
+          setImgSrc(r.data.rows[0].avatar)
         }
+        // console.log(r)
       })()
     }
     // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
@@ -85,6 +90,14 @@ function TcCourse() {
     setDisplayCourse(newTcCourses)
   }, [searchWord, TcCourses])
 
+  const addCourse = async () => {
+    const r = await axios.post(
+      `${TcCourse_ADD}?teacherSid=${teacherSid}`,
+
+      { teacher_sid: teacherSid }
+    )
+  }
+
   return (
     <>
       <div className="container mainContent">
@@ -97,7 +110,7 @@ function TcCourse() {
           </div>
         </div>
         <div className="row">
-          <TcSideBar />
+          <TcSideBar imgSrc={imgSrc} />
           {/* form */}
           <div className="TCform col-12 col-md-10">
             <div className="TCform-head ml-1 p-0">
@@ -116,14 +129,15 @@ function TcCourse() {
                 />
               </div>
               <div className="d-flex justify-content-end">
-                <Link to="/TCindex/TcCourseAdd/">
-                  <button
-                    type="submit"
-                    className="TCbtn-sm btn-primary"
-                  >
-                    <span>新增</span>
-                  </button>
-                </Link>
+                {/* <Link to="/TCindex/TcCourseAdd/"> */}
+                <button
+                  type="submit"
+                  className="TCbtn-sm btn-primary"
+                  onClick={addCourse}
+                >
+                  <span>新增</span>
+                </button>
+                {/* </Link> */}
               </div>
             </div>
             {/* mobile search bar */}

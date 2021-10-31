@@ -18,6 +18,16 @@ import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
 
 function TcAnalytic() {
+  // 取得頭圖
+  const [imgSrc, setImgSrc] = useState('')
+
+  // 搜尋列
+  const [searchWord, setSearchWord] = useState('')
+
+  // 課程陣列排出
+  let [data, setData] = useState({})
+  let [totalRows, setTotalRows] = useState(0)
+
   //判斷是否登入並為教師身分
   const history = useHistory()
   const token = localStorage.getItem('token')
@@ -37,29 +47,14 @@ function TcAnalytic() {
         if (r.status === 200) {
           setTotalRows(r.data.totalRows)
           setData(r.data)
+          setImgSrc(r.data.rows[0].avatar)
+        } else {
+          alert('連線出現問題')
         }
-        console.log(r.data)
       })()
     }
   }, [])
 
-  // 搜尋列
-  const [searchWord, setSearchWord] = useState('')
-
-  // 課程陣列排出
-  let [data, setData] = useState({})
-  let [totalRows, setTotalRows] = useState(0)
-
-  useEffect(() => {
-    ;(async () => {
-      let r = await axios.get(TcCourse_LIST)
-      console.log(r)
-      if (r.status === 200) {
-        setTotalRows(r.data.totalRows)
-        setData(r.data)
-      }
-    })()
-  }, [])
   return (
     <>
       <div className="container mainContent">
@@ -72,7 +67,7 @@ function TcAnalytic() {
           </div>
         </div>
         <div className="row">
-          <TcSideBar />
+          <TcSideBar imgSrc={imgSrc} />
           {/* form */}
           <form className="TCform col-12 col-md-10 px-4">
             <div className="TCform-head ml-1 p-0">

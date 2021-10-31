@@ -2,7 +2,10 @@
   font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
 }
 
-
+.bgbeige{
+   background-color:#f1f0e9;
+   
+}
 
 .opacity-0 {
   opacity: 0;

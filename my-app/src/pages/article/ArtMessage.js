@@ -40,7 +40,7 @@ function ArtMessage() {
   // 拿去做map排列的，取的是r.data.rows，或是其它處理
   const [displayVideo, setDisplayVideo] = useState([])
 
-  // 資料庫來的課程資料
+  // 資料庫來的留言資料
   const [TcCourses, setTcCourses] = useState([])
 
   const [displayCourse, setDisplayCourse] = useState([])
