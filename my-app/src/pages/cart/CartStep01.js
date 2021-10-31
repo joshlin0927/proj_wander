@@ -10,11 +10,19 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import Footer from '../../components/Footer'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import CartItem from '../../components/cart/CartItem'
+import CounponCard from '../../components/cart/CounponCard'
+import SelectOtherCounpon from '../../components/cart/SelectOtherCounpon'
+import NotSelectCounpon from '../../components/cart/NotSelectCounpon'
+import CartSummary from '../../components/cart/CartSummary'
 
 function CartStep01(props) {
   const [cartData, setCartData] = useState([{}])
   const [cartQty, setCartQty] = useState(0)
   const [cartFooterMb, setCartFooterMb] = useState(true)
+  const [counponSelect, setCounponSelect] = useState('')
+  const [counponIsUsed, setCounponIsUsed] = useState(
+    sessionStorage.getItem('counponID')
+  )
   // modal
   const [counponModalShow, setCounponModalShow] =
     useState(false)
@@ -30,9 +38,11 @@ function CartStep01(props) {
         `${Cart_API}/list?member_sid=${member.sid}`
       )
       console.log('rows:', r.data.result)
-      if (r.status === 200) {
+      if (r.data.success) {
         setCartData(r.data.result)
         setCartQty(r.data.result.length)
+      } else {
+        setCartQty(0)
       }
     })()
   }, [member.sid])
@@ -51,11 +61,20 @@ function CartStep01(props) {
       .then((r) => r.json())
       .then((obj) => {
         if (obj.success) {
-          console.log('新增成功：', JSON.stringify(obj))
+          console.log('新增成功：', obj)
         } else {
           console.log(obj.error)
         }
       })
+  }
+  // counpon確認送出
+  function sendCounponSelect() {
+    if (counponSelect === '') {
+      setCounponIsUsed(false)
+    } else {
+      setCounponIsUsed(true)
+    }
+    sessionStorage.setItem('counponID', counponSelect)
   }
   // counpon打勾效果
   useEffect(() => {
@@ -75,10 +94,7 @@ function CartStep01(props) {
             .html(
               `<img src="${devUrl}/images/cart/checked_icon.svg" alt="">`
             )
-          $('#counponCanUse .modal-card').each(function (
-            i,
-            v
-          ) {
+          $('#counponCanUse .modal-card').each(function () {
             if ($(this).attr('isChecked') !== 'checked') {
               $(this)
                 .children()
@@ -91,7 +107,26 @@ function CartStep01(props) {
         }
       }
     )
-  }, [counponModalShow])
+  }, [counponModalShow, counponSelect])
+  useEffect(() => {
+    const counponItem = document.querySelector(
+      `#counponCard${counponIsUsed}`
+    )
+    if (counponItem) {
+      counponItem.classList.add('active')
+      counponItem.lastChild.innerHTML = `<img src="${devUrl}/images/cart/checked_icon.svg" alt="">`
+    }
+  }, [counponModalShow, counponIsUsed])
+
+  // 計算總價
+  const total = () => {
+    let sum = 0
+    for (let i = 0; i < cartData.length; i++) {
+      sum += cartData[i].course_price
+    }
+    console.log('sum', sum)
+    return sum
+  }
   return (
     <>
       <MultiLevelBreadCrumb />
@@ -146,10 +181,20 @@ function CartStep01(props) {
                 </span>
               </div>
               <div className="w-100"></div>
-              <div className="btn" onClick={addCart(1)}>
+              <div
+                className="btn"
+                onClick={() => {
+                  addCart(1)
+                }}
+              >
                 新增product1
               </div>
-              <div className="btn" onClick={addCart(2)}>
+              <div
+                className="btn"
+                onClick={() => {
+                  addCart(2)
+                }}
+              >
                 新增product2
               </div>
               <div className="w-100"></div>
@@ -172,76 +217,65 @@ function CartStep01(props) {
             </div>
             {/* <!-- 購物車item --> */}
             <div className="row">
-              {cartData.map((v, i) => {
-                return (
-                  <CartItem
-                    key={i}
-                    index={i}
-                    product_sid={v.product_sid}
-                    name={v.course_name}
-                    price={v.course_price}
-                    status={v.course_status}
-                    img={v.course_img}
-                    cartData={cartData}
-                    setCartData={setCartData}
-                  />
-                )
-              })}
+              {cartQty === 0 ? (
+                <span className="emptyCart">
+                  購物車內無項目
+                </span>
+              ) : (
+                cartData.map((v, i) => {
+                  return (
+                    <CartItem
+                      key={i}
+                      index={i}
+                      product_sid={v.product_sid}
+                      name={v.course_name}
+                      price={v.course_price}
+                      status={v.course_status}
+                      img={v.course_img}
+                      cartQty={cartQty}
+                      setCartQty={setCartQty}
+                      cartData={cartData}
+                      setCartData={setCartData}
+                    />
+                  )
+                })
+              )}
             </div>
           </div>
           {/* <!-- Checkout Detail --> */}
           <div className="checkout container col-10 col-md-2">
-            <div className="row">
-              <div className="checkoutTitle">
-                <span>結帳明細</span>
-              </div>
-              <div className="checkoutSubtotal">
-                <span>小計</span>
-                <span>NT$8100</span>
-                <div className="w-100"></div>
-                <span>折扣</span>
-                <span>-NT$810</span>
-              </div>
-            </div>
-            <div className="row justify-content-end">
-              <div className="checkoutTotal">NT$ 7310</div>
-            </div>
+            <CartSummary total={total()} />
             {/* <!-- 選擇優惠券 --> */}
             <div className="row justify-content-center">
               <div className="couponTitle-m">優惠券</div>
               <div className="checkoutCoupon">
                 <span>選擇使用的優惠券：</span>
-                <div className="w-100 mt-3 counponImage">
-                  <img
-                    src={`${devUrl}/images/cart/coupon.svg`}
-                    alt=""
+                {counponIsUsed === null ? (
+                  <NotSelectCounpon
+                    handleCounponModalShow={
+                      handleCounponModalShow
+                    }
                   />
-                </div>
-                {/* <!-- <div className="w-100 mt-3"></div>
-                        <a href="#" className="ml-auto mr-auto" onClick={handleCounponModalShow}>
-                            <span className="selectCoupon">點我選擇優惠券</span>
-                        </a> --> */}
-                <div className="w-100 mt-3"></div>
-                <Link
-                  to="#/"
-                  className="ml-auto"
-                  onClick={handleCounponModalShow}
-                >
-                  <span className="selectOtherCoupon">
-                    選擇其他優惠券
-                  </span>
-                </Link>
+                ) : (
+                  <SelectOtherCounpon
+                    handleCounponModalShow={
+                      handleCounponModalShow
+                    }
+                  />
+                )}
               </div>
               <div className="couponTitle-m">結帳明細</div>
               <div className="checkoutSubtotal-m">
                 <span>小計</span>
-                <span>NT$8100</span>
+                <span>NT${total()}</span>
                 <div className="w-100"></div>
                 <span>折扣</span>
-                <span>-NT$810</span>
+                <span>-NT${Math.floor(total() * 0.1)}</span>
                 <div className="w-100 my-2 border-bottom"></div>
                 <span>結帳金額</span>
-                <span>NT$7310</span>
+                <span>
+                  NT${total() - Math.floor(total() * 0.1)}
+                </span>
               </div>
             </div>
             {/* <!-- 結帳按鈕 --> */}
@@ -251,11 +285,11 @@ function CartStep01(props) {
               </div>
               <div className="checkoutTotal-m">
                 <span className="checkoutTotal-m-1">
-                  NT$7310
+                  NT${total() - Math.floor(total() * 0.1)}
                 </span>
                 <div className="w-100"></div>
                 <span className="checkoutTotal-m-2">
-                  (優惠折抵：NT$810)
+                  (優惠折抵：NT${Math.floor(total() * 0.1)})
                 </span>
               </div>
               <button
@@ -309,73 +343,42 @@ function CartStep01(props) {
             id="counponCanUse"
             className="container-fluid "
           >
+            <div className="row">
+              <input
+                type="radio"
+                name="counponCtrl"
+                id="counponTabc1"
+                className="counponCtrl"
+                value="c1"
+                onChange={(e) => {
+                  setCounponSelect(e.target.value)
+                }}
+              />
+              <input
+                type="radio"
+                name="counponCtrl"
+                id="counponTabc2"
+                className="counponCtrl"
+                value="c2"
+                onChange={(e) => {
+                  setCounponSelect(e.target.value)
+                }}
+              />
+              <input
+                type="radio"
+                name="counponCtrl"
+                id="counponTabc3"
+                className="counponCtrl"
+                value="c3"
+                onChange={(e) => {
+                  setCounponSelect(e.target.value)
+                }}
+              />
+            </div>
             {/* <!-- 優惠券 --> */}
-            <div className="row modal-card">
-              <div className="col-6 col-md-4 text-center p-0">
-                <img
-                  src={`${devUrl}/images/cart/coupon.svg`}
-                  alt=""
-                />
-              </div>
-              <div className="col-6 col-md-4">
-                <span>帳號內首筆訂單可使用</span>
-                <div className="w-100"></div>
-                <span>不限制訂單內課程購買數量</span>
-              </div>
-              <div className="col-6 col-md-2 text-center">
-                2021.12.31
-              </div>
-              <div className="col-2 offset-4 offset-md-0 text-center p-0">
-                <img
-                  src={`${devUrl}/images/cart/check_icon.svg`}
-                  alt=""
-                />
-              </div>
-            </div>
-            <div className="row modal-card">
-              <div className="col-6 col-md-4 text-center p-0">
-                <img
-                  src={`${devUrl}/images/cart/coupon.svg`}
-                  alt=""
-                />
-              </div>
-              <div className="col-6 col-md-4">
-                <span>帳號內首筆訂單可使用</span>
-                <div className="w-100"></div>
-                <span>不限制訂單內課程購買數量</span>
-              </div>
-              <div className="col-6 col-md-2 text-center">
-                2021.12.31
-              </div>
-              <div className="col-2 offset-4 offset-md-0 text-center p-0">
-                <img
-                  src={`${devUrl}/images/cart/check_icon.svg`}
-                  alt=""
-                />
-              </div>
-            </div>
-            <div className="row modal-card">
-              <div className="col-6 col-md-4 text-center p-0">
-                <img
-                  src={`${devUrl}/images/cart/coupon.svg`}
-                  alt=""
-                />
-              </div>
-              <div className="col-6 col-md-4">
-                <span>帳號內首筆訂單可使用</span>
-                <div className="w-100"></div>
-                <span>不限制訂單內課程購買數量</span>
-              </div>
-              <div className="col-6 col-md-2 text-center">
-                2021.12.31
-              </div>
-              <div className="col-2 offset-4 offset-md-0 text-center p-0">
-                <img
-                  src={`${devUrl}/images/cart/check_icon.svg`}
-                  alt=""
-                />
-              </div>
-            </div>
+            <CounponCard counponTab={'c1'} />
+            <CounponCard counponTab={'c2'} />
+            <CounponCard counponTab={'c3'} />
           </div>
           <div className="container-fluid mt-5">
             {/* <!-- 不可用標題 --> */}
@@ -458,16 +461,23 @@ function CartStep01(props) {
             type="button"
             className="btn confirmBtn"
             id="checkBtn"
-            onClick={handleCounponModalClose}
+            onClick={() => {
+              handleCounponModalClose()
+              sendCounponSelect()
+            }}
           >
-            確認
+            確認使用
           </button>
           <button
             type="button"
             className="btn confirmBtn"
-            onClick={handleCounponModalClose}
+            onClick={() => {
+              handleCounponModalClose()
+              sessionStorage.removeItem('counponID')
+              setCounponIsUsed(null)
+            }}
           >
-            取消
+            不使用優惠券
           </button>
         </Modal.Footer>
       </Modal>

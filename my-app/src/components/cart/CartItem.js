@@ -10,6 +10,8 @@ function CartItem(props) {
     price,
     status,
     img,
+    cartQty,
+    setCartQty,
     cartData,
     setCartData,
   } = props
@@ -76,6 +78,7 @@ function CartItem(props) {
               newCartData.splice(index, 1)
               setCartData(newCartData)
               deleteSend(product_sid)
+              setCartQty(cartQty - 1)
             }}
           >
             <img
