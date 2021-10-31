@@ -22,6 +22,7 @@ function TcProfile(props) {
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
   const teacherSid = JSON.parse(member).sid
+
   useEffect(() => {
     if (!token) {
       history.push('/')
