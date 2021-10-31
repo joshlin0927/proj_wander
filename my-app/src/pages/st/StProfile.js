@@ -28,9 +28,8 @@ export default withRouter(function StProfile(props) {
   const doUpload = async () => {
     const fd = new FormData(document.form1)
     const r = await axios.post(UPLOAD_AVATAR, fd)
-
-    console.log(r.data)
     setImgSrc(r.data.filename)
+    console.log(r.data)
   }
 
   //將所有欄位的值以物件形式存在一個狀態
@@ -163,7 +162,7 @@ export default withRouter(function StProfile(props) {
         .post(
           `http://localhost:3001/stprofile/edit?studentSid=${studentSid}`,
           {
-            avatar: inputRef.current.value,
+            avatar: { imgSrc },
             firstname: fields.firstname,
             lastname: fields.lastname,
             email: fields.email,
@@ -193,7 +192,8 @@ export default withRouter(function StProfile(props) {
           `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
         )
         setFields(r.data[0][0])
-        console.log('res:', r)
+        setImgSrc()
+        console.log('res:', r.data)
       })()
     }
   }, [])
