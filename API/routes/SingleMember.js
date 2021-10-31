@@ -79,7 +79,7 @@ router.route("/avatar").post(uploadImg.single("avatar"), async (req, res) => {
   const sql = `UPDATE \`member\` SET \`avatar\` = ? WHERE \`sid\` = ?`;
 
   try {
-    [result] = await db.query(sql, [req.file.filename, req.body.teacherSid]);
+    [result] = await db.query(sql, [req.file.filename, req.query.teacherSid]);
   } catch (ex) {
     output.error = ex.toString();
   }

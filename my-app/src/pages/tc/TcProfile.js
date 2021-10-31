@@ -24,6 +24,17 @@ function TcProfile(props) {
   const identity = JSON.parse(member).identity
   const teacherSid = JSON.parse(member).sid
 
+  //大頭貼狀態
+  let [imgSrc, setImgSrc] = useState('')
+  const doUpload = async () => {
+    const r = await axios.post(
+      `${MemberAvatar}/?teacherSid=${teacherSid}`,
+      new FormData(document.formAvatar)
+    )
+    setImgSrc(r.data.filename)
+    console.log(r.data)
+  }
+
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -39,20 +50,9 @@ function TcProfile(props) {
         setImgSrc(r.data[0].avatar)
       })()
     }
-  }, [])
+  }, [imgSrc])
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
-
-  //大頭貼狀態
-  let [imgSrc, setImgSrc] = useState('')
-  const doUpload = async () => {
-    const r = await axios.post(
-      { MemberAvatar },
-      new FormData(document.formAvatar)
-    )
-    setImgSrc(r.data.filename)
-    console.log(r.data)
-  }
 
   //預覽大頭貼的地方
   // const imgRef = useRef(null)
