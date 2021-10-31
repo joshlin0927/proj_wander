@@ -1,14 +1,12 @@
 import axios from 'axios'
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import { Modal } from 'react-bootstrap'
 import { devUrl } from '../../config'
 
 import {
-  API_HOST,
   ArtMessage_DELETE,
   ArtMessage_EDIT,
-  ArtMessage_LIST,
 } from '../../config'
 
 function ArtCard(props) {
