@@ -77,20 +77,13 @@ router.get('/api/list', async (req, res)=>{
 });
 
 
-router.route('/edit/:sid')
-    .get(async (req, res) => {
-        const sql = "SELECT * FROM art_messenger WHERE sid=?";
-        const [rs] = await db.query(sql, [req.params.sid]);
-
-        if (rs.length) {
-            res.render('art_messenger/edit', {
-                row: rs[0]
-            });
-        } else {
-            res.redirect('/art_messenger/list');
-        }
-    })
-    .post(async (req, res) => {
+router.get("/edit", async (req, res) => {
+    // let courseSid = ;
+    const sql = `SELECT * FROM \`video_list\` WHERE sid=?`;
+    const [rs] = await db.query(sql, [req.query.videoSid]);
+    res.json(rs);
+  });
+  router.post(async (req, res) => {
         // TODO: 欄位檢查
         const output = {
             success: false,

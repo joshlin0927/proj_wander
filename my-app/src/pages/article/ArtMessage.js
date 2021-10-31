@@ -4,10 +4,7 @@ import { useHistory } from 'react-router'
 import axios from 'axios'
 
 // 後端檔案路徑
-import {
-  ArtMessage_LIST,
-  MemberEdit,
-} from '../../config'
+import { ArtMessage_LIST, MemberEdit } from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -18,9 +15,6 @@ import ArtCard from './ArtCard'
 
 import ArtList from './ArtList'
 
-
-
-
 function ArtMessage() {
   //  const [searchWord, setSearchWord] = useState('')
 
@@ -29,46 +23,36 @@ function ArtMessage() {
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
-   const teacherSid = JSON.parse(member).sid
-
+  const teacherSid = JSON.parse(member).sid
 
   //  console.log('RemoveCourse', RemoveCourse)
 
   //  console.log('setRemoveCourse', setRemoveCourse)
 
-
-
   // 課程陣列排出
   // let [data, setData] = useState([])
 
-
-
-
-    // console.log('status', status)
-    // console.log('setStatus', setStatus)
-
+  // console.log('status', status)
+  // console.log('setStatus', setStatus)
 
   let [totalRows, setTotalRows] = useState(0)
 
+  // 資料庫來的影片資料
+  const [TcVideos, setTcVideos] = useState([])
 
-    // 資料庫來的影片資料
-    const [TcVideos, setTcVideos] = useState([])
+  // 拿去做map排列的，取的是r.data.rows，或是其它處理
+  const [displayVideo, setDisplayVideo] = useState([])
 
-    // 拿去做map排列的，取的是r.data.rows，或是其它處理
-    const [displayVideo, setDisplayVideo] = useState([])
+  // 資料庫來的課程資料
+  const [TcCourses, setTcCourses] = useState([])
 
+  const [displayCourse, setDisplayCourse] = useState([])
 
-  
-     // 資料庫來的課程資料
-     const [TcCourses, setTcCourses] = useState([])
+  // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
+  const [RemoveCourse, setRemoveCourse] = useState()
 
-     const [displayCourse, setDisplayCourse] = useState([])
-
-     // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
-     const [RemoveCourse, setRemoveCourse] = useState()
-
-         // 修改後的狀態紀錄
-    const [status, setStatus] = useState(false)
+  // 修改後的狀態紀錄
+  const [status, setStatus] = useState(false)
 
   useEffect(() => {
     if (!token) {
@@ -77,44 +61,41 @@ function ArtMessage() {
       history.push('/')
     } else {
       ;(async () => {
-        let r = await axios.get(`${ArtMessage_LIST}`)
+        let r = await axios.get(
+          // `${ArtMessage_LIST}`
+          `${ArtMessage_LIST}?Sid=${teacherSid}`
 
+          )
 
-        let a = await axios.get(`${MemberEdit}?teacherSid=${teacherSid}`)
+        let a = await axios.get(
+          `${MemberEdit}?teacherSid=${teacherSid}`
+        )
+
+        // let c = await axios.get(
+        //   `${ArtMessage_LIST}?Sid=${teacherSid}`
+        // )
 
         // setTcCourses(r.data.rows)
 
         // setDisplayCourse(r.data.rows)
 
-
-
         if (r.status === 200) {
-
           setTcCourses(r.data.rows)
 
           setDisplayCourse(r.data.rows)
-    
-  
         }
 
         console.log('a.data[0][0]', a.data[0][0])
 
         console.log('r.data', r.data)
-
       })()
     }
-   // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
+    // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
   }, [RemoveCourse, status])
-
-
-
-
- 
-
 
   return (
     <>
-                    {/* {data.rows
+      {/* {data.rows
                   ? data.rows.map((v, index) => {
                       return (
 
@@ -169,8 +150,7 @@ function ArtMessage() {
                   <div className="subtitle-sin">留言板</div>
                   <nav className="sidebars-sing ">
                     <ul className="nav-list-sing  mx-auto ul-opp ">
-
-                  {/* {data.rows
+                      {/* {data.rows
                   ? data.rows.map((v, index) => {
                       return (
                         <TcCourseCard
@@ -186,17 +166,15 @@ function ArtMessage() {
                       )
                     })
                   : null} */}
-                  {TcCourses.length > 0 ? (
-              <ArtList
-                Courses={displayCourse}
-                RemoveCourse={RemoveCourse}
-                setRemoveCourse={setRemoveCourse}
-                status={status}
-                setStatus={setStatus}
-              />
-            ) : (
-              null
-            )}
+                      {TcCourses.length > 0 ? (
+                        <ArtList
+                          Courses={displayCourse}
+                          RemoveCourse={RemoveCourse}
+                          setRemoveCourse={setRemoveCourse}
+                          status={status}
+                          setStatus={setStatus}
+                        />
+                      ) : null}
                       {/* {data.rows.map((v, i) => {
                 return (
                   <TcCourseCard
