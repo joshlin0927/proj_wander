@@ -122,7 +122,6 @@ app.use(require(__dirname + '/routes/login'));
 
 //上傳單一照片使用
 app.post('/try-upload2', uploadImg.single('avatar'), async (req, res) => {
-    
     const output = {
         success: false,
         error: ''
@@ -144,10 +143,9 @@ app.post('/try-upload2', uploadImg.single('avatar'), async (req, res) => {
         }
     }
 
-    res.json(req.file);
+    res.json(output);
 
 });
-
 
 
 //教師
