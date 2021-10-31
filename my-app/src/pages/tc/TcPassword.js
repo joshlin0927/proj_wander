@@ -21,13 +21,22 @@ function TcPassword() {
   const teacherSid = JSON.parse(member).sid
   const email = JSON.parse(member).email
 
+  //頭圖傳送
+  let [imgSrc, setImgSrc] = useState('')
   useEffect(() => {
     if (!token) {
       history.push('/')
     } else if (identity !== 1) {
       history.push('/')
+    } else {
+      ;(async () => {
+        let r = await axios.get(
+          `${MemberEdit}/?teacherSid=${teacherSid}`
+        )
+        setImgSrc(r.data[0].avatar)
+      })()
     }
-  }, [])
+  }, [imgSrc])
 
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
@@ -158,7 +167,7 @@ function TcPassword() {
           </div>
         </div>
         <div className="row">
-          <TcSideBar />
+          <TcSideBar imgSrc={imgSrc} />
           {/* form */}
           <form
             className="TCform col-12 offset-0 col-md-8 offset-md-1"
