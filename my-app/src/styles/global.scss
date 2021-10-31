@@ -462,6 +462,12 @@ a {
   display: none;
 }
 
+/* 文章背景圖 */
+.yellow-circle{
+  display: none;
+}
+
+
 /* 上面的黃色色塊 */
 .dec-block {
   display: block;
@@ -624,6 +630,15 @@ a {
     position: absolute;
     z-index: -1;
     right: 0;
+    top: 724px;
+  }
+
+/* 文章背景*/
+  .yellow-circle {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    left: 0;
     top: 724px;
   }
 

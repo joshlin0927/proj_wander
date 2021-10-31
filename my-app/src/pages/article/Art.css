@@ -1,0 +1,550 @@
+
+
+.p-page-info {
+  order: 2;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 15px;
+  border-radius: 20px;
+}
+
+
+.art-type-sin{
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 24px;
+  /* identical to box height, or 160% */
+
+  letter-spacing: -0.015em;
+
+  color: #065F8E;
+}
+
+.art-title-sin{
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 36px;
+  /* or 180% */
+
+  letter-spacing: -0.015em;
+
+  color: #000000;
+}
+
+.p-page-avatar-sin{
+  display: flex;
+  justify-content: center;
+  }
+
+  
+  .btn-sin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 115px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+ /* 查詢按鈕顏色hover黃 */
+ .btn-outline-y-sin {
+  color: #212529;
+  background-color: #F1EF5B;
+  border-color: #F1EF5B;
+}
+
+.btn-outline-y-sin:hover {
+  color: #212529;
+  background-color: #ffffff;
+  border-color: #212529;
+}
+
+.btn-outline-y-sin:focus,
+.btn-outline-y-sin.focus {
+  box-shadow: 0 0 0 0.2rem #F1EF5B;
+  background-color: #ffffff;
+}
+
+.btn-outline-y-sin.disabled,
+.btn-outline-y-sin:disabled {
+  color: #F1EF5B;
+  background-color: transparent;
+}
+
+.btn-outline-y-sin:not(:disabled):not(.disabled):active,
+.btn-outline-y-sin:not(:disabled):not(.disabled).active,
+.show>.btn-outline-y-sin-sin.dropdown-toggle {
+  color: #212529;
+  background-color: #ffffff;
+  border-color: #212529;
+}
+
+.btn-outline-y-sin:not(:disabled):not(.disabled):active:focus,
+.btn-outline-y-sin:not(:disabled):not(.disabled).active:focus,
+.show>.btn-outline-y-sin.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem #F1EF5B;
+  ;
+}
+
+
+.opp-sin{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  background: #FFFFFF;
+  /* width: 400px; */
+          }
+
+          .opp-icon-sin{
+              display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 30px;
+          }
+
+          
+      .subtitle-sin {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 25px 0px 25px 10px;
+    }
+            /* 單獨一個按鈕在表單底部時 */
+            .one-btn-sin {
+              color: black;
+              margin-bottom: 30px;
+          }
+
+          .btn-b-sin {
+            width: 115px;
+            height: 40px;
+            margin-top: 25px
+        }
+
+        .sidebars-sing .nav-list-sing {
+          width: 100%;
+          list-style: none;
+          padding-left: 0;
+          margin-top: 20px;
+        }
+
+            /* 選中的選項狀態 */
+    .sidebars-sing .sing-TCcourse-card.active {
+      background-color: #ECECEC;
+    }
+
+
+
+    .sidebars-sing .sing-TCcourse-card:hover {
+      background-color: white;
+      opacity: 0.8;
+    }
+
+    .sing-TCcourse-card {
+      display: flex;
+      justify-content: center;
+      background: #ECECEC;
+      width: 100%;
+      /* overflow: hidden; */
+      /* margin-bottom: 15px;  */
+      /* cursor: pointer;  */
+      z-index: -1;
+      margin-bottom: 3px;
+  
+      /* position: absolute;*/
+  
+  }
+
+          /* 課程刪除按鈕 */
+          .TCcourse-delete-sin {
+            color: #065f8e;
+            font-size: 18px;
+            padding: 3px 10px 0px;
+            margin-left: auto;
+        }
+
+
+      .TCcourse-info-right-sin{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .opp-icon-sing{
+      display: flex;
+align-items: center;
+justify-content: center;
+display: flex;
+margin-top: 30px;
+  }
+
+  .TCcourse-img-selector-sin {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 25px;
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 10px;
+      line-height: 25px;
+      text-align: center;
+      letter-spacing: -0.015em;
+      color: #065F8E;
+}
+
+.TCcourse-title-sin p{
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 25px;
+  /* or 139% */
+
+  letter-spacing: -0.015em;
+
+  color: #000000;
+  }
+
+  .TCcourse-img-sing{
+    margin-right: 10px;
+  }
+
+  .TCallwrapera-sing{
+    z-index: 5;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+
+.TCallwraperw {
+  display: block;
+  position: absolute;
+  z-index:1;
+  right: 0;
+  top: 100px;
+}
+
+.white-block {
+  position: relative;
+    width: 590px;
+    height: 400px;
+    background: #FFFFFF;
+    border-radius: 180px 0px 0px 180px;
+
+}
+
+.yellow-area-but-1   {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #000000;
+  position: absolute;
+  width: 200px;
+  height: 58px;
+  background: #FFFFFF;
+  box-sizing: border-box;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 41px;
+  /* identical to box height */
+  top:60px;
+  left:80px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.15em;
+
+  color: #000000;
+}
+
+.sns-sing {
+  z-index: 15;
+position: absolute;
+right: 380px;
+top:280px;
+-js-display: flex;
+display:-webkit-box;
+display: -webkit-flex;
+display:-moz-box;
+display:-ms-flexbox;
+display: flex;
+-webkit-justify-content: space-between;
+justify-content: space-between;
+-webkit-flex-wrap: wrap;
+-ms-flex-wrap: wrap;
+flex-wrap: wrap;
+}
+
+
+.sns-sing .nav_footer-sing {
+position: relative;
+width: 60px;
+height: 60px;
+background-color: #065f8e;
+border-radius: 50%;
+overflow: hidden;
+transition: 0.3s ease;
+}
+
+.sns-sing .nav_footera-sing {
+position: relative;
+width: 60px;
+height: 60px;
+left: 30px;
+background-color: #065f8e;
+border-radius: 50%;
+overflow: hidden;
+transition: 0.3s ease;
+}
+
+
+
+.sns-sing .Facebook-sing {
+width: 30px;
+height: 30px;
+left: -50%;
+top: 50%;
+filter: drop-shadow(#fff 60px 0);
+transform: translate(-50%, -50%);
+position: absolute;
+z-index: 5;
+}
+
+
+.sns-sing .nav_footer-sing:hover,
+.sns-sing .nav_footera-sing:hover {
+background-color: #fff;
+}
+
+.sns-sing .nav_footer-sing:hover .Facebook-sing,
+.sns-sing .nav_footera-sing:hover .Facebook-sing{
+filter: drop-shadow(#065f8e 60px 0);
+color: #065f8e;
+}
+
+
+@media (max-width: 768px) {
+
+          
+
+  .TCallwrapera-sing{
+      display: none;
+
+  }
+  .sns-sing .nav_footer-sing ,
+  .sns-sing .nav_footera-sing {
+      display: none;
+
+  }
+
+
+}
+
+
+
+
+
+/*875*/
+          @media (min-width: 768px) {
+
+
+     
+
+      
+
+            .opp-icon-sing{
+              display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 25px;
+          }
+
+            .TCcourse-delete-sing {
+              color: #065f8e;
+              font-size: 18px;
+              padding: 0px;
+              margin: auto 15px;
+          }
+
+            .TCcourse-img-selector-sin {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              margin-bottom: 50px;
+              font-family: Noto Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 20px;
+              line-height: 50px;
+              /* identical to box height, or 250% */
+
+              text-align: center;
+              letter-spacing: -0.015em;
+
+              color: #065F8E;
+          }
+
+
+                        /* sidebar選項列 */
+                        .sidebar-sing .nav-list-sing {
+                          width: 100%;
+                          list-style: none;
+                          padding-left: 0;
+                      }
+
+            .btn-b-sin {
+              width: 250px;
+              height: 40px;
+              margin-top: 20px
+          }
+
+
+            .one-btn-sin {
+              margin: 50px 0px 60px;
+          }
+
+             /* 查詢按鈕顏色hover黃 */
+             .btn-outline-y-sin {
+              color: #212529;
+              background-color: #F1EF5B;
+              border-color: #F1EF5B;
+          }
+
+          .btn-outline-y-sin:hover {
+              color: #212529;
+              background-color: #ffffff;
+              border-color: #212529;
+          }
+
+          .btn-outline-y-sin:focus,
+          .btn-outline-y-sin.focus {
+              box-shadow: 0 0 0 0.2rem #F1EF5B;
+              background-color: #ffffff;
+          }
+
+          .btn-outline-y-sin.disabled,
+          .btn-outline-y-sin:disabled {
+              color: #F1EF5B;
+              background-color: transparent;
+          }
+
+          .btn-outline-y-sin:not(:disabled):not(.disabled):active,
+          .btn-outline-y-sin:not(:disabled):not(.disabled).active,
+          .show>.btn-outline-y-sin.dropdown-toggle {
+              color: #212529;
+              background-color: #ffffff;
+              border-color: #212529;
+          }
+
+          .btn-outline-y-sin:not(:disabled):not(.disabled):active:focus,
+          .btn-outline-y-sin:not(:disabled):not(.disabled).active:focus,
+          .show>.btn-outline-y-sin.dropdown-toggle:focus {
+              box-shadow: 0 0 0 0.2rem #F1EF5B;
+              ;
+          }
+
+            .opp{
+              display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  background: #FFFFFF;
+  width: 800px;
+  margin-left: 200px;
+          }
+
+
+          .opp-icon{
+              display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 25px;
+          }
+
+          .subtitle-sin {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 45px 0px 33px 15px;
+          }
+
+             /* 課程卡片 */
+             .sing-TCcourse-card {
+              display: flex;
+              justify-content: center;
+              background: #ECECEC;
+              width: 100%;
+              /* overflow: hidden; */
+              margin-bottom: 15px; 
+              /* cursor: pointer;  */
+              z-index: -1;
+              /* margin-bottom: 3px; */
+          
+              /* position: absolute;*/
+          }
+
+          .img-fluid-sin {
+
+            max-width: 60%;
+            height: auto;
+            }
+
+            .TCcourse-img-sing{
+              margin-right: 10px;
+            }
+
+             /* 課程圖片 */
+             .TCcourse-img-selector-sing {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              margin-bottom: 50px;
+              font-family: Noto Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 20px;
+              line-height: 50px;
+              /* identical to box height, or 250% */
+
+              text-align: center;
+              letter-spacing: -0.015em;
+
+              color: #065F8E;
+          }
+
+          .TCcourse-title-sin {
+            font-size: 16px;
+            margin-bottom: 0px;
+        }
+
+        .TCcourse-title-sin p{
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 25px;
+        /* or 139% */
+
+        letter-spacing: -0.015em;
+
+        color: #000000;
+        }
+
+        .TCcourse-detail-sin{
+          transform: scale(1);
+          width: 80px;
+          /* text-align: center; */
+          font-size: 14px;
+      }
+
+
+
+          }
