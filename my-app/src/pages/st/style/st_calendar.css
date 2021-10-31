@@ -16,21 +16,23 @@
   margin-left: 0.25rem;
   padding: 0px 0px 15px;
 }
+
 .allwraper {
-  display:none;
-  z-index:2;
+  display: none;
+  z-index: 2;
   position: absolute;
   top: -110px;
-  width: 100%; 
+  width: 100%;
   height: 100%;
 }
- .showup {
-   display: block;
- }
 
- .none {
-   display: none;
- }
+.showup {
+  display: block;
+}
+
+.none {
+  display: none;
+}
 
 
 
@@ -141,7 +143,8 @@
 .miniarrowleft {
   margin-right: 25px;
 }
-.miniarrowright{
+
+.miniarrowright {
   margin-left: 25px;
 }
 
@@ -325,7 +328,7 @@
     top: 100px;
     z-index: 1;
   }
- 
+
 
   .startmycourse {
     display: block;
@@ -357,7 +360,11 @@
     height: 215px;
     border: 1.25px solid rgba(255, 255, 255, 1);
     border-radius: 30px;
+
+
   }
+
+
 
   .courseitem img {
     width: 100%;
@@ -428,4 +435,10 @@
     text-align: center;
     z-index: 1;
   }
+
+
+
+
+
+
 }

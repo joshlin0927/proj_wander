@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
+
 import './style/st_calendar.css'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction' // dayClick功能使用
 import axios from 'axios'
-import Slider from 'react-slick' //for carousel
+import Carousel from 'react-grid-carousel'
+import { API_HOST } from '../../config'
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar2 from '../../components/st/StSideBar2'
@@ -16,6 +18,7 @@ import Footer from '../../components/Footer'
 export default function StCalendar() {
   const [events, setEvents] = useState([])
   const [schedule, setSchedule] = useState('')
+
   const handleDateClick = (e) => {
     setSchedule('showup')
   } //按日期觸發事件
@@ -48,7 +51,7 @@ export default function StCalendar() {
 
   //carousel設定
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -86,6 +89,8 @@ export default function StCalendar() {
                 right: 'prev,next',
               }} // 載入樣式外掛
               dateClick={handleDateClick}
+              events={[{ title: 'event 1', date: '2019-04-01' },
+                { title: 'event 2', date: '2019-04-02' },]}
             />
           </div>
         </div>
@@ -105,7 +110,27 @@ export default function StCalendar() {
             </button>
 
             <div className="schedulecoursesection col-md-12 col-lg-12">
-              <CourseItem />
+              <Carousel cols={1} rows={1} gap={9} loop>
+                {courses.data ? (
+                  courses.rows.map((course, i) => {
+                    return (
+                      <Carousel.Item>
+                        <CourseItem
+                          key={course.sid}
+                          name={course.course_name}
+                          courseimg={course.course_img}
+                          teacher={course.firstname}
+                        />
+                      </Carousel.Item>
+                    )
+                  })
+                ) : (
+                  <></>
+                )}
+                <Carousel.Item>
+                  <CourseItem />
+                </Carousel.Item>
+              </Carousel>
             </div>
           </div>
         </div>
