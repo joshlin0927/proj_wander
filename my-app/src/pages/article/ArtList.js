@@ -3,36 +3,14 @@ import ArtCard from './ArtCard'
 
 function TcCourseList(props) {
   const {
-    Courses,
+    displayCourse,
+    setDisplayCourse,
     RemoveVideo,
     setRemoveCourse,
-    status,
-    setStatus,
   } = props
   return (
     <>
-      {/* {Courses.map((Course, i) => {
-        return (
-          <TcCourseCard
-            key={Course.sid}
-            sid={Course.sid}
-            course_img={Course.course_img}
-            course_name={Course.course_name}
-            course_category={Course.course_category}
-            course_data={Course.course_data}
-            hours={Course.hours}
-            remove={() => {
-              const newCourses = [...Courses].filter(
-                (v, i) => {
-                  return v.sid !== Course.sid
-                }
-              )
-              setRemoveCourse(newCourses)
-            }}
-          />
-        )
-      })} */}
-      {Courses.map((Course, i) => {
+      {displayCourse.map((Course, i) => {
         return (
           <ArtCard
             key={Course.sid}
@@ -44,20 +22,14 @@ function TcCourseList(props) {
             great={Course.great}
             created_date={Course.created_date}
             remove={() => {
-              const newCourses = [...Courses].filter(
-                (v, i) => {
-                  return v.sid !== Course.sid
-                }
-              )
-              setRemoveCourse(newCourses)
+              const newDisplayCourse = [...displayCourse]
+              newDisplayCourse.splice(i, 1)
+              setDisplayCourse(newDisplayCourse)
             }}
-            status={() => {
-              const newCourses = [...Courses].filter(
-                (v, i) => {
-                  return v.messenger !== Course.messenger
-                }
-              )
-              setStatus(newCourses)
+            setMess={(newMess) => {
+              const newDisplayCourse = [...displayCourse]
+              newDisplayCourse[i].messenger = newMess
+              setDisplayCourse(newDisplayCourse)
             }}
           />
         )

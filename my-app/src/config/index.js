@@ -42,15 +42,14 @@ export const SentenceGame_LIST =
 export const SentenceGame_SOT =
   API_HOST + '/sentence-game/sound-of-text'
 
-
-  export const ArtMessage_LIST =
+export const ArtMessage_LIST =
   API_HOST + '/art_messenger/api/list/'
 
-
-  export const ArtMessage_DELETE =
+export const ArtMessage_DELETE =
   API_HOST + '/art_messenger/delete/'
 
-  export const ArtMessage_EDIT = API_HOST + '/art_messenger/edit'
+export const ArtMessage_EDIT =
+  API_HOST + '/art_messenger/edit'
 
 // cart route
 export const Cart_API = API_HOST + '/cart'

@@ -11,7 +11,7 @@ import {
   ArtMessage_LIST,
 } from '../../config'
 
-function TcCourseCard(props) {
+function ArtCard(props) {
   // useEffect(() => {
   //   let r = axios.delete(TcCourse_DELETE)
 
@@ -29,7 +29,7 @@ function TcCourseCard(props) {
     great,
     created_date,
     remove,
-    status,
+    setMess,
   } = props
 
   // 刪除課程
@@ -38,9 +38,14 @@ function TcCourseCard(props) {
   const handleShow = () => setShow(true)
 
   //TODO: 怎麼將sid傳上去
-  const deleteCourse = async () => {
-    let r = await axios.delete(ArtMessage_DELETE + sid)
-    handleClose()
+  const deleteCourse = () => {
+    ;(async () => {
+      let r = await axios.delete(ArtMessage_DELETE + sid)
+      if (r.status === 200) {
+        remove()
+        handleClose()
+      }
+    })()
   }
 
   //修改影片
@@ -56,32 +61,29 @@ function TcCourseCard(props) {
 
   const FormSubmit = async (e) => {
     e.preventDefault()
-        console.log(new FormData(e.target).get('messenger'))
-
+    const mess = new FormData(e.target).get('messenger')
+    console.log('message:', mess)
     ;(async () => {
       let r = await axios.post(
         // `${ArtMessage_EDIT}${sid}`,
         `${ArtMessage_EDIT}?Sid=${sid}`,
 
-
         {
-          messenger: new FormData(e.target).get(
-            'messenger'
-          ),
+          messenger: mess,
         }
       )
-
-      // console.log(r)
-      handleIsClose()
-    }
-    
-    )()
+      console.log(r)
+      if (r.status === 200) {
+        setMess(mess)
+        handleIsClose()
+      }
+    })()
   }
 
   return (
     <>
       {/* <div className="TCcourse-card col-12"> */}
-      <li className="sing-TCcourse-card active  shadow-sm p-3 mb-2 bg-body rounded" >
+      <li className="sing-TCcourse-card active  shadow-sm p-3 mb-2 bg-body rounded">
         <div className="TCcourse-img-sing">
           <img
             src={`${devUrl}/images/article/message/avatar/01.png`}
@@ -91,8 +93,10 @@ function TcCourseCard(props) {
             Ann{sid}
           </span>
         </div>
-        <div className="TCcourse-info-sing"            onClick={handleIsShow}
->
+        <div
+          className="TCcourse-info-sing"
+          onClick={handleIsShow}
+        >
           <div className="TCcourse-title-sin ">
             <p>{messenger}</p>
           </div>
@@ -112,9 +116,7 @@ function TcCourseCard(props) {
           data-toggle="modal"
           data-target="#exampleModal"
         >
-          <div
-            className="opp-icon-sing"
-          >
+          <div className="opp-icon-sing">
             <i className="fas fa-edit"></i>
           </div>
           <div
@@ -144,7 +146,6 @@ function TcCourseCard(props) {
             <button
               type="submit"
               className="btn btn-secondary mx-auto"
-              onClick={status}
             >
               送出
             </button>
@@ -167,10 +168,7 @@ function TcCourseCard(props) {
           <button
             type="button"
             className="btn confirmBtn"
-            onClick={remove}
-            onMouseUp={deleteCourse}
-            onTouchEnd={deleteCourse}
-            onTouchStart={deleteCourse}
+            onClick={deleteCourse}
           >
             <span>是</span>
           </button>
@@ -187,4 +185,4 @@ function TcCourseCard(props) {
   )
 }
 
-export default TcCourseCard
+export default ArtCard
