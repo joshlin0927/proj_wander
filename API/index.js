@@ -122,28 +122,9 @@ app.use(require(__dirname + '/routes/login'));
 
 //上傳單一照片使用
 app.post('/try-upload2', uploadImg.single('avatar'), async (req, res) => {
-    const output = {
-        success: false,
-        error: ''
-    }
-    const myfilename = req.file.filename
-    const sql = `UPDATE \`member\` SET \`avatar\` = ? WHERE \`sid\` = ?`
+    
 
-    try {
-        [result] = await db.query(sql, [myfilename, req.query.studentSid]);
-    } catch (ex) {
-        output.error = ex.toString();
-    }
-    output.result = result;
-    if (result.affectedRows === 1) {
-        if (result.changedRows === 1) {
-            output.success = true;
-        } else {
-            output.error = "資料沒有變更";
-        }
-    }
-
-    res.json(output);
+    res.json(req.file);
 
 });
 

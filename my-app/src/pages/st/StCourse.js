@@ -4,7 +4,7 @@ import './style/st_course.css'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import { useHistory } from 'react-router'
-
+import { IMG_PATH } from '../../config'
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar2 from '../../components/st/StSideBar2'
@@ -71,7 +71,7 @@ export default withRouter(function StCourse() {
         <div className="row justify-content-center d-flex">
           <StSideBar2 />
           <div className="coursesection col-md-8 col-lg-8 col-12">
-            {courses.totalRows === 0
+            {courses.data
               ? courses.rows.map((course, i) => {
                   return (
                     <CourseItem
@@ -100,7 +100,9 @@ export default withRouter(function StCourse() {
               return (
                 <RecommandedTC
                   key={teacher.sid + '_' + i}
-                  teacherimg={teacher.avatar}
+                  teacherimg={
+                    IMG_PATH + '/' + teacher.avatar
+                  }
                   teachersname={teacher.firstname}
                 />
               )
