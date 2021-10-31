@@ -25,6 +25,11 @@ import TCindex from './pages/tc/index'
 
 import StIndex from './pages/st/index'
 
+
+// 文章頁面
+
+import Artindex from './pages/article/index'
+
 // 購物車
 import Cart from './pages/cart'
 
@@ -68,6 +73,10 @@ function App() {
             <Route path="/SignUp">
               <SignUp />
             </Route>
+            <Route path="/Artindex">
+              <Artindex />
+            </Route>
+
 
             <Route path="/">
               <WanderIndex />
