@@ -29,9 +29,7 @@ function TcPreview() {
   return (
     <>
       <div className="container mainContent">
-        <div className="row">
-          <MultiLevelBreadCrumb />
-        </div>
+        <MultiLevelBreadCrumb />
         <div class="row p-page-info-bg">
           {/* personal info */}
           <div class="p-info-wrapper col-12">

@@ -102,8 +102,8 @@ function TcCourse(props) {
   return (
     <>
       <div className="container mainContent">
+        <MultiLevelBreadCrumb />
         <div className="row">
-          <MultiLevelBreadCrumb />
           <div className="col-10 ml-auto pageName">
             <span className="pageNameText TCcourse">
               Course

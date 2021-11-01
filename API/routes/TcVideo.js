@@ -1,6 +1,6 @@
 const express = require("express");
 const db = require("../modules/connect-mysql");
-const upload = require("../modules/upload-images");
+const uploadVid = require("../modules/upload-videos");
 
 const router = express.Router();
 
@@ -81,7 +81,7 @@ router.delete("/delete/:sid([0-9]+)", async (req, res) => {
   res.json(result);
 });
 
-router.route("/add").post(async (req, res) => {
+router.route("/add").post(uploadVid.single("video_link"), async (req, res) => {
   // TODO: 欄位檢查
   const output = {
     success: false,

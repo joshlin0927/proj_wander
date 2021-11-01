@@ -4,7 +4,7 @@ import { Nav } from 'react-bootstrap'
 // 要使用能有active css效果的NavLink元件
 import { NavLink } from 'react-router-dom'
 
-function TcCourseProcessBar() {
+function TcCourseProcessBar(props) {
   const CourseSid = localStorage.getItem(
     'CourseSidForProcess'
   )
