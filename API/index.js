@@ -248,6 +248,9 @@ app.use('/passwordmodify', require(__dirname + '/routes/stpasswordmodify'))
 app.use('/sentence-game', require(__dirname + '/routes/sentence-game'));
 // cart
 app.use('/cart', require(__dirname + '/routes/cart'));
+// order
+app.use('/sendOrder', require(__dirname + '/routes/sendOrder'));
+
 
 app.get('/try-sess', (req, res) => {
     req.session.myVar = req.session.myVar || 0;
