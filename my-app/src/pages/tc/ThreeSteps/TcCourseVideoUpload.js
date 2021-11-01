@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
 import { useDropzone } from 'react-dropzone'
 
-import { TcCourse_ADD } from '../../../config'
+import { TcVideo_ADD } from '../../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
@@ -64,7 +64,23 @@ function TcCourseVideoUpload() {
     }
 
     reader.readAsArrayBuffer(file)
-    let r = axios.post(TcCourse_ADD, { video_link: file })
+
+    const r = fetch(TcVideo_ADD, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      video_link: file.name,
+    })
+      .then((r) => r.json())
+      .then((obj) => {
+        console.log(JSON.stringify(obj, null, 4))
+        if (obj.success) {
+          alert('資料修改成功')
+        } else {
+          alert(obj.error || '資料修改失敗')
+        }
+      })
     console.log(r)
   }, [])
 

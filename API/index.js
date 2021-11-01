@@ -158,8 +158,14 @@ app.use('/TcVideo', require(__dirname + '/routes/TcVideo'));
 // app.use('/chat', require('./routes/chat'));
 
 
-//文章-留言
+
+//文章-留言-修改-刪除
 app.use('/art_messenger', require(__dirname + '/routes/art_messenger'));
+
+//文章-新增留言
+app.use('/art_messengerADD', require(__dirname + '/routes/art_messengerADD'));
+
+
 
 // 聊天室設定
 const publicPath = path.join(__dirname + "/public/chat.html");

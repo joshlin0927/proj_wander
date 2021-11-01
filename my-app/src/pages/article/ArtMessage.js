@@ -1,17 +1,16 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { devUrl } from '../../config'
 import { useHistory } from 'react-router'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 // 後端檔案路徑
-import { ArtMessage_LIST, MemberEdit } from '../../config'
+import { ArtMessage_LIST } from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import ArBgDecorationNormal from '../../components/articles/ArBgDecorationNormal.js'
 import Footer from '../../components/Footer'
-
-import ArtCard from './ArtCard'
 
 import ArtList from './ArtList'
 
@@ -32,17 +31,10 @@ function ArtMessage() {
   // 課程陣列排出
   // let [data, setData] = useState([])
 
-  let [totalRows, setTotalRows] = useState(0)
-
-  // 資料庫來的影片資料
-  const [TcVideos, setTcVideos] = useState([])
-
-  // 拿去做map排列的，取的是r.data.rows，或是其它處理
-  const [displayVideo, setDisplayVideo] = useState([])
-
   // 資料庫來的留言資料
   const [TcCourses, setTcCourses] = useState([])
 
+  // 拿去做map排列的，取的是r.data.rows，或是其它處理
   const [displayCourse, setDisplayCourse] = useState([])
 
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
@@ -73,11 +65,11 @@ function ArtMessage() {
 
           setDisplayCourse(r.data.rows)
         }
-        console.log('r.data.rows', r.data.rows)
+        // console.log('r.data.rows', r.data.rows)
       })()
     }
     // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
-  }, [])
+  })
 
   return (
     <>
@@ -114,7 +106,7 @@ function ArtMessage() {
             <br />
             <div className="TCp-intro-sin">
               <p>
-                {/* 此劇講述因組織內部糾紛而從義大利逃到韓國的黑手黨顧問文森佐·卡薩諾（宋仲基飾），在遇上律師洪車瑛（全汝彬飾）後，兩人以黑道的方式實現正義的故事。 */}
+                此劇講述因組織內部糾紛而從義大利逃到韓國的黑手黨顧問文森佐·卡薩諾（宋仲基飾），在遇上律師洪車瑛（全汝彬飾）後，兩人以黑道的方式實現正義的故事。
               </p>
             </div>
             <br />
@@ -126,9 +118,11 @@ function ArtMessage() {
               />
             </div>
             <div className="p-page-avatar-sin">
-              <button className="btn-sin btn-outline-y-sin row mx-auto one-btn-sin btn-b-sin ">
-                我要留言
-              </button>
+              <Link to="/ArtIndex/ArtMessageADD/">
+                <button className="btn ar-btn-secondary mx-auto  one-btn-sin btn-b-sin">
+                  我要留言
+                </button>
+              </Link>
             </div>
             <div className="opp-sin">
               <div className="row justify-content-center col-12 ">
@@ -174,137 +168,6 @@ function ArtMessage() {
                   />
                 )
               })} */}
-
-                      {/* <li className="sing-TCcourse-card active  shadow-sm p-3 mb-2 bg-body rounded">
-                        <div className="TCcourse-img-sing">
-                          <img
-                            src={`${devUrl}/images/article/message/avatar/01.png`}
-                            alt=""
-                          />
-                          <span className="TCcourse-img-selector-sin">
-                            Ann
-                          </span>
-                        </div>
-                        <div className="TCcourse-info-sing">
-                          <div className="TCcourse-title-sin">
-                            <p>
-                            {data.messenger}
-                              Lorem ipsum dolor, sit amet
-                              consectetur adipisicing elit.
-                              Rem nostrum repudiandae nobis
-                              sunt ratione! Nihil.
-                            </p>
-                          </div>
-                          <div className="TCcourse-info-right-sin">
-                            <div className="TCcourse-detail-sin">
-                              <a href="#">
-                                <img
-                                  src={`${devUrl}/images/article/message/thumb_up.png`}
-                                  alt=""
-                                />
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          className="TCcourse-delete-sing"
-                          data-toggle="modal"
-                          data-target="#exampleModal"
-                        >
-                          <div className="opp-icon-sing">
-                            <i className="fas fa-edit"></i>
-                          </div>
-                          <div className="opp-icon-sing">
-                            <i className="fas fa-trash"></i>
-                          </div>
-                        </div>
-                      </li> */}
-                      {/* <li className="sing-TCcourse-card active  shadow-sm p-3 mb-2 bg-body rounded">
-                        <div className="TCcourse-img-sing">
-                          <img
-                            src={`${devUrl}/images/article/message/avatar/01.png`}
-                            alt=""
-                          />
-                          <span className="TCcourse-img-selector-sin">
-                            Ann
-                          </span>
-                        </div>
-                        <div className="TCcourse-info-sing">
-                          <div className="TCcourse-title-sin">
-                            <p>
-                              Lorem ipsum dolor, sit amet
-                              consectetur adipisicing elit.
-                              Rem nostrum repudiandae nobis
-                              sunt ratione! Nihil.
-                            </p>
-                          </div>
-                          <div className="TCcourse-info-right-sin">
-                            <div className="TCcourse-detail-sin">
-                              <a href="#">
-                                <img
-                                  src={`${devUrl}/images/article/message/thumb_up.png`}
-                                  alt=""
-                                />
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          className="TCcourse-delete-sing"
-                          data-toggle="modal"
-                          data-target="#exampleModal"
-                        >
-                          <div className="opp-icon-sing">
-                            <i className="fas fa-edit"></i>
-                          </div>
-                          <div className="opp-icon-sing">
-                            <i className="fas fa-trash"></i>
-                          </div>
-                        </div>
-                      </li> */}
-                      {/* <li className="sing-TCcourse-card active  shadow-sm p-3 mb-2 bg-body rounded">
-                        <div className="TCcourse-img-sing">
-                          <img
-                            src={`${devUrl}/images/article/message/avatar/01.png`}
-                            alt=""
-                          />
-                          <span className="TCcourse-img-selector-sin">
-                            Ann
-                          </span>
-                        </div>
-                        <div className="TCcourse-info-sing">
-                          <div className="TCcourse-title-sin">
-                            <p>
-                              Lorem ipsum dolor, sit amet
-                              consectetur adipisicing elit.
-                              Rem nostrum repudiandae nobis
-                              sunt ratione! Nihil.
-                            </p>
-                          </div>
-                          <div className="TCcourse-info-right-sin">
-                            <div className="TCcourse-detail-sin">
-                              <a href="#">
-                                <img
-                                  src={`${devUrl}/images/article/message/thumb_up.png`}
-                                  alt=""
-                                />
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          className="TCcourse-delete-sing"
-                          data-toggle="modal"
-                          data-target="#exampleModal"
-                        >
-                          <div className="opp-icon-sing">
-                            <i className="fas fa-edit"></i>
-                          </div>
-                          <div className="opp-icon-sing">
-                            <i className="fas fa-trash"></i>
-                          </div>
-                        </div>
-                      </li> */}
                     </ul>
                   </nav>
                 </div>
@@ -317,7 +180,7 @@ function ArtMessage() {
         <div className="TCallwraperw">
           <div className="white-block">
             <div className="yellow-area-but-1 ">
-              熱門文章
+              文章內容
             </div>
           </div>
         </div>
@@ -325,14 +188,14 @@ function ArtMessage() {
       <div className="sns-sing">
         <div className="nav_footer-sing">
           <img
-            src="../images/index/icon/Facebook.svg"
+            src={`${devUrl}/images/index/icon/Facebook.svg`}
             alt=""
             className="Facebook-sing"
           />
         </div>
         <div className="nav_footera-sing">
           <img
-            src="../images/index/icon/twitter.svg"
+            src={`${devUrl}/images/index/icon/twitter.svg`}
             alt=""
             className="Facebook-sing"
           />
