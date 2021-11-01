@@ -38,7 +38,7 @@ function MobileNavbar(props) {
       <div className="mobile-nav container-fluid">
         <div className="row justify-content-center flex-nowrap">
           <Link
-            to="#/"
+            to="/Course"
             className="mobile-nav-item col-2"
             id="mNavCourse"
           >

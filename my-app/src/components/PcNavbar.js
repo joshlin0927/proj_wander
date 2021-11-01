@@ -79,7 +79,7 @@ function PcNavbar(props) {
                 </Link>
               </li>
               <li>
-                <Link to="/StIndex/StPasswordModify">
+                <Link to="/Course">
                   <span className="nav__en">課程總覽</span>
                 </Link>
               </li>

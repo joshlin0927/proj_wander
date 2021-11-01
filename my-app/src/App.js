@@ -22,11 +22,12 @@ import SignUp from './pages/st/SignUp'
 import TcIndex from './pages/tc/Index'
 
 // 學生頁面
-
 import StIndex from './pages/st/index'
 
-// 文章頁面
+// 課程商品頁面
+import CsIndex from './pages/course'
 
+// 文章頁面
 import ArtIndex from './pages/article/index'
 
 // 購物車
@@ -74,6 +75,9 @@ function App() {
             </Route>
             <Route path="/ArtIndex">
               <ArtIndex />
+            </Route>
+            <Route path="/Course">
+              <CsIndex />
             </Route>
 
             <Route path="/">

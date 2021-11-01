@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react'
 //課程詳細頁沒購買課程圖(有鎖頭)
 import { devUrl } from '../../config'
 import { Modal } from 'react-bootstrap'
-import './course1.css'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'

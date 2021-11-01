@@ -3,7 +3,6 @@ import React, { useRef, useState } from 'react'
 
 // import { devUrl } from '../../config'
 // import { Modal } from 'react-bootstrap'
-import './course1.css'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'

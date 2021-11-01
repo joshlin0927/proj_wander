@@ -1,9 +1,8 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 // 課程頁
 
 // import { devUrl } from '../../config'
 // import { Modal } from 'react-bootstrap'
-import './course1.css'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -47,7 +46,7 @@ function CsCourse() {
               </div>
               <span class="teachername">Thoms Lillard</span>
               <span class="co-price">2700 TWD</span>
-            </div> 
+            </div>
             <div class="sh-courseitem">
               <img
                 src="../images/img/成為專業筆譯必備：商務日文翻譯力.png"
