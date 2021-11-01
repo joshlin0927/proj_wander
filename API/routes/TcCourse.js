@@ -91,7 +91,7 @@ router.route("/cover").post(uploadImg.single("avatar"), async (req, res) => {
   const sql = `UPDATE \`course\` SET \`course_img\` = ? WHERE \`sid\` = ?`;
 
   try {
-    [result] = await db.query(sql, [req.file.filename, req.query.courseSid]);
+    [result] = await db.query(sql, [req.file.filename, req.query.sid]);
   } catch (ex) {
     output.error = ex.toString();
   }

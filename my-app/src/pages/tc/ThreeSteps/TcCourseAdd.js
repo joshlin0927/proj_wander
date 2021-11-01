@@ -6,6 +6,7 @@ import {
   devUrl,
   TcCourse_EDIT,
   TcCourse_LAST,
+  TcCourse_Cover,
 } from '../../../config'
 
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
@@ -41,14 +42,14 @@ function TcCourseAdd(props) {
 
   //大頭貼狀態
   let [imgSrc, setImgSrc] = useState('')
-  // const doUpload = async () => {
-  //   const r = await axios.post(
-  //     `${}/?teacherSid=${teacherSid}`,
-  //     new FormData(document.formAvatar)
-  //   )
-  //   setImgSrc(r.data.filename)
-  //   console.log(r.data)
-  // }
+  const doUpload = async () => {
+    const r = await axios.post(
+      `${TcCourse_Cover}/?sid=${lastAdd}`,
+      new FormData(document.formAvatar)
+    )
+    setImgSrc(r.data.filename)
+    console.log(r.data)
+  }
 
   //預覽大頭貼的地方
   // const imgRef = useRef(null)
@@ -268,6 +269,7 @@ function TcCourseAdd(props) {
                 type="text"
                 name="sid"
                 value={lastAdd}
+                className="d-none"
               />
               <input
                 type="text"
