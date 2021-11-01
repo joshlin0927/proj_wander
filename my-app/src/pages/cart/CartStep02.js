@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
 import { Link, withRouter } from 'react-router-dom'
-import { devUrl } from '../../config'
+import { devUrl, Cart_API } from '../../config'
+import axios from 'axios'
 
 // 頁面元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -21,6 +22,25 @@ function CartStep02(props) {
   const handleCheckModalClose = () =>
     setCheckModalShow(false)
   const handleCheckModalShow = () => setCheckModalShow(true)
+  const [cartData, setCartData] = useState([{}])
+  const [cartQty, setCartQty] = useState(0)
+
+  // 取得該會員購物車資料
+  const member = JSON.parse(localStorage.getItem('member'))
+  useEffect(() => {
+    ;(async () => {
+      let r = await axios.get(
+        `${Cart_API}/list?member_sid=${member.sid}`
+      )
+      console.log('rows:', r.data.result)
+      if (r.data.success) {
+        setCartData(r.data.result)
+        setCartQty(r.data.result.length)
+      } else {
+        setCartQty(0)
+      }
+    })()
+  }, [member.sid])
   return (
     <>
       <MultiLevelBreadCrumb />

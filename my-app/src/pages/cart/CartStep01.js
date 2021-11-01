@@ -67,15 +67,6 @@ function CartStep01(props) {
         }
       })
   }
-  // counpon確認送出
-  function sendCounponSelect() {
-    if (counponSelect === '') {
-      setCounponIsUsed(false)
-    } else {
-      setCounponIsUsed(true)
-    }
-    sessionStorage.setItem('counponID', counponSelect)
-  }
   // counpon打勾效果
   useEffect(() => {
     $('#counponCanUse .modal-card').on(
@@ -124,8 +115,20 @@ function CartStep01(props) {
     for (let i = 0; i < cartData.length; i++) {
       sum += cartData[i].course_price
     }
-    console.log('sum', sum)
     return sum
+  }
+  // 計算折扣
+  const discount = (t) => {
+    switch (counponIsUsed) {
+      case 'c1':
+        return Math.floor(t * 0.1)
+      case 'c2':
+        return Math.floor(t * 0.05)
+      case 'c3':
+        return 100
+      default:
+        return 0
+    }
   }
   return (
     <>
@@ -244,7 +247,10 @@ function CartStep01(props) {
           </div>
           {/* <!-- Checkout Detail --> */}
           <div className="checkout container col-10 col-md-2">
-            <CartSummary total={total()} />
+            <CartSummary
+              total={total()}
+              discount={discount}
+            />
             {/* <!-- 選擇優惠券 --> */}
             <div className="row justify-content-center">
               <div className="couponTitle-m">優惠券</div>
@@ -270,11 +276,11 @@ function CartStep01(props) {
                 <span>NT${total()}</span>
                 <div className="w-100"></div>
                 <span>折扣</span>
-                <span>-NT${Math.floor(total() * 0.1)}</span>
+                <span>-NT${discount(total())}</span>
                 <div className="w-100 my-2 border-bottom"></div>
                 <span>結帳金額</span>
                 <span>
-                  NT${total() - Math.floor(total() * 0.1)}
+                  NT${total() - discount(total())}
                 </span>
               </div>
             </div>
@@ -463,7 +469,11 @@ function CartStep01(props) {
             id="checkBtn"
             onClick={() => {
               handleCounponModalClose()
-              sendCounponSelect()
+              sessionStorage.setItem(
+                'counponID',
+                counponSelect
+              )
+              setCounponIsUsed(counponSelect)
             }}
           >
             確認使用

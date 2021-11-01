@@ -1,7 +1,7 @@
 import React from 'react'
 
 function CartSummary(props) {
-  const { total } = props
+  const { total, discount } = props
   return (
     <>
       <div className="row">
@@ -13,12 +13,12 @@ function CartSummary(props) {
           <span>NT${total}</span>
           <div className="w-100"></div>
           <span>折扣</span>
-          <span>-NT${Math.floor(total * 0.1)}</span>
+          <span>-NT${discount(total)}</span>
         </div>
       </div>
       <div className="row justify-content-end">
         <div className="checkoutTotal">
-          NT$ {total - Math.floor(total * 0.1)}
+          NT$ {total - discount(total)}
         </div>
       </div>
     </>
