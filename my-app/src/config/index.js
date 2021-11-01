@@ -35,7 +35,7 @@ export const TcCourse_DELETE =
   API_HOST + '/TcCourse/delete/'
 
 // TcVideo CRUD
-export const TcVideo_ADD = API_HOST + 'TcVideo/add'
+export const TcVideo_ADD = API_HOST + '/TcVideo/add'
 export const TcVideo_LIST = API_HOST + '/TcVideo/api/list/'
 export const TcVideo_EDIT = API_HOST + '/TcVideo/edit'
 export const TcVideo__DELETE = API_HOST + '/TcVideo/delete/'
@@ -56,8 +56,9 @@ export const ArtMessage_DELETE =
 export const ArtMessage_EDIT =
   API_HOST + '/art_messenger/edit'
 
-// cart route
+// cart&order route
 export const Cart_API = API_HOST + '/cart'
+export const SendOrder_API = API_HOST + '/sendOrder'
 
 // export const UPLOAD_AVATAR = API_HOST + '/try-upload2'
 

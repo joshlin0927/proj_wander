@@ -78,12 +78,18 @@ function PcNavbar(props) {
                 </Link>
               </li>
               <li>
-                <Link to="/StIndex/StPasswordModify">
+                <Link to="/Course">
                   <span className="nav__en">課程總覽</span>
                 </Link>
               </li>
               <li>
-                <Link to="/StIndex/StCourse">
+                <Link
+                  to={
+                    memberObj && memberObj.identity === 1
+                      ? '/TcIndex/TcCourse'
+                      : '/StIndex/StCourse'
+                  }
+                >
                   <span className="nav__en">我的課程</span>
                 </Link>
               </li>

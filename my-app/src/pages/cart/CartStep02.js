@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
 import { Link, withRouter } from 'react-router-dom'
-import { devUrl, Cart_API } from '../../config'
+import {
+  devUrl,
+  Cart_API,
+  SendOrder_API,
+} from '../../config'
 import axios from 'axios'
 
 // 頁面元件
@@ -81,20 +85,53 @@ function CartStep02(props) {
       order_status: 0, //0待付款 1已付款 2已取消
       member_sid: member.sid,
     }
+    const sendOrderDetail = {
+      order_main_id: '',
+      product_sid: [],
+    }
+    const newID = Math.floor(
+      Math.random() * 100 + Date.now()
+    )
+      .toString()
+      .slice(0, 8)
     if (payMethodSelect) {
       sendOrderMain.total_price =
         total() - discount(total())
       sendOrderMain.pay_method = payMethodSelect
       sendOrderMain.cstoresort = cstoresort
-      sendOrderMain.order_id = Math.floor(
-        Math.random() * 100 + Date.now()
-      )
-        .toString()
-        .slice(0, 8)
+      sendOrderMain.order_id = newID
+      sendOrderDetail.order_main_id = newID
+      cartData.forEach((v, i) => {
+        sendOrderDetail.product_sid[i] = v.product_sid
+      })
+    }
+
+    if (
+      sendOrderMain.order_id !== '' &&
+      sendOrderDetail.order_main_id !== ''
+    ) {
+      console.log('傳資料囉')
+      ;(async () => {
+        let rm = await axios.post(
+          `${SendOrder_API}/add/main`,
+          sendOrderMain
+        )
+        let rd = await axios.post(
+          `${SendOrder_API}/add/detail`,
+          sendOrderDetail
+        )
+        if (!rm.data.success) {
+          alert(rm.data.error)
+        }
+        if (!rd.data.success) {
+          alert(rd.data.error)
+        }
+      })()
     }
 
     // props.history.push('/Cart/Step03')
-    console.log('obj:', sendOrderMain)
+    console.log('obj1:', sendOrderMain)
+    console.log('obj2:', sendOrderDetail)
     console.log('CD:', cartData)
   }
   return (

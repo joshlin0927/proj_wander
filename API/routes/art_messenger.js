@@ -17,7 +17,7 @@ router.get('/list', async (req, res) => {
 });
 
 async function getListData(req,res){
-    const perPage = 5;
+    const perPage = 15;
     let page = parseInt(req.query.page) || 1;
     let keyword = req.query.keyword || '';
     keyword = keyword.trim(); //去掉頭尾的空白

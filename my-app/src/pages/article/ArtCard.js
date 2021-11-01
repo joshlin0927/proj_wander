@@ -1,18 +1,30 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Modal } from 'react-bootstrap'
-import { devUrl } from '../../config'
 
 import {
   ArtMessage_DELETE,
   ArtMessage_EDIT,
 } from '../../config'
+import { useHistory } from 'react-router'
+import { IMG_PATH } from '../../config'
 
 function ArtCard(props) {
   const member = localStorage.getItem('member')
 
   const memberObj = JSON.parse(member)
+
+  const token = localStorage.getItem('token')
+
+  const history = useHistory()
+
+  //大頭貼狀態
+  let [imgSrc, setImgSrc] = useState('')
+
+  // console.log('memberObj', memberObj)
+
+  // console.log('member', member)
 
   // useEffect(() => {
   //   let r = axios.delete(TcCourse_DELETE)
@@ -24,13 +36,9 @@ function ArtCard(props) {
 
   const {
     sid,
-    ar_sid,
     st_sid,
-    st_pictuer,
     messenger,
-    great,
     nickname,
-    created_date,
     remove,
     setMess,
   } = props
@@ -59,13 +67,14 @@ function ArtCard(props) {
   // 留言欄位
   const [nameChange, setNameChange] = useState(messenger)
 
-  console.log(nameChange)
+  // console.log(nameChange)
   // console.log(setNameChange)
+  const studentSid = JSON.parse(member).sid
 
   const FormSubmit = async (e) => {
     e.preventDefault()
     const mess = new FormData(e.target).get('messenger')
-    console.log('message:', mess)
+    // console.log('message:', mess)
     ;(async () => {
       let r = await axios.post(
         // `${ArtMessage_EDIT}${sid}`,
@@ -75,7 +84,7 @@ function ArtCard(props) {
           messenger: mess,
         }
       )
-      console.log(r)
+      // console.log(r)
       if (r.status === 200) {
         setMess(mess)
         handleIsClose()
@@ -83,16 +92,39 @@ function ArtCard(props) {
     })()
   }
 
+  useEffect(() => {
+    if (!token) {
+      history.push('/')
+    }
+    // else if (identity !== 0) {
+    //   history.push('/')}
+    else {
+      ;(async () => {
+        let r = await axios.get(
+          `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
+        )
+        // setFields(r.data[0][0])
+        setImgSrc(r.data[0][0].avatar)
+
+        //  console.log('r.data[0][0]', r.data[0][0])
+      })()
+    }
+  })
+
   return (
     <>
-      {/* <div className="TCcourse-card col-12"> */}
       <li className="sing-TCcourse-card active  shadow-sm p-3 mb-2 bg-body rounded">
         <div className="TCcourse-img-sing">
           <img
-            src={`${devUrl}/images/article/message/avatar/01.png`}
+            src={
+              imgSrc
+                ? IMG_PATH + '/' + imgSrc
+                : IMG_PATH + '/' + 'presetAvatar.jpeg'
+            }
             alt=""
+            name="st_pictuer"
           />
-          <span className="TCcourse-img-selector-sin">
+          <span className="TCcourse-img-selector-sin ">
             {nickname}
           </span>
         </div>
@@ -100,16 +132,6 @@ function ArtCard(props) {
           <div className="TCcourse-title-sin ">
             <p>{messenger}</p>
           </div>
-          {/* <div className="TCcourse-info-right-sin">
-            <div className="TCcourse-detail-sin">
-              <a href="#">
-                <img
-                  src={`${devUrl}/images/article/message/thumb_up.png`}
-                  alt=""
-                />
-              </a>
-            </div>
-          </div> */}
         </div>
 
         {memberObj.sid === st_sid ? (
@@ -153,15 +175,18 @@ function ArtCard(props) {
         </Modal.Header>
         <Modal.Body>
           <form className="" onSubmit={FormSubmit}>
-            <input
+            <textarea
+              type="text"
+              className="TC-intro w-100 col-12"
+              placeholder=""
               name="messenger"
-              className="col-12 allInputs bgt"
-              // placeholder="修改留言 "
+              id="course_introduction"
+              rows="5"
               value={nameChange}
               onChange={(e) => {
                 setNameChange(e.target.value)
               }}
-            />
+            ></textarea>
             <button
               type="submit"
               className="btn btn-secondary mx-auto"

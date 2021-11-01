@@ -1,13 +1,7 @@
-import React, { useState } from 'react'
 import ArtCard from './ArtCard'
 
 function TcCourseList(props) {
-  const {
-    displayCourse,
-    setDisplayCourse,
-    RemoveVideo,
-    setRemoveCourse,
-  } = props
+  const { displayCourse, setDisplayCourse } = props
   return (
     <>
       {displayCourse.map((Course, i) => {
