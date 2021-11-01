@@ -27,7 +27,7 @@ function TcSideBar(props) {
           <li>
             <Nav.Link
               as={NavLink}
-              to="/TCindex/TcProfile"
+              to="/TcIndex/TcProfile"
               className="nav-item"
               activeclassname="active"
               onClick={() => {
@@ -41,7 +41,7 @@ function TcSideBar(props) {
           <li>
             <Nav.Link
               as={NavLink}
-              to="/TCindex/TcPassword"
+              to="/TcIndex/TcPassword"
               className="nav-item"
               activeclassname="active"
               onClick={() => {
@@ -55,7 +55,7 @@ function TcSideBar(props) {
           <li>
             <Nav.Link
               as={NavLink}
-              to="/TCindex/TcCourse"
+              to="/TcIndex/TcCourse"
               className="nav-item"
               activeclassname="active"
               onClick={() => {
@@ -85,7 +85,7 @@ function TcSideBar(props) {
           <li>
             <Nav.Link
               as={NavLink}
-              to="/TCindex/TcAnalytic"
+              to="/TcIndex/TcAnalytic"
               className="nav-item"
               activeclassname="active"
               onClick={() => {

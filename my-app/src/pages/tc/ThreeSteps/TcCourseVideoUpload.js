@@ -94,6 +94,9 @@ function TcCourseVideoUpload() {
     accept: 'video/mp4,video/quicktime,video/x-ms-wmv',
   })
 
+  const video_name = document.querySelector('#video_link')
+  console.log(video_name)
+
   return (
     <>
       <div className="container mainContent">
@@ -135,6 +138,7 @@ function TcCourseVideoUpload() {
                       durationReader(e)
                     }}
                     name="video_link"
+                    id="video_link"
                   />
                 </div>
                 <i className="fas fa-upload"></i>
@@ -151,13 +155,13 @@ function TcCourseVideoUpload() {
                 >
                   選擇檔案
                 </button>
+                <div id="duration" className="videoMeta">
+                  <div name="duration">Duration:</div>
+                  <div>File:</div>
+                  <div>Size:</div>
+                  <div>src:</div>
+                </div>
               </form>
-              <div id="duration" className="videoMeta">
-                <div name="duration">Duration:</div>
-                <div>File:</div>
-                <div>Size:</div>
-                <div>src:</div>
-              </div>
             </div>
           </div>
         </div>
