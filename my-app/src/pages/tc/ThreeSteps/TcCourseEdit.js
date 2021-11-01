@@ -1,13 +1,18 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { useHistory, withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
-import { devUrl, TcCourse_EDIT } from '../../../config'
+import axios from 'axios'
+import {
+  devUrl,
+  IMG_PATH,
+  TcCourse_EDIT,
+  TcCourse_Cover,
+} from '../../../config'
 
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'
 import Footer from '../../../components/Footer'
-import axios from 'axios'
 
 function TcCourseEdit(props) {
   //判斷是否登入並為教師身分
@@ -15,6 +20,7 @@ function TcCourseEdit(props) {
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
+  const teacherSid = JSON.parse(member).sid
 
   useEffect(() => {
     if (!token) {
@@ -31,40 +37,51 @@ function TcCourseEdit(props) {
           'CourseSidForProcess',
           r.data[0].sid
         )
-        console.log('edit', r.data[0])
+        console.log('edit', r.data[0].sid)
       })()
     }
   }, [])
 
   const formRef = useRef(null)
 
+  //課程封面狀態
+  let [imgSrc, setImgSrc] = useState('')
+
+  const doUpload = async () => {
+    const r = await axios.post(
+      `${TcCourse_Cover}?sid=${fields.sid}`,
+      new FormData(document.formCover)
+    )
+    setImgSrc(r.data.filename)
+    // console.log(r.data)
+  }
+  // console.log(imgSrc)
+
   //預覽大頭貼的地方
-  const imgRef = useRef(null)
+  // const imgRef = useRef(null)
   //實際擁有預覽功能的input因為太醜藏起來
   const inputRef = useRef(null)
+  // const previewFile = () => {
+  //   var preview = imgRef.current
+  //   var file = inputRef.current.files[0]
+  //   var reader = new FileReader()
 
-  const previewFile = () => {
-    var preview = imgRef.current
-    var file = inputRef.current.files[0]
-    var reader = new FileReader()
+  //   reader.addEventListener(
+  //     'load',
+  //     function () {
+  //       preview.src = reader.result
+  //     },
+  //     false
+  //   )
 
-    reader.addEventListener(
-      'load',
-      function () {
-        preview.src = reader.result
-      },
-      false
-    )
-
-    if (file) {
-      reader.readAsDataURL(file)
-    }
-  }
+  //   if (file) {
+  //     reader.readAsDataURL(file)
+  //   }
+  // }
 
   // 使用物件值作為狀態值，儲存所有欄位的值
   const [fields, setFields] = useState({
     teacher_sid: '',
-    course_img: '',
     course_name: '',
     course_category: '',
     course_price: '',
@@ -74,7 +91,6 @@ function TcCourseEdit(props) {
   // 存入錯誤訊息用
   const [fieldErrors, setFieldErrors] = useState({
     teacher_sid: '',
-    course_img: '',
     course_name: '',
     course_category: '',
     course_price: '',
@@ -220,34 +236,43 @@ function TcCourseEdit(props) {
                   </Link>
                 </div>
               </div>
-
+              <input
+                name="teacher_sid"
+                value={teacherSid}
+                className="d-none"
+              />
               <div className="TCcourse-img-selector">
-                <input
-                  type="file"
-                  name="course_img"
-                  accept="image/*"
-                  className="d-none"
-                  ref={inputRef}
-                  onChange={previewFile}
-                />
                 <div className="TCcourse-pic-square">
                   <img
-                    src={`${devUrl}/images/pic/presetAvatar.jpeg`}
+                    src={
+                      imgSrc
+                        ? IMG_PATH + '/' + imgSrc
+                        : IMG_PATH +
+                          '/' +
+                          'c943da4c-dd71-4e60-b598-ee44fdbd2fb6.jpg'
+                    }
                     className="img-fluid"
                     alt=""
-                    ref={imgRef}
                   />
                 </div>
-                <button
-                  className="TCbtn btn-border-only"
-                  id="loadFile"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    inputRef.current.click()
-                  }}
-                >
+                <label className="TCbtn btn-border-only">
+                  <form name="formCover">
+                    <input
+                      type="file"
+                      name="course_img"
+                      className="d-none"
+                      accept="image/*"
+                      onChange={doUpload}
+                      ref={inputRef}
+                    />
+                    <input
+                      name="sid"
+                      value={fields.sid}
+                      className="d-none"
+                    />
+                  </form>
                   <span>請選擇圖片</span>
-                </button>
+                </label>
               </div>
               <input
                 type="text"
@@ -327,13 +352,13 @@ function TcCourseEdit(props) {
               ></textarea>
             </div>
             <div className="onebtn-switch">
-              <Link
-                to="/TcIndex/TcCourseVideoUpload"
+              <button
+                // to="/TcIndex/TcCourseVideoUpload"
                 type="submit"
                 className="TCbtn btn-secondary mx-auto one-btn"
               >
                 <span>儲存</span>
-              </Link>
+              </button>
             </div>
           </form>
         </div>
