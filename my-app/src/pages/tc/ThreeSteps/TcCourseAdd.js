@@ -2,7 +2,11 @@ import React, { useRef, useState, useEffect } from 'react'
 import { useHistory, withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { devUrl, TcCourse_ADD } from '../../../config'
+import {
+  devUrl,
+  TcCourse_ADD,
+  TcCourse_LAST,
+} from '../../../config'
 
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
@@ -22,7 +26,11 @@ function TcCourseAdd() {
     } else if (identity !== 1) {
       history.push('/')
     } else {
-      return
+      ;(async () => {
+        let r = await axios.get(`${TcCourse_LAST}`)
+
+        console.log('lastAdd', r)
+      })()
     }
   }, [])
 

@@ -1,6 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
+
+import styled from 'styled-components'
+import { useDropzone } from 'react-dropzone'
 
 // components
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
@@ -25,10 +28,10 @@ function TcCourseVideoUpload() {
     }
   }, [])
 
-  const durationReader = (e) => {
-    const file = e.target.files[0],
-      mime = file.type,
-      reader = new FileReader()
+  const durationReader = useCallback((e) => {
+    const file = e.target.files[0]
+    const mime = file.type
+    const reader = new FileReader()
 
     reader.onload = function (e) {
       let blob = new Blob([e.target.result], {
@@ -46,7 +49,22 @@ function TcCourseVideoUpload() {
       video.src = url
     }
     reader.readAsArrayBuffer(file)
-  }
+  }, [])
+
+  const {
+    getRootProps,
+    getInputProps,
+    open,
+    acceptedFiles,
+  } = useDropzone({
+    durationReader,
+  })
+
+  const files = acceptedFiles.map((file) => (
+    <li key={file.path}>
+      {file.path} - {file.size} bytes
+    </li>
+  ))
 
   return (
     <>
@@ -73,35 +91,33 @@ function TcCourseVideoUpload() {
                   </Link>
                 </div>
               </div>
+
               <div className="TCvideo-drop-zone">
+                <div
+                  {...getRootProps({
+                    className: 'dropzone',
+                  })}
+                >
+                  <input {...getInputProps()} />
+                </div>
                 <i className="fas fa-upload"></i>
                 <p>將你要上傳的影片檔案拖曳到這裡</p>
                 <label>
                   僅支持檔案小於1GB，且格式為mp4, mov,
                   wmv的檔案
                 </label>
-                <input
-                  type="file"
-                  accept="video/mp4, video/mov,
-                  video/wmv"
-                  id="durationReader"
-                  onChange={durationReader}
-                  className="d-none"
-                  multiple
-                ></input>
+
                 <button
-                  className="btn btn-secondary"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    document
-                      .querySelector('#durationReader')
-                      .click()
-                  }}
+                  type="button"
+                  className="btn btn-secondary mx-auto"
+                  onClick={open}
+                  onChange={durationReader}
                 >
                   選擇檔案
                 </button>
-                <div id="duration"></div>
               </div>
+              <ul>{files}</ul>
+              <div id="duration"></div>
             </div>
           </form>
         </div>

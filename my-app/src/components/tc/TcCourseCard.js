@@ -53,7 +53,7 @@ function TcCourseCard(props) {
               <span>課程種類：</span> {course_category}
             </div>
             <div className="TCcourse-detail">
-              <span>上傳日期：</span> {course_data}
+              <span>上傳日期：</span> {created_at}
             </div>
             <div className="TCcourse-detail">
               <span>課程長度：</span> {hours}
