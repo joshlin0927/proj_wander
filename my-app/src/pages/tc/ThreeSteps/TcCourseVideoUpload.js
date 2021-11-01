@@ -29,6 +29,7 @@ function TcCourseVideoUpload() {
   }, [])
 
   const durationReader = useCallback((e) => {
+    console.log('et', e.target.files)
     const file = e.target.files[0]
     const mime = file.type
     const reader = new FileReader()
@@ -98,7 +99,12 @@ function TcCourseVideoUpload() {
                     className: 'dropzone',
                   })}
                 >
-                  <input {...getInputProps()} />
+                  <input
+                    {...getInputProps()}
+                    onChange={(e) => {
+                      durationReader(e)
+                    }}
+                  />
                 </div>
                 <i className="fas fa-upload"></i>
                 <p>將你要上傳的影片檔案拖曳到這裡</p>
@@ -111,7 +117,6 @@ function TcCourseVideoUpload() {
                   type="button"
                   className="btn btn-secondary mx-auto"
                   onClick={open}
-                  onChange={durationReader}
                 >
                   選擇檔案
                 </button>
