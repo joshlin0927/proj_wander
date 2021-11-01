@@ -45,7 +45,6 @@ function CartStep02(props) {
       let r = await axios.get(
         `${Cart_API}/list?member_sid=${member.sid}`
       )
-      console.log('rows:', r.data.result)
       if (r.data.success) {
         setCartData(r.data.result)
         setCartQty(r.data.result.length)
@@ -89,11 +88,16 @@ function CartStep02(props) {
       order_main_id: '',
       product_sid: [],
     }
-    const newID = Math.floor(
-      Math.random() * 100 + Date.now()
-    )
-      .toString()
-      .slice(0, 8)
+    const newID =
+      String.fromCharCode(
+        Math.floor(Math.random() * 26) + 65
+      ) +
+      String.fromCharCode(
+        Math.floor(Math.random() * 26) + 65
+      ) +
+      (
+        Math.floor(Math.random() * 899999) + 100000
+      ).toString()
     if (payMethodSelect) {
       sendOrderMain.total_price =
         total() - discount(total())
@@ -126,13 +130,12 @@ function CartStep02(props) {
         if (!rd.data.success) {
           alert(rd.data.error)
         }
+        console.log('rm:', rm.data)
+        console.log('rd:', rd.data)
       })()
     }
 
     // props.history.push('/Cart/Step03')
-    console.log('obj1:', sendOrderMain)
-    console.log('obj2:', sendOrderDetail)
-    console.log('CD:', cartData)
   }
   return (
     <>

@@ -41,7 +41,6 @@ class SendOrderMain{
         const output = {
             success: false,
             error: '',
-            response: '',
         }
         // TODO: 三個參數都必須要有資料
 
@@ -56,8 +55,7 @@ class SendOrderMain{
         const sql = `INSERT INTO ${tableName} SET ?`;
         const [r] = await db.query(sql, [input]);
         output.success = !!r.affectedRows ? true : false;
-        output.response = r;
-        console.log(input, output)
+        console.log('main:', output)
         return output;
     }
 

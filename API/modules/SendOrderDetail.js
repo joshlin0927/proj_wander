@@ -40,7 +40,6 @@ class SendOrderDetail {
         const output = {
             success: false,
             error: "",
-            response: [],
         };
 
         await product_sid_arr.forEach(async (v, i) => {
@@ -51,10 +50,9 @@ class SendOrderDetail {
             }
             const sql = `INSERT INTO ${tableName} (\`order_main_id\`, \`product_sid\`) VALUES (?, ?)`;
             const [r] = await db.query(sql, [order_main_id, v]);
-            output.response[i] = r;
         });
         output.success = true;
-        console.log(output);
+        console.log('detail:', output);
         return output;
     }
 
