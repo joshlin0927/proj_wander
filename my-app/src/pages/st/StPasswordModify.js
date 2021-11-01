@@ -11,12 +11,27 @@ import StSideBar from '../../components/st/StSideBar'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
 
-export default function StPasswordModify() {
+export default function StPasswordModify(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
   const studentSid = JSON.parse(member).sid
+
+  const { auth, setAuth } = props
+  const [imgSrc, setImgSrc] = useState('')
+
+  useEffect(() => {
+    if (token && identity === 0) {
+      ;(async () => {
+        let r = await axios.get(
+          `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
+        )
+
+        setImgSrc(r.data[0][0].avatar)
+      })()
+    }
+  }, [imgSrc, auth])
 
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
@@ -165,7 +180,7 @@ export default function StPasswordModify() {
           </div>
         </div>
         <div className="row ">
-          <StSideBar />
+          <StSideBar imgSrc={imgSrc} />
 
           <form
             className="form col-12 offset-0 col-md-7 offset-md-1 col-lg-7"

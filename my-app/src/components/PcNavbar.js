@@ -58,6 +58,7 @@ function PcNavbar(props) {
     history.push('/login')
   }
   // TODO: 頭圖位置歪掉，要改CSS
+  //已更改global.scss img css
   return (
     <>
       <nav className="nav__header" id="nav__header">
