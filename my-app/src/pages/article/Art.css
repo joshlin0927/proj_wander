@@ -9,6 +9,10 @@
   border-radius: 20px;
 }
 
+.TCcourse-info-sing{
+  width: 500px;
+}
+
 
 .art-type-sin{
   font-family: Noto Sans;
@@ -52,45 +56,7 @@
     font-weight: bold;
 }
 
- /* 查詢按鈕顏色hover黃 */
- .btn-outline-y-sin {
-  color: #212529;
-  background-color: #F1EF5B;
-  border-color: #F1EF5B;
-}
-
-.btn-outline-y-sin:hover {
-  color: #212529;
-  background-color: #ffffff;
-  border-color: #212529;
-}
-
-.btn-outline-y-sin:focus,
-.btn-outline-y-sin.focus {
-  box-shadow: 0 0 0 0.2rem #F1EF5B;
-  background-color: #ffffff;
-}
-
-.btn-outline-y-sin.disabled,
-.btn-outline-y-sin:disabled {
-  color: #F1EF5B;
-  background-color: transparent;
-}
-
-.btn-outline-y-sin:not(:disabled):not(.disabled):active,
-.btn-outline-y-sin:not(:disabled):not(.disabled).active,
-.show>.btn-outline-y-sin-sin.dropdown-toggle {
-  color: #212529;
-  background-color: #ffffff;
-  border-color: #212529;
-}
-
-.btn-outline-y-sin:not(:disabled):not(.disabled):active:focus,
-.btn-outline-y-sin:not(:disabled):not(.disabled).active:focus,
-.show>.btn-outline-y-sin.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem #F1EF5B;
-  ;
-}
+ 
 
 
 .opp-sin{
@@ -215,6 +181,9 @@ margin-top: 30px;
   .TCcourse-img-sing{
     margin-right: 10px;
   }
+  .TCcourse-img-sing img{
+     width: 202px;
+  }
 
   .TCallwrapera-sing{
     z-index: 5;
@@ -227,7 +196,7 @@ margin-top: 30px;
   display: block;
   position: absolute;
   z-index:1;
-  right: 0;
+  left: 0px;
   top: 100px;
 }
 
@@ -236,7 +205,7 @@ margin-top: 30px;
     width: 590px;
     height: 400px;
     background: #FFFFFF;
-    border-radius: 180px 0px 0px 180px;
+    border-radius: 0px 180px 180px 0px;
 
 }
 
@@ -267,7 +236,7 @@ margin-top: 30px;
 .sns-sing {
   z-index: 15;
 position: absolute;
-right: 380px;
+left: 90px;
 top:280px;
 -js-display: flex;
 display:-webkit-box;
@@ -330,7 +299,68 @@ color: #065f8e;
 }
 
 
+
+.ar-btn-secondary:hover {
+  border: 1px solid black;
+  border-radius: 6px;
+  background-color: transparent;
+  color: black;
+  transition: 0.12s linear;
+}
+
+.ar-btn-secondary {
+  color: black;
+  border: 1px solid #f1ef5b;
+  background-color: #f1ef5b;
+}
+
+/* 表單 */
+.ar-TCform {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+
+  /* 表單 */
+  .ar-TCform {
+    margin-top: 50px;
+    border: 2px solid rgba(6, 95, 142, 0.5);
+    margin-bottom: 150px;
+  }
+
+
+    /* 表單內容 */
+    .ar-TCform-content {
+      width: 70%;
+    }
+  
+    .ar-TCform .ar-TCform-content {
+    margin: 0px auto;
+    padding: 0px auto;
+  }
+
+  .ar-TC-intro {
+    border: 1px
+    solid black;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 15px;
+}
+
+.ar-ar-all {
+  margin-top: 30px;
+}
+
+
+
 @media (max-width: 768px) {
+
+  .TCcourse-img-sing img{
+    width: 202px;
+ }
 
           
 
@@ -344,6 +374,10 @@ color: #065f8e;
 
   }
 
+  .ar-TCform .art-input-data{
+    display: noon;
+  }
+
 
 }
 
@@ -353,6 +387,15 @@ color: #065f8e;
 
 /*875*/
           @media (min-width: 768px) {
+
+            .TCcourse-img-sing img{
+              width: 202px;
+           }
+
+
+            .ar-TCform .art-input-data{
+              display: noon;
+            }
 
 
      
@@ -378,6 +421,7 @@ color: #065f8e;
               display: flex;
               flex-direction: row;
               align-items: center;
+              margin-left: 50px;
               margin-bottom: 50px;
               font-family: Noto Sans;
               font-style: normal;
@@ -411,45 +455,7 @@ color: #065f8e;
               margin: 50px 0px 60px;
           }
 
-             /* 查詢按鈕顏色hover黃 */
-             .btn-outline-y-sin {
-              color: #212529;
-              background-color: #F1EF5B;
-              border-color: #F1EF5B;
-          }
-
-          .btn-outline-y-sin:hover {
-              color: #212529;
-              background-color: #ffffff;
-              border-color: #212529;
-          }
-
-          .btn-outline-y-sin:focus,
-          .btn-outline-y-sin.focus {
-              box-shadow: 0 0 0 0.2rem #F1EF5B;
-              background-color: #ffffff;
-          }
-
-          .btn-outline-y-sin.disabled,
-          .btn-outline-y-sin:disabled {
-              color: #F1EF5B;
-              background-color: transparent;
-          }
-
-          .btn-outline-y-sin:not(:disabled):not(.disabled):active,
-          .btn-outline-y-sin:not(:disabled):not(.disabled).active,
-          .show>.btn-outline-y-sin.dropdown-toggle {
-              color: #212529;
-              background-color: #ffffff;
-              border-color: #212529;
-          }
-
-          .btn-outline-y-sin:not(:disabled):not(.disabled):active:focus,
-          .btn-outline-y-sin:not(:disabled):not(.disabled).active:focus,
-          .show>.btn-outline-y-sin.dropdown-toggle:focus {
-              box-shadow: 0 0 0 0.2rem #F1EF5B;
-              ;
-          }
+       
 
             .opp{
               display: flex;
