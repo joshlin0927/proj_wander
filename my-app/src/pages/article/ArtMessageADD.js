@@ -4,7 +4,7 @@ import { devUrl } from '../../config'
 import axios from 'axios'
 import { useHistory } from 'react-router'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
-import ArBgDecorationNormal from '../../components/articles/ArBgDecorationNormal.js'
+import ArBgDecorationNormal from '../../components/articles/ArBgDecorationNormal'
 import Footer from '../../components/Footer'
 import { IMG_PATH } from '../../config'
 
