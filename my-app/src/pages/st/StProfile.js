@@ -120,7 +120,26 @@ export default withRouter(function StProfile(props) {
   //實際擁有預覽功能的input因為太醜藏起來
   const inputRef = useRef(null)
 
-  
+  //預覽大頭貼功能
+  // const previewFile = () => {
+  //   var preview = imgRef.current
+  //   var file = inputRef.current.files[0]
+  //   var reader = new FileReader()
+
+  //   reader.addEventListener(
+  //     'load',
+  //     function () {
+  //       preview.src = reader.result
+  //     },
+  //     false
+  //   )
+
+  //   if (file) {
+  //     reader.readAsDataURL(file)
+  //     console.log(file.name)
+  //   }
+  // }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     //阻止表單預設送出行為
@@ -223,8 +242,8 @@ export default withRouter(function StProfile(props) {
                 className="d-none"
               />
             </form>
-            <div className="form-content">
-              <div className="d-flex align-items-center ml-1">
+            <div className="form-content p-4">
+              <div className="d-flex align-items-center">
                 <div className="pic">
                   <img
                     src={
@@ -253,7 +272,7 @@ export default withRouter(function StProfile(props) {
                 <div className="col-6">
                   <input
                     type="text"
-                    className="nameInputs col"
+                    className="nameInputs"
                     placeholder="名字"
                     name="firstname"
                     value={fields.firstname}

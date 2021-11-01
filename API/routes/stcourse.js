@@ -49,9 +49,19 @@ async function getListData(req, res) {
 
 router.getListData = getListData; //將function掛在router物件上
 
+//這是拿到學生的購買課程
 router.get('/api/coursedata', async (req, res) => {
   const output = await getListData(req, res);
   res.json(output);
 });
+
+
+//這是拿到所有課程資料(主要是測試用)
+router.get('/list',async(req,res)=>{
+   const sql = `SELECT * FROM \`course\` WHERE 1 `;
+   
+   const [rs] = await db.query(sql);
+   res.json([rs])
+})
 
  module.exports = router;

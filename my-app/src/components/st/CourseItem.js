@@ -7,7 +7,7 @@ export default function CourseItem(props) {
     <>
       <div class="courseitem">
         <img
-          src={`${IMG_PATH}/86be747d-42fc-41ed-a771-d80cf697cea1.jpg`}
+          src={`${IMG_PATH}/ef0496d7-dd1f-454b-9c5d-74af84718c48.jpg`}
           alt=""
         />
         <div class="coursename">{name}</div>
