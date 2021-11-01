@@ -120,26 +120,7 @@ export default withRouter(function StProfile(props) {
   //實際擁有預覽功能的input因為太醜藏起來
   const inputRef = useRef(null)
 
-  //預覽大頭貼功能
-  // const previewFile = () => {
-  //   var preview = imgRef.current
-  //   var file = inputRef.current.files[0]
-  //   var reader = new FileReader()
-
-  //   reader.addEventListener(
-  //     'load',
-  //     function () {
-  //       preview.src = reader.result
-  //     },
-  //     false
-  //   )
-
-  //   if (file) {
-  //     reader.readAsDataURL(file)
-  //     console.log(file.name)
-  //   }
-  // }
-
+  
   const handleSubmit = (e) => {
     e.preventDefault()
     //阻止表單預設送出行為
@@ -194,13 +175,13 @@ export default withRouter(function StProfile(props) {
         console.log('res:', r.data)
       })()
     }
-  }, [])
+  }, [imgSrc])
 
   return (
     <>
       <div className="container mainContent">
+        <MultiLevelBreadCrumb />
         <div className="row">
-          <MultiLevelBreadCrumb />
           <div className="col-10 ml-auto pageName">
             <span className="pageNameText profile">
               Profile
@@ -251,7 +232,7 @@ export default withRouter(function StProfile(props) {
                         ? IMG_PATH + '/' + imgSrc
                         : IMG_PATH +
                           '/' +
-                          'c943da4c-dd71-4e60-b598-ee44fdbd2fb6.jpg'
+                          'presetAvatar.jpeg'
                     }
                     className="img-fluid"
                     alt=""

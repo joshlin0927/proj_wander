@@ -2,6 +2,11 @@ body {
   position: relative;
 }
 
+.videoMeta {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
 .TCmb-50 {
   margin-bottom: 50px;
 }
@@ -334,7 +339,6 @@ body {
 /* 課程表單裡的圖  */
 .TCcourse-pic-square {
   width: 271px;
-  height: 271px;
   margin-bottom: 30px;
   border: 1px solid #868686;
   border-radius: 10px;
@@ -860,7 +864,7 @@ body {
     border: 2px dashed #868686;
     border-radius: 20px;
     padding: 25%;
-    margin: 0px auto 135px;
+    margin: 0px auto 50px;
     text-align: center;
   }
 

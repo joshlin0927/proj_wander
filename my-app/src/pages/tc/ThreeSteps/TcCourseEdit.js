@@ -15,6 +15,8 @@ import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThree
 import Footer from '../../../components/Footer'
 
 function TcCourseEdit(props) {
+  //課程封面狀態
+  let [imgSrc, setImgSrc] = useState('')
   //判斷是否登入並為教師身分
   const history = useHistory()
   const token = localStorage.getItem('token')
@@ -33,19 +35,17 @@ function TcCourseEdit(props) {
           TcCourse_EDIT + props.location.search
         )
         setFields(r.data[0])
+        setImgSrc(r.data[0].course_img)
         localStorage.setItem(
           'CourseSidForProcess',
           r.data[0].sid
         )
-        console.log('edit', r.data[0].sid)
+        console.log('edit', r.data[0])
       })()
     }
-  }, [])
+  }, [imgSrc])
 
   const formRef = useRef(null)
-
-  //課程封面狀態
-  let [imgSrc, setImgSrc] = useState('')
 
   const doUpload = async () => {
     const r = await axios.post(
@@ -205,12 +205,10 @@ function TcCourseEdit(props) {
       {/* Main Content */}
       <div className="container mainContent">
         {/* logo */}
-        <div className="row">
-          <MultiLevelBreadCrumb />
-        </div>
+        <MultiLevelBreadCrumb />
         <div className="row justify-content-center">
           {/* TCcourse-TCcourse-process bar */}
-          <TcCourseProcessBar />
+          <TcCourseProcessBar CourseSid={fields.sid} />
           {/* form */}
           <form
             className="TCform col-12 col-md-10"
@@ -246,10 +244,10 @@ function TcCourseEdit(props) {
                   <img
                     src={
                       imgSrc
-                        ? IMG_PATH + '/' + imgSrc
+                        ? IMG_PATH + '/course/' + imgSrc
                         : IMG_PATH +
-                          '/' +
-                          'c943da4c-dd71-4e60-b598-ee44fdbd2fb6.jpg'
+                          '/course/' +
+                          'Course_Preset.jpg'
                     }
                     className="img-fluid"
                     alt=""

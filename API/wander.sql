@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-10-31 11:03:36
--- 伺服器版本： 10.4.20-MariaDB
--- PHP 版本： 7.4.21
+-- 產生時間： 2021-11-01 14:04:24
+-- 伺服器版本： 10.4.21-MariaDB
+-- PHP 版本： 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -106,7 +106,12 @@ INSERT INTO `cart` (`sid`, `member_sid`, `product_sid`, `created_at`) VALUES
 (4, '2', '4', '2021-10-29 10:50:53'),
 (5, '2', '3', '2021-10-29 10:50:53'),
 (6, '3', '1', '2021-10-29 13:33:25'),
-(7, '3', '2', '2021-10-29 13:36:04');
+(7, '3', '2', '2021-10-29 13:36:04'),
+(9, '1010', '1', '2021-11-01 17:09:00'),
+(10, '1010', '2', '2021-11-01 17:09:01'),
+(11, '1010', '3', '2021-11-01 17:09:01'),
+(12, '1010', '4', '2021-11-01 17:09:01'),
+(13, '1010', '5', '2021-11-01 17:09:01');
 
 -- --------------------------------------------------------
 
@@ -151,7 +156,10 @@ INSERT INTO `course` (`sid`, `teacher_sid`, `course_category`, `course_name`, `c
 (32, '4', '英文', 'Tracy老師-英文雅思・托福班', '492f6d9c790b103b523b4cc8e217beb954bb07df.png', 8000, '2021-06-29', 10, '每個人在英文學習上都有強弱項，若是能在個人的弱項上集中火力加強，才能獲得最大的成效。經由飛德專業的諮詢幫您找出英文學習的弱點，再針對弱項安排客製化的課表，對於雅思及托福分數的掌握會更得心應手。\r\n\r\n雅思及托福為綜合性考試，聽、說、讀、寫每個大題中，都需要具備其他能力方能作答。', '', 0, '0000-00-00 00:00:00'),
 (33, '4', '英文', 'Tracy老師-英文多益 TOEIC班', '969e127e06ba4cd81dc668d31e609bf7bda08831.png', 13000, '2021-08-11', 15, '每個人在英文學習上都有強弱項，若是能在個人的弱項上集中火力加強，才能獲得最大的成效。經由飛德專業的諮詢幫您找出英文學習的弱點，再針對弱項安排客製化的課表，對於多益分數的掌握會更得心應手。', '', 0, '0000-00-00 00:00:00'),
 (34, '4', '英文', 'Tracy老師-商業英文班', '17f795125657a81b2a251943c5af76e7d05d3b0b.png', 9000, '2021-07-03', 10, '介紹實用且專業的職場英文，練習商業對話及聽力，學習閱讀報表及電子信函，加強國際商業重要時事。\r\n小班教學，針對弱項各個擊破，根據程度分級\r\n嚴格。實力加強搭配多益檢定證照，是您求職和\r\n升職的最佳利器', '', 0, '0000-00-00 00:00:00'),
-(36, '1', '日文', '與老外用日語交談', '1131812f5ccd4ab4e240921d52781f3cba2d9152.jpg', 1500, '2021-08-04', 0, '與老外用日語交談', '', 0, '2021-08-23 10:32:22');
+(36, '1', '日文', '與老外用日語交談', '1131812f5ccd4ab4e240921d52781f3cba2d9152.jpg', 1500, '2021-08-04', 0, '與老外用日語交談', '', 0, '2021-08-23 10:32:22'),
+(37, '1', '英文', '213', 'a8c974f8-5d5f-4e67-8357-ac72acd61294.jpg', 213, '2021-11-01', 0, '231', '', 0, '2021-11-01 11:20:59'),
+(40, '1', '日文', '234', '1a3ca573-a3b4-453f-891b-a50656eb41d2.jpg', 234, '2021-11-01', 0, '', '', 0, '2021-11-01 11:46:54'),
+(41, '1', '', '', '3a4dbe34-8439-410f-8e81-dc541293f697.jpg', 0, '2021-11-01', 0, '', '', 0, '2021-11-01 13:53:58');
 
 -- --------------------------------------------------------
 
@@ -182,7 +190,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`sid`, `identity`, `verification`, `avatar`, `firstname`, `lastname`, `nickname`, `email`, `password`, `birth`, `gender`, `language`, `nationality`, `intro`, `created_date`) VALUES
-(1, 1, 0, '[object File]', 'Ai', 'lee', 'Ai', 't1@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '0000-00-00', 1, '英文、日文', '日本', '123', '2020-04-13'),
+(1, 1, 0, 'e442f0a8-29de-4a70-a9cd-cb4eca391cfa.jpg', 'Ai', 'lee', 'Ai', 't1@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '0000-00-00', 1, '英文、日文', '日本', '123', '2020-04-13'),
 (2, 1, 0, '7adc6043cb34201875ab786456b2ec7372a423da.jpg', '艾莉絲', '', '艾莉絲', 't2@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、日文', '日本', '', '2020-04-13'),
 (3, 1, 0, '83633b85d70a873c1d98f16cf39a25a3d5791239.jpg', 'Yumika', '', 'Yumika', 't3@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、日文', '日本', '', '2020-04-13'),
 (4, 1, 0, '4fffcb7567638244d8dbbe1265ff2a7f7197fd19.png', 'Tracy', '', 'Tracy', 't4@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文', '美國', '', '2020-04-13'),
@@ -218,7 +226,8 @@ INSERT INTO `member` (`sid`, `identity`, `verification`, `avatar`, `firstname`, 
 (1003, 1, 0, '6b5f08c895b032a3751d594b35f9df3f0daee08b.jpg', '123', '', '123', '123@gmail.com', '$2y$10$mvwUDOEgGfmTuvFpiHwHF.hr3beq62UVQXCsbTQ3iXPLhzZbpmtfi', '2021-08-10', 1, '', '', '', '2021-08-24'),
 (1004, 1, 0, 'f5cddb88be8a07f97cf3d376dc5359b4c851a6b5.jpg', 'Ai1', '', 'Ai1', 'ming@gg.com', '$2y$10$HNfX2Kekv48kr976JCGZ..xjMkHhT6r/WqTSMeSz..gQru9paljk.', '1982-05-24', 1, '英文、日文', '日本', '', '2020-04-13'),
 (1006, 0, 0, NULL, 'RRRRR', 'SSSSS', 'RS', 's1@ss.com', '$2a$10$AVephxPKk3dZ0LKIG4SbBOiOovXzulpa8cNhNI2epiTM05fBQBkoK', NULL, NULL, NULL, NULL, '', '2021-10-29'),
-(1008, 1, 0, NULL, 'TTTTT', 'SSSSS', 'test01', 'tt@tt.com', '$2a$10$uASYlb0UAtfZMortDvIInO/lKTu/hLuTx5qtbaupsq.DE9dFLtXUW', NULL, NULL, NULL, NULL, '', '2021-10-29');
+(1008, 1, 0, NULL, 'TTTTT', 'SSSSS', 'test01', 'tt@tt.com', '$2a$10$uASYlb0UAtfZMortDvIInO/lKTu/hLuTx5qtbaupsq.DE9dFLtXUW', NULL, NULL, NULL, NULL, '', '2021-10-29'),
+(1010, 0, 0, '2a5f7853-627f-47ce-8b7c-ac25b7e585df.jpg', 'samar', 'hsiao', '', 'sss@mail', '$2a$10$oHmkuwzJ.CyuSmGTpvOOLuUUTAH/H2y/UWAk7xziZppnzXypo9Lqm', NULL, NULL, NULL, NULL, NULL, '2021-11-01');
 
 -- --------------------------------------------------------
 
@@ -255,7 +264,18 @@ INSERT INTO `order_detail` (`sid`, `order_main_id`, `product_sid`) VALUES
 (46, '202108191047398800368974', 1),
 (47, '202108191047398800368974', 2),
 (48, '202108191047398800368974', 3),
-(49, '202108191047398800368974', 4);
+(49, '202108191047398800368974', 4),
+(50, '202108171730387717793097', 4),
+(51, '16357715', 1),
+(52, '16357715', 2),
+(53, '16357715', 3),
+(54, '16357715', 4),
+(55, '16357715', 5),
+(56, '16357718', 1),
+(57, '16357718', 2),
+(58, '16357718', 3),
+(59, '16357718', 4),
+(60, '16357718', 5);
 
 -- --------------------------------------------------------
 
@@ -267,24 +287,30 @@ CREATE TABLE `order_main` (
   `sid` int(11) NOT NULL,
   `order_id` varchar(255) NOT NULL,
   `member_sid` int(11) NOT NULL,
+  `pay_method` int(11) NOT NULL,
+  `cstoresort` int(11) NOT NULL DEFAULT 0,
   `order_status` int(11) NOT NULL,
   `total_price` int(11) NOT NULL,
-  `created_at` datetime NOT NULL
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- 傾印資料表的資料 `order_main`
 --
 
-INSERT INTO `order_main` (`sid`, `order_id`, `member_sid`, `order_status`, `total_price`, `created_at`) VALUES
-(19, '202108171730387717793097', 2, 0, 9485, '2021-08-17 17:30:38'),
-(20, '202108171808581391418425', 2, 0, 5965, '2021-08-17 18:08:58'),
-(21, '202108171809131774737449', 2, 0, 53840, '2021-08-17 18:09:13'),
-(22, '202108171809237276751107', 2, 0, 70400, '2021-08-17 18:09:23'),
-(23, '202108171809475894883559', 1, 0, 19735, '2021-08-17 18:09:47'),
-(24, '202108171810233610416338', 1, 0, 70400, '2021-08-17 18:10:23'),
-(25, '202108172040292557976145', 2, 0, 13775, '2021-08-17 20:40:29'),
-(26, '202108191047398800368974', 1, 0, 27545, '2021-08-19 10:47:39');
+INSERT INTO `order_main` (`sid`, `order_id`, `member_sid`, `pay_method`, `cstoresort`, `order_status`, `total_price`, `created_at`) VALUES
+(19, '202108171730387717793097', 2, 1, 0, 0, 9485, '2021-08-17 17:30:38'),
+(20, '202108171808581391418425', 2, 3, 0, 0, 5965, '2021-08-17 18:08:58'),
+(21, '202108171809131774737449', 2, 1, 0, 0, 53840, '2021-08-17 18:09:13'),
+(22, '202108171809237276751107', 2, 1, 0, 0, 70400, '2021-08-17 18:09:23'),
+(23, '202108171809475894883559', 1, 1, 0, 0, 19735, '2021-08-17 18:09:47'),
+(24, '202108171810233610416338', 1, 2, 1, 0, 70400, '2021-08-17 18:10:23'),
+(25, '202108172040292557976145', 2, 1, 0, 0, 13775, '2021-08-17 20:40:29'),
+(26, '202108191047398800368974', 1, 3, 0, 0, 27545, '2021-08-19 10:47:39'),
+(29, '16357714', 1010, 1, 0, 0, 25000, '2021-11-01 20:57:33'),
+(30, '16357715', 1010, 1, 0, 0, 25000, '2021-11-01 20:59:07'),
+(31, '16357715', 1010, 1, 0, 0, 25000, '2021-11-01 20:59:46'),
+(32, '16357718', 1010, 1, 0, 0, 25000, '2021-11-01 21:03:20');
 
 -- --------------------------------------------------------
 
@@ -387,7 +413,12 @@ INSERT INTO `video_list` (`sid`, `course_sid`, `video_cover`, `video_name`, `vid
 (52, 36, 'c7398f397b730ee8778ccceaf36e919210f27f1a.jpg', '日語教學004?', 'c92bc209bbbc1dd6d49ff21591681867016dce0b.mp4', '1', '2021-08-23', 0, ''),
 (53, 24, '0407b54681495a968916b16ae2d0b756735691b5.png', '常用的100句日文口語短句（初級篇）', 'cab94e203e360e93cc0b3552f165a89095bde22a.mp4', '1', '2021-08-23', 0, ''),
 (54, 24, '12b24c1c08fc63d24f0f4b2ee398716a5ef62d27.png', '【早上3分鐘學會10句日語會話】', '626e40cb9186714f112059149f39b0358e381444.mp4', '1', '2021-08-23', 0, ''),
-(55, 23, '4ce3e62c17cd890d6d87628d7f4a80307e7c65e9.jpg', '13456', 'aadf3d005ff61646ad5054e37f5cca94cf3df16a.mp4', '1', '2021-08-24', 0, '');
+(55, 23, '4ce3e62c17cd890d6d87628d7f4a80307e7c65e9.jpg', '13456', 'aadf3d005ff61646ad5054e37f5cca94cf3df16a.mp4', '1', '2021-08-24', 0, ''),
+(56, 23, '', '', '456', '1', '2021-08-24', 0, ''),
+(57, 23, '', '', 'e984c86d-9890-4776-b793-f0ae8965fb34.mp4', '1', '2021-11-01', 4, NULL),
+(58, 23, '', '', 'e984c86d-9890-4776-b793-f0ae8965fb34.mp4', '1', '2021-11-01', 4, NULL),
+(59, NULL, NULL, '', 'e984c86d-9890-4776-b793-f0ae8965fb34.mp4', '', '2021-11-01', 0, NULL),
+(60, NULL, NULL, '', 'e984c86d-9890-4776-b793-f0ae8965fb34.mp4', '', '2021-11-01', 0, NULL);
 
 --
 -- 已傾印資料表的索引
@@ -475,31 +506,31 @@ ALTER TABLE `art_messenger`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `course`
 --
 ALTER TABLE `course`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
 --
 ALTER TABLE `member`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1010;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1011;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_main`
 --
 ALTER TABLE `order_main`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `sentence_game`
@@ -511,7 +542,7 @@ ALTER TABLE `sentence_game`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `video_list`
 --
 ALTER TABLE `video_list`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

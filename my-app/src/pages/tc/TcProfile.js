@@ -149,7 +149,7 @@ function TcProfile(props) {
     )
       .then((r) => r.json())
       .then((obj) => {
-        console.log(JSON.stringify(obj, null, 4))
+        // console.log(JSON.stringify(obj, null, 4))
         if (obj.success) {
           alert('資料修改成功')
           // TODO: 修改alert成通知條形式(ConfirmMsg)
@@ -218,9 +218,8 @@ function TcProfile(props) {
   return (
     <>
       <div className="container mainContent">
-        {/* breadcrumb */}
+        <MultiLevelBreadCrumb />
         <div className="row">
-          <MultiLevelBreadCrumb />
           <div className="col-10 ml-auto pageName">
             <span className="pageNameText TCprofile">
               Profile

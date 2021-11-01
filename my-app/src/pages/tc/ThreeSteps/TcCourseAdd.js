@@ -16,6 +16,8 @@ import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThree
 import Footer from '../../../components/Footer'
 
 function TcCourseAdd(props) {
+  //課程封面狀態
+  let [imgSrc, setImgSrc] = useState('')
   // 課程新增後的通知
   const [lastAdd, setLastAdd] = useState('')
 
@@ -37,14 +39,15 @@ function TcCourseAdd(props) {
         setImgSrc(r.data[0].course_img)
         setFields(r.data[0])
         setLastAdd(r.data[0].sid)
+        localStorage.setItem(
+          'CourseSidForProcess',
+          r.data[0].sid
+        )
       })()
     }
-  }, [])
+  }, [imgSrc])
 
   const formRef = useRef(null)
-
-  //課程封面狀態
-  let [imgSrc, setImgSrc] = useState('')
 
   const doUpload = async () => {
     const r = await axios.post(
@@ -204,12 +207,10 @@ function TcCourseAdd(props) {
       {/* Main Content */}
       <div className="container mainContent">
         {/* logo */}
-        <div className="row">
-          <MultiLevelBreadCrumb />
-        </div>
+        <MultiLevelBreadCrumb />
         <div className="row justify-content-center">
           {/* TCcourse-TCcourse-process bar */}
-          <TcCourseProcessBar />
+          <TcCourseProcessBar CourseSid={lastAdd} />
           {/* form */}
           <form
             className="TCform col-12 col-md-10"
@@ -245,12 +246,11 @@ function TcCourseAdd(props) {
                   <img
                     src={
                       imgSrc
-                        ? IMG_PATH + '/' + imgSrc
+                        ? IMG_PATH + '/course/' + imgSrc
                         : IMG_PATH +
-                          '/' +
-                          'c943da4c-dd71-4e60-b598-ee44fdbd2fb6.jpg'
+                          '/course/' +
+                          'Course_Preset.jpg'
                     }
-                    className="img-fluid"
                     alt=""
                   />
                 </div>

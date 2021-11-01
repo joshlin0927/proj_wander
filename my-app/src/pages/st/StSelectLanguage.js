@@ -17,8 +17,8 @@ export default function StSelectLanguage() {
             <MultiLevelBreadCrumb />
           </div>
           <div className="row">
-            <div className="col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10">
-              <div className="selectlanguage col-12 ">
+            <div className="col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10 p-0">
+              <div className="selectlanguage col-12">
                 選擇語言
               </div>
               <select
@@ -34,7 +34,7 @@ export default function StSelectLanguage() {
                 <option value="英文"> 英文 </option>
                 <option value="日文"> 日文 </option>
               </select>
-              <div className="h30"></div>
+              <div className="h15"></div>
               <select
                 className="col-12"
                 value={selectedOption2}
@@ -47,6 +47,9 @@ export default function StSelectLanguage() {
                 <option value="中等"> 中等 </option>
                 <option value="困難"> 困難 </option>
               </select>
+              <div className="nextpage offset-4 offset-md-6 mt-3">
+                下一步
+              </div>
               {/* <ul claaName="languagelist">
                 <li
                   className="selection"
@@ -71,7 +74,7 @@ export default function StSelectLanguage() {
       </div>
 
       <div className="dec-side col-md-8 col-lg-6">
-        <div className="dec-insideblock col-md-9 col-lg-8"></div>
+        <div className="dec-insideblock col-9 col-md-9 col-lg-8"></div>
       </div>
       <Footer />
     </>

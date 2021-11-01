@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
 import { Link, withRouter } from 'react-router-dom'
-import { devUrl, Cart_API } from '../../config'
+import {
+  devUrl,
+  Cart_API,
+  SendOrder_API,
+} from '../../config'
 import axios from 'axios'
 
 // 頁面元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import PayMethodSelectInfo from '../../components/cart/PayMethodSelectInfo'
 import PayInfo from '../../components/cart/PayInfo'
+import CartSummary from '../../components/cart/CartSummary'
+import EditCheckList from '../../components/cart/EditCheckList'
 import Footer from '../../components/Footer'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 
@@ -16,15 +22,22 @@ function CartStep02(props) {
   const [cartFooterMb, setCartFooterMb] = useState(true)
   // 下拉選單state
   const [payMethodSelect, setPayMethodSelect] = useState('')
+  const [cstoresort, setCstoresort] = useState(0)
   // modal
   const [checkModalShow, setCheckModalShow] =
     useState(false)
   const handleCheckModalClose = () =>
     setCheckModalShow(false)
   const handleCheckModalShow = () => setCheckModalShow(true)
+  const [alertModalShow, setAlertModalShow] =
+    useState(false)
+  const handleAlertModalClose = () =>
+    setAlertModalShow(false)
+  const handleAlertModalShow = () => setAlertModalShow(true)
+  // states
   const [cartData, setCartData] = useState([{}])
-  const [cartQty, setCartQty] = useState(0)
-
+  const [cartQty, setCartQty] = useState(-1)
+  const counponID = sessionStorage.getItem('counponID')
   // 取得該會員購物車資料
   const member = JSON.parse(localStorage.getItem('member'))
   useEffect(() => {
@@ -41,6 +54,86 @@ function CartStep02(props) {
       }
     })()
   }, [member.sid])
+  // 計算總價
+  const total = () => {
+    let sum = 0
+    for (let i = 0; i < cartData.length; i++) {
+      sum += cartData[i].course_price
+    }
+    return sum
+  }
+  // 計算折扣
+  const discount = (t) => {
+    switch (counponID) {
+      case 'c1':
+        return Math.floor(t * 0.1)
+      case 'c2':
+        return Math.floor(t * 0.05)
+      case 'c3':
+        return 100
+      default:
+        return 0
+    }
+  }
+  // 送出訂單
+  function sendToOrder() {
+    const sendOrderMain = {
+      total_price: 0,
+      pay_method: '', //1信用卡 2超商 3銀轉
+      cstoresort: 0, //1seven 2fami 3ok 4hilife
+      order_id: '',
+      order_status: 0, //0待付款 1已付款 2已取消
+      member_sid: member.sid,
+    }
+    const sendOrderDetail = {
+      order_main_id: '',
+      product_sid: [],
+    }
+    const newID = Math.floor(
+      Math.random() * 100 + Date.now()
+    )
+      .toString()
+      .slice(0, 8)
+    if (payMethodSelect) {
+      sendOrderMain.total_price =
+        total() - discount(total())
+      sendOrderMain.pay_method = payMethodSelect
+      sendOrderMain.cstoresort = cstoresort
+      sendOrderMain.order_id = newID
+      sendOrderDetail.order_main_id = newID
+      cartData.forEach((v, i) => {
+        sendOrderDetail.product_sid[i] = v.product_sid
+      })
+    }
+
+    if (
+      sendOrderMain.order_id !== '' &&
+      sendOrderDetail.order_main_id !== ''
+    ) {
+      console.log('傳資料囉')
+      ;(async () => {
+        let rm = await axios.post(
+          `${SendOrder_API}/add/main`,
+          sendOrderMain
+        )
+        let rd = await axios.post(
+          `${SendOrder_API}/add/detail`,
+          sendOrderDetail
+        )
+        if (!rm.data.success) {
+          alert(rm.data.error)
+        }
+        if (!rd.data.success) {
+          alert(rd.data.error)
+        }
+      })()
+    }
+
+    // props.history.push('/Cart/Step03')
+    console.log('obj1:', sendOrderMain)
+    console.log('obj2:', sendOrderDetail)
+    console.log('CD:', cartData)
+  }
   return (
     <>
       <MultiLevelBreadCrumb />
@@ -133,26 +226,18 @@ function CartStep02(props) {
               <div className="col-12 payTitle">
                 <span>付款資訊</span>
               </div>
-              <PayInfo payMethodSelect={payMethodSelect} />
+              <PayInfo
+                payMethodSelect={payMethodSelect}
+                setCstoresort={setCstoresort}
+              />
             </div>
           </div>
           {/* <!-- Checkout Detail --> */}
           <div className="checkout container col-10 col-md-2">
-            <div className="row">
-              <div className="checkoutTitle">
-                <span>結帳明細</span>
-              </div>
-              <div className="checkoutSubtotal">
-                <span>小計</span>
-                <span>NT$8100</span>
-                <div className="w-100"></div>
-                <span>折扣</span>
-                <span>-NT$810</span>
-              </div>
-            </div>
-            <div className="row justify-content-end">
-              <div className="checkoutTotal">NT$ 7310</div>
-            </div>
+            <CartSummary
+              total={total()}
+              discount={discount}
+            />
             {/* <!-- 選擇優惠券 --> */}
             <div className="row justify-content-center">
               <div className="couponTitle-m">優惠券</div>
@@ -160,7 +245,7 @@ function CartStep02(props) {
                 <span>選擇使用的優惠券：</span>
                 <div className="w-100 mt-3 counponImage">
                   <img
-                    src={`${devUrl}/images/cart/coupon.svg`}
+                    src={`${devUrl}/images/cart/coupon${counponID}.svg`}
                     alt=""
                   />
                 </div>
@@ -168,13 +253,15 @@ function CartStep02(props) {
               <div className="couponTitle-m">結帳明細</div>
               <div className="checkoutSubtotal-m">
                 <span>小計</span>
-                <span>NT$8100</span>
+                <span>NT${total()}</span>
                 <div className="w-100"></div>
                 <span>折扣</span>
-                <span>-NT$810</span>
+                <span>-NT${discount(total())}</span>
                 <div className="w-100 my-2 border-bottom"></div>
                 <span>結帳金額</span>
-                <span>NT$7310</span>
+                <span>
+                  NT${total() - discount(total())}
+                </span>
               </div>
             </div>
             <div className="row">
@@ -191,36 +278,18 @@ function CartStep02(props) {
               </div>
               <div className="editCheckList container">
                 <div className="row align-items-center">
-                  <div className="w-100 my-2"></div>
-                  <div className="col-5 pr-0">
-                    <img
-                      src={`${devUrl}/images/cart/jp_course.jpg`}
-                      alt=""
-                    />
-                  </div>
-                  <div className="col-7">
-                    日本自由行必學的實用日語會話
-                  </div>
-                  <div className="w-100 my-2"></div>
-                  <div className="col-5 pr-0">
-                    <img
-                      src={`${devUrl}/images/cart/jp_course.jpg`}
-                      alt=""
-                    />
-                  </div>
-                  <div className="col-7">
-                    日本自由行必學的實用日語會話
-                  </div>
-                  <div className="w-100 my-2"></div>
-                  <div className="col-5 pr-0">
-                    <img
-                      src={`${devUrl}/images/cart/jp_course.jpg`}
-                      alt=""
-                    />
-                  </div>
-                  <div className="col-7">
-                    日本自由行必學的實用日語會話
-                  </div>
+                  {cartQty === 0
+                    ? alert('購物車內無項目')
+                    : cartData.map((v, i) => {
+                        return (
+                          <EditCheckList
+                            key={i}
+                            product_sid={v.product_sid}
+                            name={v.course_name}
+                            img={v.course_img}
+                          />
+                        )
+                      })}
                   <div className="w-100 my-2"></div>
                 </div>
               </div>
@@ -232,18 +301,22 @@ function CartStep02(props) {
               </div>
               <div className="checkoutTotal-m">
                 <span className="checkoutTotal-m-1">
-                  NT$7310
+                  NT${total() - discount(total())}
                 </span>
                 <div className="w-100"></div>
                 <span className="checkoutTotal-m-2">
-                  (優惠折抵：NT$810)
+                  (優惠折抵：NT${discount(total())})
                 </span>
               </div>
               <button
                 className="btn cartCheckoutBtn"
                 data-toggle="modal"
                 data-target="#checkModal"
-                onClick={handleCheckModalShow}
+                onClick={
+                  payMethodSelect
+                    ? handleCheckModalShow
+                    : handleAlertModalShow
+                }
               >
                 確認付款
               </button>
@@ -272,8 +345,7 @@ function CartStep02(props) {
             className="btn confirmBtn"
             id="checkBtn"
             onClick={() => {
-              console.log(props)
-              props.history.push('/Cart/Step03')
+              sendToOrder()
             }}
           >
             確認
@@ -284,6 +356,29 @@ function CartStep02(props) {
             onClick={handleCheckModalClose}
           >
             取消
+          </button>
+        </Modal.Footer>
+      </Modal>
+      <Modal
+        show={alertModalShow}
+        onHide={handleAlertModalClose}
+        id="alertModal"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title>提醒</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">
+          <span>請先選擇付款方式</span>
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            type="button"
+            className="btn confirmBtn"
+            onClick={handleAlertModalClose}
+          >
+            確認
           </button>
         </Modal.Footer>
       </Modal>

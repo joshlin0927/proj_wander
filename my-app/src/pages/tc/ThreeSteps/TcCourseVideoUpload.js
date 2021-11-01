@@ -1,9 +1,9 @@
 import React, { useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
-
-import styled from 'styled-components'
 import { useDropzone } from 'react-dropzone'
+
+import { TcVideo_ADD } from '../../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
@@ -11,6 +11,7 @@ import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
 
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'
 import Footer from '../../../components/Footer'
+import axios from 'axios'
 
 function TcCourseVideoUpload() {
   //判斷是否登入並為教師身分
@@ -44,12 +45,43 @@ function TcCourseVideoUpload() {
       // video.preload = 'metadata'
       video.addEventListener('loadedmetadata', function () {
         document.querySelector('#duration').innerHTML =
-          'Duration: ' + video.duration + 's'
+          '<div>' +
+          `Duration: ${Math.ceil(video.duration)} s` +
+          '</div>' +
+          '<div>' +
+          `File: ${file.name}` +
+          '</div>' +
+          '<div>' +
+          `Size: ${file.size}` +
+          '</div>' +
+          '<div>' +
+          `src: ${video.src.slice(27)}` +
+          '</div>'
+
         URL.revokeObjectURL(url)
       })
       video.src = url
     }
+
     reader.readAsArrayBuffer(file)
+
+    const r = fetch(TcVideo_ADD, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      video_link: file.name,
+    })
+      .then((r) => r.json())
+      .then((obj) => {
+        console.log(JSON.stringify(obj, null, 4))
+        if (obj.success) {
+          alert('資料修改成功')
+        } else {
+          alert(obj.error || '資料修改失敗')
+        }
+      })
+    console.log(r)
   }, [])
 
   const {
@@ -59,13 +91,8 @@ function TcCourseVideoUpload() {
     acceptedFiles,
   } = useDropzone({
     durationReader,
+    accept: 'video/mp4,video/quicktime,video/x-ms-wmv',
   })
-
-  const files = acceptedFiles.map((file) => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-    </li>
-  ))
 
   return (
     <>
@@ -74,7 +101,7 @@ function TcCourseVideoUpload() {
         <div className="row justify-content-center">
           {/* TCcourse-TCcourse-process bar */}
           <TcCourseProcessBar />
-          <form className="TCform col-12 col-md-10">
+          <div className="TCform col-12 col-md-10">
             <div className="TCform-content">
               <div className="TCform-head">
                 <Link to="/TcIndex/TcCourseEdit/:sid?">
@@ -93,7 +120,10 @@ function TcCourseVideoUpload() {
                 </div>
               </div>
 
-              <div className="TCvideo-drop-zone">
+              <form
+                className="TCvideo-drop-zone"
+                name="formVideo"
+              >
                 <div
                   {...getRootProps({
                     className: 'dropzone',
@@ -104,6 +134,7 @@ function TcCourseVideoUpload() {
                     onChange={(e) => {
                       durationReader(e)
                     }}
+                    name="video_link"
                   />
                 </div>
                 <i className="fas fa-upload"></i>
@@ -120,11 +151,15 @@ function TcCourseVideoUpload() {
                 >
                   選擇檔案
                 </button>
+              </form>
+              <div id="duration" className="videoMeta">
+                <div name="duration">Duration:</div>
+                <div>File:</div>
+                <div>Size:</div>
+                <div>src:</div>
               </div>
-              <ul>{files}</ul>
-              <div id="duration"></div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
       <TcBgDecorationThreeSteps />

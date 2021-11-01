@@ -720,7 +720,8 @@
   font-weight: bold;
   font-size: 2rem;
 }
-#confirmCheckModal .modal-body span {
+#confirmCheckModal .modal-body span,
+#alertModal .modal-body span {
   color: #065f8e;
   font-weight: bold;
   font-size: 1.5rem;

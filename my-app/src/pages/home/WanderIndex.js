@@ -3,6 +3,9 @@ import { devUrl } from '../../config'
 import './index.css'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import Footer from '../../components/Footer'
+import { Link } from 'react-router-dom'
+import HomeBgDecorationNormal from '../../components/home/HomeBgDecorationNormal'
+
 
 function WanderIndex() {
   return (
@@ -281,18 +284,20 @@ function WanderIndex() {
               </div>
               <div className="row col-11 offset-0 p-0 indexBigImg14">
                 <div className="row yellow-area-but-3 offset-5">
+                <Link to="/SignUp">
                   <button className="btn checkoutBtn">
-                    我是老師
-                  </button>
+                    快來註冊吧!
+                    </button>
+                  </Link>
                 </div>
               </div>
-              <div className="row col-11 offset-0 p-0 indexBigImg15">
+              {/* <div className="row col-11 offset-0 p-0 indexBigImg15">
                 <div className="row yellow-area-but-3 offset-5">
                   <button className="btn checkoutBtn">
                     我是學生
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -329,16 +334,18 @@ function WanderIndex() {
             <div className="row w-100 m-0">
               <div className="col-md-12 offset-md-0 ">
                 <div className="card-a">
-                  <div className="yellow-area-but-1 offset-1">
+                  <div className="yellow-area-but-4-index col-12 offset-1">
+                  <Link to="/SignUp">
                     <button className="btn checkoutBtn-y">
-                      我是老師
+                      快來註冊吧!
                     </button>
+                    </Link>
                   </div>
-                  <div className="yellow-area-but-2 offset-3">
+                  {/* <div className="yellow-area-but-2-index offset-3">
                     <button className="btn checkoutBtn-y">
                       我是學生
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -436,8 +443,8 @@ function WanderIndex() {
                 </span>
               </h3>
               <div className="recommendation-wall ">
-                <ul class="gallery-top animate">
-                  <li class="recommendation-card">
+                <ul className="gallery-top animate">
+                  <li className="recommendation-card">
                     <img
                       src={`${devUrl}/images/index/10.png`}
                       alt=""
@@ -571,6 +578,7 @@ function WanderIndex() {
           </div>
         </div>
       </div>
+      <HomeBgDecorationNormal />
       <div className="indexBigFooter container-fluid">
         <Footer />
       </div>
