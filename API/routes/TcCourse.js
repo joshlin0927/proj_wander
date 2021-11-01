@@ -91,7 +91,7 @@ router.route("/cover").post(uploadImg.single("avatar"), async (req, res) => {
   const sql = `UPDATE \`course\` SET \`course_img\` = ? WHERE \`sid\` = ?`;
 
   try {
-    [result] = await db.query(sql, [req.file.filename, req.query.teacherSid]);
+    [result] = await db.query(sql, [req.file.filename, req.query.courseSid]);
   } catch (ex) {
     output.error = ex.toString();
   }
@@ -116,6 +116,7 @@ router.route("/add").post(async (req, res) => {
   // mysql2 的套件語法，並不是標準的sql寫法
   const input = {
     ...req.body,
+    course_data: new Date(),
     created_at: new Date(),
   };
 
@@ -143,7 +144,8 @@ router.route("/add").post(async (req, res) => {
 router
   .route("/LastAdd")
   .get(async (req, res) => {
-    const sql = "SELECT LAST_INSERT_ID()";
+    // sql = SELECT * FROM `course` ORDER BY `created_at` DESC LIMIT 1;
+    const sql = "SELECT * FROM `course` ORDER BY `course_data` DESC LIMIT 1;";
 
     [result] = await db.query(sql, );
 

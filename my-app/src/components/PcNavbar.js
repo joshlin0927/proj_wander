@@ -30,7 +30,7 @@ function PcNavbar(props) {
         let r = await axios.get(
           `${MemberEdit}/?teacherSid=${memberObj.sid}`
         )
-        console.log('TCr', r)
+        // console.log('TCr', r)
         setImgSrc(r.data[0].avatar)
       })()
     } else if (token && memberObj.identity === 0) {
@@ -38,13 +38,13 @@ function PcNavbar(props) {
         let r = await axios.get(
           `http://localhost:3001/stprofile/list?studentSid=${memberObj.sid}`
         )
-        console.log('STr', r)
+        // console.log('STr', r)
         setImgSrc(r.data[0][0].avatar)
       })()
     }
   }, [imgSrc, auth])
 
-  console.log(imgSrc)
+  // console.log(imgSrc)
 
   const menuToggle = () => {
     const memberMenu = document.querySelector('#memberMenu')

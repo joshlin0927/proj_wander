@@ -13,7 +13,10 @@ import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'
 import Footer from '../../../components/Footer'
 
-function TcCourseAdd() {
+function TcCourseAdd(props) {
+  // 課程新增後的通知
+  const { courseAdd, setCourseAdd } = props
+
   //判斷是否登入並為教師身分
   const history = useHistory()
   const token = localStorage.getItem('token')
@@ -217,7 +220,7 @@ function TcCourseAdd() {
           >
             <div className="TCform-content">
               <div className="TCform-head">
-                <Link to="/TCindex/TcCourse/">
+                <Link to="/TcIndex/TcCourse/">
                   <i className="fas fa-chevron-left TCback-btn"></i>
                 </Link>
                 <div className="TCform-title">
@@ -225,7 +228,7 @@ function TcCourseAdd() {
                 </div>
                 <div className="d-flex justify-content-end">
                   <Link
-                    to="/TCindex/TcCourseVideoUpload"
+                    to="/TcIndex/TcCourseVideoUpload"
                     className="TCbtn-sm-w-switch btn-primary"
                   >
                     <span>儲存</span>
@@ -344,7 +347,7 @@ function TcCourseAdd() {
             </div>
             <div className="onebtn-switch">
               <button
-                // to="/TCindex/TcCourseVideoUpload"
+                // to="/TcIndex/TcCourseVideoUpload"
                 type="submit"
                 className="TCbtn btn-secondary mx-auto one-btn"
               >

@@ -19,7 +19,7 @@ import Login from './pages/st/Login'
 import SignUp from './pages/st/SignUp'
 
 // 教師頁面
-import TCindex from './pages/tc/index'
+import TcIndex from './pages/tc/Index'
 
 // 學生頁面
 
@@ -52,8 +52,8 @@ function App() {
             <Route path="/CompanyBackend">
               <CompanyBackend />
             </Route>
-            <Route path="/TCindex" auth={auth} user={user}>
-              <TCindex />
+            <Route path="/TcIndex" auth={auth} user={user}>
+              <TcIndex />
             </Route>
             <Route path="/Cart">
               <Cart />

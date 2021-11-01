@@ -17,7 +17,7 @@ import MyPagination from '../../components/MyPagination'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
 
-function TcCourse() {
+function TcCourse(props) {
   //判斷是否登入並為教師身分
   const history = useHistory()
   const token = localStorage.getItem('token')
@@ -26,7 +26,7 @@ function TcCourse() {
   const teacherSid = JSON.parse(member).sid
 
   // 課程新增後的通知
-  const [added, setAdded] = useState()
+  const { courseAdd, setCourseAdd } = props
 
   // 資料庫來的課程資料
   const [TcCourses, setTcCourses] = useState([])
@@ -59,7 +59,7 @@ function TcCourse() {
       })()
     }
     // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
-  }, [RemoveCourse, added])
+  }, [RemoveCourse, courseAdd])
 
   //RemoveCourse裡面是在前端被刪除過後的課程陣列
   // console.log(RemoveCourse)
@@ -99,9 +99,9 @@ function TcCourse() {
 
       { teacher_sid: teacherSid }
     )
-    setAdded(r.data.result.insertId)
+    setCourseAdd(r.data.result.insertId)
   }
-  console.log('add', added)
+  console.log('add', courseAdd)
 
   return (
     <>
@@ -134,7 +134,7 @@ function TcCourse() {
                 />
               </div>
               <div className="d-flex justify-content-end">
-                <Link to={`/TCindex/TcCourseAdd/`}>
+                <Link to={`/TcIndex/TcCourseAdd/`}>
                   <button
                     type="submit"
                     className="TCbtn-sm btn-primary"
@@ -159,7 +159,7 @@ function TcCourse() {
               <div className="Labelitem">課程名稱</div>
               <div className="TCcourseLabel-right">
                 <div className="Labelitem">課程種類</div>
-                <div className="Labelitem">上傳日期</div>
+                <div className="Labelitem">創建日期</div>
                 <div className="Labelitem">課程長度</div>
               </div>
             </div>
