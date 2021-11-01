@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- 主機： 127.0.0.1
--- 產生時間： 2021-11-01 07:22:33
--- 伺服器版本： 10.4.21-MariaDB
--- PHP 版本： 7.3.31
+-- 主機： localhost
+-- 產生時間： 2021 年 11 月 01 日 16:49
+-- 伺服器版本： 10.4.20-MariaDB
+-- PHP 版本： 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -221,7 +221,8 @@ INSERT INTO `member` (`sid`, `identity`, `verification`, `avatar`, `firstname`, 
 (1003, 1, 0, '6b5f08c895b032a3751d594b35f9df3f0daee08b.jpg', '123', '', '123', '123@gmail.com', '$2y$10$mvwUDOEgGfmTuvFpiHwHF.hr3beq62UVQXCsbTQ3iXPLhzZbpmtfi', '2021-08-10', 1, '', '', '', '2021-08-24'),
 (1004, 1, 0, 'f5cddb88be8a07f97cf3d376dc5359b4c851a6b5.jpg', 'Ai1', '', 'Ai1', 'ming@gg.com', '$2y$10$HNfX2Kekv48kr976JCGZ..xjMkHhT6r/WqTSMeSz..gQru9paljk.', '1982-05-24', 1, '英文、日文', '日本', '', '2020-04-13'),
 (1006, 0, 0, NULL, 'RRRRR', 'SSSSS', 'RS', 's1@ss.com', '$2a$10$AVephxPKk3dZ0LKIG4SbBOiOovXzulpa8cNhNI2epiTM05fBQBkoK', NULL, NULL, NULL, NULL, '', '2021-10-29'),
-(1008, 1, 0, NULL, 'TTTTT', 'SSSSS', 'test01', 'tt@tt.com', '$2a$10$uASYlb0UAtfZMortDvIInO/lKTu/hLuTx5qtbaupsq.DE9dFLtXUW', NULL, NULL, NULL, NULL, '', '2021-10-29');
+(1008, 1, 0, NULL, 'TTTTT', 'SSSSS', 'test01', 'tt@tt.com', '$2a$10$uASYlb0UAtfZMortDvIInO/lKTu/hLuTx5qtbaupsq.DE9dFLtXUW', NULL, NULL, NULL, NULL, '', '2021-10-29'),
+(1010, 0, 0, '2a5f7853-627f-47ce-8b7c-ac25b7e585df.jpg', 'samar', 'hsiao', '', 'sss@mail', '$2a$10$oHmkuwzJ.CyuSmGTpvOOLuUUTAH/H2y/UWAk7xziZppnzXypo9Lqm', NULL, NULL, NULL, NULL, NULL, '2021-11-01');
 
 -- --------------------------------------------------------
 
@@ -490,7 +491,7 @@ ALTER TABLE `course`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
 --
 ALTER TABLE `member`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1010;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1011;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_detail`

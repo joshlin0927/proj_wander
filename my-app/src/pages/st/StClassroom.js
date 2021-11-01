@@ -15,8 +15,8 @@ export default function StClassroom() {
   return (
     <>
       <div class="container mainContent">
+        <MultiLevelBreadCrumb />
         <div class="row">
-          <MultiLevelBreadCrumb />
           <div class="col-10 ml-auto pageName">
             <span class="pageNameText class">Class</span>
           </div>
