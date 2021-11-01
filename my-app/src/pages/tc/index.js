@@ -21,8 +21,6 @@ import ChatList from '../../components/chatroom/ChatList'
 import ChatWindow from '../../components/chatroom/ChatWindow'
 
 function Index() {
-  const [courseAdd, setCourseAdd] = useState('')
-
   return (
     <>
       <Switch>
@@ -36,16 +34,10 @@ function Index() {
           <TcCourseEdit />
         </Route>
         <Route path="/TcIndex/TcCourseAdd/">
-          <TcCourseAdd
-            courseAdd={courseAdd}
-            setCourseAdd={setCourseAdd}
-          />
+          <TcCourseAdd />
         </Route>
         <Route path="/TcIndex/TcCourse/">
-          <TcCourse
-            courseAdd={courseAdd}
-            setCourseAdd={setCourseAdd}
-          />
+          <TcCourse />
         </Route>
         <Route path="/TcIndex/TcPassword">
           <TcPassword />

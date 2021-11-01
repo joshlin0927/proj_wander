@@ -220,11 +220,7 @@ function TcCourseEdit(props) {
                   </Link>
                 </div>
               </div>
-              <input
-                name="course_sid"
-                value={'3'}
-                className="d-none"
-              />
+
               <div className="TCcourse-img-selector">
                 <input
                   type="file"

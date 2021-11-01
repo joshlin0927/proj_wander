@@ -14,7 +14,7 @@ function TcCourseList(props) {
             course_img={Course.course_img}
             course_name={Course.course_name}
             course_category={Course.course_category}
-            created_at={Course.created_at}
+            course_data={Course.course_data}
             hours={Course.hours}
             remove={() => {
               const newCourses = [...Courses].filter(

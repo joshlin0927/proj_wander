@@ -145,9 +145,9 @@ router
   .route("/LastAdd")
   .get(async (req, res) => {
     // sql = SELECT * FROM `course` ORDER BY `created_at` DESC LIMIT 1;
-    const sql = "SELECT * FROM `course` ORDER BY `course_data` DESC LIMIT 1;";
+    const sql = "SELECT * FROM `course` ORDER BY `created_at` DESC LIMIT 1;";
 
-    [result] = await db.query(sql, );
+    [result] = await db.query(sql);
 
     res.json(result);
   })
@@ -204,7 +204,7 @@ router.post("/edit", async (req, res) => {
   let result = {};
   // 處理修改資料時可能的錯誤
   try {
-    [result] = await db.query(sql, [input, req.params.sid]);
+    [result] = await db.query(sql, [input, req.body.sid]);
   } catch (ex) {
     output.error = ex.toString();
   }

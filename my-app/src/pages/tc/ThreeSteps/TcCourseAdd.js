@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import {
   devUrl,
-  TcCourse_ADD,
+  TcCourse_EDIT,
   TcCourse_LAST,
 } from '../../../config'
 
@@ -15,7 +15,7 @@ import Footer from '../../../components/Footer'
 
 function TcCourseAdd(props) {
   // 課程新增後的通知
-  const { courseAdd, setCourseAdd } = props
+  const [lastAdd, setLastAdd] = useState('')
 
   //判斷是否登入並為教師身分
   const history = useHistory()
@@ -31,8 +31,8 @@ function TcCourseAdd(props) {
     } else {
       ;(async () => {
         let r = await axios.get(`${TcCourse_LAST}`)
-
-        console.log('lastAdd', r)
+        console.log('lastAdd', r.data[0].sid)
+        setLastAdd(r.data[0].sid)
       })()
     }
   }, [])
@@ -75,7 +75,6 @@ function TcCourseAdd(props) {
   // 使用物件值作為狀態值，儲存所有欄位的值
   const [fields, setFields] = useState({
     teacher_sid: '',
-    course_img: '',
     course_name: '',
     course_category: '',
     course_price: '',
@@ -85,7 +84,6 @@ function TcCourseAdd(props) {
   // 存入錯誤訊息用
   const [fieldErrors, setFieldErrors] = useState({
     teacher_sid: '',
-    course_img: '',
     course_name: '',
     course_category: '',
     course_price: '',
@@ -119,18 +117,14 @@ function TcCourseAdd(props) {
     // 利用狀態來得到輸入的值
 
     // ex. 用fetch api/axios送到伺服器
-    //新增課程
-    const r = fetch(
-      `${TcCourse_ADD}?teacherSid=${teacherSid}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type':
-            'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(formData).toString(),
-      }
-    )
+    //新增後直接修改課程
+    const r = fetch(`${TcCourse_EDIT}/?sid=${lastAdd}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(formData).toString(),
+    })
       .then((r) => r.json())
       .then((obj) => {
         console.log(JSON.stringify(obj, null, 4))
@@ -241,33 +235,40 @@ function TcCourseAdd(props) {
                 className="d-none"
               />
               <div className="TCcourse-img-selector">
-                <input
-                  type="file"
-                  name="course_img"
-                  accept="image/*"
-                  className="d-none"
-                  ref={inputRef}
-                  // onChange={previewFile}
-                />
-                <div className="TCcourse-pic-square">
-                  <img
-                    src={`${devUrl}/images/pic/presetAvatar.jpeg`}
-                    className="img-fluid"
-                    alt=""
-                    // ref={imgRef}
+                <form name="form1">
+                  <input
+                    type="file"
+                    name="course_img"
+                    accept="image/*"
+                    className="d-none"
+                    ref={inputRef}
+                    // onChange={previewFile}
                   />
-                </div>
-                <button
-                  className="TCbtn btn-border-only"
-                  id="loadFile"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    inputRef.current.click()
-                  }}
-                >
-                  <span>請選擇圖片</span>
-                </button>
+                  <div className="TCcourse-pic-square">
+                    <img
+                      src={`${devUrl}/images/pic/presetAvatar.jpeg`}
+                      className="img-fluid"
+                      alt=""
+                      // ref={imgRef}
+                    />
+                  </div>
+                  <button
+                    className="TCbtn btn-border-only"
+                    id="loadFile"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      inputRef.current.click()
+                    }}
+                  >
+                    <span>請選擇圖片</span>
+                  </button>
+                </form>
               </div>
+              <input
+                type="text"
+                name="sid"
+                value={lastAdd}
+              />
               <input
                 type="text"
                 className="col-12 allInputs"
