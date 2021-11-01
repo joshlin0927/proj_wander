@@ -336,6 +336,9 @@ body {
   width: 271px;
   height: 271px;
   margin-bottom: 30px;
+  border: 1px solid #868686;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .btn-border-only {
@@ -763,7 +766,6 @@ body {
   /* 課程表單裡的圖 */
   .TCcourse-pic-square {
     max-width: 271px;
-    height: 100%;
     margin-right: 20px;
     border: 1px solid #868686;
     border-radius: 10px;
