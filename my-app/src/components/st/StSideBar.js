@@ -3,7 +3,7 @@ import { Nav } from 'react-bootstrap'
 
 import { IMG_PATH } from '../../config'
 //讓Link標籤可以有style(透過加className)
-import { withRouter, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function StSideBar(props) {
   const [isActive, setIsActive] = useState('')
@@ -13,7 +13,11 @@ function StSideBar(props) {
       <Nav className="sidebar col-2">
         <div className="avatar">
           <img
-            src={imgSrc ? IMG_PATH + '/' + imgSrc : ''}
+            src={
+              imgSrc
+                ? IMG_PATH + '/' + imgSrc
+                : IMG_PATH + '/' + 'presetAvatar.jpeg'
+            }
             alt=""
             className="img-fluid"
           />

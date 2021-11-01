@@ -8,14 +8,14 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction' // dayClick功能使用
 import axios from 'axios'
 import Carousel from 'react-grid-carousel'
-import { API_HOST } from '../../config'
+import { IMG_PATH } from '../../config'
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar2 from '../../components/st/StSideBar2'
 import CourseItem from '../../components/st/CourseItem'
 import Footer from '../../components/Footer'
 
-export default function StCalendar() {
+export default function StCalendar(props) {
   const [events, setEvents] = useState([])
   const [schedule, setSchedule] = useState('')
 
@@ -28,6 +28,20 @@ export default function StCalendar() {
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
   const studentSid = JSON.parse(member).sid
+  const { auth, setAuth } = props
+  const [imgSrc, setImgSrc] = useState('')
+
+  useEffect(() => {
+    if (token && identity === 0) {
+      ;(async () => {
+        let r = await axios.get(
+          `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
+        )
+
+        setImgSrc(r.data[0][0].avatar)
+      })()
+    }
+  }, [imgSrc, auth])
 
   const [courses, setCourses] = useState('')
   //要該名學生購買的課程資料
@@ -71,7 +85,7 @@ export default function StCalendar() {
         </div>
 
         <div className="row">
-          <StSideBar2 />
+          <StSideBar2 imgSrc={imgSrc} />
           <div
             className="col-md-8 col-12 offset-0 offset-md-1 p-2"
             style={{ backgroundColor: 'white' }}
@@ -89,10 +103,6 @@ export default function StCalendar() {
                 right: 'prev,next',
               }} // 載入樣式外掛
               dateClick={handleDateClick}
-              events={[
-                { title: 'event 1', date: '2019-04-01' },
-                { title: 'event 2', date: '2019-04-02' },
-              ]}
             />
           </div>
         </div>
@@ -112,8 +122,8 @@ export default function StCalendar() {
             </button>
 
             <div className="schedulecoursesection col-md-12 col-lg-12">
-              <Carousel cols={1} rows={1} gap={9} loop>
-                {courses.data ? (
+              <Carousel cols={1} rows={1} gap={10} loop>
+                {/* {courses.data ? (
                   courses.rows.map((course, i) => {
                     return (
                       <Carousel.Item>
@@ -128,9 +138,26 @@ export default function StCalendar() {
                   })
                 ) : (
                   <></>
-                )}
+                )} */}
                 <Carousel.Item>
-                  <CourseItem />
+                  <div class="courseitem">
+                    <img
+                      src={`${IMG_PATH}/02824944-b898-40b5-aeae-6e822095e111.jpg`}
+                      alt=""
+                    />
+                    <div class="coursename">www</div>
+                    <span class="teachername">www</span>
+                  </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <div class="courseitem">
+                    <img
+                      src={`${IMG_PATH}/02824944-b898-40b5-aeae-6e822095e111.jpg`}
+                      alt=""
+                    />
+                    <div class="coursename">qqq </div>{' '}
+                    <span class="teachername"> qqq</span>{' '}
+                  </div>{' '}
                 </Carousel.Item>
               </Carousel>
             </div>

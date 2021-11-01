@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import {
   devUrl,
-  TcCourse_ADD,
+  TcCourse_EDIT,
   TcCourse_LAST,
+  TcCourse_Cover,
 } from '../../../config'
 
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
@@ -13,7 +14,10 @@ import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'
 import Footer from '../../../components/Footer'
 
-function TcCourseAdd() {
+function TcCourseAdd(props) {
+  // 課程新增後的通知
+  const [lastAdd, setLastAdd] = useState('')
+
   //判斷是否登入並為教師身分
   const history = useHistory()
   const token = localStorage.getItem('token')
@@ -28,8 +32,8 @@ function TcCourseAdd() {
     } else {
       ;(async () => {
         let r = await axios.get(`${TcCourse_LAST}`)
-
-        console.log('lastAdd', r)
+        console.log('lastAdd', r.data[0].sid)
+        setLastAdd(r.data[0].sid)
       })()
     }
   }, [])
@@ -38,14 +42,14 @@ function TcCourseAdd() {
 
   //大頭貼狀態
   let [imgSrc, setImgSrc] = useState('')
-  // const doUpload = async () => {
-  //   const r = await axios.post(
-  //     `${}/?teacherSid=${teacherSid}`,
-  //     new FormData(document.formAvatar)
-  //   )
-  //   setImgSrc(r.data.filename)
-  //   console.log(r.data)
-  // }
+  const doUpload = async () => {
+    const r = await axios.post(
+      `${TcCourse_Cover}/?sid=${lastAdd}`,
+      new FormData(document.formAvatar)
+    )
+    setImgSrc(r.data.filename)
+    console.log(r.data)
+  }
 
   //預覽大頭貼的地方
   // const imgRef = useRef(null)
@@ -72,7 +76,6 @@ function TcCourseAdd() {
   // 使用物件值作為狀態值，儲存所有欄位的值
   const [fields, setFields] = useState({
     teacher_sid: '',
-    course_img: '',
     course_name: '',
     course_category: '',
     course_price: '',
@@ -82,7 +85,6 @@ function TcCourseAdd() {
   // 存入錯誤訊息用
   const [fieldErrors, setFieldErrors] = useState({
     teacher_sid: '',
-    course_img: '',
     course_name: '',
     course_category: '',
     course_price: '',
@@ -116,18 +118,14 @@ function TcCourseAdd() {
     // 利用狀態來得到輸入的值
 
     // ex. 用fetch api/axios送到伺服器
-    //新增課程
-    const r = fetch(
-      `${TcCourse_ADD}?teacherSid=${teacherSid}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type':
-            'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(formData).toString(),
-      }
-    )
+    //新增後直接修改課程
+    const r = fetch(`${TcCourse_EDIT}/?sid=${lastAdd}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(formData).toString(),
+    })
       .then((r) => r.json())
       .then((obj) => {
         console.log(JSON.stringify(obj, null, 4))
@@ -217,7 +215,7 @@ function TcCourseAdd() {
           >
             <div className="TCform-content">
               <div className="TCform-head">
-                <Link to="/TCindex/TcCourse/">
+                <Link to="/TcIndex/TcCourse/">
                   <i className="fas fa-chevron-left TCback-btn"></i>
                 </Link>
                 <div className="TCform-title">
@@ -225,7 +223,7 @@ function TcCourseAdd() {
                 </div>
                 <div className="d-flex justify-content-end">
                   <Link
-                    to="/TCindex/TcCourseVideoUpload"
+                    to="/TcIndex/TcCourseVideoUpload"
                     className="TCbtn-sm-w-switch btn-primary"
                   >
                     <span>儲存</span>
@@ -238,33 +236,41 @@ function TcCourseAdd() {
                 className="d-none"
               />
               <div className="TCcourse-img-selector">
-                <input
-                  type="file"
-                  name="course_img"
-                  accept="image/*"
-                  className="d-none"
-                  ref={inputRef}
-                  // onChange={previewFile}
-                />
-                <div className="TCcourse-pic-square">
-                  <img
-                    src={`${devUrl}/images/pic/presetAvatar.jpeg`}
-                    className="img-fluid"
-                    alt=""
-                    // ref={imgRef}
+                <form name="form1">
+                  <input
+                    type="file"
+                    name="course_img"
+                    accept="image/*"
+                    className="d-none"
+                    ref={inputRef}
+                    // onChange={previewFile}
                   />
-                </div>
-                <button
-                  className="TCbtn btn-border-only"
-                  id="loadFile"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    inputRef.current.click()
-                  }}
-                >
-                  <span>請選擇圖片</span>
-                </button>
+                  <div className="TCcourse-pic-square">
+                    <img
+                      src={`${devUrl}/images/pic/presetAvatar.jpeg`}
+                      className="img-fluid"
+                      alt=""
+                      // ref={imgRef}
+                    />
+                  </div>
+                  <button
+                    className="TCbtn btn-border-only"
+                    id="loadFile"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      inputRef.current.click()
+                    }}
+                  >
+                    <span>請選擇圖片</span>
+                  </button>
+                </form>
               </div>
+              <input
+                type="text"
+                name="sid"
+                value={lastAdd}
+                className="d-none"
+              />
               <input
                 type="text"
                 className="col-12 allInputs"
@@ -344,7 +350,7 @@ function TcCourseAdd() {
             </div>
             <div className="onebtn-switch">
               <button
-                // to="/TCindex/TcCourseVideoUpload"
+                // to="/TcIndex/TcCourseVideoUpload"
                 type="submit"
                 className="TCbtn btn-secondary mx-auto one-btn"
               >

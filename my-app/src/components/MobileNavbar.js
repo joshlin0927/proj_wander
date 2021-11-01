@@ -11,7 +11,7 @@ function MobileNavbar(props) {
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const memberObj = JSON.parse(member)
-  console.log('memberObj', memberObj)
+  // console.log('memberObj', memberObj)
   useEffect(() => {
     if (token) {
       setAuth(true)

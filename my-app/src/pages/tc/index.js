@@ -20,40 +20,40 @@ import TcAnalytic from './TcAnalytic'
 import ChatList from '../../components/chatroom/ChatList'
 import ChatWindow from '../../components/chatroom/ChatWindow'
 
-function index() {
+function Index() {
   return (
     <>
       <Switch>
-        <Route path="/TCindex/TcCourseVideoEdit">
+        <Route path="/TcIndex/TcCourseVideoEdit">
           <TcCourseVideoEdit />
         </Route>
-        <Route path="/TCindex/TcCourseVideoUpload">
+        <Route path="/TcIndex/TcCourseVideoUpload">
           <TcCourseVideoUpload />
         </Route>
-        <Route path="/TCindex/TcCourseEdit/:sid?">
+        <Route path="/TcIndex/TcCourseEdit/:sid?">
           <TcCourseEdit />
         </Route>
-        <Route path="/TCindex/TcCourseAdd/">
+        <Route path="/TcIndex/TcCourseAdd/">
           <TcCourseAdd />
         </Route>
-        <Route path="/TCindex/TcCourse/">
+        <Route path="/TcIndex/TcCourse/">
           <TcCourse />
         </Route>
-        <Route path="/TCindex/TcPassword">
+        <Route path="/TcIndex/TcPassword">
           <TcPassword />
         </Route>
-        <Route path="/TCindex/TcAnalytic">
+        <Route path="/TcIndex/TcAnalytic">
           <TcAnalytic />
         </Route>
-        <Route path="/TCindex/TcProfile">
+        <Route path="/TcIndex/TcProfile">
           <TcProfile />
         </Route>
-        <Route path="/TCindex">
-          <Redirect to="/TCindex/TcCourse" />
+        <Route path="/TcIndex">
+          <Redirect to="/TcIndex/TcCourse" />
         </Route>
       </Switch>
     </>
   )
 }
 
-export default withRouter(index)
+export default withRouter(Index)

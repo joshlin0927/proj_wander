@@ -93,7 +93,7 @@ function TcCourseVideoEdit() {
           <TcCourseProcessBar />
           <form className="TCform col-12 col-md-10 px-4">
             <div className="TCform-head ml-1 p-0">
-              <Link to="/TCindex/TcCourseVideoUpload">
+              <Link to="/TcIndex/TcCourseVideoUpload">
                 <i className="fas fa-chevron-left TCback-btn"></i>
               </Link>
               <div className="TCform-title mr-auto">
