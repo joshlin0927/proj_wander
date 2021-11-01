@@ -77,7 +77,7 @@ function TcCourseVideoUpload() {
           <form className="TCform col-12 col-md-10">
             <div className="TCform-content">
               <div className="TCform-head">
-                <Link to="/TCindex/TcCourseEdit/:sid?">
+                <Link to="/TcIndex/TcCourseEdit/:sid?">
                   <i className="fas fa-chevron-left TCback-btn"></i>
                 </Link>
                 <div className="TCform-title">
@@ -85,7 +85,7 @@ function TcCourseVideoUpload() {
                 </div>
                 <div className="d-flex justify-content-end">
                   <Link
-                    to="/TCindex/TcCourseVideoEdit"
+                    to="/TcIndex/TcCourseVideoEdit"
                     className="TCbtn-sm-w-switch btn-primary"
                   >
                     <span>下一步</span>

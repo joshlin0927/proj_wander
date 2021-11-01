@@ -205,7 +205,7 @@ function TcCourseEdit(props) {
           >
             <div className="TCform-content">
               <div className="TCform-head">
-                <Link to="/TCindex/TcCourse/">
+                <Link to="/TcIndex/TcCourse/">
                   <i className="fas fa-chevron-left TCback-btn"></i>
                 </Link>
                 <div className="TCform-title">
@@ -213,7 +213,7 @@ function TcCourseEdit(props) {
                 </div>
                 <div className="d-flex justify-content-end">
                   <Link
-                    to="/TCindex/TcCourseVideoUpload"
+                    to="/TcIndex/TcCourseVideoUpload"
                     className="TCbtn-sm-w-switch btn-primary"
                   >
                     <span>儲存</span>
@@ -332,7 +332,7 @@ function TcCourseEdit(props) {
             </div>
             <div className="onebtn-switch">
               <Link
-                to="/TCindex/TcCourseVideoUpload"
+                to="/TcIndex/TcCourseVideoUpload"
                 type="submit"
                 className="TCbtn btn-secondary mx-auto one-btn"
               >
