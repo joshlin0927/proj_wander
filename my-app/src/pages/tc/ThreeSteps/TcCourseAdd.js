@@ -250,7 +250,6 @@ function TcCourseAdd(props) {
                           '/course/' +
                           'Course_Preset.jpg'
                     }
-                    className="img-fluid"
                     alt=""
                   />
                 </div>
