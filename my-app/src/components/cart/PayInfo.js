@@ -2,7 +2,7 @@ import React from 'react'
 import { devUrl } from '../../config'
 
 function PayInfo(props) {
-  const { payMethodSelect } = props
+  const { payMethodSelect, setCstoresort } = props
   // input length
   const textLength = (e) => {
     e.target.value = e.target.value.replace(/[^\d]/g, '')
@@ -164,6 +164,9 @@ function PayInfo(props) {
                 type="radio"
                 name="RadioCStore"
                 id="Radio7-Eleven"
+                onChange={() => {
+                  setCstoresort(1)
+                }}
               />
               <label
                 className="form-check-label mx-2"
@@ -182,6 +185,9 @@ function PayInfo(props) {
                 type="radio"
                 name="RadioCStore"
                 id="RadioFamiMart"
+                onChange={() => {
+                  setCstoresort(2)
+                }}
               />
               <label
                 className="form-check-label mx-2"
@@ -200,6 +206,9 @@ function PayInfo(props) {
                 type="radio"
                 name="RadioCStore"
                 id="RadioOKMart"
+                onChange={() => {
+                  setCstoresort(3)
+                }}
               />
               <label
                 className="form-check-label mx-2"
@@ -218,6 +227,9 @@ function PayInfo(props) {
                 type="radio"
                 name="RadioCStore"
                 id="RadioHiLife"
+                onChange={() => {
+                  setCstoresort(4)
+                }}
               />
               <label
                 className="form-check-label mx-2"
