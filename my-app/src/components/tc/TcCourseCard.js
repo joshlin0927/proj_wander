@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { API_HOST, TcCourse_DELETE } from '../../config'
+import { IMG_PATH, TcCourse_DELETE } from '../../config'
 
 function TcCourseCard(props) {
   const {
@@ -37,7 +37,7 @@ function TcCourseCard(props) {
           to="/TCindex/TcCourseEdit/"
         >
           <img
-            src={`${API_HOST}/img/${course_img}`}
+            src={`${IMG_PATH}/course/${course_img}`}
             alt=""
           />
         </div>
