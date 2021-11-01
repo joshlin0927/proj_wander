@@ -1,17 +1,15 @@
-const now = new Date()
-
 const events = [
   {
     id: 22,
     title: 'Cooking Class',
-    start: new Date(2021, 11, 1, 17, 30, 0),
-   
+    start: '2021-11-01T12:30:00Z',
+    end: '2021-11-01T14:00:00Z',
   },
   {
     id: 23,
     title: 'Go to the gym',
-    start: new Date(2012, 11, 3, 18, 30, 0),
-    
+    start: '2021-11-02T10:00:00Z',
+    end: '2021-11-02T12:15:00Z',
   },
 ]
 export { events }
