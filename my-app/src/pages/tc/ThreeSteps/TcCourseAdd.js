@@ -52,9 +52,9 @@ function TcCourseAdd(props) {
       new FormData(document.formCover)
     )
     setImgSrc(r.data.filename)
-    console.log(r.data)
+    // console.log(r.data)
   }
-  console.log(imgSrc)
+  // console.log(imgSrc)
 
   //預覽大頭貼的地方
   // const imgRef = useRef(null)
@@ -123,7 +123,7 @@ function TcCourseAdd(props) {
     // 利用狀態來得到輸入的值
 
     // ex. 用fetch api/axios送到伺服器
-    //新增後直接修改課程
+    // 新增後直接修改課程
     const r = fetch(`${TcCourse_EDIT}/?sid=${lastAdd}`, {
       method: 'POST',
       headers: {
@@ -245,12 +245,11 @@ function TcCourseAdd(props) {
                   <img
                     src={
                       imgSrc
-                        ? IMG_PATH + '/' + imgSrc
+                        ? IMG_PATH + '/course/' + imgSrc
                         : IMG_PATH +
-                          '/' +
-                          'c943da4c-dd71-4e60-b598-ee44fdbd2fb6.jpg'
+                          '/course/' +
+                          'Course_Preset.jpg'
                     }
-                    // className="img-fluid"
                     alt=""
                   />
                 </div>
@@ -273,12 +272,6 @@ function TcCourseAdd(props) {
                   <span>請選擇圖片</span>
                 </label>
               </div>
-              <input
-                type="text"
-                name="sid"
-                value={lastAdd}
-                className="d-none"
-              />
               <input
                 type="text"
                 className="col-12 allInputs"

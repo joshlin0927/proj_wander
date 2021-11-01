@@ -1,6 +1,6 @@
 const express = require("express");
 const db = require("../modules/connect-mysql");
-const uploadImg = require("../modules/upload-images");
+const uploadCourseImg = require("../modules/upload-CourseImages");
 
 const router = express.Router();
 
@@ -81,7 +81,7 @@ router.delete("/delete/:sid([0-9]+)", async (req, res) => {
   res.json(result);
 });
 
-router.route("/cover").post(uploadImg.single("avatar"), async (req, res) => {
+router.route("/cover").post(uploadCourseImg.single("course_img"), async (req, res) => {
   const output = {
     success: false,
     error: "",
@@ -91,7 +91,7 @@ router.route("/cover").post(uploadImg.single("avatar"), async (req, res) => {
   const sql = `UPDATE \`course\` SET \`course_img\` = ? WHERE \`sid\` = ?`;
 
   try {
-    [result] = await db.query(sql, [req.file.filename, req.query.sid]);
+    [result] = await db.query(sql, [req.file.filename, req.body.sid]);
   } catch (ex) {
     output.error = ex.toString();
   }

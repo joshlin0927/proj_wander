@@ -199,8 +199,8 @@ export default withRouter(function StProfile(props) {
   return (
     <>
       <div className="container mainContent">
+        <MultiLevelBreadCrumb />
         <div className="row">
-          <MultiLevelBreadCrumb />
           <div className="col-10 ml-auto pageName">
             <span className="pageNameText profile">
               Profile
@@ -251,7 +251,7 @@ export default withRouter(function StProfile(props) {
                         ? IMG_PATH + '/' + imgSrc
                         : IMG_PATH +
                           '/' +
-                          'c943da4c-dd71-4e60-b598-ee44fdbd2fb6.jpg'
+                          'presetAvatar.jpeg'
                     }
                     className="img-fluid"
                     alt=""

@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 
 import './style/st_calendar.css'
-import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
-import timeGridPlugin from '@fullcalendar/timegrid'
-import interactionPlugin from '@fullcalendar/interaction' // dayClick功能使用
+import { events } from './event'
 import axios from 'axios'
 import Carousel from 'react-grid-carousel'
 import { IMG_PATH } from '../../config'
+import {
+  Calendar,
+  momentLocalizer,
+} from 'react-big-calendar'
+import moment from 'moment'
+import 'react-big-calendar/lib/css/react-big-calendar.css'
+import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop"
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar2 from '../../components/st/StSideBar2'
@@ -16,8 +20,8 @@ import CourseItem from '../../components/st/CourseItem'
 import Footer from '../../components/Footer'
 
 export default function StCalendar(props) {
-  const [events, setEvents] = useState([])
   const [schedule, setSchedule] = useState('')
+  const localizer = momentLocalizer(moment)
 
   const handleDateClick = (e) => {
     setSchedule('showup')
@@ -75,8 +79,8 @@ export default function StCalendar(props) {
   return (
     <>
       <div className="container mainContent">
+        <MultiLevelBreadCrumb />
         <div className="row">
-          <MultiLevelBreadCrumb />
           <div className="col-10 ml-auto pageName">
             <span className="pageNameText calendar">
               Calendar
@@ -90,19 +94,14 @@ export default function StCalendar(props) {
             className="col-md-8 col-12 offset-0 offset-md-1 p-2"
             style={{ backgroundColor: 'white' }}
           >
-            <FullCalendar
-              events={events} // 設定行事曆事件
-              plugins={[
-                dayGridPlugin,
-                timeGridPlugin,
-                interactionPlugin,
-              ]}
-              headerToolbar={{
-                left: '',
-                center: 'title',
-                right: 'prev,next',
-              }} // 載入樣式外掛
-              dateClick={handleDateClick}
+            <Calendar
+              localizer={localizer}
+              events={events}
+              startAccessor="start"
+              endAccessor="end"
+              onDrillDown={() => {
+                alert('hello')
+              }}
             />
           </div>
         </div>
@@ -121,7 +120,7 @@ export default function StCalendar(props) {
               加入排程
             </button>
 
-            <div className="schedulecoursesection col-md-12 col-lg-12">
+            <div className="schedulecoursesection col-md-10 col-lg-12">
               <Carousel cols={1} rows={1} gap={10} loop>
                 {/* {courses.data ? (
                   courses.rows.map((course, i) => {

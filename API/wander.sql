@@ -2,8 +2,8 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- 主機： 127.0.0.1
--- 產生時間： 2021-10-31 11:03:36
+-- 主機： localhost
+-- 產生時間： 2021 年 11 月 01 日 16:49
 -- 伺服器版本： 10.4.20-MariaDB
 -- PHP 版本： 7.4.21
 
@@ -151,7 +151,10 @@ INSERT INTO `course` (`sid`, `teacher_sid`, `course_category`, `course_name`, `c
 (32, '4', '英文', 'Tracy老師-英文雅思・托福班', '492f6d9c790b103b523b4cc8e217beb954bb07df.png', 8000, '2021-06-29', 10, '每個人在英文學習上都有強弱項，若是能在個人的弱項上集中火力加強，才能獲得最大的成效。經由飛德專業的諮詢幫您找出英文學習的弱點，再針對弱項安排客製化的課表，對於雅思及托福分數的掌握會更得心應手。\r\n\r\n雅思及托福為綜合性考試，聽、說、讀、寫每個大題中，都需要具備其他能力方能作答。', '', 0, '0000-00-00 00:00:00'),
 (33, '4', '英文', 'Tracy老師-英文多益 TOEIC班', '969e127e06ba4cd81dc668d31e609bf7bda08831.png', 13000, '2021-08-11', 15, '每個人在英文學習上都有強弱項，若是能在個人的弱項上集中火力加強，才能獲得最大的成效。經由飛德專業的諮詢幫您找出英文學習的弱點，再針對弱項安排客製化的課表，對於多益分數的掌握會更得心應手。', '', 0, '0000-00-00 00:00:00'),
 (34, '4', '英文', 'Tracy老師-商業英文班', '17f795125657a81b2a251943c5af76e7d05d3b0b.png', 9000, '2021-07-03', 10, '介紹實用且專業的職場英文，練習商業對話及聽力，學習閱讀報表及電子信函，加強國際商業重要時事。\r\n小班教學，針對弱項各個擊破，根據程度分級\r\n嚴格。實力加強搭配多益檢定證照，是您求職和\r\n升職的最佳利器', '', 0, '0000-00-00 00:00:00'),
-(36, '1', '日文', '與老外用日語交談', '1131812f5ccd4ab4e240921d52781f3cba2d9152.jpg', 1500, '2021-08-04', 0, '與老外用日語交談', '', 0, '2021-08-23 10:32:22');
+(36, '1', '日文', '與老外用日語交談', '1131812f5ccd4ab4e240921d52781f3cba2d9152.jpg', 1500, '2021-08-04', 0, '與老外用日語交談', '', 0, '2021-08-23 10:32:22'),
+(37, '1', '英文', '213', 'a8c974f8-5d5f-4e67-8357-ac72acd61294.jpg', 213, '2021-11-01', 0, '231', '', 0, '2021-11-01 11:20:59'),
+(40, '1', '日文', '234', '1a3ca573-a3b4-453f-891b-a50656eb41d2.jpg', 234, '2021-11-01', 0, '', '', 0, '2021-11-01 11:46:54'),
+(41, '1', '', '', '3a4dbe34-8439-410f-8e81-dc541293f697.jpg', 0, '2021-11-01', 0, '', '', 0, '2021-11-01 13:53:58');
 
 -- --------------------------------------------------------
 
@@ -182,7 +185,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`sid`, `identity`, `verification`, `avatar`, `firstname`, `lastname`, `nickname`, `email`, `password`, `birth`, `gender`, `language`, `nationality`, `intro`, `created_date`) VALUES
-(1, 1, 0, '[object File]', 'Ai', 'lee', 'Ai', 't1@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '0000-00-00', 1, '英文、日文', '日本', '123', '2020-04-13'),
+(1, 1, 0, 'e442f0a8-29de-4a70-a9cd-cb4eca391cfa.jpg', 'Ai', 'lee', 'Ai', 't1@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '0000-00-00', 1, '英文、日文', '日本', '123', '2020-04-13'),
 (2, 1, 0, '7adc6043cb34201875ab786456b2ec7372a423da.jpg', '艾莉絲', '', '艾莉絲', 't2@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、日文', '日本', '', '2020-04-13'),
 (3, 1, 0, '83633b85d70a873c1d98f16cf39a25a3d5791239.jpg', 'Yumika', '', 'Yumika', 't3@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、日文', '日本', '', '2020-04-13'),
 (4, 1, 0, '4fffcb7567638244d8dbbe1265ff2a7f7197fd19.png', 'Tracy', '', 'Tracy', 't4@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文', '美國', '', '2020-04-13'),
@@ -218,7 +221,8 @@ INSERT INTO `member` (`sid`, `identity`, `verification`, `avatar`, `firstname`, 
 (1003, 1, 0, '6b5f08c895b032a3751d594b35f9df3f0daee08b.jpg', '123', '', '123', '123@gmail.com', '$2y$10$mvwUDOEgGfmTuvFpiHwHF.hr3beq62UVQXCsbTQ3iXPLhzZbpmtfi', '2021-08-10', 1, '', '', '', '2021-08-24'),
 (1004, 1, 0, 'f5cddb88be8a07f97cf3d376dc5359b4c851a6b5.jpg', 'Ai1', '', 'Ai1', 'ming@gg.com', '$2y$10$HNfX2Kekv48kr976JCGZ..xjMkHhT6r/WqTSMeSz..gQru9paljk.', '1982-05-24', 1, '英文、日文', '日本', '', '2020-04-13'),
 (1006, 0, 0, NULL, 'RRRRR', 'SSSSS', 'RS', 's1@ss.com', '$2a$10$AVephxPKk3dZ0LKIG4SbBOiOovXzulpa8cNhNI2epiTM05fBQBkoK', NULL, NULL, NULL, NULL, '', '2021-10-29'),
-(1008, 1, 0, NULL, 'TTTTT', 'SSSSS', 'test01', 'tt@tt.com', '$2a$10$uASYlb0UAtfZMortDvIInO/lKTu/hLuTx5qtbaupsq.DE9dFLtXUW', NULL, NULL, NULL, NULL, '', '2021-10-29');
+(1008, 1, 0, NULL, 'TTTTT', 'SSSSS', 'test01', 'tt@tt.com', '$2a$10$uASYlb0UAtfZMortDvIInO/lKTu/hLuTx5qtbaupsq.DE9dFLtXUW', NULL, NULL, NULL, NULL, '', '2021-10-29'),
+(1010, 0, 0, '2a5f7853-627f-47ce-8b7c-ac25b7e585df.jpg', 'samar', 'hsiao', '', 'sss@mail', '$2a$10$oHmkuwzJ.CyuSmGTpvOOLuUUTAH/H2y/UWAk7xziZppnzXypo9Lqm', NULL, NULL, NULL, NULL, NULL, '2021-11-01');
 
 -- --------------------------------------------------------
 
@@ -481,13 +485,13 @@ ALTER TABLE `cart`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `course`
 --
 ALTER TABLE `course`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
 --
 ALTER TABLE `member`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1010;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1011;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_detail`
