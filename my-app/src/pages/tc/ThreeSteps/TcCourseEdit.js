@@ -33,11 +33,12 @@ function TcCourseEdit(props) {
           TcCourse_EDIT + props.location.search
         )
         setFields(r.data[0])
+        setImgSrc(r.data[0].course_img)
         localStorage.setItem(
           'CourseSidForProcess',
           r.data[0].sid
         )
-        console.log('edit', r.data[0].sid)
+        console.log('edit', r.data[0])
       })()
     }
   }, [])
@@ -246,10 +247,10 @@ function TcCourseEdit(props) {
                   <img
                     src={
                       imgSrc
-                        ? IMG_PATH + '/' + imgSrc
+                        ? IMG_PATH + '/course/' + imgSrc
                         : IMG_PATH +
-                          '/' +
-                          'c943da4c-dd71-4e60-b598-ee44fdbd2fb6.jpg'
+                          '/course/' +
+                          'Course_Preset.jpg'
                     }
                     className="img-fluid"
                     alt=""
