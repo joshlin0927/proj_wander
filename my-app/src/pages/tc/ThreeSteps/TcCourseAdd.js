@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import {
   devUrl,
+  IMG_PATH,
   TcCourse_EDIT,
   TcCourse_LAST,
   TcCourse_Cover,
@@ -32,7 +33,9 @@ function TcCourseAdd(props) {
     } else {
       ;(async () => {
         let r = await axios.get(`${TcCourse_LAST}`)
-        console.log('lastAdd', r.data[0].sid)
+        console.log('lastAdd', r.data[0])
+        setImgSrc(r.data[0].course_img)
+        setFields(r.data[0])
         setLastAdd(r.data[0].sid)
       })()
     }
@@ -40,16 +43,18 @@ function TcCourseAdd(props) {
 
   const formRef = useRef(null)
 
-  //大頭貼狀態
+  //課程封面狀態
   let [imgSrc, setImgSrc] = useState('')
+
   const doUpload = async () => {
     const r = await axios.post(
-      `${TcCourse_Cover}/?sid=${lastAdd}`,
-      new FormData(document.formAvatar)
+      `${TcCourse_Cover}?sid=${lastAdd}`,
+      new FormData(document.formCover)
     )
     setImgSrc(r.data.filename)
     console.log(r.data)
   }
+  console.log(imgSrc)
 
   //預覽大頭貼的地方
   // const imgRef = useRef(null)
@@ -236,34 +241,37 @@ function TcCourseAdd(props) {
                 className="d-none"
               />
               <div className="TCcourse-img-selector">
-                <form name="form1">
-                  <input
-                    type="file"
-                    name="course_img"
-                    accept="image/*"
-                    className="d-none"
-                    ref={inputRef}
-                    // onChange={previewFile}
+                <div className="TCcourse-pic-square">
+                  <img
+                    src={
+                      imgSrc
+                        ? IMG_PATH + '/' + imgSrc
+                        : IMG_PATH +
+                          '/' +
+                          'c943da4c-dd71-4e60-b598-ee44fdbd2fb6.jpg'
+                    }
+                    // className="img-fluid"
+                    alt=""
                   />
-                  <div className="TCcourse-pic-square">
-                    <img
-                      src={`${devUrl}/images/pic/presetAvatar.jpeg`}
-                      className="img-fluid"
-                      alt=""
-                      // ref={imgRef}
+                </div>
+                <label className="TCbtn btn-border-only">
+                  <form name="formCover">
+                    <input
+                      type="file"
+                      name="course_img"
+                      className="d-none"
+                      accept="image/*"
+                      onChange={doUpload}
+                      ref={inputRef}
                     />
-                  </div>
-                  <button
-                    className="TCbtn btn-border-only"
-                    id="loadFile"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      inputRef.current.click()
-                    }}
-                  >
-                    <span>請選擇圖片</span>
-                  </button>
-                </form>
+                    <input
+                      name="sid"
+                      value={lastAdd}
+                      className="d-none"
+                    />
+                  </form>
+                  <span>請選擇圖片</span>
+                </label>
               </div>
               <input
                 type="text"
