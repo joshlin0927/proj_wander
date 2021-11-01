@@ -12,7 +12,7 @@ import {
 } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
-import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop"
+import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar2 from '../../components/st/StSideBar2'
@@ -75,6 +75,7 @@ export default function StCalendar(props) {
     slidesToShow: 1,
     slidesToScroll: 1,
   }
+  const moveEvent = () => {}
 
   return (
     <>
@@ -99,9 +100,7 @@ export default function StCalendar(props) {
               events={events}
               startAccessor="start"
               endAccessor="end"
-              onDrillDown={() => {
-                alert('hello')
-              }}
+              onEventDrop={moveEvent}
             />
           </div>
         </div>
