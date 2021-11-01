@@ -25,16 +25,18 @@ $danger: rgb(224, 22, 22);
   font-size: 16px;
   position: relative;
 }
+
 @media (max-width: 767px) {
   * {
     font-size: 12px;
   }
 }
+
 img {
   width: 100%;
-  height:100%;
-  object-fit:cover;
+
 }
+
 a {
   text-decoration: none !important;
 }
@@ -99,6 +101,7 @@ a {
 .bgt {
   background-color: transparent !important;
 }
+
 /*=============== 小按鈕 ===============*/
 
 /* 新增課程(手機板) */
@@ -122,6 +125,7 @@ a {
 }
 
 @media (min-width: 768px) {
+
   /* 手機板會變小的按鈕 */
   .TCbtn-sm {
     display: flex;
@@ -154,11 +158,13 @@ a {
 }
 
 @media (min-width: 768px) {
+
   /* 瀏覽按鈕 */
   .browse {
     height: 50px;
   }
 }
+
 /*=============== 頁碼 ===============*/
 .display-ctrl {
   display: none;
@@ -203,6 +209,7 @@ a {
     color: white;
   }
 }
+
 /*=============== Navbar ===============*/
 ul {
   list-style: none !important;
@@ -267,6 +274,12 @@ a {
   border-radius: 50%;
   overflow: hidden;
   transition: 0.3s ease;
+}
+
+.nav_login img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .nav_login_txt {
@@ -441,6 +454,7 @@ a {
 }
 
 @media (min-width: 768px) {
+
   // 桌機
   .allInputs {
     height: 50px;
@@ -465,7 +479,7 @@ a {
 }
 
 /* 文章背景圖 */
-.yellow-circle{
+.yellow-circle {
   display: none;
 }
 
@@ -635,7 +649,7 @@ a {
     top: 724px;
   }
 
-/* 文章背景*/
+  /* 文章背景*/
   .yellow-circle {
     display: block;
     position: absolute;
@@ -696,7 +710,7 @@ a {
   padding: 0px;
 }
 
-.Footer-page-links > a {
+.Footer-page-links>a {
   text-decoration: none;
   color: #fff;
 }
@@ -708,7 +722,7 @@ a {
   width: 100%;
 }
 
-.icons > i {
+.icons>i {
   color: white;
   font-size: 25px;
   margin: 5px;
@@ -728,10 +742,12 @@ a {
   color: white;
   margin: 5px;
 }
+
 .cartFooterMargin {
   margin-bottom: 130px;
   margin-top: 30px;
 }
+
 @media (min-width: 768px) {
   /* footer(桌機) */
 
@@ -784,7 +800,7 @@ a {
     width: 100%;
   }
 
-  .Footer-page-links > a {
+  .Footer-page-links>a {
     text-decoration: none;
     color: #fff;
   }
@@ -804,7 +820,7 @@ a {
     margin-bottom: 60px;
   }
 
-  .icons > i {
+  .icons>i {
     margin-left: 20px;
   }
 
@@ -896,6 +912,7 @@ a {
 }
 
 @media (min-width: 768px) {
+
   /* 商城顯示的課程(桌機) */
   .BuyCourseSection {
     display: flex;
@@ -974,22 +991,27 @@ a {
 .logo-m {
   display: none;
 }
+
 .breadcrumbNav {
   padding: 0;
 }
+
 @media (max-width: 767px) {
   .breadcrumbNav {
     padding-top: 40px;
   }
+
   .logo-m {
     margin-bottom: 40px;
     display: block;
     text-align: center;
   }
+
   .customBread {
     margin-top: 0px;
     top: 0;
   }
+
   .breadcrumb {
     background-color: transparent;
     font-size: 14px;
@@ -1001,7 +1023,7 @@ a {
     padding-left: 0px;
   }
 
-  .bread > ol {
+  .bread>ol {
     list-style-type: none;
   }
 }
@@ -1293,19 +1315,19 @@ a {
   transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: #f1ef5b;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   background-color: #ffffff;
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 1px #f1ef5b;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(36px);
   transform: translateX(36px);
 }
@@ -1484,19 +1506,19 @@ input::-webkit-input-placeholder {
     margin-bottom: 0px;
   }
 
-  .tab_css input:checked + #asTeacher,
+  .tab_css input:checked+#asTeacher,
   .tab_css #asTeacher:hover {
     background-color: #dcdcdc;
     border-right: 2px solid rgba(6, 95, 142, 1);
   }
 
-  .tab_css input:checked + #asStudent,
+  .tab_css input:checked+#asStudent,
   .tab_css #asStudent:hover {
     background-color: #dcdcdc;
     border-left: 2px solid rgba(6, 95, 142, 1);
   }
 
-  .tab_css input:checked + label + .tab_content {
+  .tab_css input:checked+label+.tab_content {
     display: initial;
     /* 被選到的頁籤內容出現 */
   }

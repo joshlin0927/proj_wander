@@ -7,7 +7,8 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import Footer from '../../components/Footer'
 
 export default function StSelectLanguage() {
-  const [language, setLanguage] = useState('')
+  const [selectedOption1, setSelectedOption1] = useState('')
+  const [selectedOption2, setSelectedOption2] = useState('')
   return (
     <>
       <div className="mainContent mhhundred">
@@ -16,9 +17,37 @@ export default function StSelectLanguage() {
             <MultiLevelBreadCrumb />
           </div>
           <div className="row">
-            <div className="mylanguage col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10">
-              選擇語言
-              <ul claaName="languagelist">
+            <div className="col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10">
+              <div className="selectlanguage col-12 ">
+                選擇語言
+              </div>
+              <select
+                className="col-12"
+                value={selectedOption1}
+                onChange={(e) => {
+                  setSelectedOption1(e.target.value)
+                }}
+              >
+                {/* 第一個值會對應到初始值，例如初始化值為空字串，
+            預設顯示就會顯示value為空字串的選項  */}
+                <option value="">請選擇</option>
+                <option value="英文"> 英文 </option>
+                <option value="日文"> 日文 </option>
+              </select>
+              <div className="h30"></div>
+              <select
+                className="col-12"
+                value={selectedOption2}
+                onChange={(e) => {
+                  setSelectedOption2(e.target.value)
+                }}
+              >
+                <option value="">請選擇</option>
+                <option value="簡單"> 簡單 </option>
+                <option value="中等"> 中等 </option>
+                <option value="困難"> 困難 </option>
+              </select>
+              {/* <ul claaName="languagelist">
                 <li
                   className="selection"
                   onClick={(e) => {
@@ -35,7 +64,7 @@ export default function StSelectLanguage() {
                 >
                   日文
                 </li>
-              </ul>
+              </ul> */}
             </div>
           </div>
         </div>
