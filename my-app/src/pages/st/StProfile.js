@@ -228,7 +228,7 @@ export default withRouter(function StProfile(props) {
               </Link>
             </div>
 
-            <form name="form1" style={{}}>
+            <form name="form1" style={{ display: 'none' }}>
               <input
                 type="file"
                 name="avatar"

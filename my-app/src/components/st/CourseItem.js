@@ -1,5 +1,5 @@
 import React from 'react'
-import { API_HOST } from '../../config'
+import { IMG_PATH } from '../../config'
 
 export default function CourseItem(props) {
   const { name, courseimg, teacher } = props
@@ -7,7 +7,7 @@ export default function CourseItem(props) {
     <>
       <div class="courseitem">
         <img
-          src={`${API_HOST}/img/dog-puppy-on-garden-royalty-free-image-1586966191.jpg`}
+          src={`${IMG_PATH}/86be747d-42fc-41ed-a771-d80cf697cea1.jpg`}
           alt=""
         />
         <div class="coursename">{name}</div>

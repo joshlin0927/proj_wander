@@ -15,12 +15,27 @@ import RecommandedTC from '../../components/st/RecommandedTC'
 import RemindingText from '../../components/st/RemindingText'
 import Footer from '../../components/Footer'
 
-export default withRouter(function StCourse() {
+export default withRouter(function StCourse(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
   const studentSid = JSON.parse(member).sid
+
+  const { auth, setAuth } = props
+  const [imgSrc, setImgSrc] = useState('')
+
+  useEffect(() => {
+    if (token && identity === 0) {
+      ;(async () => {
+        let r = await axios.get(
+          `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
+        )
+
+        setImgSrc(r.data[0][0].avatar)
+      })()
+    }
+  }, [imgSrc, auth])
 
   //畫面掛載元件就向後端要課程資料
   useEffect(() => {
@@ -69,7 +84,7 @@ export default withRouter(function StCourse() {
         </div>
 
         <div className="row justify-content-center d-flex">
-          <StSideBar2 />
+          <StSideBar2 imgSrc={imgSrc} />
           <div className="coursesection col-md-8 col-lg-8 col-12">
             {courses.data ? (
               courses.rows.map((course, i) => {
