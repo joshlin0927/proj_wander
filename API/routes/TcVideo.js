@@ -92,9 +92,10 @@ router.route("/add").post(uploadVid.single("video_link"), async (req, res) => {
     ...req.body,
     created_at: new Date(),
     video_link: req.file.filename
+    // 上傳檔案的時候要在這多寫個req.file.filename，不然後端接不到檔名，進不到資料庫
   };
 
-  console.log(input);
+  // console.log(input);
   const sql = "INSERT INTO `video_list` SET ?";
   let result = {};
   // 處理新增資料時可能的錯誤

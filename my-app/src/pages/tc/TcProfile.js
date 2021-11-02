@@ -415,12 +415,12 @@ function TcProfile(props) {
             >
               <span>儲存</span>
             </button>
-            <button
+            {/* <button
               id="TcPreviewBtn"
               className="TCbtn btn-primary preview-btn"
             >
               <span>個人頁面預覽</span>
-            </button>
+            </button> */}
           </form>
         </div>
       </div>

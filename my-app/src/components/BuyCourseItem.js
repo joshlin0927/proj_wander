@@ -1,30 +1,24 @@
 import React from 'react'
 
-import { devUrl } from '../config'
+import { IMG_PATH } from '../config'
 
 function BuyCourseItem(props) {
-  const { CourseName, TeacherName, Stars, Price } = props
+  const { CourseCover, CourseName, TeacherName, Price } =
+    props
 
   return (
     <>
       <div class="BuyCourseItem">
         <img
-          src={`${devUrl}/images/course/商用英文.jpeg`}
+          src={`${IMG_PATH}/${CourseCover}`}
           class="BuyCourseImg"
           alt=""
         />
         <div class="coursename">{CourseName}</div>
         <span class="teachername">{TeacherName}</span>
-        <div class="stars">
-          <i class="far fa-star"></i>
-          <i class="far fa-star"></i>
-          <i class="far fa-star"></i>
-          <i class="far fa-star"></i>
-          <i class="far fa-star"></i>
-        </div>
-        <div class="price">
+        <div class="CoursePrice">
           <span id="number">{Price}</span>
-          <span id="unit">TWD</span>
+          <span id="unit"> TWD</span>
         </div>
       </div>
     </>

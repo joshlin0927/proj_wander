@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
 
-import { devUrl } from '../../config'
+import { IMG_PATH, TcCourse_LIST } from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -10,8 +10,12 @@ import BuyCourseItem from '../../components/BuyCourseItem'
 import MyPagination from '../../components/MyPagination'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
+import axios from 'axios'
 
 function TcPreview() {
+  const [teacher, setTeacher] = useState('')
+  const [course, setCourse] = useState('')
+
   //判斷是否登入並為教師身分
   const history = useHistory()
   const token = localStorage.getItem('token')
@@ -23,7 +27,14 @@ function TcPreview() {
     } else if (identity !== 1) {
       history.push('/')
     } else {
-      return
+      ;(async () => {
+        let r = await axios.get(
+          `${TcCourse_LIST}/?teacherSid=1`
+        )
+        setCourse(r.data.rows)
+        setTeacher(r.data.rows[0])
+        console.log(r.data.rows)
+      })()
     }
   }, [])
 
@@ -31,62 +42,54 @@ function TcPreview() {
     <>
       <div className="container mainContent">
         <MultiLevelBreadCrumb />
-        <div class="row p-page-info-bg">
-          {/* personal info */}
-          <div class="p-info-wrapper col-12">
-            <div class="p-page-info">
-              <div class="TCname">Thomas Lillard</div>
-              <div class="TCp-intro">
-                <div class="TCp-intro-title">自我介紹</div>
-                <p>
-                  會說英文、中文
-                  <br />
-                  <br />
-                  私訊詢問最新優惠甜價！！
-                  今晚，我想來點英文課！
-                  <br />
-                  <br />
-                  擁有兩年教學經驗
-                  <br />
-                  兒童美語補習教師
-                  <br />
-                  非母語者卻有正統美國口音
-                  <br />
-                  曾任外商航空空服員
-                  <br />
-                  多國旅遊經驗
-                  <br />
-                  已幫助超過100位學生增強英語能力
-                  <br />
-                  中英雙語上課溝通無壓力
-                </p>
+        <div className="">
+          <div className="row p-page-info-bg">
+            {/* personal info */}
+            <div className="p-info-wrapper col-12">
+              <div className="p-page-info">
+                <div className="TCname">
+                  {teacher.firstname}
+                </div>
+                <div className="TCp-intro">
+                  <div className="TCp-intro-title">
+                    自我介紹
+                  </div>
+                  <p>{teacher.intro}</p>
+                </div>
               </div>
-            </div>
-            <div class="p-page-avatar">
-              <img
-                src={`${devUrl}/images/teacher/Thomas_Lillard.jpg`}
-                class="img-fluid"
-                alt=""
-              />
+              <div className="p-page-avatar">
+                <img
+                  src={`${IMG_PATH}/${teacher.avatar}`}
+                  className=""
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         </div>
-        <div class="p-page-myCourse">
-          <div class="p-page-title ml-0 w-100">
+        <div className="p-page-myCourse">
+          <div className="p-page-title ml-0 w-100">
             我的課程
           </div>
-          <div class="BuyCourseSection">
-            <BuyCourseItem
-            // CourseName={CourseName}
-            // TeacherName={TeacherName}
-            // Stars={Stars}
-            // Price={Price}
-            />
+          <div className="BuyCourseSection">
+            {course.length > 0
+              ? course.map((c, i) => {
+                  return (
+                    <BuyCourseItem
+                      CourseCover={c.course_img}
+                      CourseName={c.course_name}
+                      TeacherName={c.firstname}
+                      Price={c.course_price}
+                    />
+                  )
+                })
+              : ''}
           </div>
           {/* Pagination */}
           <MyPagination />
         </div>
       </div>
+
       <TcBgDecorationNormal />
       <Footer />
     </>
