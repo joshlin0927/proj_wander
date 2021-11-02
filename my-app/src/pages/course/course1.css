@@ -854,6 +854,16 @@ margin-bottom: 60px
 {
   display: none;
 }
+.sh-coursename {
+  color: white;
+  font-size: 14px;
+  font-style: bold;
+  top: 65%;
+  left: 5%;
+  margin-left: auto;
+  position: absolute;
+}
+
 
 
 
@@ -994,6 +1004,16 @@ margin-bottom: 60px
 
 
 }
+.sh-coursename {
+  color: white;
+  font-size: 16px;
+  font-style: bold;
+  top: 65%;
+  left: 5%;
+  margin-left: auto;
+  position: absolute;
+}
+
 
  
 }
