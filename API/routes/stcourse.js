@@ -37,7 +37,7 @@ async function getListData(req, res) {
       return output.redirect = '?page=' + output.totalPages;
       return output;
     }
-    const sql = `SELECT * FROM \`order_detail\` LEFT JOIN \`order_main\` ON \`order_detail\`.\`order_main_id\` = \`order_main\`.\`order_id\` LEFT JOIN \`course\` ON \`order_detail\`.\`product_sid\` = \`course\`.\`sid\` LEFT JOIN \`member\` ON \`course\`.\`teacher_sid\` = \`member\`.\`sid\` WHERE \`order_main\`.\`member_sid\` = ? ORDER BY \`course\`.\`sid\` DESC LIMIT ${(page-1)*perPage},${perPage}`;
+    const sql = `SELECT * FROM \`order_detail\` LEFT JOIN \`order_main\` ON \`order_detail\`.\`order_main_id\` = \`order_main\`.\`order_id\` LEFT JOIN \`course\` ON \`order_detail\`.\`product_sid\` = \`course\`.\`sid\` LEFT JOIN \`member\` ON \`course\`.\`teacher_sid\` = \`member\`.\`sid\` WHERE \`order_main\`.\`member_sid\` = ? AND \`order_main\`.\`order_status\` = 1   ORDER BY \`course\`.\`sid\` DESC LIMIT ${(page-1)*perPage},${perPage}`;
 
     const [rows] = await db.query(sql, [req.query.studentSid])
     output.rows = rows;
@@ -56,7 +56,7 @@ router.get('/api/coursedata', async (req, res) => {
 });
 
 
-//這是拿到所有課程資料(主要是測試用)
+//這是拿到所有課程資料(測試用)
 router.get('/list',async(req,res)=>{
    const sql = `SELECT * FROM \`course\` WHERE 1 `;
    

@@ -58,6 +58,21 @@ function PcNavbar(props) {
     history.push('/login')
   }
 
+  const renderButton = (props, ref) => {
+    return (
+      <div className="nav_login" {...props} ref={ref}>
+        <img
+          src={
+            imgSrc
+              ? `${IMG_PATH}/${imgSrc}`
+              : `${IMG_PATH}/presetAvatar.jpeg`
+          }
+          alt=""
+        />
+      </div>
+    )
+  }
+
   return (
     <>
       <nav className="nav__header" id="nav__header">
@@ -123,7 +138,7 @@ function PcNavbar(props) {
                     />
                   </div>
 
-                  <div
+                   <div
                     id="memberMenu"
                     className="NavAvatarMenu d-none"
                   >

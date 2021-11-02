@@ -196,6 +196,8 @@ export default withRouter(function StProfile(props) {
     }
   }, [imgSrc])
 
+ 
+
   return (
     <>
       <div className="container mainContent">
@@ -227,6 +229,8 @@ export default withRouter(function StProfile(props) {
                 <i className="TCback-btn"></i>
               </Link>
             </div>
+
+            
 
             <form name="form1" style={{ display: 'none' }}>
               <input
@@ -350,6 +354,7 @@ export default withRouter(function StProfile(props) {
       </div>
       <StBgDecorationNormal showUp={showUp} />
       <div className="bgbeige"> </div>
+
       <Footer />
     </>
   )

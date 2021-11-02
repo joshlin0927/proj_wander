@@ -37,7 +37,7 @@ export default withRouter(function StCourse(props) {
     }
   }, [imgSrc, auth])
 
-  //畫面掛載元件就向後端要課程資料
+  //畫面掛載元件就向後端要已購買的課程資料
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -86,7 +86,7 @@ export default withRouter(function StCourse(props) {
         <div className="row justify-content-center d-flex">
           <StSideBar2 imgSrc={imgSrc} />
           <div className="coursesection col-md-8 col-lg-8 col-12">
-            {courses.data ? (
+            {courses ? (
               courses.rows.map((course, i) => {
                 return (
                   <CourseItem
