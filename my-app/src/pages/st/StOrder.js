@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './style/st_order.css'
 import { Link, withRouter } from 'react-router-dom'
-import { Modal } from 'react-bootstrap'
 import { SendOrder_API } from '../../config'
 import axios from 'axios'
 
@@ -75,13 +74,6 @@ function StOrder() {
       })
     )
   }, [tab, showDetail, orderData])
-  // modal
-  const [cancelModalShow, setCancelModalShow] =
-    useState(false)
-  const handleCancelModalClose = () =>
-    setCancelModalShow(false)
-  const handleCancelModalShow = () =>
-    setCancelModalShow(true)
   // stOrder
   const stOrder = (
     <>
@@ -276,9 +268,6 @@ function StOrder() {
                 <div className="container stOrders">
                   {showDetail ? (
                     <StOrderDetail
-                      handleCancelModalShow={
-                        handleCancelModalShow
-                      }
                       setShowDetail={setShowDetail}
                       orderID={orderID}
                       memberID={member.sid}
@@ -292,126 +281,7 @@ function StOrder() {
           </form>
         </div>
       </div>
-      {/* Cancel Modal */}
-      <Modal
-        show={cancelModalShow}
-        onHide={handleCancelModalClose}
-        id="cancelModal"
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header>
-          <Modal.Title>取消訂單</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div class="container bgc-main py-3">
-            <div class="row">
-              <div class="col-4 d-flex flex-column align-items-end">
-                <span>訂單編號：</span>
-                <div class="w-100"></div>
-                <span>付款方式：</span>
-                <div class="w-100"></div>
-                <span>訂單金額：</span>
-                <div class="w-100"></div>
-                <span>成立時間：</span>
-                <div class="w-100"></div>
-                <span>取消原因：</span>
-              </div>
-              <div class="col-8 d-flex flex-column">
-                <span>ABC - 00123456</span>
-                <div class="w-100"></div>
-                <span>信用卡</span>
-                <div class="w-100"></div>
-                <span>NT$7310</span>
-                <div class="w-100"></div>
-                <span>2021-12-01 23:00:12</span>
-                <div class="w-100"></div>
-                <form action="">
-                  <div class="form-check d-flex align-items-center">
-                    <input
-                      class="form-check-input mt-0"
-                      type="radio"
-                      name="cancelRadio"
-                      id="cancelReason1"
-                    />
-                    <label
-                      class="form-check-label mx-2"
-                      htmlFor="cancelReason1"
-                    >
-                      課程內容不符需求
-                    </label>
-                  </div>
-                  <div class="form-check d-flex align-items-center">
-                    <input
-                      class="form-check-input mt-0"
-                      type="radio"
-                      name="cancelRadio"
-                      id="cancelReason2"
-                    />
-                    <label
-                      class="form-check-label mx-2"
-                      htmlFor="cancelReason2"
-                    >
-                      暫時中止學習規劃
-                    </label>
-                  </div>
-                  <div class="form-check d-flex align-items-center">
-                    <input
-                      class="form-check-input mt-0"
-                      type="radio"
-                      name="cancelRadio"
-                      id="cancelReason3"
-                    />
-                    <label
-                      class="form-check-label mx-2"
-                      htmlFor="cancelReason3"
-                    >
-                      重複選購
-                    </label>
-                  </div>
-                  <div class="form-check d-flex align-items-start flex-wrap">
-                    <input
-                      class="form-check-input mt-0"
-                      type="radio"
-                      name="cancelRadio"
-                      id="cancelReason4"
-                    />
-                    <label
-                      class="form-check-label mx-2"
-                      htmlFor="cancelReason4"
-                    >
-                      其他
-                    </label>
-                    <div class="w-100"></div>
-                    <textarea
-                      class="form-control"
-                      id="cancelReason4"
-                      rows="3"
-                    ></textarea>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <button
-            type="button"
-            className="btn confirmBtn"
-            id="checkBtn"
-          >
-            確認
-          </button>
-          <button
-            type="button"
-            className="btn confirmBtn"
-            onClick={handleCancelModalClose}
-          >
-            取消
-          </button>
-        </Modal.Footer>
-      </Modal>
+
       <StBgDecorationNormal />
       <div className="bgbeige"> </div>
       <Footer />

@@ -21,4 +21,10 @@ router.post('/add/detail', async(req, res)=>{
     res.json(await OrderDetail.add(req.body.order_main_id, req.body.product_sid));
 })
 
+// 修改(PUT)
+router.put('/edit', async(req, res)=>{
+    res.json(await OrderMain.statusToOne(req.query.order_id));
+})
+
+
 module.exports = router;

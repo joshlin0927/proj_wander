@@ -82,6 +82,18 @@ class OrderMain{
         return output;
     }
 
+    static async statusToOne(order_id){
+        const output = {
+            success: false,
+            result: '',
+        }
+        const sql = `UPDATE ${tableName} SET order_status = 1 WHERE order_id=?`;
+        const [r] = await db.query(sql, [order_id]);
+        output.success = !!r.affectedRows ? true : false;
+        output.result = r;
+        return output;
+    }
+
 }
 
 module.exports = OrderMain;
