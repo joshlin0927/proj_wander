@@ -26,22 +26,15 @@ function TcCourseVideoUpload() {
   )
 
   // console.log(courseSid);
-  const [lastAdd, setLastAdd] = useState('')
   useEffect(() => {
     if (!token) {
       history.push('/')
     } else if (memberObj.identity !== 1) {
       history.push('/')
     } else {
-      ;(async () => {
-        let r = await axios.get(TcVideo_LAST, {})
-        console.log(r)
-        setLastAdd(r.data[0].sid)
-      })()
+      return
     }
   }, [])
-
-  const inputRef = useRef(null)
 
   // 拖曳讀取檔案
   const DragNDrop = function (e) {
@@ -156,17 +149,6 @@ function TcCourseVideoUpload() {
         }
       })
     console.log(r)
-  }
-
-  const doUpload = () => {
-    ;(async () => {
-      let r = await axios.post(
-        TcVideo_ADD,
-        new FormData(document.fileForm)
-      )
-
-      console.log(r)
-    })()
   }
 
   // 當整個表單有變動時觸發
@@ -307,7 +289,6 @@ function TcCourseVideoUpload() {
                   className="d-none"
                   onChange={changeHandler}
                   onChangeCapture={durationReader}
-                  // ref={inputRef}
                 />
               </div>
               <div
@@ -335,11 +316,6 @@ function TcCourseVideoUpload() {
                     value={memberObj.sid}
                     onChange={handleFieldChange}
                   />
-                  {/* <input
-                    name="sid"
-                    value={lastAdd}
-                    onChange={handleFieldChange}
-                  /> */}
                 </div>
                 <div className="d-flex mb-5">
                   名稱:
@@ -352,30 +328,22 @@ function TcCourseVideoUpload() {
                     onChange={handleFieldChange}
                   />
                 </div>
-                {/* {selectedFile ? ( */}
-                <button
-                  type="submit"
-                  className="btn btn-secondary mx-auto"
-                  // onClick={() => {
-                  //   document
-                  //     .querySelector('#realSubmit')
-                  //     .click()
-                  // }}
-                >
-                  上傳資訊檔案
-                </button>
-                {/* ) : ( */}
-                {/* '' */}
-                {/* )} */}
+                {selectedFile ? (
+                  <button
+                    type="submit"
+                    className="btn btn-secondary mx-auto"
+                    // onClick={() => {
+                    //   document
+                    //     .querySelector('#realSubmit')
+                    //     .click()
+                    // }}
+                  >
+                    上傳資訊檔案
+                  </button>
+                ) : (
+                  ''
+                )}
               </div>
-              {/* <button
-                type="submit"
-                id="realSubmit"
-                className="btn btn-secondary mx-auto"
-                onClick={doUpload}
-              >
-                上傳影片檔案
-              </button> */}
             </form>
           </div>
         </div>

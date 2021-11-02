@@ -28,8 +28,7 @@ export const PasswordChange =
 export const TcCourse_ADD = API_HOST + '/TcCourse/add/'
 export const TcCourse_LAST = API_HOST + '/TcCourse/LastAdd/'
 export const TcCourse_Cover = API_HOST + '/TcCourse/Cover/'
-export const TcCourse_LIST =
-  API_HOST + '/TcCourse/api/list/'
+export const TcCourse_LIST = API_HOST + '/TcCourse/api/list'
 export const TcCourse_EDIT = API_HOST + '/TcCourse/edit'
 export const TcCourse_DELETE =
   API_HOST + '/TcCourse/delete/'

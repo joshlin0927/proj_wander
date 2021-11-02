@@ -46,7 +46,7 @@ function TcCourse(props) {
     } else {
       ;(async () => {
         let r = await axios.get(
-          `${TcCourse_LIST}?teacherSid=${teacherSid}`
+          `${TcCourse_LIST}/?teacherSid=${teacherSid}`
         )
         if (r.status === 200) {
           setTcCourses(r.data.rows)

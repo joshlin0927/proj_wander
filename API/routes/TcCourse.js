@@ -56,7 +56,7 @@ async function getListData(req, res) {
             // return res.redirect('?page=1' + output.totalPages);
             */
     }
-    const sql = `SELECT \`course\`.*, \`member\`.\`firstname\`,\`member\`.\`avatar\` FROM \`course\` ${where} ORDER BY \`course\`.\`sid\` DESC LIMIT ${
+    const sql = `SELECT \`course\`.*, \`member\`.\`firstname\`,\`member\`.\`avatar\`, \`member\`.\`intro\` FROM \`course\` ${where} ORDER BY \`course\`.\`sid\` DESC LIMIT ${
       (page - 1) * perPage
     }, ${perPage}`;
     /* 如果要用backtick，在名稱的地方要加上\`做跳脫 */
@@ -81,31 +81,33 @@ router.delete("/delete/:sid([0-9]+)", async (req, res) => {
   res.json(result);
 });
 
-router.route("/cover").post(uploadCourseImg.single("course_img"), async (req, res) => {
-  const output = {
-    success: false,
-    error: "",
-    postData: req.body,
-  };
+router
+  .route("/cover")
+  .post(uploadCourseImg.single("course_img"), async (req, res) => {
+    const output = {
+      success: false,
+      error: "",
+      postData: req.body,
+    };
 
-  const sql = `UPDATE \`course\` SET \`course_img\` = ? WHERE \`sid\` = ?`;
+    const sql = `UPDATE \`course\` SET \`course_img\` = ? WHERE \`sid\` = ?`;
 
-  try {
-    [result] = await db.query(sql, [req.file.filename, req.body.sid]);
-  } catch (ex) {
-    output.error = ex.toString();
-  }
-  output.result = result;
-  if (result.affectedRows === 1) {
-    if (result.changedRows === 1) {
-      output.success = true;
-    } else {
-      output.error = "資料沒有變更";
+    try {
+      [result] = await db.query(sql, [req.file.filename, req.body.sid]);
+    } catch (ex) {
+      output.error = ex.toString();
     }
-  }
+    output.result = result;
+    if (result.affectedRows === 1) {
+      if (result.changedRows === 1) {
+        output.success = true;
+      } else {
+        output.error = "資料沒有變更";
+      }
+    }
 
-  res.json(output);
-});
+    res.json(output);
+  });
 
 router.route("/add").post(async (req, res) => {
   // TODO: 欄位檢查

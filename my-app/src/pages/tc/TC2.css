@@ -195,7 +195,7 @@ body {
 
 .p-page-info-bg {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
   border-radius: 20px;
   background-color: #fff;
 }
@@ -203,7 +203,6 @@ body {
 .p-page-info {
   order: 2;
   display: flex;
-  width: 100%;
   flex-direction: column;
   margin-top: 15px;
   border-radius: 20px;
@@ -229,8 +228,8 @@ body {
   top: -15px;
   font-size: 18px;
   font-weight: bold;
-  width: 100px;
   text-align: center;
+  width: 80px;
   background-color: #fff;
 }
 
@@ -246,6 +245,12 @@ body {
   border-radius: 50%;
   overflow: hidden;
   margin-top: 35px;
+}
+
+.p-page-avatar > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .p-page-title {
@@ -906,10 +911,22 @@ input[name='video_name'] {
   }
 
   .p-page-info-bg {
+    width: 100%;
     border-radius: 20px;
     background-color: transparent;
-    margin: 0;
+    /* margin: 0; */
     padding: 0px -15px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .p-page-info-bg-child {
+    position: absolute;
+    width: 82%;
+    height: 650px;
+    background-color: #fff;
+    border-radius: 0px 0px 20px;
+    left: 0;
   }
 
   .p-page-info {
@@ -933,9 +950,10 @@ input[name='video_name'] {
   }
 
   .p-page-info .TCp-intro-title {
+    width: 150px;
     top: -20px;
-    width: 165px;
     font-size: 24px;
+    background-color: #f1f0e9;
   }
 
   .p-page-info .TCp-intro > p {
