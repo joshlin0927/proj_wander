@@ -81,7 +81,19 @@ class CartItem{
 
     // 清空購物車
     static async clear(member_id){
-
+        const output = {
+            success: false,
+            error: '',
+        }
+        const sql = `DELETE FROM ${tableName} WHERE member_sid=?`;
+        const [r] = await db.query(sql, [member_id]);
+        if(r.affectedRows===0){
+            output.success = false;
+            output.error = '無項目可刪除';
+        }else{
+            output.success = true;
+        }
+        return output;
     }
 }
 

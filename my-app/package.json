@@ -22,6 +22,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "jquery": "^3.6.0",
     "moment": "^2.29.1",
+    "moment-duration-format": "^2.3.2",
     "moment-timezone": "^0.5.33",
     "prettier": "^2.3.1",
     "prop-types": "^15.7.2",
@@ -38,6 +39,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-slick": "^0.28.1",
+    "rsuite": "^5.1.0",
     "sass": "^1.35.1",
     "web-vitals": "^1.0.1"
   },

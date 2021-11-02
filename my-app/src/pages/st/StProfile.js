@@ -172,6 +172,7 @@ export default withRouter(function StProfile(props) {
           if (res.data.success === true) {
             console.log('outcome:', res.data)
             setShowUp('showup')
+            //TODO:刷新頁面
             setTimeout(() => {
               setShowUp('none')
             }, 1000)
@@ -189,6 +190,7 @@ export default withRouter(function StProfile(props) {
         let r = await axios.get(
           `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
         )
+        console.log(r.data)
         setFields(r.data[0][0])
         setImgSrc(r.data[0][0].avatar)
         console.log('res:', r.data)
@@ -350,6 +352,7 @@ export default withRouter(function StProfile(props) {
       </div>
       <StBgDecorationNormal showUp={showUp} />
       <div className="bgbeige"> </div>
+
       <Footer />
     </>
   )

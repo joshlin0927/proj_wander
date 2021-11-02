@@ -3,7 +3,7 @@ import {
   Calendar as Cal,
   momentLocalizer,
 } from 'react-big-calendar'
-import moment from '../../components/st/moment'
+import moment from './moment'
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css'

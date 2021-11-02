@@ -30,6 +30,11 @@ function CartStep01(props) {
     setCounponModalShow(false)
   const handleCounponModalShow = () =>
     setCounponModalShow(true)
+  const [alertModalShow, setAlertModalShow] =
+    useState(false)
+  const handleAlertModalClose = () =>
+    setAlertModalShow(false)
+  const handleAlertModalShow = () => setAlertModalShow(true)
   // 取得該會員購物車資料
   const member = JSON.parse(localStorage.getItem('member'))
   useEffect(() => {
@@ -111,11 +116,15 @@ function CartStep01(props) {
 
   // 計算總價
   const total = () => {
-    let sum = 0
-    for (let i = 0; i < cartData.length; i++) {
-      sum += cartData[i].course_price
+    if (cartQty === 0) {
+      return 0
+    } else {
+      let sum = 0
+      for (let i = 0; i < cartData.length; i++) {
+        sum += cartData[i].course_price
+      }
+      return sum
     }
-    return sum
   }
   // 計算折扣
   const discount = (t) => {
@@ -301,7 +310,11 @@ function CartStep01(props) {
               <button
                 className="btn cartCheckoutBtn"
                 onClick={() => {
-                  props.history.push('/Cart/Step02')
+                  if (cartQty === 0) {
+                    handleAlertModalShow()
+                  } else {
+                    props.history.push('/Cart/Step02')
+                  }
                 }}
               >
                 我要結帳
@@ -488,6 +501,29 @@ function CartStep01(props) {
             }}
           >
             不使用優惠券
+          </button>
+        </Modal.Footer>
+      </Modal>
+      <Modal
+        show={alertModalShow}
+        onHide={handleAlertModalClose}
+        id="alertModal"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title>提醒</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">
+          <span>購物車內無項目可結帳</span>
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            type="button"
+            className="btn confirmBtn"
+            onClick={handleAlertModalClose}
+          >
+            確認
           </button>
         </Modal.Footer>
       </Modal>

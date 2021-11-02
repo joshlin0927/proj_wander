@@ -2,7 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
 import axios from 'axios'
-import { TcVideo_ADD } from '../../../config'
+import {
+  TcVideo_ADD,
+  TcVideo_EDIT,
+  TcVideo_LAST,
+} from '../../../config'
 
 // components
 import ConfirmMsg from '../../../components/ConfirmMsg'
@@ -22,14 +26,18 @@ function TcCourseVideoUpload() {
   )
 
   // console.log(courseSid);
-
+  const [lastAdd, setLastAdd] = useState('')
   useEffect(() => {
     if (!token) {
       history.push('/')
     } else if (memberObj.identity !== 1) {
       history.push('/')
     } else {
-      return
+      ;(async () => {
+        let r = await axios.get(TcVideo_LAST, {})
+        console.log(r)
+        setLastAdd(r.data[0].sid)
+      })()
     }
   }, [])
 
@@ -49,6 +57,15 @@ function TcCourseVideoUpload() {
 
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
+  const [selectedFile, setSelectedFile] = useState()
+  const [isFilePicked, setIsFilePicked] = useState(false)
+
+  const changeHandler = (event) => {
+    setSelectedFile(event.target.files[0])
+    setIsFilePicked(true)
+  }
+
+  console.log('selectedFile', selectedFile)
 
   const formRef = useRef(null)
   // 使用物件值作為狀態值，儲存所有欄位的值
@@ -89,7 +106,7 @@ function TcCourseVideoUpload() {
         }),
         url = URL.createObjectURL(blob),
         video = document.createElement('video')
-      console.log('url', url)
+      // console.log('url', url)
       // video.preload = 'metadata'
       video.addEventListener('loadedmetadata', function () {
         const data = {
@@ -117,28 +134,14 @@ function TcCourseVideoUpload() {
     console.log(formVideo.get('video_name'))
     console.log(formVideo.get('video_link'))
 
+    // formVideo.append('video_link', selectedFile)
     // 利用狀態來得到輸入的值
 
     // ex. 用fetch api/axios送到伺服器
 
-    // new FormData({
-    //   duration: fields.duration,
-    //   video_name: fields.video_name.slice(
-    //     0,
-    //     fields.video_name.length - 4
-    //   ),
-    //   video_link: '',
-    //   teacher_sid: memberObj.sid,
-    //   course_sid: courseSid,
-    // }
-    // )
-
     const r = fetch(TcVideo_ADD, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: new URLSearchParams(formVideo).toString(),
+      body: formVideo,
     })
       .then((r) => r.json())
       .then((obj) => {
@@ -153,6 +156,17 @@ function TcCourseVideoUpload() {
         }
       })
     console.log(r)
+  }
+
+  const doUpload = () => {
+    ;(async () => {
+      let r = await axios.post(
+        TcVideo_ADD,
+        new FormData(document.fileForm)
+      )
+
+      console.log(r)
+    })()
   }
 
   // 當整個表單有變動時觸發
@@ -242,19 +256,18 @@ function TcCourseVideoUpload() {
         <div className="row justify-content-center">
           {/* TCcourse-TCcourse-process bar */}
           <TcCourseProcessBar />
-          <form
+          <div
             className="TCform col-12 col-md-10"
             name="formVideo"
-            ref={formRef}
-            onChange={FormChange}
-            onInvalid={FormInvalid}
-            onSubmit={FormSubmit}
-            // onDrop={(e) => {
-            //   DragNDrop(e)
-            // }}
           >
             <ConfirmMsg showUp={showUp} />
-            <div className="TCform-content">
+            <form
+              className="TCform-content"
+              onChange={FormChange}
+              onInvalid={FormInvalid}
+              onSubmit={FormSubmit}
+              ref={formRef}
+            >
               <div className="TCform-head">
                 <Link to="/TcIndex/TcCourseEdit/:sid?">
                   <i className="fas fa-chevron-left TCback-btn"></i>
@@ -272,71 +285,99 @@ function TcCourseVideoUpload() {
                 </div>
               </div>
 
-              <div className="TCvideo-drop-zone">
-                <div
-                  className="clickZone"
-                  onClick={() => {
-                    video_link.click()
-                  }}
-                >
-                  <i className="fas fa-upload"></i>
+              <div
+                className="TCvideo-drop-zone"
+                onClick={() => {
+                  video_link.click()
+                }}
+              >
+                <i className="fas fa-upload"></i>
 
-                  <p>請點擊並選擇要上傳的檔案</p>
-                  <label>
-                    僅支持檔案小於1GB，且格式為mp4, mov,
-                    wmv的檔案
-                  </label>
-                </div>
+                <p>請點擊並選擇要上傳的檔案</p>
+                <label>
+                  僅支持檔案小於1GB，且格式為mp4, mov,
+                  wmv的檔案
+                </label>
+
                 <input
                   type="file"
                   accept="video/mp4,video/quicktime,video/x-ms-wmv"
                   id="video_link"
                   name="video_link"
-                  // className="d-none"
+                  className="d-none"
+                  onChange={changeHandler}
                   onChangeCapture={durationReader}
                   // ref={inputRef}
                 />
-                <div id="duration" className="videoMeta">
-                  <div className="d-none">
-                    Duration:
-                    <input
-                      name="duration"
-                      style={{ border: 0 }}
-                      value={fields.duration + 's'}
-                      onChange={handleFieldChange}
-                    />
-                  </div>
-                  <div className="d-flex">
-                    名稱:
-                    <input
-                      name="video_name"
-                      style={{ border: 0 }}
-                      value={fields.video_name.slice(
-                        0,
-                        fields.video_name.length - 4
-                      )}
-                      onChange={handleFieldChange}
-                    />
-                  </div>
+              </div>
+              <div
+                id="duration"
+                className="videoMeta"
+
+                // onDrop={(e) => {
+                //   DragNDrop(e)
+                // }}
+              >
+                <div className="">
+                  Duration:
+                  <input
+                    name="duration"
+                    value={fields.duration + 's'}
+                    onChange={handleFieldChange}
+                  />
                   <input
                     name="course_sid"
                     value={courseSid}
+                    onChange={handleFieldChange}
                   />
                   <input
                     name="teacher_sid"
                     value={memberObj.sid}
+                    onChange={handleFieldChange}
                   />
-
-                  <button
-                    type="submit"
-                    className="btn btn-secondary mx-auto"
-                  >
-                    上傳檔案
-                  </button>
+                  {/* <input
+                    name="sid"
+                    value={lastAdd}
+                    onChange={handleFieldChange}
+                  /> */}
                 </div>
+                <div className="d-flex mb-5">
+                  名稱:
+                  <input
+                    name="video_name"
+                    value={fields.video_name.slice(
+                      0,
+                      fields.video_name.length - 4
+                    )}
+                    onChange={handleFieldChange}
+                  />
+                </div>
+                {/* {selectedFile ? ( */}
+                <button
+                  type="submit"
+                  className="btn btn-secondary mx-auto"
+                  // onClick={() => {
+                  //   document
+                  //     .querySelector('#realSubmit')
+                  //     .click()
+                  // }}
+                >
+                  上傳資訊檔案
+                </button>
+                {/* ) : ( */}
+                {/* '' */}
+                {/* )} */}
               </div>
-            </div>
-          </form>
+              {/* <button
+                type="submit"
+                id="realSubmit"
+                className="btn btn-secondary mx-auto"
+                onClick={doUpload}
+              >
+                上傳影片檔案
+              </button> */}
+            </form>
+          </div>
         </div>
       </div>
       <TcBgDecorationThreeSteps />

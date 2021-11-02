@@ -243,7 +243,7 @@ export default function StCalendar(props) {
 
       <div className={`allwraper  ${schedule}`}>
         <div className="calendardec-side col-md-10 col-lg-10 col-12">
-          <div className="calendardec-insideblock col-md-8 col-lg-ㄅㄢ col-12">
+          <div className="calendardec-insideblock col-md-8 col-lg-7 col-12">
             <div
               className="closeicon"
               onClick={() => {

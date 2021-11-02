@@ -36,9 +36,15 @@ function PcNavbar(props) {
     } else if (token && memberObj.identity === 0) {
       ;(async () => {
         let r = await axios.get(
-          `http://localhost:3001/stprofile/list?studentSid=${memberObj.sid}`
+          `http://localhost:3001/stprofile/list`,
+          {
+            headers: {
+              Authorization:
+                'Bearer ' + localStorage.getItem('token'),
+            },
+          }
         )
-        // console.log('STr', r)
+        console.log('STr', r)
         setImgSrc(r.data[0][0].avatar)
       })()
     }
@@ -55,9 +61,28 @@ function PcNavbar(props) {
     history.push('/login')
   }
 
+  const renderButton = (props, ref) => {
+    return (
+      <div className="nav_login" {...props} ref={ref}>
+        <img
+          src={
+            imgSrc
+              ? `${IMG_PATH}/${imgSrc}`
+              : `${IMG_PATH}/presetAvatar.jpeg`
+          }
+          alt=""
+        />
+      </div>
+    )
+  }
+
   return (
     <>
-      <nav className="nav__header" id="nav__header">
+      <nav
+        className="nav__header"
+        id="nav__header"
+        onMouseLeave={() => setDrop('d-none')}
+      >
         <div className="nav__singheader container">
           <div className="row flex-nowrap">
             <div className="col-3 p-0">
@@ -104,11 +129,13 @@ function PcNavbar(props) {
                   </span>
                 </Link>
               ) : (
-                <div className="NavAvatar">
+                <div
+                  className="NavAvatar"
+                  onMouseOver={() => setDrop('d-block')}
+                >
                   <div
                     className="nav_login"
                     id="memberAvatar"
-                    onMouseOver={() => setDrop('d-block')}
                   >
                     <img
                       src={
@@ -123,6 +150,7 @@ function PcNavbar(props) {
                   <div
                     id="memberMenu"
                     className={`NavAvatarMenu ${drop}`}
+                    onMouseOver={() => setDrop('d-block')}
                     onMouseLeave={() => setDrop('d-none')}
                   >
                     <div className="mb-1">

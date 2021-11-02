@@ -19,6 +19,11 @@ router.get('/getdata', async (req, res) => {
 
   const success = await bcrypt.compare(req.body.password, rs[0][0].password);
   if (success) {
+
+
+
+
+    
     output.success = true;
   } else {
     output.error = '密碼輸入錯誤'

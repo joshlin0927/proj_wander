@@ -34,7 +34,7 @@ router.delete('/delete', async(req, res)=>{
 
 // 清空(CLEAR)
 router.delete('/clear', async(req, res)=>{
-    res.json(await CartItem.clear(req.body.member_sid));
+    res.json(await CartItem.clear(req.query.member_sid));
 })
 
 

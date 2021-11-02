@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
-import dayjs from 'dayjs'
+import moment from 'moment'
+import momentDurationFormatSetup from 'moment-duration-format'
 import axios from 'axios'
 
 // 後端檔案路徑
@@ -52,7 +53,7 @@ function TcCourse(props) {
           setDisplayCourse(r.data.rows)
           setImgSrc(r.data.rows[0].avatar)
         }
-        // console.log(r)
+        console.log(r.data.rows)
       })()
     }
     // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面

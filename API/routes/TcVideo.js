@@ -81,7 +81,7 @@ router.delete("/delete/:sid([0-9]+)", async (req, res) => {
   res.json(result);
 });
 
-router.route("/add").post(uploadVid.single(""), async (req, res) => {
+router.route("/add").post(uploadVid.single("video_link"), async (req, res) => {
   // TODO: 欄位檢查
   const output = {
     success: false,
@@ -91,6 +91,7 @@ router.route("/add").post(uploadVid.single(""), async (req, res) => {
   const input = {
     ...req.body,
     created_at: new Date(),
+    video_link: req.file.filename
   };
 
   console.log(input);
@@ -115,7 +116,6 @@ router.route("/add").post(uploadVid.single(""), async (req, res) => {
 });
 
 router.get("/edit", async (req, res) => {
-  // let courseSid = ;
   const sql = `SELECT * FROM \`video_list\` WHERE sid=?`;
   const [rs] = await db.query(sql, [req.query.videoSid]);
   res.json(rs);
@@ -151,4 +151,18 @@ router.post("/edit", async (req, res) => {
 
   res.json(output);
 });
+
+
+router
+  .route("/LastAdd")
+  .get(async (req, res) => {
+    // sql = SELECT * FROM `course` ORDER BY `created_at` DESC LIMIT 1;
+    const sql = "SELECT * FROM `video_list` ORDER BY `created_time` DESC LIMIT 1;";
+
+    [result] = await db.query(sql);
+
+    res.json(result);
+  })
+
+
 module.exports = router;

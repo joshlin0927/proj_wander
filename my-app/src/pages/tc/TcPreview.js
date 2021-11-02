@@ -8,6 +8,7 @@ import { devUrl } from '../../config'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import BuyCourseItem from '../../components/BuyCourseItem'
 import MyPagination from '../../components/MyPagination'
+import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
 
 function TcPreview() {
@@ -85,22 +86,9 @@ function TcPreview() {
           {/* Pagination */}
           <MyPagination />
         </div>
-        <Footer />
       </div>
-      {/* bg decoration */}
-      <div class="TCallwraper">
-        <div class="dec-block"></div>
-        <div class="dec-white"></div>
-        <div class="earth">
-          <img src="../images/elements/earth.png" alt="" />
-        </div>
-        <div class="dec-blue-block">
-          <img
-            src="../images/elements/TC_blue_block.svg"
-            alt=""
-          />
-        </div>
-      </div>
+      <TcBgDecorationNormal />
+      <Footer />
     </>
   )
 }

@@ -25,10 +25,25 @@ function MobileNavbar(props) {
     )
     for (let i = 0; i < 5; i++) {
       navItem[i].classList.remove('active')
+      if (path.includes('CsCourse')) {
+        navItem[0].classList.add('active')
+      }
+
+      navItem[i].classList.remove('active')
       if (path.includes('Cart')) {
         navItem[1].classList.add('active')
       }
-      if (path.includes('TC')) {
+      // navItem[i].classList.remove('active')
+      // if (path.includes('TC')) {
+      //   navItem[4].classList.add('active')
+      // }
+
+      navItem[i].classList.remove('active')
+      if (path.includes('StCourse')) {
+        navItem[3].classList.add('active')
+      }
+      navItem[i].classList.remove('active')
+      if (path.includes('MemberCenter')) {
         navItem[4].classList.add('active')
       }
     }
@@ -101,11 +116,7 @@ function MobileNavbar(props) {
             </Link>
           ) : (
             <Link
-              to={
-                memberObj.identity === 1
-                  ? '/Tcindex'
-                  : '/StIndex/StProfile'
-              }
+              to="/StIndex/MemberCenter"
               className="mobile-nav-item active col-2"
               id="mNavTC"
             >

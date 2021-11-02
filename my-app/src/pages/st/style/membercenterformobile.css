@@ -1,0 +1,48 @@
+.mobilelist {
+  height: 56px;
+  width: 100%;
+  left: 16px;
+  top: 267px;
+  border-radius: 10px;
+  background-color: #FCFCFB;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  line-height:60px;
+  margin-bottom: 8px;
+}
+
+.mobiletext {
+ justify-content: start;
+ font-size: 18px;
+ font-weight: bold;
+ letter-spacing: -0.015em;
+
+}
+
+.mobileicon{
+  font-size:25px;
+ 
+ 
+  
+}
+
+.mobilecircle{
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 50px;
+  border: 1px solid #065F8E;
+  border-radius: 50%;
+ 
+  
+}
+
+.lastline{
+  margin-bottom: 155px;
+}
+.mobileline{
+  border-bottom: 1px solid #E7E7E7;
+  padding-bottom: 19px;
+}
+.mobileform{
+  margin-bottom: 30px;
+}
