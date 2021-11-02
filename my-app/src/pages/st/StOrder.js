@@ -2,22 +2,41 @@ import React, { useState, useEffect } from 'react'
 import './style/st_order.css'
 import { Link, withRouter } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
-import { devUrl } from '../../config'
+import { SendOrder_API } from '../../config'
+import axios from 'axios'
 
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar from '../../components/st/StSideBar'
+import StOrderList from '../../components/st/StOrderList'
 import StOrderDetail from '../../components/st/StOrderDetail'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
 
 function StOrder() {
+  const member = JSON.parse(localStorage.getItem('member'))
+  const [orderID, setOrderID] = useState('')
   // tab
   const [tab, setTab] = useState(1)
   // set order & orderdetail
   const [showDetail, setShowDetail] = useState(false)
+  const [orderData, setOrderData] = useState([{}])
+  const [orderData0, setOrderData0] = useState([{}])
+  const [orderData1, setOrderData1] = useState([{}])
+  const [orderData2, setOrderData2] = useState([{}])
   useEffect(() => {
+    ;(async () => {
+      let o = await axios.get(
+        `${SendOrder_API}/list?member_sid=${member.sid}`
+      )
+      if (o.data.success) {
+        setOrderData(o.data.result)
+      }
+    })()
+  }, [member.sid])
+  useEffect(() => {
+    // tab切換
     if (!showDetail) {
       let t = document.querySelector(
         `.stOrderContentTitle${tab}`
@@ -39,7 +58,23 @@ function StOrder() {
       st.classList.remove('tab-d-none')
       st.classList.add('tab-d-flex')
     }
-  }, [tab, showDetail])
+    // setOrder Status
+    setOrderData0(
+      orderData.filter((v) => {
+        return v.order_status === 0
+      })
+    )
+    setOrderData1(
+      orderData.filter((v) => {
+        return v.order_status === 1
+      })
+    )
+    setOrderData2(
+      orderData.filter((v) => {
+        return v.order_status === 2
+      })
+    )
+  }, [tab, showDetail, orderData])
   // modal
   const [cancelModalShow, setCancelModalShow] =
     useState(false)
@@ -69,289 +104,74 @@ function StOrder() {
         </div>
       </div>
       {/* <!-- orderItem --> */}
+      {console.log('data:', orderData)}
       {/* 全部 */}
       <div className="row stOrderDetailContent stODC1">
-        <div className="stOrderDetail">
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>成立時間</span>
-            </div>
-            <span>2021-12-01 23:00:12</span>
-          </div>
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單編號</span>
-            </div>
-            <span>AAA00123456</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單狀態</span>
-            </div>
-            <span>已付款</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單金額</span>
-            </div>
-            <span>NT$7310</span>
-          </div>
-          <div
-            className="col-12 col-md-2 stOrderDetailItem m-d-none stOrderDetailBtn"
-            onClick={() => {
-              setShowDetail(true)
-            }}
-          >
-            <img
-              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
-              alt=""
-            />
-          </div>
-          <div
-            className="stOrderDetailBtn-m"
-            onClick={() => {
-              setShowDetail(true)
-            }}
-          >
-            <img
-              src={`${devUrl}/images/st_order/orderDetail_icon_m.svg`}
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="stOrderDetail">
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>成立時間</span>
-            </div>
-            <span>2021-12-01 23:00:12</span>
-          </div>
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單編號</span>
-            </div>
-            <span>BBB00123456</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單狀態</span>
-            </div>
-            <span>已付款</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單金額</span>
-            </div>
-            <span>NT$7310</span>
-          </div>
-          <div className="col-2 stOrderDetailItem m-d-none stOrderDetailBtn">
-            <img
-              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="stOrderDetail">
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>成立時間</span>
-            </div>
-            <span>2021-12-01 23:00:12</span>
-          </div>
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單編號</span>
-            </div>
-            <span>CCC00123456</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem text-danger">
-            <div className="stOrderDetailItem-t">
-              <span>訂單狀態</span>
-            </div>
-            <span>待付款</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單金額</span>
-            </div>
-            <span>NT$7310</span>
-          </div>
-          <div className="col-2 stOrderDetailItem m-d-none stOrderDetailBtn">
-            <img
-              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="stOrderDetail">
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>成立時間</span>
-            </div>
-            <span>2021-12-01 23:00:12</span>
-          </div>
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單編號</span>
-            </div>
-            <span>DDD00123456</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單狀態</span>
-            </div>
-            <span>已取消</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單金額</span>
-            </div>
-            <span>NT$7310</span>
-          </div>
-          <div className="col-2 stOrderDetailItem m-d-none stOrderDetailBtn">
-            <img
-              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
-              alt=""
-            />
-          </div>
-        </div>
+        {orderData.length === 0
+          ? ''
+          : orderData.map((v, i) => {
+              return (
+                <StOrderList
+                  setShowDetail={setShowDetail}
+                  time={v.created_at}
+                  order_id={v.order_id}
+                  order_status={v.order_status}
+                  price={v.total_price}
+                  setOrderID={setOrderID}
+                />
+              )
+            })}
       </div>
       {/* 待付款 */}
       <div className="row stOrderDetailContent stODC2">
-        <div className="stOrderDetail">
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>成立時間</span>
-            </div>
-            <span>2021-12-01 23:00:12</span>
-          </div>
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單編號</span>
-            </div>
-            <span>CCC00123456</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem text-danger">
-            <div className="stOrderDetailItem-t">
-              <span>訂單狀態</span>
-            </div>
-            <span>待付款</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單金額</span>
-            </div>
-            <span>NT$7310</span>
-          </div>
-          <div className="col-2 stOrderDetailItem m-d-none stOrderDetailBtn">
-            <img
-              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
-              alt=""
-            />
-          </div>
-        </div>
+        {orderData.length === 0
+          ? ''
+          : orderData0.map((v, i) => {
+              return (
+                <StOrderList
+                  setShowDetail={setShowDetail}
+                  time={v.created_at}
+                  order_id={v.order_id}
+                  order_status={v.order_status}
+                  price={v.total_price}
+                  setOrderID={setOrderID}
+                />
+              )
+            })}
       </div>
       {/* 已付款 */}
       <div className="row stOrderDetailContent stODC3">
-        <div className="stOrderDetail">
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>成立時間</span>
-            </div>
-            <span>2021-12-01 23:00:12</span>
-          </div>
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單編號</span>
-            </div>
-            <span>AAA00123456</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單狀態</span>
-            </div>
-            <span>已付款</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單金額</span>
-            </div>
-            <span>NT$7310</span>
-          </div>
-          <div className="col-2 stOrderDetailItem m-d-none stOrderDetailBtn">
-            <img
-              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="stOrderDetail">
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>成立時間</span>
-            </div>
-            <span>2021-12-01 23:00:12</span>
-          </div>
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單編號</span>
-            </div>
-            <span>BBB00123456</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單狀態</span>
-            </div>
-            <span>已付款</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單金額</span>
-            </div>
-            <span>NT$7310</span>
-          </div>
-          <div className="col-2 stOrderDetailItem m-d-none stOrderDetailBtn">
-            <img
-              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
-              alt=""
-            />
-          </div>
-        </div>
+        {orderData.length === 0
+          ? ''
+          : orderData1.map((v, i) => {
+              return (
+                <StOrderList
+                  setShowDetail={setShowDetail}
+                  time={v.created_at}
+                  order_id={v.order_id}
+                  order_status={v.order_status}
+                  price={v.total_price}
+                  setOrderID={setOrderID}
+                />
+              )
+            })}
       </div>
       {/* 已取消 */}
       <div className="row stOrderDetailContent stODC4">
-        <div className="stOrderDetail">
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>成立時間</span>
-            </div>
-            <span>2021-12-01 23:00:12</span>
-          </div>
-          <div className="col-12 col-md-3 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單編號</span>
-            </div>
-            <span>DDD00123456</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單狀態</span>
-            </div>
-            <span>已取消</span>
-          </div>
-          <div className="col-12 col-md-2 stOrderDetailItem">
-            <div className="stOrderDetailItem-t">
-              <span>訂單金額</span>
-            </div>
-            <span>NT$7310</span>
-          </div>
-          <div className="col-2 stOrderDetailItem m-d-none stOrderDetailBtn">
-            <img
-              src={`${devUrl}/images/st_order/orderDetail_icon.svg`}
-              alt=""
-            />
-          </div>
-        </div>
+        {orderData.length === 0
+          ? ''
+          : orderData2.map((v, i) => {
+              return (
+                <StOrderList
+                  setShowDetail={setShowDetail}
+                  time={v.created_at}
+                  order_id={v.order_id}
+                  order_status={v.order_status}
+                  price={v.total_price}
+                  setOrderID={setOrderID}
+                />
+              )
+            })}
       </div>
     </>
   )
@@ -454,24 +274,18 @@ function StOrder() {
               {/* <!-- orders --> */}
               <div className="row">
                 <div className="container stOrders">
-                  {/* {stOrder}
-                  <StOrderDetail
-                    handleCancelModalShow={
-                      handleCancelModalShow
-                    }
-                    setShowDetail={setShowDetail}
-                  /> */}
                   {showDetail ? (
                     <StOrderDetail
                       handleCancelModalShow={
                         handleCancelModalShow
                       }
                       setShowDetail={setShowDetail}
+                      orderID={orderID}
+                      memberID={member.sid}
                     />
                   ) : (
                     stOrder
                   )}
-                  {/* <!-- 訂單明細 --> */}
                 </div>
               </div>
             </div>
@@ -599,6 +413,7 @@ function StOrder() {
         </Modal.Footer>
       </Modal>
       <StBgDecorationNormal />
+      <div className="bgbeige"> </div>
       <Footer />
     </>
   )

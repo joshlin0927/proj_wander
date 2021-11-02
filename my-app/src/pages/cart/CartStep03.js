@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import {
   devUrl,
   Cart_API,
@@ -19,6 +19,7 @@ function CartStep03(props) {
   // 取得該會員訂單資料
   const member = JSON.parse(localStorage.getItem('member'))
   const order = JSON.parse(sessionStorage.getItem('order'))
+
   useEffect(() => {
     ;(async () => {
       let r = await axios.delete(
@@ -28,7 +29,7 @@ function CartStep03(props) {
         console.log('r', r)
       }
       let o = await axios.get(
-        `${SendOrder_API}/list?member_sid=${member.sid}&order_id=${order.order_id}`
+        `${SendOrder_API}/detailList?member_sid=${member.sid}&order_id=${order.order_id}`
       )
       if (o.data.success) {
         setOrderData(o.data.result)
