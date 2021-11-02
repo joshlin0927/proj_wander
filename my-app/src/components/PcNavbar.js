@@ -46,10 +46,7 @@ function PcNavbar(props) {
 
   // console.log(imgSrc)
 
-  const menuToggle = () => {
-    const memberMenu = document.querySelector('#memberMenu')
-    memberMenu.classList.toggle('d-none')
-  }
+  const [drop, setDrop] = useState('d-none')
 
   const logout = async () => {
     localStorage.removeItem('token')
@@ -126,7 +123,7 @@ function PcNavbar(props) {
                   <div
                     className="nav_login"
                     id="memberAvatar"
-                    onClick={menuToggle}
+                    onMouseOver={() => setDrop('d-block')}
                   >
                     <img
                       src={
@@ -140,7 +137,8 @@ function PcNavbar(props) {
 
                    <div
                     id="memberMenu"
-                    className="NavAvatarMenu d-none"
+                    className={`NavAvatarMenu ${drop}`}
+                    onMouseLeave={() => setDrop('d-none')}
                   >
                     <div className="mb-1">
                       <Link

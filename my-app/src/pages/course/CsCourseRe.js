@@ -35,7 +35,7 @@ function CsCourseRe() {
                 src="../images/img/成為專業筆譯必備：商務日文翻譯力.png"
                 alt=""
               />
-              <div class="coursename">
+              <div class="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
               <span class="teachername">Thoms Lillard</span>
@@ -46,7 +46,7 @@ function CsCourseRe() {
                 src="../images/img/成為專業筆譯必備：商務日文翻譯力.png"
                 alt=""
               />
-              <div class="coursename">
+              <div class="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
               <span class="teachername">Thoms Lillard</span>
@@ -57,7 +57,7 @@ function CsCourseRe() {
                 src="../images/img/成為專業筆譯必備：商務日文翻譯力.png"
                 alt=""
               />
-              <div class="coursename">
+              <div class="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
               <span class="teachername">Thoms Lillard</span>
@@ -68,7 +68,7 @@ function CsCourseRe() {
                 src="../images/img/成為專業筆譯必備：商務日文翻譯力.png"
                 alt=""
               />
-              <div class="coursename">
+              <div class="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
               <span class="teachername">Thoms Lillard</span>
@@ -79,7 +79,7 @@ function CsCourseRe() {
                 src="../images/img/成為專業筆譯必備：商務日文翻譯力.png"
                 alt=""
               />
-              <div class="coursename">
+              <div class="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
               <span class="teachername">Thoms Lillard</span>
@@ -90,7 +90,7 @@ function CsCourseRe() {
                 src="../images/img/成為專業筆譯必備：商務日文翻譯力.png"
                 alt=""
               />
-              <div class="coursename">
+              <div class="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
               <span class="teachername">Thoms Lillard</span>
@@ -101,7 +101,7 @@ function CsCourseRe() {
                 src="../images/img/成為專業筆譯必備：商務日文翻譯力.png"
                 alt=""
               />
-              <div class="coursename">
+              <div class="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
               <span class="teachername">Thoms Lillard</span>
@@ -112,7 +112,7 @@ function CsCourseRe() {
                 src="../images/img/成為專業筆譯必備：商務日文翻譯力.png"
                 alt=""
               />
-              <div class="coursename">
+              <div class="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
               <span class="teachername">Thoms Lillard</span>
@@ -123,7 +123,7 @@ function CsCourseRe() {
                 src="../images/img/成為專業筆譯必備：商務日文翻譯力.png"
                 alt=""
               />
-              <div class="coursename">
+              <div class="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
               <span class="teachername">Thoms Lillard</span>
@@ -134,7 +134,7 @@ function CsCourseRe() {
                 src="../images/img/成為專業筆譯必備：商務日文翻譯力.png"
                 alt=""
               />
-              <div class="coursename">
+              <div class="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
               <span class="teachername">Thoms Lillard</span>
@@ -145,7 +145,7 @@ function CsCourseRe() {
                 src="../images/img/成為專業筆譯必備：商務日文翻譯力.png"
                 alt=""
               />
-              <div class="coursename">
+              <div class="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
               <span class="teachername">Thoms Lillard</span>
@@ -156,7 +156,7 @@ function CsCourseRe() {
                 src="../images/img/成為專業筆譯必備：商務日文翻譯力.png"
                 alt=""
               />
-              <div class="coursename">
+              <div class="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
               <span class="teachername">Thoms Lillard</span>

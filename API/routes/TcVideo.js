@@ -81,7 +81,7 @@ router.delete("/delete/:sid([0-9]+)", async (req, res) => {
   res.json(result);
 });
 
-router.route("/add").post(uploadVid.single("video_link"), async (req, res) => {
+router.route("/add").post(uploadVid.single(""), async (req, res) => {
   // TODO: 欄位檢查
   const output = {
     success: false,

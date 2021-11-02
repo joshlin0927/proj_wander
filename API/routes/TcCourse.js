@@ -194,6 +194,7 @@ router.get("/edit", async (req, res) => {
 router.post("/edit", async (req, res) => {
   const output = {
     success: false,
+    error: "",
     postData: req.body,
   };
 

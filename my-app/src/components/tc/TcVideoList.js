@@ -13,6 +13,7 @@ function TcVideoList(props) {
     setRemoveVideo,
     status,
     setStatus,
+    setShowUp,
   } = props
 
   return (
@@ -38,11 +39,12 @@ function TcVideoList(props) {
             status={() => {
               const newVideos = [...Videos].filter(
                 (v, i) => {
-                  return v.video_name !== Video.videoname
+                  return v.video_name !== Video.video_name
                 }
               )
               setStatus(newVideos)
             }}
+            setShowUp={setShowUp}
           />
         )
       })}

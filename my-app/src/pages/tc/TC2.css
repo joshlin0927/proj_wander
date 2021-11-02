@@ -3,8 +3,15 @@ body {
 }
 
 .videoMeta {
-  margin-top: 10%;
   margin-bottom: 10%;
+}
+
+.videoMeta > div > input {
+  background-color: transparent;
+}
+
+.clickZone{
+  cursor: pointer;
 }
 
 .TCmb-50 {
@@ -472,23 +479,23 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px dashed #868686;
+  /* border: 2px dashed #868686; */
   border-radius: 20px;
   padding: 25%;
   margin: 0px auto 30px;
   text-align: center;
 }
 
-.TCvideo-drop-zone > i {
+.TCvideo-drop-zone > div > i {
   font-size: 50px;
 }
 
-.TCvideo-drop-zone > p {
+.TCvideo-drop-zone > div > p {
   font-size: 20px;
   margin: 25px auto 5px;
 }
 
-.TCvideo-drop-zone > label {
+.TCvideo-drop-zone > div > label {
   font-size: 12px;
   margin-bottom: 20px;
 }
@@ -770,6 +777,7 @@ body {
   /* 課程表單裡的圖 */
   .TCcourse-pic-square {
     max-width: 271px;
+
     margin-right: 20px;
     border: 1px solid #868686;
     border-radius: 10px;
@@ -861,10 +869,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px dashed #868686;
-    border-radius: 20px;
     padding: 25%;
-    margin: 0px auto 50px;
+    margin: 0px auto 135px;
     text-align: center;
   }
 
