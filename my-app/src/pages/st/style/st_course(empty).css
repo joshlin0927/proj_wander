@@ -285,7 +285,7 @@
     margin-right: auto;
   }
 
-  .buy-btn:hover {
+  .buy-btn:hover span{
     background-color: #065f8e;
     border: 1px solid transparent;
     color: white;

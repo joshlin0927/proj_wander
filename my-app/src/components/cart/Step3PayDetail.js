@@ -4,6 +4,16 @@ import dayjs from 'dayjs'
 
 function Step3PayDetail(props) {
   const { total, time, cstoresort, payMethod } = props
+  const newCode =
+    String.fromCharCode(
+      Math.floor(Math.random() * 26) + 65
+    ) +
+    String.fromCharCode(
+      Math.floor(Math.random() * 26) + 65
+    ) +
+    (
+      Math.floor(Math.random() * 8999999999) + 1000000000
+    ).toString()
   function sevenDays(str) {
     let dd = dayjs(str)
       .add(7, 'day')
@@ -97,7 +107,7 @@ function Step3PayDetail(props) {
             )}
             <div className="finishContentRow">
               <span>繳費代碼：</span>
-              <span id="payWay">GW12345678901234</span>
+              <span id="payWay">{newCode}</span>
             </div>
             <div className="finishContentRow">
               <span>付款金額：</span>
@@ -139,7 +149,7 @@ function Step3PayDetail(props) {
               <span>生成時間：</span>
               <span id="payTime">{time}</span>
               <span id="payTimeDL">
-                請於{sevenDays(time)}前完成付款
+                請於{sevenDays(time)}前完成轉帳
               </span>
             </div>
           </div>

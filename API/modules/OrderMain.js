@@ -6,7 +6,7 @@ class OrderMain{
     constructor(defaultObj = {}){
         this.data = defaultObj;
     }
-    static async getList(member_sid, order_id){
+    static async getDetailList(member_sid, order_id){
         const output = {
             success: false,
             result: '',
@@ -20,6 +20,23 @@ class OrderMain{
         ON course.sid = order_detail.product_sid
         WHERE member_sid=? AND order_id=?`;
         const [r] = await db.query(sql, [member_sid, order_id]);
+        if(r.length === 0){
+            output.success = false;
+            output.result = '沒有資料';
+        }else{
+            output.success = true;
+            output.result = r;
+        }
+        return output;
+    }
+    static async getList(member_sid){
+        const output = {
+            success: false,
+            result: '',
+        }
+        const sql = 
+        `SELECT * FROM order_main WHERE member_sid=?`;
+        const [r] = await db.query(sql, [member_sid]);
         if(r.length === 0){
             output.success = false;
             output.result = '沒有資料';

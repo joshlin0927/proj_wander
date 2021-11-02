@@ -3,9 +3,13 @@ const router = express.Router();
 const OrderMain = require('../modules/OrderMain');
 const OrderDetail = require('../modules/OrderDetail');
 
-// 讀取單一會員購物車(GET)
+// 讀取單一會員單一訂單細節(GET)
+router.get('/detailList', async(req, res)=>{
+    res.json(await OrderMain.getDetailList(req.query.member_sid, req.query.order_id));
+})
+// 讀取單一會員訂單細節(GET)
 router.get('/list', async(req, res)=>{
-    res.json(await OrderMain.getList(req.query.member_sid, req.query.order_id));
+    res.json(await OrderMain.getList(req.query.member_sid));
 })
 
 // 新增main

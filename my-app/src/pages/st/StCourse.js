@@ -86,7 +86,7 @@ export default withRouter(function StCourse(props) {
         <div className="row justify-content-center d-flex">
           <StSideBar2 imgSrc={imgSrc} />
           <div className="coursesection  col-12 col-md-10 ">
-            {courses.rows ? (
+            {!courses.rows === [] ? (
               courses.rows.map((course, i) => {
                 return (
                   <CourseItem

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-11-02 09:54:22
+-- 產生時間： 2021-11-02 13:59:48
 -- 伺服器版本： 10.4.21-MariaDB
--- PHP 版本： 7.3.31
+-- PHP 版本： 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -80,7 +80,8 @@ CREATE TABLE `art_messenger` (
 INSERT INTO `art_messenger` (`sid`, `ar_sid`, `st_sid`, `nickname`, `st_pictuer`, `messenger`, `great`, `created_date`) VALUES
 (8, 0, 7, 'Michael', '555', '111', 0, '2021-10-30 19:17:22'),
 (9, 0, 8, 'Jeffrey', NULL, '36363', 0, '2021-10-31 16:53:37'),
-(10, 0, 12, 'Ken', NULL, '3333', 0, '2021-10-31 16:53:44');
+(10, 0, 12, 'Ken', NULL, '3333', 0, '2021-10-31 16:53:44'),
+(11, 0, 1006, 'RS', NULL, '123456', 0, '2021-11-02 16:15:41');
 
 -- --------------------------------------------------------
 
@@ -94,21 +95,6 @@ CREATE TABLE `cart` (
   `product_sid` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- 傾印資料表的資料 `cart`
---
-
-INSERT INTO `cart` (`sid`, `member_sid`, `product_sid`, `created_at`) VALUES
-(1, '1', '1', '2021-10-29 10:50:53'),
-(2, '1', '2', '2021-10-29 10:50:53'),
-(3, '2', '5', '2021-10-29 10:50:53'),
-(4, '2', '4', '2021-10-29 10:50:53'),
-(5, '2', '3', '2021-10-29 10:50:53'),
-(6, '3', '1', '2021-10-29 13:33:25'),
-(7, '3', '2', '2021-10-29 13:36:04'),
-(11, '1010', '4', '2021-11-01 17:09:01'),
-(14, '1010', '5', '2021-11-01 17:09:01');
 
 -- --------------------------------------------------------
 
@@ -251,7 +237,17 @@ INSERT INTO `order_detail` (`sid`, `order_main_id`, `product_sid`) VALUES
 (108, 'MF650761', 24),
 (109, 'MF650761', 26),
 (110, 'MF650761', 37),
-(111, 'MF650761', 40);
+(111, 'MF650761', 40),
+(112, 'PP458786', 24),
+(113, 'PP458786', 25),
+(114, 'PP458786', 26),
+(115, 'FT259723', 2),
+(116, 'FT259723', 1),
+(117, 'PK869345', 5),
+(118, 'PK869345', 4),
+(119, 'YK565171', 2),
+(120, 'YK565171', 4),
+(121, 'YK565171', 3);
 
 -- --------------------------------------------------------
 
@@ -276,7 +272,11 @@ CREATE TABLE `order_main` (
 
 INSERT INTO `order_main` (`sid`, `order_id`, `member_sid`, `pay_method`, `cstoresort`, `order_status`, `total_price`, `created_at`) VALUES
 (50, 'BX217309', 1010, 2, 1, 0, 5648, '2021-11-02 00:09:30'),
-(51, 'MF650761', 1010, 1, 0, 1, 15147, '2021-11-02 00:10:29');
+(51, 'MF650761', 1010, 1, 0, 1, 15147, '2021-11-02 00:10:29'),
+(52, 'PP458786', 1006, 2, 2, 1, 19950, '2021-11-02 15:43:34'),
+(53, 'FT259723', 1006, 2, 3, 0, 5865, '2021-11-02 15:44:24'),
+(54, 'PK869345', 1006, 3, 0, 2, 16830, '2021-11-02 15:46:01'),
+(55, 'YK565171', 1006, 1, 0, 1, 14868, '2021-11-02 15:48:00');
 
 -- --------------------------------------------------------
 
@@ -483,13 +483,13 @@ ALTER TABLE `article`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `art_messenger`
 --
 ALTER TABLE `art_messenger`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `course`
@@ -507,13 +507,13 @@ ALTER TABLE `member`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_main`
 --
 ALTER TABLE `order_main`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `schedule`

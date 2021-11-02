@@ -122,6 +122,22 @@
    margin-bottom: 10px;
  }
 
+ .languagelist{
+    background: transparent;
+    -webkit-appearance: none;
+    display: block;
+    border: 2px solid black;
+   
+    height: 60px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 60px;
+    text-align: center;
+    z-index: 1;
+    
+
+ }
+
 
 
 
