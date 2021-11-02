@@ -1,58 +1,40 @@
-* {
+/* * {
   font-family: "Noto Sans", "Noto Sans TC", sans-serif;
-}
+} */
 
 /* 全頁背景色 */
-.TCsp-bgc {
+/* .TCsp-bgc {
   background: #f1f0e9;
   position: relative;
-  /* overflow: hidden; */
-}
+  /* overflow: hidden; 
+} */
 
 /* 全頁包覆(為了色塊動畫) */
-.TCallwraper {
+/* .TCallwraper {
   z-index: -1;
   position: absolute;
   top: -110px;
   width: 100%;
-}
-
-.TCmb-50 {
-  margin-bottom: 50px;
-}
-
-.TCmb-70 {
-  margin-bottom: 70px;
-}
-
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 115px;
-  height: 40px;
-  font-size: 14px;
-  font-weight: bold;
-}
+} */
 
 
 
-.opacity-0 {
-  opacity: 0;
-}
+
+
+
 
 /* 網站導覽列 */
-.navbar {
+/* .navbar {
   display: none;
-}
+} */
 
 /* 地球背景圖 */
-.earth {
+/* .earth {
   display: none;
-}
+} */
 
 /* 上面的黃色色塊 */
-.dec-block {
+/* .dec-block {
   display: block;
   position: absolute;
   right: 0;
@@ -63,7 +45,7 @@
   background: #f1ef5b;
   border-radius: 0px 0px 0px 180px;
   animation: TChy 12s linear infinite;
-}
+} */
 
 /* 黃色色塊的動畫 */
 /* @keyframes TChy {
@@ -81,7 +63,7 @@
 } */
 
 /* 新增課程的黃色色塊 */
-.dec-block-lg {
+/* .dec-block-lg {
   display: block;
   position: absolute;
   right: 0px;
@@ -92,10 +74,10 @@
   background: #f1ef5b;
   border-radius: 0px 0px 0px 180px;
   animation: TChy2 12s linear infinite;
-}
+} */
 
 /* 新增課程的黃色色塊的動畫 */
-@keyframes TChy2 {
+/* @keyframes TChy2 {
   0% {
     left: 5%;
   }
@@ -107,20 +89,20 @@
   100% {
     left: 5%;
   }
-}
+} */
 
 /* 麵包屑 */
-.breadcrumb {
+/* .breadcrumb {
   background-color: transparent;
   font-size: 14px;
   letter-spacing: -0.015em;
   font-weight: 500;
   margin-left: .25rem;
   padding: 0px 0px 15px;
-}
+} */
 
 /* 頁碼 */
-.Mypagination {
+/* .Mypagination {
   list-style: none;
   display: flex;
   align-items: center;
@@ -143,117 +125,30 @@
 
 .Mypage-item a i {
   color: #065F8E;
-}
+} */
 
 /* 頁碼被選中時 */
-.Mypage-item.active {
-  background-color: #065F8E;
-}
-
-.Mypage-item.active a {
-  color: white;
-}
 
 /* 手機logo */
-.logo-m {
+/* .logo-m {
   margin: 40px auto 40px;
-}
+} */
 
 /* 會員中心sh-sh-sidebar */
 .sh-sidebar {
   display: none;
 }
 
-/* 表單儲存的字體顏色 */
-.TCsave-btn {
-  color: black;
-}
 
-
-/* 新增課程(手機板) */
-.TCbtn-sm {
-  display: flex;
-  width: 73px;
-  height: 30px;
-}
-
-
-/* 手機板會變小的按鈕(有display變化)  */
-.TCbtn-sm-w-switch {
-  display: flex;
-  width: 73px;
-  height: 30px;
-}
-
-
-/* 審核提示窗 */
-.TCnotify {
-  display: flex;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
-  padding: 15px;
-}
-
-.TCnotify-text {
-  font-size: 18px;
-  font-weight: bold;
-  color: #065F8E;
-  letter-spacing: -0.015em;
-  text-align: center;
-}
-
-/* 教師頁面返回按鈕 */
-.TCback-btn {
-  padding: 0px 15px;
-  color: #065F8E;
-}
-
-/* 頁面英文標題 */
-.pageName {
-  display: none;
-}
-
-/* 表單 */
-.TCform {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
-  margin-bottom: 30px;
-}
-
-/* 表單頭 */
-.TCform-head {
-  display: flex;
-  align-items: center;
-  margin: 1.875rem 0px;
-}
-
-/* 表單標題 */
-.TCform-title {
-  font-size: 24px;
-  color: #065f8e;
-  letter-spacing: -0.015em;
-  font-weight: bold;
-  margin: auto;
-}
-
-/* 表單頁面 */
-.TCform-content {
-  margin: 0px auto;
-  padding: 0px auto;
-}
 
 /* 搜尋列 */
-.search {
-  display: none;
-}
 
-.search-mobile {
+.sh-search-mobile {
   display: flex;
   margin-bottom: 30px;
 }
 
-.searchbar {
+.sh-searchbar {
   width: 100%;
   height: 70px;
   padding-left: 17px;
@@ -262,7 +157,7 @@
   border-radius: 6px;
 }
 
-.searchbar+button[type="submit"] {
+.sh-searchbar+button[type="submit"] {
   width: 76px;
   background: #065F8E;
   color: white;
@@ -271,435 +166,15 @@
   border-radius: 0px 6px 6px 0px;
 }
 
-/* 表單裡的頭圖 */
-.profile-pic {
-  width: 116px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 21px;
-}
-
-/* 姓名的input */
-.nameInputs {
-  margin: 27px 0 50px;
-  border: 1px solid #868686;
-  border-radius: 10px;
-  width: 100%;
-  height: 48px;
-  font-size: 15px;
-  padding: 17px;
-}
-
-/* 所有input的格式 */
-.allInputs {
-  border: 1px solid #868686;
-  border-radius: 10px;
-  width: 100%;
-  height: 48px;
-  font-size: 15px;
-  margin-bottom: 5px;
-  background-color: transparent;
-}
-
-/* 欄位提示小字 */
-.TCnotice {
-  font-weight: bold;
-  font-size: 14px;
-  letter-spacing: -0.015em;
-  color: #CF2727;
-  margin-bottom: 26px;
-}
-
-/* 自我介紹欄位 */
-.TC-intro {
-  border: 1px solid #868686;
-  background-color: transparent;
-  border-radius: 10px;
-  margin-bottom: 30px;
-}
-
-.TC-intro::placeholder {
-  padding-top: 2.5%;
-}
-
-/* 聊天室 */
-/* 對象選單 */
-.chatList {
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  border-radius: 20px;
-  background-color: #fff;
-  width: 100%;
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
-}
-
-.chatList-content {
-  margin-bottom: 30px;
-}
-
-.chatList .title {
-  margin: 50px 0px;
-  color: #065F8E;
-  font-size: 36px;
-  font-weight: bold;
-}
-
-.chatCard {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 80px;
-  padding: .75rem;
-  background-color: #F1F0E9;
-  border-radius: 10px;
-}
-
-.chatCard-info {
-  width: 75%;
-}
-
-.chatCard .chatCardAvatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 10px
-}
-
-.chatName {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.chatCard .notification {
-  width: 12px;
-  height: 12px;
-  margin-left: auto;
-  border-radius: 50%;
-  background-color: #065F8E;
-}
-
-.LastMessageAndTime {
-  white-space: nowrap;
-  width: 100%;
-  font-size: 12px;
-  margin: 0px;
-  line-height: 15px;
-  padding-bottom: 5px;
-}
-
-.lastMessage {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  margin: 0px;
-}
-
-.chatCard:hover {
-  background-color: #F1EF5B;
-}
-
-/* 對話視窗 */
-.chatWindow {
-  display: flex;
-  flex-direction: column;
-  border-radius: 20px;
-  background-color: #fff;
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
-  height: 690px;
-}
-
-.chatWindowHead {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 80px;
-  box-shadow: 0px 2px #F1F0E9;
-}
-
-.talkTo {
-  display: flex;
-  align-items: center;
-}
-
-.talkToAvatar {
-  width: 50px;
-  height: 50px;
-  margin: 17px 10px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.talkToName {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.closeWindow {
-  font-size: 27px;
-  padding: 0px 30px;
-  margin: auto 0px;
-  margin-left: auto;
-}
-
-/* 對話框(左) */
-.messageLeft {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-
-.messageRight {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-
-.messageAvatar {
-  display: flex;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: .625rem;
-  margin-left: .625rem;
-}
-
-.triangle-left {
-  /* position: absolute;
-  top: 147px;
-  left: 60px; */
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 20px 30px 20px 0;
-  border-color: transparent #F1F0E9 transparent transparent;
-}
-
-.message {
-  z-index: 1;
-  border-radius: 10px;
-  width: 75%;
-  padding: .5rem;
-  font-size: 18px;
-}
-
-.message.left {
-  background-color: #F1F0E9;
-}
-
-.message.right {
-  background-color: #f1ef5b
-}
-
-/* -------------以上為公用------------ */
-
-/* 課程新增進度 */
-.TCcourse-processBar {
-  display: none;
-}
-
-/* 課程圖片上傳 */
-.TCcourse-img-selector {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 50px;
-}
-
-
-/* 課程表單裡的圖  */
-.TCcourse-pic-square {
-  width: 271px;
-  height: 271px;
-  margin-bottom: 30px;
-}
-
-.btn-border-only {
-  display: flex;
-  height: 50px;
-  border: 1px solid #065f8e;
-  border-radius: 10px;
-  background-color: transparent;
-  color: black;
-  font-size: 15px;
-  font-weight: normal;
-}
-
-/* 課程新增的返回列表按鈕 */
-.btn-border-only-no-h {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  border: 1px solid #065f8e;
-  border-radius: 10px;
-  color: #065f8e;
-  font-size: 14px;
-  font-weight: normal;
-}
-
-/* 上傳履歷的div */
-.resume {
-  display: flex;
-}
-
-/* 瀏覽按鈕 */
-.browse {
-  width: 100%;
-  height: 48px;
-  border: 0px;
-  color: black;
-  background-color: #f1ef5b;
-  margin-left: -100px;
-  border-radius: 0px 10px 10px 0px;
-}
-
-/* 預覽按鈕(桌機板) */
-.preview-btn-top {
-  display: none;
-}
-
-/* 預覽按鈕(行動裝置) */
-.preview-btn {
-  margin: 15px auto 30px;
-}
-
-/* 單獨一個按鈕在表單底部時 */
-.one-btn {
-  color: black;
-  margin-bottom: 30px;
-}
-
-/* 單獨一個按鈕的顯示 */
-.onebtn-switch {
-  display: none;
-}
-
-
-/* 課程管理的欄位 */
-.TCcourseLabel {
-  display: none;
-}
-
-/* 課程卡片 */
-.TCcourse-card {
-  display: flex;
-  justify-content: center;
-  background: #F1F0E9;
-  border-radius: 10px;
-  width: 100%;
-  overflow: hidden;
-  margin-bottom: 15px;
-}
-
-/* 課程圖片 */
-.TCcourse-img {
-  width: 8rem;
-  height: 100px;
-  margin-left: -15px;
-  /* background: url("../.././public/images/course/日文課程.jpeg") no-repeat center / cover; */
-}
-
-/* 課程的文字資訊 */
-.TCcourse-info {
-  width: 100%;
-  padding: 8px 0px 8px 10px;
-}
-
-/* 課程名稱 */
-.TCcourse-title {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 16px;
-  margin-bottom: 7px;
-  letter-spacing: -0.015em;
-}
-
-/* 課程名稱除外的細節 */
-.TCcourse-detail {
-  font-size: 10px;
-  transform: scale(0.8);
-  transform-origin: left center;
-  line-height: 15px;
-  padding-right: 0;
-}
-
-/* 課程刪除按鈕 */
-.TCcourse-delete {
-  color: #065f8e;
-  font-size: 18px;
-  padding: 3px 10px 0px;
-  margin-left: auto;
-}
-
-/* 影片上傳 */
-.TCvideo-drop-zone {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 2px dashed #868686;
-  border-radius: 20px;
-  padding: 25%;
-  margin: 0px auto 30px;
-  text-align: center;
-}
-
-.TCvideo-drop-zone>i {
-  font-size: 50px;
-}
-
-.TCvideo-drop-zone>p {
-  font-size: 20px;
-  margin: 25px auto 5px;
-}
-
-.TCvideo-drop-zone>label {
-  font-size: 12px;
-  margin-bottom: 20px;
-}
-
-@media (min-width: 375px) {
-  .TCnotify-text {
-    font-size: 21px;
-  }
-
-  .nameInputs {
-    margin: 27px 0 50px;
-  }
-}
 
 @media (min-width: 768px) {
 
   /* 網站主要導覽列 */
-  .navbar {
-    z-index: 5;
-    position: fixed;
-    display: flex;
-    top: 0;
-    width: 100%;
-    height: 80px;
-    padding: 0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-
-  .mainContent {
-    margin-top: 110px;
-  }
-
-  /* 麵包屑 */
-  .breadcrumb {
-    padding: 0px;
-  }
+  
 
   /* 頁面背景 */
   /* 圓圈的動畫 */
-  @keyframes bc {
+  /* @keyframes bc {
     0% {
       transform: scale(0.9);
     }
@@ -743,102 +218,34 @@
     100% {
       transform: scale(0.9);
     }
-  }
+  } */
 
   /* 圓圈 */
-  .dec-circle {
-    display: block;
-    position: absolute;
-    z-index: -1;
-    width: 262px;
-    height: 262px;
-    right: 26px;
-    top: 189px;
-    border: 4px dashed #065f8e;
-    border-radius: 50%;
-    animation: bc 150s linear infinite;
-  }
-
-  .dec-circle-w {
-    display: block;
-    position: absolute;
-    z-index: -1;
-    width: 412px;
-    height: 412px;
-    right: -8rem;
-    top: -12rem;
-    border: 4px dashed white;
-    border-radius: 50%;
-    animation: bc 150s linear infinite;
-  }
-
-  /* 黃色色塊(上) */
-  .dec-block {
-    height: 310px;
-  }
-
-  /* 地球 */
-  .earth {
-    display: block;
-    position: absolute;
-    z-index: -1;
-    right: 0;
-    top: 724px;
-  }
-
-  /* 黃色色塊(下) */
-  .dec-low-block {
-    display: block;
-    position: absolute;
-    left: 70px;
-    top: 1068px;
-    width: 367px;
-    height: 789px;
-    transform: skew(-24.76deg);
-    z-index: -1;
-    background: #f1ef5b;
-    border-radius: 30px;
-    animation: 12s linear infinite;
-  }
-
-  /* 所有input欄位 */
-  .allInputs {
-    height: 50px;
-  }
+  
 
   /* 搜尋列 */
-  .search {
+  .sh-search {
     display: flex;
   }
 
-  .search-mobile {
+  .sh-search-mobile {
     display: none;
   }
 
-  .searchbar {
+  .sh-searchbar {
     width: 500px;
-  }
-
-  /* 手機版logo */
-  .logo-m {
-    display: none;
-  }
-
-  /* 頁碼 */
-  .Mypagination {
-    display: flex;
   }
 
 
   /* 頁面英文標題 */
-  .pageName {
+  .sh-pageName {
     display: block;
     margin-bottom: 96px;
     margin-top: 96px;
     padding: 0;
   }
 
-  .pageNameText {
+  .sh-pageNameText {
     position: relative;
     color: black;
     font-size: 6rem;
@@ -858,42 +265,7 @@
     top: 42%;
   }
 
-  .course::before {
-    content: "";
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: #f1ef5b;
-    position: absolute;
-    z-index: -5;
-    left: 17%;
-    top: 42%;
-  }
-
-  .password::before {
-    content: "";
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #f1ef5b;
-    position: absolute;
-    z-index: -5;
-    left: 16%;
-    top: 55%;
-  }
-
-
-  .analytics::before {
-    content: "";
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: #f1ef5b;
-    position: absolute;
-    z-index: -5;
-    left: 32%;
-    top: 55%;
-  }
+  
 
   /* 會員中心sh-sidebar */
   .sh-sidebar {
@@ -960,192 +332,8 @@
     opacity: 0.8;
   }
 
-  /* 表單名稱 */
-  .TCform-title {
-    display: flex;
-    margin: 50px 0px;
-    font-size: 36px;
-  }
-
-  /* 表單 */
-  .TCform {
-    border: 2px solid rgba(6, 95, 142, 0.5);
-    margin: 0px auto 150px;
-  }
-
-  /* 表單頭 */
-  .TCform-head {
-    margin: 0px;
-  }
-
-  /* 表單內容 */
-  .TCform-content {
-    width: 70%;
-  }
-
-  .TCsave-btn {
-    margin: 60px 0;
-  }
-
-  /* -------------以上為公用--------- */
-
-  /* 手機板會變小的按鈕 */
-  .TCbtn-sm {
-    display: flex;
-    width: 115px;
-    height: 40px;
-  }
-
-  /* 手機板會變小的按鈕(有display變化)  */
-  .TCbtn-sm-w-switch {
-    display: none;
-  }
-
-
-  /* 課程欄位列 */
-  .TCcourseLabel {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
-  }
-
-  .TCcourseLabel-right {
-    display: flex;
-    justify-content: space-evenly;
-    padding-right: 0;
-  }
-
-  .TCcourseLabel .Labelitem {
-    width: 80px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-  }
-
-  /* 課程卡片 */
-  .TCcourse-info {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-
-  /* 課程名稱 */
-  .TCcourse-title {
-    font-size: 16px;
-    margin-bottom: 0px;
-  }
-
-  .TCcourse-info-right {
-    display: flex;
-    justify-content: space-evenly;
-  }
-
-  .TCcourse-detail {
-    transform: scale(1);
-    width: 80px;
-    text-align: center;
-    font-size: 14px;
-  }
-
-  .TCcourse-detail span {
-    display: none;
-  }
-
-  .TCcourse-delete {
-    color: #065f8e;
-    font-size: 18px;
-    padding: 0px;
-    margin: auto 15px;
-  }
-
-  /* 瀏覽按鈕 */
-  .browse {
-    height: 50px;
-  }
-
-  .TCnotify-text {
-    font-size: 28px;
-    margin: 0px auto
-  }
-
-  /* 課程圖片 */
-  .TCcourse-img-selector {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 50px;
-  }
-
-  /* 課程表單裡的圖 */
-  .TCcourse-pic-square {
-    width: 271px;
-    height: 271px;
-    margin-right: 20px;
-    border: 1px solid #868686;
-    border-radius: 10px;
-  }
-
-
-  /* 預覽按鈕(桌機板) */
-  .preview-btn-top {
-    display: block;
-    margin-left: auto;
-  }
-
-  /* 預覽按鈕(手機) */
-  .preview-btn {
-    display: none;
-  }
-
-  /* 教師頁面返回按鈕 */
-  .TCback-btn {
-    display: none;
-  }
-
-
-  /* 課程新增的進度 */
-  .TCcourse-processBar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: auto 5rem;
-    margin: 30px 0px 96px;
-  }
-
-  .TCcourse-processBarList {
-    display: flex;
-    list-style: none;
-    margin: 0;
-  }
-
-  .TCcourse-processBar-item {
-    position: relative;
-    text-decoration: none;
-    width: 150px;
-  }
-
-  .TCcourse-processBar-item a {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-size: 16px;
-    color: #065f8e;
-  }
-
-  .TCcourse-processBar-item a i {
-    padding-right: .5rem;
-  }
-
-  /* 目前所在的頁面 */
-  .processBar-item::after {
-    position: absolute;
-    bottom: 4px;
-    width: 70%;
-    height: 5px;
-    background-color: #065f8e;
-
-  }
+  
+ 
 
   /* 會員中心sh-sidebar */
   .sh-sidebar {
@@ -1214,158 +402,14 @@
     background-color: white;
   }
 
-  /* 自我介紹欄位 */
-  .TC-intro {
-    margin-bottom: 0px;
-  }
-
-
-  /* 單獨一個按鈕在表單底部時 */
-  .one-btn {
-    margin: 50px 0px 60px;
-  }
-
-  /* 單獨一個按鈕的顯示 */
-  .onebtn-switch {
-    display: block;
-  }
-
-  /* 課程名稱 */
-  .TCcourse-title {
-    width: 80%;
-  }
-
-  /* 審核提示窗 */
-  .TCnotify {
-    border: 2px solid rgba(6, 95, 142, 0.5);
-  }
-
-  /* 影片上傳 */
-  .TCvideo-drop-zone {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 2px dashed #868686;
-    border-radius: 20px;
-    padding: 25%;
-    margin: 0px auto 135px;
-    text-align: center;
-  }
-
-}
-.nav__header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  background-color: transparent;
-  color: #065f8e;
-}
-
-
-@media (max-width: 768px) {
-  .nav__header {
-    display: none;
-  }
  
+
 }
 
-.nav__header .nav__singheader {
-  position: relative;
-  height: 80px;
-}
 
-.nav__header .nav__singheader .nav__pc_menu {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  margin: 0;
-}
 
-.nav__header .nav__singheader .nav__pc_menu li {
-  display: inline-block;
-}
 
-.nav__en {
-  color: #065f8e;
-  display: block;
-  font-weight: bold;
-  position: relative;
-  padding: 0 15px;
-  /* TODO */
-}
 
-.nav_cart,
-.nav_login {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  background-color: #fff;
-  border-radius: 50%;
-  overflow: hidden;
-  transition: 0.3s ease;
-}
-
-.nav_login_txt {
-  color: #065f8e;
-  font-weight: bold;
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
-}
-
-.nav_cart_icon {
-  width: 24px;
-  height: 24px;
-  left: -50%;
-  top: 50%;
-  filter: drop-shadow(#065f8e 60px 0);
-  transform: translate(-50%, -50%);
-  position: absolute;
-  z-index: 5;
-}
-
-.nav_cart:hover,
-.nav_login:hover {
-  background-color: #065f8e;
-}
-
-.nav_cart:hover .nav_cart_icon,
-.nav_login:hover .nav_login_txt {
-  filter: drop-shadow(#ffffff 60px 0);
-  color: white;
-}
-
-/* hover底線動畫 */
-.nav__en::after {
-  position: absolute;
-  bottom: -28px;
-  left: 0;
-  content: "";
-  width: 100%;
-  height: 2px;
-  background: #242424;
-  transform: scale(0, 1);
-  transform-origin: left top;
-  transition: transform 0.3s;
-  z-index: 10;
-}
-
-.nav__en:hover::after {
-  transform: scale(1, 1);
-}
-
-/* scroll後變色 */
-.nav__scroll-header {
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 0 4px rgba(14, 55, 63, 0.15);
-  transition: 0.3s ease;
-}
 
 .flex {
   flex: 1 1 200px;
@@ -1649,8 +693,49 @@ background: #f1ef5b;
   border-color: #212529;
 }
 
-.btn-outline-b:not(:disabled):not(.disabled):active:focus,
-.btn-outline-b:not(:disabled):not(.disabled).active:focus,
+.btn-outline-bb:not(:disabled):not(.disabled):active:focus,
+.btn-outline-bb:not(:disabled):not(.disabled).active:focus,
+.show>.btn-outline-b.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem #065F8E;
+  ;
+}
+.btn-outline-bb {
+  color: #065F8E;
+  background-color: #ffffff;
+  border-color: #065F8E;
+  width: 230px;
+  
+}
+
+.btn-outline-bb:hover {
+  color: #ffffff;
+  background-color: #065F8E;
+  border-color: #ffffff;
+}
+
+.btn-outline-bb:focus,
+.btn-outline-bb.focus {
+  box-shadow: 0 0 0 0.2rem #ffffff;
+  background-color: #065F8E;
+  color: #ffffff;
+}
+
+.btn-outline-bb.disabled,
+.btn-outline-bb:disabled {
+  color: #065F8E;
+  background-color: transparent;
+}
+
+.btn-outline-bb:not(:disabled):not(.disabled):active,
+.btn-outline-bb:not(:disabled):not(.disabled).active,
+.show>.btn-outline-b.dropdown-toggle {
+  color: #212529;
+  background-color: #ffffff;
+  border-color: #212529;
+}
+
+.btn-outline-bb:not(:disabled):not(.disabled):active:focus,
+.btn-outline-bb:not(:disabled):not(.disabled).active:focus,
 .show>.btn-outline-b.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem #065F8E;
   ;
@@ -1713,6 +798,65 @@ background: #f1ef5b;
 .corb-ph{
   display: none;
 }
+.sh-courseitem {
+  width: 215px;
+  height: 215px;
+  border: 1.25px solid rgba(255, 255, 255, 1);
+  border-radius: 30px;
+  position: relative;
+  margin-bottom: 30px;
+  margin-left: 10px;
+
+
+}
+
+.sh-courseitem img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  object-fit: fill
+}
+.teachername {
+  color: white;
+  font-size: 14px;
+  font-style: bold;
+  position: absolute;
+  top: 75%;
+  left: 5%;
+}
+.co-price{
+  color: white;
+  font-size: 15px;
+  font-style: bold;
+  position: absolute;
+  top: 85%;
+  left: 5%;
+
+}
+.span-a {
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  margin-bottom: 5px
+}
+.span-a span {
+font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 96px;
+line-height: 131px;
+color:#065F8E ;
+margin-bottom: 60px
+/* #065F8E */
+
+}
+.span-b 
+{
+  display: none;
+}
+
+
+
 @media (max-width: 768px) {
   .containe {
     display: flex;
@@ -1768,6 +912,87 @@ background: #f1ef5b;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.sh-pageName {
+  display: flex;
+  margin-bottom: 35px;
+  margin-top: 15px;
+  padding: 0;
+}
+
+.sh-search {
+  display: flex;
+  justify-content: center;
+}
+
+.sh-searchbar {
+  width: 320px;
+  height: 40px;
+  padding-left: 17px;
+  padding-right: 50px;
+  border: 1px solid #065F8E;
+  border-radius: 6px;
+}
+
+.sh-searchbar+button[type="submit"] {
+  width: 76px;
+  background: #065F8E;
+  color: white;
+  margin-left: -50px;
+  border: 0;
+  border-radius: 0px 6px 6px 0px;
+}
+.sh-courseitem {
+  width: 330px;
+  height: 270px;
+  border: 1.25px solid rgba(255, 255, 255, 1);
+  border-radius: 30px;
+  position: relative;
+  margin-bottom: 30px;
+  margin-left: 10px;
+}
+
+.sh-courseitem img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+}
+.teachername {
+  color: white;
+  font-size: 8px;
+  font-style: bold;
+  position: absolute;
+  top: 75%;
+  left: 5%;
+}
+.co-price{
+  color: white;
+  font-size: 14px;
+  font-style: bold;
+  position: absolute;
+  top: 85%;
+  left: 5%;
+
+}
+.span-a{
+  display: none;
+}
+
+.span-b {
+  display: flex;
+  justify-content: center;
+  
+}
+.span-b span {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 55px;
+  line-height: 131px;
+  color:#065F8E ;
+  margin-bottom: 15px
+
+
 }
 
  
