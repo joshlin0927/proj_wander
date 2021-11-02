@@ -172,8 +172,9 @@ export default withRouter(function StProfile(props) {
           if (res.data.success === true) {
             console.log('outcome:', res.data)
             setShowUp('showup')
-            //TODO:刷新頁面
+
             setTimeout(() => {
+              window.location.reload()
               setShowUp('none')
             }, 1000)
           }
