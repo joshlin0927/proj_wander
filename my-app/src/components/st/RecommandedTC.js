@@ -1,5 +1,5 @@
 import React from 'react'
-import { API_HOST } from '../../config'
+import { IMG_PATH } from '../../config'
 
 export default function RecommandedTC(props) {
   const { teachersname, teacherimg } = props
@@ -9,7 +9,7 @@ export default function RecommandedTC(props) {
       <div className="t_avatar col-md-3 col-lg-3">
         <img
           className="mx-auto"
-          src={`${API_HOST}/img/dog-puppy-on-garden-royalty-free-image-1586966191.jpg`}
+          src={`${IMG_PATH}/${teacherimg}`}
           alt=""
         />
         <p className="nametag">{teachersname}</p>

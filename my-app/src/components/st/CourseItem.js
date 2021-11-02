@@ -5,7 +5,7 @@ export default function CourseItem(props) {
   const { name, courseimg, teacher } = props
   return (
     <>
-      <div class="courseitem mr-md-3">
+      <div class="courseitem mr-md-2">
         <img
           src={`${IMG_PATH}/ef0496d7-dd1f-454b-9c5d-74af84718c48.jpg`}
           alt=""

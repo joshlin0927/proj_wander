@@ -1023,10 +1023,10 @@ background: #f1ef5b;
 }
 .teachername {
   color: white;
-  font-size: 14px;
+  font-size: 18px;
   font-style: bold;
   position: absolute;
-  top: 75%;
+  top: 80%;
   left: 5%;
 }
 .co-price{

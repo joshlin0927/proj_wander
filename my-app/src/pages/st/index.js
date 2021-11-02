@@ -14,7 +14,7 @@ import StCourse from './StCourse'
 import StCalendar from './StCalendar'
 import StClassroom from './StClassroom'
 import StOrder from './StOrder'
-
+import MemberCenterForMobile from './MemberCenterForMobile'
 
 function index() {
   return (
@@ -23,11 +23,9 @@ function index() {
         <Route path="/StIndex/StProfile">
           <StProfile />
         </Route>
-
         <Route path="/StIndex/StPasswordModify/:id?">
           <StPasswordModify />
         </Route>
-
         <Route exact path="/StIndex/StStartMyCourse">
           <StStartMyCourse />
         </Route>
@@ -52,10 +50,13 @@ function index() {
         <Route exact path="/StIndex/StCalendar">
           <StCalendar />
         </Route>
-
         <Route exact path="/StIndex/StClassroom">
           <StClassroom />
         </Route>
+        <Route exact path="/StIndex/MemberCenterForMobile">
+          <MemberCenterForMobile />
+        </Route>
+
         <Route exact path="/StIndex/StOrder/:id?">
           <StOrder />
         </Route>

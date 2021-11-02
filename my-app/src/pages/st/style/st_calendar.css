@@ -374,7 +374,7 @@
   .schedulecoursesection {
     width: 100%;
     position: absolute;
-    top: 35%;
+    top: 45%;
   }
 
   .calcourseitem{
@@ -396,7 +396,7 @@
 
   .coursename {
     color: white;
-    font-size: 14px;
+    font-size: 18px;
     font-style: bold;
     top: 65%;
     left: 5%;
@@ -406,7 +406,7 @@
 
   .teachername {
     color: white;
-    font-size: 8px;
+    font-size: 14px;
     font-style: bold;
     position: absolute;
     top: 85%;
@@ -445,11 +445,12 @@
     text-align: center;
     line-height: 35px;
     position: absolute;
-    top:20%;
+    top:40%;
     right:10%;
     font-size: 14px;
     z-index: 1;
   }
+
 
 
 
