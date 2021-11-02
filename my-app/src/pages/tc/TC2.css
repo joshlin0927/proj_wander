@@ -463,7 +463,6 @@ body {
   transform: scale(0.8);
   transform-origin: left center;
   line-height: 15px;
-  padding-right: 0;
 }
 
 /* 課程刪除按鈕 */
@@ -753,7 +752,7 @@ input[name='video_name'] {
   .TCcourse-card .TCcourse-detail {
     transform: scale(1);
     font-size: 1rem;
-    width: 5.8rem;
+    width: 5.4rem;
     text-align: center;
     transform-origin: center;
   }
@@ -1053,7 +1052,7 @@ input[name='video_name'] {
   } */
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .TCcourse-card .TCcourse-detail {
     transform: scale(1);
     font-size: 1rem;
@@ -1061,4 +1060,4 @@ input[name='video_name'] {
     text-align: center;
     transform-origin: center;
   }
-}
+} */

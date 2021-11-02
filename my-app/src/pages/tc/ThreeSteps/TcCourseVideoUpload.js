@@ -1,12 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
-import axios from 'axios'
-import {
-  TcVideo_ADD,
-  TcVideo_EDIT,
-  TcVideo_LAST,
-} from '../../../config'
+import { TcVideo_ADD } from '../../../config'
 
 // components
 import ConfirmMsg from '../../../components/ConfirmMsg'
@@ -294,7 +289,6 @@ function TcCourseVideoUpload() {
               <div
                 id="duration"
                 className="videoMeta"
-
                 // onDrop={(e) => {
                 //   DragNDrop(e)
                 // }}
@@ -332,11 +326,6 @@ function TcCourseVideoUpload() {
                   <button
                     type="submit"
                     className="btn btn-secondary mx-auto"
-                    // onClick={() => {
-                    //   document
-                    //     .querySelector('#realSubmit')
-                    //     .click()
-                    // }}
                   >
                     上傳資訊檔案
                   </button>

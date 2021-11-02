@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
-import moment from 'moment'
-import momentDurationFormatSetup from 'moment-duration-format'
 import axios from 'axios'
 
 // 後端檔案路徑

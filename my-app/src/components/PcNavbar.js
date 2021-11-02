@@ -156,9 +156,11 @@ function PcNavbar(props) {
                     <div className="mb-1">
                       <Link
                         to={
-                          memberObj.identity === 1
-                            ? '/Tcindex'
-                            : '/StIndex/StProfile'
+                          memberObj
+                            ? memberObj.identity === 1
+                              ? '/Tcindex'
+                              : '/StIndex/StProfile'
+                            : '/'
                         }
                       >
                         <span className="mx-0">

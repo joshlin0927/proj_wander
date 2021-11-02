@@ -3,7 +3,6 @@ import { useHistory, withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import {
-  devUrl,
   IMG_PATH,
   TcCourse_EDIT,
   TcCourse_LAST,

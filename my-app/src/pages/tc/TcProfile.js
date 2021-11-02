@@ -6,7 +6,6 @@ import axios from 'axios'
 import {
   IMG_PATH,
   MemberAvatar,
-  MemberLoginVerify,
   MemberEdit,
 } from '../../config'
 

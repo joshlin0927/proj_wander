@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
 
 import { IMG_PATH, TcCourse_LIST } from '../../config'

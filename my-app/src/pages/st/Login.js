@@ -72,7 +72,7 @@ function Login(props) {
       .then((r) => r.json())
       .then((obj) => {
         // 查看附帶的數值
-        console.log(JSON.stringify(obj, null, 4))
+        // console.log(JSON.stringify(obj, null, 4))
         if (obj.success === true) {
           localStorage.setItem('token', obj.token)
           localStorage.setItem(
