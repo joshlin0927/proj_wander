@@ -2,18 +2,24 @@ const db = require('./connect-mysql');
 
 const tableName = 'order_main'; // 設定資料表名稱
 
-class SendOrderMain{
+class OrderMain{
     constructor(defaultObj = {}){
         this.data = defaultObj;
     }
-    // 讀取會員ID對應的購物車內容(包含產品資料)
-    static async getList(member_sid){
+    static async getList(member_sid, order_id){
         const output = {
             success: false,
             result: '',
         }
-        const sql = `SELECT cart.member_sid, cart.product_sid, course.course_name, course.course_img, course.course_price, course.course_status FROM cart LEFT JOIN course ON cart.product_sid=course.sid WHERE \`member_sid\`=?`;
-        const [r] = await db.query(sql, [member_sid]);
+        const sql = 
+        `SELECT order_main.*, order_detail.product_sid, course.course_name, course.course_img, course.course_price
+        FROM order_main 
+        LEFT JOIN order_detail
+        ON order_main.order_id = order_detail.order_main_id
+        LEFT JOIN course
+        ON course.sid = order_detail.product_sid
+        WHERE member_sid=? AND order_id=?`;
+        const [r] = await db.query(sql, [member_sid, order_id]);
         if(r.length === 0){
             output.success = false;
             output.result = '沒有資料';
@@ -36,7 +42,7 @@ class SendOrderMain{
         }
     }
 
-    // 保存至購物車
+    // 新增訂單
     static async add(OrderMainObj){
         const output = {
             success: false,
@@ -45,7 +51,7 @@ class SendOrderMain{
         // TODO: 三個參數都必須要有資料
 
         // 不要重複輸入資料
-        if(await SendOrderMain.findItem(OrderMainObj.order_id)){
+        if(await OrderMain.findItem(OrderMainObj.order_id)){
             output.error = '訂單已存在';
             return output;
         }
@@ -59,28 +65,6 @@ class SendOrderMain{
         return output;
     }
 
-    // // 修改項目
-    // static async update(member_sid, product_sid){
-
-    // }
-
-    // 刪除項目
-    static async remove(member_sid, product_sid){
-        const output = {
-            success: false,
-            error: '',
-        }
-        const sql = `DELETE FROM ${tableName} WHERE member_sid=? AND product_sid=?`;
-        const [r] = await db.query(sql, [member_sid, product_sid]);
-        if(r.affectedRows===1){
-            output.success = true;
-        }else{
-            output.success = false;
-            output.error = '刪除失敗';
-        }
-        return output;
-    }
-
 }
 
-module.exports = SendOrderMain;
+module.exports = OrderMain;

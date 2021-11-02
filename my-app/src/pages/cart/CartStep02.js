@@ -55,11 +55,15 @@ function CartStep02(props) {
   }, [member.sid])
   // 計算總價
   const total = () => {
-    let sum = 0
-    for (let i = 0; i < cartData.length; i++) {
-      sum += cartData[i].course_price
+    if (cartQty === 0) {
+      return 0
+    } else {
+      let sum = 0
+      for (let i = 0; i < cartData.length; i++) {
+        sum += cartData[i].course_price
+      }
+      return sum
     }
-    return sum
   }
   // 計算折扣
   const discount = (t) => {
@@ -114,6 +118,10 @@ function CartStep02(props) {
       sendOrderMain.order_id !== '' &&
       sendOrderDetail.order_main_id !== ''
     ) {
+      sessionStorage.setItem(
+        'order',
+        JSON.stringify(sendOrderMain)
+      )
       console.log('傳資料囉')
       ;(async () => {
         let rm = await axios.post(
@@ -130,12 +138,11 @@ function CartStep02(props) {
         if (!rd.data.success) {
           alert(rd.data.error)
         }
-        console.log('rm:', rm.data)
-        console.log('rd:', rd.data)
+        if (rm.data.success && rd.data.success) {
+          props.history.push('/Cart/Step03')
+        }
       })()
     }
-
-    // props.history.push('/Cart/Step03')
   }
   return (
     <>
