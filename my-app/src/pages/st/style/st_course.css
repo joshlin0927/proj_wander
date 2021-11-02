@@ -99,12 +99,13 @@
 .coursesection {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: start;
+
 }
 
 .courseitem {
   width: 100%;
-  height: 271px;
+  height: 215px;
   border: 1.25px solid rgba(255, 255, 255, 1);
   border-radius: 30px;
   position: relative;
@@ -112,6 +113,8 @@
 }
 
 .courseitem img {
+  width: 100%;
+  height: 215px;
   object-fit: cover;
   border-radius: 30px;
 }
@@ -258,10 +261,14 @@
 
   /* 這裡開始是課程商品 */
 
-  .coursesection {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+ .coursesection {
+   display: flex;
+   flex-wrap: wrap;
+   
+  
+ }
+ .courseitem {
+   width: 215px;
   }
 
   
