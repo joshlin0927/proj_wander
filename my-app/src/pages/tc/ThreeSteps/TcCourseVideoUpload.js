@@ -2,7 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
 import axios from 'axios'
-import { TcVideo_ADD } from '../../../config'
+import {
+  TcVideo_ADD,
+  TcVideo_EDIT,
+  TcVideo_LAST,
+} from '../../../config'
 
 // components
 import ConfirmMsg from '../../../components/ConfirmMsg'
@@ -29,7 +33,10 @@ function TcCourseVideoUpload() {
     } else if (memberObj.identity !== 1) {
       history.push('/')
     } else {
-      return
+      ;(async () => {
+        let r = await axios.get(TcVideo_LAST, {})
+        console.log(r)
+      })()
     }
   }, [])
 
@@ -126,7 +133,7 @@ function TcCourseVideoUpload() {
     console.log(formVideo.get('video_name'))
     console.log(formVideo.get('video_link'))
 
-    formVideo.append('video_link', selectedFile)
+    // formVideo.append('video_link', selectedFile)
     // 利用狀態來得到輸入的值
 
     // ex. 用fetch api/axios送到伺服器
@@ -148,6 +155,16 @@ function TcCourseVideoUpload() {
         }
       })
     console.log(r)
+  }
+
+  const doUpload = () => {
+    ;(async () => {
+      let r = await axios.post(TcVideo_EDIT, {
+        video_link: selectedFile,
+      })
+
+      console.log(r)
+    })()
   }
 
   // 當整個表單有變動時觸發
@@ -260,21 +277,20 @@ function TcCourseVideoUpload() {
                 </div>
               </div>
 
-              <div className="TCvideo-drop-zone">
-                <div
-                  className="clickZone"
-                  onClick={() => {
-                    video_link.click()
-                  }}
-                >
-                  <i className="fas fa-upload"></i>
+              <div
+                className="TCvideo-drop-zone"
+                onClick={() => {
+                  video_link.click()
+                }}
+              >
+                <i className="fas fa-upload"></i>
 
-                  <p>請點擊並選擇要上傳的檔案</p>
-                  <label>
-                    僅支持檔案小於1GB，且格式為mp4, mov,
-                    wmv的檔案
-                  </label>
-                </div>
+                <p>請點擊並選擇要上傳的檔案</p>
+                <label>
+                  僅支持檔案小於1GB，且格式為mp4, mov,
+                  wmv的檔案
+                </label>
+
                 <input
                   type="file"
                   accept="video/mp4,video/quicktime,video/x-ms-wmv"
@@ -285,55 +301,53 @@ function TcCourseVideoUpload() {
                   onChangeCapture={durationReader}
                   // ref={inputRef}
                 />
-                <form
-                  id="duration"
-                  className="videoMeta"
-                  onChange={FormChange}
-                  onInvalid={FormInvalid}
-                  onSubmit={FormSubmit}
-                  ref={formRef}
-                  // onDrop={(e) => {
-                  //   DragNDrop(e)
-                  // }}
-                >
-                  <div className="d-none">
-                    Duration:
-                    <input
-                      name="duration"
-                      style={{ border: 0 }}
-                      value={fields.duration + 's'}
-                      onChange={handleFieldChange}
-                    />
-                    <input
-                      name="course_sid"
-                      value={courseSid}
-                    />
-                    <input
-                      name="teacher_sid"
-                      value={memberObj.sid}
-                    />
-                  </div>
-                  <div className="d-flex mb-5">
-                    名稱:
-                    <input
-                      name="video_name"
-                      style={{ border: 0 }}
-                      value={fields.video_name.slice(
-                        0,
-                        fields.video_name.length - 4
-                      )}
-                      onChange={handleFieldChange}
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="btn btn-secondary mx-auto"
-                  >
-                    上傳檔案
-                  </button>
-                </form>
               </div>
+              <form
+                id="duration"
+                className="videoMeta"
+                onChange={FormChange}
+                onInvalid={FormInvalid}
+                onSubmit={FormSubmit}
+                ref={formRef}
+                // onDrop={(e) => {
+                //   DragNDrop(e)
+                // }}
+              >
+                <div className="d-none">
+                  Duration:
+                  <input
+                    name="duration"
+                    value={fields.duration + 's'}
+                    onChange={handleFieldChange}
+                  />
+                  <input
+                    name="course_sid"
+                    value={courseSid}
+                  />
+                  <input
+                    name="teacher_sid"
+                    value={memberObj.sid}
+                  />
+                </div>
+                <div className="d-flex mb-5">
+                  名稱:
+                  <input
+                    name="video_name"
+                    value={fields.video_name.slice(
+                      0,
+                      fields.video_name.length - 4
+                    )}
+                    onChange={handleFieldChange}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="btn btn-secondary mx-auto"
+                >
+                  上傳檔案
+                </button>
+              </form>
             </div>
           </div>
         </div>

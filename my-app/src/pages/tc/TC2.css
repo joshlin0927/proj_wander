@@ -10,7 +10,7 @@ body {
   background-color: transparent;
 }
 
-.clickZone{
+.clickZone {
   cursor: pointer;
 }
 
@@ -484,18 +484,24 @@ body {
   padding: 25%;
   margin: 0px auto 30px;
   text-align: center;
+  cursor: pointer;
 }
 
-.TCvideo-drop-zone > div > i {
+input[name='video_name'] {
+  border: 0;
+  cursor: pointer;
+}
+
+.TCvideo-drop-zone > i {
   font-size: 50px;
 }
 
-.TCvideo-drop-zone > div > p {
+.TCvideo-drop-zone > p {
   font-size: 20px;
   margin: 25px auto 5px;
 }
 
-.TCvideo-drop-zone > div > label {
+.TCvideo-drop-zone > label {
   font-size: 12px;
   margin-bottom: 20px;
 }
@@ -870,8 +876,8 @@ body {
     justify-content: center;
     align-items: center;
     padding: 25%;
-    margin: 0px auto 135px;
     text-align: center;
+    cursor: pointer;
   }
 
   /* 會員表格 */

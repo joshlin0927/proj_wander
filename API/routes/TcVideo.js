@@ -151,4 +151,18 @@ router.post("/edit", async (req, res) => {
 
   res.json(output);
 });
+
+
+router
+  .route("/LastAdd")
+  .get(async (req, res) => {
+    // sql = SELECT * FROM `course` ORDER BY `created_at` DESC LIMIT 1;
+    const sql = "SELECT * FROM `video_list` ORDER BY `created_time` DESC LIMIT 1;";
+
+    [result] = await db.query(sql);
+
+    res.json(result);
+  })
+
+
 module.exports = router;

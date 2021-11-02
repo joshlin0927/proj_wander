@@ -21,6 +21,8 @@ import SignUp from './pages/st/SignUp'
 // 教師頁面
 import TcIndex from './pages/tc/Index'
 
+import Preview from './pages/tc/TcPreview'
+
 // 學生頁面
 import StIndex from './pages/st/index'
 
@@ -79,7 +81,9 @@ function App() {
             <Route path="/Course">
               <CsIndex />
             </Route>
-
+            <Route path="/Preview">
+              <Preview />
+            </Route>
             <Route path="/">
               <WanderIndex />
             </Route>
