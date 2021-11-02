@@ -265,6 +265,211 @@
     top: 42%;
   }
 
+  .course::before {
+    content: "";
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #f1ef5b;
+    position: absolute;
+    z-index: -5;
+    left: 20%;
+    top: 42%;
+  }
+
+  .password::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #f1ef5b;
+    position: absolute;
+    z-index: -5;
+    left: 16%;
+    top: 55%;
+  }
+
+
+  .analytics::before {
+    content: "";
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f1ef5b;
+    position: absolute;
+    z-index: -5;
+    left: 32%;
+    top: 55%;
+  }
+
+  /* 會員中心sh-sidebar */
+  .sh-sidebar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  /* 頭像 */
+  .sh-sidebar .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+
+  /* sh-sidebar選項列 */
+  .sh-sidebar .nav-list {
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  /* sh-sidebar選項 */
+  .sh-sidebar .sh-nav-item {
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 10px;
+    align-items: center;
+    height: 50px;
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 3px;
+    color: #000000;
+    background-color: #ffffff;
+    width: 250px;
+  }
+
+  .sh-sidebar .sh-nav-item>i {
+    font-size: 25px;
+    width: 40px;
+    margin-left: 10%;
+    background-color: transparent;
+  }
+
+  /* 選中的選項狀態 */
+  .sh-sidebar .sh-nav-item.active {
+    background-color: rgb(255, 255, 255);
+  }
+
+  /* .sh-sidebar .sh-nav-item.active::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 50px;
+    background: #f1ef5b;
+  } */
+
+  .sh-sidebar .sh-nav-item:hover {
+    background-color: white;
+    opacity: 0.8;
+  }
+
+  /* 表單名稱 */
+  .TCform-title {
+    display: flex;
+    margin: 50px 0px;
+    font-size: 36px;
+  }
+
+  /* 表單 */
+  .TCform {
+    border: 2px solid rgba(6, 95, 142, 0.5);
+    margin: 0px auto 150px;
+  }
+
+  /* 表單頭 */
+  .TCform-head {
+    margin: 0px;
+  }
+
+  /* 表單內容 */
+  .TCform-content {
+    width: 70%;
+  }
+
+  .TCsave-btn {
+    margin: 60px 0;
+  }
+
+  /* -------------以上為公用--------- */
+
+  /* 手機板會變小的按鈕 */
+  .TCbtn-sm {
+    display: flex;
+    width: 115px;
+    height: 40px;
+  }
+
+  /* 手機板會變小的按鈕(有display變化)  */
+  .TCbtn-sm-w-switch {
+    display: none;
+  }
+
+
+  /* 課程欄位列 */
+  .TCcourseLabel {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+
+  .TCcourseLabel-right {
+    display: flex;
+    justify-content: space-evenly;
+    padding-right: 0;
+  }
+
+  .TCcourseLabel .Labelitem {
+    width: 80px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  /* 課程卡片 */
+  .TCcourse-info {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  /* 課程名稱 */
+  .TCcourse-title {
+    font-size: 16px;
+    margin-bottom: 0px;
+  }
+
+  .TCcourse-info-right {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .TCcourse-detail {
+    transform: scale(1);
+    width: 80px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .TCcourse-detail span {
+    display: none;
+  }
+
+  .TCcourse-delete {
+    color: #065f8e;
+    font-size: 18px;
+    padding: 0px;
+    margin: auto 15px;
+  }
+
+  /* 瀏覽按鈕 */
+  .browse {
+    height: 50px;
+  }
+
   
 
   /* 會員中心sh-sidebar */

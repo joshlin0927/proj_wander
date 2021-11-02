@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
+import moment from 'moment'
+import momentDurationFormatSetup from 'moment-duration-format'
 
 import {
   API_HOST,
@@ -21,8 +23,13 @@ function TcVideoCard(props) {
     duration1,
     remove,
     status,
-    setShowUp
+    setShowUp,
   } = props
+
+  //時間換算
+  const videoTime = moment
+    .duration(duration1, 'seconds')
+    .format('hh:mm:ss')
 
   // 刪除影片
   const [show, setShow] = useState(false)
@@ -102,7 +109,7 @@ function TcVideoCard(props) {
             </div>
             <div className="TCcourse-detail">
               <span>影片長度：</span>
-              {duration1}
+              {videoTime}
             </div>
           </div>
         </div>
