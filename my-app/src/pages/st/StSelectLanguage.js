@@ -13,43 +13,42 @@ export default function StSelectLanguage() {
     <>
       <div className="mainContent mhhundred">
         <div className="container ">
-          <div className="row">
-            <MultiLevelBreadCrumb />
-          </div>
+          <MultiLevelBreadCrumb />
 
-          <div className="">
-            <div className="">
+          <div className="row flex-column">
+            <div>
               <select
-                className="languagelist col-4 col-md-3 col-lg-2 offset-7 offset-md-7"
+                className=" mylanguage col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10"
                 value={selectedOption1}
                 onChange={(e) => {
                   setSelectedOption1(e.target.value)
                 }}
               >
-                {/* 第一個值會對應到初始值，例如初始化值為空字串，
-                              預設顯示就會顯示value為空字串的選項  */}
+                {/* 第一個值會對應到初始值，例如初始化值為空字串，預設顯示就會顯示value為空字串的選項  */}
                 <option value="">選擇語言</option>
                 <option value="英文"> 英文 </option>
                 <option value="日文"> 日文 </option>
               </select>
             </div>
 
-            <div className="h100"></div>
+            <br />
 
-            <select
-              className=" languagelist col-4 col-md-3 col-lg-2 offset-7 offset-md-7"
-              value={selectedOption2}
-              onChange={(e) => {
-                setSelectedOption2(e.target.value)
-              }}
-            >
-              <option value="">難易度</option>
-              <option value="簡單"> 簡單 </option>
-              <option value="中等"> 中等 </option>
-              <option value="困難"> 困難 </option>
-            </select>
+            <div>
+              <select
+                className="mylanguage col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10"
+                value={selectedOption2}
+                onChange={(e) => {
+                  setSelectedOption2(e.target.value)
+                }}
+              >
+                <option value="">難易度</option>
+                <option value="簡單"> 簡單 </option>
+                <option value="中等"> 中等 </option>
+                <option value="困難"> 困難 </option>
+              </select>
+            </div>
 
-            <div className="nextpage offset-4 offset-md-6 mt-3">
+            <div className="nextpage  offset-6 offset-md-8 offset-lg-10">
               下一步
             </div>
             {/* <ul claaName="languagelist">

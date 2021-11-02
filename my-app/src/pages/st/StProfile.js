@@ -85,11 +85,6 @@ export default withRouter(function StProfile(props) {
             ...errorMsg,
             [element.name]: element.validationMessage,
           }
-        } else {
-          errorMsg = {
-            ...errorMsg,
-            [element.name]: element.title,
-          }
         }
       }
     }
@@ -144,7 +139,7 @@ export default withRouter(function StProfile(props) {
     e.preventDefault()
     //阻止表單預設送出行為
 
-    const fd = new FormData(document.sendForm)
+    const fd = new FormData(e.target)
 
     //看表單傳送的資料
     console.log('FormData中的填入資料')
@@ -164,7 +159,7 @@ export default withRouter(function StProfile(props) {
             firstname: fields.firstname,
             lastname: fields.lastname,
             email: fields.email,
-            birth: fields.birthday,
+            birth: fields.birth,
             nickname: fields.nickname,
           }
         )
@@ -179,6 +174,8 @@ export default withRouter(function StProfile(props) {
             }, 1000)
           }
         })
+    } else {
+      alert('未成功修改資料')
     }
   }
   useEffect(() => {
@@ -219,6 +216,7 @@ export default withRouter(function StProfile(props) {
             className="form col-12 offset-0 col-md-8 offset-md-1"
             onChange={handleFormChange}
             onInvalid={handleFormInvalid}
+            onSubmit={handleSubmit}
           >
             <ConfirmMsg showUp={showUp} />
             <div className="form-head ml-1">
@@ -271,7 +269,7 @@ export default withRouter(function StProfile(props) {
                   <span>請選擇圖片</span>
                 </button>
               </div>
-              <div className="fullname row mb-45">
+              <div className="fullname row">
                 <div className="col-6">
                   <input
                     type="text"
@@ -282,10 +280,14 @@ export default withRouter(function StProfile(props) {
                     onChange={handleFieldChange}
                     required
                   />
-                  {fieldsErrors.firstname && (
-                    <small className="stnotice">
+                  {fieldsErrors.firstname === '' ? (
+                    <label className="stnotice" htmlFor="">
+                      &nbsp;
+                    </label>
+                  ) : (
+                    <label className="stnotice" htmlFor="">
                       {fieldsErrors.firstname}
-                    </small>
+                    </label>
                   )}
                 </div>
 
@@ -299,10 +301,14 @@ export default withRouter(function StProfile(props) {
                     onChange={handleFieldChange}
                     required
                   />
-                  {fieldsErrors.lastname && (
-                    <small className="stnotice">
+                  {fieldsErrors.lastname === '' ? (
+                    <label className="stnotice" htmlFor="">
+                      &nbsp;
+                    </label>
+                  ) : (
+                    <label className="stnotice" htmlFor="">
                       {fieldsErrors.lastname}
-                    </small>
+                    </label>
                   )}
                 </div>
               </div>
@@ -314,21 +320,25 @@ export default withRouter(function StProfile(props) {
                   disabled
                 />
               </div>
-              <div className="mb-50">
+              <div className="">
                 <input
                   type="date"
                   className="col-12 allInputs px-2"
                   name="birth"
-                  value={fields.birthday}
+                  value={fields.birth}
                   onChange={handleFieldChange}
                   required
                   min="1921-01-01"
                   max="2003-01-01"
                 />
-                {fieldsErrors.birthday && (
-                  <small className="stnotice">
-                    {fieldsErrors.birthday}
-                  </small>
+                {fieldsErrors.birth === '' ? (
+                  <label className="stnotice" htmlFor="">
+                    &nbsp;
+                  </label>
+                ) : (
+                  <label className="stnotice" htmlFor="">
+                    {fieldsErrors.birth}
+                  </label>
                 )}
               </div>
 
@@ -341,11 +351,7 @@ export default withRouter(function StProfile(props) {
                 onChange={handleFieldChange}
               />
             </div>
-            <button
-              type="submit"
-              className="Stbtn btn-secondary row mx-auto save-btn"
-              onClick={handleSubmit}
-            >
+            <button className="Stbtn btn-secondary row mx-auto save-btn">
               儲存
             </button>
           </form>

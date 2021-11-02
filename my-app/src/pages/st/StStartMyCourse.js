@@ -12,9 +12,7 @@ export default function StStartMyCourse() {
     <>
       <div className="mainContent mhhundred">
         <div className="container">
-          <div className="row">
-            <MultiLevelBreadCrumb />
-          </div>
+          <MultiLevelBreadCrumb />
           <div>
             <div className="h30"></div>
             <Link to="/StIndex/StSelectLanguage">

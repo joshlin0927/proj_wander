@@ -173,22 +173,7 @@
   z-index: -3;
 }
 
-.nextpage {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 1px solid black;
-  text-align: center;
-  line-height: 80px;
-  color: black;
 
-}
-
-.nextpage:hover {
-  width: 90px;
-  height: 90px;
-  line-height: 90px;
-}
 
 .h15 {
   width: 100%;

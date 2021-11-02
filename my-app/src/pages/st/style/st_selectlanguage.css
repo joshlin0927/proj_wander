@@ -109,36 +109,54 @@
   font-weight: normal;
 
 }
- .selectlanguage {
-   display: block;
-   border: 3px solid black;
-   width: 100%;
-   height: 60px;
-   font-weight: bold;
-   font-size: 18px;
-   line-height: 60px;
-   text-align: center;
-   z-index: 1;
-   margin-bottom: 10px;
- }
 
- .languagelist{
-    background: transparent;
-    -webkit-appearance: none;
-    display: block;
-    border: 2px solid black;
-   
-    height: 60px;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 60px;
-    text-align: center;
-    z-index: 1;
-    
+.selectlanguage {
+  display: block;
+  border: 3px solid black;
+  width: 100%;
+  height: 60px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 60px;
+  text-align: center;
+  z-index: 1;
+  margin-bottom: 10px;
+}
 
- }
+.nextpage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 80px;
+  color: black;
+  margin-top: 180px;
+  font-size: 1rem;
+  position: absolute;
+  animation-name: np;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
 
 
+
+.nextpage:hover {
+  background-color:#F1EF5B;
+  color: white;
+  font-size: 1.2rem;
+  border: 1px solid transparent;
+}
+
+@keyframes np {
+  0% {
+    left: 0px;
+  }
+
+  100% {
+    left: 100px;
+  }
+}
 
 
 
@@ -185,7 +203,7 @@
     position: relative;
   }
 
-  
+
 
   .breadcrumb {
     background-color: transparent;

@@ -30,9 +30,8 @@ function StGameStart(props) {
     <>
       <div className="mainContent mhhundred">
         <div className="container">
-          <div className="row">
-            <MultiLevelBreadCrumb />
-          </div>
+          <MultiLevelBreadCrumb />
+
           <div className="row flex-column">
             <div
               className="mylanguage col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10"
