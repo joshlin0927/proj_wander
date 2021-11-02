@@ -36,9 +36,15 @@ function PcNavbar(props) {
     } else if (token && memberObj.identity === 0) {
       ;(async () => {
         let r = await axios.get(
-          `http://localhost:3001/stprofile/list?studentSid=${memberObj.sid}`
+          `http://localhost:3001/stprofile/list`,
+          {
+            headers: {
+              Authorization:
+                'Bearer ' + localStorage.getItem('token'),
+            },
+          }
         )
-        // console.log('STr', r)
+        console.log('STr', r)
         setImgSrc(r.data[0][0].avatar)
       })()
     }
@@ -141,7 +147,7 @@ function PcNavbar(props) {
                     />
                   </div>
 
-                   <div
+                  <div
                     id="memberMenu"
                     className={`NavAvatarMenu ${drop}`}
                     onMouseOver={() => setDrop('d-block')}

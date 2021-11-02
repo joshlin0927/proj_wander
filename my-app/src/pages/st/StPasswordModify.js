@@ -25,7 +25,13 @@ export default function StPasswordModify(props) {
     if (token && identity === 0) {
       ;(async () => {
         let r = await axios.get(
-          `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
+          `http://localhost:3001/stprofile/list`,
+          {
+            headers: {
+              Authorization:
+                'Bearer ' + localStorage.getItem('token'),
+            },
+          }
         )
 
         setImgSrc(r.data[0][0].avatar)
@@ -66,7 +72,7 @@ export default function StPasswordModify(props) {
         console.log('result:', memberData)
       })()
     }
-  }, [])
+  }, [imgSrc])
 
   // 處理表單欄位變動
   const handleFieldChange = (e) => {

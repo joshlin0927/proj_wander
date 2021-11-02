@@ -53,7 +53,7 @@ function index() {
         <Route exact path="/StIndex/StClassroom">
           <StClassroom />
         </Route>
-        <Route exact path="/StIndex/MemberCenterForMobile">
+        <Route exact path="/StIndex/MemberCenter">
           <MemberCenterForMobile />
         </Route>
 

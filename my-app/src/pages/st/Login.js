@@ -170,7 +170,7 @@ function Login(props) {
               <input
                 type="email"
                 name="email"
-                className="allInputs  col-10"
+                className="allInputs  col-10 col-md-8"
                 placeholder="請填寫電子信箱"
                 title="電子信箱地址必須要有「@」"
                 value={fields.email}
@@ -180,14 +180,14 @@ function Login(props) {
             </div>
             {fieldErrors.email === '' ? (
               <label
-                className="stnotice col-12 ml-3  ml-lg-5 p-0"
+                className="stnotice col-12  offset-lg-2 p-0"
                 htmlFor=""
               >
                 &nbsp;
               </label>
             ) : (
               <label
-                className="stnotice col-12 ml-3  ml-lg-5 p-0"
+                className="stnotice col-12 offset-lg-2 p-0"
                 htmlFor=""
               >
                 {fieldErrors.email}
@@ -197,7 +197,7 @@ function Login(props) {
               <input
                 type="password"
                 name="password"
-                className="allInputs   col-10"
+                className="allInputs  col-md-8 col-10"
                 placeholder="請填寫密碼*"
                 value={fields.password}
                 onChange={handleFieldChange}
@@ -206,14 +206,14 @@ function Login(props) {
             </div>
             {fieldErrors.password === '' ? (
               <label
-                className="stnotice col-12 ml-3  ml-lg-5 p-0"
+                className="stnotice col-12  offset-lg-2 p-0"
                 htmlFor=""
               >
                 &nbsp;
               </label>
             ) : (
               <label
-                className="stnotice col-12 ml-3  ml-lg-5 p-0"
+                className="stnotice col-12  offset-lg-2 p-0"
                 htmlFor=""
               >
                 {fieldErrors.password}
