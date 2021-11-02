@@ -26,7 +26,7 @@ function TcCourseVideoUpload() {
   )
 
   // console.log(courseSid);
-
+  const [lastAdd, setLastAdd] = useState('')
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -36,6 +36,7 @@ function TcCourseVideoUpload() {
       ;(async () => {
         let r = await axios.get(TcVideo_LAST, {})
         console.log(r)
+        setLastAdd(r.data[0].sid)
       })()
     }
   }, [])
@@ -64,7 +65,7 @@ function TcCourseVideoUpload() {
     setIsFilePicked(true)
   }
 
-  console.log(selectedFile)
+  console.log('selectedFile', selectedFile)
 
   const formRef = useRef(null)
   // 使用物件值作為狀態值，儲存所有欄位的值
@@ -138,7 +139,7 @@ function TcCourseVideoUpload() {
 
     // ex. 用fetch api/axios送到伺服器
 
-    const r = fetch(`${TcVideo_ADD}`, {
+    const r = fetch(TcVideo_ADD, {
       method: 'POST',
       body: formVideo,
     })
@@ -159,9 +160,10 @@ function TcCourseVideoUpload() {
 
   const doUpload = () => {
     ;(async () => {
-      let r = await axios.post(TcVideo_EDIT, {
-        video_link: selectedFile,
-      })
+      let r = await axios.post(
+        TcVideo_ADD,
+        new FormData(document.fileForm)
+      )
 
       console.log(r)
     })()
@@ -259,7 +261,13 @@ function TcCourseVideoUpload() {
             name="formVideo"
           >
             <ConfirmMsg showUp={showUp} />
-            <div className="TCform-content">
+            <form
+              className="TCform-content"
+              onChange={FormChange}
+              onInvalid={FormInvalid}
+              onSubmit={FormSubmit}
+              ref={formRef}
+            >
               <div className="TCform-head">
                 <Link to="/TcIndex/TcCourseEdit/:sid?">
                   <i className="fas fa-chevron-left TCback-btn"></i>
@@ -302,18 +310,15 @@ function TcCourseVideoUpload() {
                   // ref={inputRef}
                 />
               </div>
-              <form
+              <div
                 id="duration"
                 className="videoMeta"
-                onChange={FormChange}
-                onInvalid={FormInvalid}
-                onSubmit={FormSubmit}
-                ref={formRef}
+
                 // onDrop={(e) => {
                 //   DragNDrop(e)
                 // }}
               >
-                <div className="d-none">
+                <div className="">
                   Duration:
                   <input
                     name="duration"
@@ -323,11 +328,18 @@ function TcCourseVideoUpload() {
                   <input
                     name="course_sid"
                     value={courseSid}
+                    onChange={handleFieldChange}
                   />
                   <input
                     name="teacher_sid"
                     value={memberObj.sid}
+                    onChange={handleFieldChange}
                   />
+                  {/* <input
+                    name="sid"
+                    value={lastAdd}
+                    onChange={handleFieldChange}
+                  /> */}
                 </div>
                 <div className="d-flex mb-5">
                   名稱:
@@ -340,15 +352,31 @@ function TcCourseVideoUpload() {
                     onChange={handleFieldChange}
                   />
                 </div>
-
+                {/* {selectedFile ? ( */}
                 <button
                   type="submit"
                   className="btn btn-secondary mx-auto"
+                  // onClick={() => {
+                  //   document
+                  //     .querySelector('#realSubmit')
+                  //     .click()
+                  // }}
                 >
-                  上傳檔案
+                  上傳資訊檔案
                 </button>
-              </form>
-            </div>
+                {/* ) : ( */}
+                {/* '' */}
+                {/* )} */}
+              </div>
+              {/* <button
+                type="submit"
+                id="realSubmit"
+                className="btn btn-secondary mx-auto"
+                onClick={doUpload}
+              >
+                上傳影片檔案
+              </button> */}
+            </form>
           </div>
         </div>
       </div>

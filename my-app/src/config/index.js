@@ -36,7 +36,7 @@ export const TcCourse_DELETE =
 
 // TcVideo CRUD
 export const TcVideo_ADD = API_HOST + '/TcVideo/add'
-export const TcVideo_LAST = API_HOST + '/TcCourse/LastAdd/'
+export const TcVideo_LAST = API_HOST + '/TcVideo/LastAdd/'
 export const TcVideo_LIST = API_HOST + '/TcVideo/api/list/'
 export const TcVideo_EDIT = API_HOST + '/TcVideo/edit'
 export const TcVideo__DELETE = API_HOST + '/TcVideo/delete/'
