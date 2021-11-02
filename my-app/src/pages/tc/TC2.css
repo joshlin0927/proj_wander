@@ -479,7 +479,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border: 2px dashed #868686; */
+  border: 2px dashed #868686;
   border-radius: 20px;
   padding: 25%;
   margin: 0px auto 30px;

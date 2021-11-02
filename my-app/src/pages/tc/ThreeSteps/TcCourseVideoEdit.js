@@ -10,7 +10,6 @@ import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
 import TcHasNoCourse from '../../../components/tc/TcHasNoCourse'
 import TcSearchBar from '../../../components/tc/TcSearchBar'
-import TcVideoCard from '../../../components/tc/TcVideoCard'
 import TcVideoList from '../../../components/tc/TcVideoList'
 import MyPagination from '../../../components/MyPagination'
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'
@@ -129,7 +128,7 @@ function TcCourseVideoEdit() {
             </div>
             {/* TCcourse card label */}
             <div className="TCcourseLabel col-12 mb-3">
-              <div className="Labelitem">影片截圖</div>
+              {/* <div className="Labelitem">影片截圖</div> */}
               <div className="Labelitem">影片名稱</div>
               <div className="TCcourseLabel-right">
                 <div className="Labelitem">上傳日期</div>

@@ -1,12 +1,20 @@
-import { logDOM } from '@testing-library/dom'
-import React, { useState } from 'react'
-import dayjs from 'dayjs'
-import duration from 'dayjs/plugin/duration'
+import React, { useState, useEffect } from 'react'
+import moment from 'moment'
+import momentDurationFormatSetup from 'moment-duration-format'
+import axios from 'axios'
+import { TcCourse_EDIT } from '../../config'
 
 // component
 import TcVideoCard from './TcVideoCard'
 
 function TcVideoList(props) {
+  const memberObj = JSON.parse(
+    localStorage.getItem('member')
+  )
+  const courseSid = localStorage.getItem(
+    'CourseSidForProcess'
+  )
+
   const {
     Videos,
     RemoveVideo,
@@ -15,6 +23,30 @@ function TcVideoList(props) {
     setStatus,
     setShowUp,
   } = props
+
+  //時間換算
+  // console.log('sum', sum)
+  // const courseTime = moment
+  //   .duration(sum, 'seconds')
+  //   .format('hh:mm:ss')
+  let sum = 0
+  useEffect(() => {
+    const newVideos = [...Videos].map((v, i) => {
+      return v.duration
+    })
+
+    for (let i = 0; i < newVideos.length; i++) {
+      sum += newVideos[i]
+    }
+    ;(async () => {
+      let r = await axios.post(TcCourse_EDIT, {
+        sid: courseSid,
+        teacher_sid: memberObj.sid,
+        duration: sum,
+      })
+      console.log(r)
+    })()
+  }, [sum])
 
   return (
     <>

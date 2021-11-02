@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { IMG_PATH, TcCourse_DELETE } from '../../config'
+import moment from 'moment'
+import momentDurationFormatSetup from 'moment-duration-format'
 
 function TcCourseCard(props) {
   const {
@@ -18,6 +20,13 @@ function TcCourseCard(props) {
     created_at,
     remove,
   } = props
+
+  //時間換算
+  const videoTime = moment
+    .duration(hours, 'seconds')
+    .format('hh:mm:ss')
+
+  console.log(hours)
 
   // 刪除課程
   const [show, setShow] = useState(false)
@@ -56,7 +65,7 @@ function TcCourseCard(props) {
               <span>上傳日期：</span> {course_data}
             </div>
             <div className="TCcourse-detail">
-              <span>課程長度：</span> {hours}
+              <span>課程長度：</span> {videoTime}
             </div>
           </div>
         </Link>

@@ -72,7 +72,11 @@ function PcNavbar(props) {
 
   return (
     <>
-      <nav className="nav__header" id="nav__header">
+      <nav
+        className="nav__header"
+        id="nav__header"
+        onMouseLeave={() => setDrop('d-none')}
+      >
         <div className="nav__singheader container">
           <div className="row flex-nowrap">
             <div className="col-3 p-0">
@@ -119,11 +123,13 @@ function PcNavbar(props) {
                   </span>
                 </Link>
               ) : (
-                <div className="NavAvatar">
+                <div
+                  className="NavAvatar"
+                  onMouseOver={() => setDrop('d-block')}
+                >
                   <div
                     className="nav_login"
                     id="memberAvatar"
-                    onMouseOver={() => setDrop('d-block')}
                   >
                     <img
                       src={
@@ -138,6 +144,7 @@ function PcNavbar(props) {
                    <div
                     id="memberMenu"
                     className={`NavAvatarMenu ${drop}`}
+                    onMouseOver={() => setDrop('d-block')}
                     onMouseLeave={() => setDrop('d-none')}
                   >
                     <div className="mb-1">

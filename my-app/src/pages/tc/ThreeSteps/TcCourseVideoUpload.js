@@ -49,6 +49,15 @@ function TcCourseVideoUpload() {
 
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
+  const [selectedFile, setSelectedFile] = useState()
+  const [isFilePicked, setIsFilePicked] = useState(false)
+
+  const changeHandler = (event) => {
+    setSelectedFile(event.target.files[0])
+    setIsFilePicked(true)
+  }
+
+  console.log(selectedFile)
 
   const formRef = useRef(null)
   // 使用物件值作為狀態值，儲存所有欄位的值
@@ -89,7 +98,7 @@ function TcCourseVideoUpload() {
         }),
         url = URL.createObjectURL(blob),
         video = document.createElement('video')
-      console.log('url', url)
+      // console.log('url', url)
       // video.preload = 'metadata'
       video.addEventListener('loadedmetadata', function () {
         const data = {
@@ -117,28 +126,14 @@ function TcCourseVideoUpload() {
     console.log(formVideo.get('video_name'))
     console.log(formVideo.get('video_link'))
 
+    formVideo.append('video_link', selectedFile)
     // 利用狀態來得到輸入的值
 
     // ex. 用fetch api/axios送到伺服器
 
-    // new FormData({
-    //   duration: fields.duration,
-    //   video_name: fields.video_name.slice(
-    //     0,
-    //     fields.video_name.length - 4
-    //   ),
-    //   video_link: '',
-    //   teacher_sid: memberObj.sid,
-    //   course_sid: courseSid,
-    // }
-    // )
-
-    const r = fetch(TcVideo_ADD, {
+    const r = fetch(`${TcVideo_ADD}`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: new URLSearchParams(formVideo).toString(),
+      body: formVideo,
     })
       .then((r) => r.json())
       .then((obj) => {
@@ -242,16 +237,9 @@ function TcCourseVideoUpload() {
         <div className="row justify-content-center">
           {/* TCcourse-TCcourse-process bar */}
           <TcCourseProcessBar />
-          <form
+          <div
             className="TCform col-12 col-md-10"
             name="formVideo"
-            ref={formRef}
-            onChange={FormChange}
-            onInvalid={FormInvalid}
-            onSubmit={FormSubmit}
-            // onDrop={(e) => {
-            //   DragNDrop(e)
-            // }}
           >
             <ConfirmMsg showUp={showUp} />
             <div className="TCform-content">
@@ -292,11 +280,22 @@ function TcCourseVideoUpload() {
                   accept="video/mp4,video/quicktime,video/x-ms-wmv"
                   id="video_link"
                   name="video_link"
-                  // className="d-none"
+                  className="d-none"
+                  onChange={changeHandler}
                   onChangeCapture={durationReader}
                   // ref={inputRef}
                 />
-                <div id="duration" className="videoMeta">
+                <form
+                  id="duration"
+                  className="videoMeta"
+                  onChange={FormChange}
+                  onInvalid={FormInvalid}
+                  onSubmit={FormSubmit}
+                  ref={formRef}
+                  // onDrop={(e) => {
+                  //   DragNDrop(e)
+                  // }}
+                >
                   <div className="d-none">
                     Duration:
                     <input
@@ -305,8 +304,16 @@ function TcCourseVideoUpload() {
                       value={fields.duration + 's'}
                       onChange={handleFieldChange}
                     />
+                    <input
+                      name="course_sid"
+                      value={courseSid}
+                    />
+                    <input
+                      name="teacher_sid"
+                      value={memberObj.sid}
+                    />
                   </div>
-                  <div className="d-flex">
+                  <div className="d-flex mb-5">
                     名稱:
                     <input
                       name="video_name"
@@ -318,14 +325,6 @@ function TcCourseVideoUpload() {
                       onChange={handleFieldChange}
                     />
                   </div>
-                  <input
-                    name="course_sid"
-                    value={courseSid}
-                  />
-                  <input
-                    name="teacher_sid"
-                    value={memberObj.sid}
-                  />
 
                   <button
                     type="submit"
@@ -333,10 +332,10 @@ function TcCourseVideoUpload() {
                   >
                     上傳檔案
                   </button>
-                </div>
+                </form>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
       <TcBgDecorationThreeSteps />

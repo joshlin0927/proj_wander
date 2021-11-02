@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
+
+// component
 import TcCourseCard from './TcCourseCard'
 
 function TcCourseList(props) {
   const { Courses, RemoveCourse, setRemoveCourse } = props
-
   return (
     <>
       {Courses.map((Course, i) => {
@@ -15,7 +16,7 @@ function TcCourseList(props) {
             course_name={Course.course_name}
             course_category={Course.course_category}
             course_data={Course.course_data}
-            hours={Course.hours}
+            hours={Course.duration}
             remove={() => {
               const newCourses = [...Courses].filter(
                 (v, i) => {

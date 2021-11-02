@@ -195,7 +195,7 @@ io.on('connection', (socket) => {
 });
 
 
-/*
+
 app.get("/video", function (req, res) {
 
     // Ensure there is a range given for the video
@@ -205,12 +205,12 @@ app.get("/video", function (req, res) {
     }
 
     // get video stats (about 61MB)
-    const videoPath = "";
+    const videoPath = "public/video/DAGA KOTOWARU.mp4";
     const videoSize = fs.statSync(videoPath).size;
 
     // Parse Range
     // Example: "bytes=32324-"
-    const CHUNK_SIZE = 10 ** 6; // 1MB
+    const CHUNK_SIZE = 10 ** 6; // 要再調整
     const start = Number(range.replace(/\D/g, ""));
 
     const end = Math.min(start + CHUNK_SIZE, videoSize - 1);
@@ -237,7 +237,7 @@ app.get("/video", function (req, res) {
     videoStream.pipe(res);
 
 });
-*/
+
 
 
 
