@@ -3,12 +3,12 @@ import { useHistory, withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import {
-  devUrl,
   IMG_PATH,
   TcCourse_EDIT,
   TcCourse_Cover,
 } from '../../../config'
 
+import ConfirmMsg from '../../../components/ConfirmMsg'
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'
@@ -56,6 +56,9 @@ function TcCourseEdit(props) {
     // console.log(r.data)
   }
   // console.log(imgSrc)
+
+  //設定確認表單送出訊息框的狀態
+  const [showUp, setShowUp] = useState('')
 
   //預覽大頭貼的地方
   // const imgRef = useRef(null)
@@ -117,15 +120,15 @@ function TcCourseEdit(props) {
     // 利用FormData Api 得到各欄位的值 or 利用狀態值
     // FormData 利用的是表單元素的 name
     const formData = new FormData(e.target)
-    console.log(formData.get('course_name'))
-    console.log(formData.get('course_category'))
-    console.log(formData.get('course_price'))
-    console.log(formData.get('course_introduction'))
+    // console.log(formData.get('course_name'))
+    // console.log(formData.get('course_category'))
+    // console.log(formData.get('course_price'))
+    // console.log(formData.get('course_introduction'))
     // 利用狀態來得到輸入的值
 
     // ex. 用fetch api/axios送到伺服器
     // 修改課程
-    const r = fetch(TcCourse_EDIT, {
+    const r = fetch(TcCourse_EDIT + props.location.search, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -136,8 +139,10 @@ function TcCourseEdit(props) {
       .then((obj) => {
         console.log(JSON.stringify(obj, null, 4))
         if (obj.success) {
-          alert('資料新增成功')
-          // TODO: 修改alert成通知條形式(ConfirmMsg)
+          setShowUp('showup')
+          setTimeout(() => {
+            setShowUp('none')
+          }, 1000)
         } else {
           alert(obj.error || '資料新增失敗')
         }
@@ -217,6 +222,7 @@ function TcCourseEdit(props) {
             onChange={FormChange}
             onInvalid={FormInvalid}
           >
+            <ConfirmMsg showUp={showUp} />
             <div className="TCform-content">
               <div className="TCform-head">
                 <Link to="/TcIndex/TcCourse/">
@@ -272,6 +278,11 @@ function TcCourseEdit(props) {
                   <span>請選擇圖片</span>
                 </label>
               </div>
+              <input
+                name="sid"
+                value={fields.sid}
+                className="d-none"
+              />
               <input
                 type="text"
                 className="col-12 allInputs"

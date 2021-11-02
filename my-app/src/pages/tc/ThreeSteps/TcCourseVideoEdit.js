@@ -5,6 +5,7 @@ import axios from 'axios'
 import { TcVideo_LIST } from '../../../config'
 
 // components
+import ConfirmMsg from '../../../components/ConfirmMsg'
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
 import TcHasNoCourse from '../../../components/tc/TcHasNoCourse'
@@ -36,6 +37,9 @@ function TcCourseVideoEdit() {
 
   // 修改後的狀態紀錄
   const [status, setStatus] = useState(false)
+
+  //設定確認表單送出訊息框的狀態
+  const [showUp, setShowUp] = useState('')
 
   useEffect(() => {
     if (!token) {
@@ -92,6 +96,10 @@ function TcCourseVideoEdit() {
           {/* TCcourse-TCcourse-process bar */}
           <TcCourseProcessBar />
           <form className="TCform col-12 col-md-10 px-4">
+            <ConfirmMsg
+              showUp={showUp}
+              text={'名稱已變更'}
+            />
             <div className="TCform-head ml-1 p-0">
               <Link to="/TcIndex/TcCourseVideoUpload">
                 <i className="fas fa-chevron-left TCback-btn"></i>
@@ -136,6 +144,7 @@ function TcCourseVideoEdit() {
                 setRemoveVideo={setRemoveVideo}
                 status={status}
                 setStatus={setStatus}
+                setShowUp={setShowUp}
               />
             ) : (
               <TcHasNoCourse text={'目前沒有任何影片'} />

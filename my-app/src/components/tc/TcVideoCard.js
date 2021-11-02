@@ -21,6 +21,7 @@ function TcVideoCard(props) {
     duration1,
     remove,
     status,
+    setShowUp
   } = props
 
   // 刪除影片
@@ -41,6 +42,7 @@ function TcVideoCard(props) {
   // 影片名稱欄位
   const [nameChange, setNameChange] = useState(video_name)
 
+  // 影片名稱修改後的送出
   const FormSubmit = async (e) => {
     e.preventDefault()
 
@@ -56,6 +58,12 @@ function TcVideoCard(props) {
       )
       // console.log(r)
       handleIsClose()
+      if (r.data.success === true) {
+        setShowUp('showup')
+        setTimeout(() => {
+          setShowUp('none')
+        }, 1000)
+      }
     })()
   }
 

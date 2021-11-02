@@ -11,6 +11,7 @@ import {
 } from '../../config'
 
 // components
+import ConfirmMsg from '../../components/ConfirmMsg'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
@@ -51,6 +52,7 @@ function TcProfile(props) {
       })()
     }
   }, [imgSrc])
+
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
 
@@ -136,14 +138,6 @@ function TcProfile(props) {
         },
         body: new URLSearchParams(
           TcProfileFormData
-          // {
-          // avatar: fields.avatar,
-          // firstname: fields.firstname,
-          // lastname: fields.lastname,
-          // email: fields.email,
-          // birth: fields.birth,
-          // nickname: fields.nickname,
-          // }
         ).toString(),
       }
     )
@@ -151,11 +145,14 @@ function TcProfile(props) {
       .then((obj) => {
         // console.log(JSON.stringify(obj, null, 4))
         if (obj.success) {
-          alert('資料修改成功')
-          // TODO: 修改alert成通知條形式(ConfirmMsg)
-        } else {
-          alert(obj.error || '資料修改失敗')
+          setShowUp('showup')
+          setTimeout(() => {
+            setShowUp('none')
+          }, 1000)
         }
+        // else {
+        //   alert(obj.error || '資料修改失敗')
+        // }
       })
   }
 
@@ -238,6 +235,7 @@ function TcProfile(props) {
             onChange={ProfileFormChange}
             onInvalid={ProfileFormInvalid}
           >
+            <ConfirmMsg showUp={showUp} />
             <div className="TCform-content">
               <div className="TCform-head">
                 <Link to="">

@@ -10,6 +10,8 @@ import {
   TcCourse_Cover,
 } from '../../../config'
 
+// component
+import ConfirmMsg from '../../../components/ConfirmMsg'
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'
@@ -58,6 +60,9 @@ function TcCourseAdd(props) {
     // console.log(r.data)
   }
   // console.log(imgSrc)
+
+  //設定確認表單送出訊息框的狀態
+  const [showUp, setShowUp] = useState('')
 
   //預覽大頭貼的地方
   // const imgRef = useRef(null)
@@ -138,8 +143,10 @@ function TcCourseAdd(props) {
       .then((obj) => {
         console.log(JSON.stringify(obj, null, 4))
         if (obj.success) {
-          alert('資料新增成功')
-          // TODO: 修改alert成通知條形式(ConfirmMsg)
+          setShowUp('showup')
+          setTimeout(() => {
+            setShowUp('none')
+          }, 1000)
         } else {
           alert(obj.error || '資料新增失敗')
         }
@@ -219,6 +226,10 @@ function TcCourseAdd(props) {
             onChange={FormChange}
             onInvalid={FormInvalid}
           >
+            <ConfirmMsg
+              showUp={showUp}
+              text={'課程已新增'}
+            />
             <div className="TCform-content">
               <div className="TCform-head">
                 <Link to="/TcIndex/TcCourse/">
@@ -273,6 +284,11 @@ function TcCourseAdd(props) {
                   <span>請選擇圖片</span>
                 </label>
               </div>
+              <input
+                name="sid"
+                value={lastAdd}
+                className="d-none"
+              />
               <input
                 type="text"
                 className="col-12 allInputs"
