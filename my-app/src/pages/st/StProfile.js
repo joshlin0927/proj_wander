@@ -172,6 +172,7 @@ export default withRouter(function StProfile(props) {
           if (res.data.success === true) {
             console.log('outcome:', res.data)
             setShowUp('showup')
+            //TODO:刷新頁面
             setTimeout(() => {
               setShowUp('none')
             }, 1000)
@@ -189,14 +190,13 @@ export default withRouter(function StProfile(props) {
         let r = await axios.get(
           `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
         )
+        console.log(r.data)
         setFields(r.data[0][0])
         setImgSrc(r.data[0][0].avatar)
         console.log('res:', r.data)
       })()
     }
   }, [imgSrc])
-
- 
 
   return (
     <>
@@ -229,8 +229,6 @@ export default withRouter(function StProfile(props) {
                 <i className="TCback-btn"></i>
               </Link>
             </div>
-
-            
 
             <form name="form1" style={{ display: 'none' }}>
               <input

@@ -347,6 +347,7 @@ CREATE TABLE `video_list` (
   `video_link` longtext NOT NULL,
   `teacher_sid` varchar(255) NOT NULL,
   `created_at` date NOT NULL,
+  `created_time` datetime NOT NULL DEFAULT current_timestamp(),
   `duration` int(11) NOT NULL,
   `view_count` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -355,50 +356,45 @@ CREATE TABLE `video_list` (
 -- 傾印資料表的資料 `video_list`
 --
 
-INSERT INTO `video_list` (`sid`, `course_sid`, `video_cover`, `video_name`, `video_link`, `teacher_sid`, `created_at`, `duration`, `view_count`) VALUES
-(1, 0, '', '日語50音(平假名、片假名)', 'https://www.youtube.com/watch?v=GmRdUUVgSAA&list=PLuNucubP18snvU3Zz8FXF-kACs5EPK4XU&index=1', '64', '2020-01-05', 0, '15352'),
-(2, 0, '', '日文發音的5個特徵', 'https://www.youtube.com/watch?v=4cKZha88Ito&list=PLuNucubP18snvU3Zz8FXF-kACs5EPK4XU&index=2', '64', '2020-01-05', 0, '14687'),
-(3, 0, '', '日文基礎句型', 'https://www.youtube.com/watch?v=ixRB_rUxy20&list=PLuNucubP18snvU3Zz8FXF-kACs5EPK4XU&index=5', '64', '2020-01-05', 0, '24876'),
-(4, 0, '', '商務日文-如何寫好一封日文商務郵件？', 'https://www.youtube.com/watch?v=x8KbXR_pnB8&t=1s', '69', '2020-01-08', 0, '8910'),
-(5, 0, '', '商用日文-日文電話用語', 'https://www.youtube.com/watch?v=lHVxc8IPBbo', '69', '2020-01-08', 0, '8950'),
-(6, 0, '', '生活實用英語-酒吧用語', 'https://www.youtube.com/watch?v=jEPXAr62pSc&list=PLG47EBGFEJNZaxS15HtldIeaPM4VcOWjd&index=3', '63', '2020-02-05', 0, '145201'),
-(7, 0, '', '生活實用英語-機場', 'https://www.youtube.com/watch?v=vO5NZWdSvns&list=PLG47EBGFEJNZaxS15HtldIeaPM4VcOWjd&index=9', '63', '2020-02-05', 0, '154816'),
-(8, 0, '', '生活實用英語-餐廳', 'https://www.youtube.com/watch?v=PTPxl5Jz5NM&list=PLG47EBGFEJNZaxS15HtldIeaPM4VcOWjd&index=21', '71', '2020-04-07', 0, '145786'),
-(9, 0, '', '日語讀解#47：猫', 'https://youtu.be/YzFOwek-EIY', '71', '2020-04-07', 0, '15874'),
-(10, 0, '', '方便的日語#01 なかったことに', 'https://www.youtube.com/watch?v=2j1x8xezUUE&list=PLzvvBBq1AJaHs7zfr0DHmYuinqYE37ZyX&index=1', '71', '2020-04-08', 0, '15287'),
-(16, 0, '', '123', '31bca6eda796fc2b786b98e3b239f49cd37eff18.mp4', '62', '2021-08-16', 0, ''),
-(22, 0, '', '大家一起學日文', '10b6ea98b37338f80222bcce46a3cb33fac33aa5.mp4', '62', '2021-08-16', 0, ''),
-(24, 0, '', '123', 'a4fee23163d4507b8641a45851bfd2b24e1c8e13.mp4', '62', '2021-08-17', 0, ''),
-(25, 0, '', '方便的日語#0001101 なかったことに122', '1937923428071a3f67685424b4ed0fcce6da1b09.mp4', '65', '2021-08-17', 0, ''),
-(26, 0, '', 'hashitoritai', '912a2b04168b166c4eb8f4a0bf357361918f115b.mp4', '65', '2021-08-17', 0, ''),
-(27, 0, '', '123', '17bd9c4f221d8106c0a7abc008259a0cb65b0ddd.mp4', '68', '2021-08-17', 0, ''),
-(28, 0, '', '大型檔案測試', '807ddc66fe640783807abc58b2e4abb7918fdec3.mp4', '67', '2021-08-17', 0, ''),
-(29, 0, '', '123', '2d5dfa6ed18f370bf154a12379fcdd7752b73eb0.mp4', '70', '2021-08-17', 0, ''),
-(30, 0, '', '123', '21bc10822a6e0d1d07ed9bbc3cc398e837292b18.mp4', '70', '2021-08-18', 0, ''),
-(31, 0, '', '123', '3d1e78ebb024d5c98b1f2f216d973fc7cd2cbc65.mp4', '65', '2021-08-18', 0, ''),
-(32, 0, '', 'test', '4a98efaaff5a5de93226dd4614861dd7d7610328.mp4', '71', '2021-08-18', 0, ''),
-(33, 0, '', 'test11:28', '4d5764a8032dc9a34523182226bf2e54bbed51c6.mp4', '69', '2021-08-18', 0, ''),
-(34, 0, '', 'test1', 'c1ecc20a538d581ba7c8061bb40b4fa0dba013bd.mp4', '64', '2021-08-19', 0, ''),
-(35, 0, '', 'test2', '811f8a2bfb7dc30a924af2bf793b91c404f7d98d.mp4', '63', '2021-08-19', 0, ''),
-(36, 0, '', 'test3', '178da52ab7623a2b96f83990534aa7699cb98513.mp4', '62', '2021-08-19', 0, ''),
-(37, 0, '', 'test4', '5ec84e5a6000d1f2dc594e00eb6637e42d560be2.mp4', '68', '2021-08-19', 0, ''),
-(38, 0, '', 'test5', 'ed1909d05e085ae002a20b51dfa2f885881b2eb1.mp4', '71', '2021-08-19', 0, ''),
-(39, 0, 'bc70e2e6d60675de69826e90619a51e1a9601c6d', 'test0819--01:04', '76982e2aa53d8ccfd4763f1d016c050f8961dc4c.mp4', '69', '2021-08-19', 0, ''),
-(40, 0, 'c8dc5dcc36142690174f3c58e2eedac55cdd541a', 'test0819--01:08', '862a39fb69843feeb96f544bfb206797ad4289a0.mp4', '69', '2021-08-19', 0, ''),
-(41, 0, 'd5c659f0427416cf68e59b31833db6a487a659fe', '1213', '58073ca224e1264c9467f1681ce7f9d17847dd72.mp4', '68', '2021-08-19', 0, ''),
-(42, NULL, '35048b9106784368d257ff6a0042ac315afc1d8d.png', '這是一隻測試用影片', 'e020df8953f8887545659588eb793f71f3d7821a.mp4', '66', '2021-08-21', 0, ''),
-(44, 36, '', '日語教學001', '70f40e997511d664e7b34d56f2525c1d1e568da4.mp4', '1', '2021-08-23', 0, ''),
-(50, 36, 'c13138a409bcb5bb026749961ff09bf408c3d208.jpg', '日語教學002', 'e4cac3e2442c0c6f7142cec57134f4ab1d9bbaad.mp4', '1', '2021-08-23', 0, ''),
-(51, 36, '9eff3bc2581445ffb0bf11ff876ff6154b905a9e.jpg', '日語教學003', 'dea3f5970683227a0911423dc2b4c2f2cd765231.mp4', '1', '2021-08-23', 0, ''),
-(52, 36, 'c7398f397b730ee8778ccceaf36e919210f27f1a.jpg', '日語教學004?', 'c92bc209bbbc1dd6d49ff21591681867016dce0b.mp4', '1', '2021-08-23', 0, ''),
-(53, 24, '0407b54681495a968916b16ae2d0b756735691b5.png', '常用的100句日文口語短句（初級篇）', 'cab94e203e360e93cc0b3552f165a89095bde22a.mp4', '1', '2021-08-23', 0, ''),
-(54, 24, '12b24c1c08fc63d24f0f4b2ee398716a5ef62d27.png', '【早上3分鐘學會10句日語會話】', '626e40cb9186714f112059149f39b0358e381444.mp4', '1', '2021-08-23', 0, ''),
-(55, 23, '4ce3e62c17cd890d6d87628d7f4a80307e7c65e9.jpg', '13456', 'aadf3d005ff61646ad5054e37f5cca94cf3df16a.mp4', '1', '2021-08-24', 0, ''),
-(56, 23, '', '', '456', '1', '2021-08-24', 0, ''),
-(57, 23, '', '', 'e984c86d-9890-4776-b793-f0ae8965fb34.mp4', '1', '2021-11-01', 4, NULL),
-(58, 23, '', '', 'e984c86d-9890-4776-b793-f0ae8965fb34.mp4', '1', '2021-11-01', 4, NULL),
-(59, NULL, NULL, '', 'e984c86d-9890-4776-b793-f0ae8965fb34.mp4', '', '2021-11-01', 0, NULL),
-(60, NULL, NULL, '', 'e984c86d-9890-4776-b793-f0ae8965fb34.mp4', '', '2021-11-01', 0, NULL);
+INSERT INTO `video_list` (`sid`, `course_sid`, `video_cover`, `video_name`, `video_link`, `teacher_sid`, `created_at`, `created_time`, `duration`, `view_count`) VALUES
+(1, 0, '', '日語50音(平假名、片假名)', 'https://www.youtube.com/watch?v=GmRdUUVgSAA&list=PLuNucubP18snvU3Zz8FXF-kACs5EPK4XU&index=1', '64', '2020-01-05', '2020-01-05 07:30:24', 0, '15352'),
+(2, 0, '', '日文發音的5個特徵', 'https://www.youtube.com/watch?v=4cKZha88Ito&list=PLuNucubP18snvU3Zz8FXF-kACs5EPK4XU&index=2', '64', '2020-01-05', '2020-01-05 07:31:30', 0, '14687'),
+(3, 0, '', '日文基礎句型', 'https://www.youtube.com/watch?v=ixRB_rUxy20&list=PLuNucubP18snvU3Zz8FXF-kACs5EPK4XU&index=5', '64', '2020-01-05', '2020-01-05 07:31:33', 0, '24876'),
+(4, 0, '', '商務日文-如何寫好一封日文商務郵件？', 'https://www.youtube.com/watch?v=x8KbXR_pnB8&t=1s', '69', '2020-01-08', '2020-01-08 07:31:36', 0, '8910'),
+(5, 0, '', '商用日文-日文電話用語', 'https://www.youtube.com/watch?v=lHVxc8IPBbo', '69', '2020-01-08', '2020-01-08 10:37:30', 0, '8950'),
+(6, 0, '', '生活實用英語-酒吧用語', 'https://www.youtube.com/watch?v=jEPXAr62pSc&list=PLG47EBGFEJNZaxS15HtldIeaPM4VcOWjd&index=3', '63', '2020-02-05', '2020-02-05 08:37:30', 0, '145201'),
+(7, 0, '', '生活實用英語-機場', 'https://www.youtube.com/watch?v=vO5NZWdSvns&list=PLG47EBGFEJNZaxS15HtldIeaPM4VcOWjd&index=9', '63', '2020-02-05', '2020-02-05 16:37:30', 0, '154816'),
+(8, 0, '', '生活實用英語-餐廳', 'https://www.youtube.com/watch?v=PTPxl5Jz5NM&list=PLG47EBGFEJNZaxS15HtldIeaPM4VcOWjd&index=21', '71', '2020-04-07', '2020-04-07 10:37:30', 0, '145786'),
+(9, 0, '', '日語讀解#47：猫', 'https://youtu.be/YzFOwek-EIY', '71', '2020-04-07', '2020-04-07 16:37:30', 0, '15874'),
+(10, 0, '', '方便的日語#01 なかったことに', 'https://www.youtube.com/watch?v=2j1x8xezUUE&list=PLzvvBBq1AJaHs7zfr0DHmYuinqYE37ZyX&index=1', '71', '2020-04-08', '2020-04-08 16:39:30', 0, '15287'),
+(16, 0, '', '123', '31bca6eda796fc2b786b98e3b239f49cd37eff18.mp4', '62', '2021-08-16', '2021-08-16 04:16:04', 0, ''),
+(22, 0, '', '大家一起學日文', '10b6ea98b37338f80222bcce46a3cb33fac33aa5.mp4', '62', '2021-08-16', '2021-08-16 07:37:30', 0, ''),
+(24, 0, '', '123', 'a4fee23163d4507b8641a45851bfd2b24e1c8e13.mp4', '62', '2021-08-17', '2021-08-17 04:37:30', 0, ''),
+(25, 0, '', '方便的日語#0001101 なかったことに122', '1937923428071a3f67685424b4ed0fcce6da1b09.mp4', '65', '2021-08-17', '2021-08-17 05:14:30', 0, ''),
+(26, 0, '', 'hashitoritai', '912a2b04168b166c4eb8f4a0bf357361918f115b.mp4', '65', '2021-08-17', '2021-08-17 08:19:30', 0, ''),
+(27, 0, '', '123', '17bd9c4f221d8106c0a7abc008259a0cb65b0ddd.mp4', '68', '2021-08-17', '2021-08-17 16:37:30', 0, ''),
+(28, 0, '', '大型檔案測試', '807ddc66fe640783807abc58b2e4abb7918fdec3.mp4', '67', '2021-08-17', '2021-08-17 17:37:30', 0, ''),
+(29, 0, '', '123', '2d5dfa6ed18f370bf154a12379fcdd7752b73eb0.mp4', '70', '2021-08-17', '2021-08-17 17:43:30', 0, ''),
+(30, 0, '', '123', '21bc10822a6e0d1d07ed9bbc3cc398e837292b18.mp4', '70', '2021-08-18', '2021-08-18 06:37:30', 0, ''),
+(31, 0, '', '123', '3d1e78ebb024d5c98b1f2f216d973fc7cd2cbc65.mp4', '65', '2021-08-18', '2021-08-18 07:23:30', 0, ''),
+(32, 0, '', 'test', '4a98efaaff5a5de93226dd4614861dd7d7610328.mp4', '71', '2021-08-18', '2021-08-18 07:37:30', 0, ''),
+(33, 0, '', 'test11:28', '4d5764a8032dc9a34523182226bf2e54bbed51c6.mp4', '69', '2021-08-18', '2021-08-18 09:37:30', 0, ''),
+(34, 0, '', 'test1', 'c1ecc20a538d581ba7c8061bb40b4fa0dba013bd.mp4', '64', '2021-08-19', '2021-08-19 05:20:17', 0, ''),
+(35, 0, '', 'test2', '811f8a2bfb7dc30a924af2bf793b91c404f7d98d.mp4', '63', '2021-08-19', '2021-08-19 06:20:30', 0, ''),
+(36, 0, '', 'test3', '178da52ab7623a2b96f83990534aa7699cb98513.mp4', '62', '2021-08-19', '2021-08-19 08:07:25', 0, ''),
+(37, 0, '', 'test4', '5ec84e5a6000d1f2dc594e00eb6637e42d560be2.mp4', '68', '2021-08-19', '2021-08-19 08:31:30', 0, ''),
+(38, 0, '', 'test5', 'ed1909d05e085ae002a20b51dfa2f885881b2eb1.mp4', '71', '2021-08-19', '2021-08-19 10:37:30', 0, ''),
+(39, 0, 'bc70e2e6d60675de69826e90619a51e1a9601c6d', 'test0819--01:04', '76982e2aa53d8ccfd4763f1d016c050f8961dc4c.mp4', '69', '2021-08-19', '2021-08-19 10:09:30', 0, ''),
+(40, 0, 'c8dc5dcc36142690174f3c58e2eedac55cdd541a', 'test0819--01:08', '862a39fb69843feeb96f544bfb206797ad4289a0.mp4', '69', '2021-08-19', '2021-08-19 10:27:30', 0, ''),
+(41, 0, 'd5c659f0427416cf68e59b31833db6a487a659fe', '1213', '58073ca224e1264c9467f1681ce7f9d17847dd72.mp4', '68', '2021-08-19', '2021-08-19 16:37:30', 0, ''),
+(42, NULL, '35048b9106784368d257ff6a0042ac315afc1d8d.png', '這是一隻測試用影片', 'e020df8953f8887545659588eb793f71f3d7821a.mp4', '66', '2021-08-21', '2021-08-21 11:37:30', 0, ''),
+(44, 36, '', '日語教學001', '70f40e997511d664e7b34d56f2525c1d1e568da4.mp4', '1', '2021-08-23', '2021-08-23 04:00:06', 233, ''),
+(50, 36, 'c13138a409bcb5bb026749961ff09bf408c3d208.jpg', '日語教學002', 'e4cac3e2442c0c6f7142cec57134f4ab1d9bbaad.mp4', '1', '2021-08-23', '2021-08-23 04:05:30', 343, ''),
+(51, 36, '9eff3bc2581445ffb0bf11ff876ff6154b905a9e.jpg', '日語教學003', 'dea3f5970683227a0911423dc2b4c2f2cd765231.mp4', '1', '2021-08-23', '2021-08-23 05:08:18', 234, ''),
+(52, 36, 'c7398f397b730ee8778ccceaf36e919210f27f1a.jpg', '日語教學004?', 'c92bc209bbbc1dd6d49ff21591681867016dce0b.mp4', '1', '2021-08-23', '2021-08-23 06:12:11', 234, ''),
+(53, 24, '0407b54681495a968916b16ae2d0b756735691b5.png', '常用的100句日文口語短句（初級篇）', 'cab94e203e360e93cc0b3552f165a89095bde22a.mp4', '1', '2021-08-23', '2021-08-23 06:37:30', 0, ''),
+(54, 24, '12b24c1c08fc63d24f0f4b2ee398716a5ef62d27.png', '【早上3分鐘學會10句日語會話】', '626e40cb9186714f112059149f39b0358e381444.mp4', '1', '2021-08-23', '2021-08-23 06:39:30', 0, ''),
+(55, 23, '4ce3e62c17cd890d6d87628d7f4a80307e7c65e9.jpg', '13456', 'aadf3d005ff61646ad5054e37f5cca94cf3df16a.mp4', '1', '2021-08-24', '2021-08-24 16:37:30', 0, '');
 
 --
 -- 已傾印資料表的索引
@@ -535,7 +531,7 @@ ALTER TABLE `sentence_game`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `video_list`
 --
 ALTER TABLE `video_list`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

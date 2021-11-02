@@ -10,10 +10,17 @@ const upload = multer({
 
 // 讀取資料
 router.get('/list', async (req, res) => {
-   
-    const sql = `SELECT * FROM \`member\` WHERE \`sid\` = ?`;
-    const [rs] = await db.query(sql, [req.query.studentSid]);
-    res.json([rs]);
+
+    if(req.myAuth && req.myAuth.sid){
+      const sql = `SELECT * FROM \`member\` WHERE \`sid\` = ?`;
+      const [rs] = await db.query(sql, [req.myAuth.sid]);
+      return res.json([rs]);
+    } else {
+      const sql = `SELECT * FROM \`member\` WHERE \`sid\` = ?`;
+      const [rs] = await db.query(sql, [req.query.studentSid]);
+      return res.json([rs]);
+    }
+
   })
   
   //傳送表單
