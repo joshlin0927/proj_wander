@@ -16,9 +16,7 @@ function TcCourseVideoUpload() {
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const memberObj = JSON.parse(member)
-  const courseSid = localStorage.getItem(
-    'CourseSidForProcess'
-  )
+  const courseSid = sessionStorage.getItem('courseSid')
 
   // console.log(courseSid);
   useEffect(() => {
@@ -317,6 +315,7 @@ function TcCourseVideoUpload() {
                   名稱:
                   <input
                     name="video_name"
+                    className="border-0"
                     value={fields.video_name.slice(
                       0,
                       fields.video_name.length - 4

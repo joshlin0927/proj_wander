@@ -6,7 +6,6 @@ import { withRouter } from 'react-router'
 import './TC2.css'
 
 // 頁面
-import TcApplyForm from '../../components/tc/TcApplyForm'
 import TcProfile from './TcProfile'
 import TcPassword from './TcPassword'
 import TcCourse from './TcCourse'
@@ -17,8 +16,8 @@ import TcCourseVideoEdit from './ThreeSteps/TcCourseVideoEdit'
 import TcAnalytic from './TcAnalytic'
 
 // 共用元件
-import ChatList from '../../components/chatroom/ChatList'
-import ChatWindow from '../../components/chatroom/ChatWindow'
+// import ChatList from '../../components/chatroom/ChatList'
+// import ChatWindow from '../../components/chatroom/ChatWindow'
 
 function Index() {
   return (

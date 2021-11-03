@@ -289,25 +289,25 @@ function TcSideBar(props) {
             )}
             <div
               className="resume"
-              // onClick={() => {
-              //   document
-              //     .querySelector('#realFileInput')
-              //     .click()
-              // }}
+              onClick={() => {
+                document
+                  .querySelector('#realFileInput')
+                  .click()
+              }}
             >
-              {/* <input
+              <input
                 disabled
                 id="fakeFileInput"
-                className="col-10 special_browsing_Inputs"
+                className="col-12 allInputs"
                 placeholder="請選擇要上傳的履歷"
                 value={fields.resume.slice(12)}
-              /> */}
+              />
               <input
                 type="file"
                 accept="application/pdf"
                 id="realFileInput"
                 name="resume"
-                // className="d-none"
+                className="d-none"
                 // required
                 value={fields.resume}
                 onChange={handleFieldChange}
@@ -317,10 +317,7 @@ function TcSideBar(props) {
                 value={memberObj.sid}
                 className="d-none"
               />
-              <label
-                id="browsing"
-                className="btn btn-secondary browse"
-              >
+              <label id="browsing" className="btn browse">
                 <span>瀏覽</span>
               </label>
             </div>

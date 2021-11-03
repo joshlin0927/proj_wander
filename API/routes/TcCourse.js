@@ -13,11 +13,11 @@ async function getListData(req, res) {
   // res.locals.keyword = keyword; // 傳給template
   const output = {};
 
-  // sql = SELECT * FROM `course`LEFT JOIN `member` ON `course`.`teacher_sid`=`member`.`sid` LEFT JOIN viewcount ON course.sid = viewcount.course_sid WHERE `member`.`sid` = 1; AND `course`.`course_name` LIKE 'A%';
+  // sql = SELECT * FROM `course`LEFT JOIN `member` ON `course`.`teacher_sid`=`member`.`sid` WHERE `member`.`sid` = 1; AND `course`.`course_name` LIKE 'A%';
 
   let teacherSid = req.query.teacherSid;
 
-  let where = `LEFT JOIN \`member\` ON \`course\`.\`teacher_sid\`=\`member\`.\`sid\` LEFT JOIN \`viewcount\` ON \`course\`.\`sid\` = \`viewcount\`.\`course_sid\` WHERE \`member\`.\`sid\` =${teacherSid} `;
+  let where = `LEFT JOIN \`member\` ON \`course\`.\`teacher_sid\`=\`member\`.\`sid\` WHERE \`member\`.\`sid\` =${teacherSid} `;
   if (keyword) {
     output.keyword = keyword;
     where += ` AND \`course\`.\`course_name\` LIKE ${db.escape(
@@ -56,7 +56,7 @@ async function getListData(req, res) {
             // return res.redirect('?page=1' + output.totalPages);
             */
     }
-    const sql = `SELECT \`course\`.*, \`member\`.\`firstname\`,\`member\`.\`avatar\`, \`member\`.\`intro\`, \`viewcount\`.* FROM \`course\` ${where} ORDER BY \`course\`.\`sid\` DESC LIMIT ${
+    const sql = `SELECT \`course\`.*, \`member\`.\`firstname\`,\`member\`.\`avatar\`, \`member\`.\`intro\` FROM \`course\` ${where} ORDER BY \`course\`.\`sid\` DESC LIMIT ${
       (page - 1) * perPage
     }, ${perPage}`;
     /* 如果要用backtick，在名稱的地方要加上\`做跳脫 */
@@ -68,6 +68,15 @@ async function getListData(req, res) {
 
 router.get("/api/list", async (req, res) => {
   const output = await getListData(req, res);
+  res.json(output);
+});
+
+router.route("/analytics").get(async (req, res) => {
+
+  const sql =
+    `SELECT \`course\`.\`sid\`, \`course\`.\`course_name\`, \`viewcount\`.* FROM \`course\` JOIN \`viewcount\` ON \`course\`.\`sid\` = \`viewcount\`.\`course_sid\` WHERE \`course\`.\`sid\` = ${req.query.courseSid}`;
+
+  const [output] = await db.query(sql);
   res.json(output);
 });
 

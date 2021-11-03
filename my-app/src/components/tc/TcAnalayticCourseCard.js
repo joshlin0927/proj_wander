@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { IMG_PATH } from '../../config'
 
@@ -8,18 +9,14 @@ function TcAnalayticsCourseCard(props) {
     course_name,
     course_data,
     views,
-    all,
+    setClick,
   } = props
-
-  const CourseViewData = () => {
-    console.log('sid', { sid, all })
-  }
 
   return (
     <>
       <div
         className="TCcourse-card col-12"
-        onClick={CourseViewData}
+        onClick={() => setClick(sid)}
       >
         <div
           className="TCcourse-img"

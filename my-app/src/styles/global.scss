@@ -146,14 +146,12 @@ a {
 .browse {
   width: 100%;
   height: 48px;
-  border-top: 1px solid black;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
   color: black;
   font-size: 14px;
   font-weight: bold;
   background-color: #f1ef5b;
   border-radius: 0px 10px 10px 0px;
+  margin-left: -100px;
 }
 
 @media (min-width: 768px) {
@@ -476,6 +474,11 @@ a {
   .special_browsing_Inputs {
     height: 50px;
   }
+}
+
+// 含有按鈕在input內的input樣式
+#fakeFileInput {
+  background: transparent;
 }
 
 /*=============== 頁面背景 ===============*/

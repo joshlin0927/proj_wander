@@ -33,6 +33,9 @@ export const TcCourse_EDIT = API_HOST + '/TcCourse/edit'
 export const TcCourse_DELETE =
   API_HOST + '/TcCourse/delete/'
 
+// Tc Analytic
+export const TcAnalytics = API_HOST + '/TcCourse/analytics'
+
 // TcVideo CRUD
 export const TcVideo_ADD = API_HOST + '/TcVideo/add'
 export const TcVideo_LAST = API_HOST + '/TcVideo/LastAdd/'

@@ -31,6 +31,9 @@ function TcAnalytic() {
   // 拿去做map排列的，取的是r.data.rows，或是其它處理
   const [displayCourse, setDisplayCourse] = useState([])
 
+  // 偵測點擊
+  const [click, setClick] = useState('')
+
   // 取得頭圖
   const [imgSrc, setImgSrc] = useState('')
 
@@ -54,7 +57,7 @@ function TcAnalytic() {
       })()
     }
   }, [])
-  // console.log(TcCourses)
+  // console.log('TcCourses', TcCourses)
   // console.log(displayCourse)
 
   // 觀看數據切換：每門課程都帶有一串陣列數據，點擊課程後傳遞狀態至chart，chart帶入陣列後便可直接顯示
@@ -87,20 +90,6 @@ function TcAnalytic() {
     setDisplayCourse(newTcCourses)
   }, [searchWord, TcCourses])
 
-  let all = []
-  for (let i = 0; i < TcCourses.length; i++) {
-    all[i] = {
-      sid: TcCourses[i].sid,
-      Jan: TcCourses[i].Jan,
-      Feb: TcCourses[i].Feb,
-      Mar: TcCourses[i].Mar,
-      Apr: TcCourses[i].Apr,
-      May: TcCourses[i].May,
-      Jun: TcCourses[i].Jun,
-    }
-  }
-
-  console.log('all', all)
   return (
     <>
       <div className="container mainContent">
@@ -145,7 +134,7 @@ function TcAnalytic() {
             </div>
             {/* chart */}
             <div className="mb-5">
-              <TcChart sum={all} />
+              <TcChart click={click} />
             </div>
             {/* TCcourse card label */}
             <div className="TCcourseLabel col-12 mb-3">
@@ -162,6 +151,7 @@ function TcAnalytic() {
             {TcCourses.length > 0 ? (
               <TcAnalayticCourseList
                 Courses={displayCourse}
+                setClick={setClick}
               />
             ) : (
               <TcHasNoCourse
