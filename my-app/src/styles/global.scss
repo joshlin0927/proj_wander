@@ -146,12 +146,13 @@ a {
 .browse {
   width: 100%;
   height: 48px;
-  border: 0px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
   color: black;
   font-size: 14px;
   font-weight: bold;
   background-color: #f1ef5b;
-  margin-left: -100px;
   border-radius: 0px 10px 10px 0px;
 }
 
@@ -453,6 +454,26 @@ a {
 @media (min-width: 768px) {
   // 桌機
   .allInputs {
+    height: 50px;
+  }
+}
+
+/*=============== 按鈕在input裡的格式 ===============*/
+
+.special_browsing_Inputs {
+  border-top: 1px solid #868686;
+  border-left: 1px solid #868686;
+  border-bottom: 1px solid #868686;
+  border-radius: 10px 0px 0px 10px;
+  width: 100%;
+  height: 48px;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+  // 桌機
+  .special_browsing_Inputs {
     height: 50px;
   }
 }
