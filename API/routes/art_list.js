@@ -16,63 +16,27 @@ router.get('/list', async (req, res) => {
     res.render('article_pop/list', output);
 });
 
-async function getListData(req,res){
-    const perPage = 9;
-    let page = parseInt(req.query.page) || 1;
-    let keyword = req.query.keyword || '';
-    keyword = keyword.trim(); //去掉頭尾的空白
-
-    // res.locals.keyword = keyword; // 傳給template
+async function getListData(articleSid){
     const output = {
-
-    };
-
-    let where = "WHERE 1 ";
-    if(keyword){
-        output.keyword = keyword;
-        where += ` AND \`article_title\` LIKE ${ db.escape('%' + keyword + '%') } `;
+        success: false,
+        result: '',
     }
-    // 有其他條件可以用差不多的寫法加在sql後面
-
-    const t_sql = `SELECT COUNT(1) totalRows FROM article_pop ${where}`;
-    const [[{ totalRows }]] = await db.query(t_sql);
-    
-    output.totalRows = totalRows;
-    output.totalPages = Math.ceil(totalRows / perPage);
-    output.perPage = perPage;
-    output.rows = [];
-    output.page = page;
-
-    // 如果有資料才去取得分業的資料
-    if (totalRows > 0) {
-        if (page < 1) {
-            output.redirect = '?page=1'
-            return output;
-
-            /*
-            // 下面是原本的寫法，但在用redirect的function時，就不能這樣寫
-            // return res.redirect(req.baseUrl);// 會轉到根目錄
-            // return res.redirect('?page=1');
-            */
-        }
-        if (page > output.totalPages) {
-            output.redirect = '?page=' + output.totalPages;
-            return output;
-
-            /*
-            // return res.redirect('?page=1' + output.totalPages);
-            */
-        }
-        const sql = `SELECT * FROM \`article_pop\` ${where} ORDER BY article_pop.sid DESC LIMIT ${(page-1)*perPage}, ${perPage}`;
-        /* 如果要用backtick，在名稱的地方要加上\`做跳脫 */
-        const [rows] = await db.query(sql)
-        output.rows = rows;
+    const sql =
+        `SELECT * FROM article_pop WHERE sid=?`;
+    const [r] = await db.query(sql, [articleSid]);
+    if (r.length === 0) {
+        output.success = false;
+        output.result = '沒有資料';
+    } else {
+        output.success = true;
+        output.result = r;
     }
+    console.log('articleSid', articleSid);
     return output;
 }
 
-router.get('/api/list', async (req, res)=>{
-    const output = await getListData(req, res);
+router.get('/api/list/:articleSid', async (req, res)=>{
+    const output = await getListData(req.params.articleSid);
     res.json(output);
 });
 

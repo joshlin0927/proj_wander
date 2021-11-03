@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { devUrl } from '../../config'
 import { useHistory } from 'react-router'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 // 後端檔案路徑
 import { Art_LIST } from '../../config'
@@ -33,7 +33,6 @@ function ArticleMessage(props) {
   console.log('imgSrcAA', imgSrcAA)
   console.log('imgSrcA', imgSrcA)
 
-
   //  console.log('setRemoveCourse', setRemoveCourse)
 
   // 課程陣列排出
@@ -43,30 +42,26 @@ function ArticleMessage(props) {
   const [TcCourses, setTcCourses] = useState([])
 
   // 拿去做map排列的，取的是r.data.rows，或是其它處理
-  const [displayCourse, setDisplayCourse] = useState([])
+  const [displayCourse, setDisplayCourse] = useState([{}])
 
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
   const [RemoveCourse, setRemoveCourse] = useState()
 
-
   useEffect(() => {
+    let usp = new URLSearchParams(props.location.search)
     ;(async () => {
-      const r = await axios.get(
-        `${Art_LIST}?teacherSid`
-        // 'http://localhost:3001/api/art_list'
+      let r = await axios.get(
+        `${Art_LIST}/${usp.get('articleSid')}`
       )
       if (r.status === 200) {
-        setTcCourses(r.data.rows)
-        setDisplayCourse(r.data.rows)
+        setDisplayCourse(r.data.result[0])
         // setImgSrc(r.data.rows[0].artical_image)
 
-        console.log('r.data.rows', r.data.rows)
+        console.log('r.data.result', r.data.result[0])
         // setImgSrc(r.data.rows[0].avatar)
       }
     })()
   }, [])
-
-
 
   return (
     <>
@@ -93,10 +88,12 @@ function ArticleMessage(props) {
         {/* </div> */}
         <div className="row justify-content-center col-12">
           <div className="art-p-page-info col-12 col-md-8">
-            <div className="art-type-sin">#熱門影集</div>
+            <div className="art-type-sin">
+              #{displayCourse.artical_category}
+            </div>
             <br />
             <div className="art-title-sin">
-              黑道律師文森佐
+              {displayCourse.artical_title}
             </div>
             <br />
             <br />
@@ -164,7 +161,7 @@ function ArticleMessage(props) {
                     course_data={v.created_date}
                   />
                 )
-              })} */} */}
+              })} */}
                     </ul>
                   </nav>
                 </div>
@@ -173,7 +170,7 @@ function ArticleMessage(props) {
           </div>
         </div>
       </div>
-      <div className="TCallwrapera-sing"> 
+      <div className="TCallwrapera-sing">
         <div className="TCallwraperw">
           <div className="white-block">
             <div className="yellow-area-but-1 ">
@@ -181,7 +178,7 @@ function ArticleMessage(props) {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
       <div className="sns-sing">
         <div className="nav_footer-sing">
           <img
@@ -205,4 +202,4 @@ function ArticleMessage(props) {
   )
 }
 
-export default ArticleMessage
+export default withRouter(ArticleMessage)

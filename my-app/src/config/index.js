@@ -49,7 +49,7 @@ export const SentenceGame_SOT =
 
 //article-list
 
-export const Art_LIST = API_HOST + '/art_list/api/list/'
+export const Art_LIST = API_HOST + '/art_list/api/list'
 
 //article-message CRUD
 export const ArtMessage_LIST =

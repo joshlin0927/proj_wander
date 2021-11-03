@@ -69,7 +69,7 @@ function ArtMessage(props) {
       <Link
         // to={`/ArtIndex/ArticleMessage/`}  imgSrcAA={sid}
 
-        to={`/ArtIndex/ArticleMessage/?teacherSid=${sid}`}
+        to={`/ArtIndex/ArticleMessage?articleSid=${sid}`}
       >
         <div className="articleitem">
           <img
