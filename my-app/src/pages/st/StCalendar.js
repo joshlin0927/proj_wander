@@ -77,10 +77,10 @@ export default function StCalendar(props) {
         const j = await axios.get(
           `http://localhost:3001/stCalendar/list?member_sid=${studentSid}`
         )
-        if (j) {
-          console.log('schedule:', j)
+        if (j.data) {
+          console.log('ff', j.data)
           setEvents(
-            j.data.result.map((e) => {
+            j.data.rows.map((e) => {
               e.start = new Date(e.start)
               e.end = new Date(e.end)
               return e
@@ -127,6 +127,7 @@ export default function StCalendar(props) {
     selectTimeout && window.clearTimeout(selectTimeout)
 
     selectTimeout = setTimeout(() => {
+      setSchedule('showup')
       console.log('onSelectSlot: ', {
         start,
         end,
@@ -148,6 +149,7 @@ export default function StCalendar(props) {
     selectTimeout && window.clearTimeout(selectTimeout)
 
     selectTimeout = setTimeout(() => {
+      setSchedule('showup')
       console.log('onDoubleClickEvent: ', event)
     }, 250)
   }
