@@ -19,18 +19,18 @@ import Login from './pages/st/Login'
 import SignUp from './pages/st/SignUp'
 
 // 教師頁面
-import TcIndex from './pages/tc/Index'
+import TcIndex from './pages/tc'
 
 import Preview from './pages/tc/TcPreview'
 
 // 學生頁面
-import StIndex from './pages/st/index'
+import StIndex from './pages/st'
 
 // 課程商品頁面
 import CsIndex from './pages/course'
 
 // 文章頁面
-import ArtIndex from './pages/article/index'
+import ArtIndex from './pages/article'
 
 // 購物車
 import Cart from './pages/cart'
