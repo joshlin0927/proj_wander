@@ -157,7 +157,8 @@ app.use('/TcVideo', require(__dirname + '/routes/TcVideo'));
 //聊天室
 // app.use('/chat', require('./routes/chat'));
 
-
+//文章-列表
+app.use('/art_list', require(__dirname + '/routes/art_list'));
 
 //文章-留言-修改-刪除
 app.use('/art_messenger', require(__dirname + '/routes/art_messenger'));

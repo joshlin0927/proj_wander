@@ -599,7 +599,7 @@
   justify-content: center;
 }
 
-.articleitem {
+.index-articleitem  {
   /* width: 260px; */
   /* height: 308px; */
   /* border: 1.25px solid rgba(255, 255, 255, 1); */
@@ -810,11 +810,13 @@ li {
 .checkoutBtn {
   position: absolute;
   width: 30%;
+  left: 125px;
   font-size: 1.2rem;
   height: 50px;
   color: #ffffff;
   background-color: #065f8e;
   margin: 0;
+  
 }
 
 .checkoutBtn:hover {
@@ -1052,7 +1054,8 @@ li {
   .indexBigImg14 {
     top: 110px;
     position: absolute;
-    left: 10px;
+    margin-left: 10px;
+
   }
 
   .indexBigImg15 {
@@ -1072,7 +1075,7 @@ li {
     height: 100px;
     position: absolute;
     background-color: #c4c4c4;
-    z-index: 300;
+    z-index: -2;
   }
   .mge-12-a {
     position: absolute;

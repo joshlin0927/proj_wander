@@ -1,24 +1,35 @@
 // 套件
+import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
-import ArtMessageADD from './ArtMessageADD'
 
 // Css 擺放位置
 import './Art.css'
 // 頁面
+import Article from './Article'
 import ArtMessage from './ArtMessage'
+import ArtMessageADD from './ArtMessageADD'
+import ArticleMessage from './ArticleMessage'
 
-function index(props) {
+function index() {
   return (
     <>
       <Switch>
-        <Route path="/ArtIndex/ArtMessage/">
-          <ArtMessage />
+        <Route path="/ArtIndex/Article" exact>
+          <Article />
         </Route>
-        <Route path="/ArtIndex/ArtMessageADD/">
+        <Route path="/ArtIndex/ArtMessageADD" exact>
           <ArtMessageADD />
         </Route>
-        <Route exact path="/ArtIndex">
-          <Redirect to="/ArtIndex/ArtMessage/" />
+        {/* <Route path="/ArtIndex/ArticleMessage/:sid?" exact> */}
+        <Route path="/ArtIndex/ArticleMessage/" exact>
+
+          <ArticleMessage />
+        </Route>
+        <Route path="/ArtIndex/ArtMessage" exact>
+          <ArtMessage />
+        </Route>
+        <Route path="/ArtIndex">
+          <Redirect to="/ArtIndex/Article" />
         </Route>
       </Switch>
     </>

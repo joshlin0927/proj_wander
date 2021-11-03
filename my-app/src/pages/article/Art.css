@@ -1,6 +1,4 @@
-
-
-.p-page-info {
+.art-p-page-info {
   order: 2;
   display: flex;
   width: 100%;
@@ -142,6 +140,14 @@
         justify-content: flex-end;
     }
 
+    .TCallwraperb{
+      z-index: 15;    
+      position: absolute;
+      top: 500px;
+      right: 0px; 
+      /* width: 100%; */
+  }
+
     .opp-icon-sing{
       display: flex;
 align-items: center;
@@ -188,7 +194,7 @@ margin-top: 30px;
   .TCallwrapera-sing{
     z-index: 5;
     position: absolute;
-    top: 0px;
+    top: 50px;
     width: 100%;
 }
 
@@ -237,7 +243,7 @@ margin-top: 30px;
   z-index: 15;
 position: absolute;
 left: 90px;
-top:280px;
+top:320px;
 -js-display: flex;
 display:-webkit-box;
 display: -webkit-flex;
@@ -354,13 +360,127 @@ color: #065f8e;
   margin-top: 30px;
 }
 
+.ar-artpicture{
+  margin-top:10px
+}
+.ar-artpicture img{
+  margin-left:10px;
+  border: 20px solid rgba(255, 255, 255, 1);
+
+}
+
+
 
 
 @media (max-width: 768px) {
 
+  
+  .artar-coursesectiona {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+}
+
+.ar-artpicture {
+  width: 100px;
+height: 100px;
+border: 1px solid rgba(255, 255, 255, 1);
+position: relative;
+
+/* margin-bottom: 30px; */
+/* margin-left: 10px; */
+background-color: #fff;
+}
+
+.ar-artpicture img{
+  
+  position: absolute;
+  width: 50px;
+  height: 90px;
+  left: 5px;
+  top: 5px;
+}
+
+  
+  .TCallwraperb{
+    display: none;
+
+}
+
+  .coursename {
+    font-size: 16px;
+    top: 80%;
+    left: 5%;
+    left: 4.63%;
+    margin-left: auto;
+    font-family: Noto Sans;
+    font-weight: bold;
+    line-height: 36px;
+    position: absolute;
+
+    /* or 150% */
+
+    letter-spacing: -0.015em;
+
+    color: #000000;
+}
+
+.teachername {
+  color: #065F8E;
+  font-size: 14px;
+  font-style: bold;
+  position: absolute;
+  top: 90%;
+  left: 5%;
+}
+
+
+  
+  .articleitem {
+    width: 260px;
+    height: 308px;
+    border: 1.25px solid rgba(255, 255, 255, 1);
+    position: relative;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    background-color:#fff;
+}
+
+.articleitem img {
+    position: absolute;
+    width: 160px;
+    height: 208px;
+    left: 50px;
+    top: 32px;
+}
+
+  
+
   .TCcourse-img-sing img{
     width: 202px;
  }
+
+
+ .articleitem {
+  width: 260px;
+  height: 308px;
+  border: 1.25px solid rgba(255, 255, 255, 1);
+  position: relative;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  background-color:#fff;
+}
+
+.articleitem img {
+  position: absolute;
+  width: 160px;
+  height: 208px;
+  left: 50px;
+  top: 32px;
+}
+
 
           
 
@@ -388,6 +508,47 @@ color: #065f8e;
 /*875*/
           @media (min-width: 768px) {
 
+            .teachername {
+              color: #065F8E;
+              font-size: 8px;
+              font-style: bold;
+              position: absolute;
+              top: 90%;
+              left: 5%;
+          }
+
+            .coursename {
+              color: #000000;
+              font-size: 14px;
+              top: 80%;
+              left: 5%;
+              margin-left: auto;
+              position: absolute;
+          }
+
+            .articleitem {
+              width: 260px;
+              height: 308px;
+              border: 1.25px solid rgba(255, 255, 255, 1);
+              /* border-radius: 30px; */
+              position: relative;
+              margin-bottom: 30px;
+              margin-left: 10px;
+              background-color:#fff;
+              
+
+          }
+
+          .articleitem img {
+              position: absolute;
+          width: 160px;
+          height: 208px;
+          left: 50px;
+          top: 32px;
+              
+          
+          }
+
             .TCcourse-img-sing img{
               width: 202px;
            }
@@ -397,17 +558,23 @@ color: #065f8e;
               display: noon;
             }
 
+            .coursesection {
+              display: flex;
+              flex-wrap: wrap;
+              /* justify-content:center; */
 
-     
+          }
+
+
 
       
 
             .opp-icon-sing{
               display: flex;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  margin-top: 25px;
+              align-items: center;
+              justify-content: center;
+              display: flex;
+              margin-top: 25px;
           }
 
             .TCcourse-delete-sing {

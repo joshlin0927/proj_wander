@@ -30,7 +30,7 @@ import StIndex from './pages/st'
 import CsIndex from './pages/course'
 
 // 文章頁面
-import ArtIndex from './pages/article'
+import ArtIndex from './pages/article/index'
 
 // 購物車
 import Cart from './pages/cart'

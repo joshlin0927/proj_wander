@@ -284,20 +284,13 @@ function WanderIndex() {
               </div>
               <div className="row col-11 offset-0 p-0 indexBigImg14">
                 <div className="row yellow-area-but-3 offset-5">
-                <Link to="/SignUp">
-                  <button className="btn checkoutBtn">
+                  <Link to="/SignUp">
+                    <button className="btn checkoutBtn">
                     快來註冊吧!
                     </button>
                   </Link>
                 </div>
               </div>
-              {/* <div className="row col-11 offset-0 p-0 indexBigImg15">
-                <div className="row yellow-area-but-3 offset-5">
-                  <button className="btn checkoutBtn">
-                    我是學生
-                  </button>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
@@ -335,17 +328,13 @@ function WanderIndex() {
               <div className="col-md-12 offset-md-0 ">
                 <div className="card-a">
                   <div className="yellow-area-but-4-index col-12 offset-1">
-                  <Link to="/SignUp">
-                    <button className="btn checkoutBtn-y">
-                      快來註冊吧!
-                    </button>
+                    <Link to="/SignUp">
+                      <button className="btn checkoutBtn-y">
+                        快來註冊吧!
+                      </button>
                     </Link>
                   </div>
-                  {/* <div className="yellow-area-but-2-index offset-3">
-                    <button className="btn checkoutBtn-y">
-                      我是學生
-                    </button>
-                  </div> */}
+
                 </div>
               </div>
             </div>
@@ -386,19 +375,19 @@ function WanderIndex() {
           <div className="row col-12 offset-0 p-0">
             <div className="row col-12 justify-content-center d-flex">
               <div className="coursesection col-md-12 col-lg-12">
-                <div className="articleitem">
+                <div className="index-articleitem">
                   <img
                     src={`${devUrl}/images/index/06.png`}
                     alt=""
                   />
                 </div>
-                <div className="articleitem">
+                <div className="index-articleitem">
                   <img
                     src={`${devUrl}/images/index/07.png`}
                     alt=""
                   />
                 </div>
-                <div className="articleitem">
+                <div className="index-articleitem">
                   <img
                     src={`${devUrl}/images/index/08.png`}
                     alt=""
