@@ -758,7 +758,7 @@ background: #f1ef5b;
   display: none;
 }
 
-.opp {
+.sh-opp {
   max-width: 1440px;
   border-radius: 30px;
   display: flex;
@@ -895,7 +895,7 @@ background: #f1ef5b;
   margin-top: 43px;
 }
 
-.opp {
+.sh-opp {
   background-color: #fff;
   width: 1100px;
   display: flex;
@@ -923,9 +923,9 @@ background: #f1ef5b;
   border-radius: 30px;
   object-fit: fill
 }
-.teachername {
+.sh-teachername {
   color: white;
-  font-size: 18px;
+  font-size: 14px;
   font-style: bold;
   position: absolute;
   top: 80%;
@@ -933,10 +933,10 @@ background: #f1ef5b;
 }
 .co-price{
   color: white;
-  font-size: 15px;
+  font-size: 13px;
   font-style: bold;
   position: absolute;
-  top: 85%;
+  top: 90%;
   left: 5%;
 
 }
@@ -965,7 +965,7 @@ margin-bottom: 60px
   color: white;
   font-size: 14px;
   font-style: bold;
-  top: 65%;
+  top: 60%;
   left: 5%;
   margin-left: auto;
   position: absolute;
@@ -992,7 +992,7 @@ margin-bottom: 60px
     display: none;
   }
 
-  .opp {
+  .sh-opp {
     width: 350px;
     display: flex;
     flex-direction: column;
@@ -1074,20 +1074,20 @@ margin-bottom: 60px
   height: 100%;
   border-radius: 30px;
 }
-.teachername {
+.sh-teachername {
   color: white;
-  font-size: 8px;
+  font-size: 15px;
   font-style: bold;
   position: absolute;
-  top: 75%;
+  top: 83%;
   left: 5%;
 }
 .co-price{
   color: white;
-  font-size: 14px;
+  font-size: 15px;
   font-style: bold;
   position: absolute;
-  top: 85%;
+  top: 90%;
   left: 5%;
 
 }
