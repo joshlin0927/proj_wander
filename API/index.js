@@ -165,6 +165,8 @@ app.use('/art_messenger', require(__dirname + '/routes/art_messenger'));
 
 //文章-新增留言
 app.use('/art_messengerADD', require(__dirname + '/routes/art_messengerADD'));
+//課程頁-詳細頁
+app.use('/cs_course', require(__dirname + '/routes/cs_course'));
 
 
 
