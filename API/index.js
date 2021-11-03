@@ -244,6 +244,7 @@ app.get("/video", function (req, res) {
 
 //學生
 app.use('/stprofile', require(__dirname + '/routes/stprofile'))
+app.use('/stCalendar', require(__dirname + '/routes/stCalendar'))
 //取得學生課程資料
 app.use('/stcourse', require(__dirname + '/routes/stcourse'))
 //取得推薦教師資料
