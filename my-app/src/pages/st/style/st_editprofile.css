@@ -8,8 +8,6 @@
   /* overflow: hidden; */
 }
 
-
-
 /* .stbgimg {
    width: 100%;
    height:fit-content;
@@ -205,8 +203,6 @@
   padding: 17px;
 }
 
-
-
 /* 預覽按鈕(桌機板) */
 .preview-btn-top {
   display: none;
@@ -227,7 +223,8 @@
 }
 
 .confirmmsg-m {
-  display:none;
+  opacity: 0;
+  transition: 0.5s;
   width: 50%;
   height: 70px;
   background-color: rgb(255, 255, 255);
@@ -241,13 +238,11 @@
   border-radius: 5px;
 }
 
-
-
-.none{
-  display: none;
+.none {
+  opacity: 0;
 }
-.showup{
-  display: block
+.showup {
+  opacity: 1;
 }
 
 @media (min-width: 768px) {
@@ -354,11 +349,11 @@
     left: 36%;
     top: 42%;
   }
-  
-  .avatar img{
+
+  .avatar img {
     width: 100%;
     height: 100%;
-    object-fit:cover;
+    object-fit: cover;
   }
 
   /* 表單 */
@@ -437,7 +432,8 @@
 
   /* 表單送出後彈框 */
   .confirmmsg-m {
-    display:none;
+    opacity: 0;
+    transition: 0.5s;
     width: 20%;
     height: 70px;
     background-color: white;
@@ -451,12 +447,11 @@
     border-radius: 5px;
   }
 
- .none {
-   display: none;
- }
+  .none {
+    opacity: 0;
+  }
 
- .showup {
-   display: block
- }
- 
+  .showup {
+    opacity: 1;
+  }
 }
