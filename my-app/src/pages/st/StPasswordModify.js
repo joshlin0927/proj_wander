@@ -25,7 +25,7 @@ export default function StPasswordModify(props) {
     if (token && identity === 0) {
       ;(async () => {
         let r = await axios.get(
-          `http://localhost:3001/stprofile/list`,
+          `http://localhost:3001//passwordmodify/getdata`,
           {
             headers: {
               Authorization:
