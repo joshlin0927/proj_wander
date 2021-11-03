@@ -396,7 +396,6 @@ function CartStep01(props) {
             </div>
             {/* <!-- 優惠券 --> */}
             <CounponCard counponTab={'c1'} />
-            <CounponCard counponTab={'c2'} />
             <CounponCard counponTab={'c3'} />
           </div>
           <div className="container-fluid mt-5">
@@ -410,58 +409,14 @@ function CartStep01(props) {
             <div className="row modal-card disable">
               <div className="col-6 col-md-4 text-center p-0">
                 <img
-                  src={`${devUrl}/images/cart/coupon.svg`}
+                  src={`${devUrl}/images/cart/couponc2.svg`}
                   alt=""
                 />
               </div>
               <div className="col-6 col-md-4">
-                <span>帳號內首筆訂單可使用</span>
+                <span>購買日語系列課程可使用</span>
                 <div className="w-100"></div>
-                <span>不限制訂單內課程購買數量</span>
-              </div>
-              <div className="col-6 col-md-2 text-center">
-                2021.12.31
-              </div>
-              <div className="col-2 offset-4 offset-md-0 text-center p-0">
-                <img
-                  src={`${devUrl}/images/cart/check_icon.svg`}
-                  alt=""
-                />
-              </div>
-            </div>
-            <div className="row modal-card disable">
-              <div className="col-6 col-md-4 text-center p-0">
-                <img
-                  src={`${devUrl}/images/cart/coupon.svg`}
-                  alt=""
-                />
-              </div>
-              <div className="col-6 col-md-4">
-                <span>帳號內首筆訂單可使用</span>
-                <div className="w-100"></div>
-                <span>不限制訂單內課程購買數量</span>
-              </div>
-              <div className="col-6 col-md-2 text-center">
-                2021.12.31
-              </div>
-              <div className="col-2 offset-4 offset-md-0 text-center p-0">
-                <img
-                  src={`${devUrl}/images/cart/check_icon.svg`}
-                  alt=""
-                />
-              </div>
-            </div>
-            <div className="row modal-card disable">
-              <div className="col-6 col-md-4 text-center p-0">
-                <img
-                  src={`${devUrl}/images/cart/coupon.svg`}
-                  alt=""
-                />
-              </div>
-              <div className="col-6 col-md-4">
-                <span>帳號內首筆訂單可使用</span>
-                <div className="w-100"></div>
-                <span>不限制訂單內課程購買數量</span>
+                <span>不限制授課教師</span>
               </div>
               <div className="col-6 col-md-2 text-center">
                 2021.12.31

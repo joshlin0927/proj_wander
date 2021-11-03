@@ -17,12 +17,17 @@ function CounponCard(props) {
           />
         </div>
         <div className="col-6 col-md-4">
-          <span>帳號內首筆訂單可使用</span>
+          {counponTab === 'c1' ? (
+            <span>帳號內首筆訂單可使用</span>
+          ) : (
+            <span>任意訂單皆可使用</span>
+          )}
+
           <div className="w-100"></div>
           <span>不限制訂單內課程購買數量</span>
         </div>
         <div className="col-6 col-md-2 text-center">
-          2021.12.31
+          {counponTab === 'c1' ? '2021.12.31' : '2022.3.31'}
         </div>
         <div className="col-2 offset-4 offset-md-0 text-center p-0">
           <img

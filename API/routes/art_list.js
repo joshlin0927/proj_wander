@@ -31,7 +31,6 @@ async function getListData(articleSid){
         output.success = true;
         output.result = r;
     }
-    console.log('articleSid', articleSid);
     return output;
 }
 

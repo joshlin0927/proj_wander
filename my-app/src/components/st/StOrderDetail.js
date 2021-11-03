@@ -37,14 +37,8 @@ function StOrderDetail(props) {
     let o = await axios.put(
       `${SendOrder_API}/statusToOne?order_id=${orderID}`
     )
-    if (o.data.success) {
-      let r = await axios.post(`${Calendar_API}/add`, {
-        member_sid: memberID,
-        course_name: nameArr,
-      })
-      if (!r.data.success) {
-        console.log('error:', r.data.error)
-      }
+    if (!o.data.success) {
+      console.log('error:', o.data.error)
     }
   }
   return (

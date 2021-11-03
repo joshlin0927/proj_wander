@@ -40,15 +40,13 @@ class StCalendar {
             success: false,
             error: '',
         }
-        await course_name.forEach(async (v, i) => {
-            // 不要重複輸入資料
-            if (await StCalendar.findItem(member_sid, v)) {
-                output.error = "訂單已存在";
-                return output;
-            }
-            const sql = `INSERT INTO ${tableName} (\`member_sid\`, \`title\`) VALUES (?, ?)`;
-            const [r] = await db.query(sql, [member_sid, v]);
-        });
+        // 不要重複輸入資料
+        if (await StCalendar.findItem(member_sid, course_name)) {
+            output.error = "訂單已存在";
+            return output;
+        }
+        const sql = `INSERT INTO ${tableName} (\`member_sid\`, \`title\`) VALUES (?, ?)`;
+        const [r] = await db.query(sql, [member_sid, course_name]);
         output.success = true;
         return output;
     }
