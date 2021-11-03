@@ -24,7 +24,6 @@ export default function StCalendar(props) {
   // );
   //讓側邊滑出已購買課程供排程選擇
   const [schedule, setSchedule] = useState('')
-
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
@@ -32,6 +31,8 @@ export default function StCalendar(props) {
   const studentSid = JSON.parse(member).sid
   const { auth, setAuth } = props
   const [imgSrc, setImgSrc] = useState('')
+  const [events, setEvents] = useState([{}])
+  const [courses, setCourses] = useState([{}])
 
   useEffect(() => {
     if (token && identity === 0) {
@@ -39,13 +40,11 @@ export default function StCalendar(props) {
         let r = await axios.get(
           `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
         )
-
         setImgSrc(r.data[0][0].avatar)
       })()
     }
   }, [imgSrc, auth])
 
-  const [courses, setCourses] = useState([{}])
   //要該名學生購買的課程資料要出現在黃色色塊給學生選
   useEffect(() => {
     if (!token) {
@@ -65,7 +64,6 @@ export default function StCalendar(props) {
     }
   }, [])
 
-  const [events, setEvents] = useState([{}])
   //抓資料出現在行事曆上
   useEffect(() => {
     if (!token) {
@@ -77,7 +75,7 @@ export default function StCalendar(props) {
         const j = await axios.get(
           `http://localhost:3001/stCalendar/list?member_sid=${studentSid}`
         )
-        if (j) {
+        if (j.data.success) {
           console.log('schedule:', j)
           setEvents(
             j.data.result.map((e) => {
@@ -88,16 +86,6 @@ export default function StCalendar(props) {
           )
         }
       })()
-      //測試用
-      // ;(async () => {
-      //   const r = await axios.get(
-      //     'http://localhost:3001/stcourse/list'
-      //   )
-      //   if (r.data) {
-      //     setCourses(r.data[0])
-      //     console.log(r.data[0])
-      //   }
-      // })()
     }
   }, [])
 
@@ -127,6 +115,7 @@ export default function StCalendar(props) {
     selectTimeout && window.clearTimeout(selectTimeout)
 
     selectTimeout = setTimeout(() => {
+      setSchedule('showup')
       console.log('onSelectSlot: ', {
         start,
         end,
@@ -139,7 +128,6 @@ export default function StCalendar(props) {
     selectTimeout && window.clearTimeout(selectTimeout)
 
     selectTimeout = setTimeout(() => {
-      setSchedule('showup')
       console.log('onSelectEvent: ', event)
     }, 250)
   }
@@ -175,7 +163,7 @@ export default function StCalendar(props) {
 
     setEvents((prevEvents) => {
       const filtered = prevEvents.filter(
-        (it) => it.sid !== event.sid
+        (it) => it.id !== event.id
       )
       return [...filtered, updatedEvent]
     })
@@ -220,6 +208,7 @@ export default function StCalendar(props) {
 
   return (
     <>
+      {console.log(events)}
       <div className="container mainContent">
         <MultiLevelBreadCrumb />
         <div className="row">
@@ -252,6 +241,7 @@ export default function StCalendar(props) {
               onEventDrop={moveEvent}
               onEventResize={resizeEvent}
               {...accessors}
+              selectable="ignoreEvents"
             />
           </div>
         </div>
@@ -265,7 +255,7 @@ export default function StCalendar(props) {
 
       <div className={`allwraper  ${schedule}`}>
         <div className="calendardec-side col-md-10 col-lg-10 col-12">
-          <div className="calendardec-insideblock col-md-10 col-lg-10 col-12">
+          <div className="calendardec-insideblock col-md-8 col-lg-8 col-12">
             <div
               className="closeicon"
               onClick={() => {
@@ -283,7 +273,6 @@ export default function StCalendar(props) {
                       <Carousel.Item>
                         <CalendarCourseItem
                           key={course.sid}
-                          id={course.sid}
                           name={course.course_name}
                           courseimg={course.course_img}
                           teacher={course.firstname}
