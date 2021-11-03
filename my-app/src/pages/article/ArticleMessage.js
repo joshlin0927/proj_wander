@@ -5,7 +5,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 // 後端檔案路徑
-import { ArtMessage_LIST } from '../../config'
+import { Art_LIST } from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -14,17 +14,25 @@ import Footer from '../../components/Footer'
 
 import ArtMessageList from './ArtMessageList'
 
-function ArtMessage(prop) {
+function ArticleMessage(props) {
+  // const member = localStorage.getItem('member')
+  // const teacherSid = JSON.parse(member).sid
+
   //  const [searchWord, setSearchWord] = useState('')
 
-  //判斷是否登入並為教師身分
-  const history = useHistory()
-  const token = localStorage.getItem('token')
-  const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const teacherSid = JSON.parse(member).sid
+  const {
+    sid,
+    imgSrcAA,
+    imgSrcA,
+    artical_category,
+    artical_title,
+    artical_image,
+  } = props
 
-  //  console.log('RemoveCourse', RemoveCourse)
+  console.log('sid', sid)
+  console.log('imgSrcAA', imgSrcAA)
+  console.log('imgSrcA', imgSrcA)
+
 
   //  console.log('setRemoveCourse', setRemoveCourse)
 
@@ -42,37 +50,23 @@ function ArtMessage(prop) {
 
 
   useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 0) {
-      history.push('/')
-    }
-     else {
-      ;(async () => {
-        let r = await axios.get(
-          // `${ArtMessage_LIST}`
-          `${ArtMessage_LIST}?Sid=${teacherSid}`
-        )
+    ;(async () => {
+      const r = await axios.get(
+        `${Art_LIST}?teacherSid`
+        // 'http://localhost:3001/api/art_list'
+      )
+      if (r.status === 200) {
+        setTcCourses(r.data.rows)
+        setDisplayCourse(r.data.rows)
+        // setImgSrc(r.data.rows[0].artical_image)
 
-        // let c = await axios.get(
-        //   `${ArtMessage_LIST}?Sid=${teacherSid}`
-        // )
-
-        // setTcCourses(r.data.rows)
-
-        // setDisplayCourse(r.data.rows)
+        console.log('r.data.rows', r.data.rows)
+        // setImgSrc(r.data.rows[0].avatar)
+      }
+    })()
+  }, [])
 
 
-        if (r.status === 200) {
-           setTcCourses(r.data.rows)
-
-          setDisplayCourse(r.data.rows)
-        }
-        // console.log('r.data.rows', r.data.rows)
-      })()
-    }
-    // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
-  })
 
   return (
     <>
@@ -149,7 +143,7 @@ function ArtMessage(prop) {
                       )
                     })
                   : null} */}
-                      {TcCourses.length > 0 ? (
+                      {/* {TcCourses.length > 0 ? (
                         <ArtMessageList
                           displayCourse={displayCourse}
                           setDisplayCourse={
@@ -170,7 +164,7 @@ function ArtMessage(prop) {
                     course_data={v.created_date}
                   />
                 )
-              })} */}
+              })} */} */}
                     </ul>
                   </nav>
                 </div>
@@ -211,4 +205,4 @@ function ArtMessage(prop) {
   )
 }
 
-export default ArtMessage
+export default ArticleMessage

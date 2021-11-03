@@ -82,7 +82,7 @@
   width: 100%;
 }
 
-.calcourseitem{
+.calcourseitem {
   width: 100%;
   height: 271px;
   border: 1.25px solid rgba(255, 255, 255, 1);
@@ -362,12 +362,42 @@
     top: 45%;
   }
 
-  .calcourseitem{
+  .calcourseitem {
     width: fit-content;
-    height:fit-content;
+    height: fit-content;
     border: 1.25px solid rgba(255, 255, 255, 1);
     border-radius: 30px;
-    margin:0px;
+    margin: 0px;
+  }
+  
+.calcourseitem:hover .mask{
+  opacity: 0.6;
+}
+
+  
+  .mask{
+    position: absolute;
+    top: 0px;
+    left:0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background: rgba(101, 101, 101, 0.3);
+    /* color: #ffffff; */
+    opacity: 0;
+  }
+  .addbtn{
+    position: absolute;
+    right: 50%;
+    bottom:50%;
+    transform: translate(50%,50%);
+    border-radius: 6px;
+    background-color:transparent;
+    border:1px solid black;
+    font-weight: bold;
+    width: 115px;
+    height: 40px;
+
   }
 
 
@@ -424,14 +454,14 @@
   .closeicon {
     width: 38px;
     height: 38px;
-    background-color:#ffffffff;
-    border:1px solid black;
+    background-color: #ffffffff;
+    border: 1px solid black;
     border-radius: 50%;
     text-align: center;
     line-height: 35px;
     position: absolute;
-    top:40%;
-    right:10%;
+    top: 40%;
+    right: 10%;
     font-size: 14px;
     z-index: 1;
   }

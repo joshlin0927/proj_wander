@@ -47,6 +47,11 @@ export const SentenceGame_LIST =
 export const SentenceGame_SOT =
   API_HOST + '/sentence-game/sound-of-text'
 
+//article-list
+
+export const Art_LIST = API_HOST + '/art_list/api/list/'
+
+//article-message CRUD
 export const ArtMessage_LIST =
   API_HOST + '/art_messenger/api/list/'
 
@@ -85,6 +90,9 @@ export const pathnameList = [
   '/StIndex/StCourse',
   '/StIndex/StCalendar',
   '/StIndex/StClassroom',
+  '/ArtIndex/Article',
+  '/ArtIndex/ArtMessage',
+  '/ArtIndex/ArtMessageADD',
 ]
 
 export const pathnameTextList = [
@@ -109,4 +117,7 @@ export const pathnameTextList = [
   '/學生頁面/我的課程',
   '/學生頁面/課程管理',
   '/學生頁面/教室上課',
+  '/國際角落',
+  '/國際角落/文章內容',
+  '/國際角落/留言頁面',
 ]

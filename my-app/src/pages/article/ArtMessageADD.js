@@ -3,12 +3,18 @@ import React, { useState, useRef, useEffect } from 'react'
 import { devUrl } from '../../config'
 import axios from 'axios'
 import { useHistory } from 'react-router'
-import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import ArBgDecorationNormal from '../../components/articles/ArBgDecorationNormal'
-import Footer from '../../components/Footer'
 import { IMG_PATH } from '../../config'
 
-function ArtMessageADD() {
+// components
+import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
+import Footer from '../../components/Footer'
+// 要使用能有active css效果的NavLink元件
+import { NavLink } from 'react-router-dom'
+import { Nav } from 'react-bootstrap'
+
+
+function ArtMessageADD(prop) {
   //  const [searchWord, setSearchWord] = useState('')
 
   const member = localStorage.getItem('member')
@@ -16,12 +22,36 @@ function ArtMessageADD() {
   const memberObj = JSON.parse(member)
   const token = localStorage.getItem('token')
   const studentSid = JSON.parse(member).sid
+  const identity = JSON.parse(member).identity
+
 
   //判斷是否登入並為教師身分
   const history = useHistory()
 
   //大頭貼狀態
   let [imgSrc, setImgSrc] = useState('')
+
+
+  useEffect(() => {
+    if (!token) {
+      history.push('/')
+    }
+    else if (identity !== 0) {
+     history.push('/')}
+    else {
+      ;(async () => {
+        let r = await axios.get(
+          `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
+        )
+        // setFields(r.data[0][0])
+        if (r.status === 200) {
+
+        setImgSrc(r.data[0][0].avatar)
+      }
+        //  console.log('r.data[0][0]', r.data[0][0])
+      })()
+    }
+  })
 
   // console.log('imgSrc', imgSrc)
 
@@ -35,24 +65,6 @@ function ArtMessageADD() {
   // const [asTeacherOrStudent, setasTeacherOrStudent] =
   // useState(3)
 
-  useEffect(() => {
-    if (!token) {
-      history.push('/')
-    }
-    // else if (identity !== 0) {
-    //   history.push('/')}
-    else {
-      ;(async () => {
-        let r = await axios.get(
-          `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
-        )
-        // setFields(r.data[0][0])
-        setImgSrc(r.data[0][0].avatar)
-
-        //  console.log('r.data[0][0]', r.data[0][0])
-      })()
-    }
-  })
 
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
@@ -184,6 +196,7 @@ function ArtMessageADD() {
     }
   }
 
+
   //  // 資料庫來的留言資料
   //  const [TcCourses, setTcCourses] = useState([])
 
@@ -191,11 +204,17 @@ function ArtMessageADD() {
     <>
       <div className="container mainContent">
         {/* breadcrumb */}
-        <div className="row">
-          <MultiLevelBreadCrumb />
-        </div>
+        <MultiLevelBreadCrumb />
+        <Nav.Link
+          as={NavLink}
+          to="/ArtIndex/ArtMessage"
+          className="btn btn-border-only-no-h col-2"
+        >
+          <i className="fas fa-chevron-left"></i>
+          <span>返回文章內容</span>
+        </Nav.Link>
         <div className="row justify-content-center col-12">
-          <div className="p-page-info col-12 col-md-8">
+          <div className="art-p-page-info col-12 col-md-8">
             <div className="art-type-sin">#熱門影集</div>
             <br />
             <div className="art-title-sin">
@@ -313,6 +332,7 @@ function ArtMessageADD() {
         </div>
       </div>
       <ArBgDecorationNormal />
+      <div className="bgbeige"> </div>
       <Footer />
     </>
   )

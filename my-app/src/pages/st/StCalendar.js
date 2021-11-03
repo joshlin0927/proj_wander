@@ -4,7 +4,7 @@ import './style/st_calendar.css'
 import axios from 'axios'
 import Carousel from 'react-grid-carousel'
 import { IMG_PATH } from '../../config'
-//月曆測試data
+//月曆測試用data
 import { events as eventData } from './event'
 //共用元件
 import Calendar from '../../components/st/Calendar.component'
@@ -15,13 +15,7 @@ import Footer from '../../components/Footer'
 let selectTimeout
 const now = () => new Date()
 export default function StCalendar(props) {
-  const [events, setEvents] = useState(
-    eventData.map((event) => {
-      event.start = new Date(event.start)
-      event.end = new Date(event.end)
-      return event
-    })
-  )
+  //讓側邊滑出已購買課程供排程選擇
   const [schedule, setSchedule] = useState('')
 
   // const handleDateClick = (e) => {
@@ -49,32 +43,43 @@ export default function StCalendar(props) {
   }, [imgSrc, auth])
 
   const [courses, setCourses] = useState('')
-  //要該名學生購買的課程資料
+  //要該名學生購買的課程資料要出現在排程
+
+  const [events, setEvents] = useState([{}])
   useEffect(() => {
     if (!token) {
       history.push('/')
     } else if (identity !== 0) {
       history.push('/')
     } else {
-      // ;(async () => {
-      //   const Data = await axios.get(
-      //     `http://localhost:3001/stcourse/api/coursedata?studentSid=${studentSid}`
-      //   )
-      //   if (Data) {
-      //     setCourses(Data.data)
-      //     console.log('coursedata', Data.data)
-      //   }
-      // })()
-
       ;(async () => {
-        const r = await axios.get(
-          'http://localhost:3001/stcourse/list'
+        const Data = await axios.get(
+          `http://localhost:3001/stcourse/api/coursedata?studentSid=${studentSid}`
         )
-        if (r.data) {
-          setCourses(r.data[0])
-          console.log(r.data[0])
+        if (Data) {
+          setCourses(Data.data)
+          console.log('coursedata:', Data.data)
         }
       })()
+
+      setEvents(
+        eventData.map((event) => {
+          event.start = new Date(event.start)
+          event.end = new Date(event.end)
+          return event
+        })
+      )
+
+      //測試用
+      // ;(async () => {
+      //   const r = await axios.get(
+      //     'http://localhost:3001/stcourse/list'
+      //   )
+      //   if (r.data) {
+      //     setCourses(r.data[0])
+      //     console.log(r.data[0])
+      //   }
+      // })()
     }
   }, [])
 
@@ -197,6 +202,7 @@ export default function StCalendar(props) {
 
   return (
     <>
+      {console.log(events)}
       <div className="container mainContent">
         <MultiLevelBreadCrumb />
         <div className="row">
@@ -234,9 +240,9 @@ export default function StCalendar(props) {
           </div>
         </div>
 
-        <div className="coursesection-m col-12">
+        {/* <div className="coursesection-m col-12">
           <CalendarCourseItem />
-        </div>
+        </div> */}
         <div className="h30"></div>
         <div className="h30"></div>
       </div>
@@ -255,8 +261,8 @@ export default function StCalendar(props) {
 
             <div className="schedulecoursesection col-md-10 col-lg-8">
               <Carousel cols={1} rows={1} gap={10} loop>
-                {courses ? (
-                  courses.map((course, i) => {
+                {courses.rows ? (
+                  courses.rows.map((course, i) => {
                     return (
                       <Carousel.Item>
                         <CalendarCourseItem
