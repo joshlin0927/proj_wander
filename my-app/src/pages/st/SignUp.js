@@ -5,6 +5,8 @@ import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 //共用元件
 // import FBLogin from '../../components/st/FBLogin'
 // import GooLogin from '../../components/st/GooLogin'
@@ -13,7 +15,7 @@ export default withRouter(function SignUp(props) {
   const history = useHistory()
   const [asTeacherOrStudent, setasTeacherOrStudent] =
     useState(3)
-
+  const MySwal = withReactContent(Swal)
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
     firstname: '',
@@ -102,14 +104,18 @@ export default withRouter(function SignUp(props) {
     if (account) {
       for (let i of account.data.rows) {
         if (i.email === fields.email) {
-          alert('帳號重複了')
+          Swal.fire({
+            icon: 'error',
+            title: '請重新註冊',
+            text: '帳號重複了！',
+          })
           return
         }
       }
     }
 
     if (asTeacherOrStudent === 3) {
-      alert('請選擇註冊身份')
+      Swal.fire('請選擇註冊身份')
       return
     }
     // 用axios把表單送出
@@ -132,10 +138,21 @@ export default withRouter(function SignUp(props) {
         .then((res) => {
           console.log(res.data)
           if (res.data.success === true) {
-            alert('恭喜成為Wander會員')
+            Swal.fire({
+              position: 'top-center',
+              icon: 'success',
+              title: '恭喜成為Wander會員',
+              showConfirmButton: false,
+              timer: 1500,
+            })
+
             history.push('/login')
           } else {
-            alert('註冊失敗')
+            Swal.fire({
+              icon: 'error',
+              title: '抱歉',
+              text: '註冊失敗',
+            })
             return
           }
         })

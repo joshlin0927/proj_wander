@@ -15,8 +15,6 @@ function CalendarCourseItem(props) {
       .then((res) => {
         if (res.success === true) {
           console.log(res)
-        } else {
-          alert('未修改完成')
         }
       })
   }
