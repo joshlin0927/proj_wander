@@ -7,6 +7,39 @@ function PayInfo(props) {
   const textLength = (e) => {
     e.target.value = e.target.value.replace(/[^\d]/g, '')
   }
+  function changeCreditColor(e) {
+    document
+      .querySelectorAll('.creditCardFront span')
+      .forEach((v) => {
+        v.classList.remove('onfocus')
+      })
+    const id = e.target.id
+    if (id === 'cardNum') {
+      document
+        .querySelector('.credit-num')
+        .classList.add('onfocus')
+    }
+    if (id === 'cardDL') {
+      document
+        .querySelector('.credit-date')
+        .classList.add('onfocus')
+    }
+    if (id === 'CYC') {
+      document
+        .querySelector('.credit-num')
+        .classList.add('onfocus')
+    }
+    if (id === 'payname') {
+      document
+        .querySelector('.credit-name')
+        .classList.add('onfocus')
+    }
+    if (id === 'mobile') {
+      document
+        .querySelector('.credit-num')
+        .classList.add('onfocus')
+    }
+  }
   return (
     <>
       {payMethodSelect === '1' ? (
@@ -19,38 +52,54 @@ function PayInfo(props) {
                 信用卡號
               </label>
               <input
+                id="cardNum"
                 type="text"
                 className="allInputs fourLengthInput"
                 maxLength="4"
                 onInput={(e) => {
                   textLength(e)
                 }}
+                onFocus={(e) => {
+                  changeCreditColor(e)
+                }}
               />
               <span>-</span>
               <input
+                id="cardNum"
                 type="text"
                 className="allInputs fourLengthInput"
                 maxLength="4"
                 onInput={(e) => {
                   textLength(e)
                 }}
+                onFocus={(e) => {
+                  changeCreditColor(e)
+                }}
               />
               <span>-</span>
               <input
+                id="cardNum"
                 type="text"
                 className="allInputs fourLengthInput"
                 maxLength="4"
                 onInput={(e) => {
                   textLength(e)
                 }}
+                onFocus={(e) => {
+                  changeCreditColor(e)
+                }}
               />
               <span>-</span>
               <input
+                id="cardNum"
                 type="text"
                 className="allInputs fourLengthInput"
                 maxLength="4"
                 onInput={(e) => {
                   textLength(e)
+                }}
+                onFocus={(e) => {
+                  changeCreditColor(e)
                 }}
               />
             </div>
@@ -59,6 +108,7 @@ function PayInfo(props) {
                 有效期限
               </label>
               <input
+                id="cardDL"
                 type="text"
                 className="allInputs fourLengthInput"
                 maxLength="2"
@@ -66,15 +116,22 @@ function PayInfo(props) {
                 onInput={(e) => {
                   textLength(e)
                 }}
+                onFocus={(e) => {
+                  changeCreditColor(e)
+                }}
               />
               <span>-</span>
               <input
+                id="cardDL"
                 type="text"
                 className="allInputs fourLengthInput"
                 maxLength="2"
                 placeholder="MM"
                 onInput={(e) => {
                   textLength(e)
+                }}
+                onFocus={(e) => {
+                  changeCreditColor(e)
                 }}
               />
             </div>
@@ -83,12 +140,16 @@ function PayInfo(props) {
                 檢核碼
               </label>
               <input
+                id="CYC"
                 type="text"
                 className="allInputs fourLengthInput"
                 maxLength="3"
                 placeholder="000"
                 onInput={(e) => {
                   textLength(e)
+                }}
+                onFocus={(e) => {
+                  changeCreditColor(e)
                 }}
               />
             </div>
@@ -97,9 +158,13 @@ function PayInfo(props) {
                 持卡人姓名
               </label>
               <input
+                id="payname"
                 type="text"
                 className="allInputs longLengthInput"
                 placeholder="請輸入姓名"
+                onFocus={(e) => {
+                  changeCreditColor(e)
+                }}
               />
             </div>
             <div className="input-group align-items-center mt-3 flex-wrap">
@@ -107,10 +172,14 @@ function PayInfo(props) {
                 手機號碼
               </label>
               <input
+                id="mobile"
                 type="text"
                 className="allInputs longLengthInput"
                 onInput={(e) => {
                   textLength(e)
+                }}
+                onFocus={(e) => {
+                  changeCreditColor(e)
                 }}
               />
             </div>

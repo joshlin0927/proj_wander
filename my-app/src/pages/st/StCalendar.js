@@ -3,9 +3,9 @@ import { useHistory } from 'react-router'
 import './style/st_calendar.css'
 import axios from 'axios'
 import Carousel from 'react-grid-carousel'
-import { IMG_PATH } from '../../config'
+// import { IMG_PATH } from '../../config'
 //月曆測試用data
-import { events as eventData } from './event'
+// import { events as eventData } from './event'
 //共用元件
 import Calendar from '../../components/st/Calendar.component'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -15,13 +15,15 @@ import Footer from '../../components/Footer'
 let selectTimeout
 const now = () => new Date()
 export default function StCalendar(props) {
+  // const [events, setEvents] = useState(
+  //   eventData.map((event) => {
+  //     event.start = new Date(event.start);
+  //     event.end = new Date(event.end);
+  //     return event;
+  //   })
+  // );
   //讓側邊滑出已購買課程供排程選擇
   const [schedule, setSchedule] = useState('')
-
-  // const handleDateClick = (e) => {
-  //   setSchedule('showup')
-  // } //按日期觸發事件
-
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
@@ -29,6 +31,8 @@ export default function StCalendar(props) {
   const studentSid = JSON.parse(member).sid
   const { auth, setAuth } = props
   const [imgSrc, setImgSrc] = useState('')
+  const [events, setEvents] = useState([{}])
+  const [courses, setCourses] = useState([{}])
 
   useEffect(() => {
     if (token && identity === 0) {
@@ -36,16 +40,12 @@ export default function StCalendar(props) {
         let r = await axios.get(
           `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
         )
-
         setImgSrc(r.data[0][0].avatar)
       })()
     }
   }, [imgSrc, auth])
 
-  const [courses, setCourses] = useState('')
-  //要該名學生購買的課程資料要出現在排程
-
-  const [events, setEvents] = useState([{}])
+  //要該名學生購買的課程資料要出現在黃色色塊給學生選
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -57,29 +57,35 @@ export default function StCalendar(props) {
           `http://localhost:3001/stcourse/api/coursedata?studentSid=${studentSid}`
         )
         if (Data) {
-          setCourses(Data.data)
-          console.log('coursedata:', Data.data)
+          setCourses(Data.data.rows)
+          console.log('coursedata:', Data.data.rows)
         }
       })()
+    }
+  }, [])
 
-      setEvents(
-        eventData.map((event) => {
-          event.start = new Date(event.start)
-          event.end = new Date(event.end)
-          return event
-        })
-      )
-
-      //測試用
-      // ;(async () => {
-      //   const r = await axios.get(
-      //     'http://localhost:3001/stcourse/list'
-      //   )
-      //   if (r.data) {
-      //     setCourses(r.data[0])
-      //     console.log(r.data[0])
-      //   }
-      // })()
+  //抓已經加入行事曆的資料出現在行事曆上
+  useEffect(() => {
+    if (!token) {
+      history.push('/')
+    } else if (identity !== 0) {
+      history.push('/')
+    } else {
+      ;(async () => {
+        const j = await axios.get(
+          `http://localhost:3001/stCalendar/list?member_sid=${studentSid}`
+        )
+        if (j.data.success) {
+          console.log('schedule:', j)
+          setEvents(
+            j.data.result.map((e) => {
+              e.start = new Date(e.start)
+              e.end = new Date(e.end)
+              return e
+            })
+          )
+        }
+      })()
     }
   }, [])
 
@@ -130,6 +136,7 @@ export default function StCalendar(props) {
     selectTimeout && window.clearTimeout(selectTimeout)
 
     selectTimeout = setTimeout(() => {
+      setSchedule('showup')
       console.log('onDoubleClickEvent: ', event)
     }, 250)
   }
@@ -157,7 +164,7 @@ export default function StCalendar(props) {
 
     setEvents((prevEvents) => {
       const filtered = prevEvents.filter(
-        (it) => it.id !== event.id
+        (it) => it.sid !== event.sid
       )
       return [...filtered, updatedEvent]
     })
@@ -168,7 +175,7 @@ export default function StCalendar(props) {
   const resizeEvent = ({ event, start, end }) => {
     setEvents((prevEvents) => {
       const filtered = prevEvents.filter(
-        (it) => it.id !== event.id
+        (it) => it.sid !== event.sid
       )
       return [
         ...filtered,
@@ -200,90 +207,90 @@ export default function StCalendar(props) {
     console.log('[onSelecting] range: ', range)
   }
 
-  return (
-    <>
-      {console.log(events)}
-      <div className="container mainContent">
-        <MultiLevelBreadCrumb />
-        <div className="row">
-          <div className="col-10 ml-auto pageName">
-            <span className="pageNameText calendar">
-              Calendar
-            </span>
+  
+    return (
+      <>
+        <div className="container mainContent">
+          <MultiLevelBreadCrumb />
+          <div className="row">
+            <div className="col-10 ml-auto pageName">
+              <span className="pageNameText calendar">
+                Calendar
+              </span>
+            </div>
           </div>
-        </div>
 
-        <div className="row">
-          <StSideBar2 imgSrc={imgSrc} />
-          <div
-            className="col-md-8 col-12 offset-0 offset-md-1 p-2 big_calendar"
-            style={{ backgroundColor: 'white' }}
-          >
-            <Calendar
-              {...{
-                events,
-                date,
-                onNavigate,
-                view,
-                onView,
-                onSelectSlot,
-                onSelectEvent,
-                onSelecting,
-                onDoubleClickEvent,
-                onKeyPressEvent,
-              }}
-              onEventDrop={moveEvent}
-              onEventResize={resizeEvent}
-              {...accessors}
-              selectable="ignoreEvents"
-            />
+          <div className="row">
+            <StSideBar2 imgSrc={imgSrc} />
+            <div
+              className="col-md-8 col-12 offset-0 offset-md-1 p-2 big_calendar"
+              style={{ backgroundColor: 'white' }}
+            >
+              <Calendar
+                {...{
+                  events,
+                  date,
+                  onNavigate,
+                  view,
+                  onView,
+                  onSelectSlot,
+                  onSelectEvent,
+                  onSelecting,
+                  onDoubleClickEvent,
+                  onKeyPressEvent,
+                }}
+                onEventDrop={moveEvent}
+                onEventResize={resizeEvent}
+                {...accessors}
+                selectable="ignoreEvents"
+              />
+            </div>
           </div>
-        </div>
 
-        {/* <div className="coursesection-m col-12">
+          {/* <div className="coursesection-m col-12">
           <CalendarCourseItem />
         </div> */}
-        <div className="h30"></div>
-        <div className="h30"></div>
-      </div>
+          <div className="h30"></div>
+          <div className="h30"></div>
+        </div>
 
-      <div className={`allwraper  ${schedule}`}>
-        <div className="calendardec-side col-md-10 col-lg-10 col-12">
-          <div className="calendardec-insideblock col-md-8 col-lg-8 col-12">
-            <div
-              className="closeicon"
-              onClick={() => {
-                setSchedule('none')
-              }}
-            >
-              close
-            </div>
+        <div className={`allwraper  ${schedule}`}>
+          <div className="calendardec-side col-md-10 col-lg-10 col-12">
+            <div className="calendardec-insideblock col-md-8 col-lg-8 col-12">
+              <div
+                className="closeicon"
+                onClick={() => {
+                  setSchedule('none')
+                }}
+              >
+                close
+              </div>
 
-            <div className="schedulecoursesection col-md-10 col-lg-8">
-              <Carousel cols={1} rows={1} gap={10} loop>
-                {courses.rows ? (
-                  courses.rows.map((course, i) => {
-                    return (
-                      <Carousel.Item>
-                        <CalendarCourseItem
-                          key={course.sid}
-                          name={course.course_name}
-                          courseimg={course.course_img}
-                          teacher={course.firstname}
-                        />
-                      </Carousel.Item>
-                    )
-                  })
-                ) : (
-                  <></>
-                )}
-              </Carousel>
+              <div className="schedulecoursesection col-md-10 col-lg-8">
+                <Carousel cols={1} rows={1} gap={10} loop>
+                  {courses.length !== 0 ? (
+                    courses.map((course, i) => {
+                      return (
+                        <Carousel.Item>
+                          <CalendarCourseItem
+                            key={course.sid}
+                            name={course.course_name}
+                            courseimg={course.course_img}
+                            teacher={course.firstname}
+                          />
+                        </Carousel.Item>
+                      )
+                    })
+                  ) : (
+                    <></>
+                  )}
+                </Carousel>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="bgicalendar"></div>
-      <Footer />
-    </>
-  )
+        <div className="bgicalendar"></div>
+        <Footer />
+      </>
+    )
 }

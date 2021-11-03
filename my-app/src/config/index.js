@@ -49,6 +49,12 @@ export const SentenceGame_LIST =
   API_HOST + '/sentence-game/api/list'
 export const SentenceGame_SOT =
   API_HOST + '/sentence-game/sound-of-text'
+//課程資料
+export const CsCourse_LIST =
+  API_HOST + '/cs_course/api/list/'
+
+export const CsCourse_EDIT = API_HOST + '/cs_course/edit'
+export const CsCourse_Cover = API_HOST + '/cs_course/Cover/'
 
 //article-list
 
