@@ -5,7 +5,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import './course1.css'
 // 頁面
 import CsCourse from './CsCourse'
-import CsCourses from './CsCourses'
+// import CsCourses from './CsCourses'
 import CsCoursede from './CsCoursede'
 import CsCoursedes from './CsCoursedes'
 import CsCoursedesNot from './CsCoursedesNot'
@@ -20,9 +20,9 @@ function index() {
         <Route path="/Course/CsCourse" exact>
           <CsCourse />
         </Route>
-        <Route path="/Course/CsCourses" exact>
+        {/* <Route path="/Course/CsCourses" exact>
           <CsCourses />
-        </Route>
+        </Route> */}
         <Route path="/Course/CsCoursede" exact>
           <CsCoursede />
         </Route>
