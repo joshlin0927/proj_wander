@@ -21,7 +21,9 @@ export default withRouter(function StCourse(props) {
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
   const studentSid = JSON.parse(member).sid
-
+  const [courses, setCourses] = useState([{}])
+  const [RecommandedTeacher, setRecommandedTeacher] =
+    useState({})
   const { auth, setAuth } = props
   const [imgSrc, setImgSrc] = useState('')
 
@@ -49,8 +51,8 @@ export default withRouter(function StCourse(props) {
           `http://localhost:3001/stcourse/api/coursedata?studentSid=${studentSid}`
         )
         if (Data) {
-          setCourses(Data.data)
-          console.log('coursedata', Data.data)
+          setCourses(Data.data.rows)
+          console.log('coursedata', Data.data.rows)
         }
       })()
     }
@@ -68,9 +70,7 @@ export default withRouter(function StCourse(props) {
       }
     })()
   }, [])
-  const [courses, setCourses] = useState({})
-  const [RecommandedTeacher, setRecommandedTeacher] =
-    useState({})
+
   return (
     <>
       <div className="container mainContent">
@@ -85,9 +85,9 @@ export default withRouter(function StCourse(props) {
 
         <div className="row justify-content-center d-flex">
           <StSideBar2 imgSrc={imgSrc} />
-          <div className="coursesection  col-12 col-md-10 ">
-            {courses.rows ? (
-              courses.rows.map((course, i) => {
+          <div className="stcoursesection  col-12 col-md-10 ">
+            {courses.length !== 0 ? (
+              courses.map((course, i) => {
                 return (
                   <CourseItem
                     key={course.sid + '_' + i}
@@ -99,12 +99,8 @@ export default withRouter(function StCourse(props) {
               })
             ) : (
               <RemindingText />
-            )}
+            )}{' '}
           </div>
-        </div>
-
-        <div className="mo-none">
-          <MyPagination />
         </div>
 
         <div className="row">
