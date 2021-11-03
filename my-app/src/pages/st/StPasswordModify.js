@@ -36,8 +36,10 @@ export default function StPasswordModify(props) {
 
         setImgSrc(r.data[0][0].avatar)
       })()
+    } else {
+      history.push('/')
     }
-  }, [imgSrc, auth])
+  }, [imgSrc])
 
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
@@ -58,21 +60,22 @@ export default function StPasswordModify(props) {
     newPassConfirm: '',
   })
 
-  useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 0) {
-      history.push('/')
-    } else {
-      ;(async () => {
-        let r = await axios.get(
-          `http://localhost:3001/passwordmodify/getdata?studentSid=${studentSid}`
-        )
-        const memberData = r.data
-        console.log('result:', memberData)
-      })()
-    }
-  }, [imgSrc])
+  // useEffect(() => {
+  //   if (!token) {
+  //     history.push('/')
+  //   } else if (identity !== 0) {
+  //     history.push('/')
+  //   } else {
+  //     ;(async () => {
+  //       let r = await axios.get(
+  //         `http://localhost:3001/passwordmodify/getdata?studentSid=${studentSid}`
+  //       )
+
+  //       setImgSrc(r.data[0][0].avatar)
+  //       console.log('result:', r.data)
+  //     })()
+  //   }
+  // }, [imgSrc])
 
   // 處理表單欄位變動
   const handleFieldChange = (e) => {
@@ -161,14 +164,18 @@ export default function StPasswordModify(props) {
           }
         )
         .then((res) => {
-          if (res.data) {
+          if (res.data.success) {
             console.log(res.data)
             setShowUp('showup')
             setTimeout(() => {
               setShowUp('none')
             }, 1000)
           } else {
-            console.log('失敗')
+            setFieldErrors({
+              origin: res.data.error,
+              newPass: '',
+              newPassConfirm: '',
+            })
           }
         })
     }

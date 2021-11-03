@@ -76,6 +76,7 @@ export default function StSelectLanguage() {
       <div className="dec-side col-md-6 col-lg-6">
         <div className="dec-insideblock col-md-9 col-lg-8"></div>
       </div>
+      <div className="bgbeige"></div>
       <Footer />
     </>
   )
