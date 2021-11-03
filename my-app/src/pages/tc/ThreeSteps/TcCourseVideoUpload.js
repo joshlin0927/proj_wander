@@ -294,19 +294,21 @@ function TcCourseVideoUpload() {
                 // }}
               >
                 <div className="">
-                  Duration:
                   <input
                     name="duration"
+                    className="d-none"
                     value={fields.duration + 's'}
                     onChange={handleFieldChange}
                   />
                   <input
                     name="course_sid"
+                    className="d-none"
                     value={courseSid}
                     onChange={handleFieldChange}
                   />
                   <input
                     name="teacher_sid"
+                    className="d-none"
                     value={memberObj.sid}
                     onChange={handleFieldChange}
                   />

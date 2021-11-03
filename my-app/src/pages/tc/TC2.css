@@ -351,10 +351,17 @@ body {
 /* 課程表單裡的圖  */
 .TCcourse-pic-square {
   width: 271px;
+  height: 271px;
   margin-bottom: 30px;
   border: 1px solid #868686;
   border-radius: 10px;
   overflow: hidden;
+}
+
+.TCcourse-pic-square > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .btn-border-only {
@@ -433,11 +440,13 @@ body {
 .TCcourse-img {
   margin-left: -15px;
   overflow: hidden;
+  width: 200px;
 }
 
 .TCcourse-img > img {
-  width: auto;
+  width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 /* 課程的文字資訊 */
@@ -488,11 +497,6 @@ body {
   padding: 25%;
   margin: 0px auto 30px;
   text-align: center;
-  cursor: pointer;
-}
-
-input[name='video_name'] {
-  border: 0;
   cursor: pointer;
 }
 
@@ -725,17 +729,11 @@ input[name='video_name'] {
     overflow: hidden;
   }
 
-  .TCcourse-img > img {
-    max-width: auto;
-    height: 100%;
-  }
-
   /* 課程卡片 */
   .TCcourse-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    text-align: center;
   }
 
   /* 課程名稱 */

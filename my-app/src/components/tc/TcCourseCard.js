@@ -46,7 +46,11 @@ function TcCourseCard(props) {
           to="/TCindex/TcCourseEdit/"
         >
           <img
-            src={`${IMG_PATH}/course/${course_img}`}
+            src={
+              course_img
+                ? `${IMG_PATH}/course/${course_img}`
+                : `${IMG_PATH}/course/Course_Preset.jpg`
+            }
             alt=""
           />
         </div>

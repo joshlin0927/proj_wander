@@ -56,7 +56,9 @@ function TcAnalytic() {
     }
   }, [])
 
-  console.log(displayCourse)
+  // console.log(displayCourse)
+
+  // 觀看數據切換：每門課程都帶有一串陣列數據，點擊課程後傳遞狀態至chart，chart帶入陣列後便可直接顯示
 
   // 搜尋列
   const [searchWord, setSearchWord] = useState('')
@@ -74,7 +76,6 @@ function TcAnalytic() {
       // 淺層拷貝
       newTcCourses = [...TcCourses]
     }
-
     //丟回到外面
     return newTcCourses
   }

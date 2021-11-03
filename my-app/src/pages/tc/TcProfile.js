@@ -32,7 +32,13 @@ function TcProfile(props) {
       new FormData(document.formAvatar)
     )
     setImgSrc(r.data.filename)
-    console.log(r.data)
+    // console.log(r.data)
+    if (r.data.success) {
+      setShowUp('showup')
+      setTimeout(() => {
+        setShowUp('none')
+      }, 1000)
+    }
   }
 
   useEffect(() => {

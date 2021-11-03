@@ -135,7 +135,7 @@ CREATE TABLE `course` (
 -- 傾印資料表的資料 `course`
 --
 
-INSERT INTO `course` (`sid`, `teacher_sid`, `course_category`, `course_name`, `course_img`, `course_price`, `course_data`, `hours`, `course_introduction`, `easiness`, `course_status`, `created_at`) VALUES
+INSERT INTO `course` (`sid`, `teacher_sid`, `course_category`, `course_name`, `course_img`, `course_price`, `course_data`, `duration`, `course_introduction`, `easiness`, `course_status`, `created_at`) VALUES
 (1, '1', '日文', 'Ai老師-日文課商務日語專家', '2a7fa621a58948bac2544d45f096fbd7f81b281d.png', 2755, '2021-06-08', 5, '練習日常對話 \r\n假設各種場景實際上是角色扮演\r\n了解日語的用法 示例）旅行，去餐館等時 \r\n日語發音練習（*對於初學者） \r\n與其他語言相比，日語在音調上沒有起伏， 人們很容易認為是一個容易發音的語言， 但外國人和日本人發音還是有很多不一樣的地方。\r\n 因此，我將教您更接近母語的發音', '3', 1, '0000-00-00 00:00:00'),
 (2, '2', '日文', '初級實用日文會話專業酒店翻譯一對', '60a8c6f3f2600f81c5bf5fc9e73234be3550e5f2.png', 3210, '2021-06-01', 5, '日文會話課程\r\n-零經驗 ➡︎從五十音學起，平假名、片假名沒在怕。\r\n-初級階段➡︎學了一陣子日文，但仍然沒有信心開口？老師可以幫你重拾信心。\r\n上課配合時事文章，幫您增強字彙量UpUpUp\r\n日本語能力試驗N5~N3考試對策班。\r\n無論妳是針對哪一階段的日檢，老師都可以幫助分析錯題對症下藥，令你一次通過日檢沒難度！\r\n旅遊日文➡︎教你日常生活對話、30堂課輕鬆玩轉日本。', '1', 1, '0000-00-00 00:00:00'),
 (3, '3', '日文', '中高級日語高手，商用旅遊生活會話!', '8fc83031291da1f1c510866d5d5969494dbe35ee.png', 3520, '2021-04-30', 5, ' 針對中高級同學，全程日語上課，能力全面提升\r\n 課程中加入大量日文會話，紮實學習，進步看得見\r\n 日檢JLPT強化特訓，重點強化或全面加強，滿足你的學習慾\r\n 會話課程提供商用會話、旅遊會話、時事主題會話、流行資訊會話，主題多元\r\n 客製化教學，課前課後免費提供PDF教材，方便預習、複習\r\n 課堂中使用Google Drive做紀錄，不怕課堂漏抄筆記', '3', 1, '0000-00-00 00:00:00'),

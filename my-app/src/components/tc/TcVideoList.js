@@ -29,25 +29,26 @@ function TcVideoList(props) {
   // const courseTime = moment
   //   .duration(sum, 'seconds')
   //   .format('hh:mm:ss')
-  let sum = 0
-  useEffect(() => {
-    const newVideos = [...Videos].map((v, i) => {
-      return v.duration
-    })
 
-    for (let i = 0; i < newVideos.length; i++) {
-      sum += newVideos[i]
-    }
+  let sum = 0
+  const newVideos = [...Videos].map((v, i) => {
+    return v.duration
+  })
+
+  for (let i = 0; i < newVideos.length; i++) {
+    sum += newVideos[i]
+  }
+  useEffect(() => {
     ;(async () => {
       let r = await axios.post(TcCourse_EDIT, {
         sid: courseSid,
         teacher_sid: memberObj.sid,
         duration: sum,
       })
-      console.log(r)
+      // console.log(r)
     })()
   }, [sum])
-
+  console.log('sum', sum)
   return (
     <>
       {Videos.map((Video, i) => {

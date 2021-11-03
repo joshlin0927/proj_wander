@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { IMG_PATH } from '../../config'
 
 function TcAnalayticsCourseCard(props) {
-  const {
-    course_category,
-    course_name,
-    course_img,
-    course_data,
-    views,
-  } = props
+  const { course_img, course_name, course_data, views } =
+    props
+
+  const CourseViewData = () => {
+    console.log('hi')
+  }
 
   return (
     <>
-      <div className="TCcourse-card col-12">
+      <div
+        className="TCcourse-card col-12"
+        onClick={CourseViewData}
+      >
         <div
           className="TCcourse-img"
           to="/TCindex/TcCourseEdit/"
@@ -31,7 +33,7 @@ function TcAnalayticsCourseCard(props) {
               <span>上傳日期：</span> {course_data}
             </div>
             <div className="TCcourse-detail">
-              <span>觀看次數：</span> {course_category}
+              <span>觀看次數：</span> {views}
             </div>
           </div>
         </div>
