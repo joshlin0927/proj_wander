@@ -6,6 +6,7 @@ import { withRouter } from 'react-router'
 import './TC2.css'
 
 // 頁面
+import TcApplyForm from '../../components/tc/TcApplyForm'
 import TcProfile from './TcProfile'
 import TcPassword from './TcPassword'
 import TcCourse from './TcCourse'
@@ -47,6 +48,9 @@ function Index() {
         <Route path="/TcIndex/TcProfile">
           <TcProfile />
         </Route>
+        {/* <Route path="/TcIndex/TcApplyForm">
+          <TcApplyForm />
+        </Route> */}
         <Route path="/TcIndex">
           <Redirect to="/TcIndex/TcCourse" />
         </Route>

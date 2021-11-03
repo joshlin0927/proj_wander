@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const multer = require("multer");
 const db = require("../modules/connect-mysql");
 const uploadImg = require("../modules/upload-images");
+const uploadPdf = require("../modules/upload-pdf");
 
 const router = express.Router();
 
@@ -37,7 +38,7 @@ router
     res.json(rs);
   })
 
-  .post(async (req, res) => {
+  .post(uploadPdf.single("resume"), async (req, res) => {
     const output = {
       success: false,
       error: "",
@@ -46,6 +47,7 @@ router
 
     const input = {
       ...req.body,
+      resume: req.file.filename,
     };
 
     const sql = `UPDATE \`member\` SET ? WHERE sid=?`;
@@ -67,7 +69,6 @@ router
 
     res.json(output);
   });
-
 
 router.route("/avatar").post(uploadImg.single("avatar"), async (req, res) => {
   const output = {
@@ -94,7 +95,6 @@ router.route("/avatar").post(uploadImg.single("avatar"), async (req, res) => {
 
   res.json(output);
 });
-
 
 router.route("/passEdit").post(async (req, res) => {
   const output = {

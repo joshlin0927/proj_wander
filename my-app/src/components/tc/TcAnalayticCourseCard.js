@@ -2,11 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { IMG_PATH } from '../../config'
 
 function TcAnalayticsCourseCard(props) {
-  const { course_img, course_name, course_data, views } =
-    props
+  const {
+    sid,
+    course_img,
+    course_name,
+    course_data,
+    views,
+    all,
+  } = props
 
   const CourseViewData = () => {
-    console.log('hi')
+    console.log('sid', { sid, all })
   }
 
   return (
