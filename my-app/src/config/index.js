@@ -56,9 +56,10 @@ export const ArtMessage_DELETE =
 export const ArtMessage_EDIT =
   API_HOST + '/art_messenger/edit'
 
-// cart&order route
+// cart&order&schedule route
 export const Cart_API = API_HOST + '/cart'
 export const SendOrder_API = API_HOST + '/sendOrder'
+export const Calendar_API = API_HOST + '/stCalendar'
 
 // export const UPLOAD_AVATAR = API_HOST + '/try-upload2'
 

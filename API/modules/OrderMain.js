@@ -82,6 +82,7 @@ class OrderMain{
         return output;
     }
 
+    // 從待付款變更為已付款
     static async statusToOne(order_id){
         const output = {
             success: false,

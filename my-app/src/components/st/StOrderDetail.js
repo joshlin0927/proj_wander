@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { SendOrder_API } from '../../config'
+import { SendOrder_API, Calendar_API } from '../../config'
 import { Modal } from 'react-bootstrap'
 import axios from 'axios'
 import Step3OrderDetailItem from '../../components/cart/Step3OrderDetailItem'
@@ -29,7 +29,24 @@ function StOrderDetail(props) {
     })()
   }, [memberID, orderID])
   // sendToSchedule
-  const sendToSchedule = () => {}
+  const sendToSchedule = async () => {
+    const nameArr = []
+    for (let i = 0; i < detailData.length; i++) {
+      nameArr[i] = detailData[i].course_name
+    }
+    let o = await axios.put(
+      `${SendOrder_API}/statusToOne?order_id=${orderID}`
+    )
+    if (o.data.success) {
+      let r = await axios.post(`${Calendar_API}/add`, {
+        member_sid: memberID,
+        course_name: nameArr,
+      })
+      if (!r.data.success) {
+        console.log('error:', r.data.error)
+      }
+    }
+  }
   return (
     <>
       <div className="row stPayMethod bgc-main">

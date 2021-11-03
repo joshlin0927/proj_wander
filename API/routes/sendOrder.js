@@ -22,7 +22,7 @@ router.post('/add/detail', async(req, res)=>{
 })
 
 // 修改(PUT)
-router.put('/edit', async(req, res)=>{
+router.put('/statusToOne', async(req, res)=>{
     res.json(await OrderMain.statusToOne(req.query.order_id));
 })
 
