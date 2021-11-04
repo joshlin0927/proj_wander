@@ -69,36 +69,18 @@ function CsCourse(prop) {
   }, [searchWord, TcCourses])
 
   useEffect(() => {
-    // if (!token) {
-    //   history.push('/')
-    // // } else if (identity !== 0) {
-    // //   history.push('/')
-    // } else {
     ;(async () => {
       let r = await axios.get(
         // `${ArtMessage_LIST}`
         `${CsCourse_LIST}`
       )
-      //下方原本的
-      // let r = await axios.get(
-      //   // `${ArtMessage_LIST}`
-      //   `${CsCourses_LIST}?Sid=${teacherSid}`
-      // )
-
-      // let c = await axios.get(
-      //   `${ArtMessage_LIST}?Sid=${teacherSid}`
-      // )
-
-      // setTcCourses(r.data.rows)
-
-      // setDisplayCourse(r.data.rows)
 
       if (r.status === 200) {
         setTcCourses(r.data.rows)
 
         setDisplayCourse(r.data.rows)
       }
-      // console.log('r.data.rows', r.data.rows)
+      console.log('r.data.rows', r.data.rows)
     })()
     // }
     // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
@@ -127,7 +109,6 @@ function CsCourse(prop) {
         <div className="row">
           <div className="sh-pageName   mx-auto">
             <div className="sh-search ml-0  ">
-              {' '}
               <TcSearchBar
                 placeholder="請輸入課程名稱"
                 searchWord={searchWord}

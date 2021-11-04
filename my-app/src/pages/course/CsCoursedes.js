@@ -37,12 +37,6 @@ function CsCoursede(props) {
 
   useEffect(() => {
     ;(async () => {
-      let r = await axios.get(
-        CsCourse_EDIT + props.location.search
-      )
-      setFields(r.data[0])
-      setImgSrc(r.data[0].course_img)
-      console.log('edit', r.data[0])
       if (member.sid) {
         let o = await axios.get(
           `${Cart_API}/checkone${props.location.search}&member_sid=${member.sid}`
@@ -60,6 +54,12 @@ function CsCoursede(props) {
           console.log('不在購物車')
         }
       }
+      let r = await axios.get(
+        CsCourse_EDIT + props.location.search
+      )
+      setFields(r.data[0])
+      setImgSrc(r.data[0].course_img)
+      console.log('edit', r.data[0])
     })()
   }, [props.location.search, member.sid])
 
