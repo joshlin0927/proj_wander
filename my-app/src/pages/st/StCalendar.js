@@ -207,90 +207,89 @@ export default function StCalendar(props) {
     console.log('[onSelecting] range: ', range)
   }
 
-  
-    return (
-      <>
-        <div className="container mainContent">
-          <MultiLevelBreadCrumb />
-          <div className="row">
-            <div className="col-10 ml-auto pageName">
-              <span className="pageNameText calendar">
-                Calendar
-              </span>
-            </div>
+  return (
+    <>
+      <div className="container mainContent">
+        <MultiLevelBreadCrumb />
+        <div className="row">
+          <div className="col-10 ml-auto pageName">
+            <span className="pageNameText calendar">
+              Calendar
+            </span>
           </div>
+        </div>
 
-          <div className="row">
-            <StSideBar2 imgSrc={imgSrc} />
-            <div
-              className="col-md-8 col-12 offset-0 offset-md-1 p-2 big_calendar"
-              style={{ backgroundColor: 'white' }}
-            >
-              <Calendar
-                {...{
-                  events,
-                  date,
-                  onNavigate,
-                  view,
-                  onView,
-                  onSelectSlot,
-                  onSelectEvent,
-                  onSelecting,
-                  onDoubleClickEvent,
-                  onKeyPressEvent,
-                }}
-                onEventDrop={moveEvent}
-                onEventResize={resizeEvent}
-                {...accessors}
-                selectable="ignoreEvents"
-              />
-            </div>
+        <div className="row">
+          <StSideBar2 imgSrc={imgSrc} />
+          <div
+            className="col-md-8 col-12 offset-0 offset-md-1 p-2 big_calendar"
+            style={{ backgroundColor: 'white' }}
+          >
+            <Calendar
+              {...{
+                events,
+                date,
+                onNavigate,
+                view,
+                onView,
+                onSelectSlot,
+                onSelectEvent,
+                onSelecting,
+                onDoubleClickEvent,
+                onKeyPressEvent,
+              }}
+              onEventDrop={moveEvent}
+              onEventResize={resizeEvent}
+              {...accessors}
+              selectable="ignoreEvents"
+            />
           </div>
+        </div>
 
-          {/* <div className="coursesection-m col-12">
+        {/* <div className="coursesection-m col-12">
           <CalendarCourseItem />
         </div> */}
-          <div className="h30"></div>
-          <div className="h30"></div>
-        </div>
+        <div className="h30"></div>
+        <div className="h30"></div>
+      </div>
 
-        <div className={`allwraper  ${schedule}`}>
-          <div className="calendardec-side col-md-10 col-lg-10 col-12">
-            <div className="calendardec-insideblock col-md-8 col-lg-8 col-12">
-              <div
-                className="closeicon"
-                onClick={() => {
-                  setSchedule('none')
-                }}
-              >
-                close
-              </div>
+      <div className={`allwraper  ${schedule}`}>
+        <div className="calendardec-side col-md-10 col-lg-10 col-12">
+          <div className="calendardec-insideblock col-md-8 col-lg-8 col-12">
+            <div
+              className="closeicon"
+              onClick={() => {
+                setSchedule('none')
+              }}
+            >
+              close
+            </div>
 
-              <div className="schedulecoursesection col-md-10 col-lg-8">
-                <Carousel cols={1} rows={1} gap={10} loop>
-                  {courses.length !== 0 ? (
-                    courses.map((course, i) => {
-                      return (
-                        <Carousel.Item>
-                          <CalendarCourseItem
-                            key={course.sid}
-                            name={course.course_name}
-                            courseimg={course.course_img}
-                            teacher={course.firstname}
-                          />
-                        </Carousel.Item>
-                      )
-                    })
-                  ) : (
-                    <></>
-                  )}
-                </Carousel>
-              </div>
+            <div className="schedulecoursesection col-md-10 col-lg-8">
+              <Carousel cols={1} rows={1} gap={10} loop>
+                {courses.length !== 0 ? (
+                  courses.map((course, i) => {
+                    return (
+                      <Carousel.Item>
+                        <CalendarCourseItem
+                          key={course.sid}
+                          name={course.course_name}
+                          courseimg={course.course_img}
+                          teacher={course.firstname}
+                        />
+                      </Carousel.Item>
+                    )
+                  })
+                ) : (
+                  <></>
+                )}
+              </Carousel>
             </div>
           </div>
         </div>
-        <div className="bgicalendar"></div>
-        <Footer />
-      </>
-    )
+      </div>
+      <div className="bgicalendar"></div>
+      <Footer />
+    </>
+  )
 }

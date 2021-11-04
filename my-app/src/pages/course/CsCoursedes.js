@@ -7,7 +7,11 @@ import { Link } from 'react-router-dom'
 
 import { devUrl } from '../../config'
 import { Modal } from 'react-bootstrap'
-import { CsCourse_EDIT, CsCourse_Cover } from '../../config'
+import {
+  CsCourse_EDIT,
+  CsCourse_Cover,
+  Cart_API,
+} from '../../config'
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
@@ -17,57 +21,47 @@ import Footer from '../../components/Footer'
 
 function CsCoursede(props) {
   const [show, setShow] = useState(false)
-  // const token = localStorage.getItem('token')
-  // const member = localStorage.getItem('member')
-
+  const member = localStorage.getItem('member')
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
+  const [fields, setFields] = useState({
+    teacher_sid: '',
+    course_name: '',
+    course_category: '',
+    course_price: '',
+    course_introduction: '',
+  })
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
   let [imgSrc, setImgSrc] = useState('')
 
-  // const [TcCourses, setTcCourses] = useState([])
-
-  // 拿去做map排列的，取的是r.data.rows，或是其它處理
-  // const [displayCourse, setDisplayCourse] = useState([])
-
-  // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
-  // const [RemoveCourse, setRemoveCourse] = useState()
-  // const [searchWord, setSearchWord] = useState('')
-
-  // const doUpload = async () => {
-  //   const r = await axios.post(
-  //     `${CsCourse_Cover}?sid=${fields.sid}`,
-  //     new FormData(document.formCover)
-  //   )
-  //   setImgSrc(r.data.filename)
-  //   // console.log(r.data)
-  // }
-  // const [fields, setFields] = useState({
-  //   teacher_sid: '',
-  //   course_name: '',
-  //   course_category: '',
-  //   course_price: '',
-  //   course_introduction: '',
-  // })
   useEffect(() => {
-    // if (!token) {
-    //   history.push('/')
-    // } else if (identity !== 1) {
-    //   history.push('/')
-    // } else {
     ;(async () => {
       let r = await axios.get(
         CsCourse_EDIT + props.location.search
       )
       setFields(r.data[0])
       setImgSrc(r.data[0].course_img)
-      localStorage.setItem(
-        'CourseSidForProcess',
-        r.data[0].sid
-      )
       console.log('edit', r.data[0])
+      if (member.sid) {
+        let o = await axios.get(
+          `${Cart_API}/checkone${props.location.search}&member_sid=${member.sid}`
+        )
+        if (o.data) {
+          document
+            .querySelectorAll('.csAddToCart')
+            .forEach((v, i) => {
+              v.classList.remove('btn-outline-b')
+              v.classList.remove('btn-b')
+              v.classList.add('changeAddCartBtn')
+              v.innerText = '已加入購物車'
+            })
+        } else {
+          console.log('不在購物車')
+        }
+      }
     })()
-    // }
-  }, [imgSrc])
+  }, [props.location.search, member.sid])
 
   const doUpload = async () => {
     const r = await axios.post(
@@ -78,49 +72,35 @@ function CsCoursede(props) {
     // console.log(r.data)
   }
 
-  // useEffect(() => {
-  //   // if (!token) {
-  //   //   history.push('/')
-  //   // // } else if (identity !== 0) {
-  //   // //   history.push('/')
-  //   // } else {
-  //   ;(async () => {
-  //     let r = await axios.get(
-  //       // `${ArtMessage_LIST}`
-  //       `${CsCourse_EDIT}`
-  //     )
-  //     //下方原本的
-  //     // let r = await axios.get(
-  //     //   // `${ArtMessage_LIST}`
-  //     //   `${CsCourses_LIST}?Sid=${teacherSid}`
-  //     // )
-
-  //     // let c = await axios.get(
-  //     //   `${ArtMessage_LIST}?Sid=${teacherSid}`
-  //     // )
-
-  //     // setTcCourses(r.data.rows)
-
-  //     // setDisplayCourse(r.data.rows)
-
-  //     if (r.status === 200) {
-  //       setTcCourses(r.data.rows)
-
-  //       setDisplayCourse(r.data.rows)
-  //     }
-  //     // console.log('r.data.rows', r.data.rows)
-  //   })()
-  //   // }
-  //   // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
-  // }, [])
-
-  const [fields, setFields] = useState({
-    teacher_sid: '',
-    course_name: '',
-    course_category: '',
-    course_price: '',
-    course_introduction: '',
-  })
+  // 新增購物車資料
+  function addCart(courseID) {
+    fetch(`${Cart_API}/add`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        member_sid: member.sid,
+        product_sid: courseID,
+      }),
+    })
+      .then((r) => r.json())
+      .then((obj) => {
+        if (obj.success) {
+          console.log('新增成功：', obj)
+        } else {
+          console.log(obj.error)
+        }
+      })
+  }
+  function changeAddCartBtn(e) {
+    const btn = e.target
+    console.log('btn', btn.classList)
+    btn.classList.remove('btn-outline-b')
+    btn.classList.remove('btn-b')
+    btn.classList.add('changeAddCartBtn')
+    btn.innerText = '已加入購物車'
+  }
   const handleFieldChange = (e) => {
     // 1. 從原本的狀態物件拷貝新物件
     // 2. 在拷貝的新物件上處理
@@ -136,13 +116,8 @@ function CsCoursede(props) {
     <>
       <div className="container mainContent">
         {/* breadcrumb */}
+        <MultiLevelBreadCrumb />
         <div className="row">
-          <MultiLevelBreadCrumb />
-          {/* <div className="col-10 ml-auto pageName">
-            <span className="pageNameText TCprofile">
-              Profile
-            </span>
-          </div> */}
           <div className="video">
             <div className="embed-responsive embed-responsive-16by9">
               {/* <video class="video-fluid z-depth-1" autoplay loop controls muted> (有muted就是自動播放) */}
@@ -192,9 +167,10 @@ function CsCoursede(props) {
                     className="sh-nav-item active  shadow-sm p-3 mb-2 bg-body rounded "
                     style={{ backgroundColor: '#065f8e' }}
                   >
-                    <a 
-                    href=""
-                    className="list-content flex">
+                    <a
+                      href=""
+                      className="list-content flex"
+                    >
                       <span
                         className="item flex"
                         style={{
@@ -442,169 +418,169 @@ function CsCoursede(props) {
                     className=""
                     to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
                   >
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
                       >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
                   </Link>
                   <Link
                     className=""
                     to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
                   >
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
                       >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
                   </Link>
                   <Link
                     className=""
                     to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
                   >
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
                       >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
                   </Link>
                   <Link
                     className=""
                     to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
                   >
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
                       >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
                   </Link>
                   <Link
                     className=""
                     to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
                   >
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
                       >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
                   </Link>
-                    <Link
+                  <Link
                     className=""
                     to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
                   >
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
                       >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
                   </Link>
                 </ul>
               </nav>
@@ -676,17 +652,24 @@ function CsCoursede(props) {
                 marginLeft: '10px',
               }}
             >
-              <h4 className="fas fa-money-bill-alt">
-                {fields.course_price} NTD
+              <h4 className="fas fa-money-bill-alt m-0">
+                &nbsp;{fields.course_price} NTD
               </h4>
             </button>
             <button
-              className="btn btn-outline-b btn-b "
+              className="btn btn-outline-b btn-b csAddToCart"
               style={{
                 width: '230px',
                 marginRight: '10px',
                 marginTop: '10px',
                 marginLeft: '10px',
+              }}
+              onClick={(e) => {
+                const id = new URLSearchParams(
+                  props.location.search
+                )
+                addCart(id.get('courseSid'))
+                changeAddCartBtn(e)
               }}
             >
               加入購物車
@@ -715,13 +698,20 @@ function CsCoursede(props) {
               className=" btn btn-outline-b btn-b "
               style={{ width: '230px', marginTop: '24px' }}
             >
-              <h4 className="fas fa-money-bill-alt">
-                {fields.course_price}NTD
+              <h4 className="fas fa-money-bill-alt m-0">
+                &nbsp;{fields.course_price}NTD
               </h4>
             </button>
             <button
-              className="btn btn-outline-b btn-b "
+              className="btn btn-outline-b btn-b csAddToCart"
               style={{ width: '230px', marginTop: '24px' }}
+              onClick={(e) => {
+                const id = new URLSearchParams(
+                  props.location.search
+                )
+                addCart(id.get('courseSid'))
+                changeAddCartBtn(e)
+              }}
             >
               加入購物車
             </button>
