@@ -101,7 +101,7 @@ function PcNavbar(props) {
             </div>
             <ul className="nav__pc_menu col-7">
               <li>
-                <Link to="/StIndex/StProfile">
+                <Link to="#/">
                   <span className="nav__en">關於我們</span>
                 </Link>
               </li>

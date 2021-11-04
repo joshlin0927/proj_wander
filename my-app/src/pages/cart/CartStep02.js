@@ -34,6 +34,9 @@ function CartStep02(props) {
   const handleAlertModalClose = () =>
     setAlertModalShow(false)
   const handleAlertModalShow = () => setAlertModalShow(true)
+  const [stopModalShow, setStopModalShow] = useState(false)
+  const handleStopModalClose = () => setStopModalShow(false)
+  const handleStopModalShow = () => setStopModalShow(true)
   // states
   const [cartData, setCartData] = useState([{}])
   const [cartQty, setCartQty] = useState(-1)
@@ -291,7 +294,7 @@ function CartStep02(props) {
               <div className="editCheckList container">
                 <div className="row align-items-center">
                   {cartQty === 0
-                    ? alert('購物車內無項目')
+                    ? handleStopModalShow()
                     : cartData.map((v, i) => {
                         return (
                           <EditCheckList
@@ -391,6 +394,31 @@ function CartStep02(props) {
             onClick={handleAlertModalClose}
           >
             確認
+          </button>
+        </Modal.Footer>
+      </Modal>
+      <Modal
+        show={stopModalShow}
+        onHide={handleStopModalClose}
+        id="alertModal"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title>提醒</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">
+          <span>購物車內無項目</span>
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            type="button"
+            className="btn confirmBtn"
+            onClick={() => {
+              props.history.push('/')
+            }}
+          >
+            返回首頁
           </button>
         </Modal.Footer>
       </Modal>
