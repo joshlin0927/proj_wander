@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { SendOrder_API, Calendar_API } from '../../config'
+import { SendOrder_API } from '../../config'
 import { Modal } from 'react-bootstrap'
 import axios from 'axios'
 import Step3OrderDetailItem from '../../components/cart/Step3OrderDetailItem'
