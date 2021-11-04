@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './style/classroom.css'
-import { devUrl } from '../../config'
 
 //共用元件
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -10,8 +9,19 @@ import PcCoursePlaylist from '../../components/PcCoursePlaylist'
 import MobileCoursePlayer from '../../components/MobileCoursePlayer'
 import MobileCoursePlaylist from '../../components/MobileCoursePlaylist'
 import Footer from '../../components/Footer'
+import axios from 'axios'
 
 export default function StClassroom() {
+  const [videos, setVideos] = useState('')
+  useEffect(() => {
+    ;(async () => {
+      let r = await axios.get(
+        'http://localhost:3001/stcourse/classroom/?courseSid=24'
+      )
+      setVideos(r.data)
+      // console.log(r.data)
+    })()
+  }, [])
   return (
     <>
       <div class="container mainContent">
@@ -25,7 +35,7 @@ export default function StClassroom() {
         <div class="row">
           <StSideBar2 />
           <PcCoursePlayer />
-          <PcCoursePlaylist />
+          <PcCoursePlaylist videos={videos} />
         </div>
 
         <div class="row">

@@ -1,33 +1,24 @@
 import React from 'react'
 
-export default function PcCoursePlaylist() {
+import PcCoursePlaylistCard from './PcCoursePlaylistCard'
+
+export default function PcCoursePlaylist(props) {
+  const { videos } = props
+
+  console.log('videos', videos)
+
   return (
     <>
-      <div class="playlist col-3 mo-none">
-        <div class="first clip">
-          <p> 自我介紹 </p> <p> 02: 33 </p>
-        </div>
-        <div class="clip">
-          <p> 西班牙文基礎發音 </p> <p> 02: 33 </p>
-        </div>
-        <div class="clip">
-          <p> 西班牙文基礎發音 </p> <p> 02: 33 </p>
-        </div>
-        <div class="clip">
-          <p> 西班牙文基礎發音 </p> <p> 02: 33 </p>
-        </div>
-        <div class="clip">
-          <p> 西班牙文基礎發音 </p> <p> 02: 33 </p>
-        </div>
-        <div class="clip">
-          <p> 基礎發音 </p> <p> 02: 33 </p>
-        </div>
-        <div class="clip">
-          <p> 基礎發音 </p> <p> 02: 33 </p>
-        </div>
-        <div class="clip">
-          <p> 基礎發音 </p> <p> 02: 33 </p>
-        </div>
+      <div className="playlist col-3 mo-none">
+        {/* {videos.map((v, i) => {
+          return (
+            <PcCoursePlaylistCard
+              // key={v.sid}
+              video_name={v.video_name}
+              duration1={v.duration}
+            />
+          )
+        })} */}
       </div>
     </>
   )
