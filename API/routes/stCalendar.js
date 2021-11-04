@@ -14,8 +14,17 @@ router.post('/add', async(req, res)=>{
 
 // 修改(PUT)
 router.put('/edit', async(req, res)=>{
-    res.json(await StCalendar.edit(req));
+  res.json(await StCalendar.edit(req.body.start, req.body.end, req.body.member_sid, req.body.course_name));
 })
 
+router.delete('/delete', async (req, res) => {
+    const output={
+        body:req.body,
+        result: await StCalendar.delete(req.body.member_sid, req.body.course_name)
+    }
+    
+    
+    res.json(output);
+})
 
 module.exports = router;

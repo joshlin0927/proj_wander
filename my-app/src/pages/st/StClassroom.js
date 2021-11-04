@@ -9,6 +9,7 @@ import PcCoursePlayer from '../../components/PcCoursePlayer'
 import PcCoursePlaylist from '../../components/PcCoursePlaylist'
 import MobileCoursePlayer from '../../components/MobileCoursePlayer'
 import MobileCoursePlaylist from '../../components/MobileCoursePlaylist'
+import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import Footer from '../../components/Footer'
 
 export default function StClassroom() {
@@ -37,7 +38,8 @@ export default function StClassroom() {
         </div>
         <div className="h30"> </div>
       </div>
-      <div className=" bgiclassroom "> </div>
+      <StBgDecorationNormal />
+      <div className="bgbeige"> </div>
       <Footer />
     </>
   )
