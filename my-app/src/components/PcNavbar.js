@@ -127,17 +127,17 @@ function PcNavbar(props) {
                   <Link
                     to={
                       member
-                        ? identity === 1
-                          ? '/ArtIndex/Article'
-                          : '/ArtIndex/ArticleSt'
+                        ? identity === 0
+                          ? '/ArtIndex/ArticleSt'
+                          : '/ArtIndex/Article'
                         : '/'
                     }
                   >
                     <span className="nav__en">
                       {member
-                        ? identity === 1
-                          ? '熱門文章'
-                          : '國際角落'
+                        ? identity === 0
+                          ? '國際角落'
+                          : '熱門文章'
                         : '/'}
                     </span>
                   </Link>

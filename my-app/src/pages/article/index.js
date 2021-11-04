@@ -14,7 +14,9 @@ import ArticleMessageSt from './st/ArticleMessageSt'
 
 function index() {
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
+  const identity = member ? member.identity : ''
   return (
     <>
       <Switch>
@@ -38,10 +40,10 @@ function index() {
           <ArtMessage />
         </Route>
         <Route path="/ArtIndex">
-          {identity === 1 ? (
-            <Redirect to="/ArtIndex/Article" />
-          ) : (
+          {identity === 0 ? (
             <Redirect to="/ArtIndex/ArticleSt" />
+          ) : (
+            <Redirect to="/ArtIndex/Article" />
           )}
         </Route>
       </Switch>

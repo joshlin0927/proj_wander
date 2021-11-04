@@ -45,12 +45,12 @@ function Footer(props) {
             <div className="Footer-page-links col-12 col-md-8">
               <Link to="#/">關於我們</Link>
               <Link to="#/">常見問題</Link>
-              {identity === 1 ? (
-                <Link to="/ArtIndex/Article">熱門文章</Link>
-              ) : (
+              {identity === 0 ? (
                 <Link to="/ArtIndex/ArticleSt">
                   國際角落
                 </Link>
+              ) : (
+                <Link to="/ArtIndex/Article">熱門文章</Link>
               )}
             </div>
           </div>

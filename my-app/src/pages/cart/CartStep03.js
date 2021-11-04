@@ -20,8 +20,8 @@ function CartStep03(props) {
   const member = localStorage.getItem('member')
     ? JSON.parse(localStorage.getItem('member'))
     : ''
-  const order = localStorage.getItem('order')
-    ? JSON.parse(localStorage.getItem('order'))
+  const order = sessionStorage.getItem('order')
+    ? JSON.parse(sessionStorage.getItem('order'))
     : ''
 
   useEffect(() => {
