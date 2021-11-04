@@ -5,7 +5,8 @@ import { devUrl } from '../config'
 
 function Footer(props) {
   const { cartFooterMb } = props
-
+  const member = localStorage.getItem('member')
+  const identity = JSON.parse(member).identity
   //申請表的顯示
   const [isShow, setIsShow] = useState(false)
   const handleIsClose = () => setIsShow(false)
@@ -42,7 +43,13 @@ function Footer(props) {
             <div className="Footer-page-links col-12 col-md-8">
               <Link to="#/">關於我們</Link>
               <Link to="#/">常見問題</Link>
-              <Link to="#/">國際角落</Link>
+              {identity === 1 ? (
+                <Link to="/ArtIndex/Article">熱門文章</Link>
+              ) : (
+                <Link to="/ArtIndex/ArticleSt">
+                  國際角落
+                </Link>
+              )}
             </div>
           </div>
           <div className="footer-right">
