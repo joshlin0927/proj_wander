@@ -39,7 +39,9 @@ function CartStep02(props) {
   const [cartQty, setCartQty] = useState(-1)
   const counponID = sessionStorage.getItem('counponID')
   // 取得該會員購物車資料
-  const member = JSON.parse(localStorage.getItem('member'))
+  const member = localStorage.getItem('member')
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
   useEffect(() => {
     ;(async () => {
       let r = await axios.get(

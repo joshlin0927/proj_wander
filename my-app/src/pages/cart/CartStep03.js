@@ -17,8 +17,12 @@ import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 function CartStep03(props) {
   const [orderData, setOrderData] = useState([{}])
   // 取得該會員訂單資料
-  const member = JSON.parse(localStorage.getItem('member'))
-  const order = JSON.parse(sessionStorage.getItem('order'))
+  const member = localStorage.getItem('member')
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
+  const order = localStorage.getItem('order')
+    ? JSON.parse(localStorage.getItem('order'))
+    : ''
 
   useEffect(() => {
     ;(async () => {

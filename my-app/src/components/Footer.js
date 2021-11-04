@@ -6,7 +6,9 @@ import { devUrl } from '../config'
 function Footer(props) {
   const { cartFooterMb } = props
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
+  const identity = member ? member.identity : ''
   //申請表的顯示
   const [isShow, setIsShow] = useState(false)
   const handleIsClose = () => setIsShow(false)

@@ -251,9 +251,6 @@ app.get("/video", function (req, res) {
 
 });
 
-
-
-
 //學生
 app.use('/stprofile', require(__dirname + '/routes/stprofile'))
 app.use('/stCalendar', require(__dirname + '/routes/stCalendar'))
@@ -264,7 +261,8 @@ app.use('/api/teacherdata', require(__dirname + '/routes/recommandtc'))
 //取得member email資料判斷註冊有無重複使用帳號
 app.use('/api/accountdata', require(__dirname + '/routes/getaccount'))
 app.use('/passwordmodify', require(__dirname + '/routes/stpasswordmodify'))
-
+//課程頁-詳細頁
+app.use('/cs_course', require(__dirname + '/routes/cs_course'));
 // 測驗
 app.use('/sentence-game', require(__dirname + '/routes/sentence-game'));
 // cart
