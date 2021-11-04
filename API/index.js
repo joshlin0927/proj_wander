@@ -179,6 +179,9 @@ app.use('/art_messenger', require(__dirname + '/routes/art_messenger'));
 app.use('/art_messengerADD', require(__dirname + '/routes/art_messengerADD'));
 
 
+//課程
+app.use('/cs_course', require(__dirname + '/routes/cs_course'));
+//課程
 
 // 聊天室設定
 const publicPath = path.join(__dirname + "/public/chat.html");
