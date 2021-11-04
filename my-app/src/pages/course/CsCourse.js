@@ -123,8 +123,8 @@ function CsCourse(prop) {
                   : null} */}
 
       <div className="container mainContent">
+        <MultiLevelBreadCrumb />
         <div className="row">
-          <MultiLevelBreadCrumb />
           <div className="sh-pageName   mx-auto">
             <div className="sh-search ml-0  ">
               {' '}
