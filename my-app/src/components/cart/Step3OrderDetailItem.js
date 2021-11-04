@@ -1,12 +1,12 @@
 import React from 'react'
-import { devUrl } from '../../config'
+import { API_HOST } from '../../config'
 function Step3OrderDetailItem(props) {
   const { name, price, img } = props
   return (
     <>
       <div className="orderDetailItem col-12">
         <img
-          src={`${devUrl}/images/cart/jp_course.jpg`}
+          src={`${API_HOST}/img/course/img/${img}`}
           alt=""
           className="col-4 orderDetailItemImg"
         />

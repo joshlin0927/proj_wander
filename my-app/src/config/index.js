@@ -33,6 +33,9 @@ export const TcCourse_EDIT = API_HOST + '/TcCourse/edit'
 export const TcCourse_DELETE =
   API_HOST + '/TcCourse/delete/'
 
+// Tc Analytic
+export const TcAnalytics = API_HOST + '/TcCourse/analytics'
+
 // TcVideo CRUD
 export const TcVideo_ADD = API_HOST + '/TcVideo/add'
 export const TcVideo_LAST = API_HOST + '/TcVideo/LastAdd/'
@@ -53,8 +56,29 @@ export const CsCourse_LIST =
 export const CsCourse_EDIT = API_HOST + '/cs_course/edit'
 export const CsCourse_Cover = API_HOST + '/cs_course/Cover/'
 
-//article-list
+//article-messenger-list
 
+export const Art_Article_messenger_LIST =
+  API_HOST + '/art_messenger_list/api/list'
+
+//article-POP-list
+
+export const Art_Article_POP_LIST =
+  API_HOST + '/art_article_pop_list/api/list'
+
+//article-inter-list
+
+export const Art_Article_inter_LIST =
+API_HOST + '/art_article_inter_list/api/list'
+
+//article-list
+export const Art_Inter_LIST =
+  API_HOST + '/article_inter/api/list'
+
+//article-inter-list
+export const Art_inter_LIST = API_HOST + '/art_inter_list/api/list'
+
+//article-pop-list
 export const Art_LIST = API_HOST + '/art_list/api/list'
 
 //article-message CRUD
@@ -97,6 +121,8 @@ export const pathnameList = [
   '/StIndex/StCalendar',
   '/StIndex/StClassroom',
   '/ArtIndex/Article',
+  '/ArtIndex/ArticleMessage',
+  '/ArtIndex/ArticleSt',
   '/ArtIndex/ArtMessage',
   '/ArtIndex/ArtMessageADD',
 ]
@@ -123,6 +149,8 @@ export const pathnameTextList = [
   '/學生頁面/我的課程',
   '/學生頁面/課程管理',
   '/學生頁面/教室上課',
+  '/熱門文章',
+  '/熱門文章/文章內容',
   '/國際角落',
   '/國際角落/文章內容',
   '/國際角落/留言頁面',

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { devUrl, IMG_PATH, MemberEdit } from '../config'
+import { Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
 import axios from 'axios'
@@ -21,19 +22,24 @@ function PcNavbar(props) {
   //判斷是否登入
   const history = useHistory()
   const token = localStorage.getItem('token')
+    ? localStorage.getItem('token')
+    : ''
   const member = localStorage.getItem('member')
-  const memberObj = JSON.parse(member)
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
+  const memberID = member ? member.sid : ''
+  const identity = member ? member.identity : ''
   useEffect(() => {
-    if (token && memberObj.identity === 1) {
+    if (token && identity === 1) {
       setAuth(true)
       ;(async () => {
         let r = await axios.get(
-          `${MemberEdit}/?teacherSid=${memberObj.sid}`
+          `${MemberEdit}/?teacherSid=${memberID}`
         )
         // console.log('TCr', r)
         setImgSrc(r.data[0].avatar)
       })()
-    } else if (token && memberObj.identity === 0) {
+    } else if (token && identity === 0) {
       ;(async () => {
         let r = await axios.get(
           `http://localhost:3001/stprofile/list`,
@@ -107,19 +113,37 @@ function PcNavbar(props) {
               <li>
                 <Link
                   to={
-                    memberObj && memberObj.identity === 1
-                      ? '/TcIndex/TcCourse'
-                      : '/StIndex/StCourse'
+                    member
+                      ? identity === 1
+                        ? '/TcIndex/TcCourse'
+                        : '/StIndex/StCourse'
+                      : '/'
                   }
                 >
                   <span className="nav__en">我的課程</span>
                 </Link>
               </li>
-              <li>
-                <Link to="/ArtIndex/ArtAll">
-                  <span className="nav__en">國際角落</span>
-                </Link>
-              </li>
+              {auth === true ? (
+                <li>
+                  <Link
+                    to={
+                      member
+                        ? identity === 0
+                          ? '/ArtIndex/ArticleSt'
+                          : '/ArtIndex/Article'
+                        : '/'
+                    }
+                  >
+                    <span className="nav__en">
+                      {member
+                        ? identity === 0
+                          ? '國際角落'
+                          : '熱門文章'
+                        : '/'}
+                    </span>
+                  </Link>
+                </li>
+              ) : null}
             </ul>
             <div className="col d-flex align-items-center justify-content-around">
               {auth === false ? (
@@ -156,8 +180,8 @@ function PcNavbar(props) {
                     <div className="mb-1">
                       <Link
                         to={
-                          memberObj
-                            ? memberObj.identity === 1
+                          member
+                            ? identity === 1
                               ? '/Tcindex'
                               : '/StIndex/StProfile'
                             : '/'

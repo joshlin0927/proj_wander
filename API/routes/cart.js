@@ -16,6 +16,10 @@ const CartItem = require('./../modules/CartItem');
 router.get('/list', async(req, res)=>{
     res.json(await CartItem.getList(req.query.member_sid));
 })
+// 讀取單一會員單一購物車(GET)
+router.get('/checkone', async(req, res)=>{
+    res.json(await CartItem.findItem(req.query.member_sid, req.query.courseSid));
+})
 
 // 新增(POST)
 router.post('/add', async(req, res)=>{

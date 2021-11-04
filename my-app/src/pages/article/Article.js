@@ -5,7 +5,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 // 後端檔案路徑
-import { Art_LIST } from '../../config'
+import { Art_Article_POP_LIST } from '../../config'
 
 // components
 import TcSearchBar from './TcSearchBar'
@@ -21,9 +21,9 @@ function Article(props) {
   //判斷是否登入並為教師身分
   // const history = useHistory()
   // const token = localStorage.getItem('token')
-  // const member = localStorage.getItem('member')
+  const member = localStorage.getItem('member')
   // const identity = JSON.parse(member).identity
-  // const teacherSid = JSON.parse(member).sid
+  //  const teacherSid = JSON.parse(member).sid
 
   // 搜尋列
   const [searchWord, setSearchWord] = useState('')
@@ -55,7 +55,8 @@ function Article(props) {
   useEffect(() => {
     ;(async () => {
       const r = await axios.get(
-        `${Art_LIST}`
+        `${Art_Article_POP_LIST}`
+        //        `${Art_LIST}``
         // 'http://localhost:3001/api/art_list'
       )
       if (r.status === 200) {
@@ -237,7 +238,76 @@ function Article(props) {
           </div>
         </div>
       </div>
-      <div className="TCallwraperb">
+
+      {/* <div className="TCallwrapera-sing">
+        <div className="Article-TCallwraperw ">
+        <div className="row col-4 offset-8 p-0">
+          <div className="col-10 offset-0 p-0 ar-artpicture">
+            <Link to={`#`}>
+              <img
+                src={`${devUrl}/images/article/s/01.png`}
+                alt=""
+              />
+            </Link>
+
+            <Link to={`#`}>
+              <img
+                src={`${devUrl}/images/article/s/02.png`}
+                alt=""
+              />
+            </Link>
+          </div>
+          <div className="col-11 offset-0 p-0 ar-artpicture">
+            <Link to={`#`}>
+              <img
+                src={`${devUrl}/images/article/s/03.png`}
+                alt=""
+              />
+            </Link>
+
+            <Link to={`#`}>
+              <img
+                src={`${devUrl}/images/article/s/04.png`}
+                alt=""
+              />
+            </Link>
+          </div>
+          <div className="col-11 offset-0 p-0 ar-artpicture">
+            <Link to={`#`}>
+              <img
+                src={`${devUrl}/images/article/s/05.png`}
+                alt=""
+              />
+            </Link>
+
+            <Link to={`#`}>
+              <img
+                src={`${devUrl}/images/article/s/06.png`}
+                alt=""
+              />
+            </Link>
+          </div>
+          <div className="col-11 offset-0 p-0 ar-artpicture">
+            <Link to={`#`}>
+              <img
+                src={`${devUrl}/images/article/s/07.png`}
+                alt=""
+              />
+            </Link>
+
+            <Link to={`#`}>
+              <img
+                src={`${devUrl}/images/article/s/08.png`}
+                alt=""
+              />
+            </Link>
+          </div>
+        </div>
+
+        </div>
+      </div> */}
+
+      {/* <div className="TCallwraperb">
         <div className="row col-4 offset-8 p-0">
           <div className="col-11 offset-0 p-0 ar-artpicture">
             <Link to={`#`}>
@@ -300,7 +370,9 @@ function Article(props) {
             </Link>
           </div>
         </div>
-        {/* <div className="row col-12 offset-0 p-0">
+        </div> */}
+
+      {/* <div className="row col-12 offset-0 p-0">
 
         <div className="artar-coursesectiona col-4  col-md-2 offset-md-9">
           <div className="ar-artpicture">
@@ -402,13 +474,12 @@ function Article(props) {
           </div>
         </div>
         </div> */}
-      </div>
 
       <div className="TCallwrapera-sing">
         <div className="TCallwraperw">
           <div className="white-block">
             <div className="yellow-area-but-1 ">
-              國際角落
+              熱門文章
             </div>
           </div>
         </div>

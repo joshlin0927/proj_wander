@@ -95,10 +95,7 @@ function ArtCard(props) {
   useEffect(() => {
     if (!token) {
       history.push('/')
-    }
-    // else if (identity !== 0) {
-    //   history.push('/')}
-    else {
+    } else {
       ;(async () => {
         let r = await axios.get(
           `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
@@ -109,7 +106,8 @@ function ArtCard(props) {
         //  console.log('r.data[0][0]', r.data[0][0])
       })()
     }
-  })
+  }, [imgSrc])
+
 
   return (
     <>

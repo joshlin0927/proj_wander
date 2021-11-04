@@ -20,32 +20,30 @@ function MobileNavbar(props) {
 
   useEffect(() => {
     const path = props.location.pathname.toString()
-    const navItem = document.getElementsByClassName(
-      'mobile-nav-item'
+    const navItem = document.querySelectorAll(
+      '.mobile-nav-item'
     )
-    for (let i = 0; i < 5; i++) {
-      navItem[i].classList.remove('active')
-      if (path.includes('CsCourse')) {
-        navItem[0].classList.add('active')
-      }
 
-      navItem[i].classList.remove('active')
-      if (path.includes('Cart')) {
-        navItem[1].classList.add('active')
+    if (path.includes('CsCourse')) {
+      for (let i = 0; i < 5; i++) {
+        navItem[i].classList.remove('active')
       }
-      // navItem[i].classList.remove('active')
-      // if (path.includes('TC')) {
-      //   navItem[4].classList.add('active')
-      // }
-
-      navItem[i].classList.remove('active')
-      if (path.includes('StCourse')) {
-        navItem[3].classList.add('active')
+      navItem[0].classList.add('active')
+    }
+    if (path.includes('Cart')) {
+      for (let i = 0; i < 5; i++) {
+        navItem[i].classList.remove('active')
       }
-      navItem[i].classList.remove('active')
-      if (path.includes('MemberCenter')) {
-        navItem[4].classList.add('active')
+      navItem[1].classList.add('active')
+    }
+    if (
+      path.includes('StCourse') ||
+      path.includes('TcCourse')
+    ) {
+      for (let i = 0; i < 5; i++) {
+        navItem[i].classList.remove('active')
       }
+      navItem[3].classList.add('active')
     }
   }, [props.location.pathname])
   return (

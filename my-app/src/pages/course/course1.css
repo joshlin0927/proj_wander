@@ -17,12 +17,6 @@
   width: 100%;
 } */
 
-
-
-
-
-
-
 /* 網站導覽列 */
 /* .navbar {
   display: none;
@@ -139,8 +133,6 @@
   display: none;
 }
 
-
-
 /* 搜尋列 */
 
 .sh-search-mobile {
@@ -153,24 +145,21 @@
   height: 70px;
   padding-left: 17px;
   padding-right: 50px;
-  border: 1px solid #065F8E;
+  border: 1px solid #065f8e;
   border-radius: 6px;
 }
 
-.sh-searchbar+button[type="submit"] {
+.sh-searchbar + button[type='submit'] {
   width: 76px;
-  background: #065F8E;
+  background: #065f8e;
   color: white;
   margin-left: -50px;
   border: 0;
   border-radius: 0px 6px 6px 0px;
 }
 
-
 @media (min-width: 768px) {
-
   /* 網站主要導覽列 */
-  
 
   /* 頁面背景 */
   /* 圓圈的動畫 */
@@ -221,7 +210,6 @@
   } */
 
   /* 圓圈 */
-  
 
   /* 搜尋列 */
   .sh-search {
@@ -236,7 +224,6 @@
     width: 500px;
   }
 
-
   /* 頁面英文標題 */
   .sh-pageName {
     display: block;
@@ -250,11 +237,11 @@
     color: black;
     font-size: 6rem;
     font-weight: bold;
-    line-height: 1.0;
+    line-height: 1;
   }
 
   .profile::before {
-    content: "";
+    content: '';
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -266,7 +253,7 @@
   }
 
   .course::before {
-    content: "";
+    content: '';
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -278,7 +265,7 @@
   }
 
   .password::before {
-    content: "";
+    content: '';
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -289,9 +276,8 @@
     top: 55%;
   }
 
-
   .analytics::before {
-    content: "";
+    content: '';
     width: 28px;
     height: 28px;
     border-radius: 50%;
@@ -342,7 +328,7 @@
     width: 250px;
   }
 
-  .sh-sidebar .sh-nav-item>i {
+  .sh-sidebar .sh-nav-item > i {
     font-size: 25px;
     width: 40px;
     margin-left: 10%;
@@ -367,12 +353,7 @@
     opacity: 0.8;
   }
 
-  
-
   /* 瀏覽按鈕 */
-
-
-  
 
   /* 會員中心sh-sidebar */
   .sh-sidebar {
@@ -414,7 +395,7 @@
     width: 250px;
   }
 
-  .sh-sidebar .sh-nav-item>i {
+  .sh-sidebar .sh-nav-item > i {
     font-size: 25px;
     width: 40px;
     margin-left: 10%;
@@ -438,9 +419,6 @@
     background-color: white;
     opacity: 0.8;
   }
-
-  
- 
 
   /* 會員中心sh-sidebar */
   .sh-sidebar {
@@ -486,7 +464,7 @@
     background-color: transparent;
   }
 
-  .sh-sidebar .sh-nav-item>a>i {
+  .sh-sidebar .sh-nav-item > a > i {
     font-size: 10px;
     width: 30px;
     background-color: transparent;
@@ -508,15 +486,7 @@
   .sh-sidebar .sh-nav-item:hover {
     background-color: white;
   }
-
- 
-
 }
-
-
-
-
-
 
 .flex {
   flex: 1 1 200px;
@@ -538,7 +508,6 @@
   background-color: rgb(255, 255, 255);
   margin-left: px;
 }
-
 
 /* sh-sidebar選項列 */
 .sh-sidebars .nav-list {
@@ -565,7 +534,7 @@
   justify-content: center;
 }
 
-.sh-sidebars .sh-nav-item>i {
+.sh-sidebars .sh-nav-item > i {
   font-size: 25px;
   width: 40px;
   /* margin-left: 10%; */
@@ -574,7 +543,7 @@
 
 /* 選中的選項狀態 */
 .sh-sidebars .sh-nav-item.active {
-  background-color: #ECECEC;
+  background-color: #ececec;
 }
 
 /* .sh-sidebar .sh-nav-item.active::after {
@@ -595,7 +564,6 @@ background: #f1ef5b;
   list-style: none;
   padding-left: 0;
   /* width: 100%; */
-
 }
 
 /* sh-sidebar選項 */
@@ -619,7 +587,7 @@ background: #f1ef5b;
   background-color: transparent;
 }
 
-.sh-sidebar .sh-nav-item>a>i {
+.sh-sidebar .sh-nav-item > a > i {
   font-size: 10px;
   width: 30px;
   background-color: transparent;
@@ -665,7 +633,7 @@ background: #f1ef5b;
   width: 290px;
 }
 
-.sh-sidebarrwd .sh-nav-item>i {
+.sh-sidebarrwd .sh-nav-item > i {
   font-size: 25px;
   width: 40px;
   margin-left: 10%;
@@ -717,7 +685,7 @@ background: #f1ef5b;
   background-color: transparent;
 }
 
-.sh-sidebar .sh-nav-item>a>i {
+.sh-sidebar .sh-nav-item > a > i {
   font-size: 10px;
   width: 30px;
   background-color: transparent;
@@ -751,7 +719,7 @@ background: #f1ef5b;
   align-items: center;
   -webkit-box-pack: center;
   justify-content: center;
-  top: 0
+  top: 0;
 }
 
 .containe {
@@ -766,35 +734,27 @@ background: #f1ef5b;
 
 /* 查詢按鈕顏色hover藍 */
 .btn-outline-b {
-  color: #065F8E;
+  color: #065f8e;
   background-color: #ffffff;
-  border-color: #065F8E;
+  border-color: #065f8e;
   width: 230px;
-  
 }
 
 .btn-outline-b:hover {
   color: #ffffff;
-  background-color: #065F8E;
+  background-color: #065f8e;
   border-color: #ffffff;
-}
-
-.btn-outline-b:focus,
-.btn-outline-b.focus {
-  box-shadow: 0 0 0 0.2rem #ffffff;
-  background-color: #065F8E;
-  color: #ffffff;
 }
 
 .btn-outline-b.disabled,
 .btn-outline-b:disabled {
-  color: #065F8E;
+  color: #065f8e;
   background-color: transparent;
 }
 
 .btn-outline-b:not(:disabled):not(.disabled):active,
 .btn-outline-b:not(:disabled):not(.disabled).active,
-.show>.btn-outline-b.dropdown-toggle {
+.show > .btn-outline-b.dropdown-toggle {
   color: #212529;
   background-color: #ffffff;
   border-color: #212529;
@@ -802,40 +762,31 @@ background: #f1ef5b;
 
 .btn-outline-bb:not(:disabled):not(.disabled):active:focus,
 .btn-outline-bb:not(:disabled):not(.disabled).active:focus,
-.show>.btn-outline-b.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem #065F8E;
-  ;
+.show > .btn-outline-b.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem #065f8e;
 }
 .btn-outline-bb {
-  color: #065F8E;
+  color: #065f8e;
   background-color: #ffffff;
-  border-color: #065F8E;
+  border-color: #065f8e;
   width: 230px;
-  
 }
 
 .btn-outline-bb:hover {
   color: #ffffff;
-  background-color: #065F8E;
+  background-color: #065f8e;
   border-color: #ffffff;
-}
-
-.btn-outline-bb:focus,
-.btn-outline-bb.focus {
-  box-shadow: 0 0 0 0.2rem #ffffff;
-  background-color: #065F8E;
-  color: #ffffff;
 }
 
 .btn-outline-bb.disabled,
 .btn-outline-bb:disabled {
-  color: #065F8E;
+  color: #065f8e;
   background-color: transparent;
 }
 
 .btn-outline-bb:not(:disabled):not(.disabled):active,
 .btn-outline-bb:not(:disabled):not(.disabled).active,
-.show>.btn-outline-b.dropdown-toggle {
+.show > .btn-outline-b.dropdown-toggle {
   color: #212529;
   background-color: #ffffff;
   border-color: #212529;
@@ -843,49 +794,41 @@ background: #f1ef5b;
 
 .btn-outline-bb:not(:disabled):not(.disabled):active:focus,
 .btn-outline-bb:not(:disabled):not(.disabled).active:focus,
-.show>.btn-outline-b.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem #065F8E;
-  ;
+.show > .btn-outline-b.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem #065f8e;
 }
 
 .btn-outline-y {
-            color: #212529;
-            background-color: #ffffff;
-            border-color: #212529;
-        }
+  color: #212529;
+  background-color: #ffffff;
+  border-color: #212529;
+}
 
-        .btn-outline-y:hover {
-            color: #212529;
-            background-color: #F1EF5B;
-            border-color: #ffffff;
-        }
+.btn-outline-y:hover {
+  color: #212529;
+  background-color: #f1ef5b;
+  border-color: #ffffff;
+}
 
-        .btn-outline-y:focus,
-        .btn-outline-y.focus {
-            box-shadow: 0 0 0 0.2rem #ffffff;
-            background-color: #F1EF5B;
-        }
+.btn-outline-y.disabled,
+.btn-outline-y:disabled {
+  color: #f1ef5b;
+  background-color: transparent;
+}
 
-        .btn-outline-y.disabled,
-        .btn-outline-y:disabled {
-            color: #F1EF5B;
-            background-color: transparent;
-        }
+.btn-outline-y:not(:disabled):not(.disabled):active,
+.btn-outline-y:not(:disabled):not(.disabled).active,
+.show > .btn-outline-y.dropdown-toggle {
+  color: #212529;
+  background-color: #ffffff;
+  border-color: #212529;
+}
 
-        .btn-outline-y:not(:disabled):not(.disabled):active,
-        .btn-outline-y:not(:disabled):not(.disabled).active,
-        .show>.btn-outline-y.dropdown-toggle {
-            color: #212529;
-            background-color: #ffffff;
-            border-color: #212529;
-        }
-
-        .btn-outline-y:not(:disabled):not(.disabled):active:focus,
-        .btn-outline-y:not(:disabled):not(.disabled).active:focus,
-        .show>.btn-outline-y.dropdown-toggle:focus {
-            box-shadow: 0 0 0 0.2rem #F1EF5B;
-            ;
-        }
+.btn-outline-y:not(:disabled):not(.disabled):active:focus,
+.btn-outline-y:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-y.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem #f1ef5b;
+}
 
 .courr {
   display: flex;
@@ -900,9 +843,9 @@ background: #f1ef5b;
   width: 1100px;
   display: flex;
   justify-content: space-between;
-  margin-top: 40px
+  margin-top: 40px;
 }
-.corb-ph{
+.corb-ph {
   display: none;
 }
 .sh-courseitem {
@@ -913,15 +856,13 @@ background: #f1ef5b;
   position: relative;
   margin-bottom: 30px;
   margin-left: 10px;
-
-
 }
 
 .sh-courseitem img {
   width: 100%;
   height: 100%;
   border-radius: 30px;
-  object-fit: fill
+  object-fit: fill;
 }
 .sh-teachername {
   color: white;
@@ -931,34 +872,31 @@ background: #f1ef5b;
   top: 80%;
   left: 5%;
 }
-.co-price{
+.co-price {
   color: white;
   font-size: 13px;
   font-style: bold;
   position: absolute;
   top: 90%;
   left: 5%;
-
 }
 .span-a {
   display: flex;
   justify-content: center;
   font-size: 15px;
-  margin-bottom: 5px
+  margin-bottom: 5px;
 }
 .span-a span {
-font-family: Noto Sans;
-font-style: normal;
-font-weight: bold;
-font-size: 96px;
-line-height: 131px;
-color:#065F8E ;
-margin-bottom: 60px
-/* #065F8E */
-
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 96px;
+  line-height: 131px;
+  color: #065f8e;
+  margin-bottom: 60px;
+  /* #065F8E */
 }
-.span-b 
-{
+.span-b {
   display: none;
 }
 .sh-coursename {
@@ -970,9 +908,6 @@ margin-bottom: 60px
   margin-left: auto;
   position: absolute;
 }
-
-
-
 
 @media (max-width: 768px) {
   .containe {
@@ -998,129 +933,136 @@ margin-bottom: 60px
     flex-direction: column;
     align-items: center;
   }
-  .corb-ph{
-  display: flex;
-  flex-direction:column;
-  align-items: center;
+  .corb-ph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .ann {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+  }
+  .sh-sidebars .sh-nav-item {
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 10px;
+    align-items: center;
+    height: 100px;
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 3px;
+    color: #000000;
+    background-color: #ffffff;
+    width: 340px;
+    justify-content: center;
+  }
+  .ul-opp {
+    justify-content: space-between;
+  }
+  .dis h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sh-pageName {
+    display: flex;
+    margin-bottom: 35px;
+    margin-top: 15px;
+    padding: 0;
+  }
 
+  .sh-search {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sh-searchbar {
+    width: 320px;
+    height: 40px;
+    padding-left: 17px;
+    padding-right: 50px;
+    border: 1px solid #065f8e;
+    border-radius: 6px;
+  }
+
+  .sh-searchbar + button[type='submit'] {
+    width: 76px;
+    background: #065f8e;
+    color: white;
+    margin-left: -50px;
+    border: 0;
+    border-radius: 0px 6px 6px 0px;
+  }
+  .sh-courseitem {
+    width: 330px;
+    height: 270px;
+    border: 1.25px solid rgba(255, 255, 255, 1);
+    border-radius: 30px;
+    position: relative;
+    margin-bottom: 30px;
+    margin-left: 10px;
+  }
+
+  .sh-courseitem img {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+  }
+  .sh-teachername {
+    color: white;
+    font-size: 15px;
+    font-style: bold;
+    position: absolute;
+    top: 83%;
+    left: 5%;
+  }
+  .co-price {
+    color: white;
+    font-size: 15px;
+    font-style: bold;
+    position: absolute;
+    top: 90%;
+    left: 5%;
+  }
+  .span-a {
+    display: none;
+  }
+
+  .span-b {
+    display: flex;
+    justify-content: center;
+  }
+  .span-b span {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 131px;
+    color: #065f8e;
+    margin-bottom: 15px;
+  }
+  .sh-coursename {
+    color: white;
+    font-size: 16px;
+    font-style: bold;
+    top: 65%;
+    left: 5%;
+    margin-left: auto;
+    position: absolute;
+  }
 }
-.ann{
-  flex-direction:column;   align-items: center; margin-top: 24px;
-}
-.sh-sidebars .sh-nav-item {
-  display: flex;
-  text-align: center;
-  text-decoration: none;
+
+.changeAddCartBtn {
+  width: 230px;
+  margin: 10px 10px 0 10px;
+  background-color: #065f8e;
+  color: white;
   font-weight: bold;
-  font-size: 10px;
-  align-items: center;
-  height: 100px;
-  border-radius: 5px 5px 0px 0px;
-  margin-bottom: 3px;
-  color: #000000;
-  background-color: #ffffff;
-  width: 340px;
-  justify-content: center;
+  cursor: auto !important;
 }
-.ul-opp {
-  justify-content: space-between;
-}
-.dis h1{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.sh-pageName {
-  display: flex;
-  margin-bottom: 35px;
-  margin-top: 15px;
-  padding: 0;
-}
-
-.sh-search {
-  display: flex;
-  justify-content: center;
-}
-
-.sh-searchbar {
-  width: 320px;
-  height: 40px;
-  padding-left: 17px;
-  padding-right: 50px;
-  border: 1px solid #065F8E;
-  border-radius: 6px;
-}
-
-.sh-searchbar+button[type="submit"] {
-  width: 76px;
-  background: #065F8E;
+.changeAddCartBtn:hover {
+  background-color: #065f8e;
   color: white;
-  margin-left: -50px;
-  border: 0;
-  border-radius: 0px 6px 6px 0px;
-}
-.sh-courseitem {
-  width: 330px;
-  height: 270px;
-  border: 1.25px solid rgba(255, 255, 255, 1);
-  border-radius: 30px;
-  position: relative;
-  margin-bottom: 30px;
-  margin-left: 10px;
-}
-
-.sh-courseitem img {
-  width: 100%;
-  height: 100%;
-  border-radius: 30px;
-}
-.sh-teachername {
-  color: white;
-  font-size: 15px;
-  font-style: bold;
-  position: absolute;
-  top: 83%;
-  left: 5%;
-}
-.co-price{
-  color: white;
-  font-size: 15px;
-  font-style: bold;
-  position: absolute;
-  top: 90%;
-  left: 5%;
-
-}
-.span-a{
-  display: none;
-}
-
-.span-b {
-  display: flex;
-  justify-content: center;
-  
-}
-.span-b span {
-  font-family: Noto Sans;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 55px;
-  line-height: 131px;
-  color:#065F8E ;
-  margin-bottom: 15px
-
-
-}
-.sh-coursename {
-  color: white;
-  font-size: 16px;
-  font-style: bold;
-  top: 65%;
-  left: 5%;
-  margin-left: auto;
-  position: absolute;
-}
-
-
- 
 }

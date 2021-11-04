@@ -91,6 +91,7 @@ export default withRouter(function StCourse(props) {
                 return (
                   <CourseItem
                     key={course.sid + '_' + i}
+                    sid={course.product_sid}
                     name={course.course_name}
                     courseimg={course.course_img}
                     teacher={course.firstname}

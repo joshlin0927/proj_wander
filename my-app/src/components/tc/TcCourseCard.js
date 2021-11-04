@@ -26,8 +26,6 @@ function TcCourseCard(props) {
     .duration(hours, 'seconds')
     .format('hh:mm:ss')
 
-  console.log(hours)
-
   // 刪除課程
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
@@ -38,9 +36,18 @@ function TcCourseCard(props) {
     handleClose()
   }
 
+  const [courseSid, setCourseSid] = useState('')
+
+  const ChooseCourse = () => {
+    sessionStorage.setItem('courseSid', sid)
+  }
+
   return (
     <>
-      <div className="TCcourse-card col-12">
+      <div
+        className="TCcourse-card col-12"
+        onClick={ChooseCourse}
+      >
         <div
           className="TCcourse-img"
           to="/TCindex/TcCourseEdit/"

@@ -6,8 +6,11 @@ import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom'
 import HomeBgDecorationNormal from '../../components/home/HomeBgDecorationNormal'
 
-
 function WanderIndex() {
+  const member = localStorage.getItem('member')
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
+  const identity = member ? member.identity : ''
   return (
     <>
       <MultiLevelBreadCrumb />
@@ -286,7 +289,7 @@ function WanderIndex() {
                 <div className="row yellow-area-but-3 offset-5">
                   <Link to="/SignUp">
                     <button className="btn checkoutBtn">
-                    快來註冊吧!
+                      快來註冊吧!
                     </button>
                   </Link>
                 </div>
@@ -328,13 +331,16 @@ function WanderIndex() {
               <div className="col-md-12 offset-md-0 ">
                 <div className="card-a">
                   <div className="yellow-area-but-4-index col-12 offset-1">
-                    <Link to="/SignUp">
-                      <button className="btn checkoutBtn-y">
-                        快來註冊吧!
-                      </button>
-                    </Link>
+                    {identity === '' ? (
+                      <Link to="/SignUp">
+                        <button className="btn checkoutBtn-y">
+                          快來註冊吧!
+                        </button>
+                      </Link>
+                    ) : (
+                      ''
+                    )}
                   </div>
-
                 </div>
               </div>
             </div>
@@ -364,7 +370,11 @@ function WanderIndex() {
               <div className="col-md-2 offset-md-1 col-7 offset-5 p-0">
                 <div className="imge-4-Text ">
                   <div className="top-c ">
-                    <span>熱門文章</span>
+                    <span>
+                      {identity === 0
+                        ? '國際角落'
+                        : '熱門文章'}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -375,24 +385,38 @@ function WanderIndex() {
           <div className="row col-12 offset-0 p-0">
             <div className="row col-12 justify-content-center d-flex">
               <div className="coursesection col-md-12 col-lg-12">
-                <div className="index-articleitem">
-                  <img
-                    src={`${devUrl}/images/index/06.png`}
-                    alt=""
-                  />
-                </div>
-                <div className="index-articleitem">
-                  <img
-                    src={`${devUrl}/images/index/07.png`}
-                    alt=""
-                  />
-                </div>
-                <div className="index-articleitem">
-                  <img
-                    src={`${devUrl}/images/index/08.png`}
-                    alt=""
-                  />
-                </div>
+                <Link
+                  to={`/ArtIndex/ArticleMessage?articleSid=101`}
+                >
+                  <div className="index-articleitem">
+                    <img
+                      src={`${devUrl}/images/index/06.png`}
+                      alt=""
+                    />
+                  </div>
+                </Link>
+
+                <Link
+                  to={`/ArtIndex/ArticleMessage?articleSid=96`}
+                >
+                  <div className="index-articleitem">
+                    <img
+                      src={`${devUrl}/images/index/07.png`}
+                      alt=""
+                    />
+                  </div>
+                </Link>
+
+                <Link
+                  to={`/ArtIndex/ArticleMessage?articleSid=103`}
+                >
+                  <div className="index-articleitem">
+                    <img
+                      src={`${devUrl}/images/index/08.png`}
+                      alt=""
+                    />
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
@@ -400,11 +424,13 @@ function WanderIndex() {
         <div className="indexBigImg19 container-fluid">
           <div className="row col-12 ">
             <div className="row w-100 m-0 ">
-              <div className="col-md-6 offset-5 p-0 popular-card-but">
-                <button className="btn a-checkoutBtn-a ">
-                  更多文章
-                </button>
-              </div>
+              <Link to={`/ArtIndex/ArtAll`}>
+                <div className="col-md-6 offset-5 p-0 popular-card-but">
+                  <button className="btn a-checkoutBtn-a ">
+                    更多文章
+                  </button>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

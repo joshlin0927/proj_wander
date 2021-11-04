@@ -82,7 +82,7 @@ function Login(props) {
 
           setAuth(true)
           setUser(obj.member.sid)
-          history.push('/')
+          history.goBack()
         } else {
           setAuth(false)
           if (auth === false) {

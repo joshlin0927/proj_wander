@@ -8,6 +8,13 @@
   /* overflow: hidden; */
 }
 
+.Stbtn:focus{
+  background-color: transparent ;
+  box-shadow:none ;
+  border: 1px solid black ;
+  
+}
+
 /* .stbgimg {
    width: 100%;
    height:fit-content;
@@ -120,6 +127,12 @@
   background-color: rgba(241, 239, 91, 1);
   border: transparent 1px solid;
   color: black;
+   
+}
+
+save-btn:focus{
+  border: 1px solid black;
+  
 }
 
 /* 教師頁面返回按鈕 */

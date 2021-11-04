@@ -37,6 +37,10 @@ body {
   opacity: 0;
 }
 
+.border-0 {
+  border: 0px;
+}
+
 .TcHasNoCourse {
   color: #065f8e;
   font-weight: bold;

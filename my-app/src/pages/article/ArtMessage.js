@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { devUrl } from '../../config'
 import { useHistory } from 'react-router'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 // 後端檔案路徑
-import { ArtMessage_LIST } from '../../config'
+import {
+  ArtMessage_LIST,
+  Art_inter_LIST,
+  devUrl,
+  IMG_PATH,
+} from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -23,6 +27,11 @@ function ArtMessage(prop) {
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
   const teacherSid = JSON.parse(member).sid
+  const queryParams = new URLSearchParams(
+    window.location.search
+  )
+
+  const id = queryParams.get('articleSid')
 
   //  console.log('RemoveCourse', RemoveCourse)
 
@@ -40,39 +49,33 @@ function ArtMessage(prop) {
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
   const [RemoveCourse, setRemoveCourse] = useState()
 
+  // 拿去做map排列的，取的是r.data.rows，或是其它處理
+  const [ArtdisplayCourse, setArtDisplayCourse] = useState([
+    {},
+  ])
 
   useEffect(() => {
     if (!token) {
       history.push('/')
     } else if (identity !== 0) {
       history.push('/')
-    }
-     else {
+    } else {
       ;(async () => {
+        let a = await axios.get(`${Art_inter_LIST}/${id}`)
         let r = await axios.get(
           // `${ArtMessage_LIST}`
           `${ArtMessage_LIST}?Sid=${teacherSid}`
         )
-
-        // let c = await axios.get(
-        //   `${ArtMessage_LIST}?Sid=${teacherSid}`
-        // )
-
-        // setTcCourses(r.data.rows)
-
-        // setDisplayCourse(r.data.rows)
-
-
         if (r.status === 200) {
-           setTcCourses(r.data.rows)
+          setArtDisplayCourse(a.data.result[0])
+
+          setTcCourses(r.data.rows)
 
           setDisplayCourse(r.data.rows)
         }
-        // console.log('r.data.rows', r.data.rows)
       })()
     }
-    // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
-  })
+  }, [])
 
   return (
     <>
@@ -99,25 +102,26 @@ function ArtMessage(prop) {
         {/* </div> */}
         <div className="row justify-content-center col-12">
           <div className="art-p-page-info col-12 col-md-8">
-            <div className="art-type-sin">#熱門影集</div>
+            <div className="art-type-sin">
+              {/* #熱門影集 */}#
+              {ArtdisplayCourse.artical_category}
+            </div>
             <br />
             <div className="art-title-sin">
-              黑道律師文森佐
+              {ArtdisplayCourse.artical_title}
             </div>
             <br />
             <br />
             <br />
             <div className="TCp-intro-sin">
-              <p>
-                此劇講述因組織內部糾紛而從義大利逃到韓國的黑手黨顧問文森佐·卡薩諾（宋仲基飾），在遇上律師洪車瑛（全汝彬飾）後，兩人以黑道的方式實現正義的故事。
-              </p>
+              <p>{ArtdisplayCourse.artical_content}</p>
             </div>
             <br />
             <div className="p-page-avatar-sin">
               <img
-                src={`${devUrl}/images/article/熱門文章/06.jpg`}
+                src={`${IMG_PATH}/inter-articles/${ArtdisplayCourse.artical_image}`}
                 alt=""
-                className="img-fluid-sin"
+                className="img-fluid"
               />
             </div>
             <div className="p-page-avatar-sin">
@@ -173,13 +177,18 @@ function ArtMessage(prop) {
               })} */}
                     </ul>
                   </nav>
+                  <Link to={`/ArtIndex/ArticleSt/`}>
+                    <button className="btn Article-ar-btn-secondary mx-auto  one-btn-sin btn-b-sin">
+                      回到國際角落
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="TCallwrapera-sing"> 
+      <div className="TCallwrapera-sing">
         <div className="TCallwraperw">
           <div className="white-block">
             <div className="yellow-area-but-1 ">
@@ -187,7 +196,7 @@ function ArtMessage(prop) {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
       <div className="sns-sing">
         <div className="nav_footer-sing">
           <img

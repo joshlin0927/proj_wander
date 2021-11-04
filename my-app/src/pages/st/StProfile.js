@@ -20,7 +20,7 @@ export default withRouter(function StProfile(props) {
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
   const studentSid = JSON.parse(member).sid
-
+  const [myTest, setMyTest] = useState(0)
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
   //大頭貼狀態
@@ -167,9 +167,9 @@ export default withRouter(function StProfile(props) {
           if (res.data.success === true) {
             console.log('outcome:', res.data)
             setShowUp('showup')
+            setMyTest(Math.random())
 
             setTimeout(() => {
-              window.location.reload()
               setShowUp('none')
             }, 1000)
           }
@@ -194,7 +194,7 @@ export default withRouter(function StProfile(props) {
         console.log('res:', r.data)
       })()
     }
-  }, [imgSrc])
+  }, [imgSrc,myTest])
 
   return (
     <>

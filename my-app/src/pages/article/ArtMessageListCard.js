@@ -37,10 +37,7 @@ function ArtMessageListCard(props) {
   useEffect(() => {
     if (!token) {
       history.push('/')
-    }
-    // else if (identity !== 0) {
-    //   history.push('/')}
-    else {
+    } else {
       ;(async () => {
         let r = await axios.get(
           `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
@@ -49,16 +46,17 @@ function ArtMessageListCard(props) {
         if (r.status === 200) {
           setImgSrc(r.data[0][0].avatar)
         }
-        //  console.log('r.data[0][0]', r.data[0][0])
       })()
     }
-  })
+  }, [imgSrc])
 
   const {
+    key,
     sid,
     st_sid,
     messenger,
     nickname,
+    st_pictuer,
     remove,
     setMess,
   } = props
@@ -121,13 +119,9 @@ function ArtMessageListCard(props) {
       <li className="sing-TCcourse-card active  shadow-sm p-3 mb-2 bg-body rounded">
         <div className="TCcourse-img-sing">
           <img
-            src={
-              imgSrc
-                ? IMG_PATH + '/' + imgSrc
-                : IMG_PATH + '/' + 'presetAvatar.jpeg'
-            }
+            src={`${IMG_PATH}/${st_pictuer}`}
             alt=""
-            name="st_pictuer"
+            className="img-fluid"
           />
           <span className="TCcourse-img-selector-sin ">
             {nickname}

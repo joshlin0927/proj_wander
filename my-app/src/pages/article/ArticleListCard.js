@@ -78,7 +78,7 @@ function ArtMessage(props) {
             className="img-fluid"
           />
           {/* <Link to={`/ArtIndex/ArticleMessage/`}> */}
-          <div className="coursename">{artical_title}</div>
+          <div className="Art-coursename">{artical_title}</div>
           {/* </Link> */}
 
           <span className="teachername">

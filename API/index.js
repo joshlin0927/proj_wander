@@ -157,7 +157,19 @@ app.use('/TcVideo', require(__dirname + '/routes/TcVideo'));
 //聊天室
 // app.use('/chat', require('./routes/chat'));
 
-//文章-列表
+//熱門文章-列表
+app.use('/art_article_pop_list', require(__dirname + '/routes/art_article_pop_list'));
+
+//國際角落-列表
+app.use('/art_article_inter_list', require(__dirname + '/routes/art_article_inter_list'));
+
+//文章-留言-列表
+app.use('/art_messenger_list', require(__dirname + '/routes/art_messenger_list'));
+
+//國際角落-內容
+app.use('/art_inter_list', require(__dirname + '/routes/art_inter_list'));
+
+//熱門文章-內容
 app.use('/art_list', require(__dirname + '/routes/art_list'));
 
 //文章-留言-修改-刪除
@@ -165,8 +177,7 @@ app.use('/art_messenger', require(__dirname + '/routes/art_messenger'));
 
 //文章-新增留言
 app.use('/art_messengerADD', require(__dirname + '/routes/art_messengerADD'));
-//課程頁-詳細頁
-app.use('/cs_course', require(__dirname + '/routes/cs_course'));
+
 
 
 
@@ -241,9 +252,6 @@ app.get("/video", function (req, res) {
 
 });
 
-
-
-
 //學生
 app.use('/stprofile', require(__dirname + '/routes/stprofile'))
 app.use('/stCalendar', require(__dirname + '/routes/stCalendar'))
@@ -254,7 +262,8 @@ app.use('/api/teacherdata', require(__dirname + '/routes/recommandtc'))
 //取得member email資料判斷註冊有無重複使用帳號
 app.use('/api/accountdata', require(__dirname + '/routes/getaccount'))
 app.use('/passwordmodify', require(__dirname + '/routes/stpasswordmodify'))
-
+//課程頁-詳細頁
+app.use('/cs_course', require(__dirname + '/routes/cs_course'));
 // 測驗
 app.use('/sentence-game', require(__dirname + '/routes/sentence-game'));
 // cart

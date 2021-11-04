@@ -1,5 +1,5 @@
 import React from 'react'
-import { devUrl } from '../../config'
+import { API_HOST } from '../../config'
 
 function EditCheckList(props) {
   const { name, img } = props
@@ -8,13 +8,11 @@ function EditCheckList(props) {
       <div className="w-100 my-2"></div>
       <div className="col-5 pr-0">
         <img
-          src={`${devUrl}/images/cart/jp_course.jpg`}
+          src={`${API_HOST}/img/course/img/${img}`}
           alt=""
         />
       </div>
-      <div className="col-7">
-        {name}
-      </div>
+      <div className="col-7">{name}</div>
     </>
   )
 }

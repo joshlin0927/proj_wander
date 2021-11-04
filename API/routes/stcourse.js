@@ -64,4 +64,17 @@ router.get('/list',async(req,res)=>{
    res.json([rs])
 })
 
+
+// 獲取已購買並要播放的課程內容
+router.get('/classroom', async(req,res)=>{
+  const sql = "SELECT * FROM `order_detail` LEFT JOIN `order_main` ON `order_detail`.`order_main_id` = `order_main`.`order_id` LEFT JOIN `course` ON `order_detail`.`product_sid` = `course`.`sid` LEFT JOIN `video_list` ON `course`.`sid` = `video_list`.`course_sid` WHERE `video_list`.`course_sid` = ? AND `order_main`.`order_status` = 1"
+
+  const [result]=await db.query(sql, [req.query.courseSid])
+  res.json(result)
+})
+
  module.exports = router;
+
+
+
+

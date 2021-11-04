@@ -4,7 +4,7 @@ const upload = require('../modules/upload-images');
 
 const router = express.Router();
 
-router.get('/list', async (req, res) => {
+router.get('/list/:articleSid', async (req, res) => {
     res.locals.pageName = 'ab-list';
  
     const output = await getListData(req,res);
@@ -31,6 +31,7 @@ async function getListData(articleSid){
         output.success = true;
         output.result = r;
     }
+    console.log('articleSid', articleSid);
     return output;
 }
 

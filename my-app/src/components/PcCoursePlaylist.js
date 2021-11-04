@@ -1,34 +1,45 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
-export default function PcCoursePlaylist() {
+import PcCoursePlaylistCard from './PcCoursePlaylistCard'
+
+function PcCoursePlaylist(props) {
+  const { active, setActive } = props
+  const [videos, setVideos] = useState('')
+  const [chose, setChose] = useState('')
+  const takeClass = sessionStorage.getItem('takeClass')
+  useEffect(() => {
+    ;(async () => {
+      let r = await axios.get(
+        `http://localhost:3001/stcourse/classroom/?courseSid=24`
+      )
+
+      //TODO: courseSid set to variable
+      setVideos(r.data)
+    })()
+  }, [])
+
   return (
     <>
-      <div class="playlist col-3 mo-none">
-        <div class="first clip">
-          <p> 自我介紹 </p> <p> 02: 33 </p>
-        </div>
-        <div class="clip">
-          <p> 西班牙文基礎發音 </p> <p> 02: 33 </p>
-        </div>
-        <div class="clip">
-          <p> 西班牙文基礎發音 </p> <p> 02: 33 </p>
-        </div>
-        <div class="clip">
-          <p> 西班牙文基礎發音 </p> <p> 02: 33 </p>
-        </div>
-        <div class="clip">
-          <p> 西班牙文基礎發音 </p> <p> 02: 33 </p>
-        </div>
-        <div class="clip">
-          <p> 基礎發音 </p> <p> 02: 33 </p>
-        </div>
-        <div class="clip">
-          <p> 基礎發音 </p> <p> 02: 33 </p>
-        </div>
-        <div class="clip">
-          <p> 基礎發音 </p> <p> 02: 33 </p>
-        </div>
+      <div className="playlist col-3 mo-none">
+        {videos.length !== 0
+          ? videos.map((Video, i) => {
+              return (
+                <PcCoursePlaylistCard
+                  key={i}
+                  sid={Video.sid}
+                  video_name={Video.video_name}
+                  duration1={Video.duration}
+                  value={Video.sid}
+                  checkedValue={chose}
+                  setCheckedValue={setChose}
+                  setActive={setActive}
+                />
+              )
+            })
+          : ''}
       </div>
     </>
   )
 }
+export default PcCoursePlaylist

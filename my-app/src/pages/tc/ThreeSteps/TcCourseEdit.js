@@ -23,6 +23,7 @@ function TcCourseEdit(props) {
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
   const teacherSid = JSON.parse(member).sid
+  const courseSid = sessionStorage.getItem('courseSid')
 
   useEffect(() => {
     if (!token) {
@@ -32,15 +33,11 @@ function TcCourseEdit(props) {
     } else {
       ;(async () => {
         let r = await axios.get(
-          TcCourse_EDIT + props.location.search
+          `${TcCourse_EDIT}/?courseSid=${courseSid}`
         )
         setFields(r.data[0])
         setImgSrc(r.data[0].course_img)
-        localStorage.setItem(
-          'CourseSidForProcess',
-          r.data[0].sid
-        )
-        console.log('edit', r.data[0])
+        // console.log('edit', r.data[0])
       })()
     }
   }, [imgSrc])
@@ -49,7 +46,7 @@ function TcCourseEdit(props) {
 
   const doUpload = async () => {
     const r = await axios.post(
-      `${TcCourse_Cover}?sid=${fields.sid}`,
+      `${TcCourse_Cover}?sid=${courseSid}`,
       new FormData(document.formCover)
     )
     setImgSrc(r.data.filename)

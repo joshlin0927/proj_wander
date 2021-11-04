@@ -35,7 +35,7 @@ class StCalendar {
     }
 
     // 新增訂單
-    static async add(member_sid, course_name) {
+    static async add(member_sid, course_name, start, end) {
         const output = {
             success: false,
             error: '',
@@ -45,19 +45,34 @@ class StCalendar {
             output.error = "訂單已存在";
             return output;
         }
-        const sql = `INSERT INTO ${tableName} (\`member_sid\`, \`title\`) VALUES (?, ?)`;
-        const [r] = await db.query(sql, [member_sid, course_name]);
+        const sql = `INSERT INTO ${tableName} (\`member_sid\`, \`title\`,\`start\`,\`end\`) VALUES (?, ?,?,?)`;
+        const [r] = await db.query(sql, [member_sid, course_name,start,end]);
         output.success = true;
         return output;
     }
-
-    static async edit(order_id) {
+   
+    static async edit(start, end, member_sid, course_name) {
         const output = {
             success: false,
             result: '',
         }
-        const sql = `UPDATE ${tableName} SET order_status = 1 WHERE order_id=?`;
-        const [r] = await db.query(sql, [order_id]);
+
+        //UPDATE schedule SET start = "2021-11-19 12:48:06", end = "2021-11-20 12:48:06" WHERE member_sid = 1010 AND title ="Ai老師-初階日文班" 
+        const sql = "UPDATE `schedule` SET `start` = ?, `end` = ? WHERE `member_sid` = ? AND  `title` = ?";
+        const [r] = await db.query(sql, [start, end, member_sid, course_name]);
+        output.success = !!r.affectedRows ? true : false;
+        output.result = r;
+        return output;
+    }
+
+    static async delete(member_sid, course_name){
+        const output = {
+            success: false,
+            result: '',
+        }
+
+        const sql = "DELETE FROM `schedule` WHERE `member_sid` = ? AND `title` = ? ";
+        const [r] = await db.query(sql, [member_sid, course_name]);
         output.success = !!r.affectedRows ? true : false;
         output.result = r;
         return output;
