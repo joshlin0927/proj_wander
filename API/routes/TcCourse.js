@@ -7,10 +7,8 @@ const router = express.Router();
 async function getListData(req, res) {
   const perPage = 5;
   let page = parseInt(req.query.page) || 1;
-  let keyword = req.query.keyword || "";
-  keyword = keyword.trim(); //去掉頭尾的空白
 
-  // res.locals.keyword = keyword; // 傳給template
+
   const output = {};
 
   // sql = SELECT * FROM `course`LEFT JOIN `member` ON `course`.`teacher_sid`=`member`.`sid` WHERE `member`.`sid` = 1; AND `course`.`course_name` LIKE 'A%';
@@ -18,13 +16,7 @@ async function getListData(req, res) {
   let teacherSid = req.query.teacherSid;
 
   let where = `LEFT JOIN \`member\` ON \`course\`.\`teacher_sid\`=\`member\`.\`sid\` WHERE \`member\`.\`sid\` =${teacherSid} `;
-  if (keyword) {
-    output.keyword = keyword;
-    where += ` AND \`course\`.\`course_name\` LIKE ${db.escape(
-      "%" + keyword + "%"
-    )} `;
-  }
-  // 有其他條件可以用差不多的寫法加在sql後面
+ 
 
   const t_sql = `SELECT COUNT(1) totalRows FROM \`course\` ${where}`;
 
@@ -42,24 +34,15 @@ async function getListData(req, res) {
       output.redirect = "?page=1";
       return output;
 
-      /*
-            // 下面是原本的寫法，但在用redirect的function時，就不能這樣寫
-            // return res.redirect(req.baseUrl);// 會轉到根目錄
-            // return res.redirect('?page=1');
-            */
     }
     if (page > output.totalPages) {
       output.redirect = "?page=" + output.totalPages;
       return output;
 
-      /*
-            // return res.redirect('?page=1' + output.totalPages);
-            */
     }
     const sql = `SELECT \`course\`.*, \`member\`.\`firstname\`,\`member\`.\`avatar\`, \`member\`.\`intro\` FROM \`course\` ${where} ORDER BY \`course\`.\`sid\` DESC LIMIT ${
       (page - 1) * perPage
     }, ${perPage}`;
-    /* 如果要用backtick，在名稱的地方要加上\`做跳脫 */
     const [rows] = await db.query(sql);
     output.rows = rows;
   }

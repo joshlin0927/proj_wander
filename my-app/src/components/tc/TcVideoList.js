@@ -57,7 +57,6 @@ function TcVideoList(props) {
             key={Video.sid}
             sid={Video.sid}
             course_sid={Video.course_sid}
-            video_cover={Video.video_cover}
             video_name={Video.video_name}
             created_at={Video.created_at}
             duration1={Video.duration}

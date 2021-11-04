@@ -14,6 +14,17 @@ function TcSideBar(props) {
   const memberObj = JSON.parse(
     localStorage.getItem('member')
   )
+
+  const [verify, setVerify] = useState('')
+
+  useEffect(() => {
+    ;(async () => {
+      let r = await axios.get(
+        `${MemberEdit}/?teacherSid=${memberObj.sid}`
+      )
+      setVerify(r.data[0].verification)
+    })()
+  }, [])
   const [isActive, setIsActive] = useState('')
 
   // 申請表
@@ -23,14 +34,13 @@ function TcSideBar(props) {
 
   // 通知
   const [NoticeShow, setNoticeShow] = useState(false)
-  const handleNoticeClose = () => setShow(false)
-  const handleNoticeShow = () => setShow(true)
+  const handleNoticeClose = () => setNoticeShow(false)
+  const handleNoticeShow = () => setNoticeShow(true)
 
   useEffect(() => {
-    if (memberObj.verification !== 2) {
-      // history.push('/')
+    if (verify === 0) {
       handleShow()
-    } else if (memberObj.verification === 1) {
+    } else if (verify === 1) {
       handleNoticeShow()
     }
   })
@@ -82,11 +92,7 @@ function TcSideBar(props) {
       `${MemberEdit}/?teacherSid=${memberObj.sid}`,
       {
         method: 'POST',
-        headers: {
-          'Content-Type':
-            'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(TcFormData).toString(),
+        body: TcFormData,
       }
     )
       .then((r) => r.json())
@@ -347,11 +353,9 @@ function TcSideBar(props) {
         onHide={handleNoticeClose}
         centered
       >
-        <div className="mx-auto col-12 col-md-6">
-          <div className="TCnotify col-12">
-            <div className="TCnotify-text">
-              資料審核中，大約會在一至三天內通知審核結果，請耐心等待
-            </div>
+        <div className="p-5 ">
+          <div className="TCnotify-text">
+            資料審核中，大約會在一至三天內通知審核結果，請耐心等待
           </div>
         </div>
       </Modal>
