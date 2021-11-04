@@ -1,24 +1,55 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import momentDurationFormatSetup from 'moment-duration-format'
+import axios from 'axios'
 
-export default function PcCoursePlaylistCard(props) {
-  const { video_name, duration1 } = props
-  const [active, setActive] = useState('')
+function PcCoursePlaylistCard(props) {
+  const {
+    sid,
+    video_name,
+    duration1,
+    setActive,
+    value,
+    checkedValue,
+    setCheckedValue,
+  } = props
+  const [select, setSelect] = useState('')
 
-  const time = moment.duration(duration1).format('HH:mm:ss')
-  console.log(time)
-  console.log(`${duration1}`)
+  if (document.querySelector('input')) {
+    console.log(1)
+  }
+
+  const time = moment
+    .duration(duration1, 'seconds')
+    .format('HH:mm:ss')
+
   return (
     <>
+      {/* className={active ? 'clip first' : 'clip'} */}
+
       <div
-        className={`clip ${active}`}
+        className={
+          checkedValue === true ? 'clip first' : 'clip'
+        }
         onClick={() => {
-          setActive('first')
+          setActive(value)
+          setSelect(value)
         }}
       >
-        <p> {video_name} </p> <p> 02: 33 </p>
+        <input
+          type="radio"
+          name="videoRadio"
+          //   className="d-none"
+          id={sid}
+          onChange={(e) => {
+            setCheckedValue(e.target.value)
+          }}
+        />
+        <label htmlFor={sid}>
+          <span>{video_name}</span> <span>{time}</span>
+        </label>
       </div>
     </>
   )
 }
+export default PcCoursePlaylistCard
