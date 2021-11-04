@@ -35,11 +35,17 @@ function CartStep01(props) {
   const handleAlertModalClose = () =>
     setAlertModalShow(false)
   const handleAlertModalShow = () => setAlertModalShow(true)
+  const [stopModalShow, setStopModalShow] = useState(false)
+  const handleStopModalClose = () => setStopModalShow(false)
+  const handleStopModalShow = () => setStopModalShow(true)
   // 取得該會員購物車資料
   const member = localStorage.getItem('member')
     ? JSON.parse(localStorage.getItem('member'))
     : ''
   useEffect(() => {
+    if (member.identity !== 0) {
+      handleStopModalShow()
+    }
     ;(async () => {
       let r = await axios.get(
         `${Cart_API}/list?member_sid=${member.sid}`
@@ -312,6 +318,7 @@ function CartStep01(props) {
           </div>
         </div>
       </div>
+      {/* 優惠券modal */}
       <Modal
         show={counponModalShow}
         onHide={handleCounponModalClose}
@@ -448,6 +455,7 @@ function CartStep01(props) {
           </button>
         </Modal.Footer>
       </Modal>
+      {/* 跳轉提示modal */}
       <Modal
         show={alertModalShow}
         onHide={handleAlertModalClose}
@@ -475,6 +483,44 @@ function CartStep01(props) {
           >
             確認
           </button>
+        </Modal.Footer>
+      </Modal>
+      {/* 教師訪問stop Modal */}
+      <Modal
+        show={stopModalShow}
+        onHide={handleStopModalClose}
+        id="alertModal"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title>提醒</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">
+          <span>如要購買課程請先登入學生帳戶</span>
+        </Modal.Body>
+        <Modal.Footer>
+          {member.identity === 1 ? (
+            <button
+              type="button"
+              className="btn confirmBtn"
+              onClick={() => {
+                props.history.goBack()
+              }}
+            >
+              返回前頁
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="btn confirmBtn"
+              onClick={() => {
+                props.history.push('/Login')
+              }}
+            >
+              前往登入
+            </button>
+          )}
         </Modal.Footer>
       </Modal>
       <TcBgDecorationNormal />

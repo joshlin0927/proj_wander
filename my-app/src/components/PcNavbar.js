@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { devUrl, IMG_PATH, MemberEdit } from '../config'
+import { Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
 import axios from 'axios'

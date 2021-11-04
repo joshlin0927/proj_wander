@@ -554,7 +554,8 @@
   color: #065f8e;
   font-size: 2rem;
 }
-#counponModal .modal-content {
+#counponModal .modal-content,
+#alertModal .modal-content {
   background-color: #f1f0e9;
 }
 #counponModal .modal-body-title {
