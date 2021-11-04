@@ -50,9 +50,8 @@ function ArtMessageListCard(props) {
     }
   }, [imgSrc])
 
-
-
   const {
+    key,
     sid,
     st_sid,
     messenger,
@@ -66,8 +65,6 @@ function ArtMessageListCard(props) {
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-
-  
 
   //TODO: 怎麼將sid傳上去
   const deleteCourse = () => {
@@ -121,7 +118,7 @@ function ArtMessageListCard(props) {
     <>
       <li className="sing-TCcourse-card active  shadow-sm p-3 mb-2 bg-body rounded">
         <div className="TCcourse-img-sing">
-            <img
+          <img
             src={`${IMG_PATH}/${st_pictuer}`}
             alt=""
             className="img-fluid"

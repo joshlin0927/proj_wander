@@ -36,7 +36,9 @@ function CartStep01(props) {
     setAlertModalShow(false)
   const handleAlertModalShow = () => setAlertModalShow(true)
   // 取得該會員購物車資料
-  const member = JSON.parse(localStorage.getItem('member'))
+  const member = localStorage.getItem('member')
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
   useEffect(() => {
     ;(async () => {
       let r = await axios.get(
@@ -293,7 +295,11 @@ function CartStep01(props) {
               <button
                 className="btn cartCheckoutBtn"
                 onClick={() => {
-                  if (cartQty === 0) {
+                  if (
+                    member.identity === 1 ||
+                    member === '' ||
+                    cartQty === 0
+                  ) {
                     handleAlertModalShow()
                   } else {
                     props.history.push('/Cart/Step02')
@@ -453,7 +459,13 @@ function CartStep01(props) {
           <Modal.Title>提醒</Modal.Title>
         </Modal.Header>
         <Modal.Body className="text-center">
-          <span>購物車內無項目可結帳</span>
+          {cartQty === 0 ? (
+            <span>購物車內無項目可結帳</span>
+          ) : member.identity === 1 ? (
+            <span>欲購買課程請使用學生帳戶</span>
+          ) : (
+            <span>請先登入後再結帳</span>
+          )}
         </Modal.Body>
         <Modal.Footer>
           <button

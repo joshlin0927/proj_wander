@@ -12,8 +12,11 @@ import ArtMessageADD from './ArtMessageADD'
 import ArticleMessage from './ArticleMessage'
 import ArticleMessageSt from './st/ArticleMessageSt'
 
-
 function index() {
+  const member = localStorage.getItem('member')
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
+  const identity = member ? member.identity : ''
   return (
     <>
       <Switch>
@@ -30,14 +33,18 @@ function index() {
         <Route path="/ArtIndex/ArticleMessage/" exact>
           <ArticleMessage />
         </Route>
-          <Route path="/ArtIndex/ArticleMessageSt/" exact>
+        <Route path="/ArtIndex/ArticleMessageSt/" exact>
           <ArticleMessageSt />
         </Route>
         <Route path="/ArtIndex/ArtMessage" exact>
           <ArtMessage />
         </Route>
         <Route path="/ArtIndex">
-          <Redirect to="/ArtIndex/Article" />
+          {identity === 0 ? (
+            <Redirect to="/ArtIndex/ArticleSt" />
+          ) : (
+            <Redirect to="/ArtIndex/Article" />
+          )}
         </Route>
       </Switch>
     </>

@@ -27,11 +27,11 @@ function ArtMessage(prop) {
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
   const teacherSid = JSON.parse(member).sid
-  const queryParams = new URLSearchParams(window.location.search);
+  const queryParams = new URLSearchParams(
+    window.location.search
+  )
 
-  const id = queryParams.get('articleSid');
-
-
+  const id = queryParams.get('articleSid')
 
   //  console.log('RemoveCourse', RemoveCourse)
 
@@ -49,12 +49,12 @@ function ArtMessage(prop) {
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
   const [RemoveCourse, setRemoveCourse] = useState()
 
-    // 拿去做map排列的，取的是r.data.rows，或是其它處理
-    const [ArtdisplayCourse, setArtDisplayCourse] = useState([{}])
-
+  // 拿去做map排列的，取的是r.data.rows，或是其它處理
+  const [ArtdisplayCourse, setArtDisplayCourse] = useState([
+    {},
+  ])
 
   useEffect(() => {
-
     if (!token) {
       history.push('/')
     } else if (identity !== 0) {
@@ -71,8 +71,8 @@ function ArtMessage(prop) {
 
           setTcCourses(r.data.rows)
 
-         setDisplayCourse(r.data.rows)
-       }
+          setDisplayCourse(r.data.rows)
+        }
       })()
     }
   }, [])
@@ -103,25 +103,22 @@ function ArtMessage(prop) {
         <div className="row justify-content-center col-12">
           <div className="art-p-page-info col-12 col-md-8">
             <div className="art-type-sin">
-            {/* #熱門影集 */}
-            #{ArtdisplayCourse.artical_category}
+              {/* #熱門影集 */}#
+              {ArtdisplayCourse.artical_category}
             </div>
             <br />
             <div className="art-title-sin">
-            {ArtdisplayCourse.artical_title}
+              {ArtdisplayCourse.artical_title}
             </div>
             <br />
             <br />
             <br />
             <div className="TCp-intro-sin">
-              <p>
-              {ArtdisplayCourse.artical_content}
-
-              </p>
+              <p>{ArtdisplayCourse.artical_content}</p>
             </div>
             <br />
             <div className="p-page-avatar-sin">
-                <img
+              <img
                 src={`${IMG_PATH}/inter-articles/${ArtdisplayCourse.artical_image}`}
                 alt=""
                 className="img-fluid"
@@ -191,7 +188,7 @@ function ArtMessage(prop) {
           </div>
         </div>
       </div>
-      <div className="TCallwrapera-sing"> 
+      <div className="TCallwrapera-sing">
         <div className="TCallwraperw">
           <div className="white-block">
             <div className="yellow-area-but-1 ">
@@ -199,7 +196,7 @@ function ArtMessage(prop) {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
       <div className="sns-sing">
         <div className="nav_footer-sing">
           <img

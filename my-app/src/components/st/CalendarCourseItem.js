@@ -1,8 +1,12 @@
 import React from 'react'
 import { IMG_PATH } from '../../config'
 import axios from 'axios'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
 function CalendarCourseItem(props) {
-  const { name, teacher, courseimg } = props
+  const MySwal = withReactContent(Swal)
+  const { name, teacher, courseimg, setMytest } = props
   const member = localStorage.getItem('member')
   const studentSid = JSON.parse(member).sid
 
@@ -13,8 +17,15 @@ function CalendarCourseItem(props) {
         course_name: name,
       })
       .then((res) => {
-        if (res.success === true) {
-          console.log(res)
+        setMytest(Math.random())
+        if (res.data.success === true) {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: '已成功加入行事曆',
+            showConfirmButton: false,
+            timer: 1500,
+          })
         }
       })
   }
@@ -31,8 +42,8 @@ function CalendarCourseItem(props) {
             加入行事曆
           </button>
         </div>
-        <div class="coursename">{name}</div>
-        <span class="teachername"> {teacher} </span>
+        <div class="stcoursename">{name}</div>
+        <span class="stteachername"> {teacher} </span>
       </div>
     </>
   )

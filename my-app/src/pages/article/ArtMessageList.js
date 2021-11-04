@@ -7,7 +7,7 @@ function ArtMessageList(props) {
       {displayCourse.map((Course, i) => {
         return (
           <ArtMessageListCard
-            key={Course.sid}
+            key={i}
             sid={Course.sid}
             // ar_sid={Course.ar_sid}
             st_sid={Course.st_sid}

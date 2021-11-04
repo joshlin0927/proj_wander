@@ -7,6 +7,10 @@ import { Link } from 'react-router-dom'
 import HomeBgDecorationNormal from '../../components/home/HomeBgDecorationNormal'
 
 function WanderIndex() {
+  const member = localStorage.getItem('member')
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
+  const identity = member ? member.identity : ''
   return (
     <>
       <MultiLevelBreadCrumb />
@@ -327,11 +331,15 @@ function WanderIndex() {
               <div className="col-md-12 offset-md-0 ">
                 <div className="card-a">
                   <div className="yellow-area-but-4-index col-12 offset-1">
-                    <Link to="/SignUp">
-                      <button className="btn checkoutBtn-y">
-                        快來註冊吧!
-                      </button>
-                    </Link>
+                    {identity === '' ? (
+                      <Link to="/SignUp">
+                        <button className="btn checkoutBtn-y">
+                          快來註冊吧!
+                        </button>
+                      </Link>
+                    ) : (
+                      ''
+                    )}
                   </div>
                 </div>
               </div>
@@ -362,7 +370,11 @@ function WanderIndex() {
               <div className="col-md-2 offset-md-1 col-7 offset-5 p-0">
                 <div className="imge-4-Text ">
                   <div className="top-c ">
-                    <span>熱門文章</span>
+                    <span>
+                      {identity === 0
+                        ? '國際角落'
+                        : '熱門文章'}
+                    </span>
                   </div>
                 </div>
               </div>

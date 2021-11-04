@@ -97,7 +97,7 @@
   border-radius: 30px;
 }
 
-.coursename {
+.stcoursename {
   color: white;
   font-size: 14px;
   font-style: bold;
@@ -107,13 +107,13 @@
   position: absolute;
 }
 
-.teachername {
+.stteachername {
   color: white;
-  font-size: 8px;
+  font-size: 16px;
   font-style: bold;
   position: absolute;
-  top: 75%;
-  left: 5%;
+  top: 80%;
+  left: 10%;
 }
 
 .search,
@@ -411,7 +411,7 @@
   }
 
 
-  .coursename {
+  .stcoursename {
     color: white;
     font-size: 18px;
     font-style: bold;
@@ -421,12 +421,12 @@
     position: absolute;
   }
 
-  .teachername {
+  .stteachername {
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     font-style: bold;
     position: absolute;
-    top: 85%;
+    top: 80%;
     left: 10%;
   }
 
@@ -466,6 +466,7 @@
     right: 10%;
     font-size: 14px;
     z-index: 1;
+    cursor: pointer;
   }
 
 

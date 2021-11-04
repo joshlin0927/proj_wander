@@ -1,6 +1,5 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
-import { devUrl, Cart_API } from '../../config'
+import { devUrl, API_HOST, Cart_API } from '../../config'
 
 function CartItem(props) {
   const {
@@ -44,7 +43,7 @@ function CartItem(props) {
           <div className="row w-100 m-0">
             <div className="cartItemImage col-4 col-md-3">
               <img
-                src={`${devUrl}/images/cart/jp_course.jpg`}
+                src={`${API_HOST}/img/course/img/${img}`}
                 alt=""
               />
             </div>
