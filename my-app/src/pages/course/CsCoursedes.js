@@ -4,7 +4,6 @@ import axios from 'axios'
 import { IMG_PATH } from '../../config'
 import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
-
 import { devUrl } from '../../config'
 import { Modal } from 'react-bootstrap'
 import {
@@ -20,6 +19,9 @@ import Footer from '../../components/Footer'
 // import CoursedeList from './CoursedeList'
 
 function CsCoursede(props) {
+  const [stopModalShow, setStopModalShow] = useState(false)
+  const handleStopModalClose = () => setStopModalShow(false)
+  const handleStopModalShow = () => setStopModalShow(true)
   const [show, setShow] = useState(false)
   const member = localStorage.getItem('member')
     ? JSON.parse(localStorage.getItem('member'))
@@ -35,6 +37,17 @@ function CsCoursede(props) {
   const handleShow = () => setShow(true)
   let [imgSrc, setImgSrc] = useState('')
 
+  function changeAddCartBtn() {
+    document
+      .querySelectorAll('.csAddToCart')
+      .forEach((v, i) => {
+        v.classList.remove('btn-outline-b')
+        v.classList.remove('btn-b')
+        v.classList.add('changeAddCartBtn')
+        v.innerText = '已加入購物車'
+      })
+  }
+
   useEffect(() => {
     ;(async () => {
       if (member.sid) {
@@ -42,14 +55,7 @@ function CsCoursede(props) {
           `${Cart_API}/checkone${props.location.search}&member_sid=${member.sid}`
         )
         if (o.data) {
-          document
-            .querySelectorAll('.csAddToCart')
-            .forEach((v, i) => {
-              v.classList.remove('btn-outline-b')
-              v.classList.remove('btn-b')
-              v.classList.add('changeAddCartBtn')
-              v.innerText = '已加入購物車'
-            })
+          changeAddCartBtn()
         } else {
           console.log('不在購物車')
         }
@@ -88,18 +94,11 @@ function CsCoursede(props) {
       .then((obj) => {
         if (obj.success) {
           console.log('新增成功：', obj)
+          changeAddCartBtn()
         } else {
           console.log(obj.error)
         }
       })
-  }
-  function changeAddCartBtn(e) {
-    const btn = e.target
-    console.log('btn', btn.classList)
-    btn.classList.remove('btn-outline-b')
-    btn.classList.remove('btn-b')
-    btn.classList.add('changeAddCartBtn')
-    btn.innerText = '已加入購物車'
   }
   const handleFieldChange = (e) => {
     // 1. 從原本的狀態物件拷貝新物件
@@ -120,10 +119,10 @@ function CsCoursede(props) {
         <div className="row">
           <div className="video">
             <div className="embed-responsive embed-responsive-16by9">
-              {/* <video class="video-fluid z-depth-1" autoplay loop controls muted> (有muted就是自動播放) */}
+              {/* <video className="video-fluid z-depth-1" autoplay loop controls muted> (有muted就是自動播放) */}
 
               {/* <video
-                class="video-fluid z-depth-1"
+                className="video-fluid z-depth-1"
                 autoplay
                 loop
                 controls
@@ -152,9 +151,10 @@ function CsCoursede(props) {
               {/* 上方是版本二(本機版本可用內部資料) */}
               {/* 下方是直接連網路ex:youtube */}
               <iframe
+                title="fake video"
                 className="embed-responsive-item"
                 src="https://www.youtube.com/embed/v64KOxKVLVg"
-                allowfullscreen
+                allowFullScreen
               ></iframe>
             </div>
             <div className="op">
@@ -664,12 +664,15 @@ function CsCoursede(props) {
                 marginTop: '10px',
                 marginLeft: '10px',
               }}
-              onClick={(e) => {
+              onClick={() => {
                 const id = new URLSearchParams(
                   props.location.search
                 )
-                addCart(id.get('courseSid'))
-                changeAddCartBtn(e)
+                if (member.identity === 0) {
+                  addCart(id.get('courseSid'))
+                } else {
+                  handleStopModalShow()
+                }
               }}
             >
               加入購物車
@@ -705,12 +708,15 @@ function CsCoursede(props) {
             <button
               className="btn btn-outline-b btn-b csAddToCart"
               style={{ width: '230px', marginTop: '24px' }}
-              onClick={(e) => {
+              onClick={() => {
                 const id = new URLSearchParams(
                   props.location.search
                 )
-                addCart(id.get('courseSid'))
-                changeAddCartBtn(e)
+                if (member.identity === 0) {
+                  addCart(id.get('courseSid'))
+                } else {
+                  handleStopModalShow()
+                }
               }}
             >
               加入購物車
@@ -725,7 +731,7 @@ function CsCoursede(props) {
         >
           <div className="Ann">
             <div
-              class="fsdfds"
+              className="fsdfds"
               style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -758,12 +764,12 @@ function CsCoursede(props) {
             <h5>專長：英語、西班牙文</h5>
             <h5>
               課程評價：
-              <h5
+              <div
                 className="fas fa-star"
                 style={{ color: 'black', fontSize: '18px' }}
               >
                 4
-              </h5>
+              </div>
             </h5>
             <h5>教學經驗：5年</h5>
           </div>
@@ -1025,6 +1031,41 @@ function CsCoursede(props) {
         {/* <TcSideBar /> */}
         {/* form */}
       </div>
+      <Modal
+        show={stopModalShow}
+        onHide={handleStopModalClose}
+        id="alertModal"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title>提醒</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">
+          <span>如要購買課程請先登入學生帳戶</span>
+        </Modal.Body>
+        <Modal.Footer>
+          {member.identity === 1 ? (
+            <button
+              type="button"
+              className="btn confirmBtn"
+              onClick={handleStopModalClose}
+            >
+              確認
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="btn confirmBtn"
+              onClick={() => {
+                props.history.push('/Login')
+              }}
+            >
+              前往登入
+            </button>
+          )}
+        </Modal.Footer>
+      </Modal>
       <TcBgDecorationNormal />
       <Footer />
     </>

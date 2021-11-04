@@ -58,28 +58,7 @@ function CartStep01(props) {
         setCartQty(0)
       }
     })()
-  }, [member.sid])
-  // 新增購物車資料
-  function addCart(courseID) {
-    fetch(`${Cart_API}/add`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        member_sid: member.sid,
-        product_sid: courseID,
-      }),
-    })
-      .then((r) => r.json())
-      .then((obj) => {
-        if (obj.success) {
-          console.log('新增成功：', obj)
-        } else {
-          console.log(obj.error)
-        }
-      })
-  }
+  }, [member.sid, member.identity])
   // counpon打勾效果
   useEffect(() => {
     $('#counponCanUse .modal-card').on(
