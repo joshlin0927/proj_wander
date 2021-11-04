@@ -4,7 +4,7 @@ const upload = require('../modules/upload-images');
 
 const router = express.Router();
 
-router.get('/list/:articleSid', async (req, res) => {
+router.get('/list', async (req, res) => {
     res.locals.pageName = 'ab-list';
  
     const output = await getListData(req,res);
@@ -13,30 +13,66 @@ router.get('/list/:articleSid', async (req, res) => {
     }
 
     // res.json(output);
-    res.render('article_pop/list', output);
+    res.render('article_inter/list', output);
 });
 
-async function getListData(articleSid){
+async function getListData(req,res){
+    const perPage = 9;
+    let page = parseInt(req.query.page) || 1;
+    let keyword = req.query.keyword || '';
+    keyword = keyword.trim(); //去掉頭尾的空白
+
+    // res.locals.keyword = keyword; // 傳給template
     const output = {
-        success: false,
-        result: '',
+
+    };
+
+    let where = "WHERE 1 ";
+    if(keyword){
+        output.keyword = keyword;
+        where += ` AND \`article_title\` LIKE ${ db.escape('%' + keyword + '%') } `;
     }
-    const sql =
-        `SELECT * FROM article_pop WHERE sid=?`;
-    const [r] = await db.query(sql, [articleSid]);
-    if (r.length === 0) {
-        output.success = false;
-        output.result = '沒有資料';
-    } else {
-        output.success = true;
-        output.result = r;
+    // 有其他條件可以用差不多的寫法加在sql後面
+
+    const t_sql = `SELECT COUNT(1) totalRows FROM article_inter ${where}`;
+    const [[{ totalRows }]] = await db.query(t_sql);
+    
+    output.totalRows = totalRows;
+    output.totalPages = Math.ceil(totalRows / perPage);
+    output.perPage = perPage;
+    output.rows = [];
+    output.page = page;
+
+    // 如果有資料才去取得分業的資料
+    if (totalRows > 0) {
+        if (page < 1) {
+            output.redirect = '?page=1'
+            return output;
+
+            /*
+            // 下面是原本的寫法，但在用redirect的function時，就不能這樣寫
+            // return res.redirect(req.baseUrl);// 會轉到根目錄
+            // return res.redirect('?page=1');
+            */
+        }
+        if (page > output.totalPages) {
+            output.redirect = '?page=' + output.totalPages;
+            return output;
+
+            /*
+            // return res.redirect('?page=1' + output.totalPages);
+            */
+        }
+        const sql = `SELECT * FROM \`article_inter\` ${where} ORDER BY article_inter.sid DESC LIMIT ${(page-1)*perPage}, ${perPage}`;
+        /* 如果要用backtick，在名稱的地方要加上\`做跳脫 */
+        const [rows] = await db.query(sql)
+        output.rows = rows;
     }
-    console.log('articleSid', articleSid);
     return output;
 }
 
-router.get('/api/list/:articleSid', async (req, res)=>{
-    const output = await getListData(req.params.articleSid);
+router.get('/api/list', async (req, res)=>{
+    const output = await getListData(req, res);
     res.json(output);
 });
 
@@ -46,7 +82,7 @@ router.get('/api/list/:articleSid', async (req, res)=>{
     router.route('/add')
     .get(async (req, res) => {
         res.locals.pageName = 'ab-add';
-        res.render('article_pop/add');
+        res.render('article_inter/add');
     })
     .post(async (req, res) => {
         // TODO: 欄位檢查
@@ -71,7 +107,7 @@ router.get('/api/list/:articleSid', async (req, res)=>{
             ...req.body,
             created_date: new Date()
         };
-        const sql = "INSERT INTO `article_pop` SET ?"
+        const sql = "INSERT INTO `article_inter` SET ?"
         let result = {};
         // 處理新增資料時可能的錯誤
         try {
@@ -95,7 +131,7 @@ router.get('/api/list/:articleSid', async (req, res)=>{
 
     router.delete('/delete/:sid([0-9]+)', async (req, res) => {
         // '/delete/:sid([0-9]+' 以防用戶在網址列輸入數值以外的東西
-        const sql = "DELETE FROM article_pop WHERE sid=?";
+        const sql = "DELETE FROM article_inter WHERE sid=?";
         const [result] = await db.query(sql, [req.params.sid]);
         console.log({
             result
@@ -106,7 +142,7 @@ router.get('/api/list/:articleSid', async (req, res)=>{
 
     router.get("/edit", async (req, res) => {
         // let courseSid = ;
-        const sql = `SELECT * FROM \`article_pop\` WHERE sid=?`;
+        const sql = `SELECT * FROM \`article_inter\` WHERE sid=?`;
         const [rs] = await db.query(sql, [req.query.Sid]);
         res.json(rs);
       });
@@ -122,7 +158,7 @@ router.get('/api/list/:articleSid', async (req, res)=>{
         };
       
         // console.log(input);
-        const sql = `UPDATE \`article_pop\` SET ? WHERE sid=?`;
+        const sql = `UPDATE \`article_inter\` SET ? WHERE sid=?`;
         let result = {};
         // 處理修改資料時可能的錯誤
         try {

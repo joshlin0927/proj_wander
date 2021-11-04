@@ -71,6 +71,8 @@ async function getListData(req,res){
     return output;
 }
 
+
+
 router.get('/api/list', async (req, res)=>{
     const output = await getListData(req, res);
     res.json(output);

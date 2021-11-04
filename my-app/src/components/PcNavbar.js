@@ -115,11 +115,27 @@ function PcNavbar(props) {
                   <span className="nav__en">我的課程</span>
                 </Link>
               </li>
-              <li>
-                <Link to="/ArtIndex/ArtAll">
-                  <span className="nav__en">國際角落</span>
-                </Link>
-              </li>
+              {auth === true ? (
+                <li>
+                  <Link
+                    to={
+                      memberObj
+                        ? memberObj.identity === 1
+                          ? '/ArtIndex/ArtAll'
+                          : '/ArtIndex/ArticleSt'
+                        : '/'
+                    }
+                  >
+                    <span className="nav__en">
+                      {memberObj
+                        ? memberObj.identity === 1
+                          ? '熱門文章'
+                          : '國際角落'
+                        : '/'}
+                    </span>
+                  </Link>
+                </li>
+              ) : null}
             </ul>
             <div className="col d-flex align-items-center justify-content-around">
               {auth === false ? (

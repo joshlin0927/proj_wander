@@ -2,16 +2,16 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 
 import { Modal } from 'react-bootstrap'
-import { devUrl, IMG_PATH } from '../../config'
+import { devUrl, IMG_PATH } from '../../../config'
 import { Link } from 'react-router-dom'
 
 import {
   ArtMessage_DELETE,
   ArtMessage_EDIT,
-} from '../../config'
+} from '../../../config'
 import { useHistory } from 'react-router'
 
-function ArtMessage(props) {
+function ArtMessage(prop) {
   // const member = localStorage.getItem('member')
 
   // const memberObj = JSON.parse(member)
@@ -52,7 +52,7 @@ function ArtMessage(props) {
   //   }
   // })
 
-  const { imgSrc } = props
+  const { imgSrc } = prop
 
   const [imgSrcA, imgSrcAA] = useState('')
 
@@ -62,18 +62,18 @@ function ArtMessage(props) {
     artical_category,
     artical_title,
     artical_image,
-  } = props
+  } = prop
 
   return (
     <>
       <Link
         // to={`/ArtIndex/ArticleMessage/`}  imgSrcAA={sid}
 
-        to={`/ArtIndex/ArticleMessage?articleSid=${sid}`}
+        to={`/ArtIndex/ArtMessage?articleSid=${sid}`}
       >
         <div className="articleitem">
           <img
-            src={`${IMG_PATH}/pop-articles/${artical_image}`}
+            src={`${IMG_PATH}/inter-articles/${artical_image}`}
             alt=""
             className="img-fluid"
           />

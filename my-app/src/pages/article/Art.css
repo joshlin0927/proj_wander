@@ -54,7 +54,25 @@
     font-weight: bold;
 }
 
- 
+.opp-sin-art{
+
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  background: #FFFFFF;
+  /* width: 400px; */
+          }
+
+          .opp-icon-sin{
+              display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 40px;
+
+} 
 
 
 .opp-sin{
@@ -148,6 +166,10 @@
       /* width: 100%; */
   }
 
+  /* .TCallwraperb img{
+    width:500px;
+  } */
+
     .opp-icon-sing{
       display: flex;
 align-items: center;
@@ -191,6 +213,7 @@ margin-top: 30px;
      width: 202px;
   }
 
+
   .TCallwrapera-sing{
     z-index: 5;
     position: absolute;
@@ -206,12 +229,28 @@ margin-top: 30px;
   top: 100px;
 }
 
+.Article-TCallwraperw {
+  display: block;
+  position: absolute;
+  z-index:-4;
+  right: 100px;
+  top: 100px;
+}
+
 .white-block {
   position: relative;
     width: 590px;
     height: 400px;
     background: #FFFFFF;
     border-radius: 0px 180px 180px 0px;
+
+}
+
+.Article-white-block {
+  position: relative;
+    width: 500px;
+    height: 400px;
+    background: #FFFFFF;
 
 }
 
@@ -304,6 +343,20 @@ filter: drop-shadow(#065f8e 60px 0);
 color: #065f8e;
 }
 
+.Article-ar-btn-secondary:hover {
+  border: 1px solid #2b6686;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #2b6686;
+  transition: 0.12s linear;
+}
+
+.Article-ar-btn-secondary {
+  color: #FFFFFF;
+  border: 1px solid #2b6686;
+  background-color: #065f8e;
+}
+
 
 
 .ar-btn-secondary:hover {
@@ -372,6 +425,7 @@ color: #065f8e;
 
 
 
+
 @media (max-width: 768px) {
 
   
@@ -409,7 +463,7 @@ background-color: #fff;
 
 }
 
-  .coursename {
+  .Art-coursename {
     font-size: 16px;
     top: 80%;
     left: 5%;
@@ -517,7 +571,7 @@ background-color: #fff;
               left: 5%;
           }
 
-            .coursename {
+            .Art-coursename {
               color: #000000;
               font-size: 14px;
               top: 80%;
