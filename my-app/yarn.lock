@@ -12018,14 +12018,11 @@
     "querystringify" "^2.1.1"
     "requires-port" "^1.0.0"
 
-<<<<<<< HEAD
-=======
 "url-toolkit@^2.2.1":
   "integrity" "sha512-Da75SQoxsZ+2wXS56CZBrj2nukQ4nlGUZUP/dqUBG5E1su5GKThgT94Q00x81eVII7AyS1Pn+CtTTZ4Z0pLUtQ=="
   "resolved" "https://registry.npmjs.org/url-toolkit/-/url-toolkit-2.2.3.tgz"
   "version" "2.2.3"
 
->>>>>>> 002bc6e5a547b8944afb51542f0e0565081e7c15
 "url@^0.11.0":
   "integrity" "sha1-ODjpfPxgUh63PFJajlW/3Z4uKPE="
   "resolved" "https://registry.npmjs.org/url/-/url-0.11.0.tgz"
