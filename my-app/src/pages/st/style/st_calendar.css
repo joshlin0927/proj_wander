@@ -56,7 +56,7 @@
   display: block;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 0px;
   width: 64%;
   height: 315px;
   border-radius: 0px 0px 0px 50px;
@@ -105,6 +105,7 @@
   left: 5%;
   margin-left: auto;
   position: absolute;
+  opacity: 0;
 }
 
 .stteachername {
@@ -114,6 +115,7 @@
   position: absolute;
   top: 80%;
   left: 10%;
+  opacity: 0;
 }
 
 .search,
@@ -312,8 +314,8 @@
 
   .calendardec-side {
     display: block;
-    width: 45%;
-    height: 600px;
+    width: 30%;
+    height: 570px;
     border-radius: 0px 0px 0px 180px;
     background-color: #f1ef5b;
     position: absolute;
@@ -368,47 +370,73 @@
     border: 1.25px solid rgba(255, 255, 255, 1);
     border-radius: 30px;
     margin: 0px;
-  } 
-  
-.calcourseitem:hover .mask{
-  opacity: 0.6;
-}
+    overflow: hidden;
 
+  }
 
-
-  
-  .mask{
-    position: absolute;
+  .calcourseitem:hover .mask {
     top: 0px;
-    left:0px;
+  }
+
+  .calcourseitem:hover .stcoursename,
+  .calcourseitem:hover .stteachername {
+    opacity: 0.8;
+  }
+
+  .calcourseitem:hover .addbtn {
+    display: block;
+  }
+
+  .mask {
+    position: absolute;
+    top: 100%;
     width: 100%;
     height: 100%;
     border-radius: 30px;
-    background: rgba(101, 101, 101, 0.3);
+    background: rgba(114, 113, 113);
     /* color: #ffffff; */
-    opacity: 0;
+    opacity: 0.6;
+    transition: 0.3s ease;
+    cursor: pointer;
   }
-  .addbtn{
+
+  .calcourseitem>img {
+    width: 100%;
+    height: 215px;
+    border-radius: 30px;
+  }
+
+  .mask img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* .addbtn {
+    display:none;
     position: absolute;
     right: 50%;
     bottom:50%;
     transform: translate(50%,50%);
     border-radius: 6px;
     background-color:transparent;
-    border:2px solid black;
+    border:2px solid rgb(255, 253, 253);
     font-weight: bold;
     width: 115px;
     height: 40px;
 
   }
 
-
-
-  .calcourseitem img {
-    width:100%;
-    height: 215px;
-    border-radius: 30px;
+  .addbtn span{
+    color:#ffffff;
   }
+ */
+
+
+
 
 
   .stcoursename {
@@ -419,6 +447,7 @@
     left: 5%;
     margin-left: auto;
     position: absolute;
+    opacity: 0;
   }
 
   .stteachername {
@@ -428,6 +457,7 @@
     position: absolute;
     top: 80%;
     left: 10%;
+    opacity: 0;
   }
 
   .coursesection-m {

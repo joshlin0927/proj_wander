@@ -35,7 +35,7 @@ class StCalendar {
     }
 
     // 新增訂單
-    static async add(member_sid, course_name) {
+    static async add(member_sid, course_name, start, end) {
         const output = {
             success: false,
             error: '',
@@ -45,8 +45,8 @@ class StCalendar {
             output.error = "訂單已存在";
             return output;
         }
-        const sql = `INSERT INTO ${tableName} (\`member_sid\`, \`title\`) VALUES (?, ?)`;
-        const [r] = await db.query(sql, [member_sid, course_name]);
+        const sql = `INSERT INTO ${tableName} (\`member_sid\`, \`title\`,\`start\`,\`end\`) VALUES (?, ?,?,?)`;
+        const [r] = await db.query(sql, [member_sid, course_name,start,end]);
         output.success = true;
         return output;
     }

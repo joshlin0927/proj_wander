@@ -1,20 +1,31 @@
 import React from 'react'
-import { IMG_PATH } from '../../config'
+import { IMG_PATH, devUrl } from '../../config'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 function CalendarCourseItem(props) {
   const MySwal = withReactContent(Swal)
-  const { name, teacher, courseimg, setMytest } = props
+  const {
+    name,
+    teacher,
+    courseimg,
+    setMytest,
+    scheduledDate,
+  } = props
+
   const member = localStorage.getItem('member')
   const studentSid = JSON.parse(member).sid
 
   const addSchedule = () => {
+    console.log(scheduledDate.start)
+    console.log(scheduledDate.end)
     axios
       .post('http://localhost:3001/stCalendar/add', {
         member_sid: studentSid,
         course_name: name,
+        start: scheduledDate.start,
+        end: scheduledDate.end,
       })
       .then((res) => {
         setMytest(Math.random())
@@ -37,10 +48,16 @@ function CalendarCourseItem(props) {
           src={`${IMG_PATH}/course/img/${courseimg}`}
           alt=""
         />
-        <div className="mask">
-          <button className="addbtn" onClick={addSchedule}>
-            加入行事曆
-          </button>
+        <div
+          className="mask"
+          onClick={() => {
+            addSchedule()
+          }}
+        >
+          <img
+            src={`${devUrl}/images/elements/addhover.png`}
+            alt=""
+          />
         </div>
         <div class="stcoursename">{name}</div>
         <span class="stteachername"> {teacher} </span>

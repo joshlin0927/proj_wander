@@ -32,7 +32,10 @@ export default function StCalendar(props) {
   const [events, setEvents] = useState([{}])
   const [courses, setCourses] = useState([{}])
   const [mytest, setMytest] = useState(0)
-
+  const [scheduledDate, setScheduledDate] = useState({
+    start: '',
+    end: '',
+  })
   useEffect(() => {
     if (token && identity === 0) {
       ;(async () => {
@@ -115,6 +118,11 @@ export default function StCalendar(props) {
 
     selectTimeout = setTimeout(() => {
       setSchedule('showup')
+
+      setScheduledDate({
+        start: dayjs(start).format('YYYY-MM-DD HH:mm:ss'),
+        end: dayjs(end).format('YYYY-MM-DD HH:mm:ss'),
+      })
       console.log('onSelectSlot: ', {
         start,
         end,
@@ -138,33 +146,37 @@ export default function StCalendar(props) {
       console.log('onDoubleClickEvent: ', event)
     }, 250)
 
-    let result = axios.delete(
-      'http://localhost:3001/stCalendar/delete',
-      {
-        headers: {
-          Authorization: token,
-        },
-        data: {
-          member_sid: studentSid,
-          course_name: event.title,
-        },
-      }
-    )
-    if (result) {
-      Swal.fire({
-        title: '確定要刪除這個行程？',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'delete',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire('行程已確定刪除')
+    Swal.fire({
+      title: '確定要刪除這個行程？',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'delete',
+    }).then(async (r) => {
+      if (r.isConfirmed) {
+        Swal.fire('行程已確定刪除')
+        let result = await axios.delete(
+          'http://localhost:3001/stCalendar/delete',
+          {
+            headers: {
+              Authorization: token,
+            },
+            data: {
+              member_sid: studentSid,
+              course_name: event.title,
+            },
+          }
+        )
+        console.log('result:', result)
+        if (result.status === 200) {
           setMytest(Math.random())
+          if (events.length <= 1) {
+            setEvents([{}])
+          }
         }
-      })
-    }
+      }
+    })
   }
 
   const moveEvent = async ({
@@ -318,8 +330,8 @@ export default function StCalendar(props) {
       </div>
 
       <div className={`allwraper  ${schedule}`}>
-        <div className="calendardec-side col-md-10 col-lg-10 col-12">
-          <div className="calendardec-insideblock col-md-8 col-lg-8 col-12">
+        <div className="calendardec-side col-md-10 col-12">
+          <div className="calendardec-insideblock col-md-10 col-12">
             <div
               className="closeicon"
               onClick={() => {
@@ -329,7 +341,7 @@ export default function StCalendar(props) {
               close
             </div>
 
-            <div className="schedulecoursesection col-md-10 col-lg-8">
+            <div className="schedulecoursesection col-md-10 col-12">
               <Carousel cols={1} rows={1} gap={10} loop>
                 {courses.length !== 0 ? (
                   courses.map((course, i) => {
@@ -341,6 +353,7 @@ export default function StCalendar(props) {
                           courseimg={course.course_img}
                           teacher={course.firstname}
                           setMytest={setMytest}
+                          scheduledDate={scheduledDate}
                         />
                       </Carousel.Item>
                     )

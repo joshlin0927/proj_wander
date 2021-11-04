@@ -9,7 +9,7 @@ router.get('/list', async(req, res)=>{
 
 // 新增
 router.post('/add', async(req, res)=>{
-    res.json(await StCalendar.add(req.body.member_sid, req.body.course_name));
+    res.json(await StCalendar.add(req.body.member_sid, req.body.course_name, req.body.start, req.body.end));
 })
 
 // 修改(PUT)
