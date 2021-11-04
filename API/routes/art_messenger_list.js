@@ -4,7 +4,7 @@ const upload = require('../modules/upload-images');
 
 const router = express.Router();
 
-router.get('/list/:articleSid', async (req, res) => {
+router.get('/list', async (req, res) => {
     res.locals.pageName = 'ab-list';
  
     const output = await getListData(req,res);
@@ -13,7 +13,7 @@ router.get('/list/:articleSid', async (req, res) => {
     }
 
     // res.json(output);
-    res.render('article_pop/list', output);
+    res.render('art_messenger/list', output);
 });
 
 async function getListData(articleSid){
@@ -22,7 +22,7 @@ async function getListData(articleSid){
         result: '',
     }
     const sql =
-        `SELECT * FROM article_pop WHERE sid=?`;
+        `SELECT * FROM art_messenger WHERE ar_sid=?`;
     const [r] = await db.query(sql, [articleSid]);
     if (r.length === 0) {
         output.success = false;
@@ -46,7 +46,7 @@ router.get('/api/list/:articleSid', async (req, res)=>{
     router.route('/add')
     .get(async (req, res) => {
         res.locals.pageName = 'ab-add';
-        res.render('article_pop/add');
+        res.render('art_messenger/add');
     })
     .post(async (req, res) => {
         // TODO: 欄位檢查
@@ -71,7 +71,7 @@ router.get('/api/list/:articleSid', async (req, res)=>{
             ...req.body,
             created_date: new Date()
         };
-        const sql = "INSERT INTO `article_pop` SET ?"
+        const sql = "INSERT INTO `art_messenger` SET ?"
         let result = {};
         // 處理新增資料時可能的錯誤
         try {
@@ -95,7 +95,7 @@ router.get('/api/list/:articleSid', async (req, res)=>{
 
     router.delete('/delete/:sid([0-9]+)', async (req, res) => {
         // '/delete/:sid([0-9]+' 以防用戶在網址列輸入數值以外的東西
-        const sql = "DELETE FROM article_pop WHERE sid=?";
+        const sql = "DELETE FROM art_messenger WHERE sid=?";
         const [result] = await db.query(sql, [req.params.sid]);
         console.log({
             result
@@ -106,7 +106,7 @@ router.get('/api/list/:articleSid', async (req, res)=>{
 
     router.get("/edit", async (req, res) => {
         // let courseSid = ;
-        const sql = `SELECT * FROM \`article_pop\` WHERE sid=?`;
+        const sql = `SELECT * FROM \`art_messenger\` WHERE sid=?`;
         const [rs] = await db.query(sql, [req.query.Sid]);
         res.json(rs);
       });
@@ -122,7 +122,7 @@ router.get('/api/list/:articleSid', async (req, res)=>{
         };
       
         // console.log(input);
-        const sql = `UPDATE \`article_pop\` SET ? WHERE sid=?`;
+        const sql = `UPDATE \`art_messenger\` SET ? WHERE sid=?`;
         let result = {};
         // 處理修改資料時可能的錯誤
         try {
