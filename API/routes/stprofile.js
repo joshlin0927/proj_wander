@@ -12,6 +12,7 @@ const upload = multer({
 router.get('/list', async (req, res) => {
 
     if(req.myAuth && req.myAuth.sid){
+      console.log('Auth:',req.myAuth)
       const sql = `SELECT * FROM \`member\` WHERE \`sid\` = ?`;
       const [rs] = await db.query(sql, [req.myAuth.sid]);
       return res.json([rs]);

@@ -102,6 +102,9 @@
   justify-content: center;
 
 }
+.remindingarea{
+  transform:translateY(50%);
+}
 
 .courseitem {
   
@@ -119,9 +122,9 @@
   border-radius: 30px;
 }
 
-.stcoursename {
+.stalreadybuycoursename {
   color: white;
-  font-size: 14px;
+  font-size: 18px;
   font-style: bold;
   top: 65%;
   left: 5%;
@@ -129,7 +132,7 @@
   position: absolute;
 }
 
-.stteachername {
+.stalreadybuyteachername {
   color: white;
   font-size: 16px;
   font-style: bold;
@@ -274,9 +277,9 @@
 
   
 
-  .stcoursename {
+  .stalreadybuycoursename {
     color: white;
-    font-size: 14px;
+    font-size: 18px;
     font-style: bold;
     top: 65%;
     left: 5%;
@@ -284,7 +287,7 @@
     position: absolute;
   }
 
-  .stteachername {
+  .stalreadybuyteachername {
     color: white;
     font-size: 16px;
     font-style: bold;

@@ -21,6 +21,7 @@ export default withRouter(function StProfile(props) {
   const identity = JSON.parse(member).identity
   const studentSid = JSON.parse(member).sid
   const [myTest, setMyTest] = useState(0)
+
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
   //大頭貼狀態
@@ -179,11 +180,7 @@ export default withRouter(function StProfile(props) {
     }
   }
   useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 0) {
-      history.push('/')
-    } else {
+    if (token && identity && identity === 0) {
       ;(async () => {
         let r = await axios.get(
           `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
@@ -193,8 +190,10 @@ export default withRouter(function StProfile(props) {
         setImgSrc(r.data[0][0].avatar)
         console.log('res:', r.data)
       })()
+    } else {
+      history.push('/')
     }
-  }, [imgSrc,myTest])
+  }, [imgSrc, myTest])
 
   return (
     <>

@@ -2,7 +2,11 @@
   font-family: "Noto Sans", "Noto Sans TC", sans-serif;
 }
 
+.instruction{
+  
+  font-size: 24px;
 
+}
 .navbar {
   display: none;
 }

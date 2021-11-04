@@ -23,7 +23,7 @@ function index() {
         <Route path="/StIndex/StProfile">
           <StProfile />
         </Route>
-        <Route path="/StIndex/StPasswordModify/:id?">
+        <Route path="/StIndex/StPasswordModify">
           <StPasswordModify />
         </Route>
         <Route exact path="/StIndex/StStartMyCourse">

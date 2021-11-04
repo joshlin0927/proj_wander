@@ -152,6 +152,12 @@
   border: 1px solid transparent;
   color: rgb(255, 255, 255);
 }
+.buy-btn:focus{
+  background-color: #065f8e !important;
+  box-shadow:none;
+  border: 1px solid transparent;
+ 
+}
 
 .bgcwhite {
   background-color: #ffffff;

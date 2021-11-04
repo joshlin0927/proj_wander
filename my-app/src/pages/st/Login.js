@@ -10,10 +10,18 @@ import {
   MemberLoginVerify,
 } from '../../config'
 
+// import { CSSTransitionGroup } from 'react-transition-group'
+// import { bounce } from 'react-animations'
+// import styled, { keyframes } from 'styled-components'
+
 function Login(props) {
   const { auth, setAuth, setUser } = props
   const history = useHistory()
   const formRef = useRef(null)
+
+  // const Bounce = styled.div`
+  //   animation: 2s ${keyframes`${bounce}`};
+  // `
 
   //儲存所有欄位的值
   const [fields, setFields] = useState({
@@ -165,7 +173,8 @@ function Login(props) {
             onInvalid={handleFormInvalid}
             ref={formRef}
           >
-            <div className="title"> Welcome Back! </div>
+            <div className="title">Welcome Back!</div>
+
             <div className="d-flex justify-content-center">
               <input
                 type="email"

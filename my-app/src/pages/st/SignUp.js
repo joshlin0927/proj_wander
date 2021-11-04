@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import LoginTitle from '../../components/st/LoginTitle'
 //共用元件
 // import FBLogin from '../../components/st/FBLogin'
 // import GooLogin from '../../components/st/GooLogin'
@@ -248,7 +249,9 @@ export default withRouter(function SignUp(props) {
                 <label for="tab2" id="asStudent">
                   成為學生
                 </label>
-                <div className="title">Wander With Us!</div>
+                <div className="title">
+                  <LoginTitle />
+                </div>
               </div>
               <div className="d-flex justify-content-center">
                 <input

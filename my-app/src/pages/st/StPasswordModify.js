@@ -25,7 +25,7 @@ export default function StPasswordModify(props) {
     if (token && identity === 0) {
       ;(async () => {
         let r = await axios.get(
-          `http://localhost:3001//passwordmodify/getdata`,
+          `http://localhost:3001/stprofile/list`,
           {
             headers: {
               Authorization:
@@ -33,8 +33,10 @@ export default function StPasswordModify(props) {
             },
           }
         )
-
-        setImgSrc(r.data[0][0].avatar)
+        if (r) {
+          console.log(r)
+          setImgSrc(r.data[0][0].avatar)
+        }
       })()
     } else {
       history.push('/')
@@ -59,23 +61,6 @@ export default function StPasswordModify(props) {
     newPass: '',
     newPassConfirm: '',
   })
-
-  // useEffect(() => {
-  //   if (!token) {
-  //     history.push('/')
-  //   } else if (identity !== 0) {
-  //     history.push('/')
-  //   } else {
-  //     ;(async () => {
-  //       let r = await axios.get(
-  //         `http://localhost:3001/passwordmodify/getdata?studentSid=${studentSid}`
-  //       )
-
-  //       setImgSrc(r.data[0][0].avatar)
-  //       console.log('result:', r.data)
-  //     })()
-  //   }
-  // }, [imgSrc])
 
   // 處理表單欄位變動
   const handleFieldChange = (e) => {
@@ -158,9 +143,15 @@ export default function StPasswordModify(props) {
       //透過axios把資料送到後端
       axios
         .post(
-          `http://localhost:3001/passwordmodify/modify?studentSid=${studentSid}`,
+          `http://localhost:3001/passwordmodify/modify`,
           {
-            password: fields.newPass,
+            headers: {
+              Authorization:
+                'Bearer ' + localStorage.getItem('token'),
+            },
+            body: {
+              password: fields.newPassConfirm,
+            },
           }
         )
         .then((res) => {
