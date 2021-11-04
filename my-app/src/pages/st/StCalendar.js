@@ -3,6 +3,9 @@ import { useHistory } from 'react-router'
 import './style/st_calendar.css'
 import axios from 'axios'
 import Carousel from 'react-grid-carousel'
+import dayjs from 'dayjs'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 // import { IMG_PATH } from '../../config'
 //月曆測試用data
 // import { events as eventData } from './event'
@@ -15,13 +18,8 @@ import Footer from '../../components/Footer'
 let selectTimeout
 const now = () => new Date()
 export default function StCalendar(props) {
-  // const [events, setEvents] = useState(
-  //   eventData.map((event) => {
-  //     event.start = new Date(event.start);
-  //     event.end = new Date(event.end);
-  //     return event;
-  //   })
-  // );
+  const MySwal = withReactContent(Swal)
+
   //讓側邊滑出已購買課程供排程選擇
   const [schedule, setSchedule] = useState('')
   const history = useHistory()
@@ -33,6 +31,7 @@ export default function StCalendar(props) {
   const [imgSrc, setImgSrc] = useState('')
   const [events, setEvents] = useState([{}])
   const [courses, setCourses] = useState([{}])
+  const [mytest, setMytest] = useState(0)
 
   useEffect(() => {
     if (token && identity === 0) {
@@ -87,7 +86,7 @@ export default function StCalendar(props) {
         }
       })()
     }
-  }, [])
+  }, [mytest])
 
   //carousel設定
   const settings = {
@@ -136,12 +135,39 @@ export default function StCalendar(props) {
     selectTimeout && window.clearTimeout(selectTimeout)
 
     selectTimeout = setTimeout(() => {
-      setSchedule('showup')
       console.log('onDoubleClickEvent: ', event)
     }, 250)
+
+    let result = axios.delete(
+      'http://localhost:3001/stCalendar/delete',
+      {
+        headers: {
+          Authorization: token,
+        },
+        data: {
+          member_sid: studentSid,
+          course_name: event.title,
+        },
+      }
+    )
+    if (result) {
+      Swal.fire({
+        title: '確定要刪除這個行程？',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'delete',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('行程已確定刪除')
+          setMytest(Math.random())
+        }
+      })
+    }
   }
 
-  const moveEvent = ({
+  const moveEvent = async ({
     event,
     start,
     end,
@@ -169,10 +195,33 @@ export default function StCalendar(props) {
       return [...filtered, updatedEvent]
     })
 
-    // alert(`${event.title} was dropped onto ${updatedEvent.start}`)
+    console.log(
+      `${event.title} was dropped onto ${updatedEvent.start}`
+    )
+
+    const start_time = dayjs(start).format(
+      'YYYY-MM-DD HH:mm:ss'
+    )
+
+    const end_time = dayjs(end).format(
+      'YYYY-MM-DD HH:mm:ss'
+    )
+
+    let r = await axios.put(
+      'http://localhost:3001/stCalendar/edit',
+      {
+        start: start_time,
+        end: end_time,
+        course_name: event.title,
+        member_sid: studentSid,
+      }
+    )
+    if (r.data) {
+      console.log('outcome:', r.data)
+    }
   }
 
-  const resizeEvent = ({ event, start, end }) => {
+  const resizeEvent = async ({ event, start, end }) => {
     setEvents((prevEvents) => {
       const filtered = prevEvents.filter(
         (it) => it.sid !== event.sid
@@ -187,7 +236,22 @@ export default function StCalendar(props) {
       ]
     })
 
-    //alert(`${event.title} was resized to ${start}-${end}`)
+    console.log(
+      `${event.title} was resized to ${start}-${end}`
+    )
+
+    let r = await axios.put(
+      'http://localhost:3001/stCalendar/edit',
+      {
+        start: dayjs(start).format('YYYY-MM-DD HH:mm:ss'),
+        end: dayjs(end).format('YYYY-MM-DD HH:mm:ss'),
+        course_name: event.title,
+        member_sid: studentSid,
+      }
+    )
+    if (r.data) {
+      console.log('outcome:', r.data)
+    }
   }
 
   const onKeyPressEvent = ({ event, ...other }) => {
@@ -276,6 +340,7 @@ export default function StCalendar(props) {
                           name={course.course_name}
                           courseimg={course.course_img}
                           teacher={course.firstname}
+                          setMytest={setMytest}
                         />
                       </Carousel.Item>
                     )
