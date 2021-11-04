@@ -26,12 +26,11 @@ router.post("/login-jwt", async (req, res) => {
   const success = await bcrypt.compare(req.body.password, rs[0].password);
   // 這裡設定的是登入後的token要給的資料
   if (success) {
-    const { sid, identity, verification, email, nickname } = rs[0];
+    const { sid, identity, email, nickname } = rs[0];
     output.success = true;
     output.member = {
       sid,
       identity,
-      verification,
       email,
       nickname,
     };
@@ -39,7 +38,6 @@ router.post("/login-jwt", async (req, res) => {
       {
         sid,
         identity,
-        verification,
         email,
         nickname,
       },

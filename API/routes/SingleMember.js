@@ -32,13 +32,12 @@ router
   .get(async (req, res) => {
     const sql = `SELECT * FROM \`member\` WHERE \`sid\`=?`;
     const [rs] = await db.query(sql, [req.query.teacherSid]);
-    // console.log(sql);
-    // console.log(res.json([rs]));
 
     res.json(rs);
   })
 
   .post(uploadPdf.single("resume"), async (req, res) => {
+
     const output = {
       success: false,
       error: "",

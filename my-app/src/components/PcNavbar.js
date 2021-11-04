@@ -121,7 +121,7 @@ function PcNavbar(props) {
                     to={
                       memberObj
                         ? memberObj.identity === 1
-                          ? '/ArtIndex/ArtAll'
+                          ? '/ArtIndex/Article'
                           : '/ArtIndex/ArticleSt'
                         : '/'
                     }

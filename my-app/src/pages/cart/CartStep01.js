@@ -193,23 +193,6 @@ function CartStep01(props) {
                 </span>
               </div>
               <div className="w-100"></div>
-              <div
-                className="btn"
-                onClick={() => {
-                  addCart(1)
-                }}
-              >
-                新增product1
-              </div>
-              <div
-                className="btn"
-                onClick={() => {
-                  addCart(2)
-                }}
-              >
-                新增product2
-              </div>
-              <div className="w-100"></div>
               <div className="cartSort container">
                 <div className="row w-100">
                   <span className="cartSortTxt col-3">
