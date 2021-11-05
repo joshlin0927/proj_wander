@@ -11,6 +11,8 @@ import { useHistory } from 'react-router'
 import { IMG_PATH } from '../../config'
 
 function ArticleMessageListCard(props) {
+  const member = localStorage.getItem('member')
+
   const { sid, messenger, nickname, st_pictuer } = props
 
   return (

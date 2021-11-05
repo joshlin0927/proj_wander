@@ -84,8 +84,8 @@ function PcNavbar(props) {
               </Link>
             </div>
             <ul className="nav__pc_menu col-7">
-              <li>
-                <Link to="#/">
+            <li>
+                <Link to="/Comonproblem">
                   <span className="nav__en">關於我們</span>
                 </Link>
               </li>

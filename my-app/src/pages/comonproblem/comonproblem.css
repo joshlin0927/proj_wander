@@ -1,0 +1,898 @@
+/*============= Main =============*/
+/* 
+.com-nav__en {
+	font-size:13px;
+  text-align: center;
+
+} */
+
+
+/* Caption Style 2 */
+
+.gride {
+	padding: 20px 20px 100px 20px;
+	max-width: 1300px;
+	margin: 0 auto;
+	list-style: none;
+	text-align: center;
+  background: #FAFAFA;
+}
+
+.gride li {
+	display: inline-block;
+	width: 240px;
+	margin: 0;
+	padding: 20px;
+	text-align: left;
+	position: relative;
+}
+
+.gride figure {
+	margin: 0;
+	position: relative;
+}
+
+.gride figure img {
+	max-width: 100%;
+	display: block;
+	position: relative;
+}
+
+.gride figcaption {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 20px;
+	background: #065F8E;
+	color: #F1EF5B;
+}
+
+.gride figcaption span {
+	text-align: center;
+	position: absolute;
+	top: -5px;
+	right:80px;
+	margin: 0;
+	padding: 5px 10px;
+	color: #FAFAFA;
+}
+
+.gride figcaption a {
+	text-align: center;
+	font-size:13px;
+}
+
+.gride figcaption a:link {
+	text-decoration:none;
+	text-align: center;
+	padding: 5px 10px;
+	border-radius: 2px;
+	display: inline-block;
+	background: #F1EF5B;
+	color:#3E58E4;
+}
+
+.gride figcaption a:hover {
+	text-decoration:underline;
+	text-align: center;
+	padding: 5px 10px;
+	border-radius: 2px;
+	display: inline-block;
+	background: #F1EF5B;
+	color: #451AEF;
+}
+
+/* Caption Style 2 */
+.cs-style-2 figure img {
+	z-index: 10;
+	-webkit-transition: -webkit-transform 0.4s;
+	-moz-transition: -moz-transform 0.4s;
+	transition: transform 0.4s;
+}
+
+.no-touch .cs-style-2 figure:hover img,
+.cs-style-2 figure.cs-hover img {
+	-webkit-transform: translateY(-90px);
+	-moz-transform: translateY(-90px);
+	-ms-transform: translateY(-90px);
+	transform: translateY(-90px);
+}
+
+.cs-style-2 figcaption {
+	height: 90px;
+	width: 100%;
+	top: auto;
+	bottom: 0;
+}
+
+.cs-style-2 figcaption a {
+	position: absolute;
+	right: 20px;
+	top: 30px;
+}
+
+
+@media screen and (max-width: 21.5em) {
+	.gride {
+		padding: 10px 10px 100px 10px;
+    background: #FAFAFA;
+	}
+	.gride li {
+		width: 100%;
+		min-width: 200px;
+	}
+}
+
+
+
+
+
+/* Caption Style 4 */
+
+
+.grid {
+	padding: 20px 20px 100px 20px;
+	max-width: 1300px;
+	margin: 0 auto;
+	list-style: none;
+	text-align: center;
+  background: #FAFAFA;
+}
+
+.grid li {
+	display: inline-block;
+	width: 240px;
+	margin: 0;
+	padding: 20px;
+	text-align: left;
+	position: relative;
+}
+
+.grid figure {
+	margin: 0;
+	position: relative;
+}
+
+.grid figure img {
+	max-width: 100%;
+	display: block;
+	position: relative;
+}
+
+.grid figcaption {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 20px;
+	background: #065F8E;
+	color: #F1EF5B;
+}
+
+.grid figcaption span {
+	text-align: center;
+	position: absolute;
+	top: 10px;
+  margin : auto;
+	/* padding: 5px 10px; */
+	color: #FAFAFA;
+;
+}
+
+.grid figcaption a {
+	text-align: center;
+	font-size:13px;
+}
+
+.grid figcaption a:link {
+	text-decoration:none;
+	text-align: center;
+	padding: 5px 10px;
+	border-radius: 2px;
+	display: inline-block;
+	background: #F1EF5B;
+	color:#3E58E4;
+}
+
+.grid figcaption a:hover {
+	text-decoration:underline;
+	text-align: center;
+	padding: 5px 10px;
+	border-radius: 2px;
+	display: inline-block;
+	background: #F1EF5B;
+	color: #451AEF;
+}
+
+/* Caption Style 4 */
+.cs-style-4 li {
+	-webkit-perspective: 1700px;
+	-moz-perspective: 1700px;
+	perspective: 1700px;
+	-webkit-perspective-origin: 0 50%;
+	-moz-perspective-origin: 0 50%;
+	perspective-origin: 0 50%;
+}
+
+.cs-style-4 figure {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.cs-style-4 figure > div {
+	overflow: hidden;
+}
+
+.cs-style-4 figure img {
+	-webkit-transition: -webkit-transform 0.4s;
+	-moz-transition: -moz-transform 0.4s;
+	transition: transform 0.4s;
+}
+
+.no-touch .cs-style-4 figure:hover img,
+.cs-style-4 figure.cs-hover img {
+	-webkit-transform: translateX(25%);
+	-moz-transform: translateX(25%);
+	-ms-transform: translateX(25%);
+	transform: translateX(25%);
+}
+
+.cs-style-4 figcaption {
+	height: 100%;
+	width: 50%;
+	opacity: 0;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transform: rotateY(-90deg);
+	-moz-transform: rotateY(-90deg);
+	transform: rotateY(-90deg);
+	-webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
+	-moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
+	transition: transform 0.4s, opacity 0.1s 0.3s;
+}
+
+.no-touch .cs-style-4 figure:hover figcaption,
+.cs-style-4 figure.cs-hover figcaption {
+	opacity: 1;
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+	-webkit-transition: -webkit-transform 0.4s, opacity 0.1s;
+	-moz-transition: -moz-transform 0.4s, opacity 0.1s;
+	transition: transform 0.4s, opacity 0.1s;
+}
+
+.cs-style-4 figcaption a {
+	position: absolute;
+	bottom: 20px;
+	right: 3px;
+}
+
+
+@media screen and (max-width: 21.5em) {
+	.grid {
+		padding: 10px 10px 100px 10px;
+    background: #FAFAFA;
+	}
+	.grid li {
+		width: 100%;
+		min-width: 200px;
+	}
+
+
+
+}
+
+
+
+
+@media (max-width: 767px) {
+
+
+  .articleitem-accordion {
+    width: 260px;
+    height: 308px;
+    border: 1.25px solid rgba(255, 255, 255, 1);
+    position: relative;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    background-color:#fff;
+}
+
+/* .articleitem img {
+    position: absolute;
+    width: 160px;
+    height: 208px;
+    left: 50px;
+    top: 32px;
+} */
+
+
+      .comport-img {
+        /* width: 300px; 
+        height: 300px; */
+        background-image: url('http://localhost:3000/images/common/about.png');
+        background-repeat: no-repeat;
+        background-size: Cover ;
+      }
+
+         /* accordion背景圖 */
+    .comport-img-accordion {
+      background: #F1F0E9;
+      background-size: Cover ;
+    }
+
+    .comport-img-accordion-img{
+      background: #FAFAFA;
+      background-size: Cover ;
+    }
+  
+
+    /* 頁面英文標題 */
+    .comp-pageName {
+      display: block;
+      margin-bottom: 96px;
+      margin-top: 96px;
+      padding: 0;
+      z-index: 1;
+    }
+  
+
+
+  .comp-pageNameText {
+    position: relative;
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+      /* 頁面英文標題 */
+      .comp2-pageName {
+        display: block;
+        /* margin-bottom: 96px; */
+        margin-top: 50px;
+        padding: 0;
+        z-index: 1;
+      }
+    
+  
+  
+    .comp2-pageNameText {
+      position: relative;
+      color: black;
+      font-size: 2rem;
+      /* font-weight: bold; */
+      line-height: 1;
+    }
+  
+
+  .accordion {
+    max-width: 600px;
+    /* margin: 100px auto 0; */
+    margin-top: 30px;
+    border-radius: 3px;
+    background: #f1f1f1;
+    margin-bottom: 90px;
+  }
+  
+  .accordion-visible {
+    background: #065F8E;
+    width: 100%;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #fff;;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 15px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  .accordion-visible span {
+    padding: 15px 0;
+    font-size: 15px;
+  }
+  .accordion-visible img {
+    width: 20px;
+    transform: rotate(-90deg);
+    transition: transform 0.2s ease-in-out;
+  }
+  .accordion-visible img.active {
+    transform: rotate(0deg)
+  }
+  
+  .accordion-visible h2 {
+    font-size: 20px;
+  }
+  
+  .accordion-toggle {
+    height: 0px;
+    font-size: 18px;
+    opacity: 0;
+    transition:  
+    opacity 0.3s ease-in-out,
+    height 0.3s 0.3s ease-in-out;
+    color: #333;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border: 1.25px  solid #333;
+  }
+
+    
+  .accordion-togglea {
+    height: 0px;
+    font-size: 18px;
+    opacity: 0;
+    transition:  
+    opacity 0.3s ease-in-out,
+    height 0.3s 0.3s ease-in-out;
+    color: #333;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border: 1.25px  solid #333;
+  }
+
+  .accordion-toggleb {
+    height: 0px;
+    font-size: 18px;
+    opacity: 0;
+    transition:  
+    opacity 0.3s ease-in-out,
+    height 0.3s 0.3s ease-in-out;
+    color: #333;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border: 1.25px  solid #333;
+  }
+
+  .accordion-togglec {
+    height: 0px;
+    font-size: 18px;
+    opacity: 0;
+    transition:  
+    opacity 0.3s ease-in-out,
+    height 0.3s 0.3s ease-in-out;
+    color: #333;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border: 1.25px  solid #333;
+  }
+
+  .accordion-toggled {
+    height: 0px;
+    font-size: 18px;
+    opacity: 0;
+    transition:  
+    opacity 0.3s ease-in-out,
+    height 0.3s 0.3s ease-in-out;
+    color: #333;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border: 1.25px  solid #333;
+  }
+
+  .accordion-togglee {
+    height: 0px;
+    font-size: 18px;
+    opacity: 0;
+    transition:  
+    opacity 0.3s ease-in-out,
+    height 0.3s 0.3s ease-in-out;
+    color: #333;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border: 1.25px  solid #333;
+  }
+  
+  
+  .animated {
+    opacity: 1;
+    transition:  
+    height 0.3s ease-in-out,
+    opacity 0.3s 0.3s ease-in-out;
+  }
+  
+  .accordion-toggle p {
+    margin: 0;
+    padding: 22px 15px;
+    pointer-events: none;
+    line-height: 1.3;
+  }
+
+  .accordion-togglea p {
+    margin: 0;
+    padding: 22px 15px;
+    pointer-events: none;
+    line-height: 1.3;
+  }
+
+  
+  .accordion-toggleb p {
+    margin: 0;
+    padding: 22px 15px;
+    pointer-events: none;
+    line-height: 1.3;
+  }
+
+  .accordion-togglec p {
+    margin: 0;
+    padding: 22px 15px;
+    pointer-events: none;
+    line-height: 1.3;
+  }
+
+  .accordion-toggled p {
+    margin: 0;
+    padding: 22px 15px;
+    pointer-events: none;
+    line-height: 1.3;
+  }
+
+  .accordion-togglee p {
+    margin: 0;
+    padding: 22px 15px;
+    pointer-events: none;
+    line-height: 1.3;
+  }
+
+
+
+
+/*----------選擇一個主題來搜索幫助-----------------*/
+
+
+  .grid figcaption span {
+    font-size:14px;
+    text-align: center;
+    position: absolute;
+    top: 10px;
+    margin: auto;
+    /* padding: 5px 10px; */
+    color: #FAFAFA;
+  
+}
+
+
+
+.gride figcaption span {
+	text-align: center;
+	position: absolute;
+	top: -5px;
+	right:80px;
+	margin: 0;
+	padding: 5px 10px;
+	color: #FAFAFA;    
+  font-size:14px;
+
+}
+
+  
+
+
+ 
+  
+
+
+
+
+}
+
+/*============= 效果模組 =============*/
+
+.c-blue {
+  color: #065f8e;
+}
+.c-white {
+  color: #ffffff;
+}
+.c-gray {
+  color: #c6c3b4;
+}
+.bgc-blue {
+  background-color: #065f8e;
+}
+.bgc-white {
+  background-color: #ffffff;
+}
+.bgc-gray {
+  background-color: #c6c3b4;
+}
+.bd-blue {
+  border-color: #065f8e;
+}
+.bd-white {
+  border-color: #ffffff;
+}
+@media (min-width: 768px) {
+
+
+
+
+  .articleitem-accordion {
+    width: 260px;
+    height: 308px;
+    border: 1.25px solid rgba(255, 255, 255, 1);
+    /* border-radius: 30px; */
+    position: relative;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    background-color:#fff;
+    
+
+}
+
+/* .articleitem img {
+    position: absolute;
+width: 160px;
+height: 208px;
+left: 50px;
+top: 32px;
+    
+
+} */
+
+
+    /* serch背景圖 */
+    .comport-img {
+      height: 500px; 
+      background-image: url('http://localhost:3000/images/common/about.png');
+      background-repeat: no-repeat;
+      background-size: Cover ;
+    }
+
+
+    
+    /* accordion背景圖 */
+    .comport-img-accordion {
+      background: #F1F0E9;
+      background-size: Cover ;
+    }
+
+
+        /* accordion背景圖 */
+        .comport-img-accordion-img {
+          background: #FAFAFA;
+          background-size: Cover ;
+        }
+    
+
+
+
+  
+  /* 頁面英文標題 */
+  .comp-pageName {
+    display: block;
+    margin-bottom: 96px;
+    margin-top: 96px;
+    padding: 0;
+    z-index: 1;
+  }
+
+  .comp-pageNameText {
+    position: relative;
+    color: black;
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+    
+  /* 頁面英文標題 */
+  .comp2-pageName {
+    display: block;
+    /* margin-bottom: 96px; */
+    margin-top: 60px;
+    padding: 0;
+    margin-right: -50px;
+    z-index: 1;
+  }
+
+  .comp2-pageNameText {
+    position: relative;
+    color: black;
+    font-size: 2rem;
+    /* font-weight: bold; */
+    line-height: 1;
+  }
+
+    .accordion {
+      max-width: 1000px;
+      margin: 40px auto 0;
+      border-radius: 3px;
+      background: #f1f1f1;
+      margin-bottom: 90px;
+    }
+    
+    .accordion-visible {
+      background: #065F8E;
+      width: 100%;
+      color: #fff;
+      cursor: pointer;
+      border: 1px solid #fff;;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 15px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+    .accordion-visible span {
+      padding: 15px 0;
+      font-size: 20px;
+    }
+    .accordion-visible img {
+      width: 20px;
+      transform: rotate(-90deg);
+      transition: transform 0.2s ease-in-out;
+    }
+    .accordion-visible img.active {
+      transform: rotate(0deg)
+    }
+    
+    .accordion-visible h2 {
+      font-size: 20px;
+    }
+    
+    .accordion-toggle {
+      height: 0px;
+      font-size: 18px;
+      opacity: 0;
+      transition:  
+      opacity 0.3s ease-in-out,
+      height 0.3s 0.3s ease-in-out;
+      color: #333;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border: 1.25px  solid #333;
+    }
+    .accordion-togglea {
+      height: 0px;
+      font-size: 18px;
+      opacity: 0;
+      transition:  
+      opacity 0.3s ease-in-out,
+      height 0.3s 0.3s ease-in-out;
+      color: #333;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border: 1.25px  solid #333;
+    }
+
+    .accordion-toggleb {
+      height: 0px;
+      font-size: 18px;
+      opacity: 0;
+      transition:  
+      opacity 0.3s ease-in-out,
+      height 0.3s 0.3s ease-in-out;
+      color: #333;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border: 1.25px  solid #333;
+    }
+
+    .accordion-togglec {
+      height: 0px;
+      font-size: 18px;
+      opacity: 0;
+      transition:  
+      opacity 0.3s ease-in-out,
+      height 0.3s 0.3s ease-in-out;
+      color: #333;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border: 1.25px  solid #333;
+    }
+
+    .accordion-toggled {
+      height: 0px;
+      font-size: 18px;
+      opacity: 0;
+      transition:  
+      opacity 0.3s ease-in-out,
+      height 0.3s 0.3s ease-in-out;
+      color: #333;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border: 1.25px  solid #333;
+    }
+
+    .accordion-togglee {
+      height: 0px;
+      font-size: 18px;
+      opacity: 0;
+      transition:  
+      opacity 0.3s ease-in-out,
+      height 0.3s 0.3s ease-in-out;
+      color: #333;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border: 1.25px  solid #333;
+    }
+    
+    .animated {
+      opacity: 1;
+      transition:  
+      height 0.3s ease-in-out,
+      opacity 0.3s 0.3s ease-in-out;
+    }
+    
+    .accordion-toggle p {
+      margin: 0;
+      padding: 22px 15px;
+      pointer-events: none;
+      line-height: 1.3;
+    }
+
+    .accordion-togglea p {
+      margin: 0;
+      padding: 22px 15px;
+      pointer-events: none;
+      line-height: 1.3;
+    }
+
+    .accordion-toggleb p {
+      margin: 0;
+      padding: 22px 15px;
+      pointer-events: none;
+      line-height: 1.3;
+    }
+    
+    .accordion-togglec p {
+      margin: 0;
+      padding: 22px 15px;
+      pointer-events: none;
+      line-height: 1.3;
+    }
+
+    .accordion-toggled p {
+      margin: 0;
+      padding: 22px 15px;
+      pointer-events: none;
+      line-height: 1.3;
+    }
+
+    .accordion-togglee p {
+      margin: 0;
+      padding: 22px 15px;
+      pointer-events: none;
+      line-height: 1.3;
+    }
+  
+  
+  
+
+
+
+  /* serch背景圖 */
+  /* .comport-img {
+		height: 500px; 
+    background-image: url('http://localhost:3000/images/index/about/about.png');
+    		background-repeat: no-repeat;
+        background-size: Cover ;
+  } */
+
+  /* accordion背景圖 */
+  /* .comport-img-accordion {
+    background: #FAFAFA;
+    background-size: Cover ;
+  } */
+
+
+
+
+
+
+
+  .pc-d-none {
+    display: none;
+  }
+  .mobile-card {
+    display: none;
+  }
+}
