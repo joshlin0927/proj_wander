@@ -9,8 +9,10 @@ import {
   MemberLogin,
   MemberLoginVerify,
 } from '../../config'
-// import emailjs from 'emailjs-com'
-
+import emailjs from 'emailjs-com'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+import axios from 'axios'
 // import { CSSTransitionGroup } from 'react-transition-group'
 // import { bounce } from 'react-animations'
 // import styled, { keyframes } from 'styled-components'
@@ -19,11 +21,13 @@ function Login(props) {
   const { auth, setAuth, setUser } = props
   const history = useHistory()
   const formRef = useRef(null)
-
-  // const Bounce = styled.div`
-  //   animation: 2s ${keyframes`${bounce}`};
-  // `
-
+  const MySwal = withReactContent(Swal)
+  const token = localStorage.getItem('token')
+  const member = localStorage.getItem('member')
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const studentSid = member ? JSON.parse(member).sid : ''
   //儲存所有欄位的值
   const [fields, setFields] = useState({
     email: '',
@@ -149,8 +153,29 @@ function Login(props) {
   }
 
   // //設定Email.js
-  // emailjs.send("service_1rx3xcn", "template_tahmupk");
+  const sendmail = () => {
+    let templateParams = {
+      name: 'James',
+      notes: 'Check this out!',
+    }
 
+    let service_id = 'default_service'
+    let template_id = 'template_tahmupk'
+    let userID = 'user_Bz9tUiSEEhdms8KVMRLUn'
+
+    emailjs
+      .send(service_id, template_id, templateParams, userID)
+      .then((response) => {
+        console.log(
+          'SUCCESS!',
+          response.status,
+          response.text
+        )
+      })
+      .catch((error) => {
+        console.log('FAILED...', error)
+      })
+  }
 
   return (
     <>
@@ -233,7 +258,73 @@ function Login(props) {
                 {fieldErrors.password}
               </label>
             )}
-            <p className="forgetPassword">忘記密碼？</p>
+
+            <div
+              className="forgetPassword"
+              onClick={async () => {
+                await Swal.fire({
+                  title: '請輸入您的帳號',
+                  input: 'text',
+                  inputAttributes: {
+                    autocapitalize: 'off',
+                  },
+                  showCancelButton: true,
+                  confirmButtonText: '送出',
+                  showLoaderOnConfirm: true,
+                  preConfirm: async (email) => {
+                    const r = await axios
+                      .get(
+                        `http://localhost:3001/passwordmodify/list`,
+                        {
+                          headers: {
+                            Authorization:
+                              'Bearer ' +
+                              localStorage.getItem('token'),
+                          },
+                        }
+                      )
+                      .then((r) => {
+                        console.log('r', r)
+
+                        if (!r.ok) {
+                          throw new Error(r.statusText)
+                        }
+                        return r.json()
+                      })
+                      .catch((error) => {
+                        Swal.showValidationMessage(
+                          `Request failed: ${error}`
+                        )
+                      })
+                  },
+                  allowOutsideClick: () =>
+                    !Swal.isLoading(),
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    Swal.fire({
+                      title: `${result.value.login}'s avatar`,
+                      imageUrl: result.value.avatar_url,
+                    })
+                  }
+                })
+
+                await sendmail()
+                await Swal.fire({
+                  title: '請到信箱確認重置密碼',
+                  showClass: {
+                    popup:
+                      'animate__animated animate__fadeInDown',
+                  },
+                  hideClass: {
+                    popup:
+                      'animate__animated animate__fadeOutUp',
+                  },
+                })
+              }}
+            >
+              <span> 忘記密碼？</span>
+            </div>
+
             <div className="d-flex justify-content-center">
               <button
                 type="submit"

@@ -96,18 +96,12 @@
   border-color: transparent #f1f0e9 transparent transparent;
 }
 
-.coursesection {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-}
 .remindingarea{
   transform:translateY(50%);
 }
 
 .courseitem {
-  
+
   height: 215px;
   border: 1.25px solid rgba(255, 255, 255, 1);
   border-radius: 30px;
@@ -120,6 +114,14 @@
   height: 215px;
   object-fit: cover;
   border-radius: 30px;
+}
+
+.stcoursesection {
+
+  flex-wrap: wrap;
+  justify-content: center;
+
+
 }
 
 .stalreadybuycoursename {
