@@ -66,17 +66,17 @@
   background-color: white;
   display: flex;
   cursor: pointer;
-  /* justify-content:center; */
-
   font-size: 14px;
+  padding: 5px;
 }
 
-.clip p {
+.clip > label {
   margin-left: 5px;
 }
 
 .first {
   background-color: #065f8e;
+  color: white;
 }
 
 .mo-none {

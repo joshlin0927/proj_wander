@@ -1,23 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
 
 import PcCoursePlaylistCard from './PcCoursePlaylistCard'
 
 function PcCoursePlaylist(props) {
-  const { active, setActive } = props
-  const [videos, setVideos] = useState('')
-  const [chose, setChose] = useState('')
-  const takeClass = sessionStorage.getItem('takeClass')
-  useEffect(() => {
-    ;(async () => {
-      let r = await axios.get(
-        `http://localhost:3001/stcourse/classroom/?courseSid=24`
-      )
+  const { active, setActive, videos } = props
 
-      //TODO: courseSid set to variable
-      setVideos(r.data)
-    })()
-  }, [])
+  console.log()
 
   return (
     <>
@@ -29,10 +17,10 @@ function PcCoursePlaylist(props) {
                   key={i}
                   sid={Video.sid}
                   video_name={Video.video_name}
+                  video_link={Video.video_link}
                   duration1={Video.duration}
                   value={Video.sid}
-                  checkedValue={chose}
-                  setCheckedValue={setChose}
+                  active={active}
                   setActive={setActive}
                 />
               )
