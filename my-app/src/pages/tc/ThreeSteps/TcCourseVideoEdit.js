@@ -21,9 +21,7 @@ function TcCourseVideoEdit() {
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
-  const courseSid = localStorage.getItem(
-    'CourseSidForProcess'
-  )
+  const courseSid = sessionStorage.getItem('courseSid')
 
   // 資料庫來的影片資料
   const [TcVideos, setTcVideos] = useState([])
@@ -54,6 +52,7 @@ function TcCourseVideoEdit() {
           setTcVideos(r.data.rows)
           setDisplayVideo(r.data.rows)
         }
+        console.log(r.data.rows)
       })()
     }
   }, [RemoveVideo, status])
@@ -148,7 +147,7 @@ function TcCourseVideoEdit() {
             ) : (
               <TcHasNoCourse text={'目前沒有任何影片'} />
             )}
-            <MyPagination />
+            {/* <MyPagination /> */}
           </form>
         </div>
       </div>

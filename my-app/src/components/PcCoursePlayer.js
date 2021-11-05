@@ -40,7 +40,7 @@ export default function PcCoursePlayer(props) {
 
   return (
     <>
-      <div className="player col-7 mo-none">
+      <div className="player col-12 col-md-7 ">
         <div data-vjs-player>
           <video
             ref={videoRef}

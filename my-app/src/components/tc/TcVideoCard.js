@@ -74,13 +74,10 @@ function TcVideoCard(props) {
     })()
   }
 
-  // const vidDuration = () => {
-  //   const time = dayjs.duration(duration).asSeconds()
-  // }
   return (
     <>
       <div className="TCcourse-card col-12">
-        <div
+        {/* <div
           className="TCcourse-img"
           onClick={handleIsShow}
         >
@@ -95,7 +92,7 @@ function TcVideoCard(props) {
               alt=""
             />
           )}
-        </div>
+        </div> */}
         <div
           className="TCcourse-info"
           onClick={handleIsShow}

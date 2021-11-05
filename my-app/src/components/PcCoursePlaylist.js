@@ -5,11 +5,9 @@ import PcCoursePlaylistCard from './PcCoursePlaylistCard'
 function PcCoursePlaylist(props) {
   const { active, setActive, videos } = props
 
-  console.log()
-
   return (
     <>
-      <div className="playlist col-3 mo-none">
+      <div className="playlist col-10 col-md-3 mt-5">
         {videos.length !== 0
           ? videos.map((Video, i) => {
               return (
@@ -17,7 +15,6 @@ function PcCoursePlaylist(props) {
                   key={i}
                   sid={Video.sid}
                   video_name={Video.video_name}
-                  video_link={Video.video_link}
                   duration1={Video.duration}
                   value={Video.sid}
                   active={active}
