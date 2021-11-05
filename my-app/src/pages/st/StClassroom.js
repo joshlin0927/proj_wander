@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style/classroom.css'
 import ReactPlayer from 'react-player'
 import axios from 'axios'
@@ -11,6 +11,9 @@ import StSideBar2 from '../../components/st/StSideBar2'
 import PcCoursePlaylist from '../../components/PcCoursePlaylist'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import Footer from '../../components/Footer'
+
+// 撥放器
+import PlayerControls from '../../components/PlayerControls'
 
 export default function StClassroom() {
   const [first, setFirst] = useState('')
@@ -48,6 +51,17 @@ export default function StClassroom() {
     })()
   }, [active])
 
+  // 撥放器
+  const [player, setPlayer] = useState({
+    playing: true,
+  })
+
+  const { playing } = player
+
+  const handlePlayNPause = () => {
+    setPlayer({ ...player, playing: !player.playing })
+  }
+
   return (
     <>
       <div className="container mainContent">
@@ -62,15 +76,16 @@ export default function StClassroom() {
 
         <div className="row">
           <StSideBar2 />
+
           <ReactPlayer
             className="col-10 col-md-7 mx-auto mb-5"
             url={!videoLink ? first : videoLink}
             width="100%"
             height="100%"
+            playing={playing}
             controls
             volume
             progressInterval
-            playIcon
           />
 
           <PcCoursePlaylist
