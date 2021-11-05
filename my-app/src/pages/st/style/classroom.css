@@ -7,6 +7,10 @@
   display: none;
 }
 
+.bgbeige {
+  background-color: grey;
+}
+
 /* 麵包屑 */
 .breadcrumb {
   background-color: transparent;
@@ -15,21 +19,6 @@
   font-weight: 500;
   margin-left: 0.25rem;
   padding: 0px 0px 15px;
-}
-.bgiclassroom {
-  z-index: -2;
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  background-image: url('http://localhost:3000/images/pic/背景圖素材/AdobeStock_366050394.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: rgba(0, 0, 0, 0.4);
-  /* 設置背景混和模式為相乘模式 */
-  background-blend-mode: multiply;
-  z-index: -3;
 }
 
 /* 頁面英文標題 */
@@ -54,8 +43,9 @@
 }
 
 .playlist {
-  display: block;
   padding: 0px;
+  height: 100%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
@@ -67,13 +57,10 @@
   height: 52px;
   background-color: white;
   display: flex;
+  align-items: center;
   cursor: pointer;
   font-size: 14px;
-  padding: 5px;
-}
-
-.clip > label {
-  margin-left: 5px;
+  padding: 0.5rem;
 }
 
 .first {
@@ -170,22 +157,6 @@
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-  }
-
-  .clip {
-    width: 100%;
-    background-color: white;
-    display: flex;
-    /* justify-content:center; */
-    font-size: 14px;
-  }
-
-  .clip p {
-    margin-left: 5px;
-  }
-
-  .first {
-    background-color: #065f8e;
   }
 
   .mb150 {

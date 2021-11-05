@@ -10,8 +10,6 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar2 from '../../components/st/StSideBar2'
 import PcCoursePlayer from '../../components/PcCoursePlayer'
 import PcCoursePlaylist from '../../components/PcCoursePlaylist'
-import MobileCoursePlayer from '../../components/MobileCoursePlayer'
-import MobileCoursePlaylist from '../../components/MobileCoursePlaylist'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import Footer from '../../components/Footer'
 
@@ -112,14 +110,6 @@ export default function StClassroom() {
             setActive={setActive}
           />
         </div>
-
-        {/* <div className="row">
-          <MobileCoursePlayer />
-        </div>
-        <div className="h30"></div>
-        <div className="row">
-          <MobileCoursePlaylist />
-        </div> */}
         <div className="h30"> </div>
       </div>
       <StBgDecorationNormal />
