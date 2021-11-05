@@ -6,16 +6,48 @@ const jwt = require('jsonwebtoken');
 
 //對比密碼資料
 router.get('/list', async (req, res) => {
-  if (req.myAuth && req.myAuth.email) {
-
-    const sql = `SELECT * FROM \`member\` WHERE email = ? `;
-    const [r] = await db.query(sql, [req.myAuth.email]);
-    return res.json([rs]);
-
+  const output = {
+    success: false,
+    error: '',
+  }
+  const sql = `SELECT * FROM \`member\` WHERE email = ? `;
+  const [r] = await db.query(sql, [req.query.email]);
+  if (r && r.length === 1) {
+    output.success = true;
+    output.result = r
+  } else {
+    output.error = '無此帳號';
   }
 
+  res.json(output)
 })
 
+//把信箱新密碼改到資料庫
+router.put('/update', async (req, res) => {
+  const output = {
+    success: false,
+    error: '',
+    result:'',
+  }
+ 
+    const hash = await bcrypt.hash(req.body.password, 10);
+    console.log('hash:', hash)
+    const sql = `UPDATE \`member\` SET \`password\`= ? WHERE \`email\` = ?`;
+    const [r] = await db.query(sql, [hash, req.body.email]);
+
+    if (r.affectedRows===1) {
+       output.success=true;
+       output.result=r;
+      
+    }else{
+      output.error='未修改'
+    }
+    
+     res.json(output)
+  
+
+
+})
 //忘記密碼使用路由
 // router.put('/changed', async (req, res) => {
 //   const output = {
