@@ -9,8 +9,13 @@ function MobileNavbar(props) {
   //判斷是否登入
   const history = useHistory()
   const token = localStorage.getItem('token')
+    ? localStorage.getItem('token')
+    : ''
   const member = localStorage.getItem('member')
-  const memberObj = JSON.parse(member)
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
+  const memberID = member ? member.sid : ''
+  const identity = member ? member.identity : ''
   // console.log('memberObj', memberObj)
   useEffect(() => {
     if (token) {
@@ -23,27 +28,35 @@ function MobileNavbar(props) {
     const navItem = document.querySelectorAll(
       '.mobile-nav-item'
     )
-
-    if (path.includes('CsCourse')) {
+    const removeLoop = () => {
       for (let i = 0; i < 5; i++) {
         navItem[i].classList.remove('active')
       }
+    }
+    if (path.includes('CsCourse')) {
+      removeLoop()
       navItem[0].classList.add('active')
     }
     if (path.includes('Cart')) {
-      for (let i = 0; i < 5; i++) {
-        navItem[i].classList.remove('active')
-      }
+      removeLoop()
       navItem[1].classList.add('active')
     }
     if (
-      path.includes('StCourse') ||
+      path.includes('StIndex') ||
       path.includes('TcCourse')
     ) {
-      for (let i = 0; i < 5; i++) {
-        navItem[i].classList.remove('active')
-      }
+      removeLoop()
       navItem[3].classList.add('active')
+    }
+    if (
+      path.includes('Login') ||
+      path.includes('Profile') ||
+      path.includes('Password') ||
+      path.includes('Order') ||
+      path.includes('Member')
+    ) {
+      removeLoop()
+      navItem[4].classList.add('active')
     }
   }, [props.location.pathname])
   return (
@@ -87,7 +100,13 @@ function MobileNavbar(props) {
             <span>聊天室</span>
           </Link>
           <Link
-            to="/StIndex/StCourse"
+            to={
+              member
+                ? identity === 1
+                  ? '/TcIndex/TcCourse'
+                  : '/StIndex/StCourse'
+                : '/'
+            }
             className="mobile-nav-item col-2"
             id="mNavMy"
           >

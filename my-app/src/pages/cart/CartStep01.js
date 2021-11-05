@@ -43,6 +43,8 @@ function CartStep01(props) {
     ? JSON.parse(localStorage.getItem('member'))
     : ''
   useEffect(() => {
+    sessionStorage.removeItem('counponID')
+    sessionStorage.removeItem('order')
     if (member.identity !== 0) {
       handleStopModalShow()
     }
@@ -128,7 +130,9 @@ function CartStep01(props) {
   }
   return (
     <>
-      <MultiLevelBreadCrumb />
+      <div className="container cartBread">
+        <MultiLevelBreadCrumb />
+      </div>
       {/* <!-- Main --> */}
       <div className="container-fluid p-0 mb-footer">
         <div className="row align-items-start m-0">

@@ -75,18 +75,6 @@ app.use('/@fortawesome/fontawesome-free', express.static('node_modules/@fortawes
 
 // 自訂middleware
 app.use(async (req, res, next) => {
-    // res.locals.title = 'Wander';
-    // // 這裡可以設定所有網站的title
-    // res.locals.pageName = '';
-    // res.locals.keyword = '';
-
-    // //設定 template 的helper functions
-    // res.locals.dateToDateString = d => moment(d).format('YYYY-MM-DD');
-    // res.locals.dateToDateTimeString = d => moment(d).format('YYYY-MM-DD');
-    // res.locals.session = req.session; // 把session傳到頁面
-
-
-
     // jwt 驗證
     req.myAuth = null; // 自訂的屬性 myAuth
     const auth = req.get('Authorization');

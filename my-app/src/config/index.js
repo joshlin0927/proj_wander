@@ -70,14 +70,15 @@ export const Art_Article_POP_LIST =
 //article-inter-list
 
 export const Art_Article_inter_LIST =
-API_HOST + '/art_article_inter_list/api/list'
+  API_HOST + '/art_article_inter_list/api/list'
 
 //article-list
 export const Art_Inter_LIST =
   API_HOST + '/article_inter/api/list'
 
 //article-inter-list
-export const Art_inter_LIST = API_HOST + '/art_inter_list/api/list'
+export const Art_inter_LIST =
+  API_HOST + '/art_inter_list/api/list'
 
 //article-pop-list
 export const Art_LIST = API_HOST + '/art_list/api/list'
@@ -126,6 +127,9 @@ export const pathnameList = [
   '/ArtIndex/ArticleSt',
   '/ArtIndex/ArtMessage',
   '/ArtIndex/ArtMessageADD',
+  '/Cart/Step01',
+  '/Cart/Step02',
+  '/Cart/Step03',
 ]
 
 export const pathnameTextList = [
@@ -155,4 +159,7 @@ export const pathnameTextList = [
   '/國際角落',
   '/國際角落/文章內容',
   '/國際角落/留言頁面',
+  '/購物車/確認購物車內容',
+  '/購物車/選擇付款方式',
+  '/購物車/完成訂單&付款',
 ]

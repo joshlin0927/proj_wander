@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './style/st_passwordmodify.css'
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import { useHistory } from 'react-router'
 
@@ -11,7 +11,7 @@ import StSideBar from '../../components/st/StSideBar'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
 
-export default function StPasswordModify(props) {
+export default withRouter(function StPasswordModify(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
@@ -196,13 +196,16 @@ export default function StPasswordModify(props) {
             <ConfirmMsg showUp={showUp} />
             <div className="form-content w-100 col-md-8">
               <div className="form-head p-0">
-                <Link to="/">
+                <div
+                  onClick={() => {
+                    props.history.push(
+                      '/StIndex/MemberCenter'
+                    )
+                  }}
+                >
                   <i className="fas fa-chevron-left TCback-btn"></i>
-                </Link>
+                </div>
                 <div className="form-title">密碼更改</div>
-                <Link to="">
-                  <i className="TCback-btn"></i>
-                </Link>
               </div>
               <input
                 name="origin"
@@ -273,4 +276,4 @@ export default function StPasswordModify(props) {
       <Footer />
     </>
   )
-}
+})
