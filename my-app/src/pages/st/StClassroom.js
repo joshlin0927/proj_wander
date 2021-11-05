@@ -24,6 +24,7 @@ export default function StClassroom() {
         `http://localhost:3001/stcourse/classroom/?courseSid=${takeClass}`
       )
       setFirst(`${API_HOST}/video/${r.data[0].video_link}`)
+      setActive(r.data[0].sid)
       setVideos(r.data)
     })()
   }, [])
