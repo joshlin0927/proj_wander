@@ -108,7 +108,32 @@ router.get("/edit", async (req, res) => {
     res.json(rs);
   });
   
-  
+// 遊戲結束的推薦課程
+router.get('/recommand/list', async (req, res)=>{
+    const output = {
+        success: false,
+        result: '',
+    }
+    let lang = ''
+    let easi = req.query.easi
+    if(req.query.lang==='en-US'){
+        lang = '英文'
+    }else if (req.query.lang==='ja-JP'){
+        lang = '日文'
+    }else{
+        lang=''
+    }
+    const sql = `SELECT * FROM \`course\` WHERE \`course_category\` LIKE ? AND \`easiness\` = ?`;
+    const [r] = await db.query(sql, [lang, easi]);
+    if(r.length === 0){
+        output.success = false;
+        output.result = '沒有資料';
+    }else{
+        output.success = true;
+        output.result = r;
+    }
+    res.json(output);
+}); 
 
 
 module.exports = router;

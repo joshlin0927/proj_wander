@@ -1,5 +1,5 @@
 * {
-  font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+  font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
 }
 
 .stcoursebgc-img {
@@ -12,7 +12,6 @@
   background-color: rgba(0, 0, 0, 0.4);
   /* 設置背景混和模式為相乘模式 
   background-blend-mode: multiply; */
-
 }
 
 .navbar {
@@ -30,14 +29,13 @@
   padding-left: 0px;
 }
 
-.bread>ol {
+.bread > ol {
   list-style-type: none;
 }
 
 /* .mainpic {
   padding: 0;
 } */
-
 
 /* .dec-side,
 .dec-insideblock {
@@ -51,7 +49,7 @@
 
   height: 316px;
   border-radius: 0px 0px 0px 50px;
-  background-color: #F1EF5B;
+  background-color: #f1ef5b;
   margin-left: auto;
   padding: 0;
   margin-bottom: 30px;
@@ -72,7 +70,7 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: #F1EF5B;
+  background: #f1ef5b;
   position: absolute;
   left: 60%;
   top: 50%;
@@ -99,15 +97,12 @@
   line-height: 20px;
   background-color: hsl(0, 76%, 33%);
   /* position: absolute; */
-
-
 }
 
 .selection-m {
   line-height: 20px;
   font-size: 14px;
   font-weight: normal;
-
 }
 
 .selectlanguage {
@@ -137,14 +132,12 @@
   animation-name: np;
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
+  cursor: pointer;
 }
 
-
-
 .nextpage:hover {
-  background-color:#F1EF5B;
-  color: white;
-  font-size: 1.2rem;
+  background-color: #f1ef5b;
+  color: black;
   border: 1px solid transparent;
 }
 
@@ -158,20 +151,13 @@
   }
 }
 
-
-
 @media (min-width: 768px) {
-
-
-
-
   .navbar {
     display: flex;
     height: 80px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     /* margin-bottom: 30px; */
   }
-
 
   /* .mainpic {
     background-image: url('http://localhost:3000/images/pic/背景圖素材/7656d57f.jpg');
@@ -186,7 +172,7 @@
     display: block;
     height: 574px;
     border-radius: 0px 0px 0px 180px;
-    background-color: #F1EF5B;
+    background-color: #f1ef5b;
     margin-left: auto;
     padding: 0;
     margin-bottom: 150px;
@@ -203,8 +189,6 @@
     position: relative;
   }
 
-
-
   .breadcrumb {
     background-color: transparent;
     font-size: 14px;
@@ -214,10 +198,9 @@
     color: #065f8e;
     padding-bottom: 15px;
     margin-top: 30px;
-
   }
 
-  .bread>ol {
+  .bread > ol {
     list-style-type: none;
   }
 
@@ -225,7 +208,7 @@
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background: #F1EF5B;
+    background: #f1ef5b;
     position: absolute;
     top: 50%;
     left: 60%;
@@ -252,5 +235,4 @@
     color: #065f8e;
     font-size: 20px;
   }
-
 }

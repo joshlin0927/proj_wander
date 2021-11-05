@@ -1,31 +1,37 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './style/gamestart.css'
-import { devUrl, SentenceGame_LIST } from '../../config'
+import { devUrl } from '../../config'
 import { withRouter } from 'react-router-dom'
-import axios from 'axios'
-
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import Footer from '../../components/Footer'
 
 function StGameStart(props) {
-  const [data, setData] = useState({})
-  const [dataArr, setDataArr] = useState([])
-
-  useEffect(() => {
-    const lang = data.language
-    const easi = data.easiness
-    ;(async () => {
-      let r = await axios.get(
-        `${SentenceGame_LIST}?language=${lang}&easiness=${easi}`
-      )
-      console.log('lang/easi:', lang, '/', easi)
-      console.log('rows:', r.data.rows)
-      if (r.status === 200) {
-        setDataArr(r.data.rows)
-      }
-    })()
-  }, [data])
-
+  const category = sessionStorage.getItem('category')
+    ? JSON.parse(sessionStorage.getItem('category'))
+    : ''
+  const dataArr = sessionStorage.getItem('array')
+    ? JSON.parse(sessionStorage.getItem('array'))
+    : ''
+  function changeLanguage(obj) {
+    if (obj.lang === 'en-US') {
+      return '英文'
+    } else if (obj.lang === 'ja-JP') {
+      return '日文'
+    } else {
+      return ''
+    }
+  }
+  function changeEasi(obj) {
+    if (obj.easi === '1') {
+      return '簡單'
+    } else if (obj.easi === '2') {
+      return '中等'
+    } else if (obj.easi === '3') {
+      return '困難'
+    } else {
+      return ''
+    }
+  }
   return (
     <>
       <div className="mainContent mhhundred">
@@ -33,38 +39,43 @@ function StGameStart(props) {
           <MultiLevelBreadCrumb />
 
           <div className="row flex-column">
-            <div
-              className="mylanguage col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10"
-              onClick={() => {
-                setData({
-                  language: 'English',
-                  easiness: 2,
-                })
-              }}
-            >
+            <div className="mylanguage col-6 col-md-3 col-lg-2 offset-3 offset-md-9 offset-lg-10">
               <div className="dot"> </div>
-              <span> 英文 </span>
+              <span> {changeLanguage(category)} /</span>
+              <span> {changeEasi(category)} </span>
             </div>
-            <br />
+            <div className="w-100 my-2"></div>
+            <div className="mylanguage col-6 col-md-3 col-lg-2 offset-3 offset-md-9 offset-lg-10">
+              <div className="dot"> </div>
+              <span> {dataArr.length} 題 </span>
+            </div>
+            <div className="w-100 mt-5"></div>
             <div
-              className="gamestart col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10"
+              className="gamestart col-6 col-md-3 col-lg-2 offset-3 offset-md-9 offset-lg-10"
               onClick={() => {
-                localStorage.clear()
-                console.log(dataArr)
-                if (dataArr.length === 0) {
-                  alert('未選擇語系或難度!!')
-                } else {
-                  const newArr = [...dataArr]
-                  localStorage.setItem(
-                    'array',
-                    JSON.stringify(newArr)
-                  )
-                  props.history.push('/StIndex/StGaming')
-                }
+                props.history.push('/StIndex/StGaming')
               }}
             >
               <div className="dot"> </div>
               <span> 開始測驗 </span>
+              <div className="gamestartHoverDot">
+                <img
+                  src={`${devUrl}/images/gaming/game_entrance.png`}
+                  alt=""
+                />
+              </div>
+            </div>
+            <div className="w-100 my-2"></div>
+            <div
+              className="gamestart col-6 col-md-3 col-lg-2 offset-3 offset-md-9 offset-lg-10"
+              onClick={() => {
+                props.history.push(
+                  '/StIndex/StSelectLanguage'
+                )
+              }}
+            >
+              <div className="dot"> </div>
+              <span> 重新選擇 </span>
               <div className="gamestartHoverDot">
                 <img
                   src={`${devUrl}/images/gaming/game_entrance.png`}

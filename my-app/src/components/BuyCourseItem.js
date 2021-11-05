@@ -10,7 +10,7 @@ function BuyCourseItem(props) {
     <>
       <div class="BuyCourseItem">
         <img
-          src={`${IMG_PATH}/${CourseCover}`}
+          src={`${IMG_PATH}/course/img/${CourseCover}`}
           class="BuyCourseImg"
           alt=""
         />

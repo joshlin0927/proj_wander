@@ -348,7 +348,11 @@ function WanderIndex() {
               <div className="col-md-3 offset-md-8 ">
                 <div className="imge-4-Text offset-1">
                   <div className="top-c ">
-                    <span>熱門課程</span>
+                    <span>
+                      {identity === 0
+                        ? '推薦課程'
+                        : '熱門課程'}
+                    </span>
                   </div>
                 </div>
               </div>
