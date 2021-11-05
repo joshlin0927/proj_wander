@@ -1,14 +1,5 @@
-* {
-  font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
-}
-
-/* 網站導覽列 */
-.navbar {
-  display: none;
-}
-
 .bgbeige {
-  background-color: grey;
+  background-color: #f1f0e9;
 }
 
 /* 麵包屑 */
@@ -66,14 +57,6 @@
 .first {
   background-color: #065f8e;
   color: white;
-}
-
-.mo-none {
-  display: none;
-}
-
-.mb30 {
-  margin-bottom: 30px;
 }
 
 /* -------------以上為公用------------ */
@@ -138,32 +121,68 @@
   /* -------------以上為公用--------- */
 
   .player {
-    display: block;
     width: 100%;
-    height: fit-content;
+    position: relative;
   }
 
-  .video img {
-    width: 100%;
-    object-fit: contain;
-  }
-
-  .play {
-    width: 87px;
-    height: 87px;
+  .playerControlWrap {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
 
-  .mb150 {
-    margin-bottom: 150px;
+  .MainPlayerControl {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 16px;
   }
 
-  .des-none {
-    display: none;
+  .playIcon {
+    font-size: 60px;
+    color: #a09f96;
+    transition: 1s;
+  }
+  .playIcon:hover {
+    color: #f1f0e9;
+    cursor: pointer;
+  }
+
+  .bottomControlGRP {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+  }
+
+  .volumeSlider {
+    width: 100%;
+  }
+  .bottomIcons {
+    color: #999;
+  }
+
+  .bottomIcons:hover {
+    color: '#fff';
+  }
+
+  .bottomButtonControlGRP {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .vidDuration {
+    color: #fff;
+    margin-left: 16px;
   }
 }

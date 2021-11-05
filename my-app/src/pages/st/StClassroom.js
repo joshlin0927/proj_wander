@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './style/classroom.css'
 import ReactPlayer from 'react-player'
 import axios from 'axios'
+import { useHistory } from 'react-router'
 
 import { API_HOST } from '../../config'
 
@@ -14,9 +15,12 @@ import Footer from '../../components/Footer'
 
 // 撥放器
 import PlayerControls from '../../components/PlayerControls'
+import Slider from 'react-player-controls/dist/components/Slider'
+import { FormattedTime } from 'react-player-controls'
 
 export default function StClassroom() {
   const [first, setFirst] = useState('')
+  const history = useHistory()
 
   // 這個課程的所有影片
   const [videos, setVideos] = useState('')
@@ -26,6 +30,10 @@ export default function StClassroom() {
       let r = await axios.get(
         `http://localhost:3001/stcourse/classroom/?courseSid=${takeClass}`
       )
+      if (!r.data[0]) {
+        history.push('/StIndex/StCourse')
+        return
+      }
       setFirst(`${API_HOST}/video/${r.data[0].video_link}`)
       setActive(r.data[0].sid)
       setVideos(r.data)
@@ -52,15 +60,18 @@ export default function StClassroom() {
   }, [active])
 
   // 撥放器
+  const [hide, setHide] = useState('')
   const [player, setPlayer] = useState({
-    playing: true,
+    playing: false,
   })
-
+  const playerRef = useRef('')
   const { playing } = player
 
   const handlePlayNPause = () => {
     setPlayer({ ...player, playing: !player.playing })
+    setHide('opacity-0')
   }
+  const handleVolumeChange = () => {}
 
   return (
     <>
@@ -76,23 +87,24 @@ export default function StClassroom() {
 
         <div className="row">
           <StSideBar2 />
-
-          <ReactPlayer
-            className="col-10 col-md-7 mx-auto mb-5"
-            url={!videoLink ? first : videoLink}
-            width="100%"
-            height="100%"
-            playing={playing}
-            controls
-            volume
-            progressInterval
-          />
-
-          <PcCoursePlaylist
-            videos={videos}
-            active={active}
-            setActive={setActive}
-          />
+          <div className="player col-12 col-md-7 mb-5 mt-0 p-0">
+            <ReactPlayer
+              url={!videoLink ? first : videoLink}
+              width="100%"
+              height="100%"
+              playing={playing}
+              playIcon={<i class="far fa-play-circle"></i>}
+            />
+            {/* 撥放器控制 */}
+            <PlayerControls />
+          </div>
+          <div className="playlist col-10 col-md-3">
+            <PcCoursePlaylist
+              videos={videos}
+              active={active}
+              setActive={setActive}
+            />
+          </div>
         </div>
 
         <div className="h30"> </div>

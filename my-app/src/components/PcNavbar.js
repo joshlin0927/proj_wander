@@ -140,7 +140,7 @@ function PcNavbar(props) {
               ) : (
                 <div
                   className="NavAvatar"
-                  onMouseOver={() => setDrop('d-block')}
+                  onClick={() => setDrop('d-block')}
                 >
                   <div
                     className="nav_login"
@@ -159,7 +159,7 @@ function PcNavbar(props) {
                   <div
                     id="memberMenu"
                     className={`NavAvatarMenu ${drop}`}
-                    onMouseOver={() => setDrop('d-block')}
+                    onClick={() => setDrop('d-block')}
                     onMouseLeave={() => setDrop('d-none')}
                   >
                     <div className="mb-1">

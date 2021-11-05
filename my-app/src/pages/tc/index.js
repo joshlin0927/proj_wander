@@ -51,7 +51,7 @@ function Index() {
           <TcApplyForm />
         </Route> */}
         <Route path="/TcIndex">
-          <Redirect to="/TcIndex/TcCourse" />
+          <Redirect to="/TcIndex/TcProfile" />
         </Route>
       </Switch>
     </>
