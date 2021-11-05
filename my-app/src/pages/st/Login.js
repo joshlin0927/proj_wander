@@ -324,9 +324,8 @@ function Login(props) {
                     }),
                   }
                 )
-                if (j.success) {
-                  console.log('outcome:', j)
-                }
+                let res = await j.json()
+                console.log('res:', res)
               }}
             >
               <span> 忘記密碼？</span>

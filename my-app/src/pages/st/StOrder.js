@@ -13,9 +13,14 @@ import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
 
-function StOrder() {
+function StOrder(props) {
+  //大頭貼狀態
+  let [imgSrc, setImgSrc] = useState('')
   const member = JSON.parse(localStorage.getItem('member'))
   const [orderID, setOrderID] = useState('')
+  const token = localStorage.getItem('token')
+    ? localStorage.getItem('token')
+    : ''
   // tab
   const [tab, setTab] = useState(1)
   // set order & orderdetail
@@ -25,15 +30,23 @@ function StOrder() {
   const [orderData1, setOrderData1] = useState([{}])
   const [orderData2, setOrderData2] = useState([{}])
   useEffect(() => {
-    ;(async () => {
-      let o = await axios.get(
-        `${SendOrder_API}/list?member_sid=${member.sid}`
-      )
-      if (o.data.success) {
-        setOrderData(o.data.result)
-      }
-    })()
-  }, [member.sid])
+    if (token && member.identity === 0) {
+      ;(async () => {
+        let o = await axios.get(
+          `${SendOrder_API}/list?member_sid=${member.sid}`
+        )
+        if (o.data.success) {
+          setOrderData(o.data.result)
+        }
+        let r = await axios.get(
+          `http://localhost:3001/stprofile/list?studentSid=${member.sid}`
+        )
+        setImgSrc(r.data[0][0].avatar)
+      })()
+    } else {
+      props.history.push('/')
+    }
+  }, [member.sid, props.history, member.identity, token])
   useEffect(() => {
     // tab切換
     if (!showDetail) {
@@ -96,7 +109,6 @@ function StOrder() {
         </div>
       </div>
       {/* <!-- orderItem --> */}
-      {console.log('data:', orderData)}
       {/* 全部 */}
       <div className="row stOrderDetailContent stODC1">
         {orderData.length === 0
@@ -179,17 +191,20 @@ function StOrder() {
           </div>
         </div>
         <div className="row">
-          <StSideBar />
+          <StSideBar imgSrc={imgSrc} />
           <form className="form col-12 offset-0 col-md-9 offset-md-1">
             <ConfirmMsg />
             <div className="form-head ml-1 px-3">
-              <Link to="#/">
+              <div
+                onClick={() => {
+                  props.history.push(
+                    '/StIndex/MemberCenter'
+                  )
+                }}
+              >
                 <i className="fas fa-chevron-left TCback-btn"></i>
-              </Link>
+              </div>
               <div className="form-title">訂單查詢</div>
-              <Link to="#/">
-                <i className="TCback-btn"></i>
-              </Link>
             </div>
 
             <div className="stOrderContent container">

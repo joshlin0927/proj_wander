@@ -221,13 +221,16 @@ export default withRouter(function StProfile(props) {
           >
             <ConfirmMsg showUp={showUp} />
             <div className="form-head ml-1">
-              <Link href="">
+              <div
+                onClick={() => {
+                  props.history.push(
+                    '/StIndex/MemberCenter'
+                  )
+                }}
+              >
                 <i className="fas fa-chevron-left TCback-btn"></i>
-              </Link>
+              </div>
               <div className="form-title">個人資料</div>
-              <Link href="">
-                <i className="TCback-btn"></i>
-              </Link>
             </div>
 
             <form name="form1" style={{ display: 'none' }}>

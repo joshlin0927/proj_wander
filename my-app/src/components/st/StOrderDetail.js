@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { SendOrder_API } from '../../config'
+import { withRouter } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 import axios from 'axios'
 import Step3OrderDetailItem from '../../components/cart/Step3OrderDetailItem'
@@ -40,6 +41,8 @@ function StOrderDetail(props) {
     if (!o.data.success) {
       console.log('error:', o.data.error)
     }
+    document.querySelector('.text-danger').innerText =
+      '處理中'
   }
   return (
     <>
@@ -159,7 +162,7 @@ function StOrderDetail(props) {
           <Modal.Title>完成付款</Modal.Title>
         </Modal.Header>
         <Modal.Body className="text-center">
-          <span>確認已完成付款？</span>
+          <span>確認完成付款？</span>
         </Modal.Body>
         <Modal.Footer>
           <button
@@ -323,4 +326,4 @@ function StOrderDetail(props) {
   )
 }
 
-export default StOrderDetail
+export default withRouter(StOrderDetail)
