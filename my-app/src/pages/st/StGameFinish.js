@@ -23,6 +23,7 @@ function StGameFinish(props) {
   const [recommandCourse, setRecommandCourse] = useState([
     {},
   ])
+  const [isLoading, setIsLoading] = useState(true)
   // 答對率
   const resultRate = () => {
     const r = JSON.parse(
@@ -37,7 +38,14 @@ function StGameFinish(props) {
   }
   // 取得推薦課程資料
   useEffect(() => {
-    const easi = category.easi
+    let easi = category.easi
+    if (resultRate() < 50) {
+      if (easi === 1) {
+        easi = 1
+      } else {
+        easi = easi - 1
+      }
+    }
     ;(async () => {
       let r = await axios.get(
         `${CsCourse_API}/recommand/list?lang=${category.lang}&easi=${easi}`
@@ -46,10 +54,12 @@ function StGameFinish(props) {
       arr.sort((a, b) => {
         return Math.random() - 0.5
       })
-
       console.log('object', arr)
       setRecommandCourse(arr.slice(0, 4))
     })()
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1500)
   }, [category.lang, category.easi])
   return (
     <>
@@ -85,8 +95,14 @@ function StGameFinish(props) {
                   </GameRatingAnimation>
                 </div>
               </div>
-              <div className="row my-3 no-wrap align-items-center">
-                <h2 className="col-12 mt-5">
+              <div
+                className={
+                  isLoading
+                    ? 'row recommandCourse'
+                    : 'row recommandCourse show'
+                }
+              >
+                <h2 className="col-12 mt-5 mb-3 p-0">
                   為您推薦以下課程
                 </h2>
                 {recommandCourse.length === 0
@@ -94,9 +110,11 @@ function StGameFinish(props) {
                   : recommandCourse.map((v, i) => {
                       return (
                         <BuyCourseItem
+                          courseSid={v.sid}
                           CourseCover={v.course_img}
                           CourseName={v.course_name}
                           Price={v.course_price}
+                          TeacherName={v.nickname}
                         />
                       )
                     })}
@@ -107,7 +125,7 @@ function StGameFinish(props) {
       </div>
 
       <StBgDecorationNormal />
-      <div className="bgbeige"> </div>
+      <div className="bg"> </div>
       <Footer />
     </>
   )

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import './style/membercenterformobile.css'
@@ -32,13 +32,21 @@ function MemberCenterForMobile(props) {
         <div className="row">
           <form className="form col-12 offset-0 col-md-8 offset-md-1 mobileform">
             <div className="form-head ml-1 mobileline">
-              <Link href="">
+              <div
+                onClick={() => {
+                  props.history.goBack()
+                }}
+              >
                 <i className="fas fa-chevron-left TCback-btn"></i>
-              </Link>
+              </div>
               <div className="form-title"> 會員中心 </div>
-              <Link href="">
+              <div
+                onClick={() => {
+                  props.history.goBack()
+                }}
+              >
                 <i className="TCback-btn"> </i>
-              </Link>
+              </div>
             </div>
             <Nav className="">
               <div className="mobilelist">
@@ -118,4 +126,4 @@ function MemberCenterForMobile(props) {
   )
 }
 
-export default MemberCenterForMobile
+export default withRouter(MemberCenterForMobile)

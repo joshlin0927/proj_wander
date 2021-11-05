@@ -123,7 +123,11 @@ router.get('/recommand/list', async (req, res)=>{
     }else{
         lang=''
     }
-    const sql = `SELECT * FROM \`course\` WHERE \`course_category\` LIKE ? AND \`easiness\` = ?`;
+    const sql = `SELECT \`course\`.* , \`member\`.\`nickname\`
+                FROM \`course\` 
+                LEFT JOIN \`member\`
+                ON \`course\`.\`teacher_sid\`=\`member\`.\`sid\`
+                WHERE \`course_category\` LIKE ? AND \`easiness\` = ?`;
     const [r] = await db.query(sql, [lang, easi]);
     if(r.length === 0){
         output.success = false;
