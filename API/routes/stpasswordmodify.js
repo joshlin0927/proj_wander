@@ -31,7 +31,6 @@ router.put('/update', async (req, res) => {
   }
  
     const hash = await bcrypt.hash(req.body.password, 10);
-    console.log('hash:', hash)
     const sql = `UPDATE \`member\` SET \`password\`= ? WHERE \`email\` = ?`;
     const [r] = await db.query(sql, [hash, req.body.email]);
 
