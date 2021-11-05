@@ -18,8 +18,10 @@ export default withRouter(function StProfile(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const studentSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const studentSid = member ? JSON.parse(member).sid : ''
   const [myTest, setMyTest] = useState(0)
 
   //設定確認表單送出訊息框的狀態
@@ -180,7 +182,7 @@ export default withRouter(function StProfile(props) {
     }
   }
   useEffect(() => {
-    if (token && identity && identity === 0) {
+    if (token && identity === 0) {
       ;(async () => {
         let r = await axios.get(
           `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
