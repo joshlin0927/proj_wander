@@ -9,6 +9,7 @@ import {
   MemberLogin,
   MemberLoginVerify,
 } from '../../config'
+// import emailjs from 'emailjs-com'
 
 // import { CSSTransitionGroup } from 'react-transition-group'
 // import { bounce } from 'react-animations'
@@ -146,6 +147,10 @@ function Login(props) {
     // 3. 設定回原錯誤訊息狀態物件
     setFieldErrors(updatedFieldErrors)
   }
+
+  // //設定Email.js
+  // emailjs.send("service_1rx3xcn", "template_tahmupk");
+
 
   return (
     <>

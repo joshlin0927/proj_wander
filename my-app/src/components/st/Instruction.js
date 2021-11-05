@@ -6,9 +6,9 @@ export default function Instruction() {
     <>
       <Typical
         steps={[
-          '讓我們為您推薦最適合的課程',
+          'Wander為您推薦最適合的課程',
           1000,
-          '讓我們為您推薦最適合的課程，點選開始課程後開始！',
+          'Wander為您推薦最適合的課程，點選開始課程後開始！',
           500,
         ]}
         loop={1}
