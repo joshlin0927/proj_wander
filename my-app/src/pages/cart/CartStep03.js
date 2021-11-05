@@ -107,7 +107,12 @@ function CartStep03(props) {
             <div className="row payMethod">
               <div className="col-12 payTitle">
                 <span>訂單明細</span>
-                <button className="btn orderGoBtn">
+                <button
+                  className="btn orderGoBtn"
+                  onClick={() => {
+                    props.history.push('/StIndex/StOrder')
+                  }}
+                >
                   前往會員中心查看 &rarr;
                 </button>
               </div>

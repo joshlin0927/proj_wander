@@ -359,3 +359,22 @@
     height: 100px;
   }
 }
+.CircularProgressbar-path {
+  stroke: #065f8e !important;
+}
+.CircularProgressbar-text {
+  fill: #065f8e !important;
+}
+.recommandCourse {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  transition: 1s ease-in-out;
+  opacity: 0;
+  transform: translateY(-15%);
+}
+.recommandCourse.show {
+  opacity: 1;
+  transform: translateY(0%);
+}
