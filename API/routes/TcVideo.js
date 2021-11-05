@@ -18,12 +18,12 @@ async function getListData(req, res) {
   let courseSid = req.query.courseSid;
 
   let where = `LEFT JOIN \`member\` ON \`video_list\`.\`teacher_sid\`=\`member\`.\`sid\`LEFT JOIN \`course\` ON \`course\`.\`sid\`=\`video_list\`.\`course_sid\` WHERE \`video_list\`.\`course_sid\` = ${courseSid} `;
-  if (keyword) {
-    output.keyword = keyword;
-    where += ` AND \`video_list\`.\`video_name\` LIKE ${db.escape(
-      "%" + keyword + "%"
-    )} `;
-  }
+  // if (keyword) {
+  //   output.keyword = keyword;
+  //   where += ` AND \`video_list\`.\`video_name\` LIKE ${db.escape(
+  //     "%" + keyword + "%"
+  //   )} `;
+  // }
   // 有其他條件可以用差不多的寫法加在sql後面
 
   const t_sql = `SELECT COUNT(1) totalRows FROM \`video_list\` ${where}`;
@@ -56,9 +56,10 @@ async function getListData(req, res) {
             // return res.redirect('?page=1' + output.totalPages);
             */
     }
-    const sql = `SELECT \`video_list\`.*, \`member\`.\`firstname\`, \`course\`.\`course_name\` FROM \`video_list\` ${where} ORDER BY \`course\`.\`sid\` DESC LIMIT ${
-      (page - 1) * perPage
-    }, ${perPage}`;
+    const sql = `SELECT \`video_list\`.*, \`member\`.\`firstname\`, \`course\`.\`course_name\` FROM \`video_list\` ${where} ORDER BY \`course\`.\`sid\` DESC `;
+    // LIMIT ${
+    //   (page - 1) * perPage
+    // }, ${perPage}`;
     /* 如果要用backtick，在名稱的地方要加上\`做跳脫 */
     const [rows] = await db.query(sql);
     output.rows = rows;

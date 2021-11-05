@@ -6,7 +6,6 @@ function PcCoursePlaylistCard(props) {
   const {
     sid,
     video_name,
-    video_link,
     duration1,
     active,
     setActive,

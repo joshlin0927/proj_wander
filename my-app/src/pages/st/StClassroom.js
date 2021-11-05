@@ -10,8 +10,6 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar2 from '../../components/st/StSideBar2'
 import PcCoursePlayer from '../../components/PcCoursePlayer'
 import PcCoursePlaylist from '../../components/PcCoursePlaylist'
-import MobileCoursePlayer from '../../components/MobileCoursePlayer'
-import MobileCoursePlaylist from '../../components/MobileCoursePlaylist'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import Footer from '../../components/Footer'
 
@@ -41,12 +39,12 @@ export default function StClassroom() {
         `http://localhost:3001/stcourse/videos/?videoSid=${active}`
       )
 
-      // console.log('setVideoLink', r.data.video_link)
       setVideoLink(r.data.video_link)
     })()
   }, [active])
 
-  // console.log('videoLink', videoLink)
+  console.log('active', active)
+  console.log('videoLink', videoLink)
 
   const playerRef = useRef(null)
 
@@ -59,10 +57,12 @@ export default function StClassroom() {
     sources: [
       {
         src: `${API_HOST}/video/${videoLink}`,
-        // type: 'video/mp4',
+
+        type: 'video/mp4',
       },
     ],
   }
+  console.log(videoJsOptions.sources[0].src)
 
   const handlePlayerReady = (player) => {
     playerRef.current = player
@@ -109,14 +109,6 @@ export default function StClassroom() {
             active={active}
             setActive={setActive}
           />
-        </div>
-
-        <div className="row">
-          <MobileCoursePlayer />
-        </div>
-        <div className="h30"></div>
-        <div className="row">
-          <MobileCoursePlaylist />
         </div>
         <div className="h30"> </div>
       </div>
