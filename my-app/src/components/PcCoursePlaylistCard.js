@@ -28,6 +28,7 @@ function PcCoursePlaylistCard(props) {
           type="radio"
           name="videoRadio"
           className="d-none"
+          value={value}
           id={sid}
         />
         <label htmlFor={sid}>
