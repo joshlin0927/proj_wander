@@ -33,6 +33,7 @@ function Login(props) {
     email: '',
     password: '',
   })
+  let account = ''
 
   // 存入錯誤訊息
   const [fieldErrors, setFieldErrors] = useState({
@@ -271,55 +272,61 @@ function Login(props) {
                   showCancelButton: true,
                   confirmButtonText: '送出',
                   showLoaderOnConfirm: true,
-                  preConfirm: async (email) => {
-                    const r = await axios
-                      .get(
-                        `http://localhost:3001/passwordmodify/list`,
-                        {
-                          headers: {
-                            Authorization:
-                              'Bearer ' +
-                              localStorage.getItem('token'),
-                          },
+                  preConfirm: (email) => {
+                    return fetch(
+                      `http://localhost:3001/passwordmodify/list?email=${email}`
+                    )
+                      .then((r) => r.json())
+                      .then((response) => {
+                        // console.log('response', response)
+                        if (!response.success) {
+                          throw new Error(response.error)
                         }
-                      )
-                      .then((r) => {
-                        console.log('r', r)
-
-                        if (!r.ok) {
-                          throw new Error(r.statusText)
-                        }
-                        return r.json()
                       })
                       .catch((error) => {
                         Swal.showValidationMessage(
-                          `Request failed: ${error}`
+                          `${error}`
                         )
                       })
                   },
                   allowOutsideClick: () =>
                     !Swal.isLoading(),
                 }).then((result) => {
+                  // console.log('result', result.value)
+                  account = result.value
                   if (result.isConfirmed) {
                     Swal.fire({
-                      title: `${result.value.login}'s avatar`,
-                      imageUrl: result.value.avatar_url,
+                      title: '請到信箱確認重置密碼',
+                      showClass: {
+                        popup:
+                          'animate__animated animate__fadeInDown',
+                      },
+                      hideClass: {
+                        popup:
+                          'animate__animated animate__fadeOutUp',
+                      },
                     })
                   }
                 })
 
                 await sendmail()
-                await Swal.fire({
-                  title: '請到信箱確認重置密碼',
-                  showClass: {
-                    popup:
-                      'animate__animated animate__fadeInDown',
-                  },
-                  hideClass: {
-                    popup:
-                      'animate__animated animate__fadeOutUp',
-                  },
-                })
+
+                let j = await fetch(
+                  'http://localhost:3001/passwordmodify/update',
+                  {
+                    method: 'PUT',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                      password: 12345,
+                      email: account,
+                    }),
+                  }
+                )
+                if (j.success) {
+                  console.log('outcome:', j)
+                }
               }}
             >
               <span> 忘記密碼？</span>
