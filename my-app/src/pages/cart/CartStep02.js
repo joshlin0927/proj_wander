@@ -151,7 +151,9 @@ function CartStep02(props) {
   }
   return (
     <>
-      <MultiLevelBreadCrumb />
+      <div className="container cartBread">
+        <MultiLevelBreadCrumb />
+      </div>
       {/* <!-- Main --> */}
       <div className="container-fluid p-0 mb-footer">
         <div className="row align-items-start m-0">

@@ -159,9 +159,6 @@ export default function StCalendar(props) {
         let result = await axios.delete(
           'http://localhost:3001/stCalendar/delete',
           {
-            headers: {
-              Authorization: token,
-            },
             data: {
               member_sid: studentSid,
               course_name: event.title,

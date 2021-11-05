@@ -121,6 +121,10 @@
 .cartItemImage {
   padding: 0;
   min-height: 100px;
+  max-height: 120px;
+  overflow: hidden;
+  border: 1px solid black;
+  object-position: center center;
 }
 .cartItemTxt {
   font-size: 1.2rem;
@@ -195,6 +199,10 @@
   margin-left: 5%;
   opacity: 0.6;
   transition: 0.3s ease;
+}
+.cartItemBtn-Delete img,
+.cartItemBtn-Detail img {
+  object-fit: contain !important;
 }
 .cartItemBtn span {
   padding-left: 5px;
@@ -1022,4 +1030,8 @@
 }
 .mb-footer {
   margin-bottom: 150px;
+  min-height: calc(100vh - 150px);
+}
+.cartBread {
+  padding-top: 110px;
 }

@@ -247,7 +247,6 @@ function TcProfile(props) {
                   <i className="fas fa-chevron-left TCback-btn"></i>
                 </Link>
                 <div className="TCform-title">個人資料</div>
-                <i className="TCback-btn"></i>
                 {/* <button
                   className="TCbtn btn-primary preview-btn-top"
                   to=""
