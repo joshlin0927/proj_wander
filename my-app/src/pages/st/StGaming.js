@@ -9,6 +9,9 @@ import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import Footer from '../../components/Footer'
 
 function StGaming(props) {
+  const category = sessionStorage.getItem('category')
+    ? JSON.parse(sessionStorage.getItem('category'))
+    : ''
   function wordSound(e) {
     const word = e.target.innerText
     //urlencoded法
@@ -17,8 +20,10 @@ function StGaming(props) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ word: word, lang: 'en-US' }),
-      // body: JSON.stringify({ word: word, lang: 'ja-JP' }),
+      body: JSON.stringify({
+        word: word,
+        lang: category.lang,
+      }),
     })
       .then((r) => r.json())
       .then((obj) => {
@@ -34,8 +39,8 @@ function StGaming(props) {
       })
   }
   useEffect(() => {
-    const dataArr = localStorage.getItem('array')
-      ? JSON.parse(localStorage.getItem('array'))
+    const dataArr = sessionStorage.getItem('array')
+      ? JSON.parse(sessionStorage.getItem('array'))
       : []
     // 問題顯示部分(點了按鈕123才顯示問題)
     let question = []
@@ -235,7 +240,10 @@ function StGaming(props) {
     })
     $('.finishBtn').on('click', function () {
       console.log('set result:', result)
-      localStorage.setItem('result', JSON.stringify(result))
+      sessionStorage.setItem(
+        'gameresult',
+        JSON.stringify(result)
+      )
     })
   }, [])
   return (
@@ -309,6 +317,7 @@ function StGaming(props) {
       </div>
 
       <StBgDecorationNormal />
+      <div className="bgbeige"> </div>
       <Footer />
     </>
   )

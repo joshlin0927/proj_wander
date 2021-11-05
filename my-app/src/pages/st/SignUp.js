@@ -368,9 +368,10 @@ export default withRouter(function SignUp(props) {
                   onChange={handleFieldChange}
                 />
               </div>
-              <div className="separator col-10 col-lg-8 mx-auto">
+              {/* <div className="separator col-10 col-lg-8 mx-auto">
                 <div className="or">OR</div>
-              </div>
+              </div> */}
+              <div className="w-100 mt-5"></div>
               <div className="d-flex d-md-block">
                 {/* <FBLogin /> */}
                 {/* <GooLogin /> */}
