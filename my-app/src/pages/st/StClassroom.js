@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import './style/classroom.css'
 import videojs from 'video.js'
+import axios from 'axios'
 
 import { API_HOST } from '../../config'
 
@@ -13,17 +14,40 @@ import MobileCoursePlayer from '../../components/MobileCoursePlayer'
 import MobileCoursePlaylist from '../../components/MobileCoursePlaylist'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import Footer from '../../components/Footer'
-import axios from 'axios'
 
 export default function StClassroom() {
-  // 被點選的影片
-  const [active, setActive] = useState('')
-
-  // 要放在url的影片連結
+  // 這個課程的所有影片
   const [videos, setVideos] = useState('')
+  const takeClass = sessionStorage.getItem('takeClass')
+  useEffect(() => {
+    ;(async () => {
+      let r = await axios.get(
+        `http://localhost:3001/stcourse/classroom/?courseSid=${takeClass}`
+      )
 
-  // console.log(videos.video_link)
-  // console.log('active', active)
+      setVideos(r.data)
+    })()
+  }, [])
+
+  // console.log('video_link', videos[0].video_link)
+
+  // 被點選的影片編號
+  const [active, setActive] = useState('')
+  // 被點選的影片連結
+  const [videoLink, setVideoLink] = useState('')
+  useEffect(() => {
+    ;(async () => {
+      let r = await axios.get(
+        `http://localhost:3001/stcourse/videos/?videoSid=${active}`
+      )
+
+      // console.log('setVideoLink', r.data.video_link)
+      setVideoLink(r.data.video_link)
+    })()
+  }, [active])
+
+  // console.log('videoLink', videoLink)
+
   const playerRef = useRef(null)
 
   const videoJsOptions = {
@@ -34,7 +58,7 @@ export default function StClassroom() {
     fluid: true,
     sources: [
       {
-        src: `${API_HOST}/video/e4b64ef4-7dc8-4f15-a138-7e0923dce2dc.mp4`,
+        src: `${API_HOST}/video/${videoLink}`,
         // type: 'video/mp4',
       },
     ],
