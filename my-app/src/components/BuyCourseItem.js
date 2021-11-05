@@ -1,28 +1,43 @@
 import React from 'react'
-
+import { Link, withRouter } from 'react-router-dom'
 import { IMG_PATH } from '../config'
 
 function BuyCourseItem(props) {
-  const { CourseCover, CourseName, TeacherName, Price } =
-    props
+  const {
+    courseSid,
+    CourseCover,
+    CourseName,
+    TeacherName,
+    Price,
+  } = props
 
   return (
     <>
-      <div class="BuyCourseItem">
+      <Link
+        to={`/Course/CsCoursedes/?courseSid=${courseSid}`}
+        className="BuyCourseItem"
+      >
         <img
           src={`${IMG_PATH}/course/img/${CourseCover}`}
-          class="BuyCourseImg"
+          className="BuyCourseImg"
           alt=""
         />
-        <div class="coursename">{CourseName}</div>
-        <span class="teachername">{TeacherName}</span>
-        <div class="CoursePrice">
-          <span id="number">{Price}</span>
-          <span id="unit"> TWD</span>
+        <div className="BuyCourseInfo">
+          <span className="BCIcoursename">
+            {CourseName}
+          </span>
+          <span className="BCIteachername">
+            {TeacherName}
+          </span>
+          <span className="BCICoursePrice">
+            {Price} NTD
+          </span>
         </div>
-      </div>
+
+        <div className="BurCourseItemMask"></div>
+      </Link>
     </>
   )
 }
 
-export default BuyCourseItem
+export default withRouter(BuyCourseItem)

@@ -317,7 +317,7 @@ function StGaming(props) {
       </div>
 
       <StBgDecorationNormal />
-      <div className="bgbeige"> </div>
+      <div className="bg"> </div>
       <Footer />
     </>
   )
