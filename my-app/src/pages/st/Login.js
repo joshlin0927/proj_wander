@@ -4,11 +4,7 @@ import { useHistory } from 'react-router'
 import React, { useState, useRef, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import {
-  devUrl,
-  MemberLogin,
-  MemberLoginVerify,
-} from '../../config'
+import { devUrl, MemberLogin } from '../../config'
 import emailjs from 'emailjs-com'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
@@ -191,7 +187,7 @@ function Login(props) {
         </div>
         <div className="row m-wrap">
           <div className="back" onClick={history.goBack}>
-            <span>Back</span>
+            <span> Back </span>
           </div>
         </div>
         <div className="h95"> </div>
@@ -204,8 +200,7 @@ function Login(props) {
             onInvalid={handleFormInvalid}
             ref={formRef}
           >
-            <div className="title">Welcome Back!</div>
-
+            <div className="title"> Welcome Back! </div>
             <div className="d-flex justify-content-center">
               <input
                 type="email"
@@ -259,7 +254,6 @@ function Login(props) {
                 {fieldErrors.password}
               </label>
             )}
-
             <div
               className="forgetPassword"
               onClick={async () => {
@@ -278,7 +272,7 @@ function Login(props) {
                     )
                       .then((r) => r.json())
                       .then((response) => {
-                        // console.log('response', response)
+                        console.log('response', response)
                         if (!response.success) {
                           throw new Error(response.error)
                         }
@@ -328,7 +322,7 @@ function Login(props) {
                 console.log('res:', res)
               }}
             >
-              <span> 忘記密碼？</span>
+              <span> 忘記密碼？ </span>{' '}
             </div>
 
             <div className="d-flex justify-content-center">
@@ -353,7 +347,6 @@ function Login(props) {
         </div>
       </div>
       <div className="h150"> </div>
-
       <div className="bgisignup"> </div>
     </>
   )

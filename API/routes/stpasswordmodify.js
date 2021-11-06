@@ -29,15 +29,14 @@ router.put('/update', async (req, res) => {
     error: '',
     result:'',
   }
- 
-<<<<<<< HEAD
-    let mypassword = bcrypt.hash(req.body.password, 10);
-  
-=======
-    const hash = await bcrypt.hash(req.body.password, 10);
->>>>>>> 3954e53e98a9d93d27a80985589c5180be114b74
+
+  const hashedPassword = await bcrypt.hash(req.body.password, 10);
+ //UPDATE `member` SET `password`= "123444" WHERE `email`="samar@mail"
+
     const sql = `UPDATE \`member\` SET \`password\`= ? WHERE \`email\` = ?`;
-    const [r] = await db.query(sql, [mypassword, req.body.email]);
+   
+  const [r] = await db.query(sql, [hashedPassword, req.body.email])
+  
 
     if (r.affectedRows===1) {
        output.success=true;
