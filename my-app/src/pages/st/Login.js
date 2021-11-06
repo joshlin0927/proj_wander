@@ -30,7 +30,7 @@ function Login(props) {
     password: '',
   })
   let account = ''
-
+  let firstname = ''
   // 存入錯誤訊息
   const [fieldErrors, setFieldErrors] = useState({
     email: '',
@@ -148,12 +148,14 @@ function Login(props) {
     // 3. 設定回原錯誤訊息狀態物件
     setFieldErrors(updatedFieldErrors)
   }
-
+  const newPass = Math.floor(Math.random() * 99999)
+  // console.log(newPass)
   // //設定Email.js
   const sendmail = () => {
     let templateParams = {
-      name: 'James',
-      notes: 'Check this out!',
+      name: firstname,
+      notes: `請使用Wander提供給您的新密碼重新登入。新密碼: 
+        ${newPass}`,
     }
 
     let service_id = 'default_service'
@@ -272,7 +274,9 @@ function Login(props) {
                     )
                       .then((r) => r.json())
                       .then((response) => {
-                        // console.log('response', response)
+                        console.log('response', response)
+                        firstname =
+                          response.result[0].lastname
                         if (!response.success) {
                           throw new Error(response.error)
                         }
@@ -286,7 +290,7 @@ function Login(props) {
                   allowOutsideClick: () =>
                     !Swal.isLoading(),
                 }).then((result) => {
-                  // console.log('result', result.value)
+                  // console.log('result', result)
                   account = result.value
                   if (result.isConfirmed) {
                     Swal.fire({
@@ -313,7 +317,7 @@ function Login(props) {
                       'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                      password: 12345,
+                      password: newPass,
                       email: account,
                     }),
                   }
