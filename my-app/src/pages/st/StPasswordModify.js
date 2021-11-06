@@ -171,6 +171,19 @@ export default withRouter(function StPasswordModify(props) {
     }
   }
 
+  // const showOHide = () => {
+  //   const eyes = document.querySelector('#_eye')
+  //   const pw = document.querySelector('#_password')
+
+  //   if (pw.type == 'password') {
+  //     pw.type = 'text'
+  //     eyes.className = 'mt-2 ml-1 far fa-eye'
+  //   } else {
+  //     pw.type = 'password'
+  //     eyes.className = 'mt-2 ml-1 far fa-eye-slash'
+  //   }
+  // }
+
   return (
     <>
       <div className="container mainContent ">
@@ -205,15 +218,17 @@ export default withRouter(function StPasswordModify(props) {
                 </div>
                 <div className="form-title"> 密碼更改 </div>
               </div>
-              <input
-                name="origin"
-                type="password"
-                className="col-12 allInputs"
-                placeholder="請輸入原密碼"
-                value={fields.origin}
-                onChange={handleFieldChange}
-                required
-              />
+              <div className="d-flex">
+                <input
+                  name="origin"
+                  type="password"
+                  className="col-12 allInputs"
+                  placeholder="請輸入原密碼"
+                  value={fields.origin}
+                  onChange={handleFieldChange}
+                  required
+                />
+              </div>
               {fieldErrors.origin === '' ? (
                 <label className="stnotice" htmlFor="">
                   &nbsp;

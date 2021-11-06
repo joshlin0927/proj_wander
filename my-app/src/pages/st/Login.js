@@ -1,17 +1,18 @@
-// css
+//css
 import '../st/style/login.css'
 import { useHistory } from 'react-router'
 import React, { useState, useRef, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import { devUrl, MemberLogin } from '../../config'
+import {
+  devUrl,
+  MemberLogin,
+  MemberLoginVerify,
+} from '../../config'
 import emailjs from 'emailjs-com'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import axios from 'axios'
-// import { CSSTransitionGroup } from 'react-transition-group'
-// import { bounce } from 'react-animations'
-// import styled, { keyframes } from 'styled-components'
 
 function Login(props) {
   const { auth, setAuth, setUser } = props
@@ -29,6 +30,9 @@ function Login(props) {
     email: '',
     password: '',
   })
+
+  const [close, setClose] = useState('far fa-eye-slash')
+  const [type, setType] = useState('password')
   let account = ''
   let firstname = ''
   // 存入錯誤訊息
@@ -154,7 +158,7 @@ function Login(props) {
   const sendmail = () => {
     let templateParams = {
       name: firstname,
-      notes: `請使用Wander提供給您的新密碼重新登入。新密碼: 
+      notes: `請使用Wander提供給您的新密碼重新登入。新密碼:
         ${newPass}`,
     }
 
@@ -230,16 +234,28 @@ function Login(props) {
                 {fieldErrors.email}
               </label>
             )}
-            <div className="d-flex justify-content-center">
+            <div className="d-flex ">
               <input
-                type="password"
+                type={type}
                 name="password"
-                className="allInputs  col-md-8 col-10"
+                className="allInputs offset-md-2 col-md-8 col-10 offset-1"
                 placeholder="請填寫密碼*"
                 value={fields.password}
                 onChange={handleFieldChange}
                 required
               />
+              <i
+                className={`mt-4 mt-md-3 ml-2 ${close}`}
+                onClick={() => {
+                  if (type === 'password') {
+                    setType('text')
+                    setClose('far fa-eye')
+                  } else {
+                    setType('password')
+                    setClose('far fa-eye-slash')
+                  }
+                }}
+              ></i>
             </div>
             {fieldErrors.password === '' ? (
               <label

@@ -111,6 +111,36 @@ function MemberCenterForMobile(props) {
                   </div>
                 </Nav.Link>
               </div>
+              <div className="mobilelist">
+                <Nav.Link
+                  as={NavLink}
+                  to="/StIndex/StCalendar"
+                  className="nav-item d-flex align-items-center offset-2 "
+                  activeClassName="active"
+                >
+                  <div className="mobilecircle">
+                    <i class="fal fa-table mobileicon"> </i>
+                  </div>
+                  <div className="nav-item-text mobiletext ml-4">
+                    課程管理
+                  </div>
+                </Nav.Link>
+              </div>
+              <div className="mobilelist">
+                <Nav.Link
+                  as={NavLink}
+                  to="/StIndex/StStartMyCourse"
+                  className="nav-item d-flex align-items-center offset-2 "
+                  activeClassName="active"
+                >
+                  <div className="mobilecircle">
+                    <i className="fal fa-thumbs-up mobileicon"></i>
+                  </div>
+                  <div className="nav-item-text mobiletext ml-4">
+                    推薦課程
+                  </div>
+                </Nav.Link>
+              </div>
               <div className="mobilelist lastline">
                 <Nav.Link
                   as={NavLink}
