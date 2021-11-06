@@ -41,9 +41,7 @@ function index() {
         <Route exact path="/StIndex/StGameFinish">
           <StGameFinish />
         </Route>
-        <Route exact path="/StIndex/StCourseEmpty">
-          <StCourseEmpty />
-        </Route>
+
         <Route exact path="/StIndex/StCourse">
           <StCourse />
         </Route>

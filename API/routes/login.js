@@ -6,12 +6,13 @@ const db = require("./../modules/connect-mysql");
 const router = express.Router();
 
 router.post("/login-jwt", async (req, res) => {
+  
   const output = {
     success: false,
     token: null,
   };
 
-  const [rs] = await db.query("SELECT * FROM member WHERE `email`=?", [
+  const [rs] = await db.query(`SELECT * FROM \`member\` WHERE \`email\`= ?`, [
     req.body.email.toLowerCase(),
   ]);
 
