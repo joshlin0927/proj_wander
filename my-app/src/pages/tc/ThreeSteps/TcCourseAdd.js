@@ -256,7 +256,7 @@ function TcCourseAdd(props) {
                   <img
                     src={
                       imgSrc
-                        ? IMG_PATH + '/course/' + imgSrc
+                        ? IMG_PATH + '/course/img/' + imgSrc
                         : IMG_PATH +
                           '/course/' +
                           'Course_Preset.jpg'

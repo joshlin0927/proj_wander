@@ -200,6 +200,7 @@ export default function StClassroom() {
               volume={volume}
               onProgress={handleProgress}
               seeking={seeking}
+              onBuffer
             />
             {/* 撥放器控制 */}
             <PlayerControls

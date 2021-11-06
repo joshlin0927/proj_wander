@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { Modal } from 'react-bootstrap'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { devUrl } from '../config'
 

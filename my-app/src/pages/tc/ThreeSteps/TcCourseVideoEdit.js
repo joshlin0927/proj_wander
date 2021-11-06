@@ -11,7 +11,7 @@ import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
 import TcHasNoCourse from '../../../components/tc/TcHasNoCourse'
 import TcSearchBar from '../../../components/tc/TcSearchBar'
 import TcVideoList from '../../../components/tc/TcVideoList'
-import MyPagination from '../../../components/MyPagination'
+// import MyPagination from '../../../components/MyPagination'
 import TcBgDecorationThreeSteps from '../../../components/tc/TcBgDecorationThreeSteps'
 import Footer from '../../../components/Footer'
 

@@ -12,7 +12,7 @@ import TcSideBar from '../../components/tc/TcSideBar'
 import TcSearchBar from '../../components/tc/TcSearchBar'
 import TcCourseList from '../../components/tc/TcCourseList'
 import TcHasNoCourse from '../../components/tc/TcHasNoCourse'
-import MyPagination from '../../components/MyPagination'
+// import MyPagination from '../../components/MyPagination'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
 
@@ -138,7 +138,7 @@ function TcCourse(props) {
                     <span>新增</span>
                   </button>
                 </Link>
-              </div>
+              </div> 
             </div>
             {/* mobile search bar */}
             <div className="TCsearch-mobile">
@@ -172,7 +172,7 @@ function TcCourse(props) {
             )}
 
             {/* Pagination */}
-            <MyPagination />
+            {/* <MyPagination /> */}
           </div>
         </div>
       </div>

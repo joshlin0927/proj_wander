@@ -23,7 +23,7 @@ function TcAnalayticsCourseCard(props) {
           to="/TCindex/TcCourseEdit/"
         >
           <img
-            src={`${IMG_PATH}/course/${course_img}`}
+            src={`${IMG_PATH}/course/img/${course_img}`}
             alt=""
           />
         </div>

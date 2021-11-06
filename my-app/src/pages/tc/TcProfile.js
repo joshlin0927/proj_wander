@@ -3,11 +3,7 @@ import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
 import axios from 'axios'
 
-import {
-  IMG_PATH,
-  MemberAvatar,
-  MemberEdit,
-} from '../../config'
+import { IMG_PATH, MemberEdit } from '../../config'
 
 // components
 import ConfirmMsg from '../../components/ConfirmMsg'

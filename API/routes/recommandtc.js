@@ -37,7 +37,7 @@ async function getListData(req, res) {
       return output.redirect = '?page=' + output.totalPages;
       return output;
     }
-    const sql = `SELECT * FROM \`member\` WHERE identity=1 ORDER BY RAND(NOW()) DESC LIMIT ${(page-1)*perPage},${perPage}`;
+    const sql = `SELECT * FROM \`member\` WHERE identity=1 AND verification =2 ORDER BY RAND(NOW()) DESC LIMIT ${(page-1)*perPage},${perPage}`;
     const [rows] = await db.query(sql)
     output.rows = rows;
 

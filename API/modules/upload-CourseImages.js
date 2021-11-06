@@ -10,7 +10,7 @@ const extMap = {
 
 const storage = multer.diskStorage({
     destination: (req, file, cb)=>{
-        cb(null, __dirname + '/../public/img/course')
+        cb(null, __dirname + '/../public/img/course/img')
     },
     filename: (req, file, cb)=>{
         cb(null, uuidv4() + extMap[file.mimetype])

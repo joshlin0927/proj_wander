@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import moment from 'moment'
 import momentDurationFormatSetup from 'moment-duration-format'
 
@@ -31,7 +31,10 @@ function PcCoursePlaylistCard(props) {
           value={value}
           id={sid}
         />
-        <label htmlFor={sid}>
+        <label
+          htmlFor={sid}
+          className="d-flex align-items-center"
+        >
           <span>{video_name}</span> <span>{time}</span>
         </label>
       </div>

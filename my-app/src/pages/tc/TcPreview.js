@@ -6,7 +6,7 @@ import { IMG_PATH, TcCourse_LIST } from '../../config'
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import BuyCourseItem from '../../components/BuyCourseItem'
-import MyPagination from '../../components/MyPagination'
+// import MyPagination from '../../components/MyPagination'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
 import axios from 'axios'
@@ -85,7 +85,7 @@ function TcPreview() {
               : ''}
           </div>
           {/* Pagination */}
-          <MyPagination />
+          {/* <MyPagination /> */}
         </div>
       </div>
 
