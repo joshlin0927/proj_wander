@@ -35,7 +35,7 @@ function Index() {
         <Route path="/TcIndex/TcCourseAdd/">
           <TcCourseAdd />
         </Route>
-        <Route path="/TcIndex/TcCourse/">
+        <Route path="/TcIndex/TcCourse">
           <TcCourse />
         </Route>
         <Route path="/TcIndex/TcPassword">
@@ -47,9 +47,6 @@ function Index() {
         <Route path="/TcIndex/TcProfile">
           <TcProfile />
         </Route>
-        {/* <Route path="/TcIndex/TcApplyForm">
-          <TcApplyForm />
-        </Route> */}
         <Route path="/TcIndex">
           <Redirect to="/TcIndex/TcProfile" />
         </Route>

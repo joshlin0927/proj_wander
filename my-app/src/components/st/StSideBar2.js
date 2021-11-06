@@ -26,7 +26,7 @@ export default function StSideBar2(props) {
         <ul className="nav-list">
           <li>
             <div className="nav-item">
-              <i class="fas fa-user"> </i>
+              <i className="fas fa-user"> </i>
               <div className="nav-item-text"> 聊天室 </div>
             </div>
           </li>
@@ -40,7 +40,7 @@ export default function StSideBar2(props) {
                 setIsActive('我的課程')
               }}
             >
-              <i class="far fa-play-circle"> </i>
+              <i className="far fa-play-circle"> </i>
               <div className="nav-item-text">我的課程</div>
             </Nav.Link>
           </li>
@@ -54,7 +54,7 @@ export default function StSideBar2(props) {
                 setIsActive('教室上課')
               }}
             >
-              <i class="fal fa-users-class"> </i>
+              <i className="fal fa-users-class"> </i>
               <div className="nav-item-text">教室上課</div>
             </Nav.Link>
           </li>
@@ -82,7 +82,7 @@ export default function StSideBar2(props) {
                 setIsActive('推薦課程')
               }}
             >
-              <i class="fal fa-thumbs-up"> </i>
+              <i className="fal fa-thumbs-up"> </i>
               <div className="nav-item-text">推薦課程</div>
             </Nav.Link>
           </li>

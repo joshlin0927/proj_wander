@@ -1,58 +1,128 @@
-import React from 'react'
-import {
-  Slider,
-  FormattedTime,
-  Direction,
-  PlayerIcon,
-} from 'react-player-controls'
+import React, { useEffect } from 'react'
+import Slider from '@material-ui/core/Slider'
+import Tooltip from '@material-ui/core/Tooltip'
 
-export default function PlayerControls(props) {
-  const { hide, handlePlayNPause } = props
+function PlayerControls(props) {
+  const {
+    handlePlayNPause,
+    playing,
+    fade,
+    handleMute,
+    muted,
+    handleVolumeChange,
+    handleVolumeUp,
+    volume,
+    toggleFullScreen,
+    played,
+    seeking,
+    seekingMouseDown,
+    seekingMouseUp,
+    elapsedTime,
+    totalDuration,
+  } = props
+
+  function ValueLabelComponent(props) {
+    const { children, open, value } = props
+
+    return (
+      <Tooltip
+        open={open}
+        enterTouchDelay={0}
+        placement="top"
+        title={value}
+      >
+        {children}
+      </Tooltip>
+    )
+  }
+
+  useEffect(() => {})
+
   return (
     <>
-      <div className={`playerControlWrap  ${hide}`}>
+      <div
+        className={
+          playing
+            ? 'playerControlWrap playerBGCChange'
+            : 'playerControlWrap'
+        }
+      >
         <div
           id="MainPlayerControl"
-          class="MainPlayerControl"
+          className={'MainPlayerControl'}
+          onClick={handlePlayNPause}
         >
-          <div
-            className="playIcon"
-            onClick={handlePlayNPause}
-          >
-            <i class="far fa-play-circle"></i>
+          <div id="bigPlayIcon" className="playIcon">
+            {playing ? (
+              <i className={`fas fa-pause ${fade}`}></i>
+            ) : (
+              <i className="fas fa-play"></i>
+            )}
           </div>
         </div>
 
         {/* 下方控制列 */}
         <div className="bottomControlGRP">
-          <div item xs={12}>
+          <div className="videoProgressSlider w-100">
             <Slider
               min={0}
               max={100}
-              defaultValue={20}
-              // ValueLabelComponent={ValueLabelComponent}
+              value={played * 100}
+              ValueLabelComponent={ValueLabelComponent}
+              onChange={seeking}
+              onMouseDown={seekingMouseDown}
+              onChangeCommitted={seekingMouseUp}
             />
           </div>
 
-          <div>
-            <div className="bottomButtonControlGRP">
-              <div className="bottomIcons">
-                <PlayerIcon fontSize="large" />
+          <div className="bottomButtonControlGRP">
+            <div class="d-flex align-items-center pl-2 w-100">
+              <div
+                id="smallPlayIcon"
+                className="bottomIcons p-2"
+                onClick={handlePlayNPause}
+              >
+                {playing ? (
+                  <i className="fas fa-pause"></i>
+                ) : (
+                  <i className="fas fa-play"></i>
+                )}
               </div>
-
-              <div className="bottomIcons">
-                <i class="fas fa-volume-up"></i>
+              <div className="volumeControl">
+                <div
+                  id="muteIcon"
+                  className="bottomIcons p-2"
+                  onClick={handleMute}
+                >
+                  {muted ? (
+                    <i className="fas fa-volume-mute"></i>
+                  ) : (
+                    <i className="fas fa-volume-up"></i>
+                  )}
+                </div>
+                <Slider
+                  size="small"
+                  min={0}
+                  max={100}
+                  value={volume * 100}
+                  className="volumeSlider"
+                  onChange={handleVolumeChange}
+                  onChangeCommitted={handleVolumeUp}
+                />
               </div>
-
-              <Slider
-                min={0}
-                max={100}
-                defaultValue={100}
-                className="volumeSlider"
-              />
-
+            </div>
+            <div className="d-flex align-items-center ml-auto px-2 ">
               <div className="vidDuration">
-                <span>05:05</span>
+                <span>
+                  {elapsedTime}/{totalDuration}
+                </span>
+              </div>
+              <div
+                id="fullScreen"
+                className="bottomIcons pr-2"
+                onClick={toggleFullScreen}
+              >
+                <i className="fas fa-expand"></i>
               </div>
             </div>
           </div>
@@ -61,3 +131,4 @@ export default function PlayerControls(props) {
     </>
   )
 }
+export default PlayerControls
