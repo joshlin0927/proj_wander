@@ -24,6 +24,7 @@ function TcSideBar(props) {
     localStorage.getItem('member')
   )
 
+  // 辨別會員的申請狀態
   const [verify, setVerify] = useState('')
 
   useEffect(() => {
@@ -43,7 +44,10 @@ function TcSideBar(props) {
 
   // 通知
   const [NoticeShow, setNoticeShow] = useState(false)
-  const handleNoticeShow = () => setNoticeShow(true)
+  const handleNoticeShow = () => {
+    setNoticeShow(true)
+    handleClose()
+  }
 
   useEffect(() => {
     if (verify === 0) {
@@ -52,7 +56,7 @@ function TcSideBar(props) {
       handleNoticeShow()
       setTimeout(() => {
         history.push('/')
-      }, 3000)
+      }, 5000)
     }
   })
 
@@ -352,7 +356,6 @@ function TcSideBar(props) {
             <button
               type="submit"
               className="btn btn-secondary mx-auto one-btn"
-              onClick={handleClose}
             >
               <span>送出申請</span>
             </button>
@@ -375,7 +378,9 @@ function TcSideBar(props) {
               資料審核中，大約會在一至三天內通知審核結果，請耐心等待
             </span>
           </div>
-          <small>系統將在三秒後將您移至首頁</small>
+          <small className="systemCall">
+            <span>系統將在五秒後將您移至首頁</span>
+          </small>
         </div>
       </Modal>
     </>

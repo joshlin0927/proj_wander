@@ -76,6 +76,10 @@ body {
   text-align: center;
 }
 
+.systemCall {
+  color: #065f8e;
+}
+
 /* 教師頁面返回按鈕 */
 .TCback-btn {
   padding: 0px 15px;
