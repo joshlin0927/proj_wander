@@ -6,11 +6,7 @@ import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import { devUrl } from '../../config'
 import { Modal } from 'react-bootstrap'
-import {
-  CsCourse_EDIT,
-  CsCourse_Cover,
-  Cart_API,
-} from '../../config'
+import { CsCourse_EDIT, Cart_API } from '../../config'
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
@@ -26,16 +22,9 @@ function CsCoursede(props) {
   const member = localStorage.getItem('member')
     ? JSON.parse(localStorage.getItem('member'))
     : ''
-  const [fields, setFields] = useState({
-    teacher_sid: '',
-    course_name: '',
-    course_category: '',
-    course_price: '',
-    course_introduction: '',
-  })
+  const [fields, setFields] = useState({})
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-  let [imgSrc, setImgSrc] = useState('')
 
   function changeAddCartBtn() {
     document
@@ -64,19 +53,9 @@ function CsCoursede(props) {
         CsCourse_EDIT + props.location.search
       )
       setFields(r.data[0])
-      setImgSrc(r.data[0].course_img)
       console.log('edit', r.data[0])
     })()
   }, [props.location.search, member.sid])
-
-  const doUpload = async () => {
-    const r = await axios.post(
-      `${CsCourse_Cover}?sid=${fields.sid}`,
-      new FormData(document.formCover)
-    )
-    setImgSrc(r.data.filename)
-    // console.log(r.data)
-  }
 
   // 新增購物車資料
   function addCart(courseID) {
@@ -99,16 +78,6 @@ function CsCoursede(props) {
           console.log(obj.error)
         }
       })
-  }
-  const handleFieldChange = (e) => {
-    // 1. 從原本的狀態物件拷貝新物件
-    // 2. 在拷貝的新物件上處理
-    const updatedFields = {
-      ...fields,
-      [e.target.name]: e.target.value,
-    }
-    // 3. 設定回原狀態物件
-    setFields(updatedFields)
   }
 
   return (

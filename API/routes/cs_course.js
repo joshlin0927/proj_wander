@@ -75,35 +75,15 @@ router.get('/api/list', async (req, res)=>{
     const output = await getListData(req, res);
     res.json(output);
 });
-// router.route("/cover")
-//   .post(uploadCourseImg.single("course_img"), async (req, res) => {
-//     const output = {
-//       success: false,
-//       error: "",
-//       postData: req.body,
-//     };
 
-//     const sql = `UPDATE \`course\` SET \`course_img\` = ? WHERE \`sid\` = ?`;
-
-//     try {
-//       [result] = await db.query(sql, [req.file.filename, req.body.sid]);
-//     } catch (ex) {
-//       output.error = ex.toString();
-//     }
-//     output.result = result;
-//     if (result.affectedRows === 1) {
-//       if (result.changedRows === 1) {
-//         output.success = true;
-//       } else {
-//         output.error = "資料沒有變更";
-//       }
-//     }
-
-//     res.json(output);
-//   });
 router.get("/edit", async (req, res) => {
     // let courseSid = ;
-    const sql = `SELECT * FROM \`course\` WHERE sid=?`;
+    const sql = 
+    `SELECT \`course\`.*, \`member\`.\`nickname\`, \`member\`.\`language\`, \`member\`.\`nationality\`
+    FROM \`course\` 
+    LEFT JOIN \`member\`
+    ON \`course\`.\`teacher_sid\` = \`member\`.sid
+    WHERE \`course\`.\`sid\`=?`;
     const [rs] = await db.query(sql, [req.query.courseSid]);
     res.json(rs);
   });
