@@ -272,7 +272,7 @@ function Login(props) {
                     )
                       .then((r) => r.json())
                       .then((response) => {
-                        console.log('response', response)
+                        // console.log('response', response)
                         if (!response.success) {
                           throw new Error(response.error)
                         }

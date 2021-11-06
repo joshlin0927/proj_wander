@@ -18,11 +18,10 @@ router.get('/list', async (req, res) => {
   } else {
     output.error = '無此帳號';
   }
-
   res.json(output)
 })
 
-//把信箱新密碼改到資料庫
+//把信箱新密碼送到資料庫
 router.put('/update', async (req, res) => {
   const output = {
     success: false,
@@ -30,10 +29,11 @@ router.put('/update', async (req, res) => {
     result:'',
   }
 
-  const hashedPassword = await bcrypt.hash(req.body.password, 10);
+   const hashedPassword = await bcrypt.hash(req.body.password.toString(), 10);
  //UPDATE `member` SET `password`= "123444" WHERE `email`="samar@mail"
 
     const sql = `UPDATE \`member\` SET \`password\`= ? WHERE \`email\` = ?`;
+    let result={}
    
   const [r] = await db.query(sql, [hashedPassword, req.body.email])
   
