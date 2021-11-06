@@ -26,20 +26,20 @@ function TcProfile(props) {
 
   //大頭貼狀態
   let [imgSrc, setImgSrc] = useState('')
-  const doUpload = async () => {
-    const r = await axios.post(
-      `${MemberAvatar}/?teacherSid=${teacherSid}`,
-      new FormData(document.formAvatar)
-    )
-    setImgSrc(r.data.filename)
-    // console.log(r.data)
-    if (r.data.success) {
-      setShowUp('showup')
-      setTimeout(() => {
-        setShowUp('none')
-      }, 1000)
-    }
-  }
+  // const doUpload = async () => {
+  //   const r = await axios.post(
+  //     `${MemberAvatar}/?teacherSid=${teacherSid}`,
+  //     new FormData(document.formAvatar)
+  //   )
+  //   setImgSrc(r.data.filename)
+  // console.log(r.data)
+  // if (r.data.success) {
+  //   setShowUp('showup')
+  //   setTimeout(() => {
+  //     setShowUp('none')
+  //   }, 1000)
+  // }
+  // }
 
   useEffect(() => {
     if (!token) {
@@ -61,27 +61,27 @@ function TcProfile(props) {
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
 
-  //預覽大頭貼的地方
-  // const imgRef = useRef(null)
+  //預覽大頭貼
+  const imgRef = useRef(null)
   //實際擁有預覽功能的input因為太醜藏起來
   const inputRef = useRef(null)
-  // const previewFile = () => {
-  //   var preview = imgRef.current
-  //   var file = inputRef.current.files[0]
-  //   var reader = new FileReader()
+  const previewFile = () => {
+    var preview = imgRef.current
+    var file = inputRef.current.files[0]
+    var reader = new FileReader()
 
-  //   reader.addEventListener(
-  //     'load',
-  //     function () {
-  //       preview.src = reader.result
-  //     },
-  //     false
-  //   )
+    reader.addEventListener(
+      'load',
+      function () {
+        preview.src = reader.result
+      },
+      false
+    )
 
-  //   if (file) {
-  //     reader.readAsDataURL(file)
-  //   }
-  // }
+    if (file) {
+      reader.readAsDataURL(file)
+    }
+  }
 
   const formRef = useRef(null)
   // 使用物件值作為狀態值，儲存所有欄位的值
@@ -276,7 +276,7 @@ function TcProfile(props) {
                       name="avatar"
                       className="d-none"
                       accept="image/*"
-                      onChange={doUpload}
+                      onChange={previewFile}
                       ref={inputRef}
                     />
                     <input

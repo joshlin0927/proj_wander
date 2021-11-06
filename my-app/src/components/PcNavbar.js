@@ -18,6 +18,8 @@ function PcNavbar(props) {
   const { auth, setAuth } = props
   const [imgSrc, setImgSrc] = useState('')
 
+  const [drop, setDrop] = useState('d-none')
+
   //判斷是否登入
   const history = useHistory()
   const token = localStorage.getItem('token')
@@ -53,11 +55,10 @@ function PcNavbar(props) {
         setImgSrc(r.data[0][0].avatar)
       })()
     }
+    setDrop('d-none')
   }, [imgSrc, auth])
 
   // console.log(imgSrc)
-
-  const [drop, setDrop] = useState('d-none')
 
   const logout = async () => {
     localStorage.removeItem('token')
@@ -84,7 +85,7 @@ function PcNavbar(props) {
               </Link>
             </div>
             <ul className="nav__pc_menu col-7">
-            <li>
+              <li>
                 <Link to="/Comonproblem">
                   <span className="nav__en">關於我們</span>
                 </Link>

@@ -27,6 +27,38 @@ const router = express.Router();
 //   res.json(output);
 // });
 
+router.route("/apply").post(uploadPdf.single("resume"), async (req, res) => {
+  const output = {
+    success: false,
+    error: "",
+    postData: req.body,
+  };
+
+  const input = {
+    ...req.body,
+    resume: req.file.filename,
+  };
+
+  const sql = `UPDATE \`member\` SET ? WHERE sid=?`;
+  let result = {};
+  // 處理修改資料時可能的錯誤
+  try {
+    [result] = await db.query(sql, [input, req.query.teacherSid]);
+  } catch (ex) {
+    output.error = ex.toString();
+  }
+  output.result = result;
+  if (result.affectedRows === 1) {
+    if (result.changedRows === 1) {
+      output.success = true;
+    } else {
+      output.error = "資料沒有變更";
+    }
+  }
+
+  res.json(output);
+});
+
 router
   .route("/edit")
   .get(async (req, res) => {
@@ -36,8 +68,7 @@ router
     res.json(rs);
   })
 
-  .post(uploadPdf.single("resume"), async (req, res) => {
-
+  .post(async (req, res) => {
     const output = {
       success: false,
       error: "",
@@ -46,7 +77,6 @@ router
 
     const input = {
       ...req.body,
-      resume: req.file.filename,
     };
 
     const sql = `UPDATE \`member\` SET ? WHERE sid=?`;

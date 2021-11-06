@@ -14,6 +14,9 @@ export const MemberLoginVerify =
 //登出
 export const MemberLogout = API_HOST + '/logout'
 
+// 申請表寄出
+export const ApplyForm = API_HOST + '/SingleMember/apply'
+
 //讀取、修改個人資料
 export const MemberVerify = API_HOST + '/SingleMember'
 export const MemberEdit = API_HOST + '/SingleMember/edit'
