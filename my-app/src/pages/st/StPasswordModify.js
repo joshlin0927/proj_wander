@@ -142,15 +142,14 @@ export default withRouter(function StPasswordModify(props) {
     ) {
       //透過axios把資料送到後端
       axios
-        .post(
+        .put(
           `http://localhost:3001/passwordmodify/modify`,
+
           {
-            headers: {
-              Authorization:
-                'Bearer ' + localStorage.getItem('token'),
-            },
             body: {
-              password: fields.newPassConfirm,
+              sid: studentSid,
+              origin: fields.origin,
+              newPassword: fields.newPassConfirm,
             },
           }
         )
@@ -185,7 +184,6 @@ export default withRouter(function StPasswordModify(props) {
         </div>
         <div className="row ">
           <StSideBar imgSrc={imgSrc} />
-
           <form
             className="form col-12 offset-0 col-md-7 offset-md-1 col-lg-7"
             ref={formRef}
@@ -205,7 +203,7 @@ export default withRouter(function StPasswordModify(props) {
                 >
                   <i className="fas fa-chevron-left TCback-btn"></i>
                 </div>
-                <div className="form-title">密碼更改</div>
+                <div className="form-title"> 密碼更改 </div>
               </div>
               <input
                 name="origin"
@@ -244,7 +242,6 @@ export default withRouter(function StPasswordModify(props) {
                   {fieldErrors.newPass}
                 </label>
               )}
-
               <input
                 name="newPassConfirm"
                 type="password"
@@ -272,8 +269,7 @@ export default withRouter(function StPasswordModify(props) {
         </div>
       </div>
       <StBgDecorationNormal />
-      <div className="bgbeige"></div>
-      <Footer />
+      <div className="bgbeige"> </div> <Footer />
     </>
   )
 })
