@@ -155,7 +155,7 @@ function CourseCard(props) {
       <div className="sh-courseitem">
         <Link
           className=""
-          to={`/Course/CsCoursedesOpen/?courseSid=${sid}`}
+          to={`/Course/CsCoursedes/?courseSid=${sid}`}
         >
           <img
             src={
