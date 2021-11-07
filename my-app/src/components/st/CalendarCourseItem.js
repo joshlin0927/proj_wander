@@ -31,11 +31,22 @@ function CalendarCourseItem(props) {
         setMytest(Math.random())
         if (res.data.success === true) {
           Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'success',
             title: '已成功加入行事曆',
             showConfirmButton: false,
             timer: 1500,
+          })
+        }
+        if (res.data.error === '訂單已存在') {
+          Swal.fire({
+            title: '登愣！',
+            text: '該課程已出現在行事曆上',
+            popup: 'swal2-show',
+            backdrop: 'swal2-backdrop-show',
+            icon: 'warning',
+            showConfirmButton: false,
+            timer: 2000,
           })
         }
       })
