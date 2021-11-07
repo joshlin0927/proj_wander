@@ -4,122 +4,72 @@ import axios from 'axios'
 import { IMG_PATH } from '../../config'
 import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
-
+import { NavLink } from 'react-router-dom'
+import { Nav } from 'react-bootstrap'
 import { devUrl } from '../../config'
 import { Modal } from 'react-bootstrap'
-import { CsCourse_EDIT, CsCourse_Cover } from '../../config'
+import { CsMessage_LIST } from '../../config'
+import { CsCourse_EDIT, Cart_API } from '../../config'
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
+import CsMessageList from './CsMessageList'
 
 // import CoursedeList from './CoursedeList'
 
 function CsCoursede(props) {
+  const [stopModalShow, setStopModalShow] = useState(false)
+  const handleStopModalClose = () => setStopModalShow(false)
+  const handleStopModalShow = () => setStopModalShow(true)
   const [show, setShow] = useState(false)
-  // const token = localStorage.getItem('token')
-  // const member = localStorage.getItem('member')
-
+  const member = localStorage.getItem('member')
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
+  const [fields, setFields] = useState({})
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-  let [imgSrc, setImgSrc] = useState('')
-
-  // const [TcCourses, setTcCourses] = useState([])
+  const [TcCourses, setTcCourses] = useState([])
 
   // 拿去做map排列的，取的是r.data.rows，或是其它處理
-  // const [displayCourse, setDisplayCourse] = useState([])
+  const [displayCourse, setDisplayCourse] = useState([])
 
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
-  // const [RemoveCourse, setRemoveCourse] = useState()
-  // const [searchWord, setSearchWord] = useState('')
+  const [RemoveCourse, setRemoveCourse] = useState()
 
-  // const doUpload = async () => {
-  //   const r = await axios.post(
-  //     `${CsCourse_Cover}?sid=${fields.sid}`,
-  //     new FormData(document.formCover)
-  //   )
-  //   setImgSrc(r.data.filename)
-  //   // console.log(r.data)
-  // }
-  // const [fields, setFields] = useState({
-  //   teacher_sid: '',
-  //   course_name: '',
-  //   course_category: '',
-  //   course_price: '',
-  //   course_introduction: '',
-  // })
+  let [fimgSrc, setImgSrc] = useState('')
   useEffect(() => {
     // if (!token) {
     //   history.push('/')
-    // } else if (identity !== 1) {
+    // } else if (identity !== 0) {
     //   history.push('/')
     // } else {
     ;(async () => {
       let r = await axios.get(
-        CsCourse_EDIT + props.location.search
+        // `${ArtMessage_LIST}`
+        `${CsMessage_LIST}`
       )
-      setFields(r.data[0])
-      setImgSrc(r.data[0].course_img)
-      localStorage.setItem(
-        'CourseSidForProcess',
-        r.data[0].sid
-      )
-      console.log('edit', r.data[0])
+      if (r.status === 200) {
+        // setArtDisplayCourse(r.data.result[0])
+
+        setTcCourses(r.data.rows)
+
+        setDisplayCourse(r.data.rows)
+      }
     })()
     // }
-  }, [imgSrc])
+  }, [])
 
-  const doUpload = async () => {
-    const r = await axios.post(
-      `${CsCourse_Cover}?sid=${fields.sid}`,
-      new FormData(document.formCover)
-    )
-    setImgSrc(r.data.filename)
-    // console.log(r.data)
+  function changeAddCartBtn() {
+    document
+      .querySelectorAll('.csAddToCart')
+      .forEach((v, i) => {
+        v.classList.remove('btn-outline-b')
+        v.classList.remove('btn-b')
+        v.classList.add('changeAddCartBtn')
+        v.innerText = '已加入購物車'
+      })
   }
-
-  // useEffect(() => {
-  //   // if (!token) {
-  //   //   history.push('/')
-  //   // // } else if (identity !== 0) {
-  //   // //   history.push('/')
-  //   // } else {
-  //   ;(async () => {
-  //     let r = await axios.get(
-  //       // `${ArtMessage_LIST}`
-  //       `${CsCourse_EDIT}`
-  //     )
-  //     //下方原本的
-  //     // let r = await axios.get(
-  //     //   // `${ArtMessage_LIST}`
-  //     //   `${CsCourses_LIST}?Sid=${teacherSid}`
-  //     // )
-
-  //     // let c = await axios.get(
-  //     //   `${ArtMessage_LIST}?Sid=${teacherSid}`
-  //     // )
-
-  //     // setTcCourses(r.data.rows)
-
-  //     // setDisplayCourse(r.data.rows)
-
-  //     if (r.status === 200) {
-  //       setTcCourses(r.data.rows)
-
-  //       setDisplayCourse(r.data.rows)
-  //     }
-  //     // console.log('r.data.rows', r.data.rows)
-  //   })()
-  //   // }
-  //   // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
-  // }, [])
-  const [fields, setFields] = useState({
-    teacher_sid: '',
-    course_name: '',
-    course_category: '',
-    course_price: '',
-    course_introduction: '',
-  })
   const handleFieldChange = (e) => {
     // 1. 從原本的狀態物件拷貝新物件
     // 2. 在拷貝的新物件上處理
@@ -131,23 +81,69 @@ function CsCoursede(props) {
     setFields(updatedFields)
   }
 
+  useEffect(() => {
+    ;(async () => {
+      if (member.sid) {
+        let o = await axios.get(
+          `${Cart_API}/checkone${props.location.search}&member_sid=${member.sid}`
+        )
+        if (o.data) {
+          changeAddCartBtn()
+        } else {
+          console.log('不在購物車')
+        }
+      }
+      let r = await axios.get(
+        CsCourse_EDIT + props.location.search
+      )
+      setFields(r.data[0])
+      console.log('edit', r.data[0])
+    })()
+  }, [props.location.search, member.sid])
+
+  // 新增購物車資料
+  function addCart(courseID) {
+    fetch(`${Cart_API}/add`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        member_sid: member.sid,
+        product_sid: courseID,
+      }),
+    })
+      .then((r) => r.json())
+      .then((obj) => {
+        if (obj.success) {
+          console.log('新增成功：', obj)
+          changeAddCartBtn()
+        } else {
+          console.log(obj.error)
+        }
+      })
+  }
+
   return (
     <>
       <div className="container mainContent">
         {/* breadcrumb */}
+        <MultiLevelBreadCrumb />
+        <Nav.Link
+          as={NavLink}
+          to="/Course/CsCourse"
+          className="btn btn-border-only-no-h col-2"
+        >
+          <i className="fas fa-chevron-left"></i>
+          <span>返回</span>
+        </Nav.Link>
         <div className="row">
-          <MultiLevelBreadCrumb />
-          {/* <div className="col-10 ml-auto pageName">
-            <span className="pageNameText TCprofile">
-              Profile
-            </span>
-          </div> */}
           <div className="video">
             <div className="embed-responsive embed-responsive-16by9">
-              {/* <video class="video-fluid z-depth-1" autoplay loop controls muted> (有muted就是自動播放) */}
+              {/* <video className="video-fluid z-depth-1" autoplay loop controls muted> (有muted就是自動播放) */}
 
               {/* <video
-                class="video-fluid z-depth-1"
+                className="video-fluid z-depth-1"
                 autoplay
                 loop
                 controls
@@ -176,9 +172,10 @@ function CsCoursede(props) {
               {/* 上方是版本二(本機版本可用內部資料) */}
               {/* 下方是直接連網路ex:youtube */}
               {/* <iframe
+                title="fake video"
                 className="embed-responsive-item"
                 src="https://www.youtube.com/embed/v64KOxKVLVg"
-                allowfullscreen
+                allowFullScreen
               ></iframe> */}
             </div>
             <div className="op">
@@ -187,37 +184,89 @@ function CsCoursede(props) {
                 style={{ marginTop: '16px' }}
               >
                 <ul className="nav-list  ">
+                  <li
+                    className="sh-nav-item active  shadow-sm p-3 mb-2 bg-body rounded "
+                    style={{ backgroundColor: '#065f8e' }}
+                  >
+                    <a
+                      href=""
+                      className="list-content flex"
+                    >
+                      <span
+                        className="item flex"
+                        style={{
+                          color: 'rgb(255, 255, 255)',
+                          marginRight: '10px',
+                        }}
+                      >
+                        自我介紹
+                      </span>
+                      <div className="">
+                        <span
+                          style={{ marginRight: '10px' }}
+                        >
+                          02:33
+                        </span>
+                      </div>
+                      <span
+                        className="fas"
+                        style={{ marginRight: '20px' }}
+                      ></span>
+                    </a>
+                  </li>
+
                   <Link
                     className=""
-                    to={`/Course/CsCoursedes/?courseSid=${fields.sid}`}
+                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
                   >
-                    <li
-                      className="sh-nav-item active  shadow-sm p-3 mb-2 bg-body rounded "
-                      style={{ backgroundColor: '#065f8e' }}
-                    >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
                       <a
                         href=""
                         className="list-content flex"
                       >
                         <span
                           className="item flex"
-                          style={{
-                            color: 'rgb(255, 255, 255)',
-                            marginRight: '10px',
-                          }}
+                          style={{ marginRight: '10px' }}
                         >
-                          自我介紹
+                          日本高階商
                         </span>
-                        <div className="">
-                          <span
-                            style={{ marginRight: '10px' }}
-                          >
-                            02:33
-                          </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
                         </div>
                         <span
-                          className="fas"
-                          style={{ marginRight: '20px' }}
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
+                  </Link>
+                  <Link
+                    className=""
+                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                  >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
+                      >
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
                         ></span>
                       </a>
                     </li>
@@ -245,121 +294,90 @@ function CsCoursede(props) {
                       ></span>
                     </a>
                   </li>
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
+                  <Link
+                    className=""
+                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                  >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
                       >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
+                  </Link>
+                  <Link
+                    className=""
+                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                  >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
                       >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
+                  </Link>
+                  <Link
+                    className=""
+                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                  >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
                       >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
+                  </Link>
                 </ul>
               </nav>
             </div>
@@ -385,30 +403,53 @@ function CsCoursede(props) {
                 style={{ marginTop: '16px' }}
               >
                 <ul className="nav-list  ">
+                  <li
+                    className="sh-nav-item active  shadow-sm p-3 mb-2 bg-body rounded"
+                    style={{
+                      backgroundColor: '#065f8e',
+                    }}
+                  >
+                    <a
+                      href=""
+                      className="list-content flex"
+                    >
+                      <span
+                        className="item flex"
+                        style={{
+                          color: 'rgb(255, 255, 255)',
+                          marginRight: '10px',
+                        }}
+                      >
+                        自我介紹
+                      </span>
+
+                      <div
+                        className=""
+                        style={{ marginRight: '10px' }}
+                      >
+                        <span> 02:33</span>
+                      </div>
+                      <span
+                        className="fas "
+                        style={{ marginRight: '20px' }}
+                      ></span>
+                    </a>
+                  </li>
                   <Link
                     className=""
-                    to={`/Course/CsCoursedes/?courseSid=${fields.sid}`}
+                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
                   >
-                    <li
-                      className="sh-nav-item active  shadow-sm p-3 mb-2 bg-body rounded"
-                      style={{
-                        backgroundColor: '#065f8e',
-                      }}
-                    >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
                       <a
                         href=""
                         className="list-content flex"
                       >
                         <span
                           className="item flex"
-                          style={{
-                            color: 'rgb(255, 255, 255)',
-                            marginRight: '10px',
-                          }}
+                          style={{ marginRight: '10px' }}
                         >
-                          自我介紹
+                          日本高階商
                         </span>
-
                         <div
                           className=""
                           style={{ marginRight: '10px' }}
@@ -416,151 +457,152 @@ function CsCoursede(props) {
                           <span> 02:33</span>
                         </div>
                         <span
-                          className="fas "
-                          style={{ marginRight: '20px' }}
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
                         ></span>
                       </a>
                     </li>
                   </Link>
-
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
+                  <Link
+                    className=""
+                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                  >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
                       >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
+                  </Link>
+                  <Link
+                    className=""
+                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                  >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
                       >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
+                  </Link>
+                  <Link
+                    className=""
+                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                  >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
                       >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
+                  </Link>
+                  <Link
+                    className=""
+                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                  >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
                       >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
+                  </Link>
+                  <Link
+                    className=""
+                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                  >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <a
+                        href=""
+                        className="list-content flex"
                       >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </a>
-                  </li>
+                        <span
+                          className="item flex"
+                          style={{ marginRight: '10px' }}
+                        >
+                          日本高階商
+                        </span>
+                        <div
+                          className=""
+                          style={{ marginRight: '10px' }}
+                        >
+                          <span> 02:33</span>
+                        </div>
+                        <span
+                          className="fas fa-lock"
+                          style={{ marginRight: '10px' }}
+                        ></span>
+                      </a>
+                    </li>
+                  </Link>
                 </ul>
               </nav>
             </Modal.Body>
@@ -631,17 +673,27 @@ function CsCoursede(props) {
                 marginLeft: '10px',
               }}
             >
-              <h4 className="fas fa-money-bill-alt">
-                {fields.course_price} NTD
+              <h4 className="fas fa-money-bill-alt m-0">
+                &nbsp;{fields.course_price} NTD
               </h4>
             </button>
             <button
-              className="btn btn-outline-b btn-b "
+              className="btn btn-outline-b btn-b csAddToCart"
               style={{
                 width: '230px',
                 marginRight: '10px',
                 marginTop: '10px',
                 marginLeft: '10px',
+              }}
+              onClick={() => {
+                const id = new URLSearchParams(
+                  props.location.search
+                )
+                if (member.identity === 0) {
+                  addCart(id.get('courseSid'))
+                } else {
+                  handleStopModalShow()
+                }
               }}
             >
               加入購物車
@@ -670,13 +722,23 @@ function CsCoursede(props) {
               className=" btn btn-outline-b btn-b "
               style={{ width: '230px', marginTop: '24px' }}
             >
-              <h4 className="fas fa-money-bill-alt">
-                {fields.course_price}NTD
+              <h4 className="fas fa-money-bill-alt m-0">
+                &nbsp;{fields.course_price}NTD
               </h4>
             </button>
             <button
-              className="btn btn-outline-b btn-b "
+              className="btn btn-outline-b btn-b csAddToCart"
               style={{ width: '230px', marginTop: '24px' }}
+              onClick={() => {
+                const id = new URLSearchParams(
+                  props.location.search
+                )
+                if (member.identity === 0) {
+                  addCart(id.get('courseSid'))
+                } else {
+                  handleStopModalShow()
+                }
+              }}
             >
               加入購物車
             </button>
@@ -690,7 +752,7 @@ function CsCoursede(props) {
         >
           <div className="Ann">
             <div
-              class="fsdfds"
+              className="fsdfds"
               style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -700,14 +762,15 @@ function CsCoursede(props) {
               }}
             >
               <img
-                src={`${IMG_PATH}/images/index/01.jpg`}
+                src={`${IMG_PATH}/${fields.avatar}`}
                 alt=""
                 style={{
-                  width: '120px',
+                  width: '100px',
                   borderRadius: '50%',
+                  height: '100px',
                 }}
               />
-              <h2>Ann</h2>
+              <h2>{fields.nickname}</h2>
             </div>
           </div>
           <div
@@ -719,27 +782,31 @@ function CsCoursede(props) {
               marginLeft: '20px',
             }}
           >
-            <h5> 國籍：台灣</h5>
-            <h5>專長：英語、西班牙文</h5>
+            <h5> 國籍：{fields.nationality}</h5>
+            <h5>專長：{fields.language}</h5>
             <h5>
               課程評價：
-              <h5
+              <div
                 className="fas fa-star"
                 style={{ color: 'black', fontSize: '18px' }}
               >
                 4
-              </h5>
+              </div>
             </h5>
             <h5>教學經驗：5年</h5>
           </div>
         </div>
 
         {/* 留言板 */}
-        <div className="sh-opp mx-auto shadow-sm p-3 mb-2 bg-body rounded">
+        <div
+          className="sh-opp mx-auto shadow-sm p-3 mb-2 bg-body rounded "
+          style={{ marginBottomL: '30px' }}
+        >
           <div className="dis">
+            {' '}
             <h1
               style={{
-                marginTop: '20px',
+                marginTop: '30px',
                 marginLeft: '10px',
                 width: '200px',
               }}
@@ -753,243 +820,95 @@ function CsCoursede(props) {
           >
             <nav className="sh-sidebars ">
               <ul className="nav-list  mx-auto ul-opp ">
-                <li className="sh-nav-item mx-auto   active  shadow-sm p-3 mb-3 bg-body rounded">
-                  <span
-                    className=""
-                    style={{ marginRight: '10px' }}
-                  >
-                    <div
-                      className="fsdfds"
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        marginRight: '10px',
-                      }}
-                    >
-                      <span> Ann</span>
-                      <img
-                        src={`${devUrl}/images/index/01.jpg`}
-                        alt=""
-                        style={{
-                          width: '50px',
-                          borderRadius: '50%',
-                        }}
-                      />
-                    </div>
-                  </span>
-                  <span
-                    className="item flex"
-                    style={{ marginRight: '10px' }}
-                  >
-                    這是不可避免的。考爾德說過，僅次於選擇益友，就是選擇好書。想必各位已經看出了其中的端倪。面對如此難題，我們必須設想周
-                  </span>
-                  <span
-                    className="fas fa-star"
-                    style={{
-                      marginRight: '10px',
-                      color: 'black',
-                    }}
-                  >
-                    5
-                  </span>
-                  <span className="">
-                    {/* <span> 1分鐘</span> */}
-                  </span>
-                </li>
-                <li className="sh-nav-item mx-auto   active  shadow-sm p-3 mb-3 bg-body rounded">
-                  <span
-                    className=""
-                    style={{ marginRight: '10px' }}
-                  >
-                    <div
-                      className="fsdfds"
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        marginRight: '10px',
-                      }}
-                    >
-                      <span> Ann</span>
-                      <img
-                        src={`${devUrl}/images/index/01.jpg`}
-                        alt=""
-                        style={{
-                          width: '50px',
-                          borderRadius: '50%',
-                        }}
-                      />
-                    </div>
-                  </span>
-                  <span
-                    className="item flex"
-                    style={{ marginRight: '10px' }}
-                  >
-                    這是不可避免的。考爾德說過，僅次於選擇益友，就是選擇好書。想必各位已經看出了其中的端倪。面對如此難題，我們必須設想周
-                  </span>
-                  <span
-                    className="fas fa-star"
-                    style={{
-                      marginRight: '10px',
-                      color: 'black',
-                    }}
-                  >
-                    5
-                  </span>
-                  <span className="">
-                    {/* <span> 1分鐘</span> */}
-                  </span>
-                </li>
-                <li className="sh-nav-item mx-auto   active  shadow-sm p-3 mb-3 bg-body rounded">
-                  <span
-                    className=""
-                    style={{ marginRight: '10px' }}
-                  >
-                    <div
-                      className="fsdfds"
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        marginRight: '10px',
-                      }}
-                    >
-                      <span> Ann</span>
-                      <img
-                        src={`${devUrl}/images/index/01.jpg`}
-                        alt=""
-                        style={{
-                          width: '50px',
-                          borderRadius: '50%',
-                        }}
-                      />
-                    </div>
-                  </span>
-                  <span
-                    className="item flex"
-                    style={{ marginRight: '10px' }}
-                  >
-                    這是不可避免的。考爾德說過，僅次於選擇益友，就是選擇好書。想必各位已經看出了其中的端倪。面對如此難題，我們必須設想周
-                  </span>
-                  <span
-                    className="fas fa-star"
-                    style={{
-                      marginRight: '10px',
-                      color: 'black',
-                    }}
-                  >
-                    5
-                  </span>
-                  <span className="">
-                    {/* <span> 1分鐘</span> */}
-                  </span>
-                </li>
-                <li className="sh-nav-item mx-auto   active  shadow-sm p-3 mb-3 bg-body rounded">
-                  <span
-                    className=""
-                    style={{ marginRight: '10px' }}
-                  >
-                    <div
-                      className="fsdfds"
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        marginRight: '10px',
-                      }}
-                    >
-                      <span> Ann</span>
-                      <img
-                        src={`${devUrl}/images/index/01.jpg`}
-                        alt=""
-                        style={{
-                          width: '50px',
-                          borderRadius: '50%',
-                        }}
-                      />
-                    </div>
-                  </span>
-                  <span
-                    className="item flex"
-                    style={{ marginRight: '10px' }}
-                  >
-                    這是不可避免的。考爾德說過，僅次於選擇益友，就是選擇好書。想必各位已經看出了其中的端倪。面對如此難題，我們必須設想周
-                  </span>
-                  <span
-                    className="fas fa-star"
-                    style={{
-                      marginRight: '10px',
-                      color: 'black',
-                    }}
-                  >
-                    5
-                  </span>
-                  <span className="">
-                    {/* <span> 1分鐘</span> */}
-                  </span>
-                </li>
-                <li className="sh-nav-item mx-auto   active  shadow-sm p-3 mb-3 bg-body rounded">
-                  <span
-                    className=""
-                    style={{ marginRight: '10px' }}
-                  >
-                    <div
-                      className="fsdfds"
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        marginRight: '10px',
-                      }}
-                    >
-                      <span> Ann</span>
-                      <img
-                        src={`${devUrl}/images/index/01.jpg`}
-                        alt=""
-                        style={{
-                          width: '50px',
-                          borderRadius: '50%',
-                        }}
-                      />
-                    </div>
-                  </span>
-                  <span
-                    className="item flex"
-                    style={{ marginRight: '10px' }}
-                  >
-                    這是不可避免的。考爾德說過，僅次於選擇益友，就是選擇好書。想必各位已經看出了其中的端倪。面對如此難題，我們必須設想周
-                  </span>
-                  <span
-                    className="fas fa-star"
-                    style={{
-                      marginRight: '10px',
-                      color: 'black',
-                    }}
-                  >
-                    5
-                  </span>
-                  <span className="">
-                    {/* <span> 1分鐘</span> */}
-                  </span>
-                </li>
+                {/* {data.rows
+                  ? data.rows.map((v, index) => {
+                      return (
+                        <TcCourseCard
+
+                    key={v.sid}
+                    ar_sid={v.ar_sid}
+                    st_sid={v.st_sid}
+                    st_pictuer={v.st_pictuer}
+                    messenger={v.messenger}
+                    great={v.great}
+                    created_date={v.created_date}
+                        />
+                      )
+                    })
+                  : null} */}
+                {TcCourses.length > 0 ? (
+                  <CsMessageList
+                    displayCourse={displayCourse}
+                    setDisplayCourse={setDisplayCourse}
+                    RemoveCourse={RemoveCourse}
+                    setRemoveCourse={setRemoveCourse}
+                  />
+                ) : null}
+                {/* {data.rows.map((v, i) => {
+                return (
+                  <TcCourseCard
+                    key={v.sid}
+                    sid={v.ar_sid}
+                    course_img={v.st_pictuer}
+                    messenger={v.messenger}
+                    course_category={v.great}
+                    course_data={v.created_date}
+                  />
+                )
+              })} */}
               </ul>
-              <div className="fasf">
-                {' '}
-                <button
-                  className="btn btn-outline-y row mx-auto one-btn btn-b  "
-                  style={{ width: '235px' }}
-                >
-                  More...
-                </button>
-              </div>
             </nav>
           </div>
+
+          {/* <Link
+            to={`/Course/CsMessageADD/?courseSid=${fields.sid}`}
+          > */}
           <div
             className="bitrt"
             style={{ width: '200px', marginRight: '10px' }}
           ></div>
+          {/* </Link> */}
         </div>
 
         {/* 留言板 */}
         {/* <TcSideBar /> */}
         {/* form */}
       </div>
+      <Modal
+        show={stopModalShow}
+        onHide={handleStopModalClose}
+        id="alertModal"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title>提醒</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">
+          <span>如要購買課程請先登入學生帳戶</span>
+        </Modal.Body>
+        <Modal.Footer>
+          {member.identity === 1 ? (
+            <button
+              type="button"
+              className="btn confirmBtn"
+              onClick={handleStopModalClose}
+            >
+              確認
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="btn confirmBtn"
+              onClick={() => {
+                props.history.push('/Login')
+              }}
+            >
+              前往登入
+            </button>
+          )}
+        </Modal.Footer>
+      </Modal>
       <TcBgDecorationNormal />
       <Footer />
     </>

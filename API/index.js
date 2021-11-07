@@ -250,8 +250,10 @@ app.use('/api/teacherdata', require(__dirname + '/routes/recommandtc'))
 //取得member email資料判斷註冊有無重複使用帳號
 app.use('/api/accountdata', require(__dirname + '/routes/getaccount'))
 app.use('/passwordmodify', require(__dirname + '/routes/stpasswordmodify'))
-//課程頁-詳細頁
+//課程頁-詳細頁 //留言 //留言修改
 app.use('/cs_course', require(__dirname + '/routes/cs_course'));
+app.use('/cs_messenger', require(__dirname + '/routes/cs_messenger'));
+app.use('/cs_messengerADD', require(__dirname + '/routes/cs_messengerADD'));
 // 測驗
 app.use('/sentence-game', require(__dirname + '/routes/sentence-game'));
 // cart
