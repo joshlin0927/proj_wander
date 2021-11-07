@@ -1015,7 +1015,7 @@ a {
   }
 }
 
-/*============= 聊天室 =============*/
+/*============= 聊天室 chatroom =============*/
 /* 對象選單 */
 .chatList {
   display: flex;
@@ -1140,6 +1140,7 @@ a {
 
 .chatWindowBody {
   height: 540px;
+  overflow: auto;
 }
 
 /* 對話框(左) */
@@ -1228,6 +1229,13 @@ a {
   margin-left: -100px;
   margin-bottom: 5px;
   border-radius: 0px 10px 10px 0px;
+}
+.messageText {
+  width: 100%;
+}
+.messageTimestamp {
+  width: 100%;
+  font-size: 0.625rem;
 }
 
 /*============= 登入頁 =============*/

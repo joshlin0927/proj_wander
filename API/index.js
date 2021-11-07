@@ -258,6 +258,9 @@ app.use('/sentence-game', require(__dirname + '/routes/sentence-game'));
 app.use('/cart', require(__dirname + '/routes/cart'));
 // order
 app.use('/sendOrder', require(__dirname + '/routes/sendOrder'));
+// chat
+app.use('/conversation', require(__dirname + '/routes/conversation'));
+app.use('/message', require(__dirname + '/routes/message'));
 
 
 app.get('/try-sess', (req, res) => {

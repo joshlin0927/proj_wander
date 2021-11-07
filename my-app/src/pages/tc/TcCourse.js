@@ -46,6 +46,7 @@ function TcCourse(props) {
         let r = await axios.get(
           `${TcCourse_LIST}/?teacherSid=${teacherSid}`
         )
+        console.log(r.data.rows)
         if (r.status === 200) {
           setTcCourses(r.data.rows)
           setDisplayCourse(r.data.rows)
@@ -138,7 +139,7 @@ function TcCourse(props) {
                     <span>新增</span>
                   </button>
                 </Link>
-              </div> 
+              </div>
             </div>
             {/* mobile search bar */}
             <div className="TCsearch-mobile">

@@ -48,6 +48,7 @@ export const TcVideo__DELETE = API_HOST + '/TcVideo/delete/'
 
 //讀取資料列表
 export const Member_LIST = API_HOST + '/member/api/list'
+export const Member_FINDONE = API_HOST + '/member/findOne'
 export const SentenceGame_LIST =
   API_HOST + '/sentence-game/api/list'
 export const SentenceGame_SOT =
@@ -101,6 +102,8 @@ export const Cart_API = API_HOST + '/cart'
 export const SendOrder_API = API_HOST + '/sendOrder'
 export const Calendar_API = API_HOST + '/stCalendar'
 
+// chat api
+export const Chat_API = 'http://localhost:3001'
 // export const UPLOAD_AVATAR = API_HOST + '/try-upload2'
 
 export const pathnameList = [
