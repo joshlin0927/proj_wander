@@ -54,6 +54,8 @@ export const SentenceGame_SOT =
 //課程資料
 export const CsCourse_LIST =
   API_HOST + '/cs_course/api/list/'
+export const CsMessage_LIST =
+  API_HOST + '/cs_messenger/api/list/'
 
 export const CsCourse_API = API_HOST + '/cs_course'
 export const CsCourse_EDIT = API_HOST + '/cs_course/edit'

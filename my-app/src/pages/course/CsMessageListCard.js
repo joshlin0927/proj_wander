@@ -1,28 +1,17 @@
-// import axios from 'axios'
+import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 
 import { Modal } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 
-// import {
-//   ArtMessage_DELETE,
-//   ArtMessage_EDIT,
-// } from '../../config'
-// sid,
-//     teacher_sid,
-//     course_category,
-//     course_name,
-//     course_img,
-//     course_price,
-//     course_data,
-//     hours,
-//     course_introduction,
-//     created_at,
-//     remove,
+import './course1.css'
+import {
+  ArtMessage_DELETE,
+  ArtMessage_EDIT,
+} from '../../config'
 import { useHistory } from 'react-router'
 import { IMG_PATH } from '../../config'
 
-function CourseCard(props) {
+function ArtMessageListCard(props) {
   const member = localStorage.getItem('member')
 
   const memberObj = JSON.parse(member)
@@ -32,7 +21,7 @@ function CourseCard(props) {
   const history = useHistory()
 
   //大頭貼狀態
-  // let [imgSrc, setImgSrc] = useState('')
+  let [imgSrc, setImgSrc] = useState('')
 
   // console.log('memberObj', memberObj)
 
@@ -46,36 +35,51 @@ function CourseCard(props) {
 
   // 使用物件值作為狀態值，儲存所有欄位的值
 
+  // useEffect(() => {
+  //   if (!token) {
+  //     history.push('/')
+  //   } else {
+  //     ;(async () => {
+  //       let r = await axios.get(
+  //         `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
+  //       )
+  //       // setFields(r.data[0][0])
+  //       if (r.status === 200) {
+  //         setImgSrc(r.data[0][0].avatar)
+  //       }
+  //     })()
+  //   }
+  // }, [imgSrc])
+
   const {
+    key,
     sid,
-    teacher_sid,
-    course_category,
-    course_name,
-    course_img,
-    course_price,
-    course_data,
-    hours,
-    course_introduction,
-    created_at,
+    st_sid,
+    messenger,
+    nickname,
+    st_pictuer,
+    score,
     remove,
     setMess,
   } = props
 
   // 刪除留言
-  // const [show, setShow] = useState(false)
-  // const handleClose = () => setShow(false)
-  // const handleShow = () => setShow(true)
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   //TODO: 怎麼將sid傳上去
-  // const deleteCourse = () => {
-  //   ;(async () => {
-  //     let r = await axios.delete(ArtMessage_DELETE + sid)
-  //     if (r.status === 200) {
-  //       remove()
-  //       handleClose()
-  //     }
-  //   })()
-  // }
+  const deleteCourse = () => {
+    ;(async () => {
+      let r = await axios.delete(ArtMessage_DELETE + sid)
+      if (r.status === 200) {
+        remove()
+        handleClose()
+        alert('刪除成功')
+        history.push('/ArtIndex/ArtMessage')
+      }
+    })()
+  }
 
   //修改留言
   // const [isShow, setIsShow] = useState(false)
@@ -106,108 +110,74 @@ function CourseCard(props) {
   //     if (r.status === 200) {
   //       setMess(mess)
   //       handleIsClose()
+  //       // alert('修改完成')
+  //       // history.push('/ArtIndex/ArtMessage')
   //     }
   //   })()
   // }
-
-  // useEffect(() => {
-  //   if (!token) {
-  //     history.push('/')
-  //   }
-  //   // else if (identity !== 0) {
-  //   //   history.push('/')}
-  //   else {
-  //     ;(async () => {
-  //       let r = await axios.get(
-  //         `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
-  //       )
-  //       // setFields(r.data[0][0])
-  //       setImgSrc(r.data[0][0].avatar)
-
-  //       //  console.log('r.data[0][0]', r.data[0][0])
-  //     })()
-  //   }
-  // })
 
   return (
     <>
       {/* <li className="sing-TCcourse-card active  shadow-sm p-3 mb-2 bg-body rounded">
         <div className="TCcourse-img-sing">
           <img
-            src={
-              imgSrc
-                ? IMG_PATH + '/' + imgSrc
-                : IMG_PATH + '/' + 'presetAvatar.jpeg'
-            }
+            src={`${IMG_PATH}/${st_pictuer}`}
             alt=""
-            name="st_pictuer"
+            className="img-fluid"
           />
           <span className="TCcourse-img-selector-sin ">
-            {course_name}
+            {nickname}
           </span>
         </div>
         <div className="TCcourse-info-sing">
           <div className="TCcourse-title-sin ">
-            <p>{course_price}</p>
+            <p>{messenger}</p>
           </div>
-        </div> */}
+        </div>
+      </li> */}
 
-      <div className="sh-courseitem">
-        <Link
-          className=""
-          to={`/Course/CsCoursedes/?courseSid=${sid}`}
-        >
-          <img
-            src={
-              course_img
-                ? `${IMG_PATH}/course/img/${course_img}`
-                : `${IMG_PATH}/course/Course_Preset.jpg`
-            }
-            alt=""
-          />
-          <div className="sh-coursename">{course_name}</div>
-          <span className="sh-teachername">
-            {course_category}
-          </span>
-          <span className="co-price">{course_price} TWD</span>
-        </Link>
-      </div>
-
-      {/* {memberObj.sid === st_sid ? (
+      <li className="sh-nav-item mx-auto   active  shadow-sm p-3 mb-3 bg-body rounded">
+        <span className="" style={{ marginRight: '10px' }}>
           <div
-            className="TCcourse-delete-sing"
-            data-toggle="modal"
-            data-target="#exampleModal"
+            className="fsdfds"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              marginRight: '10px',
+            }}
           >
-            <div
-              className="opp-icon-sing"
-              onClick={handleIsShow}
-            >
-              <i className="fas fa-edit"></i>
-            </div>
-            <div
-              className="opp-icon-sing"
-              title="刪除"
-              onClick={handleShow}
-            >
-              <i className="fas fa-trash"></i>
-            </div>
-          </div> */}
-      {/* ) : ( */}
-      {/* <div
-            className="TCcourse-delete-sing"
-            data-toggle="modal"
-            data-target="#exampleModal"
-          > */}
-      {/* <div className="opp-icon-sing"> */}
-      {/* <i className="fas fa-edit"></i> */}
-      {/* </div> */}
-      {/* <div className="opp-icon-sing" title="刪除"> */}
-      {/* <i className="fas fa-trash"></i> */}
-      {/* </div> */}
-      {/* </div> */}
-      {/* )} */}
-      {/* </li> */}
+            <span>{nickname}</span>
+            <img
+              src={`${IMG_PATH}/${st_pictuer}`}
+              alt=""
+              style={{
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+              }}
+            />
+          </div>
+        </span>
+        <span
+          className="item flex"
+          style={{ marginRight: '10px' }}
+        >
+          {messenger}
+        </span>
+        <span
+          className="fas fa-star"
+          style={{
+            marginRight: '10px',
+            color: 'black',
+          }}
+        >
+          {score}
+        </span>
+        <span className="">
+          {/* <span> 1分鐘</span> */}
+        </span>
+      </li>
+
       {/* <Modal show={isShow} onHide={handleIsClose} centered>
         <Modal.Header>
           <Modal.Title>修改留言</Modal.Title>
@@ -268,4 +238,4 @@ function CourseCard(props) {
   )
 }
 
-export default CourseCard
+export default ArtMessageListCard
