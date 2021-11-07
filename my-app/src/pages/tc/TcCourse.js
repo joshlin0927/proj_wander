@@ -4,7 +4,11 @@ import { useHistory, withRouter } from 'react-router'
 import axios from 'axios'
 
 // 後端檔案路徑
-import { TcCourse_LIST, TcCourse_ADD } from '../../config'
+import {
+  MemberEdit,
+  TcCourse_LIST,
+  TcCourse_ADD,
+} from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -43,15 +47,23 @@ function TcCourse(props) {
       history.push('/')
     } else {
       ;(async () => {
+        let M = await axios.get(
+          `${MemberEdit}/?teacherSid=${teacherSid}`
+        )
+        if (M.status === 200) {
+          setImgSrc(M.data[0].avatar)
+        }
+      })()
+      ;(async () => {
         let r = await axios.get(
           `${TcCourse_LIST}/?teacherSid=${teacherSid}`
         )
         if (r.status === 200) {
           setTcCourses(r.data.rows)
           setDisplayCourse(r.data.rows)
-          setImgSrc(r.data.rows[0].avatar)
+          // setImgSrc(r.data.rows[0].avatar)
         }
-        // console.log(r.data.rows)
+        console.log(r.data.rows)
       })()
     }
     // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
@@ -138,7 +150,7 @@ function TcCourse(props) {
                     <span>新增</span>
                   </button>
                 </Link>
-              </div> 
+              </div>
             </div>
             {/* mobile search bar */}
             <div className="TCsearch-mobile">

@@ -137,7 +137,7 @@ app.post('/try-upload2', uploadImg.single('avatar'), async (req, res) => {
 
 
 //教師
-app.use('/SingleMember', require(__dirname + '/routes/SingleMember'));
+app.use('/TcProfile', require(__dirname + '/routes/TcProfile'));
 app.use('/member', require(__dirname + '/routes/member'));
 app.use('/TcCourse', require(__dirname + '/routes/TcCourse'));
 app.use('/TcVideo', require(__dirname + '/routes/TcVideo'));

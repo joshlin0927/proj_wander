@@ -22,6 +22,11 @@ export default function StClassroom() {
   const [first, setFirst] = useState('')
   const history = useHistory()
 
+  // 被點選的影片編號
+  const [active, setActive] = useState('')
+  // 影片連結
+  const [videoLink, setVideoLink] = useState('')
+
   // 這個課程的所有影片
   const [videos, setVideos] = useState('')
   const takeClass = sessionStorage.getItem('takeClass')
@@ -37,13 +42,11 @@ export default function StClassroom() {
       setFirst(`${API_HOST}/video/${r.data[0].video_link}`)
       setActive(r.data[0].sid)
       setVideos(r.data)
+
+      // console.log('videos', r.data)
+      // console.log('active', r.data[0].sid)
     })()
   }, [])
-
-  // 被點選的影片編號
-  const [active, setActive] = useState('')
-  // 影片連結
-  const [videoLink, setVideoLink] = useState('')
 
   useEffect(() => {
     ;(async () => {
@@ -200,7 +203,6 @@ export default function StClassroom() {
               volume={volume}
               onProgress={handleProgress}
               seeking={seeking}
-              onBuffer
             />
             {/* 撥放器控制 */}
             <PlayerControls

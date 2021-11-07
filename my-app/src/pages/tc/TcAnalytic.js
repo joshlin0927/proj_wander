@@ -4,7 +4,7 @@ import { useHistory, withRouter } from 'react-router'
 import axios from 'axios'
 
 // 後端檔案路徑
-import { TcCourse_LIST } from '../../config'
+import { MemberEdit, TcCourse_LIST } from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -44,13 +44,20 @@ function TcAnalytic() {
       history.push('/')
     } else {
       ;(async () => {
+        let M = await axios.get(
+          `${MemberEdit}/?teacherSid=${teacherSid}`
+        )
+        if (M.status === 200) {
+          setImgSrc(M.data[0].avatar)
+        }
+      })()
+      ;(async () => {
         let r = await axios.get(
           `${TcCourse_LIST}?teacherSid=${teacherSid}`
         )
         if (r.status === 200) {
           setDisplayCourse(r.data.rows)
           setTcCourses(r.data.rows)
-          setImgSrc(r.data.rows[0].avatar)
         } else {
           alert('連線出現問題')
         }
