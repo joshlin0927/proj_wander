@@ -1,6 +1,6 @@
 const db = require('./connect-mysql');
 
-const tableName = 'message'; // 設定資料表名稱
+const tableName = 'chat_message'; // 設定資料表名稱
 
 class Message{
     constructor(defaultObj = {}){

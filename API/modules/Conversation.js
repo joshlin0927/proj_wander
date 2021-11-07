@@ -1,7 +1,7 @@
 const e = require('express');
 const db = require('./connect-mysql');
 
-const tableName = 'conversation'; // 設定資料表名稱
+const tableName = 'chat_conversation'; // 設定資料表名稱
 
 class Conversation{
     constructor(defaultObj = {}){
