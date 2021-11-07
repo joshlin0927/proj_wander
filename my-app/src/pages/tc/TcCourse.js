@@ -25,8 +25,10 @@ function TcCourse(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const teacherSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const teacherSid = member ? JSON.parse(member).sid : ''
 
   // 資料庫來的課程資料
   const [TcCourses, setTcCourses] = useState([])
@@ -41,9 +43,7 @@ function TcCourse(props) {
   const [imgSrc, setImgSrc] = useState('')
 
   useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 1) {
+    if (!token && identity !== 1) {
       history.push('/')
     } else {
       ;(async () => {

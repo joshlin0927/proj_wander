@@ -12,6 +12,7 @@ function PcCoursePlaylistCard(props) {
     active,
     setActive,
     value,
+    // showStatus,
   } = props
 
   const member = JSON.parse(localStorage.getItem('member'))
@@ -31,11 +32,15 @@ function PcCoursePlaylistCard(props) {
     .duration(duration1, 'seconds')
     .format('HH:mm:ss')
 
-  console.log('active', active)
-  console.log('value', value)
+  // console.log('active', active)
+  // console.log('value', value)
   return (
     <>
-      {order_status === null || order_status === 0 ? (
+      {order_status === null ||
+      order_status === 0 ||
+      {
+        /* showStatus === false  */
+      } ? (
         <div
           className={
             active === value

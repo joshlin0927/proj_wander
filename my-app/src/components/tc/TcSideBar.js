@@ -23,6 +23,8 @@ function TcSideBar(props) {
   const memberObj = JSON.parse(
     localStorage.getItem('member')
   )
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
 
   // 辨別會員的申請狀態
   const [verify, setVerify] = useState('')
@@ -32,7 +34,9 @@ function TcSideBar(props) {
       let r = await axios.get(
         `${MemberEdit}/?teacherSid=${memberObj.sid}`
       )
-      setVerify(r.data[0].verification)
+      memberObj
+        ? setVerify(r.data[0].verification)
+        : history.push('/')
     })()
   }, [showUp])
   const [isActive, setIsActive] = useState('')

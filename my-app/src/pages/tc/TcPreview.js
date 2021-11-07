@@ -19,22 +19,18 @@ function TcPreview() {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
   useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 1) {
-      history.push('/')
-    } else {
-      ;(async () => {
-        let r = await axios.get(
-          `${TcCourse_LIST}/?teacherSid=1`
-        )
-        setCourse(r.data.rows)
-        setTeacher(r.data.rows[0])
-        console.log(r.data.rows)
-      })()
-    }
+    ;(async () => {
+      let r = await axios.get(
+        `${TcCourse_LIST}/?teacherSid=1`
+      )
+      setCourse(r.data.rows)
+      setTeacher(r.data.rows[0])
+      // console.log(r.data.rows)
+    })()
   }, [])
 
   return (

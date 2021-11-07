@@ -15,8 +15,12 @@ function TcCourseVideoUpload() {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const memberObj = JSON.parse(member)
+    ? localStorage.getItem('member')
+    : ''
+  const memberObj = member ? JSON.parse(member) : ''
   const courseSid = sessionStorage.getItem('courseSid')
+    ? sessionStorage.getItem('courseSid')
+    : ''
 
   // console.log(courseSid);
   useEffect(() => {
@@ -243,9 +247,9 @@ function TcCourseVideoUpload() {
               ref={formRef}
             >
               <div className="TCform-head">
-                <Link to="/TcIndex/TcCourseEdit/:sid?">
+                <div onClick={history.goBack}>
                   <i className="fas fa-chevron-left TCback-btn"></i>
-                </Link>
+                </div>
                 <div className="TCform-title">
                   課程內容上傳
                 </div>
