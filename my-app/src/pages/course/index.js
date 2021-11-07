@@ -10,8 +10,12 @@ import CsCoursede from './CsCoursede'
 import CsCoursedes from './CsCoursedes'
 import CsCoursedesNot from './CsCoursedesNot'
 import CsCoursedeNt from './CsCoursedeNt'
-import CsCoursedeOpen from './CsCoursedeOpen'
+import CsCoursedesOpen from './CsCoursedesOpen'
 import CsCourseRe from './CsCourseRe'
+import CsMessage from './CsMessage'
+import ArtMessageADD from './CsMessageADD'
+
+
 
 function index() {
   return (
@@ -35,11 +39,17 @@ function index() {
         <Route path="/Course/CsCoursedeNt" exact>
           <CsCoursedeNt />
         </Route>
-        <Route path="/Course/CsCoursedeOpen" exact>
-          <CsCoursedeOpen />
+        <Route path="/Course/CsCoursedesOpen/:sid?" exact>
+          <CsCoursedesOpen />
         </Route>
         <Route path="/Course/CsCourseRe" exact>
           <CsCourseRe />
+        </Route>
+        <Route path="/Course/CsMessage" exact>
+          <CsMessage />
+        </Route>
+        <Route path="/Course/CsMessageADD/:sid?" exact>
+          <ArtMessageADD />
         </Route>
         <Route path="/Course">
           <Redirect to="/Course/CsCourse" />

@@ -59,9 +59,25 @@ router.get('/api/coursedata', async (req, res) => {
 //這是拿到所有課程資料(測試用)
 router.get('/list',async(req,res)=>{
    const sql = `SELECT * FROM \`course\` WHERE 1 `;
-   
    const [rs] = await db.query(sql);
    res.json([rs])
+})
+
+
+// 獲取全部的課程細節
+router.post('/boughtCourse', async(req,res)=>{
+  const sql = "SELECT `video_list`.*, `order_detail`.`order_main_id`, `order_detail`.`product_sid`, `order_main`.`order_id`, `order_main`.`member_sid`, `order_main`.`order_status` FROM `video_list` JOIN `order_detail` ON `order_detail`.`product_sid` = `video_list`.`course_sid` JOIN `order_main` ON `order_detail`.`order_main_id` = `order_main`.`order_id` WHERE `video_list`.`course_sid` = ? AND `order_main`.`member_sid` =?"
+
+  const [result]=await db.query(sql, [req.body.courseSid, req.body.member_sid])
+  res.json(result)
+})
+
+// 獲取全部的課程細節
+router.post('/buyCourse', async(req,res)=>{
+  const sql = "SELECT * FROM `video_list`  WHERE `video_list`.`course_sid` = ? "
+
+  const [result]=await db.query(sql, [req.body.courseSid])
+  res.json(result)
 })
 
 

@@ -79,7 +79,7 @@ router.get('/api/list', async (req, res)=>{
 router.get("/edit", async (req, res) => {
     // let courseSid = ;
     const sql = 
-    `SELECT \`course\`.*, \`member\`.\`nickname\`, \`member\`.\`language\`, \`member\`.\`nationality\`
+    `SELECT \`course\`.*, \`member\`.\`nickname\`, \`member\`.\`language\`, \`member\`.\`nationality\`, \`member\`.\`avatar\`
     FROM \`course\` 
     LEFT JOIN \`member\`
     ON \`course\`.\`teacher_sid\` = \`member\`.sid

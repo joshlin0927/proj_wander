@@ -4,7 +4,11 @@ import { useHistory, withRouter } from 'react-router'
 import axios from 'axios'
 
 // 後端檔案路徑
-import { TcCourse_LIST, TcCourse_ADD } from '../../config'
+import {
+  MemberEdit,
+  TcCourse_LIST,
+  TcCourse_ADD,
+} from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -21,8 +25,10 @@ function TcCourse(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const teacherSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const teacherSid = member ? JSON.parse(member).sid : ''
 
   // 資料庫來的課程資料
   const [TcCourses, setTcCourses] = useState([])
@@ -37,11 +43,17 @@ function TcCourse(props) {
   const [imgSrc, setImgSrc] = useState('')
 
   useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 1) {
+    if (!token && identity !== 1) {
       history.push('/')
     } else {
+      ;(async () => {
+        let M = await axios.get(
+          `${MemberEdit}/?teacherSid=${teacherSid}`
+        )
+        if (M.status === 200) {
+          setImgSrc(M.data[0].avatar)
+        }
+      })()
       ;(async () => {
         let r = await axios.get(
           `${TcCourse_LIST}/?teacherSid=${teacherSid}`
@@ -50,9 +62,9 @@ function TcCourse(props) {
         if (r.status === 200) {
           setTcCourses(r.data.rows)
           setDisplayCourse(r.data.rows)
-          setImgSrc(r.data.rows[0].avatar)
+          // setImgSrc(r.data.rows[0].avatar)
         }
-        // console.log(r.data.rows)
+        console.log(r.data.rows)
       })()
     }
     // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面

@@ -19,8 +19,10 @@ export default withRouter(function StCourse(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const studentSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const studentSid = member ? JSON.parse(member).sid : ''
   const [courses, setCourses] = useState([{}])
   const [RecommandedTeacher, setRecommandedTeacher] =
     useState({})

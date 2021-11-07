@@ -15,17 +15,16 @@ export const MemberLoginVerify =
 export const MemberLogout = API_HOST + '/logout'
 
 // 申請表寄出
-export const ApplyForm = API_HOST + '/SingleMember/apply'
+export const ApplyForm = API_HOST + '/TcProfile/apply'
 
 //讀取、修改個人資料
-export const MemberVerify = API_HOST + '/SingleMember'
-export const MemberEdit = API_HOST + '/SingleMember/edit'
-export const MemberAvatar =
-  API_HOST + '/SingleMember/avatar'
+export const MemberVerify = API_HOST + '/TcProfile'
+export const MemberEdit = API_HOST + '/TcProfile/edit'
+export const MemberAvatar = API_HOST + '/TcProfile/avatar'
 
 // 密碼更改
 export const PasswordChange =
-  API_HOST + '/SingleMember/passEdit'
+  API_HOST + '/TcProfile/passEdit'
 
 // TcCourse CRUD
 export const TcCourse_ADD = API_HOST + '/TcCourse/add/'
@@ -56,6 +55,8 @@ export const SentenceGame_SOT =
 //課程資料
 export const CsCourse_LIST =
   API_HOST + '/cs_course/api/list/'
+export const CsMessage_LIST =
+  API_HOST + '/cs_messenger/api/list/'
 
 export const CsCourse_API = API_HOST + '/cs_course'
 export const CsCourse_EDIT = API_HOST + '/cs_course/edit'
