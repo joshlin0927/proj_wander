@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IMG_PATH } from '../../config'
 
 import { Nav } from 'react-bootstrap'
@@ -6,8 +6,16 @@ import { Nav } from 'react-bootstrap'
 //讓Link標籤可以有style(透過加className)
 import { NavLink } from 'react-router-dom'
 
+//引用元件
+import ChatList from '../chatroom/ChatList'
+
 export default function StSideBar2(props) {
   const { imgSrc } = props
+
+  // 聊天室開關
+  let [chat, setChat] = useState('d-none')
+
+  console.log('chat', chat)
   return (
     <>
       <Nav className="sidebar col-2">
@@ -24,7 +32,12 @@ export default function StSideBar2(props) {
         </div>
         <ul className="nav-list">
           <li>
-            <div className="nav-item">
+            <div
+              className="nav-item"
+              onClick={() => {
+                setChat('d-block')
+              }}
+            >
               <i className="fas fa-user"> </i>
               <div className="nav-item-text"> 聊天室 </div>
             </div>
@@ -85,6 +98,9 @@ export default function StSideBar2(props) {
           </li>
         </ul>
       </Nav>
+      <div className="row position-absolute w-100">
+        <ChatList setChat={setChat} chat={chat} />
+      </div>
     </>
   )
 }

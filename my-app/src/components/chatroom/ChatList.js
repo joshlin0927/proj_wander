@@ -41,9 +41,7 @@ function ChatList(props) {
   console.log('current:', currentChat)
   return (
     <>
-      <div
-        className={`chatList col-12 col-md-5 offset-md-2 col-lg-4 ${chat}`}
-      >
+      <div className={`chatList ${chat}`}>
         <div className="chatList-content">
           <div className="TCform-head ml-1">
             <div>
@@ -85,7 +83,7 @@ function ChatList(props) {
           )}
         </>
       ) : (
-        <span>點擊任意對話以查看</span>
+        ''
       )}
     </>
   )

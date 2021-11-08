@@ -13,7 +13,6 @@ import {
 
 // 引用元件
 import ChatList from '../chatroom/ChatList'
-import ChatWindow from '../chatroom/ChatWindow'
 import ConfirmMsg from '../ConfirmMsg'
 
 function TcSideBar(props) {
@@ -23,8 +22,6 @@ function TcSideBar(props) {
 
   // 聊天室開關
   let [chat, setChat] = useState('d-none')
-
-  console.log('chat', chat)
 
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
@@ -279,7 +276,7 @@ function TcSideBar(props) {
           </li>
         </ul>
       </Nav>
-      <div className="row position-absolute w-100">
+      <div className="chatWrapper offset-md-2">
         <ChatList setChat={setChat} chat={chat} />
       </div>
       <Modal show={show} onHide={handleClose} centered>
