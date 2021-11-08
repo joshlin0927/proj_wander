@@ -58,7 +58,7 @@ router.get("/api/list", async (req, res) => {
 router.route("/analytics").get(async (req, res) => {
 
   const sql =
-    `SELECT \`course\`.\`sid\`, \`course\`.\`course_name\`, \`viewcount\`.* FROM \`course\` JOIN \`viewcount\` ON \`course\`.\`sid\` = \`viewcount\`.\`course_sid\` WHERE \`course\`.\`sid\` = ?`;
+  'SELECT `course`.`sid`, `course`.`course_name`, `viewcount`.* FROM `course` LEFT JOIN `viewcount` ON `course`.`sid` = `viewcount`.`course_sid` WHERE `course`.`sid` = ?';
 
   const [output] = await db.query(sql, [req.query.courseSid]);
   res.json(output);
