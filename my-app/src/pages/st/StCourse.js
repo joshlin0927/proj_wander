@@ -34,15 +34,14 @@ export default withRouter(function StCourse(props) {
   const spinner = (
     <div className="loadingio-spinner-ripple-axvmfinlmje">
       <div className="ldio-xv8fxyexxut">
-        <div> </div> <div> </div>{' '}
-      </div>{' '}
+        <div> </div> <div> </div>
+      </div>
     </div>
   )
 
   //要呈現的課程資料
   const courseData = (
     <div className="stcoursesection  col-12 col-md-10 ">
-      {' '}
       {courses.length !== 0 ? (
         courses.map((course, i) => {
           return (
@@ -57,7 +56,7 @@ export default withRouter(function StCourse(props) {
         })
       ) : (
         <RemindingText />
-      )}{' '}
+      )}
     </div>
   )
   useEffect(() => {
