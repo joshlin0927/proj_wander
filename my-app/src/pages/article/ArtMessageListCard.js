@@ -51,7 +51,6 @@ function ArtMessageListCard(props) {
   }, [imgSrc])
 
   const {
-    key,
     sid,
     st_sid,
     messenger,
@@ -118,7 +117,7 @@ function ArtMessageListCard(props) {
     <>
       <li className="sing-TCcourse-card active  shadow-sm p-3 mb-2 bg-body rounded">
         <div className="TCcourse-img-sing">
-        {st_pictuer === null ? (
+          {st_pictuer === null ? (
             <img
               src={`${IMG_PATH}/presetAvatar.jpeg`}
               alt=""
@@ -126,7 +125,7 @@ function ArtMessageListCard(props) {
             />
           ) : (
             <img
-            src={`${IMG_PATH}/${st_pictuer}`}
+              src={`${IMG_PATH}/${st_pictuer}`}
               alt=""
               className="img-fluid"
             />

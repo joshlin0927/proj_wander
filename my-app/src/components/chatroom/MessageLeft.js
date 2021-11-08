@@ -10,6 +10,7 @@ function MessageLeft() {
               <img
                 src="../images/students/Sagehashi Harue.jpeg"
                 className="img-fluid"
+                alt=""
               />
             </div>
           </div>

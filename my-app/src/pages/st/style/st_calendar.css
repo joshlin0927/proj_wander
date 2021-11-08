@@ -34,8 +34,6 @@
   display: none;
 }
 
-
-
 /* 教師頁面返回按鈕 */
 .TCback-btn {
   padding: 0px 15px;
@@ -150,7 +148,6 @@
   margin-left: 25px;
 }
 
-
 .weekday-m,
 .firstweek-m,
 .secweek-m,
@@ -175,21 +172,14 @@
   z-index: -3;
 }
 
-
-
 .h15 {
   width: 100%;
   height: 15px;
 }
 
-
-
-
-
 /* -------------以上為公用------------ */
 
 @media (min-width: 768px) {
-
   /* 右上角白圈 */
   .whitecircle {
     position: absolute;
@@ -300,7 +290,7 @@
 
   .search {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-bottom: 25px;
   }
 
@@ -340,7 +330,6 @@
     z-index: -1;
   }
 
-
   .startmycourse {
     display: block;
     border: 3px solid black;
@@ -371,7 +360,6 @@
     border-radius: 30px;
     margin: 0px;
     overflow: hidden;
-
   }
 
   .calcourseitem:hover .mask {
@@ -400,7 +388,7 @@
     cursor: pointer;
   }
 
-  .calcourseitem>img {
+  .calcourseitem > img {
     width: 100%;
     height: 215px;
     border-radius: 30px;
@@ -434,10 +422,6 @@
     color:#ffffff;
   }
  */
-
-
-
-
 
   .stcoursename {
     color: white;
@@ -498,11 +482,4 @@
     z-index: 1;
     cursor: pointer;
   }
-
-
-
-
-
-
-
 }

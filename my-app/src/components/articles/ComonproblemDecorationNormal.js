@@ -1,5 +1,4 @@
 import React from 'react'
-import { devUrl } from '../../config'
 
 function TcBgDecorationNormal() {
   return (

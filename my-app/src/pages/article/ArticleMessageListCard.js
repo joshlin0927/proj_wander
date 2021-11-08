@@ -1,25 +1,15 @@
-import axios from 'axios'
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
-import { Modal } from 'react-bootstrap'
-
-import {
-  ArtMessage_DELETE,
-  ArtMessage_EDIT,
-} from '../../config'
-import { useHistory } from 'react-router'
 import { IMG_PATH } from '../../config'
 
 function ArticleMessageListCard(props) {
-  const member = localStorage.getItem('member')
-
-  const { sid, messenger, nickname, st_pictuer } = props
+  const { messenger, nickname, st_pictuer } = props
 
   return (
     <>
       <li className="sing-TCcourse-card active  shadow-sm p-3 mb-2 bg-body rounded">
         <div className="TCcourse-img-sing">
-        {st_pictuer === null ? (
+          {st_pictuer === null ? (
             <img
               src={`${IMG_PATH}/presetAvatar.jpeg`}
               alt=""
@@ -27,7 +17,7 @@ function ArticleMessageListCard(props) {
             />
           ) : (
             <img
-            src={`${IMG_PATH}/${st_pictuer}`}
+              src={`${IMG_PATH}/${st_pictuer}`}
               alt=""
               className="img-fluid"
             />

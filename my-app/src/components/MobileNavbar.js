@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { useHistory } from 'react-router'
 import { devUrl } from '../config'
 import { Link, withRouter } from 'react-router-dom'
 
@@ -7,21 +6,20 @@ function MobileNavbar(props) {
   const { auth, setAuth } = props
 
   //判斷是否登入
-  const history = useHistory()
   const token = localStorage.getItem('token')
     ? localStorage.getItem('token')
     : ''
   const member = localStorage.getItem('member')
     ? JSON.parse(localStorage.getItem('member'))
     : ''
-  const memberID = member ? member.sid : ''
+  // const memberID = member ? member.sid : ''
   const identity = member ? member.identity : ''
   // console.log('memberObj', memberObj)
   useEffect(() => {
     if (token) {
       setAuth(true)
     }
-  }, [])
+  }, [setAuth, token])
 
   useEffect(() => {
     const path = props.location.pathname.toString()

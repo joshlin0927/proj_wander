@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Chat_API } from '../../config'
 import { io } from 'socket.io-client'
 
-import MessageLeft from './MessageLeft'
 import MessageRight from './MessageRight'
 
 function ChatWindow(props) {

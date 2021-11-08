@@ -60,6 +60,7 @@ function CsCoursede() {
               {/* 上方是版本二(本機版本可用內部資料) */}
               {/* 下方是直接連網路ex:youtube */}
               <iframe
+                title="This is a unique title"
                 className="embed-responsive-item"
                 src="https://www.youtube.com/embed/v64KOxKVLVg"
                 allowfullscreen

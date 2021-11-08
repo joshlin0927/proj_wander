@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import moment from 'moment'
-import momentDurationFormatSetup from 'moment-duration-format'
+import React, { useEffect } from 'react'
 import axios from 'axios'
 import { TcCourse_EDIT } from '../../config'
 
@@ -13,15 +11,8 @@ function TcVideoList(props) {
   )
   const courseSid = sessionStorage.getItem('courseSid')
 
-
-  const {
-    Videos,
-    RemoveVideo,
-    setRemoveVideo,
-    status,
-    setStatus,
-    setShowUp,
-  } = props
+  const { Videos, setRemoveVideo, setStatus, setShowUp } =
+    props
 
   //時間換算
   // console.log('sum', sum)

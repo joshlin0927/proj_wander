@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Nav } from 'react-bootstrap'
 
 import { IMG_PATH } from '../../config'
@@ -6,7 +6,6 @@ import { IMG_PATH } from '../../config'
 import { NavLink } from 'react-router-dom'
 
 function StSideBar(props) {
-  const [isActive, setIsActive] = useState('')
   const { imgSrc } = props
   return (
     <>
@@ -16,7 +15,7 @@ function StSideBar(props) {
             src={
               imgSrc
                 ? IMG_PATH + '/' + imgSrc
-                : IMG_PATH + '/' + 'presetAvatar.jpeg'
+                : `${IMG_PATH}/presetAvatar.jpeg`
             }
             alt=""
             className="img-fluid"
@@ -29,9 +28,6 @@ function StSideBar(props) {
               to="/StIndex/StProfile"
               className="nav-item"
               activeClassName="active"
-              onClick={() => {
-                setIsActive('個人資料')
-              }}
             >
               <i className="fas fa-user"> </i>
               <div className="nav-item-text">個人資料</div>
@@ -43,9 +39,6 @@ function StSideBar(props) {
               to="/StIndex/StPasswordModify/:id?"
               className="nav-item"
               activeClassName="active"
-              onClick={() => {
-                setIsActive('密碼更改')
-              }}
             >
               <i className="fas fa-key"></i>
               <div className="nav-item-text">密碼更改</div>
@@ -56,6 +49,7 @@ function StSideBar(props) {
               as={NavLink}
               to="/StIndex/StOrder"
               className="nav-item"
+              activeClassName="active"
             >
               <i className="fas fa-shopping-bag"> </i>
               <div className="nav-item-text">訂單查詢</div>

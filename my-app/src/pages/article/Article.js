@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { devUrl } from '../../config'
-import { useHistory } from 'react-router'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 
 // 後端檔案路徑
 import { Art_Article_POP_LIST } from '../../config'
@@ -15,13 +13,12 @@ import ArticleList from './ArticleList'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import ArBgDecorationNormal from '../../components/articles/ArBgDecorationNormal.js'
 import Footer from '../../components/Footer'
-import MyPagination from '../../components/MyPagination'
 
 function Article(props) {
   //判斷是否登入並為教師身分
   // const history = useHistory()
   // const token = localStorage.getItem('token')
-  const member = localStorage.getItem('member')
+  // const member = localStorage.getItem('member')
   // const identity = JSON.parse(member).identity
   //  const teacherSid = JSON.parse(member).sid
 
@@ -35,7 +32,7 @@ function Article(props) {
   const [displayCourse, setDisplayCourse] = useState([])
 
   // 取得頭圖
-  const [imgSrc, setImgSrc] = useState('')
+  // const [imgSrc, setImgSrc] = useState('')
 
   // useEffect(() => {
 
