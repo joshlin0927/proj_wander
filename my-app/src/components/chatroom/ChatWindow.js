@@ -88,23 +88,23 @@ function ChatWindow(props) {
 
   return (
     <>
-      <div class="chatWindow col-12 col-md-6  col-lg-5">
-        <div class="chatWindowHead">
-          <div class="talkTo">
-            <div class="talkToAvatar">
+      <div className="chatWindow col-12 col-md-6  col-lg-5">
+        <div className="chatWindowHead">
+          <div className="talkTo">
+            <div className="talkToAvatar">
               <img
                 src="../images/students/Sagehashi Harue.jpeg"
-                class="img-fluid"
+                className="img-fluid"
                 alt=""
               />
             </div>
-            <div class="talkToName">Harue</div>
+            <div className="talkToName">Harue</div>
           </div>
-          <div class="closeWindow">
-            <i class="fas fa-times"></i>
+          <div className="closeWindow">
+            <i className="fas fa-times"></i>
           </div>
         </div>
-        <div class="chatWindowBody">
+        <div className="chatWindowBody">
           {messages.map((v, i) => {
             return (
               <div ref={scrollRef}>
@@ -117,11 +117,11 @@ function ChatWindow(props) {
             )
           })}
         </div>
-        <div class="chatWindowFoot">
+        <div className="chatWindowFoot">
           <input
             type="text"
             id="chatInsert"
-            class=" chatInsert allInputs col-9"
+            className=" chatInsert allInputs col-9"
             placeholder="請輸入"
             value={newMessage}
             onChange={(e) => {
@@ -130,7 +130,7 @@ function ChatWindow(props) {
           />
           <button
             type="button"
-            class="btn chatInsertButton col-3"
+            className="btn chatInsertButton col-3"
             onClick={handleSubmitMessage}
           >
             <span>送出</span>

@@ -255,25 +255,25 @@ function StOrder(props) {
               <div className="row stOrderContentTitleTab">
                 <label
                   htmlFor="stOrderContentTitleTab1"
-                  class="col-3 col-md-2 stOrderContentTitle stOrderContentTitle1"
+                  className="col-3 col-md-2 stOrderContentTitle stOrderContentTitle1"
                 >
                   <span>全部</span>
                 </label>
                 <label
                   htmlFor="stOrderContentTitleTab2"
-                  class="col-3 col-md-2 stOrderContentTitle stOrderContentTitle2"
+                  className="col-3 col-md-2 stOrderContentTitle stOrderContentTitle2"
                 >
                   <span>待付款</span>
                 </label>
                 <label
                   htmlFor="stOrderContentTitleTab3"
-                  class="col-3 col-md-2 stOrderContentTitle stOrderContentTitle3"
+                  className="col-3 col-md-2 stOrderContentTitle stOrderContentTitle3"
                 >
                   <span>已付款</span>
                 </label>
                 <label
                   htmlFor="stOrderContentTitleTab4"
-                  class="col-3 col-md-2 stOrderContentTitle stOrderContentTitle4"
+                  className="col-3 col-md-2 stOrderContentTitle stOrderContentTitle4"
                 >
                   <span>已取消</span>
                 </label>

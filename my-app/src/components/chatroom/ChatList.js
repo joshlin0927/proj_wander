@@ -39,15 +39,15 @@ function ChatList() {
   console.log('current:', currentChat)
   return (
     <>
-      <div class="chatList col-12 col-md-5 col-lg-4">
-        <div class="chatList-content">
-          <div class="TCform-head ml-1">
+      <div className="chatList col-12 col-md-5 col-lg-4">
+        <div className="chatList-content">
+          <div className="TCform-head ml-1">
             <a href="">
-              <i class="fas fa-chevron-left TCback-btn"></i>
+              <i className="fas fa-chevron-left TCback-btn"></i>
             </a>
-            <div class="TCform-title">聊天室</div>
+            <div className="TCform-title">聊天室</div>
             <a href="">
-              <i class="fas fa-chevron-left TCback-btn opacity-0"></i>
+              <i className="fas fa-chevron-left TCback-btn opacity-0"></i>
             </a>
           </div>
           {/* a person */}
@@ -56,7 +56,7 @@ function ChatList() {
             : conversation.map((v) => {
                 return (
                   <div
-                    class="chatCard"
+                    className="chatCard"
                     onClick={() => {
                       setCurrentChat(v)
                     }}

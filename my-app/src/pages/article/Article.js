@@ -116,7 +116,7 @@ function Article(props) {
                  type="text"
               />
               <button type="submit" className="">
-                <i class="fas fa-search"></i>
+                <i className="fas fa-search"></i>
               </button> */}
             </div>
           </div>
@@ -136,104 +136,104 @@ function Article(props) {
             ) : null}
             {/* <MyPagination /> */}
 
-            {/* <div class="articleitem">
+            {/* <div className="articleitem">
               <img
                 src="../images/article/01-1.jpg"
                 alt=""
               />
               <a href="">
-                <div class="coursename">
+                <div className="coursename">
                   柏捷頓家族名門韻事
                 </div>
               </a>
-              <span class="teachername">#熱門文章</span>
+              <span className="teachername">#熱門文章</span>
             </div>
-            <div class="articleitem">
+            <div className="articleitem">
               <img src="../images/article/02.jpeg" alt="" />
               <a href="">
-                <div class="coursename ">紐約新醫革命</div>
+                <div className="coursename ">紐約新醫革命</div>
               </a>
-              <span class="teachername">#熱門文章</span>
+              <span className="teachername">#熱門文章</span>
             </div>
-            <div class="articleitem">
+            <div className="articleitem">
               <img src="../images/article/03.jpeg" alt="" />
               <a href="">
-                <div class="coursename ">誰殺了莎拉？</div>
+                <div className="coursename ">誰殺了莎拉？</div>
               </a>
-              <span class="teachername">#熱門文章</span>
+              <span className="teachername">#熱門文章</span>
             </div>
-            <div class="articleitem">
+            <div className="articleitem">
               <img src="../images/article/04.jpeg" alt="" />
               <a href="">
-                <div class="coursename ">亞森羅蘋</div>
+                <div className="coursename ">亞森羅蘋</div>
               </a>
-              <span class="teachername">#熱門文章</span>
+              <span className="teachername">#熱門文章</span>
             </div>
-            <div class="articleitem ">
+            <div className="articleitem ">
               <img src="../images/article/05.jpeg" alt="" />
               <a href="">
-                <div class="coursename">亞森羅蘋</div>
+                <div className="coursename">亞森羅蘋</div>
               </a>
-              <span class="teachername">#熱門文章</span>
+              <span className="teachername">#熱門文章</span>
             </div>
-            <div class="articleitem ">
+            <div className="articleitem ">
               <img src="../images/article/06.jpg" alt="" />
               <a href="">
-                <div class="coursename">黑道律師文森佐</div>
+                <div className="coursename">黑道律師文森佐</div>
               </a>
-              <span class="teachername">#熱門文章</span>
+              <span className="teachername">#熱門文章</span>
             </div>
-            <div class="articleitem ">
+            <div className="articleitem ">
               <img src="../images/article/21.jpg" alt="" />
               <a href="">
-                <div class="coursename">
+                <div className="coursename">
                   藏著「上頭」不願被人記得的事
                 </div>
               </a>
-              <span class="teachername">#熱門文章</span>
+              <span className="teachername">#熱門文章</span>
             </div>
-            <div class="articleitem ">
+            <div className="articleitem ">
               <img src="../images/article/22.jpg" alt="" />
               <a href="">
-                <div class="coursename">
+                <div className="coursename">
                   英文二十六個字母的起源
                 </div>
               </a>
-              <span class="teachername">#熱門文章</span>
+              <span className="teachername">#熱門文章</span>
             </div>
-            <div class="articleitem ">
+            <div className="articleitem ">
               <img src="../images/article/26.jpg" alt="" />
               <a href="">
-                <div class="coursename">
+                <div className="coursename">
                   為失語者開啟一扇溝通的窗
                 </div>
               </a>
-              <span class="teachername">#熱門文章</span>
+              <span className="teachername">#熱門文章</span>
             </div>
-            <div class="articleitem ">
+            <div className="articleitem ">
               <img src="../images/article/23.jpg" alt="" />
               <a href="">
-                <div class="coursename">
+                <div className="coursename">
                   外來語所組成的語言
                 </div>
               </a>
-              <span class="teachername">#熱門文章</span>
+              <span className="teachername">#熱門文章</span>
             </div>
-            <div class="articleitem img-fluid ">
+            <div className="articleitem img-fluid ">
               <img src="../images/article/24.jpeg" alt="" />
               <a href="">
-                <div class="coursename">
+                <div className="coursename">
                   職場中的專業精神、善意
                 </div>
               </a>
-              <span class="teachername">#熱門文章</span>
+              <span className="teachername">#熱門文章</span>
             </div>
-            <div class="articleitem img-fluid ">
+            <div className="articleitem img-fluid ">
               <img src="../images/article/25.jpeg" alt="" />
               <a href="">
-                <div class="coursename">寬容的公司文化</div>
+                <div className="coursename">寬容的公司文化</div>
               </a>
-              <span class="teachername">#熱門文章</span>
+              <span className="teachername">#熱門文章</span>
             </div> */}
           </div>
         </div>

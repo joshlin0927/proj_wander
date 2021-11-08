@@ -119,7 +119,7 @@ function MemberCenterForMobile(props) {
                   activeClassName="active"
                 >
                   <div className="mobilecircle">
-                    <i class="fal fa-table mobileicon"> </i>
+                    <i className="fal fa-table mobileicon"> </i>
                   </div>
                   <div className="nav-item-text mobiletext ml-4">
                     課程管理

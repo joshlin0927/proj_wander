@@ -144,10 +144,10 @@ function CsCoursede(props) {
           </div> */}
           <div className="video">
             <div className="embed-responsive embed-responsive-16by9">
-              {/* <video class="video-fluid z-depth-1" autoplay loop controls muted> (有muted就是自動播放) */}
+              {/* <video className="video-fluid z-depth-1" autoplay loop controls muted> (有muted就是自動播放) */}
 
               {/* <video
-                class="video-fluid z-depth-1"
+                className="video-fluid z-depth-1"
                 autoplay
                 loop
                 controls
@@ -690,7 +690,7 @@ function CsCoursede(props) {
         >
           <div className="Ann">
             <div
-              class="fsdfds"
+              className="fsdfds"
               style={{
                 display: 'flex',
                 flexDirection: 'column',

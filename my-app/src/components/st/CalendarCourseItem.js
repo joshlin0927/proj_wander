@@ -54,7 +54,7 @@ function CalendarCourseItem(props) {
 
   return (
     <>
-      <div class="calcourseitem">
+      <div className="calcourseitem">
         <img
           src={`${IMG_PATH}/course/img/${courseimg}`}
           alt=""
@@ -70,8 +70,8 @@ function CalendarCourseItem(props) {
             alt=""
           />
         </div>
-        <div class="stcoursename">{name}</div>
-        <span class="stteachername"> {teacher} </span>
+        <div className="stcoursename">{name}</div>
+        <span className="stteachername"> {teacher} </span>
       </div>
     </>
   )

@@ -20,24 +20,26 @@ function ChatCard(props) {
   }, [conversation.receiverID])
   return (
     <>
-      <div class="chatCardAvatar">
+      <div className="chatCardAvatar">
         <img
           src={`${IMG_PATH}/${receiveUser.avatar}`}
           className="img-fluid"
           alt=""
         />
       </div>
-      <div class="chatCard-info">
-        <div class="d-flex align-items-center">
-          <div class="chatName">{receiveUser.nickname}</div>
-          <div class="notification"></div>
+      <div className="chatCard-info">
+        <div className="d-flex align-items-center">
+          <div className="chatName">
+            {receiveUser.nickname}
+          </div>
+          <div className="notification"></div>
         </div>
-        <div class="LastMessageAndTime">
-          <p class="m-0">
+        <div className="LastMessageAndTime">
+          <p className="m-0">
             <span>會員ID：{conversation.receiverID}</span>
           </p>
-          <div class="d-flex">
-            <p class="lastMessage">
+          <div className="d-flex">
+            <p className="lastMessage">
               我對第一段影片的某一些地方有疑問，適不適
             </p>
             <span>(15分鐘前)</span>

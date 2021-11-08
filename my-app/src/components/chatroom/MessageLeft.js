@@ -3,18 +3,18 @@ import React from 'react'
 function MessageLeft() {
   return (
     <>
-      <div class="messageLeft">
-        <div class="messageAvatar">
-          <div class="messageAvatarFilter">
-            <div class="Ltriangle">
+      <div className="messageLeft">
+        <div className="messageAvatar">
+          <div className="messageAvatarFilter">
+            <div className="Ltriangle">
               <img
                 src="../images/students/Sagehashi Harue.jpeg"
-                class="img-fluid"
+                className="img-fluid"
               />
             </div>
           </div>
         </div>
-        <div class="message left">
+        <div className="message left">
           <p>
             希金說過，有兩種模糊：一種源於思想感情的貧乏，只能用語言
           </p>

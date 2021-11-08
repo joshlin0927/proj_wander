@@ -78,7 +78,7 @@ function StGaming(props) {
       for (let i = 0; i < question.length; i++) {
         question[
           i
-        ] = `<div class="word-bg"><div id="word${i}" class="word">${question[i]}</div></div>`
+        ] = `<div className="word-bg"><div id="word${i}" className="word">${question[i]}</div></div>`
         document.querySelector('.selectWord').innerHTML +=
           question[i]
       }

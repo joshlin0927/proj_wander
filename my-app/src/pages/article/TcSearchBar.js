@@ -16,7 +16,7 @@ function TcSearchBar(props) {
       <button type="submit" className="">
         <i className="fas fa-search"></i>
       </button>
-                 {/* <input
+      {/* <input
                 type="text"
                 className="sh-searchbar"
                 placeholder="請輸入想搜尋的課程名稱"
@@ -24,7 +24,7 @@ function TcSearchBar(props) {
                  type="text"
               />
               <button type="submit" className="">
-                <i class="fas fa-search"></i>
+                <i className="fas fa-search"></i>
               </button> */}
     </>
   )

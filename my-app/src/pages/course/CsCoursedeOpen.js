@@ -27,10 +27,10 @@ function CsCoursedeOpen() {
           </div> */}
           <div className="video">
             <div className="embed-responsive embed-responsive-16by9">
-              {/* <video class="video-fluid z-depth-1" autoplay loop controls muted> (有muted就是自動播放) */}
+              {/* <video className="video-fluid z-depth-1" autoplay loop controls muted> (有muted就是自動播放) */}
 
               {/* <video
-                class="video-fluid z-depth-1"
+                className="video-fluid z-depth-1"
                 autoplay
                 loop
                 controls
@@ -556,7 +556,7 @@ function CsCoursedeOpen() {
         >
           <div className="Ann">
             <div
-              class="fsdfds"
+              className="fsdfds"
               style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -851,7 +851,7 @@ function CsCoursedeOpen() {
             style={{ width: '200px', marginRight: '10px' }}
           >
             <button
-              class="btn btn-outline-y row mx-auto one-btn btn-b "
+              className="btn btn-outline-y row mx-auto one-btn btn-b "
               style={{
                 width: '180px',
                 marginRight: '10px',

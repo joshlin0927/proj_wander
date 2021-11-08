@@ -68,7 +68,7 @@ export default function StSideBar2(props) {
                 setIsActive('課程管理')
               }}
             >
-              <i class="fal fa-table"> </i>
+              <i className="fal fa-table"> </i>
               <div className="nav-item-text">課程管理</div>
             </Nav.Link>
           </li>

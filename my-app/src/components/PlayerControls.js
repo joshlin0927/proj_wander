@@ -76,7 +76,7 @@ function PlayerControls(props) {
           </div>
 
           <div className="bottomButtonControlGRP">
-            <div class="d-flex align-items-center pl-2 w-100">
+            <div className="d-flex align-items-center pl-2 w-100">
               <div
                 id="smallPlayIcon"
                 className="bottomIcons p-2"
