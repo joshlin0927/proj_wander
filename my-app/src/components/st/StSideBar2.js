@@ -15,7 +15,6 @@ export default function StSideBar2(props) {
   // 聊天室開關
   let [chat, setChat] = useState('d-none')
 
-  console.log('chat', chat)
   return (
     <>
       <Nav className="sidebar col-2">

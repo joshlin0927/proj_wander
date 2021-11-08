@@ -68,7 +68,7 @@ function PlayerControls(props) {
               min={0}
               max={100}
               value={played * 100}
-              ValueLabelComponent={ValueLabelComponent}
+              valuelabelcomponent={ValueLabelComponent}
               onChange={seeking}
               onMouseDown={seekingMouseDown}
               onChangeCommitted={seekingMouseUp}
