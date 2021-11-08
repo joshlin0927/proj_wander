@@ -135,6 +135,10 @@ export const pathnameList = [
   '/Cart/Step01',
   '/Cart/Step02',
   '/Cart/Step03',
+  '/Course/CsCourse',
+  '/Course/CsCoursedes/',
+  '/Course/CsCoursedesn/',
+  '/Course/CsCoursedesOpen/',
 ]
 
 export const pathnameTextList = [
@@ -167,4 +171,8 @@ export const pathnameTextList = [
   '/購物車/確認購物車內容',
   '/購物車/選擇付款方式',
   '/購物車/完成訂單&付款',
+  '/課程總覽/課程頁',
+  '/課程總覽/課程詳細頁',
+  '/課程總覽/課程詳細頁',
+  '/課程總覽/課程詳細頁',
 ]
