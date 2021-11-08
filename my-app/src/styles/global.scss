@@ -1175,6 +1175,25 @@ a {
 }
 /* 對象選單 */
 @media (min-width: 768px) {
+  .chatWrapper {
+    display: flex;
+    position: absolute;
+    margin-left: 16.6666666667%;
+  }
+
+  .chatList {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #fff;
+    min-height: 30%;
+    width: 40vw;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (min-width: 1440px) {
   .chatList {
     z-index: 1;
     display: flex;
@@ -1185,17 +1204,35 @@ a {
     width: 30vw;
     box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   }
+}
 
-  .chatList-content {
-    margin-bottom: 30px;
+@media (min-width: 2560px) {
+  .chatWrapper {
+    display: flex;
+    position: absolute;
+    margin-left: 8.33333333333333%;
   }
+  .chatList {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #fff;
+    min-height: 30%;
+    width: 15vw;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
+  }
+}
 
-  .chatList .title {
-    margin: 50px 0px;
-    color: #065f8e;
-    font-size: 36px;
-    font-weight: bold;
-  }
+.chatList-content {
+  margin-bottom: 30px;
+}
+
+.chatList .title {
+  margin: 50px 0px;
+  color: #065f8e;
+  font-size: 36px;
+  font-weight: bold;
 }
 
 .chatCard {
@@ -1210,7 +1247,7 @@ a {
 }
 
 .chatCard-info {
-  width: 70%;
+  width: 100%;
   margin-left: 10px;
 }
 
@@ -1268,8 +1305,34 @@ a {
   background-color: #fff;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   max-height: 500px;
-  width: 50vw;
+  width: 40vw;
   z-index: 1;
+}
+
+@media (min-width: 1440px) {
+  .chatWindow {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
+    max-height: 500px;
+    width: 30vw;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 2560px) {
+  .chatWindow {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
+    max-height: 500px;
+    width: 15vw;
+    z-index: 1;
+  }
 }
 
 .chatWindowHead {
@@ -1305,7 +1368,7 @@ a {
 }
 
 .chatWindowBody {
-  // height: 540px;
+  height: 540px;
   overflow: auto;
 }
 
@@ -1388,7 +1451,7 @@ a {
   display: flex;
   align-items: center;
   position: relative;
-  margin-bottom: 1rem;
+  margin: 1rem;
 }
 
 .chatInsert {

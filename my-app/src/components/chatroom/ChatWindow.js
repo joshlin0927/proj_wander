@@ -111,7 +111,7 @@ function ChatWindow(props) {
 
   return (
     <>
-      <div className="chatWindow col-12 col-md-5  ">
+      <div className="chatWindow">
         <div className="chatWindowHead">
           <div className="talkTo">
             <div className="talkToAvatar">

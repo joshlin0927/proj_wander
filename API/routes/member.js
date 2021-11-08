@@ -51,7 +51,7 @@ async function getListData(req,res){
             // return res.redirect('?page=1' + output.totalPages);
             */
         }
-        const sql = `SELECT * FROM \`member\` ${where} ORDER BY member.sid DESC LIMIT ${(page-1)*perPage}, ${perPage}`;
+        const sql = `SELECT * FROM \`member\` ORDER BY member.sid DESC `;
         /* 如果要用backtick，在名稱的地方要加上\`做跳脫 */
         const [rows] = await db.query(sql)
         output.rows = rows;
@@ -63,23 +63,6 @@ router.get('/api/list', async (req, res)=>{
     const output = await getListData(req, res);
     res.json(output);
 });
-
-router.get('/findOne', async(req, res)=>{
-    const output = {
-        success: false,
-        result: '',
-    }
-    const sql = `SELECT * FROM member WHERE \`sid\`=?`;
-    const [r] = await db.query(sql, [req.query.memberID]);
-    if(r.length === 0){
-        output.success = false;
-        output.result = '沒有資料';
-    }else{
-        output.success = true;
-        output.result = r;
-    }
-    res.json(output);
-})
 
 
 router.route('/edit/:sid')
