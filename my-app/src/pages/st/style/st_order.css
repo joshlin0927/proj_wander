@@ -1,4 +1,10 @@
 /*============= orderContent =============*/
+.orderDataEmpty {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
 .stOrderContent {
   width: 95%;
   margin: 0 1rem 50px 1rem;
@@ -38,6 +44,7 @@
   color: #065f8e;
 }
 .stOrderDetailContent {
+  display: flex;
   width: 100%;
   margin: 0;
 }
