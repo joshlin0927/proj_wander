@@ -54,7 +54,10 @@ export default function StSideBar2(props) {
                 setIsActive('教室上課')
               }}
             >
-              <i className="fal fa-users-class"> </i>
+              <i
+                className="fal fa-users-class"
+                style={{ width: '24px', height: '24px' }}
+              ></i>
               <div className="nav-item-text">教室上課</div>
             </Nav.Link>
           </li>
@@ -68,7 +71,14 @@ export default function StSideBar2(props) {
                 setIsActive('課程管理')
               }}
             >
-              <i className="fal fa-table"> </i>
+              <i
+                className="fal fa-table"
+                style={{
+                  paddingLeft: '2px',
+                }}
+              >
+                {' '}
+              </i>
               <div className="nav-item-text">課程管理</div>
             </Nav.Link>
           </li>

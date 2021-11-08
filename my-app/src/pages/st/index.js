@@ -15,7 +15,8 @@ import StClassroom from './StClassroom'
 import StOrder from './StOrder'
 import MemberCenterForMobile from './MemberCenterForMobile'
 
-function index() {
+function index(props) {
+
   return (
     <>
       <Switch>

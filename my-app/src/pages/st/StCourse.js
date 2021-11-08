@@ -28,7 +28,38 @@ export default withRouter(function StCourse(props) {
     useState({})
   const { auth, setAuth } = props
   const [imgSrc, setImgSrc] = useState('')
+  // 設定Loading Spinner狀態
+  const [isLoading, setIsLoading] = useState(true)
 
+  const spinner = (
+    <div className="loadingio-spinner-ripple-axvmfinlmje">
+      <div className="ldio-xv8fxyexxut">
+        <div> </div> <div> </div>{' '}
+      </div>{' '}
+    </div>
+  )
+
+  //要呈現的課程資料
+  const courseData = (
+    <div className="stcoursesection  col-12 col-md-10 ">
+      {' '}
+      {courses.length !== 0 ? (
+        courses.map((course, i) => {
+          return (
+            <CourseItem
+              key={course.sid + '_' + i}
+              sid={course.product_sid}
+              name={course.course_name}
+              courseimg={course.course_img}
+              teacher={course.firstname}
+            />
+          )
+        })
+      ) : (
+        <RemindingText />
+      )}{' '}
+    </div>
+  )
   useEffect(() => {
     if (token && identity === 0) {
       ;(async () => {
@@ -48,15 +79,22 @@ export default withRouter(function StCourse(props) {
     } else if (identity !== 0) {
       history.push('/')
     } else {
-      ;(async () => {
-        const Data = await axios.get(
-          `http://localhost:3001/stcourse/api/coursedata?studentSid=${studentSid}`
-        )
-        if (Data) {
-          setCourses(Data.data.rows)
-          console.log('coursedata', Data.data.rows)
-        }
-      })()
+      setTimeout(() => {
+        ;(async () => {
+          const Data = await axios.get(
+            `http://localhost:3001/stcourse/api/coursedata?studentSid=${studentSid}`
+          )
+          if (Data) {
+            setCourses(Data.data.rows)
+            console.log('coursedata', Data.data.rows)
+          }
+        })()
+      }, 1000)
+
+      //把spinner關起來
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 2000)
     }
   }, [])
   //這裡要記得掛上空格讓他有相依可以判斷，不然會fetch完會再次render，等於狀態又改變，又fetch造成無限迴圈
@@ -87,25 +125,8 @@ export default withRouter(function StCourse(props) {
 
         <div className="row justify-content-center d-flex">
           <StSideBar2 imgSrc={imgSrc} />
-          <div className="stcoursesection  col-12 col-md-10 ">
-            {courses.length !== 0 ? (
-              courses.map((course, i) => {
-                return (
-                  <CourseItem
-                    key={course.sid + '_' + i}
-                    sid={course.product_sid}
-                    name={course.course_name}
-                    courseimg={course.course_img}
-                    teacher={course.firstname}
-                  />
-                )
-              })
-            ) : (
-              <RemindingText />
-            )}{' '}
-          </div>
         </div>
-
+        {isLoading ? spinner : courseData}
         <div className="row">
           <div className="coursesubtitle">推薦教師</div>
         </div>

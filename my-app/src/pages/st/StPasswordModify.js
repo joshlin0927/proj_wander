@@ -22,6 +22,12 @@ export default withRouter(function StPasswordModify(props) {
   const { auth, setAuth } = props
   const [imgSrc, setImgSrc] = useState('')
 
+  const [close, setClose] = useState('far fa-eye-slash')
+  const [closeAnother, setCloseAnother] = useState(
+    'far fa-eye-slash'
+  )
+  const [type, setType] = useState('password')
+
   useEffect(() => {
     if (token && identity === 0) {
       ;(async () => {
@@ -229,6 +235,18 @@ export default withRouter(function StPasswordModify(props) {
                   onChange={handleFieldChange}
                   required
                 />
+                <i
+                  className={`mt-4 mt-md-3 ml-2 ${close}`}
+                  onClick={() => {
+                    if (type === 'password') {
+                      setType('text')
+                      setClose('far fa-eye')
+                    } else {
+                      setType('password')
+                      setClose('far fa-eye-slash')
+                    }
+                  }}
+                ></i>
               </div>
               {fieldErrors.origin === '' ? (
                 <label className="stnotice" htmlFor="">
@@ -239,16 +257,30 @@ export default withRouter(function StPasswordModify(props) {
                   {fieldErrors.origin}
                 </label>
               )}
-              <input
-                name="newPass"
-                type="password"
-                className="col-12 allInputs"
-                placeholder="請輸入新密碼"
-                value={fields.newPass}
-                onChange={handleFieldChange}
-                required
-                minLength="5"
-              />
+              <div className="d-flex">
+                <input
+                  name="newPass"
+                  type="password"
+                  className="col-12 allInputs"
+                  placeholder="請輸入新密碼"
+                  value={fields.newPass}
+                  onChange={handleFieldChange}
+                  required
+                  minLength="5"
+                />
+                <i
+                  className={`mt-4 mt-md-3 ml-2 ${close}`}
+                  onClick={() => {
+                    if (type === 'password') {
+                      setType('text')
+                      setClose('far fa-eye')
+                    } else {
+                      setType('password')
+                      setClose('far fa-eye-slash')
+                    }
+                  }}
+                ></i>
+              </div>
               {fieldErrors.newPass === '' ? (
                 <label className="stnotice" htmlFor="">
                   &nbsp;

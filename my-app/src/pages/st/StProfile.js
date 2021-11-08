@@ -28,10 +28,13 @@ export default withRouter(function StProfile(props) {
   const [showUp, setShowUp] = useState('')
   //大頭貼狀態
   let [imgSrc, setImgSrc] = useState('')
+
+
   const doUpload = async () => {
     const fd = new FormData(document.form1)
     const r = await axios.post(UPLOAD_AVATAR, fd)
     setImgSrc(r.data.filename)
+    window.location.reload()
     console.log(r.data)
   }
 
@@ -171,7 +174,7 @@ export default withRouter(function StProfile(props) {
             console.log('outcome:', res.data)
             setShowUp('showup')
             setMyTest(Math.random())
-
+           
             setTimeout(() => {
               setShowUp('none')
             }, 1000)

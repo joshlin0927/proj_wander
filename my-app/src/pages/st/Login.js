@@ -93,7 +93,6 @@ function Login(props) {
             'member',
             JSON.stringify(obj.member)
           )
-
           setAuth(true)
           setUser(obj.member.sid)
           history.goBack()
