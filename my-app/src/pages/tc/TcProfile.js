@@ -37,6 +37,7 @@ function TcProfile(props) {
     console.log(r.data)
     if (r.data.success) {
       setShowUp('showup')
+      window.location.reload()
       setTimeout(() => {
         setShowUp('none')
       }, 1000)

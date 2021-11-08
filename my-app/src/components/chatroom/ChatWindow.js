@@ -8,6 +8,9 @@ import MessageRight from './MessageRight'
 function ChatWindow(props) {
   const { messages, setMessages, member, currentChat } =
     props
+
+  console.log(member)
+
   const [newMessage, setNewMessage] = useState('')
   const [arrivalMessage, setArrivalMessage] = useState({})
   const scrollRef = useRef()
@@ -120,7 +123,7 @@ function ChatWindow(props) {
           <input
             type="text"
             id="chatInsert"
-            className=" chatInsert allInputs col-9"
+            className=" chatInsert allInputs col-12"
             placeholder="請輸入"
             value={newMessage}
             onChange={(e) => {
@@ -129,7 +132,7 @@ function ChatWindow(props) {
           />
           <button
             type="button"
-            className="btn chatInsertButton col-3"
+            className="chatInsertButton"
             onClick={handleSubmitMessage}
           >
             <span>送出</span>

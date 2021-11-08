@@ -17,7 +17,9 @@ function MemberCenterForMobile(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const memberObj = JSON.parse(member)
+    ? localStorage.getItem('member')
+    : ''
+  const memberObj = member ? JSON.parse(member) : ''
   // console.log('memberObj', memberObj)
   // useEffect(() => {
   //   if (token) {
@@ -119,29 +121,35 @@ function MemberCenterForMobile(props) {
                   activeClassName="active"
                 >
                   <div className="mobilecircle">
-                    <i className="fal fa-table mobileicon"> </i>
+                    <i className="fal fa-table mobileicon">
+                      {' '}
+                    </i>
                   </div>
                   <div className="nav-item-text mobiletext ml-4">
                     課程管理
                   </div>
                 </Nav.Link>
               </div>
+              {memberObj.identity !== 1 ? (
+                <div className="mobilelist">
+                  <Nav.Link
+                    as={NavLink}
+                    to="/StIndex/StStartMyCourse"
+                    className="nav-item d-flex align-items-center offset-2 "
+                    activeClassName="active"
+                  >
+                    <div className="mobilecircle">
+                      <i className="fal fa-thumbs-up mobileicon"></i>
+                    </div>
+                    <div className="nav-item-text mobiletext ml-4">
+                      推薦課程
+                    </div>
+                  </Nav.Link>
+                </div>
+              ) : (
+                ''
+              )}
               <div className="mobilelist">
-                <Nav.Link
-                  as={NavLink}
-                  to="/StIndex/StStartMyCourse"
-                  className="nav-item d-flex align-items-center offset-2 "
-                  activeClassName="active"
-                >
-                  <div className="mobilecircle">
-                    <i className="fal fa-thumbs-up mobileicon"></i>
-                  </div>
-                  <div className="nav-item-text mobiletext ml-4">
-                    推薦課程
-                  </div>
-                </Nav.Link>
-              </div>
-              <div className="mobilelist lastline">
                 <Nav.Link
                   as={NavLink}
                   to="/StIndex/StOrder"
@@ -155,11 +163,17 @@ function MemberCenterForMobile(props) {
                   </div>
                 </Nav.Link>
               </div>
+              <div className="mobilelist lastline">
+                <div className="nav-item d-flex align-items-center offset-2 ">
+                  <div className="mobilecircle">
+                    <i className="fas fa-sign-out-alt mobileicon"></i>
+                  </div>
+                  <div className="nav-item-text mobiletext ml-4">
+                    登出
+                  </div>
+                </div>
+              </div>
             </Nav>
-            {/* <div>個人資料</div>
-            <div>密碼更改</div>
-            <div>訂單查詢</div>
-            <div>聊天室</div> */}
           </form>
         </div>
       </div>

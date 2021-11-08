@@ -48,9 +48,6 @@ function App() {
   const [auth, setAuth] = useState(false)
   const [user, setUser] = useState()
 
-  console.log('auth', auth)
-  console.log('user', user)
-
   return (
     <Router>
       <>

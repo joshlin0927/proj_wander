@@ -14,19 +14,20 @@ function TcChart(props) {
         `${TcAnalytics}/?courseSid=${click}`
       )
 
-      let SingleCourseData = r.data.length
-        ? {
-            Jan: r.data[0].Jan,
-            Feb: r.data[0].Feb,
-            Mar: r.data[0].Mar,
-            Apr: r.data[0].Apr,
-            May: r.data[0].May,
-            Jun: r.data[0].Jun,
-          }
-        : ''
-      setCourseData(SingleCourseData)
-
-      // setName(r.data[0].course_name)
+      if (r.data.length) {
+        let SingleCourseData = {
+          Jan: r.data[0].Jan,
+          Feb: r.data[0].Feb,
+          Mar: r.data[0].Mar,
+          Apr: r.data[0].Apr,
+          May: r.data[0].May,
+          Jun: r.data[0].Jun,
+        }
+        setCourseData(SingleCourseData)
+        setName(r.data[0].course_name)
+      } else {
+        return
+      }
     })()
   }, [click])
 

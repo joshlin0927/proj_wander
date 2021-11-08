@@ -3,6 +3,8 @@ import { format } from 'timeago.js'
 
 function MessageRight(props) {
   const { messages, own } = props
+
+  console.log('own', own)
   return (
     <>
       <div className={own ? 'messageRight' : 'messageLeft'}>
@@ -19,7 +21,9 @@ function MessageRight(props) {
         </div>
         <div className="messageAvatar">
           <div className="messageAvatarFilter">
-            <div className="Rtriangle">
+            <div
+              className={own ? 'Rtriangle' : 'Ltriangle'}
+            >
               <img
                 src="../images/teacher/Thomas_Lillard.jpg"
                 className="img-fluid"
