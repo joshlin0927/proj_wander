@@ -263,7 +263,7 @@ function TcProfile(props) {
                         ? IMG_PATH + '/' + imgSrc
                         : IMG_PATH +
                           '/' +
-                          'c943da4c-dd71-4e60-b598-ee44fdbd2fb6.jpg'
+                          'presetAvatar.jpeg'
                     }
                     className="img-fluid"
                     alt=""

@@ -5,13 +5,18 @@ import axios from 'axios'
 
 function TcChart(props) {
   const { click } = props
-  const [CourseData, setCourseData] = useState('')
+  const [fields, setCourseData] = useState({
+    CourseData:'',
+    course_name:'',
+  })
 
   useEffect(() => {
     ;(async () => {
       let r = await axios.get(
         `${TcAnalytics}/?courseSid=${click}`
       )
+
+      console.log(r.data[0].course_name)
 
       let SingleCourseData = {
         Jan: r.data[0].Jan,

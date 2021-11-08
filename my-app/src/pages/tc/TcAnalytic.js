@@ -43,6 +43,7 @@ function TcAnalytic() {
     if (!token && identity !== 1) {
       history.push('/')
     } else {
+      // 取得頭像
       ;(async () => {
         let M = await axios.get(
           `${MemberEdit}/?teacherSid=${teacherSid}`
@@ -51,6 +52,7 @@ function TcAnalytic() {
           setImgSrc(M.data[0].avatar)
         }
       })()
+      // 取得課程數據
       ;(async () => {
         let r = await axios.get(
           `${TcCourse_LIST}?teacherSid=${teacherSid}`
@@ -58,6 +60,7 @@ function TcAnalytic() {
         if (r.status === 200) {
           setDisplayCourse(r.data.rows)
           setTcCourses(r.data.rows)
+          setClick(r.data.rows[0].sid)
         } else {
           alert('連線出現問題')
         }
