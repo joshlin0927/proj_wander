@@ -143,6 +143,7 @@ export default withRouter(function SignUp(props) {
               icon: 'success',
               title: '恭喜成為Wander會員',
               showConfirmButton: false,
+              showConfirmButtonColor: '#065F8E',
               timer: 1500,
             })
 
