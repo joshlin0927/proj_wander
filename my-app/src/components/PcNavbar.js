@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { devUrl, IMG_PATH, MemberEdit } from '../config'
+import {
+  devUrl,
+  IMG_PATH,
+  MemberEdit,
+  Cart_API,
+} from '../config'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
 import axios from 'axios'
@@ -15,7 +20,7 @@ function scrollHeader() {
 window.addEventListener('scroll', scrollHeader)
 
 function PcNavbar(props) {
-  const { auth, setAuth, navCartQty } = props
+  const { auth, setAuth, navCartQty, setNavCartQty } = props
   const [imgSrc, setImgSrc] = useState('')
 
   const [drop, setDrop] = useState('d-none')
@@ -57,6 +62,19 @@ function PcNavbar(props) {
     }
     setDrop('d-none')
   }, [imgSrc, auth, token, setAuth, identity, memberID])
+
+  useEffect(() => {
+    ;(async () => {
+      let n = await axios.get(
+        `${Cart_API}/list?member_sid=${member.sid}`
+      )
+      if (n.data.success) {
+        setNavCartQty(n.data.result.length)
+      } else {
+        setNavCartQty(0)
+      }
+    })()
+  }, [setNavCartQty, member.sid])
 
   const logout = async () => {
     localStorage.removeItem('token')

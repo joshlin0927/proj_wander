@@ -442,6 +442,7 @@ a {
   transform: translate(-50%, -50%);
   position: absolute;
   z-index: 5;
+  transition: 0.5s ease-in-out;
 }
 
 .navCartQty {
@@ -458,40 +459,36 @@ a {
   font-size: 1.5rem;
   z-index: 6;
   text-align: center;
+  transition: 0.5s ease-in-out;
 }
 .navCartQty.move {
   bottom: 50%;
   transform: translate(-50%, 50%);
-  transition: 0.5s;
 }
 .nav_cart_icon.move {
   top: -50%;
-  transition: 0.5s;
 }
 
 .nav_cart:hover {
   .nav_cart_icon {
     top: -50%;
-    transition: 0.5s;
   }
   .navCartQty {
     bottom: 50%;
     transform: translate(-50%, 50%);
-    color: #ffffff;
-    transition: 0.5s;
+    color: white;
   }
 }
 
-// .nav_cart:hover,
-// .nav_login:hover {
-//   background-color: #065f8e;
-// }
+.nav_cart:hover,
+.nav_login:hover {
+  background-color: #065f8e;
+}
 
-// .nav_cart:hover .nav_cart_icon,
-// .nav_login:hover .nav_login_txt {
-//   filter: drop-shadow(#ffffff 60px 0);
-//   color: white;
-// }
+.nav_cart:hover .nav_cart_icon,
+.nav_login:hover .nav_login_txt {
+  color: white;
+}
 
 /* hover底線動畫 */
 .nav__en::after {
