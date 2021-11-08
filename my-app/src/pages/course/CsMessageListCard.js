@@ -1,27 +1,18 @@
-import axios from 'axios'
-import React, { useState, useEffect } from 'react'
-
-import { Modal } from 'react-bootstrap'
+import React from 'react'
 
 import './course1.css'
-import {
-  ArtMessage_DELETE,
-  ArtMessage_EDIT,
-} from '../../config'
-import { useHistory } from 'react-router'
+// import { ArtMessage_DELETE } from '../../config'
 import { IMG_PATH } from '../../config'
 
 function ArtMessageListCard(props) {
-  const member = localStorage.getItem('member')
+  // const member = localStorage.getItem('member')
 
-  const memberObj = JSON.parse(member)
+  // const memberObj = JSON.parse(member)
 
-  const token = localStorage.getItem('token')
-
-  const history = useHistory()
+  // const token = localStorage.getItem('token')
 
   //大頭貼狀態
-  let [imgSrc, setImgSrc] = useState('')
+  // let [imgSrc, setImgSrc] = useState('')
 
   // console.log('memberObj', memberObj)
 
@@ -51,35 +42,25 @@ function ArtMessageListCard(props) {
   //   }
   // }, [imgSrc])
 
-  const {
-    key,
-    sid,
-    st_sid,
-    messenger,
-    nickname,
-    st_pictuer,
-    score,
-    remove,
-    setMess,
-  } = props
+  const { messenger, nickname, st_pictuer, score } = props
 
-  // 刪除留言
-  const [show, setShow] = useState(false)
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  // // 刪除留言
+  // const [show, setShow] = useState(false)
+  // const handleClose = () => setShow(false)
+  // const handleShow = () => setShow(true)
 
-  //TODO: 怎麼將sid傳上去
-  const deleteCourse = () => {
-    ;(async () => {
-      let r = await axios.delete(ArtMessage_DELETE + sid)
-      if (r.status === 200) {
-        remove()
-        handleClose()
-        alert('刪除成功')
-        history.push('/ArtIndex/ArtMessage')
-      }
-    })()
-  }
+  // //TODO: 怎麼將sid傳上去
+  // const deleteCourse = () => {
+  //   ;(async () => {
+  //     let r = await axios.delete(ArtMessage_DELETE + sid)
+  //     if (r.status === 200) {
+  //       remove()
+  //       handleClose()
+  //       alert('刪除成功')
+  //       history.push('/ArtIndex/ArtMessage')
+  //     }
+  //   })()
+  // }
 
   //修改留言
   // const [isShow, setIsShow] = useState(false)

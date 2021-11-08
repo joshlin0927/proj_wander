@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+// import withReactContent from 'sweetalert2-react-content'
 import LoginTitle from '../../components/st/LoginTitle'
 //共用元件
 // import FBLogin from '../../components/st/FBLogin'
@@ -16,7 +16,7 @@ export default withRouter(function SignUp(props) {
   const history = useHistory()
   const [asTeacherOrStudent, setasTeacherOrStudent] =
     useState(3)
-  const MySwal = withReactContent(Swal)
+  // const MySwal = withReactContent(Swal)
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
     firstname: '',
@@ -133,7 +133,6 @@ export default withRouter(function SignUp(props) {
           firstname: fields.firstname,
           email: fields.email,
           password: fields.password,
-          nickname: fields.nickname,
           identity: asTeacherOrStudent,
         })
         .then((res) => {

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 import { devUrl } from '../../config'
 import { Modal } from 'react-bootstrap'
-import { CsCourse_EDIT, CsCourse_Cover } from '../../config'
+import { CsCourse_EDIT } from '../../config'
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
@@ -69,15 +69,6 @@ function CsCoursede(props) {
     // }
   }, [imgSrc])
 
-  const doUpload = async () => {
-    const r = await axios.post(
-      `${CsCourse_Cover}?sid=${fields.sid}`,
-      new FormData(document.formCover)
-    )
-    setImgSrc(r.data.filename)
-    // console.log(r.data)
-  }
-
   // useEffect(() => {
   //   // if (!token) {
   //   //   history.push('/')
@@ -120,16 +111,6 @@ function CsCoursede(props) {
     course_price: '',
     course_introduction: '',
   })
-  const handleFieldChange = (e) => {
-    // 1. 從原本的狀態物件拷貝新物件
-    // 2. 在拷貝的新物件上處理
-    const updatedFields = {
-      ...fields,
-      [e.target.name]: e.target.value,
-    }
-    // 3. 設定回原狀態物件
-    setFields(updatedFields)
-  }
 
   return (
     <>
@@ -157,11 +138,6 @@ function CsCoursede(props) {
                   type="video/mp4"
                 />
               </video> */}
-              <div className="">
-                {' '}
-                <img src="" />
-              </div>
-
               <div className="dsds">
                 <span
                   className="fas fa-lock lock"

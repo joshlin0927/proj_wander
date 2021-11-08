@@ -6,7 +6,6 @@ import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
-import { devUrl } from '../../config'
 import { Modal } from 'react-bootstrap'
 import { CsMessage_LIST } from '../../config'
 import { CsCourse_EDIT, Cart_API } from '../../config'
@@ -37,7 +36,7 @@ function CsCoursede(props) {
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
   const [RemoveCourse, setRemoveCourse] = useState()
 
-  let [fimgSrc, setImgSrc] = useState('')
+  // let [fimgSrc, setImgSrc] = useState('')
   useEffect(() => {
     // if (!token) {
     //   history.push('/')
@@ -69,16 +68,6 @@ function CsCoursede(props) {
         v.classList.add('changeAddCartBtn')
         v.innerText = '已加入購物車'
       })
-  }
-  const handleFieldChange = (e) => {
-    // 1. 從原本的狀態物件拷貝新物件
-    // 2. 在拷貝的新物件上處理
-    const updatedFields = {
-      ...fields,
-      [e.target.name]: e.target.value,
-    }
-    // 3. 設定回原狀態物件
-    setFields(updatedFields)
   }
 
   useEffect(() => {
@@ -153,11 +142,6 @@ function CsCoursede(props) {
                   type="video/mp4"
                 />
               </video> */}
-              <div className="">
-                {' '}
-                <img src="" />
-              </div>
-
               <div className="dsds">
                 <span
                   className="fas fa-lock lock"

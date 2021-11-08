@@ -6,7 +6,6 @@ import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
-import { devUrl } from '../../config'
 import { Modal } from 'react-bootstrap'
 import { CsMessage_LIST } from '../../config'
 import { CsCourse_EDIT, Cart_API } from '../../config'
@@ -37,30 +36,28 @@ function CsCoursede(props) {
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
   const [RemoveCourse, setRemoveCourse] = useState()
 
-  let [fimgSrc, setImgSrc] = useState('')
+  // let [fimgSrc, setImgSrc] = useState('')
   useEffect(() => {
     // if (!token) {
     //   history.push('/')
     // } else if (identity !== 0) {
     //   history.push('/')
     // } else {
-      ;(async () => {
-        let r = await axios.get(
-          // `${ArtMessage_LIST}`
-          `${CsMessage_LIST}`
-        )
-        if (r.status === 200) {
-          // setArtDisplayCourse(r.data.result[0])
+    ;(async () => {
+      let r = await axios.get(
+        // `${ArtMessage_LIST}`
+        `${CsMessage_LIST}`
+      )
+      if (r.status === 200) {
+        // setArtDisplayCourse(r.data.result[0])
 
-          setTcCourses(r.data.rows)
+        setTcCourses(r.data.rows)
 
-          setDisplayCourse(r.data.rows)
-        }
-      })()
+        setDisplayCourse(r.data.rows)
+      }
+    })()
     // }
   }, [])
-
-  
 
   function changeAddCartBtn() {
     document
@@ -72,17 +69,6 @@ function CsCoursede(props) {
         v.innerText = '已加入購物車'
       })
   }
-  const handleFieldChange = (e) => {
-    // 1. 從原本的狀態物件拷貝新物件
-    // 2. 在拷貝的新物件上處理
-    const updatedFields = {
-      ...fields,
-      [e.target.name]: e.target.value,
-    }
-    // 3. 設定回原狀態物件
-    setFields(updatedFields)
-  }
-
 
   useEffect(() => {
     ;(async () => {
@@ -126,7 +112,6 @@ function CsCoursede(props) {
         }
       })
   }
-
 
   return (
     <>
@@ -771,7 +756,7 @@ function CsCoursede(props) {
                 style={{
                   width: '100px',
                   borderRadius: '50%',
-                  height:'100px',
+                  height: '100px',
                 }}
               />
               <h2>{fields.nickname}</h2>
@@ -867,7 +852,7 @@ function CsCoursede(props) {
           {/* <Link
             to={`/Course/CsMessageADD/?courseSid=${fields.sid}`}
           > */}
-            <div
+          <div
             className="bitrt"
             style={{ width: '200px', marginRight: '10px' }}
           ></div>

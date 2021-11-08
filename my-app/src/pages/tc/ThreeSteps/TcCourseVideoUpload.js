@@ -48,11 +48,11 @@ function TcCourseVideoUpload() {
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
   const [selectedFile, setSelectedFile] = useState()
-  const [isFilePicked, setIsFilePicked] = useState(false)
+  // const [isFilePicked, setIsFilePicked] = useState(false)
 
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0])
-    setIsFilePicked(true)
+    // setIsFilePicked(true)
   }
 
   // console.log('selectedFile', selectedFile)
