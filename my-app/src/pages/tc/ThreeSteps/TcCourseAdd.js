@@ -26,8 +26,10 @@ function TcCourseAdd(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const teacherSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const teacherSid = member ? JSON.parse(member).sid : ''
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -131,7 +133,7 @@ function TcCourseAdd(props) {
 
     // ex. 用fetch api/axios送到伺服器
     // 新增後直接修改課程
-    const r = fetch(`${TcCourse_EDIT}/?sid=${lastAdd}`, {
+    fetch(`${TcCourse_EDIT}/?sid=${lastAdd}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

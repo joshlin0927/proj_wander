@@ -21,9 +21,13 @@ function TcCourseEdit(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const teacherSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const teacherSid = member ? JSON.parse(member).sid : ''
   const courseSid = sessionStorage.getItem('courseSid')
+    ? sessionStorage.getItem('courseSid')
+    : ''
 
   useEffect(() => {
     if (!token) {
@@ -125,7 +129,7 @@ function TcCourseEdit(props) {
 
     // ex. 用fetch api/axios送到伺服器
     // 修改課程
-    const r = fetch(TcCourse_EDIT + props.location.search, {
+    fetch(TcCourse_EDIT + props.location.search, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

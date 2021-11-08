@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 //課程詳細頁購買後(沒鎖頭)
 import { devUrl } from '../../config'
 import { Modal } from 'react-bootstrap'
@@ -27,10 +27,10 @@ function CsCoursedeOpen() {
           </div> */}
           <div className="video">
             <div className="embed-responsive embed-responsive-16by9">
-              {/* <video class="video-fluid z-depth-1" autoplay loop controls muted> (有muted就是自動播放) */}
+              {/* <video className="video-fluid z-depth-1" autoplay loop controls muted> (有muted就是自動播放) */}
 
               {/* <video
-                class="video-fluid z-depth-1"
+                className="video-fluid z-depth-1"
                 autoplay
                 loop
                 controls
@@ -59,6 +59,7 @@ function CsCoursedeOpen() {
               {/* 上方是版本二(本機版本可用內部資料) */}
               {/* 下方是直接連網路ex:youtube */}
               <iframe
+                title="yt video"
                 className="embed-responsive-item"
                 src="https://www.youtube.com/embed/v64KOxKVLVg"
                 allowfullscreen
@@ -556,7 +557,7 @@ function CsCoursedeOpen() {
         >
           <div className="Ann">
             <div
-              class="fsdfds"
+              className="fsdfds"
               style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -851,7 +852,7 @@ function CsCoursedeOpen() {
             style={{ width: '200px', marginRight: '10px' }}
           >
             <button
-              class="btn btn-outline-y row mx-auto one-btn btn-b "
+              className="btn btn-outline-y row mx-auto one-btn btn-b "
               style={{
                 width: '180px',
                 marginRight: '10px',

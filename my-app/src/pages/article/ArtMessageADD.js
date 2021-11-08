@@ -4,7 +4,7 @@ import { devUrl } from '../../config'
 import axios from 'axios'
 import { useHistory } from 'react-router'
 import ArBgDecorationNormal from '../../components/articles/ArBgDecorationNormal'
-import { IMG_PATH } from '../../config'
+import { IMG_PATH, Art_LIST } from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -12,7 +12,6 @@ import Footer from '../../components/Footer'
 // 要使用能有active css效果的NavLink元件
 import { NavLink } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
-
 
 function ArtMessageADD(prop) {
   //  const [searchWord, setSearchWord] = useState('')
@@ -24,9 +23,17 @@ function ArtMessageADD(prop) {
   const studentSid = JSON.parse(member).sid
   const identity = JSON.parse(member).identity
 
+  const queryParams = new URLSearchParams(
+    window.location.search
+  )
+
+  const id = queryParams.get('articleSid')
 
   //判斷是否登入並為教師身分
   const history = useHistory()
+
+  // 拿去做map排列的，取的是r.data.rows，或是其它處理
+  const [displayCourse, setDisplayCourse] = useState([{}])
 
   //大頭貼狀態
   let [imgSrc, setImgSrc] = useState('')
@@ -41,16 +48,17 @@ function ArtMessageADD(prop) {
         let r = await axios.get(
           `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
         )
+
+        let a = await axios.get(`${Art_LIST}/${id}`)
         // setFields(r.data[0][0])
         if (r.status === 200) {
+          setDisplayCourse(a.data.result[0])
 
-        setImgSrc(r.data[0][0].avatar)
-      }
+          setImgSrc(r.data[0][0].avatar)
+        }
       })()
     }
   }, [imgSrc])
-
-
 
   // console.log('imgSrc', imgSrc)
 
@@ -63,7 +71,6 @@ function ArtMessageADD(prop) {
 
   // const [asTeacherOrStudent, setasTeacherOrStudent] =
   // useState(3)
-
 
   //將所有欄位的值以物件形式存在一個狀態
   const [fields, setFields] = useState({
@@ -183,7 +190,9 @@ function ArtMessageADD(prop) {
           console.log(res.data)
           if (res.data.success === true) {
             alert('留言成功')
-            history.push('/ArtIndex/ArtMessage')
+            history.push(
+              `/ArtIndex/ArtMessage?articleSid=${id}`
+            )
           } else {
             alert('留言失敗')
             return
@@ -195,7 +204,6 @@ function ArtMessageADD(prop) {
     }
   }
 
-
   //  // 資料庫來的留言資料
   //  const [TcCourses, setTcCourses] = useState([])
 
@@ -206,7 +214,8 @@ function ArtMessageADD(prop) {
         <MultiLevelBreadCrumb />
         <Nav.Link
           as={NavLink}
-          to="/ArtIndex/ArtMessage"
+          to={`/ArtIndex/ArtMessage?articleSid=${id}`}
+          // "/ArtIndex/ArtMessage"
           className="btn btn-border-only-no-h col-2"
         >
           <i className="fas fa-chevron-left"></i>
@@ -214,26 +223,35 @@ function ArtMessageADD(prop) {
         </Nav.Link>
         <div className="row justify-content-center col-12">
           <div className="art-p-page-info col-12 col-md-8">
-            <div className="art-type-sin">#熱門影集</div>
+            <div className="art-type-sin">
+              #{displayCourse.artical_category}
+            </div>
             <br />
             <div className="art-title-sin">
-              黑道律師文森佐
+              {displayCourse.artical_title}
             </div>
             <br />
             <br />
             <br />
             <div className="TCp-intro-sin">
               <p>
-                此劇講述因組織內部糾紛而從義大利逃到韓國的黑手黨顧問文森佐·卡薩諾（宋仲基飾），在遇上律師洪車瑛（全汝彬飾）後，兩人以黑道的方式實現正義的故事。
+                {displayCourse.artical_content}
+
+                {/* 此劇講述因組織內部糾紛而從義大利逃到韓國的黑手黨顧問文森佐·卡薩諾（宋仲基飾），在遇上律師洪車瑛（全汝彬飾）後，兩人以黑道的方式實現正義的故事。 */}
               </p>
             </div>
             <br />
             <div className="p-page-avatar-sin">
               <img
+                src={`${IMG_PATH}/pop-articles/${displayCourse.artical_image}`}
+                alt=""
+                className="img-fluid"
+              />
+              {/* <img
                 src={`${devUrl}/images/article/熱門文章/06.jpg`}
                 alt=""
                 className="img-fluid-sin"
-              />
+              /> */}
             </div>
             <form
               className="ar-TCform "

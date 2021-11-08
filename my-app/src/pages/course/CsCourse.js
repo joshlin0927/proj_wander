@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { devUrl } from '../../config'
-import { useHistory } from 'react-router'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 
 // 後端檔案路徑
 // eslint-disable-next-line no-unused-vars

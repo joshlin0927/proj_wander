@@ -16,8 +16,6 @@ router.post("/login-jwt", async (req, res) => {
     req.body.email.toLowerCase(),
   ]);
 
-  console.log([rs]);
-
   if (!rs.length) {
     // 帳號錯誤
     return res.json({

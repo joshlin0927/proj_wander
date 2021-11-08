@@ -15,17 +15,16 @@ export const MemberLoginVerify =
 export const MemberLogout = API_HOST + '/logout'
 
 // 申請表寄出
-export const ApplyForm = API_HOST + '/SingleMember/apply'
+export const ApplyForm = API_HOST + '/TcProfile/apply'
 
 //讀取、修改個人資料
-export const MemberVerify = API_HOST + '/SingleMember'
-export const MemberEdit = API_HOST + '/SingleMember/edit'
-export const MemberAvatar =
-  API_HOST + '/SingleMember/avatar'
+export const MemberVerify = API_HOST + '/TcProfile'
+export const MemberEdit = API_HOST + '/TcProfile/edit'
+export const MemberAvatar = API_HOST + '/TcProfile/avatar'
 
 // 密碼更改
 export const PasswordChange =
-  API_HOST + '/SingleMember/passEdit'
+  API_HOST + '/TcProfile/passEdit'
 
 // TcCourse CRUD
 export const TcCourse_ADD = API_HOST + '/TcCourse/add/'
@@ -48,6 +47,7 @@ export const TcVideo__DELETE = API_HOST + '/TcVideo/delete/'
 
 //讀取資料列表
 export const Member_LIST = API_HOST + '/member/api/list'
+export const Member_FINDONE = API_HOST + '/member/findOne'
 export const SentenceGame_LIST =
   API_HOST + '/sentence-game/api/list'
 export const SentenceGame_SOT =
@@ -103,6 +103,8 @@ export const Cart_API = API_HOST + '/cart'
 export const SendOrder_API = API_HOST + '/sendOrder'
 export const Calendar_API = API_HOST + '/stCalendar'
 
+// chat api
+export const Chat_API = 'http://localhost:3001'
 // export const UPLOAD_AVATAR = API_HOST + '/try-upload2'
 
 export const pathnameList = [

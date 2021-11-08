@@ -11,14 +11,16 @@ export default function CourseItem(props) {
 
   return (
     <>
-      <div class="courseitem mr-md-2" onClick={getSid}>
+      <div className="courseitem mr-md-2" onClick={getSid}>
         <Link to="/StIndex/StClassroom">
           <img
             src={`${IMG_PATH}/course/img/${courseimg}`}
             alt=""
           />
-          <div class="stalreadybuycoursename">{name}</div>
-          <span class="stalreadybuyteachername">
+          <div className="stalreadybuycoursename">
+            {name}
+          </div>
+          <span className="stalreadybuyteachername">
             {' '}
             {teacher}{' '}
           </span>

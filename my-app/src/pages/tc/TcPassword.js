@@ -17,16 +17,18 @@ function TcPassword() {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const teacherSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const teacherSid = member ? JSON.parse(member).sid : ''
   const email = JSON.parse(member).email
+    ? JSON.parse(member).email
+    : ''
 
   //頭圖傳送
   let [imgSrc, setImgSrc] = useState('')
   useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 1) {
+    if (!token && identity !== 1) {
       history.push('/')
     } else {
       ;(async () => {
@@ -158,7 +160,7 @@ function TcPassword() {
   return (
     <>
       <div className="container mainContent">
-      <MultiLevelBreadCrumb />
+        <MultiLevelBreadCrumb />
         <div className="row">
           <div className="col-10 ml-auto pageName">
             <span className="pageNameText TCpassword">

@@ -1,6 +1,5 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
-const multer = require("multer");
 const db = require("../modules/connect-mysql");
 const uploadImg = require("../modules/upload-images");
 const uploadPdf = require("../modules/upload-pdf");
@@ -109,7 +108,7 @@ router.route("/avatar").post(uploadImg.single("avatar"), async (req, res) => {
   const sql = `UPDATE \`member\` SET \`avatar\` = ? WHERE \`sid\` = ?`;
 
   try {
-    [result] = await db.query(sql, [req.file.filename, req.query.teacherSid]);
+    [result] = await db.query(sql, [req.file.filename, req.body.teacherSid]);
   } catch (ex) {
     output.error = ex.toString();
   }

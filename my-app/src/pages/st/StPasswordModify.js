@@ -15,10 +15,11 @@ export default withRouter(function StPasswordModify(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const studentSid = JSON.parse(member).sid
-
-  const { auth, setAuth } = props
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const studentSid = member ? JSON.parse(member).sid : ''
+  // const { auth, setAuth } = props
   const [imgSrc, setImgSrc] = useState('')
 
   useEffect(() => {

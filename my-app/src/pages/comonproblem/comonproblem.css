@@ -329,6 +329,9 @@
     .comport-img-accordion-img{
       background: #FAFAFA;
       background-size: Cover ;
+      margin-bottom: 30px;
+      position: relative;
+
     }
   
 
@@ -658,6 +661,10 @@ top: 32px;
         .comport-img-accordion-img {
           background: #FAFAFA;
           background-size: Cover ;
+          margin-bottom: 30px;
+          position: relative;
+
+
         }
     
 

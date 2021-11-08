@@ -35,6 +35,9 @@ import ArtIndex from './pages/article/index'
 // 購物車
 import Cart from './pages/cart'
 
+// 關於我們
+import AboutUs from './pages/aboutus/AboutUs'
+
 // 常見問題
 import Comonproblem from './pages/comonproblem/Comonproblem'
 
@@ -73,6 +76,9 @@ function App() {
                 setAuth={setAuth}
                 setUser={setUser}
               />
+            </Route>
+            <Route path="/AboutUs">
+              <AboutUs />
             </Route>
             <Route path="/Comonproblem">
               <Comonproblem />

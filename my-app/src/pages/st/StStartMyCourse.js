@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './style/st_startmycourse.css'
 // import $ from 'jquery'
 import { Link } from 'react-router-dom'

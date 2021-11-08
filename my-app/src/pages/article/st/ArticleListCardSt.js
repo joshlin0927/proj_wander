@@ -1,15 +1,7 @@
-import axios from 'axios'
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
-import { Modal } from 'react-bootstrap'
-import { devUrl, IMG_PATH } from '../../../config'
+import { IMG_PATH } from '../../../config'
 import { Link } from 'react-router-dom'
-
-import {
-  ArtMessage_DELETE,
-  ArtMessage_EDIT,
-} from '../../../config'
-import { useHistory } from 'react-router'
 
 function ArtMessage(prop) {
   // const member = localStorage.getItem('member')
@@ -52,10 +44,9 @@ function ArtMessage(prop) {
   //   }
   // })
 
-  const { imgSrc } = prop
+  // const { imgSrc } = prop
 
-  const [imgSrcA, imgSrcAA] = useState('')
-
+  // const [imgSrcA, imgSrcAA] = useState('')
 
   const {
     sid,
@@ -78,7 +69,9 @@ function ArtMessage(prop) {
             className="img-fluid"
           />
           {/* <Link to={`/ArtIndex/ArticleMessage/`}> */}
-          <div className="Art-coursename">{artical_title}</div>
+          <div className="Art-coursename">
+            {artical_title}
+          </div>
           {/* </Link> */}
 
           <span className="teachername">

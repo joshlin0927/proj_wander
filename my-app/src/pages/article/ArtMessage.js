@@ -125,7 +125,9 @@ function ArtMessage(prop) {
               />
             </div>
             <div className="p-page-avatar-sin">
-              <Link to={`/ArtIndex/ArtMessageADD/`}>
+              <Link
+                to={`/ArtIndex/ArtMessageADD?articleSid=${id}`}
+              >
                 <button className="btn ar-btn-secondary mx-auto  one-btn-sin btn-b-sin">
                   我要留言
                 </button>

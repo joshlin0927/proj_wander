@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { IMG_PATH, TcCourse_DELETE } from '../../config'
@@ -9,15 +9,11 @@ import momentDurationFormatSetup from 'moment-duration-format'
 function TcCourseCard(props) {
   const {
     sid,
-    teacher_sid,
     course_category,
     course_name,
     course_img,
-    course_price,
     course_data,
     hours,
-    course_introduction,
-    created_at,
     remove,
   } = props
 
@@ -33,10 +29,12 @@ function TcCourseCard(props) {
 
   const deleteCourse = async () => {
     let r = await axios.delete(TcCourse_DELETE + sid)
-    handleClose()
+    if (r) {
+      handleClose()
+    }
   }
 
-  const [courseSid, setCourseSid] = useState('')
+  // const [courseSid, setCourseSid] = useState('')
 
   const ChooseCourse = () => {
     sessionStorage.setItem('courseSid', sid)

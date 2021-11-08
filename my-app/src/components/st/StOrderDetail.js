@@ -198,22 +198,22 @@ function StOrderDetail(props) {
           <Modal.Title>取消訂單</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div class="container bgc-main py-3">
-            <div class="row">
-              <div class="col-4 d-flex flex-column align-items-end">
+          <div className="container bgc-main py-3">
+            <div className="row">
+              <div className="col-4 d-flex flex-column align-items-end">
                 <span>訂單編號：</span>
-                <div class="w-100"></div>
+                <div className="w-100"></div>
                 <span>付款方式：</span>
-                <div class="w-100"></div>
+                <div className="w-100"></div>
                 <span>訂單金額：</span>
-                <div class="w-100"></div>
+                <div className="w-100"></div>
                 <span>成立時間：</span>
-                <div class="w-100"></div>
+                <div className="w-100"></div>
                 <span>取消原因：</span>
               </div>
-              <div class="col-8 d-flex flex-column">
+              <div className="col-8 d-flex flex-column">
                 <span>{orderID}</span>
-                <div class="w-100"></div>
+                <div className="w-100"></div>
                 <span>
                   {' '}
                   {detailData[0].pay_method === 1 ? (
@@ -232,70 +232,70 @@ function StOrderDetail(props) {
                     ''
                   )}
                 </span>
-                <div class="w-100"></div>
+                <div className="w-100"></div>
                 <span>NT${detailData[0].total_price}</span>
-                <div class="w-100"></div>
+                <div className="w-100"></div>
                 <span>{detailData[0].created_at}</span>
-                <div class="w-100"></div>
+                <div className="w-100"></div>
                 <form action="">
-                  <div class="form-check d-flex align-items-center">
+                  <div className="form-check d-flex align-items-center">
                     <input
-                      class="form-check-input mt-0"
+                      className="form-check-input mt-0"
                       type="radio"
                       name="cancelRadio"
                       id="cancelReason1"
                     />
                     <label
-                      class="form-check-label mx-2"
+                      className="form-check-label mx-2"
                       htmlFor="cancelReason1"
                     >
                       課程內容不符需求
                     </label>
                   </div>
-                  <div class="form-check d-flex align-items-center">
+                  <div className="form-check d-flex align-items-center">
                     <input
-                      class="form-check-input mt-0"
+                      className="form-check-input mt-0"
                       type="radio"
                       name="cancelRadio"
                       id="cancelReason2"
                     />
                     <label
-                      class="form-check-label mx-2"
+                      className="form-check-label mx-2"
                       htmlFor="cancelReason2"
                     >
                       暫時中止學習規劃
                     </label>
                   </div>
-                  <div class="form-check d-flex align-items-center">
+                  <div className="form-check d-flex align-items-center">
                     <input
-                      class="form-check-input mt-0"
+                      className="form-check-input mt-0"
                       type="radio"
                       name="cancelRadio"
                       id="cancelReason3"
                     />
                     <label
-                      class="form-check-label mx-2"
+                      className="form-check-label mx-2"
                       htmlFor="cancelReason3"
                     >
                       重複選購
                     </label>
                   </div>
-                  <div class="form-check d-flex align-items-start flex-wrap">
+                  <div className="form-check d-flex align-items-start flex-wrap">
                     <input
-                      class="form-check-input mt-0"
+                      className="form-check-input mt-0"
                       type="radio"
                       name="cancelRadio"
                       id="cancelReason4"
                     />
                     <label
-                      class="form-check-label mx-2"
+                      className="form-check-label mx-2"
                       htmlFor="cancelReason4"
                     >
                       其他
                     </label>
-                    <div class="w-100"></div>
+                    <div className="w-100"></div>
                     <textarea
-                      class="form-control"
+                      className="form-control"
                       id="cancelReason4"
                       rows="3"
                     ></textarea>

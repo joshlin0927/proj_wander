@@ -11,8 +11,8 @@ async function getListData(req, res) {
         rows: [],
     };
     if(language !== '' && easiness !== 0 ){
-        const sql = `SELECT * FROM \`sentence_game\` WHERE \`language\` LIKE '${language}' AND \`easiness\` = ${easiness} ORDER BY \`easiness\` ASC`;
-        const [rows] = await db.query(sql);
+        const sql = `SELECT * FROM \`sentence_game\` WHERE \`language\` LIKE ? AND \`easiness\` = ? ORDER BY \`easiness\` ASC`;
+        const [rows] = await db.query(sql, [language, easiness]);
         output.success = true;
         output.rows = rows;
     }else{

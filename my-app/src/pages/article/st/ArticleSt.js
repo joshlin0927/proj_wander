@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 
 // 後端檔案路徑
 import {
@@ -17,7 +16,6 @@ import ArticleListSt from './ArticleListSt'
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import ArBgDecorationNormal from '../../../components/articles/ArBgDecorationNormal'
 import Footer from '../../../components/Footer'
-import MyPagination from '../../../components/MyPagination'
 
 function Article(prop) {
   //判斷是否登入並為教師身分
@@ -37,8 +35,7 @@ function Article(prop) {
   const [displayCourse, setDisplayCourse] = useState([])
 
   // 取得頭圖
-  const [imgSrc, setImgSrc] = useState('')
-
+  // const [imgSrc, setImgSrc] = useState('')
 
   useEffect(() => {
     if (!token) {
@@ -60,7 +57,6 @@ function Article(prop) {
       })()
     }
   }, [])
-
 
   // 將搜尋吧的字串與得到的資料帶入函式
   const handleSearch = (TcCourses, searchWord) => {
@@ -114,8 +110,6 @@ function Article(prop) {
           </div>
         </div>
       </div>
-
-
 
       <div className="TCallwrapera-sing">
         <div className="TCallwraperw">

@@ -20,8 +20,12 @@ function TcCourseVideoEdit() {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
   const courseSid = sessionStorage.getItem('courseSid')
+    ? sessionStorage.getItem('courseSid')
+    : ''
 
   // 資料庫來的影片資料
   const [TcVideos, setTcVideos] = useState([])

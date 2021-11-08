@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useHistory } from 'react-router'
 import ArBgDecorationNormal from '../../components/articles/ArBgDecorationNormal'
 import { IMG_PATH } from '../../config'
-import { CsCourse_EDIT, CsCourse_Cover } from '../../config'
+import { CsCourse_EDIT } from '../../config'
 import { withRouter } from 'react-router'
 
 // components
@@ -95,15 +95,6 @@ function CsMessageADD(props) {
   //   })()
   //   // }
   // },[imgSrc])
-
-  const doUpload = async () => {
-    const r = await axios.post(
-      `${CsCourse_Cover}?sid=${fields.sid}`,
-      new FormData(document.formCover)
-    )
-    setImgSrc(r.data.filename)
-    // console.log(r.data)
-  }
 
   // console.log('imgSrc', imgSrc)
 

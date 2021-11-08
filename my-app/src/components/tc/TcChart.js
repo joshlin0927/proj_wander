@@ -6,6 +6,7 @@ import axios from 'axios'
 function TcChart(props) {
   const { click } = props
   const [CourseData, setCourseData] = useState('')
+  const [name, setName] = useState('')
 
   useEffect(() => {
     ;(async () => {
@@ -13,16 +14,20 @@ function TcChart(props) {
         `${TcAnalytics}/?courseSid=${click}`
       )
 
-      let SingleCourseData = {
-        Jan: r.data[0].Jan,
-        Feb: r.data[0].Feb,
-        Mar: r.data[0].Mar,
-        Apr: r.data[0].Apr,
-        May: r.data[0].May,
-        Jun: r.data[0].Jun,
+      if (r.data.length) {
+        let SingleCourseData = {
+          Jan: r.data[0].Jan,
+          Feb: r.data[0].Feb,
+          Mar: r.data[0].Mar,
+          Apr: r.data[0].Apr,
+          May: r.data[0].May,
+          Jun: r.data[0].Jun,
+        }
+        setCourseData(SingleCourseData)
+        setName(r.data[0].course_name)
+      } else {
+        return
       }
-
-      setCourseData(SingleCourseData)
     })()
   }, [click])
 
@@ -30,7 +35,7 @@ function TcChart(props) {
     // labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [
       {
-        label: '觀看次數',
+        label: name + '的觀看次數',
         data: CourseData,
         backgroundColor: ['rgba(255, 99, 132, 0.2)'],
         borderColor: ['rgba(255, 99, 132, 1)'],

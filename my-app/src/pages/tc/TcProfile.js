@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom'
 import { useHistory, withRouter } from 'react-router'
 import axios from 'axios'
 
-import { IMG_PATH, MemberEdit } from '../../config'
+import {
+  IMG_PATH,
+  MemberEdit,
+  MemberAvatar,
+} from '../../config'
 
 // components
 import ConfirmMsg from '../../components/ConfirmMsg'
@@ -17,30 +21,31 @@ function TcProfile(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const teacherSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const teacherSid = member ? JSON.parse(member).sid : ''
 
   //大頭貼狀態
   let [imgSrc, setImgSrc] = useState('')
-  // const doUpload = async () => {
-  //   const r = await axios.post(
-  //     `${MemberAvatar}/?teacherSid=${teacherSid}`,
-  //     new FormData(document.formAvatar)
-  //   )
-  //   setImgSrc(r.data.filename)
-  // console.log(r.data)
-  // if (r.data.success) {
-  //   setShowUp('showup')
-  //   setTimeout(() => {
-  //     setShowUp('none')
-  //   }, 1000)
-  // }
-  // }
+  const doUpload = async () => {
+    const r = await axios.post(
+      `${MemberAvatar}/?teacherSid=${teacherSid}`,
+      new FormData(document.formAvatar)
+    )
+    setImgSrc(r.data.filename)
+    console.log(r.data)
+    if (r.data.success) {
+      setShowUp('showup')
+      window.location.reload()
+      setTimeout(() => {
+        setShowUp('none')
+      }, 1000)
+    }
+  }
 
   useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 1) {
+    if (!token && identity !== 1) {
       history.push('/')
     } else {
       ;(async () => {
@@ -58,26 +63,26 @@ function TcProfile(props) {
   const [showUp, setShowUp] = useState('')
 
   //預覽大頭貼
-  const imgRef = useRef(null)
+  // const imgRef = useRef(null)
   //實際擁有預覽功能的input因為太醜藏起來
   const inputRef = useRef(null)
-  const previewFile = () => {
-    var preview = imgRef.current
-    var file = inputRef.current.files[0]
-    var reader = new FileReader()
+  // const previewFile = () => {
+  //   var preview = imgRef.current
+  //   var file = inputRef.current.files[0]
+  //   var reader = new FileReader()
 
-    reader.addEventListener(
-      'load',
-      function () {
-        preview.src = reader.result
-      },
-      false
-    )
+  //   reader.addEventListener(
+  //     'load',
+  //     function () {
+  //       preview.src = reader.result
+  //     },
+  //     false
+  //   )
 
-    if (file) {
-      reader.readAsDataURL(file)
-    }
-  }
+  //   if (file) {
+  //     reader.readAsDataURL(file)
+  //   }
+  // }
 
   const formRef = useRef(null)
   // 使用物件值作為狀態值，儲存所有欄位的值
@@ -129,19 +134,15 @@ function TcProfile(props) {
 
     // ex. 用fetch api/axios送到伺服器
 
-    const r = fetch(
-      `${MemberEdit}/?teacherSid=${teacherSid}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type':
-            'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(
-          TcProfileFormData
-        ).toString(),
-      }
-    )
+    fetch(`${MemberEdit}/?teacherSid=${teacherSid}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(
+        TcProfileFormData
+      ).toString(),
+    })
       .then((r) => r.json())
       .then((obj) => {
         // console.log(JSON.stringify(obj, null, 4))
@@ -259,7 +260,7 @@ function TcProfile(props) {
                         ? IMG_PATH + '/' + imgSrc
                         : IMG_PATH +
                           '/' +
-                          'c943da4c-dd71-4e60-b598-ee44fdbd2fb6.jpg'
+                          'presetAvatar.jpeg'
                     }
                     className="img-fluid"
                     alt=""
@@ -272,7 +273,7 @@ function TcProfile(props) {
                       name="avatar"
                       className="d-none"
                       accept="image/*"
-                      onChange={previewFile}
+                      onClick={doUpload}
                       ref={inputRef}
                     />
                     <input
