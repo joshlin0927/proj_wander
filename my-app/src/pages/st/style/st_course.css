@@ -234,8 +234,6 @@
 
 .ldio-xv8fxyexxut div {
   position: absolute;
-  left:50%;
-  top:50%;
   border-width: 4px;
   border-style: solid;
   opacity: 1;
@@ -256,10 +254,15 @@
 .loadingio-spinner-ripple-axvmfinlmje {
   width: 200px;
   height: 200px;
-  display: block;
+  display: flex;
   overflow: hidden;
   background: transparent;
-  /* position: absolute; */
+  position: absolute;
+  top:30%;
+  left:30%
+
+  
+ 
 
 
 

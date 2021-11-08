@@ -13,6 +13,7 @@ import StBgDecoration from '../../components/st/StBgDecoration'
 import CourseItem from '../../components/st/CourseItem'
 import RecommandedTC from '../../components/st/RecommandedTC'
 import RemindingText from '../../components/st/RemindingText'
+import Spinner from '../../components/Spinner'
 import Footer from '../../components/Footer'
 
 export default withRouter(function StCourse(props) {
@@ -31,17 +32,9 @@ export default withRouter(function StCourse(props) {
   // 設定Loading Spinner狀態
   const [isLoading, setIsLoading] = useState(true)
 
-  const spinner = (
-    <div className="loadingio-spinner-ripple-axvmfinlmje col-12  col-md-10">
-      <div className="ldio-xv8fxyexxut">
-        <div> </div> <div> </div>
-      </div>
-    </div>
-  )
-
   //要呈現的課程資料
   const courseData = (
-    <div className="stcoursesection  col-12 col-md-10 ">
+    <>
       {courses.length !== 0 ? (
         courses.map((course, i) => {
           return (
@@ -57,7 +50,7 @@ export default withRouter(function StCourse(props) {
       ) : (
         <RemindingText />
       )}
-    </div>
+    </>
   )
   useEffect(() => {
     if (token && identity === 0) {
@@ -93,7 +86,7 @@ export default withRouter(function StCourse(props) {
       //把spinner關起來
       setTimeout(() => {
         setIsLoading(false)
-      }, 100000)
+      }, 2000)
     }
   }, [])
   //這裡要記得掛上空格讓他有相依可以判斷，不然會fetch完會再次render，等於狀態又改變，又fetch造成無限迴圈
@@ -124,7 +117,9 @@ export default withRouter(function StCourse(props) {
 
         <div className="row justify-content-center d-flex">
           <StSideBar2 imgSrc={imgSrc} />
-          {isLoading ? spinner : courseData}
+          <div className="stcoursesection  col-12 col-md-10">
+            {isLoading ? <Spinner /> : courseData}
+          </div>
         </div>
 
         <div className="row">
