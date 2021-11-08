@@ -249,7 +249,7 @@ export default withRouter(function SignUp(props) {
                 <label for="tab2" id="asStudent">
                   成為學生
                 </label>
-                <div className="title">
+                <div className="signuptitle">
                   <LoginTitle />
                 </div>
               </div>

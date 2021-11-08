@@ -1,4 +1,4 @@
-// css
+//css
 import '../st/style/login.css'
 import { useHistory } from 'react-router'
 import React, { useState, useRef, useEffect } from 'react'
@@ -13,9 +13,6 @@ import emailjs from 'emailjs-com'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import axios from 'axios'
-// import { CSSTransitionGroup } from 'react-transition-group'
-// import { bounce } from 'react-animations'
-// import styled, { keyframes } from 'styled-components'
 
 function Login(props) {
   const { auth, setAuth, setUser } = props
@@ -33,8 +30,11 @@ function Login(props) {
     email: '',
     password: '',
   })
-  let account = ''
 
+  const [close, setClose] = useState('far fa-eye-slash')
+  const [type, setType] = useState('password')
+  let account = ''
+  let firstname = ''
   // 存入錯誤訊息
   const [fieldErrors, setFieldErrors] = useState({
     email: '',
@@ -152,12 +152,14 @@ function Login(props) {
     // 3. 設定回原錯誤訊息狀態物件
     setFieldErrors(updatedFieldErrors)
   }
-
+  const newPass = Math.floor(Math.random() * 99999)
+  // console.log(newPass)
   // //設定Email.js
   const sendmail = () => {
     let templateParams = {
-      name: 'James',
-      notes: 'Check this out!',
+      name: firstname,
+      notes: `請使用Wander提供給您的新密碼重新登入。新密碼:
+        ${newPass}`,
     }
 
     let service_id = 'default_service'
@@ -191,7 +193,7 @@ function Login(props) {
         </div>
         <div className="row m-wrap">
           <div className="back" onClick={history.goBack}>
-            <span>Back</span>
+            <span> Back </span>
           </div>
         </div>
         <div className="h95"> </div>
@@ -204,8 +206,7 @@ function Login(props) {
             onInvalid={handleFormInvalid}
             ref={formRef}
           >
-            <div className="title">Welcome Back!</div>
-
+            <div className="title"> Welcome Back! </div>
             <div className="d-flex justify-content-center">
               <input
                 type="email"
@@ -233,16 +234,28 @@ function Login(props) {
                 {fieldErrors.email}
               </label>
             )}
-            <div className="d-flex justify-content-center">
+            <div className="d-flex ">
               <input
-                type="password"
+                type={type}
                 name="password"
-                className="allInputs  col-md-8 col-10"
+                className="allInputs offset-md-2 col-md-8 col-10 offset-1"
                 placeholder="請填寫密碼*"
                 value={fields.password}
                 onChange={handleFieldChange}
                 required
               />
+              <i
+                className={`mt-4 mt-md-3 ml-2 ${close}`}
+                onClick={() => {
+                  if (type === 'password') {
+                    setType('text')
+                    setClose('far fa-eye')
+                  } else {
+                    setType('password')
+                    setClose('far fa-eye-slash')
+                  }
+                }}
+              ></i>
             </div>
             {fieldErrors.password === '' ? (
               <label
@@ -259,7 +272,6 @@ function Login(props) {
                 {fieldErrors.password}
               </label>
             )}
-
             <div
               className="forgetPassword"
               onClick={async () => {
@@ -278,7 +290,9 @@ function Login(props) {
                     )
                       .then((r) => r.json())
                       .then((response) => {
-                        // console.log('response', response)
+                        console.log('response', response)
+                        firstname =
+                          response.result[0].lastname
                         if (!response.success) {
                           throw new Error(response.error)
                         }
@@ -292,7 +306,7 @@ function Login(props) {
                   allowOutsideClick: () =>
                     !Swal.isLoading(),
                 }).then((result) => {
-                  // console.log('result', result.value)
+                  // console.log('result', result)
                   account = result.value
                   if (result.isConfirmed) {
                     Swal.fire({
@@ -319,7 +333,7 @@ function Login(props) {
                       'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                      password: 12345,
+                      password: newPass,
                       email: account,
                     }),
                   }
@@ -328,7 +342,7 @@ function Login(props) {
                 console.log('res:', res)
               }}
             >
-              <span> 忘記密碼？</span>
+              <span> 忘記密碼？ </span>{' '}
             </div>
 
             <div className="d-flex justify-content-center">
@@ -353,7 +367,6 @@ function Login(props) {
         </div>
       </div>
       <div className="h150"> </div>
-
       <div className="bgisignup"> </div>
     </>
   )

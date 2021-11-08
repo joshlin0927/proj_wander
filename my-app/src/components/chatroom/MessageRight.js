@@ -1,20 +1,29 @@
 import React from 'react'
+import { format } from 'timeago.js'
 
-function MessageRight() {
+function MessageRight(props) {
+  const { messages, own } = props
   return (
     <>
-      <div class="messageRight">
-        <div class="message right">
-          <p>
-            希金說過，有兩種模糊：一種源於思想感情的貧乏，只能用語言
-          </p>
+      <div className={own ? 'messageRight' : 'messageLeft'}>
+        <div
+          className={own ? 'message right' : 'message left'}
+        >
+          <span className="messageText">
+            {messages.text}
+          </span>
+          <div className="w-100"></div>
+          <span className="messageTimestamp">
+            {format(messages.created_at)}
+          </span>
         </div>
-        <div class="messageAvatar">
-          <div class="messageAvatarFilter">
-            <div class="Rtriangle">
+        <div className="messageAvatar">
+          <div className="messageAvatarFilter">
+            <div className="Rtriangle">
               <img
                 src="../images/teacher/Thomas_Lillard.jpg"
-                class="img-fluid"
+                className="img-fluid"
+                alt=""
               />
             </div>
           </div>

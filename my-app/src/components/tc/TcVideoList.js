@@ -11,9 +11,8 @@ function TcVideoList(props) {
   const memberObj = JSON.parse(
     localStorage.getItem('member')
   )
-  const courseSid = localStorage.getItem(
-    'CourseSidForProcess'
-  )
+  const courseSid = sessionStorage.getItem('courseSid')
+
 
   const {
     Videos,
@@ -45,7 +44,7 @@ function TcVideoList(props) {
         teacher_sid: memberObj.sid,
         duration: sum,
       })
-      // console.log(r)
+      console.log(r)
     })()
   }, [sum])
   console.log('sum', sum)

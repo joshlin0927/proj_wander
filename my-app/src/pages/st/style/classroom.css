@@ -1,14 +1,5 @@
-* {
-  font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
-}
-
-/* 網站導覽列 */
-.navbar {
-  display: none;
-}
-
 .bgbeige {
-  background-color: grey;
+  background-color: #f1f0e9;
 }
 
 /* 麵包屑 */
@@ -24,56 +15,6 @@
 /* 頁面英文標題 */
 .pageName {
   display: none;
-}
-
-.video img {
-  width: 100%;
-  height: 100%;
-}
-
-.play {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-}
-
-.playlist {
-  padding: 0px;
-  height: 100%;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.clip {
-  width: 100%;
-  height: 52px;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  font-size: 14px;
-  padding: 0.5rem;
-}
-
-.first {
-  background-color: #065f8e;
-  color: white;
-}
-
-.mo-none {
-  display: none;
-}
-
-.mb30 {
-  margin-bottom: 30px;
 }
 
 /* -------------以上為公用------------ */
@@ -133,37 +74,5 @@
     z-index: -5;
     left: 44%;
     top: 55%;
-  }
-
-  /* -------------以上為公用--------- */
-
-  .player {
-    display: block;
-    width: 100%;
-    height: fit-content;
-  }
-
-  .video img {
-    width: 100%;
-    object-fit: contain;
-  }
-
-  .play {
-    width: 87px;
-    height: 87px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .mb150 {
-    margin-bottom: 150px;
-  }
-
-  .des-none {
-    display: none;
   }
 }

@@ -1,20 +1,32 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Nav, Modal } from 'react-bootstrap'
-import { IMG_PATH, MemberEdit } from '../../config'
 // 要使用能有active css效果的NavLink元件
 import { NavLink, Link } from 'react-router-dom'
-import { useHistory } from 'react-router'
 import axios from 'axios'
+import { useHistory } from 'react-router'
 
+import {
+  IMG_PATH,
+  MemberEdit,
+  ApplyForm,
+} from '../../config'
 import ConfirmMsg from '../ConfirmMsg'
 
 function TcSideBar(props) {
   const { imgSrc } = props
+
   const history = useHistory()
+
+  //設定確認表單送出訊息框的狀態
+  const [showUp, setShowUp] = useState('')
+
   const memberObj = JSON.parse(
     localStorage.getItem('member')
   )
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
 
+  // 辨別會員的申請狀態
   const [verify, setVerify] = useState('')
 
   useEffect(() => {
@@ -22,9 +34,11 @@ function TcSideBar(props) {
       let r = await axios.get(
         `${MemberEdit}/?teacherSid=${memberObj.sid}`
       )
-      setVerify(r.data[0].verification)
+      memberObj
+        ? setVerify(r.data[0].verification)
+        : history.push('/')
     })()
-  }, [])
+  }, [showUp])
   const [isActive, setIsActive] = useState('')
 
   // 申請表
@@ -34,19 +48,21 @@ function TcSideBar(props) {
 
   // 通知
   const [NoticeShow, setNoticeShow] = useState(false)
-  const handleNoticeClose = () => setNoticeShow(false)
-  const handleNoticeShow = () => setNoticeShow(true)
+  const handleNoticeShow = () => {
+    setNoticeShow(true)
+    handleClose()
+  }
 
   useEffect(() => {
     if (verify === 0) {
       handleShow()
     } else if (verify === 1) {
       handleNoticeShow()
+      setTimeout(() => {
+        history.push('/')
+      }, 5000)
     }
   })
-
-  //設定確認表單送出訊息框的狀態
-  const [showUp, setShowUp] = useState('')
 
   const formRef = useRef(null)
   // 使用物件值作為狀態值，儲存所有欄位的值
@@ -80,21 +96,18 @@ function TcSideBar(props) {
 
     // 利用FormData Api 得到各欄位的值 or 利用狀態值
     // FormData 利用的是表單元素的 name
-    const TcFormData = new FormData(document.applyForm)
+    const TcFormData = new FormData(e.target)
     console.log(TcFormData.get('language'))
     console.log(TcFormData.get('resume'))
 
     // 利用狀態來得到輸入的值
 
     // ex. 用fetch api/axios送到伺服器
-
-    const r = fetch(
-      `${MemberEdit}/?teacherSid=${memberObj.sid}`,
-      {
-        method: 'POST',
-        body: TcFormData,
-      }
-    )
+    // const r =
+    fetch(`${ApplyForm}/?teacherSid=${memberObj.sid}`, {
+      method: 'POST',
+      body: TcFormData,
+    })
       .then((r) => r.json())
       .then((obj) => {
         console.log(JSON.stringify(obj, null, 4))
@@ -103,11 +116,12 @@ function TcSideBar(props) {
           setTimeout(() => {
             setShowUp('none')
           }, 1000)
+          handleClose()
         } else {
-          alert(obj.error || '資料修改失敗')
+          alert(obj.error || '資料送出失敗')
         }
       })
-    console.log(r)
+    // console.log(r)
   }
 
   // 當整個表單有變動時觸發
@@ -274,6 +288,11 @@ function TcSideBar(props) {
               <i className="TCback-btn"></i>
             </div>
             <input
+              name="verification"
+              className="d-none"
+              defaultValue="1"
+            />
+            <input
               name="language"
               type="text"
               className="col-12 allInputs"
@@ -314,13 +333,13 @@ function TcSideBar(props) {
                 id="realFileInput"
                 name="resume"
                 className="d-none"
-                // required
+                required
                 value={fields.resume}
                 onChange={handleFieldChange}
               />
               <input
                 name="sid"
-                value={memberObj.sid}
+                defaultValue={memberObj.sid}
                 className="d-none"
               />
               <label id="browsing" className="btn browse">
@@ -337,26 +356,35 @@ function TcSideBar(props) {
               </label>
             )}
           </div>
-          <button
-            type="submit"
-            className="btn btn-secondary mx-auto one-btn"
-            onClick={() => {
-              handleClose()
-            }}
-          >
-            <span>送出</span>
-          </button>
+          <div className="d-flex">
+            <button
+              type="submit"
+              className="btn btn-secondary mx-auto one-btn"
+            >
+              <span>送出申請</span>
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary mx-auto one-btn"
+              onClick={() => {
+                history.push('/')
+              }}
+            >
+              <span>返回首頁</span>
+            </button>
+          </div>
         </form>
       </Modal>
-      <Modal
-        show={NoticeShow}
-        onHide={handleNoticeClose}
-        centered
-      >
-        <div className="p-5 ">
+      <Modal show={NoticeShow} centered>
+        <div className="p-5 text-center">
           <div className="TCnotify-text">
-            資料審核中，大約會在一至三天內通知審核結果，請耐心等待
+            <span>
+              資料審核中，大約會在一至三天內通知審核結果，請耐心等待
+            </span>
           </div>
+          <small className="systemCall">
+            <span>系統將在五秒後將您移至首頁</span>
+          </small>
         </div>
       </Modal>
     </>

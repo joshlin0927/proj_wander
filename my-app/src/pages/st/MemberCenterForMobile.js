@@ -71,7 +71,11 @@ function MemberCenterForMobile(props) {
               <div className="mobilelist">
                 <Nav.Link
                   as={NavLink}
-                  to="/StIndex/StPasswordModify/:id?"
+                  to={
+                    memberObj.identity === 1
+                      ? '/TcIndex/TcPassword'
+                      : '/StIndex/StPasswordModify/:id?'
+                  }
                   className="nav-item d-flex align-items-center offset-2 "
                   activeClassName="active"
                 >
@@ -86,14 +90,54 @@ function MemberCenterForMobile(props) {
               <div className="mobilelist">
                 <Nav.Link
                   as={NavLink}
-                  to="/StIndex/StOrder"
+                  to={
+                    memberObj.identity === 1
+                      ? '/TcIndex/TcAnalytic'
+                      : '/StIndex/StOrder'
+                  }
                   className="nav-item d-flex align-items-center offset-2"
                 >
                   <div className="mobilecircle">
-                    <i className="fas fa-shopping-bag mobileicon"></i>
+                    {memberObj.identity === 1 ? (
+                      <i className="fas fa-chart-line mobileicon"></i>
+                    ) : (
+                      <i className="fas fa-shopping-bag mobileicon"></i>
+                    )}
                   </div>
                   <div className="nav-item-text mobiletext ml-4">
-                    訂單查詢
+                    {memberObj.identity === 1
+                      ? '數據分析'
+                      : '訂單查詢'}
+                  </div>
+                </Nav.Link>
+              </div>
+              <div className="mobilelist">
+                <Nav.Link
+                  as={NavLink}
+                  to="/StIndex/StCalendar"
+                  className="nav-item d-flex align-items-center offset-2 "
+                  activeClassName="active"
+                >
+                  <div className="mobilecircle">
+                    <i class="fal fa-table mobileicon"> </i>
+                  </div>
+                  <div className="nav-item-text mobiletext ml-4">
+                    課程管理
+                  </div>
+                </Nav.Link>
+              </div>
+              <div className="mobilelist">
+                <Nav.Link
+                  as={NavLink}
+                  to="/StIndex/StStartMyCourse"
+                  className="nav-item d-flex align-items-center offset-2 "
+                  activeClassName="active"
+                >
+                  <div className="mobilecircle">
+                    <i className="fal fa-thumbs-up mobileicon"></i>
+                  </div>
+                  <div className="nav-item-text mobiletext ml-4">
+                    推薦課程
                   </div>
                 </Nav.Link>
               </div>

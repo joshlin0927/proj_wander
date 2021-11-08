@@ -18,62 +18,86 @@ router.get('/list', async (req, res) => {
   } else {
     output.error = '無此帳號';
   }
-
   res.json(output)
 })
 
-//把信箱新密碼改到資料庫
+//處理忘記密碼部分，把信箱新密碼送到資料庫
 router.put('/update', async (req, res) => {
   const output = {
     success: false,
     error: '',
-    result:'',
+    result: '',
   }
- 
-    const hash = await bcrypt.hash(req.body.password, 10);
-    const sql = `UPDATE \`member\` SET \`password\`= ? WHERE \`email\` = ?`;
-    const [r] = await db.query(sql, [hash, req.body.email]);
 
-    if (r.affectedRows===1) {
-       output.success=true;
-       output.result=r;
-      
-    }else{
-      output.error='未修改'
-    }
-    
-     res.json(output)
   
 
+  const hashedPassword = await bcrypt.hash(req.body.password.toString(), 10);
+  const sql = `UPDATE \`member\` SET \`password\`= ? WHERE \`email\` = ?`;
+  let result = {}
+
+  const [r] = await db.query(sql, [hashedPassword, req.body.email])
+
+
+  if (r.affectedRows === 1) {
+    output.success = true;
+    output.result = r;
+
+  } else {
+    output.error = '未修改'
+  }
+  res.json(output)
 
 })
-//忘記密碼使用路由
-// router.put('/changed', async (req, res) => {
-//   const output = {
-//     success: false,
-//     error: '',
-//   }
 
-//   const sql = `UPDATE \`member\` SET \`password\`= ? WHERE \`email\` = ?`;
-//   const [r] = await db.query(sql, [req.body.password, req.query.email])
-//     output.success = !!r.affectedRows ? true : false;
-//     output.result = r;
-//     return output;
-
-// })
+//處理密碼更改
+router.put('/modify', async (req, res) => {
+  console.log(
+    req.body.body.origin
+  )
+  const output = {
+    success: false,
+    error: '',
+    postData: req.body,
+  }
 
 
+   const [rs] = await db.query("SELECT * FROM member WHERE `sid`=?", [
+     req.body.body.sid,
+   ]);
+
+  const success = await bcrypt.compare(req.body.body.origin, rs[0].password);
+
+
+  if (success) {
+  output.success=true;
+  output.result=rs;
+
+
+  const newPasswordhashed = await bcrypt.hash(req.body.body.newPassword, 10);
+  const sql = `UPDATE \`member\` SET \`password\`= ? WHERE \`sid\` = ?`;
+  const [r] = await db.query(sql, [newPasswordhashed, req.body.body.sid])
+   if (r.affectedRows === 1) {
+     output.success = true;
+     output.result = r;
+
+   } else {
+     output.error = '未修改'
+   }
+
+  }else{
+    output.error='輸入密碼錯誤'
+  }
+  res.json(output)
+})
 
 
 
 
 
-// router.put('/modify', async (req, res) => {
-//   const output = {
-//     success: false,
-//     error: '',
-//     postData: req.body,
-//   }
+
+
+
+
 
 //   const hash = await bcrypt.hash(req.body.password, 10);
 

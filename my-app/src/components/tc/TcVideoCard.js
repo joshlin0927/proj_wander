@@ -4,21 +4,16 @@ import { Modal } from 'react-bootstrap'
 import moment from 'moment'
 import momentDurationFormatSetup from 'moment-duration-format'
 
-import {
-  API_HOST,
-  TcVideo__DELETE,
-  TcVideo_EDIT,
-  devUrl,
-} from '../../config'
+import { TcVideo__DELETE, TcVideo_EDIT } from '../../config'
 
 function TcVideoCard(props) {
   const {
     sid,
-    course_sid,
-    course_name,
-    video_cover,
+    // course_sid,
+    // course_name,
+    // video_cover,
     video_name,
-    teacher_sid,
+    // teacher_sid,
     created_at,
     duration1,
     remove,

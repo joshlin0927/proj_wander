@@ -5,8 +5,8 @@ import axios from 'axios'
 
 import {
   IMG_PATH,
-  MemberAvatar,
   MemberEdit,
+  MemberAvatar,
 } from '../../config'
 
 // components
@@ -21,8 +21,10 @@ function TcProfile(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const teacherSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const teacherSid = member ? JSON.parse(member).sid : ''
 
   //大頭貼狀態
   let [imgSrc, setImgSrc] = useState('')
@@ -32,7 +34,7 @@ function TcProfile(props) {
       new FormData(document.formAvatar)
     )
     setImgSrc(r.data.filename)
-    // console.log(r.data)
+    console.log(r.data)
     if (r.data.success) {
       setShowUp('showup')
       setTimeout(() => {
@@ -42,9 +44,7 @@ function TcProfile(props) {
   }
 
   useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 1) {
+    if (!token && identity !== 1) {
       history.push('/')
     } else {
       ;(async () => {
@@ -61,8 +61,8 @@ function TcProfile(props) {
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
 
-  //預覽大頭貼的地方
-  // const imgRef = useRef(null)
+  //預覽大頭貼
+  const imgRef = useRef(null)
   //實際擁有預覽功能的input因為太醜藏起來
   const inputRef = useRef(null)
   // const previewFile = () => {
@@ -276,7 +276,7 @@ function TcProfile(props) {
                       name="avatar"
                       className="d-none"
                       accept="image/*"
-                      onChange={doUpload}
+                      onClick={doUpload}
                       ref={inputRef}
                     />
                     <input

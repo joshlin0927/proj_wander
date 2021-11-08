@@ -15,8 +15,12 @@ function TcCourseVideoUpload() {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const memberObj = JSON.parse(member)
+    ? localStorage.getItem('member')
+    : ''
+  const memberObj = member ? JSON.parse(member) : ''
   const courseSid = sessionStorage.getItem('courseSid')
+    ? sessionStorage.getItem('courseSid')
+    : ''
 
   // console.log(courseSid);
   useEffect(() => {
@@ -30,16 +34,16 @@ function TcCourseVideoUpload() {
   }, [])
 
   // 拖曳讀取檔案
-  const DragNDrop = function (e) {
-    video_link.files = e.dataTransfer.files
+  // const DragNDrop = function (e) {
+  //   video_link.files = e.dataTransfer.files
 
-    // If you want to use some of the dropped files
-    const dT = new DataTransfer()
-    dT.items.add(e.dataTransfer.files[0])
-    video_link.files = dT.files
+  //   // If you want to use some of the dropped files
+  //   const dT = new DataTransfer()
+  //   dT.items.add(e.dataTransfer.files[0])
+  //   video_link.files = dT.files
 
-    e.preventDefault()
-  }
+  //   e.preventDefault()
+  // }
 
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
@@ -51,7 +55,7 @@ function TcCourseVideoUpload() {
     setIsFilePicked(true)
   }
 
-  console.log('selectedFile', selectedFile)
+  // console.log('selectedFile', selectedFile)
 
   const formRef = useRef(null)
   // 使用物件值作為狀態值，儲存所有欄位的值
@@ -61,7 +65,7 @@ function TcCourseVideoUpload() {
     video_link: '',
   })
 
-  console.log(fields.video_link)
+  // console.log(fields.video_link)
 
   // 存入錯誤訊息用
   const [fieldErrors, setFieldErrors] = useState({
@@ -116,9 +120,9 @@ function TcCourseVideoUpload() {
     // 利用FormData Api 得到各欄位的值 or 利用狀態值
     // FormData 利用的是表單元素的 name
     const formVideo = new FormData(e.target)
-    console.log(formVideo.get('duration'))
-    console.log(formVideo.get('video_name'))
-    console.log(formVideo.get('video_link'))
+    // console.log(formVideo.get('duration'))
+    // console.log(formVideo.get('video_name'))
+    // console.log(formVideo.get('video_link'))
 
     // formVideo.append('video_link', selectedFile)
     // 利用狀態來得到輸入的值
@@ -215,7 +219,6 @@ function TcCourseVideoUpload() {
   //   false
   // )
 
-  const video_link = document.querySelector('#video_link')
   // dd.ondragover = (e) => {
   //   e.preventDefault()
   // }
@@ -235,7 +238,7 @@ function TcCourseVideoUpload() {
             className="TCform col-12 col-md-10"
             name="formVideo"
           >
-            <ConfirmMsg showUp={showUp} />
+            <ConfirmMsg showUp={showUp} text={'上傳成功'} />
             <form
               className="TCform-content"
               onChange={FormChange}
@@ -244,9 +247,9 @@ function TcCourseVideoUpload() {
               ref={formRef}
             >
               <div className="TCform-head">
-                <Link to="/TcIndex/TcCourseEdit/:sid?">
+                <div onClick={history.goBack}>
                   <i className="fas fa-chevron-left TCback-btn"></i>
-                </Link>
+                </div>
                 <div className="TCform-title">
                   課程內容上傳
                 </div>
@@ -263,7 +266,9 @@ function TcCourseVideoUpload() {
               <div
                 className="TCvideo-drop-zone"
                 onClick={() => {
-                  video_link.click()
+                  document
+                    .querySelector('#video_link')
+                    .click()
                 }}
               >
                 <i className="fas fa-upload"></i>
@@ -315,7 +320,7 @@ function TcCourseVideoUpload() {
                   名稱:
                   <input
                     name="video_name"
-                    className="border-0"
+                    className="border-0 w-75"
                     value={fields.video_name.slice(
                       0,
                       fields.video_name.length - 4
@@ -328,7 +333,7 @@ function TcCourseVideoUpload() {
                     type="submit"
                     className="btn btn-secondary mx-auto"
                   >
-                    上傳資訊檔案
+                    上傳檔案
                   </button>
                 ) : (
                   ''

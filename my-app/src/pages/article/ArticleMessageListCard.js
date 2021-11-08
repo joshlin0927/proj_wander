@@ -11,17 +11,32 @@ import { useHistory } from 'react-router'
 import { IMG_PATH } from '../../config'
 
 function ArticleMessageListCard(props) {
+  const member = localStorage.getItem('member')
+
   const { sid, messenger, nickname, st_pictuer } = props
 
   return (
     <>
       <li className="sing-TCcourse-card active  shadow-sm p-3 mb-2 bg-body rounded">
         <div className="TCcourse-img-sing">
-          <img
+        {st_pictuer === null ? (
+            <img
+              src={`${IMG_PATH}/presetAvatar.jpeg`}
+              alt=""
+              className="img-fluid"
+            />
+          ) : (
+            <img
+            src={`${IMG_PATH}/${st_pictuer}`}
+              alt=""
+              className="img-fluid"
+            />
+          )}
+          {/* <img
             src={`${IMG_PATH}/${st_pictuer}`}
             alt=""
             className="img-fluid"
-          />
+          /> */}
           <span className="TCcourse-img-selector-sin ">
             {nickname}
           </span>

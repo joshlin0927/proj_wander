@@ -152,7 +152,7 @@ function CourseCard(props) {
           </div>
         </div> */}
 
-      <div class="sh-courseitem">
+      <div className="sh-courseitem">
         <Link
           className=""
           to={`/Course/CsCoursedes/?courseSid=${sid}`}
@@ -165,11 +165,11 @@ function CourseCard(props) {
             }
             alt=""
           />
-          <div class="sh-coursename">{course_name}</div>
-          <span class="sh-teachername">
+          <div className="sh-coursename">{course_name}</div>
+          <span className="sh-teachername">
             {course_category}
           </span>
-          <span class="co-price">{course_price} TWD</span>
+          <span className="co-price">{course_price} TWD</span>
         </Link>
       </div>
 

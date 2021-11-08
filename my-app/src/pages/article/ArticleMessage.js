@@ -23,7 +23,11 @@ import TcHasNoCourse from './TcHasNoCourse'
 
 function ArticleMessage(props) {
 
+  const member = localStorage.getItem('member')
+
+
   const queryParams = new URLSearchParams(window.location.search);
+
 
 
   const id = queryParams.get('articleSid');

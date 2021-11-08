@@ -4,7 +4,7 @@ import { useHistory, withRouter } from 'react-router'
 import axios from 'axios'
 
 // 後端檔案路徑
-import { TcCourse_LIST } from '../../config'
+import { MemberEdit, TcCourse_LIST } from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -22,8 +22,10 @@ function TcAnalytic() {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const teacherSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const teacherSid = member ? JSON.parse(member).sid : ''
 
   // 資料庫來的課程資料
   const [TcCourses, setTcCourses] = useState([])
@@ -38,11 +40,17 @@ function TcAnalytic() {
   const [imgSrc, setImgSrc] = useState('')
 
   useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 1) {
+    if (!token && identity !== 1) {
       history.push('/')
     } else {
+      ;(async () => {
+        let M = await axios.get(
+          `${MemberEdit}/?teacherSid=${teacherSid}`
+        )
+        if (M.status === 200) {
+          setImgSrc(M.data[0].avatar)
+        }
+      })()
       ;(async () => {
         let r = await axios.get(
           `${TcCourse_LIST}?teacherSid=${teacherSid}`
@@ -50,7 +58,6 @@ function TcAnalytic() {
         if (r.status === 200) {
           setDisplayCourse(r.data.rows)
           setTcCourses(r.data.rows)
-          setImgSrc(r.data.rows[0].avatar)
         } else {
           alert('連線出現問題')
         }

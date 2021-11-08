@@ -137,7 +137,7 @@ app.post('/try-upload2', uploadImg.single('avatar'), async (req, res) => {
 
 
 //教師
-app.use('/SingleMember', require(__dirname + '/routes/SingleMember'));
+app.use('/TcProfile', require(__dirname + '/routes/TcProfile'));
 app.use('/member', require(__dirname + '/routes/member'));
 app.use('/TcCourse', require(__dirname + '/routes/TcCourse'));
 app.use('/TcVideo', require(__dirname + '/routes/TcVideo'));
@@ -250,14 +250,19 @@ app.use('/api/teacherdata', require(__dirname + '/routes/recommandtc'))
 //取得member email資料判斷註冊有無重複使用帳號
 app.use('/api/accountdata', require(__dirname + '/routes/getaccount'))
 app.use('/passwordmodify', require(__dirname + '/routes/stpasswordmodify'))
-//課程頁-詳細頁
+//課程頁-詳細頁 //留言 //留言修改
 app.use('/cs_course', require(__dirname + '/routes/cs_course'));
+app.use('/cs_messenger', require(__dirname + '/routes/cs_messenger'));
+app.use('/cs_messengerADD', require(__dirname + '/routes/cs_messengerADD'));
 // 測驗
 app.use('/sentence-game', require(__dirname + '/routes/sentence-game'));
 // cart
 app.use('/cart', require(__dirname + '/routes/cart'));
 // order
 app.use('/sendOrder', require(__dirname + '/routes/sendOrder'));
+// chat
+app.use('/conversation', require(__dirname + '/routes/conversation'));
+app.use('/message', require(__dirname + '/routes/message'));
 
 
 app.get('/try-sess', (req, res) => {

@@ -4,7 +4,7 @@ import React from 'react'
 import TcCourseCard from './TcCourseCard'
 
 function TcCourseList(props) {
-  const { Courses, RemoveCourse, setRemoveCourse } = props
+  const { Courses, setRemoveCourse } = props
   return (
     <>
       {Courses.map((Course, i) => {

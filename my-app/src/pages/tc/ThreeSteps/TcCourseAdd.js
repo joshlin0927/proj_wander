@@ -26,8 +26,10 @@ function TcCourseAdd(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const teacherSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const teacherSid = member ? JSON.parse(member).sid : ''
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -256,7 +258,7 @@ function TcCourseAdd(props) {
                   <img
                     src={
                       imgSrc
-                        ? IMG_PATH + '/course/' + imgSrc
+                        ? IMG_PATH + '/course/img/' + imgSrc
                         : IMG_PATH +
                           '/course/' +
                           'Course_Preset.jpg'

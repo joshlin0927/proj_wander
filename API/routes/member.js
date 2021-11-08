@@ -64,6 +64,23 @@ router.get('/api/list', async (req, res)=>{
     res.json(output);
 });
 
+router.get('/findOne', async(req, res)=>{
+    const output = {
+        success: false,
+        result: '',
+    }
+    const sql = `SELECT * FROM member WHERE \`sid\`=?`;
+    const [r] = await db.query(sql, [req.query.memberID]);
+    if(r.length === 0){
+        output.success = false;
+        output.result = '沒有資料';
+    }else{
+        output.success = true;
+        output.result = r;
+    }
+    res.json(output);
+})
+
 
 router.route('/edit/:sid')
     .get(async (req, res) => {

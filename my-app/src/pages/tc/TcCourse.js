@@ -4,7 +4,11 @@ import { useHistory, withRouter } from 'react-router'
 import axios from 'axios'
 
 // 後端檔案路徑
-import { TcCourse_LIST, TcCourse_ADD } from '../../config'
+import {
+  MemberEdit,
+  TcCourse_LIST,
+  TcCourse_ADD,
+} from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -12,7 +16,7 @@ import TcSideBar from '../../components/tc/TcSideBar'
 import TcSearchBar from '../../components/tc/TcSearchBar'
 import TcCourseList from '../../components/tc/TcCourseList'
 import TcHasNoCourse from '../../components/tc/TcHasNoCourse'
-import MyPagination from '../../components/MyPagination'
+// import MyPagination from '../../components/MyPagination'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
 
@@ -21,8 +25,10 @@ function TcCourse(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const teacherSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const teacherSid = member ? JSON.parse(member).sid : ''
 
   // 資料庫來的課程資料
   const [TcCourses, setTcCourses] = useState([])
@@ -37,25 +43,32 @@ function TcCourse(props) {
   const [imgSrc, setImgSrc] = useState('')
 
   useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 1) {
+    if (!token && identity !== 1) {
       history.push('/')
     } else {
+      ;(async () => {
+        let M = await axios.get(
+          `${MemberEdit}/?teacherSid=${teacherSid}`
+        )
+        if (M.status === 200) {
+          setImgSrc(M.data[0].avatar)
+        }
+      })()
       ;(async () => {
         let r = await axios.get(
           `${TcCourse_LIST}/?teacherSid=${teacherSid}`
         )
+        console.log(r.data.rows)
         if (r.status === 200) {
           setTcCourses(r.data.rows)
           setDisplayCourse(r.data.rows)
-          setImgSrc(r.data.rows[0].avatar)
+          // setImgSrc(r.data.rows[0].avatar)
         }
         console.log(r.data.rows)
       })()
     }
     // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
-  }, [RemoveCourse])
+  }, [RemoveCourse, imgSrc])
 
   //RemoveCourse裡面是在前端被刪除過後的課程陣列
   // console.log(RemoveCourse)
@@ -95,7 +108,7 @@ function TcCourse(props) {
 
       { teacher_sid: teacherSid }
     )
-    console.log(r.data.result.insertId)
+    // console.log(r.data.result.insertId)
   }
 
   return (
@@ -172,7 +185,7 @@ function TcCourse(props) {
             )}
 
             {/* Pagination */}
-            <MyPagination />
+            {/* <MyPagination /> */}
           </div>
         </div>
       </div>

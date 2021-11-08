@@ -4,17 +4,17 @@ import axios from 'axios'
 import { IMG_PATH } from '../../config'
 import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import { Nav } from 'react-bootstrap'
 import { devUrl } from '../../config'
 import { Modal } from 'react-bootstrap'
-import {
-  CsCourse_EDIT,
-  CsCourse_Cover,
-  Cart_API,
-} from '../../config'
+import { CsMessage_LIST } from '../../config'
+import { CsCourse_EDIT, Cart_API } from '../../config'
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
+import CsMessageList from './CsMessageList'
 
 // import CoursedeList from './CoursedeList'
 
@@ -26,16 +26,41 @@ function CsCoursede(props) {
   const member = localStorage.getItem('member')
     ? JSON.parse(localStorage.getItem('member'))
     : ''
-  const [fields, setFields] = useState({
-    teacher_sid: '',
-    course_name: '',
-    course_category: '',
-    course_price: '',
-    course_introduction: '',
-  })
+  const [fields, setFields] = useState({})
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-  let [imgSrc, setImgSrc] = useState('')
+  const [TcCourses, setTcCourses] = useState([])
+
+  // 拿去做map排列的，取的是r.data.rows，或是其它處理
+  const [displayCourse, setDisplayCourse] = useState([])
+
+  // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
+  const [RemoveCourse, setRemoveCourse] = useState()
+
+  let [fimgSrc, setImgSrc] = useState('')
+  useEffect(() => {
+    // if (!token) {
+    //   history.push('/')
+    // } else if (identity !== 0) {
+    //   history.push('/')
+    // } else {
+      ;(async () => {
+        let r = await axios.get(
+          // `${ArtMessage_LIST}`
+          `${CsMessage_LIST}`
+        )
+        if (r.status === 200) {
+          // setArtDisplayCourse(r.data.result[0])
+
+          setTcCourses(r.data.rows)
+
+          setDisplayCourse(r.data.rows)
+        }
+      })()
+    // }
+  }, [])
+
+  
 
   function changeAddCartBtn() {
     document
@@ -47,6 +72,17 @@ function CsCoursede(props) {
         v.innerText = '已加入購物車'
       })
   }
+  const handleFieldChange = (e) => {
+    // 1. 從原本的狀態物件拷貝新物件
+    // 2. 在拷貝的新物件上處理
+    const updatedFields = {
+      ...fields,
+      [e.target.name]: e.target.value,
+    }
+    // 3. 設定回原狀態物件
+    setFields(updatedFields)
+  }
+
 
   useEffect(() => {
     ;(async () => {
@@ -64,19 +100,9 @@ function CsCoursede(props) {
         CsCourse_EDIT + props.location.search
       )
       setFields(r.data[0])
-      setImgSrc(r.data[0].course_img)
       console.log('edit', r.data[0])
     })()
   }, [props.location.search, member.sid])
-
-  const doUpload = async () => {
-    const r = await axios.post(
-      `${CsCourse_Cover}?sid=${fields.sid}`,
-      new FormData(document.formCover)
-    )
-    setImgSrc(r.data.filename)
-    // console.log(r.data)
-  }
 
   // 新增購物車資料
   function addCart(courseID) {
@@ -100,22 +126,21 @@ function CsCoursede(props) {
         }
       })
   }
-  const handleFieldChange = (e) => {
-    // 1. 從原本的狀態物件拷貝新物件
-    // 2. 在拷貝的新物件上處理
-    const updatedFields = {
-      ...fields,
-      [e.target.name]: e.target.value,
-    }
-    // 3. 設定回原狀態物件
-    setFields(updatedFields)
-  }
+
 
   return (
     <>
       <div className="container mainContent">
         {/* breadcrumb */}
         <MultiLevelBreadCrumb />
+        <Nav.Link
+          as={NavLink}
+          to="/Course/CsCourse"
+          className="btn btn-border-only-no-h col-2"
+        >
+          <i className="fas fa-chevron-left"></i>
+          <span>返回</span>
+        </Nav.Link>
         <div className="row">
           <div className="video">
             <div className="embed-responsive embed-responsive-16by9">
@@ -153,7 +178,7 @@ function CsCoursede(props) {
               <iframe
                 title="fake video"
                 className="embed-responsive-item"
-                src="https://www.youtube.com/embed/v64KOxKVLVg"
+                src="https://www.youtube.com/embed/GmRdUUVgSAA"
                 allowFullScreen
               ></iframe>
             </div>
@@ -741,14 +766,15 @@ function CsCoursede(props) {
               }}
             >
               <img
-                src={`${IMG_PATH}/images/index/01.jpg`}
+                src={`${IMG_PATH}/${fields.avatar}`}
                 alt=""
                 style={{
-                  width: '120px',
+                  width: '100px',
                   borderRadius: '50%',
+                  height:'100px',
                 }}
               />
-              <h2>Ann</h2>
+              <h2>{fields.nickname}</h2>
             </div>
           </div>
           <div
@@ -760,8 +786,8 @@ function CsCoursede(props) {
               marginLeft: '20px',
             }}
           >
-            <h5> 國籍：台灣</h5>
-            <h5>專長：英語、西班牙文</h5>
+            <h5> 國籍：{fields.nationality}</h5>
+            <h5>專長：{fields.language}</h5>
             <h5>
               課程評價：
               <div
@@ -776,11 +802,15 @@ function CsCoursede(props) {
         </div>
 
         {/* 留言板 */}
-        <div className="sh-opp mx-auto shadow-sm p-3 mb-2 bg-body rounded">
+        <div
+          className="sh-opp mx-auto shadow-sm p-3 mb-2 bg-body rounded "
+          style={{ marginBottomL: '30px' }}
+        >
           <div className="dis">
+            {' '}
             <h1
               style={{
-                marginTop: '20px',
+                marginTop: '30px',
                 marginLeft: '10px',
                 width: '200px',
               }}
@@ -794,237 +824,54 @@ function CsCoursede(props) {
           >
             <nav className="sh-sidebars ">
               <ul className="nav-list  mx-auto ul-opp ">
-                <li className="sh-nav-item mx-auto   active  shadow-sm p-3 mb-3 bg-body rounded">
-                  <span
-                    className=""
-                    style={{ marginRight: '10px' }}
-                  >
-                    <div
-                      className="fsdfds"
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        marginRight: '10px',
-                      }}
-                    >
-                      <span> Ann</span>
-                      <img
-                        src={`${devUrl}/images/index/01.jpg`}
-                        alt=""
-                        style={{
-                          width: '50px',
-                          borderRadius: '50%',
-                        }}
-                      />
-                    </div>
-                  </span>
-                  <span
-                    className="item flex"
-                    style={{ marginRight: '10px' }}
-                  >
-                    這是不可避免的。考爾德說過，僅次於選擇益友，就是選擇好書。想必各位已經看出了其中的端倪。面對如此難題，我們必須設想周
-                  </span>
-                  <span
-                    className="fas fa-star"
-                    style={{
-                      marginRight: '10px',
-                      color: 'black',
-                    }}
-                  >
-                    5
-                  </span>
-                  <span className="">
-                    {/* <span> 1分鐘</span> */}
-                  </span>
-                </li>
-                <li className="sh-nav-item mx-auto   active  shadow-sm p-3 mb-3 bg-body rounded">
-                  <span
-                    className=""
-                    style={{ marginRight: '10px' }}
-                  >
-                    <div
-                      className="fsdfds"
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        marginRight: '10px',
-                      }}
-                    >
-                      <span> Ann</span>
-                      <img
-                        src={`${devUrl}/images/index/01.jpg`}
-                        alt=""
-                        style={{
-                          width: '50px',
-                          borderRadius: '50%',
-                        }}
-                      />
-                    </div>
-                  </span>
-                  <span
-                    className="item flex"
-                    style={{ marginRight: '10px' }}
-                  >
-                    這是不可避免的。考爾德說過，僅次於選擇益友，就是選擇好書。想必各位已經看出了其中的端倪。面對如此難題，我們必須設想周
-                  </span>
-                  <span
-                    className="fas fa-star"
-                    style={{
-                      marginRight: '10px',
-                      color: 'black',
-                    }}
-                  >
-                    5
-                  </span>
-                  <span className="">
-                    {/* <span> 1分鐘</span> */}
-                  </span>
-                </li>
-                <li className="sh-nav-item mx-auto   active  shadow-sm p-3 mb-3 bg-body rounded">
-                  <span
-                    className=""
-                    style={{ marginRight: '10px' }}
-                  >
-                    <div
-                      className="fsdfds"
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        marginRight: '10px',
-                      }}
-                    >
-                      <span> Ann</span>
-                      <img
-                        src={`${devUrl}/images/index/01.jpg`}
-                        alt=""
-                        style={{
-                          width: '50px',
-                          borderRadius: '50%',
-                        }}
-                      />
-                    </div>
-                  </span>
-                  <span
-                    className="item flex"
-                    style={{ marginRight: '10px' }}
-                  >
-                    這是不可避免的。考爾德說過，僅次於選擇益友，就是選擇好書。想必各位已經看出了其中的端倪。面對如此難題，我們必須設想周
-                  </span>
-                  <span
-                    className="fas fa-star"
-                    style={{
-                      marginRight: '10px',
-                      color: 'black',
-                    }}
-                  >
-                    5
-                  </span>
-                  <span className="">
-                    {/* <span> 1分鐘</span> */}
-                  </span>
-                </li>
-                <li className="sh-nav-item mx-auto   active  shadow-sm p-3 mb-3 bg-body rounded">
-                  <span
-                    className=""
-                    style={{ marginRight: '10px' }}
-                  >
-                    <div
-                      className="fsdfds"
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        marginRight: '10px',
-                      }}
-                    >
-                      <span> Ann</span>
-                      <img
-                        src={`${devUrl}/images/index/01.jpg`}
-                        alt=""
-                        style={{
-                          width: '50px',
-                          borderRadius: '50%',
-                        }}
-                      />
-                    </div>
-                  </span>
-                  <span
-                    className="item flex"
-                    style={{ marginRight: '10px' }}
-                  >
-                    這是不可避免的。考爾德說過，僅次於選擇益友，就是選擇好書。想必各位已經看出了其中的端倪。面對如此難題，我們必須設想周
-                  </span>
-                  <span
-                    className="fas fa-star"
-                    style={{
-                      marginRight: '10px',
-                      color: 'black',
-                    }}
-                  >
-                    5
-                  </span>
-                  <span className="">
-                    {/* <span> 1分鐘</span> */}
-                  </span>
-                </li>
-                <li className="sh-nav-item mx-auto   active  shadow-sm p-3 mb-3 bg-body rounded">
-                  <span
-                    className=""
-                    style={{ marginRight: '10px' }}
-                  >
-                    <div
-                      className="fsdfds"
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        marginRight: '10px',
-                      }}
-                    >
-                      <span> Ann</span>
-                      <img
-                        src={`${devUrl}/images/index/01.jpg`}
-                        alt=""
-                        style={{
-                          width: '50px',
-                          borderRadius: '50%',
-                        }}
-                      />
-                    </div>
-                  </span>
-                  <span
-                    className="item flex"
-                    style={{ marginRight: '10px' }}
-                  >
-                    這是不可避免的。考爾德說過，僅次於選擇益友，就是選擇好書。想必各位已經看出了其中的端倪。面對如此難題，我們必須設想周
-                  </span>
-                  <span
-                    className="fas fa-star"
-                    style={{
-                      marginRight: '10px',
-                      color: 'black',
-                    }}
-                  >
-                    5
-                  </span>
-                  <span className="">
-                    {/* <span> 1分鐘</span> */}
-                  </span>
-                </li>
+                {/* {data.rows
+                  ? data.rows.map((v, index) => {
+                      return (
+                        <TcCourseCard
+
+                    key={v.sid}
+                    ar_sid={v.ar_sid}
+                    st_sid={v.st_sid}
+                    st_pictuer={v.st_pictuer}
+                    messenger={v.messenger}
+                    great={v.great}
+                    created_date={v.created_date}
+                        />
+                      )
+                    })
+                  : null} */}
+                {TcCourses.length > 0 ? (
+                  <CsMessageList
+                    displayCourse={displayCourse}
+                    setDisplayCourse={setDisplayCourse}
+                    RemoveCourse={RemoveCourse}
+                    setRemoveCourse={setRemoveCourse}
+                  />
+                ) : null}
+                {/* {data.rows.map((v, i) => {
+                return (
+                  <TcCourseCard
+                    key={v.sid}
+                    sid={v.ar_sid}
+                    course_img={v.st_pictuer}
+                    messenger={v.messenger}
+                    course_category={v.great}
+                    course_data={v.created_date}
+                  />
+                )
+              })} */}
               </ul>
-              <div className="fasf">
-                {' '}
-                <button
-                  className="btn btn-outline-y row mx-auto one-btn btn-b  "
-                  style={{ width: '235px' }}
-                >
-                  More...
-                </button>
-              </div>
             </nav>
           </div>
-          <div
+
+          {/* <Link
+            to={`/Course/CsMessageADD/?courseSid=${fields.sid}`}
+          > */}
+            <div
             className="bitrt"
             style={{ width: '200px', marginRight: '10px' }}
           ></div>
+          {/* </Link> */}
         </div>
 
         {/* 留言板 */}

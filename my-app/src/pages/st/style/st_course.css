@@ -99,6 +99,33 @@
 .remindingarea{
   transform:translateY(50%);
 }
+.remindingtext {
+  font-size: 36px;
+  color: #065f8e;
+  font-weight: bold;
+  text-align: center;
+}
+
+.buy-btn {
+  background-color: transparent;
+  border: #065f8e 1px solid;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buy-btn:hover {
+  background-color: #065f8e;
+  border: 1px solid transparent;
+  color: rgb(255, 255, 255);
+}
+
+.buy-btn:focus {
+  background-color: #065f8e !important;
+  box-shadow: none;
+  border: 1px solid transparent;
+
+}
 
 .courseitem {
 
@@ -122,6 +149,12 @@
   justify-content: center;
 
 
+}
+
+.coursesubtitle {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 100px 0px 55px 15px;
 }
 
 .stalreadybuycoursename {
@@ -265,7 +298,19 @@
   }
 
   /* 這裡開始是課程商品 */
+.buy-btn {
+  background-color: transparent;
+  border: #065f8e 1px solid;
+  color: #065f8e;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.buy-btn:hover span {
+  background-color: #065f8e;
+  border: 1px solid transparent;
+  color: white;
+}
  .stcoursesection {
    display: flex;
    flex-wrap: wrap;
@@ -325,29 +370,11 @@
 
   }
 
-  /* 以下提供給商品頁面及教師頁面使用 */
-
-  /* .fa-star {
-        color: #BCC831;
-      }
-
-      .score {
-        font-size: 10px;
-        color: white;
-        font-style: bold;
-        position: absolute;
-        top: 85%;
-        left: 5%;
-      }
-
-      .price {
-        font-size: 14px;
-        color: white;
-        font-weight: bold;
-        position: absolute;
-        top: 87%;
-        right: 5%;
-      } */
+  .coursesubtitle {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 70px 0px 50px 15px;
+  }
 
   .Mypagination {
     display: flex;

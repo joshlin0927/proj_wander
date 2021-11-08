@@ -9,7 +9,7 @@ import { IMG_PATH } from '../../config'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import StSideBar2 from '../../components/st/StSideBar2'
 import StBgDecoration from '../../components/st/StBgDecoration'
-import MyPagination from '../../components/MyPagination'
+// import MyPagination from '../../components/MyPagination'
 import CourseItem from '../../components/st/CourseItem'
 import RecommandedTC from '../../components/st/RecommandedTC'
 import RemindingText from '../../components/st/RemindingText'
@@ -19,8 +19,10 @@ export default withRouter(function StCourse(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const studentSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const studentSid = member ? JSON.parse(member).sid : ''
   const [courses, setCourses] = useState([{}])
   const [RecommandedTeacher, setRecommandedTeacher] =
     useState({})

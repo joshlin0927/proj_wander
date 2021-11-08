@@ -55,7 +55,7 @@ function TcCourseCard(props) {
           <img
             src={
               course_img
-                ? `${IMG_PATH}/course/${course_img}`
+                ? `${IMG_PATH}/course/img/${course_img}`
                 : `${IMG_PATH}/course/Course_Preset.jpg`
             }
             alt=""

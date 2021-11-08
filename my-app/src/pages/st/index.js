@@ -9,7 +9,6 @@ import StSelectLanguage from './StSelectLanguage'
 import StGameStart from './StGameStart'
 import StGaming from './StGaming'
 import StGameFinish from './StGameFinish'
-import StCourseEmpty from './StCourseEmpty'
 import StCourse from './StCourse'
 import StCalendar from './StCalendar'
 import StClassroom from './StClassroom'
@@ -41,9 +40,7 @@ function index() {
         <Route exact path="/StIndex/StGameFinish">
           <StGameFinish />
         </Route>
-        <Route exact path="/StIndex/StCourseEmpty">
-          <StCourseEmpty />
-        </Route>
+
         <Route exact path="/StIndex/StCourse">
           <StCourse />
         </Route>

@@ -6,7 +6,7 @@ import { Member_LIST } from '../config'
 
 import MultiLevelBreadCrumb from '../components/MultiLevelBreadCrumb'
 import TcSearchBar from '../components/tc/TcSearchBar'
-import MyPagination from '../components/MyPagination'
+// import MyPagination from '../components/MyPagination'
 import TcBgDecorationNormal from '../components/tc/TcBgDecorationNormal'
 
 function CompanyBackend() {
@@ -114,7 +114,7 @@ function CompanyBackend() {
                 </tbody>
               </table>
             </div>
-            <MyPagination />
+            {/* <MyPagination /> */}
           </form>
         </div>
       </div>
