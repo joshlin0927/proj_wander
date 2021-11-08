@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useHistory } from 'react-router'
 import screenfull from 'screenfull'
 import moment from 'moment'
+import momentDurationFormatSetup from 'moment-duration-format'
 import { API_HOST } from '../../config'
 
 //共用元件

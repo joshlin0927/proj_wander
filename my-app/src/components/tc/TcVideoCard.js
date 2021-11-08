@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
 import moment from 'moment'
-// import momentDurationFormatSetup from 'moment-duration-format'
+import momentDurationFormatSetup from 'moment-duration-format'
 
 import { TcVideo__DELETE, TcVideo_EDIT } from '../../config'
 

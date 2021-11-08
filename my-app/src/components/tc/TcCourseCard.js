@@ -4,6 +4,7 @@ import { Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { IMG_PATH, TcCourse_DELETE } from '../../config'
 import moment from 'moment'
+import momentDurationFormatSetup from 'moment-duration-format'
 
 function TcCourseCard(props) {
   const {
