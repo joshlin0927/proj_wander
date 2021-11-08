@@ -62,7 +62,7 @@ function TcProfile(props) {
   const [showUp, setShowUp] = useState('')
 
   //預覽大頭貼
-  const imgRef = useRef(null)
+  // const imgRef = useRef(null)
   //實際擁有預覽功能的input因為太醜藏起來
   const inputRef = useRef(null)
   // const previewFile = () => {
@@ -133,19 +133,15 @@ function TcProfile(props) {
 
     // ex. 用fetch api/axios送到伺服器
 
-    const r = fetch(
-      `${MemberEdit}/?teacherSid=${teacherSid}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type':
-            'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(
-          TcProfileFormData
-        ).toString(),
-      }
-    )
+    fetch(`${MemberEdit}/?teacherSid=${teacherSid}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(
+        TcProfileFormData
+      ).toString(),
+    })
       .then((r) => r.json())
       .then((obj) => {
         // console.log(JSON.stringify(obj, null, 4))

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory, withRouter } from 'react-router'
+import { withRouter } from 'react-router'
 
 import { IMG_PATH, TcCourse_LIST } from '../../config'
 
@@ -16,12 +16,12 @@ function TcPreview() {
   const [course, setCourse] = useState('')
 
   //判斷是否登入並為教師身分
-  const history = useHistory()
-  const token = localStorage.getItem('token')
-  const member = localStorage.getItem('member')
-    ? localStorage.getItem('member')
-    : ''
-  const identity = member ? JSON.parse(member).identity : ''
+  // const history = useHistory()
+  // const token = localStorage.getItem('token')
+  // const member = localStorage.getItem('member')
+  //   ? localStorage.getItem('member')
+  //   : ''
+  // const identity = member ? JSON.parse(member).identity : ''
   useEffect(() => {
     ;(async () => {
       let r = await axios.get(

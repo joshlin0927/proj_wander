@@ -133,7 +133,7 @@ function TcCourseAdd(props) {
 
     // ex. 用fetch api/axios送到伺服器
     // 新增後直接修改課程
-    const r = fetch(`${TcCourse_EDIT}/?sid=${lastAdd}`, {
+    fetch(`${TcCourse_EDIT}/?sid=${lastAdd}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

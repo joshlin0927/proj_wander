@@ -10,11 +10,7 @@ import { Nav } from 'react-bootstrap'
 
 // import { devUrl } from '../../config'
 import { Modal } from 'react-bootstrap'
-import {
-  CsCourse_EDIT,
-  CsCourse_Cover,
-  Cart_API,
-} from '../../config'
+import { CsCourse_EDIT, Cart_API } from '../../config'
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
@@ -51,7 +47,6 @@ function CsCoursede(props) {
   const [RemoveCourse, setRemoveCourse] = useState()
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-  let [fimgSrc, setImgSrc] = useState('')
   useEffect(() => {
     if (!token) {
       history.push('/')
@@ -97,19 +92,9 @@ function CsCoursede(props) {
         CsCourse_EDIT + props.location.search
       )
       setFields(r.data[0])
-      setImgSrc(r.data[0].course_img)
       console.log('edit', r.data[0])
     })()
   }, [props.location.search, member.sid])
-
-  const doUpload = async () => {
-    const r = await axios.post(
-      `${CsCourse_Cover}?sid=${fields.sid}`,
-      new FormData(document.formCover)
-    )
-    setImgSrc(r.data.filename)
-    // console.log(r.data)
-  }
 
   // 新增購物車資料
   function addCart(courseID) {
@@ -139,16 +124,6 @@ function CsCoursede(props) {
     btn.classList.remove('btn-b')
     btn.classList.add('changeAddCartBtn')
     btn.innerText = '已加入購物車'
-  }
-  const handleFieldChange = (e) => {
-    // 1. 從原本的狀態物件拷貝新物件
-    // 2. 在拷貝的新物件上處理
-    const updatedFields = {
-      ...fields,
-      [e.target.name]: e.target.value,
-    }
-    // 3. 設定回原狀態物件
-    setFields(updatedFields)
   }
 
   return (
@@ -199,6 +174,7 @@ function CsCoursede(props) {
               {/* 上方是版本二(本機版本可用內部資料) */}
               {/* 下方是直接連網路ex:youtube */}
               <iframe
+                title="yt video"
                 className="embed-responsive-item"
                 src="https://www.youtube.com/embed/v64KOxKVLVg"
                 allowfullscreen
@@ -742,7 +718,7 @@ function CsCoursede(props) {
                 style={{
                   width: '100px',
                   borderRadius: '50%',
-                  height:'100px'
+                  height: '100px',
                 }}
               />
               <h2>{fields.nickname}</h2>

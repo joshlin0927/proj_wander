@@ -108,7 +108,9 @@ function TcCourse(props) {
 
       { teacher_sid: teacherSid }
     )
-    // console.log(r.data.result.insertId)
+    if (r) {
+      // console.log(r.data.result.insertId)
+    }
   }
 
   return (

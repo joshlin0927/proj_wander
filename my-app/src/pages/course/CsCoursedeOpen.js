@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 //課程詳細頁購買後(沒鎖頭)
 import { devUrl } from '../../config'
 import { Modal } from 'react-bootstrap'
@@ -59,6 +59,7 @@ function CsCoursedeOpen() {
               {/* 上方是版本二(本機版本可用內部資料) */}
               {/* 下方是直接連網路ex:youtube */}
               <iframe
+                title="yt video"
                 className="embed-responsive-item"
                 src="https://www.youtube.com/embed/v64KOxKVLVg"
                 allowfullscreen

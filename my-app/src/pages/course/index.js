@@ -15,8 +15,6 @@ import CsCourseRe from './CsCourseRe'
 import CsMessage from './CsMessage'
 import ArtMessageADD from './CsMessageADD'
 
-
-
 function index() {
   return (
     <>

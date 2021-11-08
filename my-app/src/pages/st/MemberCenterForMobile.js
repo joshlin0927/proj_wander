@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router'
+import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
@@ -11,11 +10,11 @@ import StBgDecoration from '../../components/st/StBgDecoration'
 import Footer from '../../components/Footer'
 
 function MemberCenterForMobile(props) {
-  const [isActive, setIsActive] = useState('')
-  const { auth, setAuth } = props
+  // const [isActive, setIsActive] = useState('')
+  // const { auth, setAuth } = props
 
-  const history = useHistory()
-  const token = localStorage.getItem('token')
+  // const history = useHistory()
+  // const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
   const memberObj = JSON.parse(member)
   // console.log('memberObj', memberObj)
@@ -119,7 +118,9 @@ function MemberCenterForMobile(props) {
                   activeClassName="active"
                 >
                   <div className="mobilecircle">
-                    <i className="fal fa-table mobileicon"> </i>
+                    <i className="fal fa-table mobileicon">
+                      {' '}
+                    </i>
                   </div>
                   <div className="nav-item-text mobiletext ml-4">
                     課程管理
