@@ -25,6 +25,12 @@ function TcPassword() {
     ? JSON.parse(member).email
     : ''
 
+  const [close, setClose] = useState('far fa-eye-slash')
+  const [closeAnother, setCloseAnother] = useState(
+    'far fa-eye-slash'
+  )
+  const [type, setType] = useState('password')
+
   //頭圖傳送
   let [imgSrc, setImgSrc] = useState('')
   useEffect(() => {
@@ -189,15 +195,29 @@ function TcPassword() {
                   <i className="TCback-btn"></i>
                 </Link>
               </div>
-              <input
-                name="origin"
-                type="password"
-                className="col-12 allInputs"
-                placeholder="請輸入原密碼"
-                value={fields.origin}
-                onChange={handleFieldChange}
-                required
-              />
+              <label className="d-flex">
+                <input
+                  name="origin"
+                  type={type}
+                  className="col-12 allInputs"
+                  placeholder="請輸入原密碼"
+                  value={fields.origin}
+                  onChange={handleFieldChange}
+                  required
+                />
+                <i
+                  className={`mt-4 mt-md-3 ml-2 ${close}`}
+                  onClick={() => {
+                    if (type === 'password') {
+                      setType('text')
+                      setClose('far fa-eye')
+                    } else {
+                      setType('password')
+                      setClose('far fa-eye-slash')
+                    }
+                  }}
+                ></i>
+              </label>
               {fieldErrors.origin === '' ? (
                 <label className="TCnotice" htmlFor="">
                   &nbsp;
@@ -207,16 +227,30 @@ function TcPassword() {
                   {fieldErrors.origin}
                 </label>
               )}
-              <input
-                name="newPass"
-                type="password"
-                className="col-12 allInputs"
-                placeholder="請輸入新密碼"
-                value={fields.newPass}
-                onChange={handleFieldChange}
-                required
-                minLength="6"
-              />
+              <label className="d-flex">
+                <input
+                  name="newPass"
+                  type={type}
+                  className="col-12 allInputs"
+                  placeholder="請輸入新密碼"
+                  value={fields.newPass}
+                  onChange={handleFieldChange}
+                  required
+                  minLength="6"
+                />
+                <i
+                  className={`mt-4 mt-md-3 ml-2 ${close}`}
+                  onClick={() => {
+                    if (type === 'password') {
+                      setType('text')
+                      setClose('far fa-eye')
+                    } else {
+                      setType('password')
+                      setClose('far fa-eye-slash')
+                    }
+                  }}
+                ></i>
+              </label>
               {fieldErrors.newPass === '' ? (
                 <label className="TCnotice" htmlFor="">
                   &nbsp;
