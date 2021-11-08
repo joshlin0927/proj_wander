@@ -13,7 +13,6 @@ export default function Instruction() {
         ]}
         loop={1}
         wrapper="p"
-
       />
     </>
   )

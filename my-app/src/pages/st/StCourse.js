@@ -26,7 +26,7 @@ export default withRouter(function StCourse(props) {
   const [courses, setCourses] = useState([{}])
   const [RecommandedTeacher, setRecommandedTeacher] =
     useState({})
-  const { auth, setAuth } = props
+  const { auth } = props
   const [imgSrc, setImgSrc] = useState('')
   // 設定Loading Spinner狀態
   const [isLoading, setIsLoading] = useState(true)

@@ -6,7 +6,6 @@ import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
-import { devUrl } from '../../config'
 import { Modal } from 'react-bootstrap'
 import { CsMessage_LIST } from '../../config'
 import { CsCourse_EDIT, Cart_API } from '../../config'
@@ -37,7 +36,7 @@ function CsCoursede(props) {
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
   const [RemoveCourse, setRemoveCourse] = useState()
 
-  let [fimgSrc, setImgSrc] = useState('')
+  // let [fimgSrc, setImgSrc] = useState('')
   useEffect(() => {
     // if (!token) {
     //   history.push('/')
@@ -69,16 +68,6 @@ function CsCoursede(props) {
         v.classList.add('changeAddCartBtn')
         v.innerText = '已加入購物車'
       })
-  }
-  const handleFieldChange = (e) => {
-    // 1. 從原本的狀態物件拷貝新物件
-    // 2. 在拷貝的新物件上處理
-    const updatedFields = {
-      ...fields,
-      [e.target.name]: e.target.value,
-    }
-    // 3. 設定回原狀態物件
-    setFields(updatedFields)
   }
 
   useEffect(() => {
@@ -153,11 +142,6 @@ function CsCoursede(props) {
                   type="video/mp4"
                 />
               </video> */}
-              <div className="">
-                {' '}
-                <img src="" />
-              </div>
-
               <div className="dsds">
                 <span
                   className="fas fa-lock lock"
@@ -184,13 +168,13 @@ function CsCoursede(props) {
                 style={{ marginTop: '16px' }}
               >
                 <ul className="nav-list  ">
-                  <li
-                    className="sh-nav-item active  shadow-sm p-3 mb-2 bg-body rounded "
-                    style={{ backgroundColor: '#065f8e' }}
+                  <Link
+                    className="list-content flex"
+                    to={`/Course/CsCoursedes/?courseSid=${fields.sid}`}
                   >
-                    <a
-                      href=""
-                      className="list-content flex"
+                    <li
+                      className="sh-nav-item active  shadow-sm p-3 mb-2 bg-body rounded "
+                      style={{ backgroundColor: '#065f8e' }}
                     >
                       <span
                         className="item flex"
@@ -212,70 +196,13 @@ function CsCoursede(props) {
                         className="fas"
                         style={{ marginRight: '20px' }}
                       ></span>
-                    </a>
-                  </li>
-
-                  <Link
-                    className=""
-                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <a
-                        href=""
-                        className="list-content flex"
-                      >
-                        <span
-                          className="item flex"
-                          style={{ marginRight: '10px' }}
-                        >
-                          日本高階商
-                        </span>
-                        <div
-                          className=""
-                          style={{ marginRight: '10px' }}
-                        >
-                          <span> 02:33</span>
-                        </div>
-                        <span
-                          className="fas fa-lock"
-                          style={{ marginRight: '10px' }}
-                        ></span>
-                      </a>
                     </li>
                   </Link>
                   <Link
-                    className=""
-                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                    className="list-content flex"
+                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
                   >
                     <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <a
-                        href=""
-                        className="list-content flex"
-                      >
-                        <span
-                          className="item flex"
-                          style={{ marginRight: '10px' }}
-                        >
-                          日本高階商
-                        </span>
-                        <div
-                          className=""
-                          style={{ marginRight: '10px' }}
-                        >
-                          <span> 02:33</span>
-                        </div>
-                        <span
-                          className="fas fa-lock"
-                          style={{ marginRight: '10px' }}
-                        ></span>
-                      </a>
-                    </li>
-                  </Link>
-                  <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                    <a
-                      href=""
-                      className="list-content flex"
-                    >
                       <span
                         className="item flex"
                         style={{ marginRight: '10px' }}
@@ -292,90 +219,121 @@ function CsCoursede(props) {
                         className="fas fa-lock"
                         style={{ marginRight: '10px' }}
                       ></span>
-                    </a>
-                  </li>
-                  <Link
-                    className=""
-                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <a
-                        href=""
-                        className="list-content flex"
-                      >
-                        <span
-                          className="item flex"
-                          style={{ marginRight: '10px' }}
-                        >
-                          日本高階商
-                        </span>
-                        <div
-                          className=""
-                          style={{ marginRight: '10px' }}
-                        >
-                          <span> 02:33</span>
-                        </div>
-                        <span
-                          className="fas fa-lock"
-                          style={{ marginRight: '10px' }}
-                        ></span>
-                      </a>
                     </li>
                   </Link>
                   <Link
-                    className=""
-                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                    className="list-content flex"
+                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
                   >
                     <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <a
-                        href=""
-                        className="list-content flex"
+                      <span
+                        className="item flex"
+                        style={{ marginRight: '10px' }}
                       >
-                        <span
-                          className="item flex"
-                          style={{ marginRight: '10px' }}
-                        >
-                          日本高階商
-                        </span>
-                        <div
-                          className=""
-                          style={{ marginRight: '10px' }}
-                        >
-                          <span> 02:33</span>
-                        </div>
-                        <span
-                          className="fas fa-lock"
-                          style={{ marginRight: '10px' }}
-                        ></span>
-                      </a>
+                        日本高階商
+                      </span>
+                      <div
+                        className=""
+                        style={{ marginRight: '10px' }}
+                      >
+                        <span> 02:33</span>
+                      </div>
+                      <span
+                        className="fas fa-lock"
+                        style={{ marginRight: '10px' }}
+                      ></span>
                     </li>
                   </Link>
                   <Link
-                    className=""
-                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                    className="list-content flex"
+                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
                   >
                     <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <a
-                        href=""
-                        className="list-content flex"
+                      <span
+                        className="item flex"
+                        style={{ marginRight: '10px' }}
                       >
-                        <span
-                          className="item flex"
-                          style={{ marginRight: '10px' }}
-                        >
-                          日本高階商
-                        </span>
-                        <div
-                          className=""
-                          style={{ marginRight: '10px' }}
-                        >
-                          <span> 02:33</span>
-                        </div>
-                        <span
-                          className="fas fa-lock"
-                          style={{ marginRight: '10px' }}
-                        ></span>
-                      </a>
+                        日本高階商
+                      </span>
+                      <div
+                        className=""
+                        style={{ marginRight: '10px' }}
+                      >
+                        <span> 02:33</span>
+                      </div>
+                      <span
+                        className="fas fa-lock"
+                        style={{ marginRight: '10px' }}
+                      ></span>
+                    </li>
+                  </Link>
+                  <Link
+                    className="list-content flex"
+                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
+                  >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <span
+                        className="item flex"
+                        style={{ marginRight: '10px' }}
+                      >
+                        日本高階商
+                      </span>
+                      <div
+                        className=""
+                        style={{ marginRight: '10px' }}
+                      >
+                        <span> 02:33</span>
+                      </div>
+                      <span
+                        className="fas fa-lock"
+                        style={{ marginRight: '10px' }}
+                      ></span>
+                    </li>
+                  </Link>
+                  <Link
+                    className="list-content flex"
+                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
+                  >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <span
+                        className="item flex"
+                        style={{ marginRight: '10px' }}
+                      >
+                        日本高階商
+                      </span>
+                      <div
+                        className=""
+                        style={{ marginRight: '10px' }}
+                      >
+                        <span> 02:33</span>
+                      </div>
+                      <span
+                        className="fas fa-lock"
+                        style={{ marginRight: '10px' }}
+                      ></span>
+                    </li>
+                  </Link>
+                  <Link
+                    className="list-content flex"
+                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
+                  >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <span
+                        className="item flex"
+                        style={{ marginRight: '10px' }}
+                      >
+                        日本高階商
+                      </span>
+                      <div
+                        className=""
+                        style={{ marginRight: '10px' }}
+                      >
+                        <span> 02:33</span>
+                      </div>
+                      <span
+                        className="fas fa-lock"
+                        style={{ marginRight: '10px' }}
+                      ></span>
                     </li>
                   </Link>
                 </ul>
@@ -403,15 +361,15 @@ function CsCoursede(props) {
                 style={{ marginTop: '16px' }}
               >
                 <ul className="nav-list  ">
-                  <li
-                    className="sh-nav-item active  shadow-sm p-3 mb-2 bg-body rounded"
-                    style={{
-                      backgroundColor: '#065f8e',
-                    }}
+                  <Link
+                    className="list-content flex"
+                    to={`/Course/CsCoursedes/?courseSid=${fields.sid}`}
                   >
-                    <a
-                      href=""
-                      className="list-content flex"
+                    <li
+                      className="sh-nav-item active  shadow-sm p-3 mb-2 bg-body rounded"
+                      style={{
+                        backgroundColor: '#065f8e',
+                      }}
                     >
                       <span
                         className="item flex"
@@ -433,174 +391,144 @@ function CsCoursede(props) {
                         className="fas "
                         style={{ marginRight: '20px' }}
                       ></span>
-                    </a>
-                  </li>
-                  <Link
-                    className=""
-                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <a
-                        href=""
-                        className="list-content flex"
-                      >
-                        <span
-                          className="item flex"
-                          style={{ marginRight: '10px' }}
-                        >
-                          日本高階商
-                        </span>
-                        <div
-                          className=""
-                          style={{ marginRight: '10px' }}
-                        >
-                          <span> 02:33</span>
-                        </div>
-                        <span
-                          className="fas fa-lock"
-                          style={{ marginRight: '10px' }}
-                        ></span>
-                      </a>
                     </li>
                   </Link>
                   <Link
-                    className=""
-                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                    className="list-content flex"
+                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
                   >
                     <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <a
-                        href=""
-                        className="list-content flex"
+                      <span
+                        className="item flex"
+                        style={{ marginRight: '10px' }}
                       >
-                        <span
-                          className="item flex"
-                          style={{ marginRight: '10px' }}
-                        >
-                          日本高階商
-                        </span>
-                        <div
-                          className=""
-                          style={{ marginRight: '10px' }}
-                        >
-                          <span> 02:33</span>
-                        </div>
-                        <span
-                          className="fas fa-lock"
-                          style={{ marginRight: '10px' }}
-                        ></span>
-                      </a>
+                        日本高階商
+                      </span>
+                      <div
+                        className=""
+                        style={{ marginRight: '10px' }}
+                      >
+                        <span> 02:33</span>
+                      </div>
+                      <span
+                        className="fas fa-lock"
+                        style={{ marginRight: '10px' }}
+                      ></span>
                     </li>
                   </Link>
                   <Link
-                    className=""
-                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                    className="list-content flex"
+                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
                   >
                     <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <a
-                        href=""
-                        className="list-content flex"
+                      <span
+                        className="item flex"
+                        style={{ marginRight: '10px' }}
                       >
-                        <span
-                          className="item flex"
-                          style={{ marginRight: '10px' }}
-                        >
-                          日本高階商
-                        </span>
-                        <div
-                          className=""
-                          style={{ marginRight: '10px' }}
-                        >
-                          <span> 02:33</span>
-                        </div>
-                        <span
-                          className="fas fa-lock"
-                          style={{ marginRight: '10px' }}
-                        ></span>
-                      </a>
+                        日本高階商
+                      </span>
+                      <div
+                        className=""
+                        style={{ marginRight: '10px' }}
+                      >
+                        <span> 02:33</span>
+                      </div>
+                      <span
+                        className="fas fa-lock"
+                        style={{ marginRight: '10px' }}
+                      ></span>
                     </li>
                   </Link>
                   <Link
-                    className=""
-                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                    className="list-content flex"
+                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
                   >
                     <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <a
-                        href=""
-                        className="list-content flex"
+                      <span
+                        className="item flex"
+                        style={{ marginRight: '10px' }}
                       >
-                        <span
-                          className="item flex"
-                          style={{ marginRight: '10px' }}
-                        >
-                          日本高階商
-                        </span>
-                        <div
-                          className=""
-                          style={{ marginRight: '10px' }}
-                        >
-                          <span> 02:33</span>
-                        </div>
-                        <span
-                          className="fas fa-lock"
-                          style={{ marginRight: '10px' }}
-                        ></span>
-                      </a>
+                        日本高階商
+                      </span>
+                      <div
+                        className=""
+                        style={{ marginRight: '10px' }}
+                      >
+                        <span> 02:33</span>
+                      </div>
+                      <span
+                        className="fas fa-lock"
+                        style={{ marginRight: '10px' }}
+                      ></span>
                     </li>
                   </Link>
                   <Link
-                    className=""
-                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                    className="list-content flex"
+                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
                   >
                     <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <a
-                        href=""
-                        className="list-content flex"
+                      <span
+                        className="item flex"
+                        style={{ marginRight: '10px' }}
                       >
-                        <span
-                          className="item flex"
-                          style={{ marginRight: '10px' }}
-                        >
-                          日本高階商
-                        </span>
-                        <div
-                          className=""
-                          style={{ marginRight: '10px' }}
-                        >
-                          <span> 02:33</span>
-                        </div>
-                        <span
-                          className="fas fa-lock"
-                          style={{ marginRight: '10px' }}
-                        ></span>
-                      </a>
+                        日本高階商
+                      </span>
+                      <div
+                        className=""
+                        style={{ marginRight: '10px' }}
+                      >
+                        <span> 02:33</span>
+                      </div>
+                      <span
+                        className="fas fa-lock"
+                        style={{ marginRight: '10px' }}
+                      ></span>
                     </li>
                   </Link>
                   <Link
-                    className=""
-                    to={`/Course/CsCoursedesNot/?courseSid=${fields.sid}`}
+                    className="list-content flex"
+                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
                   >
                     <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <a
-                        href=""
-                        className="list-content flex"
+                      <span
+                        className="item flex"
+                        style={{ marginRight: '10px' }}
                       >
-                        <span
-                          className="item flex"
-                          style={{ marginRight: '10px' }}
-                        >
-                          日本高階商
-                        </span>
-                        <div
-                          className=""
-                          style={{ marginRight: '10px' }}
-                        >
-                          <span> 02:33</span>
-                        </div>
-                        <span
-                          className="fas fa-lock"
-                          style={{ marginRight: '10px' }}
-                        ></span>
-                      </a>
+                        日本高階商
+                      </span>
+                      <div
+                        className=""
+                        style={{ marginRight: '10px' }}
+                      >
+                        <span> 02:33</span>
+                      </div>
+                      <span
+                        className="fas fa-lock"
+                        style={{ marginRight: '10px' }}
+                      ></span>
+                    </li>
+                  </Link>
+                  <Link
+                    className="list-content flex"
+                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
+                  >
+                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
+                      <span
+                        className="item flex"
+                        style={{ marginRight: '10px' }}
+                      >
+                        日本高階商
+                      </span>
+                      <div
+                        className=""
+                        style={{ marginRight: '10px' }}
+                      >
+                        <span> 02:33</span>
+                      </div>
+                      <span
+                        className="fas fa-lock"
+                        style={{ marginRight: '10px' }}
+                      ></span>
                     </li>
                   </Link>
                 </ul>

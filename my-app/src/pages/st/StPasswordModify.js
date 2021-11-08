@@ -19,7 +19,7 @@ export default withRouter(function StPasswordModify(props) {
     : ''
   const identity = member ? JSON.parse(member).identity : ''
   const studentSid = member ? JSON.parse(member).sid : ''
-  const { auth, setAuth } = props
+  // const { auth, setAuth } = props
   const [imgSrc, setImgSrc] = useState('')
 
   const [close, setClose] = useState('far fa-eye-slash')

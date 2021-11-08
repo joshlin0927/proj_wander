@@ -5,7 +5,6 @@ import axios from 'axios'
 import Carousel from 'react-grid-carousel'
 import dayjs from 'dayjs'
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 // import { IMG_PATH } from '../../config'
 //月曆測試用data
 // import { events as eventData } from './event'
@@ -18,8 +17,6 @@ import Footer from '../../components/Footer'
 let selectTimeout
 const now = () => new Date()
 export default function StCalendar(props) {
-  const MySwal = withReactContent(Swal)
-
   //讓側邊滑出已購買課程供排程選擇
   const [schedule, setSchedule] = useState('')
   const history = useHistory()
@@ -27,7 +24,7 @@ export default function StCalendar(props) {
   const member = localStorage.getItem('member')
   const identity = JSON.parse(member).identity
   const studentSid = JSON.parse(member).sid
-  const { auth, setAuth } = props
+  const { auth } = props
   const [imgSrc, setImgSrc] = useState('')
   const [events, setEvents] = useState([{}])
   const [courses, setCourses] = useState([{}])
@@ -91,14 +88,14 @@ export default function StCalendar(props) {
     }
   }, [mytest])
 
-  //carousel設定
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
+  // //carousel設定
+  // const settings = {
+  //   dots: false,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  // }
 
   //日曆設定
 

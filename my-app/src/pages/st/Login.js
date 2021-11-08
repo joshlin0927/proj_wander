@@ -4,27 +4,22 @@ import { useHistory } from 'react-router'
 import React, { useState, useRef, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import {
-  devUrl,
-  MemberLogin,
-  MemberLoginVerify,
-} from '../../config'
+import { devUrl, MemberLogin } from '../../config'
 import emailjs from 'emailjs-com'
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-import axios from 'axios'
+// import withReactContent from 'sweetalert2-react-content'
 
 function Login(props) {
   const { auth, setAuth, setUser } = props
   const history = useHistory()
   const formRef = useRef(null)
-  const MySwal = withReactContent(Swal)
-  const token = localStorage.getItem('token')
+  // const MySwal = withReactContent(Swal)
+  // const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
     ? localStorage.getItem('member')
     : ''
-  const identity = member ? JSON.parse(member).identity : ''
-  const studentSid = member ? JSON.parse(member).sid : ''
+  // const identity = member ? JSON.parse(member).identity : ''
+  // const studentSid = member ? JSON.parse(member).sid : ''
   //儲存所有欄位的值
   const [fields, setFields] = useState({
     email: '',
@@ -40,6 +35,13 @@ function Login(props) {
     email: '',
     password: '',
   })
+
+  // 已登入狀態跳轉
+  useEffect(() => {
+    if (member) {
+      props.history.push('/')
+    }
+  }, [member, props.history])
 
   // 專門用來處理每個欄位的輸入用
   const handleFieldChange = (e) => {
@@ -76,7 +78,7 @@ function Login(props) {
     // FormData 利用的是表單元素的 name
 
     const usp = new URLSearchParams(new FormData(e.target))
-    const r = fetch(MemberLogin, {
+    fetch(MemberLogin, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

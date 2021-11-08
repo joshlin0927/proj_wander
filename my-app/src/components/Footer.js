@@ -38,8 +38,8 @@ function Footer(props) {
               </Link>
             </div>
             <div className="Footer-page-links col-12 col-md-8">
-              <Link to="#/">關於我們</Link>
-              <Link to="#/">常見問題</Link>
+              <Link to="/AboutUs">關於我們</Link>
+              <Link to="/Comonproblem">常見問題</Link>
               {identity === 0 ? (
                 <Link to="/ArtIndex/ArticleSt">
                   國際角落

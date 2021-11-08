@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 import {
   CsMessage_LIST,
   // Art_inter_LIST,
-  devUrl,
   IMG_PATH,
 } from '../../config'
 
@@ -98,7 +97,7 @@ function ArtMessage(prop) {
         {/* breadcrumb */}
         {/* <div className="row"> */}
         <MultiLevelBreadCrumb />
-        {/* </div> */}  
+        {/* </div> */}
 
         <div className="row justify-content-center col-12">
           <div className="art-p-page-info col-12 col-md-8">
@@ -195,7 +194,7 @@ function ArtMessage(prop) {
 
         <Link to={`/Course/CsMessageADD/`}>
           <button className="btn Article-ar-btn-secondary mx-auto  one-btn-sin btn-b-sin">
-          我要評論
+            我要評論
           </button>
         </Link>
       </div>

@@ -4,17 +4,12 @@ import './comonproblem.css'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom'
-import HomeBgDecorationNormal from '../../components/home/HomeBgDecorationNormal'
 
 import ComonproblemDecorationNormal from '../../components/articles/ComonproblemDecorationNormal'
 
 import Chevron from './chevron.svg'
 
-import Figure from 'react-bootstrap/Figure'
-
 function Comonproblem() {
-  const [searchWord, setSearchWord] = useState('')
-
   const [toggle, setToggle] = useState(false)
   const [togglea, setTogglea] = useState(false)
   const [toggleb, setToggleb] = useState(false)
@@ -57,7 +52,7 @@ function Comonproblem() {
       <div className="container mainContent">
         <MultiLevelBreadCrumb />
 
-        <div className="row   comport-img">
+        <div className="row comport-img">
           <div className="col-10 ml-auto comp-pageName ">
             <span className="comp-pageNameText ">
               常見問題
@@ -79,8 +74,9 @@ function Comonproblem() {
                 >
                   <span>退款狀態：常見問題</span>
                   <img
-                    className={toggle && 'active'}
+                    className={toggle ? '' : 'active'}
                     src={Chevron}
+                    alt=""
                   />
                 </button>
 
@@ -110,8 +106,9 @@ function Comonproblem() {
                 >
                   <span>如何找到您遺漏的課程</span>
                   <img
-                    className={togglea && 'active'}
+                    className={togglea ? '' : 'active'}
                     src={Chevron}
+                    alt=""
                   />
                 </button>
 
@@ -143,8 +140,9 @@ function Comonproblem() {
                     如何下載您的結業證書（在瀏覽器上）{' '}
                   </span>
                   <img
-                    className={toggleb && 'active'}
+                    className={toggleb ? '' : 'active'}
                     src={Chevron}
+                    alt=""
                   />
                 </button>
 
@@ -165,7 +163,6 @@ function Comonproblem() {
                     目前才有線上申請的方式，如果有問題請聯繫我們團隊。
                   </p>
                 </div>
-
               </div>
               <div>
                 <button
@@ -174,8 +171,9 @@ function Comonproblem() {
                 >
                   <span>Wander 上的付款方式</span>
                   <img
-                    className={togglec && 'active'}
+                    className={togglec ? '' : 'active'}
                     src={Chevron}
+                    alt=""
                   />
                 </button>
 
@@ -204,8 +202,9 @@ function Comonproblem() {
                 >
                   <span>如何解決付款問題</span>
                   <img
-                    className={toggled && 'active'}
+                    className={toggled ? '' : 'active'}
                     src={Chevron}
+                    alt=""
                   />
                 </button>
 
@@ -234,8 +233,9 @@ function Comonproblem() {
                 >
                   <span>Wander 如何運作？</span>
                   <img
-                    className={togglee && 'active'}
+                    className={togglee ? '' : 'active'}
                     src={Chevron}
+                    alt=""
                   />
                 </button>
 
@@ -277,10 +277,10 @@ function Comonproblem() {
                   <figcaption>
                     <span>入門</span>
 
-                    <a href="#">
+                    <Link to="#/">
                       了解Wander
                       的工作原理以及如何開始學習。
-                    </a>
+                    </Link>
                   </figcaption>
                 </figure>
               </li>
@@ -301,7 +301,7 @@ function Comonproblem() {
                       個人資料
                     </span>
 
-                    <a href="#">管理您的帳戶設置。</a>
+                    <Link to="#/">管理您的帳戶設置。</Link>
                   </figcaption>
                 </figure>
               </li>
@@ -318,7 +318,9 @@ function Comonproblem() {
                   <figcaption>
                     <span>故障排除</span>
 
-                    <a href="#">遇到技術問題？檢查這裡。</a>
+                    <Link to="#/">
+                      遇到技術問題？檢查這裡。
+                    </Link>
                   </figcaption>
                 </figure>
               </li>
@@ -335,9 +337,9 @@ function Comonproblem() {
                   <figcaption>
                     <span>選課</span>
 
-                    <a href="#">
+                    <Link to="#/">
                       關於參加 Wander 課程的一切。
-                    </a>
+                    </Link>
                   </figcaption>
                 </figure>
               </li>
@@ -354,7 +356,9 @@ function Comonproblem() {
                   <figcaption>
                     <span>購買/退款</span>
 
-                    <a href="#">了解購買課程、如何退款。</a>
+                    <Link to="#/">
+                      了解購買課程、如何退款。
+                    </Link>
                   </figcaption>
                 </figure>
               </li>
@@ -371,9 +375,9 @@ function Comonproblem() {
                   <figcaption>
                     <span>移動裝置</span>
 
-                    <a href="#">
+                    <Link to="#/">
                       在旅途中？了解我們的行動裝置。
-                    </a>
+                    </Link>
                   </figcaption>
                 </figure>
               </li>

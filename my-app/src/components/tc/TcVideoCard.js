@@ -33,7 +33,9 @@ function TcVideoCard(props) {
 
   const deleteVideo = async () => {
     let r = await axios.delete(TcVideo__DELETE + sid)
-    handleClose()
+    if (r.status === 200) {
+      handleClose()
+    }
   }
 
   //修改影片

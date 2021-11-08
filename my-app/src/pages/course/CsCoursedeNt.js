@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 //課程詳細頁沒購買課程圖(有鎖頭)
 import { devUrl } from '../../config'
 import { Modal } from 'react-bootstrap'
@@ -40,11 +40,6 @@ function CsCoursedeNt() {
                   type="video/mp4"
                 />
               </video> */}
-              <div className="">
-                {' '}
-                <img src="" />
-              </div>
-
               <div className="dsds">
                 <span
                   className="fas fa-lock lock"

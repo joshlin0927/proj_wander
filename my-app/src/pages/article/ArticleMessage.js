@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { devUrl } from '../../config'
-import { useHistory } from 'react-router'
 import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
 
@@ -10,7 +9,6 @@ import {
   Art_Article_messenger_LIST,
   IMG_PATH,
 } from '../../config'
-
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -22,15 +20,11 @@ import ArticleMessageList from './ArticleMessageList'
 import TcHasNoCourse from './TcHasNoCourse'
 
 function ArticleMessage(props) {
+  const queryParams = new URLSearchParams(
+    window.location.search
+  )
 
-  const member = localStorage.getItem('member')
-
-
-  const queryParams = new URLSearchParams(window.location.search);
-
-
-
-  const id = queryParams.get('articleSid');
+  const id = queryParams.get('articleSid')
 
   // const member = localStorage.getItem('member')
   //const teacherSid = JSON.parse(member).sid
@@ -62,7 +56,7 @@ function ArticleMessage(props) {
   const [displayCourse, setDisplayCourse] = useState([{}])
 
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
-  const [RemoveCourse, setRemoveCourse] = useState()
+  // const [RemoveCourse, setRemoveCourse] = useState()
 
   // 拿去做map排列的，取的是r.data.rows，或是其它處理
   const [displayMessage, setDisplayMessage] = useState([{}])
@@ -103,7 +97,7 @@ function ArticleMessage(props) {
         // setImgSrc(r.data.rows[0].avatar)
       }
     })()
-  }, [])
+  }, [id, props.location.search])
 
   return (
     <>

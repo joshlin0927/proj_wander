@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-11-07 19:11:04
--- 伺服器版本： 10.4.20-MariaDB
--- PHP 版本： 7.4.21
+-- 產生時間： 2021-11-08 08:22:24
+-- 伺服器版本： 10.4.21-MariaDB
+-- PHP 版本： 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -213,7 +213,10 @@ CREATE TABLE `chat_message` (
 
 INSERT INTO `chat_message` (`sid`, `conversationID`, `senderID`, `text`, `created_at`) VALUES
 (1, 2, 2, 'hello', '2021-11-07 15:53:35'),
-(2, 3, 2, 'hello2', '2021-11-07 16:07:28');
+(2, 3, 2, 'hello2', '2021-11-07 16:07:28'),
+(88, 2, 2, 'fwefawfwa', '2021-11-08 14:35:07'),
+(89, 2, 2, 'qewqweqweqw', '2021-11-08 14:35:13'),
+(90, 2, 3, 'ffff', '2021-11-08 14:35:32');
 
 -- --------------------------------------------------------
 
@@ -241,24 +244,24 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`sid`, `teacher_sid`, `course_category`, `course_name`, `course_img`, `course_price`, `course_data`, `duration`, `course_introduction`, `easiness`, `course_status`, `created_at`) VALUES
-(1, '1', '日文', '零基礎輕鬆成為日語達人', '零基礎輕鬆成為日語達人.jpeg', 2755, '2021-06-08', 5, '「以同學熟悉的主修課程文法概念」作為出發點向外延伸，將學過的日語基礎概念向外延伸，模擬旅遊實境，讓同學能以符合自身程度、自然且不失禮的日語，向日本人表達自己的需求，真正達到「學以致用」的效果。', '3', 1, '0000-00-00 00:00:00'),
-(23, '1', '日文', 'N5情境會話課程', 'N5情境會話課程.jpeg', 6000, '2021-08-11', 10, '學習使用日文進行簡單自我介紹，能看懂日文固定詞句與簡單文體。學習課堂上或周遭等日常生活中常接觸之情境中，如為速度較慢之簡短對話，可從中聽取必要資訊。', '1', 0, '0000-00-00 00:00:00'),
-(24, '1', '日文', '生活與文化日語', '生活與文化日語.jpeg', 7000, '2021-06-10', 10, '單堂獨立、無連貫性的主題課程，課中會帶領同學們一同認識日本道地的食、衣、住、行、育、樂等各項生活文化議題，除了可接觸到多元且趣味的課外詞彙之外，透過與老師及同班同學之間的意見交流，更可達到知識分享、經驗互惠的學習效果。', '1', 0, '0000-00-00 00:00:00'),
-(25, '1', '英文', '旅遊英文一把罩', '旅遊英文一把罩.jpeg', 7000, '2021-06-25', 10, '出國迷路怎麼辦？景點介紹聽不懂？環遊世界的背包客就是你！', '2', 0, '0000-00-00 00:00:00'),
-(26, '1', '英文', '會議協商與簡報技巧', '會議協商與簡報技巧.jpeg', 7000, '2021-06-29', 10, '根據職能英文培訓及實用性，模擬各項商務溝通與會議商業應用，讓您掌握商用英文技能與知識，打造無可取代的職場優勢！線上學，模擬會議與簡報訓練、商業提案、協商談判演練，全面提升職場應用商務英文能力，各項職場應用學習。', '2', 0, '0000-00-00 00:00:00'),
-(27, '1', '英文', '求職英文', '求職英文.jpeg', 8000, '2021-07-01', 10, '根據職能英文培訓及實用性，模擬英文面試、英文履歷撰寫、外商公司求職情境演練，全面提升職場應用商務英文能力。', '3', 0, '0000-00-00 00:00:00'),
-(37, '1', '英文', '生活英文實用課程', '生活英文實用課程.jpeg', 2130, '2021-11-01', 0, '日常生活的點滴、休閒或娛樂、購物和點餐，教你用英文過日子！', '', 0, '2021-11-01 11:20:59'),
-(40, '1', '英文', '社交話題不斷電', '社交話題不斷電.jpeg', 2340, '2021-11-01', 0, '社交場合，擔心失禮嗎？害怕冷場嗎？幫你打造英文社交魂！', '', 0, '2021-11-01 11:46:54'),
-(59, '1', '日文', '到日本人家作客', '到日本人家作客.jpeg', 2340, '2021-11-01', 0, '在日本留學期間，交個日本朋友以及去日本朋友家裡做客，是很普通也很常見的一件事。台日文化雖然十分相近，但文化習俗還是有差別的。本課程將讓你知道去日本朋友家裡做客一定要注意入鄉隨俗，避免做出失禮行為。\n\n', '', 0, '2021-11-01 11:46:54'),
-(60, '1', '英文', '用簡單的日文自助遊日本', '用簡單的日文自助遊日本.jpeg', 2340, '2021-11-01', 0, '學習用日文點餐、購物，迷路時知道怎麼問路，不用倚靠祂人就可以自己上日本網站訂房。', '', 0, '2021-11-01 11:46:54'),
-(61, '1', '英文', '跨國英語 con-call 實戰力', '跨國英語 con-call 實戰力.jpeg', 2340, '2021-11-01', 0, '了解會議流程，讓當聽眾的你更有效地了解會議內容，\n適當出聲，問專業的問題，也能讓主管看到你的能力！', '', 0, '2021-11-01 11:46:54'),
-(62, '1', '英文', '帶老外遊台灣', '帶老外遊台灣.jpg', 2340, '2021-11-01', 0, '外國朋友來台灣旅遊時，流暢用英文介紹豐富的台灣在地小吃及特色文化！', '', 0, '2021-11-01 11:46:54'),
-(63, '1', '英文', '700+分數保證多益課程', '700+分數保證多益課程.jpeg', 2340, '2021-11-01', 0, '本課程透過聽力、閱讀模擬練習的過程中，將所學的單字、文法應用在生活中，透過說出來、寫下來的方式加深長期記憶，確實熟練單字用法，才能看懂、聽懂TOEIC考試整篇文章的意境，進而正確迅速地回答問題，並且有效養成英語實力。', '', 0, '2021-11-01 11:46:54'),
-(65, '1', '英文', '提升英文口説流暢度', '提升英文口説流暢度.jpeg', 2340, '2021-11-01', 0, '本課程將讓你搞懂母音發展出來的 20 多種變化發音，遇到類似拼音的單字，也可以推測正確發音，以及辨別相似發音，不同意思的單字。還有類似拼法，但發音完全不一樣的單字。', '', 0, '2021-11-01 11:46:54'),
-(66, '1', '英文', '英文情境會話開口說', '英文情境會話開口說.jpeg', 2340, '2021-11-01', 0, '你對自己的英語口說能力滿意嗎？是否常常只會那幾句，又害怕講錯被糾正而更不敢開口說？本課程將教你如何掌握使用單字及句型的準確度，輕輕鬆鬆開口說英語！', '', 0, '2021-11-01 11:46:54'),
-(67, '1', '英文', '秒懂日本飲食文化', '秒懂日本飲食文化.jpeg', 2340, '2021-11-01', 0, '單堂獨立、無連貫性的主題課程，課中會帶領同學們一同認識日本道地的食、衣、住、行、育、樂等各項生活文化議題，除了可接觸到多元且趣味的課外詞彙之外，透過與老師及同班同學之間的意見交流，更可達到知識分享、經驗互惠的學習效果。', '', 0, '2021-11-01 11:46:54'),
-(68, '1', '英文', '學美國道地的說話習慣', '學美國道地的說話習慣.jpeg', 2340, '2021-11-01', 0, '從英文和中文的口說發音習慣切入課程，提供你小技巧幫助你調整口說方式直到接近英文母語者。', '', 0, '2021-11-01 11:46:54'),
-(69, '1', '英文', '用「英文邏輯」溝通說服你的主管、同事', '用「英文邏輯」溝通說服你的主管、同事.jpeg', 2340, '2021-11-01', 0, '國際認證外師全英語面對面授課，著重職場英文的各種情境會話與商用寫作主題，讓你一次掌握必備技巧，在任何情境會話中都能自信開口說英文！', '', 0, '2021-11-01 11:46:54');
+(1, '1', '日文', '零基礎輕鬆成為日語達人', '零基礎輕鬆成為日語達人.jpg', 2755, '2021-06-08', 3510, '「以同學熟悉的主修課程文法概念」作為出發點向外延伸，將學過的日語基礎概念向外延伸，模擬旅遊實境，讓同學能以符合自身程度、自然且不失禮的日語，向日本人表達自己的需求，真正達到「學以致用」的效果。', '3', 1, '0000-00-00 00:00:00'),
+(23, '1', '日文', 'N5情境會話課程', 'N5情境會話課程.jpg', 6000, '2021-08-11', 2756, '學習使用日文進行簡單自我介紹，能看懂日文固定詞句與簡單文體。學習課堂上或周遭等日常生活中常接觸之情境中，如為速度較慢之簡短對話，可從中聽取必要資訊。', '1', 0, '0000-00-00 00:00:00'),
+(24, '1', '日文', '生活與文化日語', '生活與文化日語.jpg', 7000, '2021-06-10', 1389, '單堂獨立、無連貫性的主題課程，課中會帶領同學們一同認識日本道地的食、衣、住、行、育、樂等各項生活文化議題，除了可接觸到多元且趣味的課外詞彙之外，透過與老師及同班同學之間的意見交流，更可達到知識分享、經驗互惠的學習效果。', '1', 0, '0000-00-00 00:00:00'),
+(25, '1', '英文', '旅遊英文一把罩', '旅遊英文一把罩.jpg', 7000, '2021-06-25', 2470, '出國迷路怎麼辦？景點介紹聽不懂？環遊世界的背包客就是你！', '2', 0, '0000-00-00 00:00:00'),
+(26, '1', '英文', '會議協商與簡報技巧', '會議協商與簡報技巧.jpg', 7000, '2021-06-29', 3446, '根據職能英文培訓及實用性，模擬各項商務溝通與會議商業應用，讓您掌握商用英文技能與知識，打造無可取代的職場優勢！線上學，模擬會議與簡報訓練、商業提案、協商談判演練，全面提升職場應用商務英文能力，各項職場應用學習。', '2', 0, '0000-00-00 00:00:00'),
+(27, '1', '英文', '求職英文', '求職英文.jpg', 8000, '2021-07-01', 3443, '根據職能英文培訓及實用性，模擬英文面試、英文履歷撰寫、外商公司求職情境演練，全面提升職場應用商務英文能力。', '3', 0, '0000-00-00 00:00:00'),
+(37, '1', '英文', '生活英文實用課程', '生活英文實用課程.jpg', 2130, '2021-11-01', 3517, '日常生活的點滴、休閒或娛樂、購物和點餐，教你用英文過日子！', '', 0, '2021-11-01 11:20:59'),
+(40, '1', '英文', '社交話題不斷電', '社交話題不斷電.jpg', 2340, '2021-11-01', 10537, '社交場合，擔心失禮嗎？害怕冷場嗎？幫你打造英文社交魂！', '', 0, '2021-11-01 11:46:54'),
+(59, '1', '日文', '到日本人家作客', '到日本人家作客.jpg', 2340, '2021-11-01', 2233, '在日本留學期間，交個日本朋友以及去日本朋友家裡做客，是很普通也很常見的一件事。台日文化雖然十分相近，但文化習俗還是有差別的。本課程將讓你知道去日本朋友家裡做客一定要注意入鄉隨俗，避免做出失禮行為。\n\n', '', 0, '2021-11-01 11:46:54'),
+(60, '1', '英文', '用簡單的日文自助遊日本', '用簡單的日文自助遊日本.jpg', 2340, '2021-11-01', 5845, '學習用日文點餐、購物，迷路時知道怎麼問路，不用倚靠祂人就可以自己上日本網站訂房。', '', 0, '2021-11-01 11:46:54'),
+(61, '1', '英文', '跨國英語 con-call 實戰力', '跨國英語 con-call 實戰力.jpg', 2340, '2021-11-01', 2838, '了解會議流程，讓當聽眾的你更有效地了解會議內容，\n適當出聲，問專業的問題，也能讓主管看到你的能力！', '', 0, '2021-11-01 11:46:54'),
+(62, '1', '英文', '帶老外遊台灣', '帶老外遊台灣.jpg', 2340, '2021-11-01', 3199, '外國朋友來台灣旅遊時，流暢用英文介紹豐富的台灣在地小吃及特色文化！', '', 0, '2021-11-01 11:46:54'),
+(63, '1', '英文', '700+分數保證多益課程', '700+分數保證多益課程.jpg', 2340, '2021-11-01', 2950, '本課程透過聽力、閱讀模擬練習的過程中，將所學的單字、文法應用在生活中，透過說出來、寫下來的方式加深長期記憶，確實熟練單字用法，才能看懂、聽懂TOEIC考試整篇文章的意境，進而正確迅速地回答問題，並且有效養成英語實力。', '', 0, '2021-11-01 11:46:54'),
+(65, '1', '英文', '提升英文口説流暢度', '提升英文口説流暢度.jpg', 2340, '2021-11-01', 3391, '本課程將讓你搞懂母音發展出來的 20 多種變化發音，遇到類似拼音的單字，也可以推測正確發音，以及辨別相似發音，不同意思的單字。還有類似拼法，但發音完全不一樣的單字。', '', 0, '2021-11-01 11:46:54'),
+(66, '1', '英文', '英文情境會話開口說', '英文情境會話開口說.jpg', 2340, '2021-11-01', 3324, '你對自己的英語口說能力滿意嗎？是否常常只會那幾句，又害怕講錯被糾正而更不敢開口說？本課程將教你如何掌握使用單字及句型的準確度，輕輕鬆鬆開口說英語！', '', 0, '2021-11-01 11:46:54'),
+(67, '1', '英文', '秒懂日本飲食文化', '秒懂日本飲食文化.jpg', 2340, '2021-11-01', 2738, '單堂獨立、無連貫性的主題課程，課中會帶領同學們一同認識日本道地的食、衣、住、行、育、樂等各項生活文化議題，除了可接觸到多元且趣味的課外詞彙之外，透過與老師及同班同學之間的意見交流，更可達到知識分享、經驗互惠的學習效果。', '', 0, '2021-11-01 11:46:54'),
+(68, '1', '英文', '學美國道地的說話習慣', '學美國道地的說話習慣.jpg', 2340, '2021-11-01', 2735, '從英文和中文的口說發音習慣切入課程，提供你小技巧幫助你調整口說方式直到接近英文母語者。', '', 0, '2021-11-01 11:46:54'),
+(69, '1', '英文', '用「英文邏輯」溝通說服你的主管、同事', '用「英文邏輯」溝通說服你的主管、同事.jpg', 2340, '2021-11-01', 0, '國際認證外師全英語面對面授課，著重職場英文的各種情境會話與商用寫作主題，讓你一次掌握必備技巧，在任何情境會話中都能自信開口說英文！', '', 0, '2021-11-01 11:46:54');
 
 -- --------------------------------------------------------
 
@@ -323,22 +326,6 @@ INSERT INTO `member` (`sid`, `identity`, `verification`, `avatar`, `firstname`, 
 (3, 1, 2, '12744a0a-c5ff-41a4-a3ac-d3953a91545e.jpg', 'Yumika', '', 'Yumika', 't3@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、日文', '日本', 'Native Japaneseable to speak English and Chinese\r\n5years teaching experience\r\nMaster’s course of International education\r\nJapanese school teacher license\r\nExperienced Japanese volunteers \r\nKids Japanese \r\nBeginners \r\nJapanese character \r\nMinna no Nihongo\r\nListening, reading and pronunciation \r\nExam preparation', '2020-04-13'),
 (4, 1, 2, '4df3a732-b28b-4153-b99e-cdcbf31da830.jpg', 'Tracy', '', 'Tracy', 't4@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文', '美國', 'ESL expert, TESOL certified, \r\n1000+ hours of teaching English to adults/teens/kids, all levels of fluency. \r\nInteresting, interactive & engaging classes. Give students the right environment to practice the language. \r\nDaily conversation \r\nEnglish for kids & teens \r\nBusiness English', '2020-04-13'),
 (5, 1, 2, 'ea3e6c31-905c-4f99-bd31-b2747d3865a3.jpg', 'Jeffrey', '', 'Jeffrey', 't5@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '英文', '美國', '6+ teaching experiences\r\nTESOL certificate \r\nChild expert \r\nVery Experienced Teacher! \r\nOver 16,000 classes taught! \r\nAges 5 - Adult Grammar Speaking Reading Writing Business Finance Marketing Sales \r\nBachelor of Business Marketing \r\nStudying for Chartered Professional Accountants', '2020-04-13'),
-(6, 0, 0, NULL, '裴儀', '', 'Amanda', 'mebycute@yahoo.com.tw', '$2y$10$.oYcT2djWelQuNUzsdyKLehgNWg09A/Pt7iowdtbgwDp4KxN0De0y', '1998-03-12', 2, '', '', '', '2021-08-12'),
-(7, 0, 0, NULL, '林以凡', '', 'Michael', 'mic@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1993-12-31', 1, '', '', '', '2021-08-12'),
-(8, 0, 0, '703d8337-d22a-4875-8ecc-d9f48863b72b.jpg', '楊宗翰', '', 'Jeffrey', 'hanyang@yahoo.com.tw', '$2y$10$.xN3DJmZJ.Bl6z3IWmHRX.BRbwwU69.Qo20FYGEkFBKvd88JtqR4C', '1991-04-15', 1, '', '', '', '2021-08-12'),
-(9, 0, 0, 'f84b3006-b697-4a6b-8bc7-de21521c750f.jpg', '余舒旻', '', 'yuki', 'littleyu@gmail.com', '$2y$10$NGO/9qhSCLzMaK.A1.zIoO1.SyHkw1yeLHfWkTmRkQjmGhbKmG/nS', '1997-05-12', 2, '', '', '', '2021-08-12'),
-(10, 0, 0, 'eca70f10-1e90-4fa1-8d59-8406502a0dfd.jpg', '沈菀如', '', 'Ruby', 'rsheng@hotmail.com', '$2y$10$fYYlJLdna6D4Y6mG0leDX.aB9B9/E2rXlP95mI0ZQjVhiMHLbsR9y\n', '1995-03-04', 2, '', '', '', '2021-08-12'),
-(11, 0, 0, '86be747d-42fc-41ed-a771-d80cf697cea1.jpg', '卓藝岑', '', 'Lisa', 'yicen1992@yahoo.com.tw', '$2y$10$lVTcfPCWj73e3Yayctkf5.Sq4MYfeLaf4gP712n6e8UpZmO8oHaHK', '1992-04-01', 2, '', '', '', '2021-08-12'),
-(12, 0, 0, NULL, '林子勛', '', 'Ken', 'walker@gmail.com', '$2y$10$d8qooauoK8hI83od5MYk6.r.YPrYRJ5stVW/LCi7O9ptg1gnolK0e', '1996-01-01', 1, '', '', '', '2021-08-12'),
-(13, 0, 0, NULL, '范兆廷', '', 'John', 'john@hotmail.com', '$2y$10$cCfeLN6TvktpbslwmSE5neGV93TREUW3oDwk13JWLI9iJbsOn7onm', '1992-09-09', 1, '', '', '', '2021-08-12'),
-(15, 0, 0, NULL, '羅嘉玲', '', 'Emily', 'emilylo@yahoo.com.tw', '$2y$10$xImMJIFbeGue5gQSZEP8mejXPx0kMB.YXlbj4Xof7VMCp8JLiymDq', '1995-05-01', 2, '', '', '', '2021-08-15'),
-(16, 0, 0, NULL, '王小明', '', 'Ming', 'ming@gmail.com', '$2y$10$uIg3cyWN7Igyhy0dIMplOOvymEEP/zQxU31MZyGvWi9hsePVDEaiy', '1995-01-01', 1, '', '', '', '2021-08-15'),
-(18, 0, 0, NULL, '李安', '', 'An', 'anlee@gmail.com', '$2y$10$T4JEmTv.2rw7wlKnZMQ9HulJB0SWK7zo5fMz2PAkc0vP6rdHBwORe', '1954-10-23', 1, '', '', '', '2021-08-15'),
-(19, 0, 0, 'e8157cd9-f0d1-4a98-adf8-f8d54cc2f95e.jpg', '李準基', '', '이준기', 'jg@gmail.com', '$2y$10$Mh5aUI331FtJoDsFLM4HhuQhouAuPKi8.nB8KHYdOjVySK0PPYBBy', '1982-04-17', 1, '', '', '', '2021-08-15'),
-(20, 0, 0, NULL, '李知恩', '', 'IU', 'dlwlrma@gmail.com', '$2y$10$XgC4dKN50xKoAkEEEa0I3eKYh2AGJ17yjdRJaQCmZHspWJz5trVNO', '1993-05-16', 2, '', '', '', '2021-08-15'),
-(21, 0, 0, '84a8195a-c78f-443a-83fc-9b60470a55dc.jpg', 'Archie James Beale', '', 'Mal', 'mal@gmail.com', '$2y$10$iraN5SqSaLimH0y.DUyd9OmmULanMotrLQjuxZJ3X7McFWeOw8XkK', '1997-11-22', 1, '', '', '', '2021-08-15'),
-(22, 0, 0, '2a5f7853-627f-47ce-8b7c-ac25b7e585df.jpg', 'Danielle Galligan', '', 'Danielle', 'danielle@gmail.com', '$2y$10$t/eI1k3tJxJGyrWDtwA21eeZN6BvbsjibGToQ7LfnDihzMf0LNWYC', '1992-12-01', 2, '', '', '', '2021-08-15'),
-(27, 0, 0, NULL, '徐晏逸', '', 'Sabrina', 'sasainter@hotmail.com', '$2y$10$t/eI1k3tJxJGyrWDtwA21eeZN6BvbsjibGToQ7LfnDihzMf0LNWYC', '1998-06-05', 2, '', '', '', '2021-08-16'),
 (62, 1, 2, '3042a221-0aa4-437d-acea-8669b3e90908.jpg', 'Anna Ball', '', 'L50544', 'l5054@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '英文、日文', '日本', 'One-on-One Class *8.0 IELTS and 7+ years teaching experience *full time teacher, more time slots available *2800+ classes conducted *1100+ 5 star reviews *provides class notes and materials after class Materials for Business English, Daily English Conversation, Travel English, Kids English, IELTS/TOEIC/TOEFL Speaking Practice.', '2020-04-13'),
 (63, 1, 2, '4d4cd160-50d5-4031-840c-4e1a67b3c5fc.jpg', '魏嘉萱', '', 'wei', 'jiawei@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '2000-02-25', 2, '中文、英文、日文', '中國', '輔助超過50位學生取得金色多益證書 高效準備考試/面試/簡報 10年ESL教學經驗 理科腦/思路清晰/批判性思考訓練 發音矯正專家，美式口音 把英文壓力➡️自信來源 一對一客製化教學 漸進式對話練習，口說練習互動多，說的一嘴好英文不再只是口號', '2020-07-01'),
 (64, 1, 2, '29a91a4f-1b58-4593-ac3f-b0be308e5c9c.jpg', '蔣正名', '', 'wright', 'wright@hotmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1998-04-08', 1, '中文、英文', '台灣', '🎖️六年教學經歷｜線上破千堂教學🎖️紐西蘭籍華僑｜母語人士正統美語發音🎖️多益金色證書｜專業正音教師🎖️兒童美語｜成人美語🎖️學員一致評價最有耐心、親和力教師｜帶領在無壓力的英語環境下進步🎖️鑽研兒童心理學，擅長與孩子建立朋友般的互動學習關係｜活潑熱情、耐心引導開口🎖️曾任兒童劇團英語戲劇營及知名新聞台英語主播營講師', '2020-10-14'),
@@ -349,13 +336,9 @@ INSERT INTO `member` (`sid`, `identity`, `verification`, `avatar`, `firstname`, 
 (69, 1, 2, '36b258e6-e055-4251-b423-5cd5378d8e68.jpg', 'Dominguez Rose Lilly', '', 'Lily', 'lily2431@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1999-01-01', 2, '英文、日文', '美國', ' Small Pronunciation GROUP classes 50% off\r\nNative Speaker🇬🇧\r\nI speak 4 languages\r\nPronunciation Expert\r\nAdults & Kids\r\nAll Levels Welcome\r\nFluent Conversation\r\nChildren’s English\r\nBusiness English\r\nPerfect Accent\r\nFun & Calm Lessons\r\nBoost Confidence\r\nBook a trial and let’s improve your English Fast', '2021-04-16'),
 (70, 1, 0, NULL, '大川實禰', '', 'oka', 'oka0293@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1994-11-24', 2, '英文、日文', '日本', '', '2021-06-11'),
 (71, 1, 0, NULL, '杉原岩雄', '', 'iwa', 'iwa8984@yahoo.com.jp', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1990-10-17', 1, '中文、日文', '日本', '', '2021-08-18'),
-(1006, 0, 0, NULL, 'RRRRR', 'SSSSS', 'RS', 's1@ss.com', '$2a$10$AVephxPKk3dZ0LKIG4SbBOiOovXzulpa8cNhNI2epiTM05fBQBkoK', NULL, NULL, NULL, NULL, '', '2021-10-29'),
 (1008, 1, 0, NULL, 'TTTTT', 'SSSSS', 'test01', 'tt@tt.com', '$2a$10$uASYlb0UAtfZMortDvIInO/lKTu/hLuTx5qtbaupsq.DE9dFLtXUW', NULL, NULL, NULL, NULL, '', '2021-10-29'),
-(1010, 0, 0, NULL, 'samar', 'hsiao', 'samar666', 'sss@mail', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '2002-12-01', NULL, NULL, NULL, NULL, '2021-11-01'),
-(1011, 0, 0, NULL, 'hsiao', 'yushin', '', 'samar@mail', '$2a$10$UhyLK4tVUfIamgF.iCrmv.2lnAWN5qJUzuWpSHmnNitcormQ8TN0q', NULL, NULL, NULL, NULL, NULL, '2021-11-03'),
 (1012, 1, 0, NULL, 'rr', 'rr', '', 'rr@hh', '$2a$10$/65ii13Pa6we6Y4CnFhxQeGaLgRU9KS2qLj2.ZDmGfOq1MmtIPo1C', NULL, NULL, NULL, NULL, NULL, '2021-11-03'),
-(1013, 0, 0, NULL, 'dd', 'dd', '', 'dd@mail', '$2a$10$SuZeD4CIbsPMZBxlwKFZX.eHYadVTSt/GK/R7MubqKE4HH8btvJ9C', NULL, NULL, NULL, NULL, NULL, '2021-11-04'),
-(1014, 0, 0, '085dc4f3-059b-4ac4-9e1a-6a8d4eb8b571.jpg', 'samar', 'hsiao', 'samar', 'sss@gmail', '$2a$10$pGwxLf/846aJXGOLrNrWZuTIBOavsMEFukiwWqi1NXxkQhepGSDqW', '2002-10-01', NULL, NULL, NULL, NULL, '2021-11-05');
+(1016, 0, 0, NULL, 'RRR', 'SSS', 'ts', 'ts@gg.com', '$2a$10$cAhoz1oiBXQEopD0UOL8iOaGQ4UnV5GjoCM1/HOqBRcBdW.zJbIrC', NULL, NULL, NULL, NULL, NULL, '2021-11-08');
 
 -- --------------------------------------------------------
 
@@ -374,16 +357,8 @@ CREATE TABLE `order_detail` (
 --
 
 INSERT INTO `order_detail` (`sid`, `order_main_id`, `product_sid`) VALUES
-(103, 'BX217309', 1),
-(107, 'MF650761', 25),
-(108, 'MF650761', 24),
-(109, 'MF650761', 26),
-(110, 'MF650761', 37),
-(111, 'MF650761', 40),
-(112, 'PP458786', 24),
-(113, 'PP458786', 25),
-(114, 'PP458786', 26),
-(116, 'FT259723', 1);
+(122, 'JO407383', 67),
+(123, 'JO407383', 65);
 
 -- --------------------------------------------------------
 
@@ -407,12 +382,7 @@ CREATE TABLE `order_main` (
 --
 
 INSERT INTO `order_main` (`sid`, `order_id`, `member_sid`, `pay_method`, `cstoresort`, `order_status`, `total_price`, `created_at`) VALUES
-(50, 'BX217309', 1010, 2, 1, 0, 5648, '2021-11-02 00:09:30'),
-(51, 'MF650761', 1010, 1, 0, 1, 15147, '2021-11-02 00:10:29'),
-(52, 'PP458786', 1006, 2, 2, 0, 19950, '2021-11-02 15:43:34'),
-(53, 'FT259723', 1006, 2, 3, 0, 5865, '2021-11-02 15:44:24'),
-(54, 'PK869345', 1006, 3, 0, 2, 16830, '2021-11-02 15:46:01'),
-(55, 'YK565171', 1006, 1, 0, 1, 14868, '2021-11-02 15:48:00');
+(56, 'JO407383', 1016, 2, 1, 1, 4580, '2021-11-08 14:16:42');
 
 -- --------------------------------------------------------
 
@@ -428,6 +398,14 @@ CREATE TABLE `schedule` (
   `end` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- 傾印資料表的資料 `schedule`
+--
+
+INSERT INTO `schedule` (`sid`, `member_sid`, `title`, `start`, `end`) VALUES
+(1, 1016, '提升英文口説流暢度', '2021-11-08 00:00:00', '2021-11-12 00:00:00'),
+(3, 1016, '秒懂日本飲食文化', '2021-11-14 00:00:00', '2021-11-19 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -437,8 +415,8 @@ CREATE TABLE `schedule` (
 CREATE TABLE `sentence_game` (
   `sid` int(11) NOT NULL,
   `language` varchar(30) NOT NULL,
-  `ques` varchar(1000) NOT NULL,
-  `ans` varchar(1000) NOT NULL,
+  `ques` varchar(999) NOT NULL,
+  `ans` varchar(999) NOT NULL,
   `easiness` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -447,15 +425,46 @@ CREATE TABLE `sentence_game` (
 --
 
 INSERT INTO `sentence_game` (`sid`, `language`, `ques`, `ans`, `easiness`) VALUES
-(1, 'English', '我喜歡和我的朋友一起去看電影', 'I like to watch movies with my friends', 2),
-(2, 'English', '閱讀是我的興趣之一', 'Reading is one of my interest', 2),
-(3, 'English', '放學後我會去圖書館', 'I will go to library after school', 1),
-(4, 'English', '我的同學正在教室唱歌', 'My classmate is singing in classroom', 1),
-(5, 'Japanese', '這就是我的忍道', 'これ が 私 の 忍道 です', 2),
-(6, 'Japanese', '真相只有一個', '真実 は いつも ひとつ', 2),
-(7, 'English', '每個人每天都需要喝水', 'Everyone needs to drink water everyday', 2),
-(8, 'English', '你可以把門打開嗎', 'Can you open the door', 2),
-(9, 'English', '他昨天晚上沒有回家', 'He didn\'t go home last night', 2);
+(1, 'en-US', '我喜歡和我的朋友一起去看電影', 'I like to watch movies with my friends', 2),
+(2, 'en-US', '閱讀是我的興趣之一', 'Reading is one of my interest', 2),
+(3, 'en-US', '放學後我會去圖書館', 'I will go to library after school', 2),
+(4, 'en-US', '我的同學正在教室唱歌', 'My classmate is singing in classroom', 2),
+(5, 'en-US', '每個人每天都需要喝水', 'Everyone needs to drink water everyday', 2),
+(6, 'en-US', '你可以把門打開嗎', 'Can you open the door', 1),
+(7, 'en-US', '他昨天晚上沒有回家', 'He didn\'t go home last night', 1),
+(8, 'en-US', 'Alice每天都會去學校', 'Alice goes to school everyday', 1),
+(9, 'en-US', 'Jack是我最好的朋友', 'Jack is my best friend', 1),
+(10, 'en-US', '請把電燈打開', 'Please turn on the light', 1),
+(11, 'ja-JP', '我是台灣人', '私 は 台湾人 です', 1),
+(12, 'ja-JP', '我吃蘋果', 'りんご を 食べます', 1),
+(13, 'ja-JP', '那棟建築很有名', 'あの たてもの は ゆうめい です', 1),
+(14, 'ja-JP', '昨天去看了電影', '昨日 は 映画 を 見に 行きました', 1),
+(15, 'ja-JP', '現在是幾點', '今 は 何時 ですか', 1),
+(16, 'ja-JP', '你是台灣人嗎', 'あなた は 台湾人 ですか', 2),
+(17, 'ja-JP', '對 我是台灣人', 'はい 台湾人 です', 2),
+(18, 'ja-JP', '你晚餐吃什麼', '晩ご飯 は 何 を 食べ ました か', 2),
+(19, 'ja-JP', '我吃了炒飯', 'チャーハン を 食べました', 2),
+(20, 'ja-JP', '喜歡什麼水果', 'フルーツ は 何 が 好き ですか', 2),
+(21, 'ja-JP', '我喜歡鳳梨', '私 は パイナップル が 好きです', 2),
+(22, 'ja-JP', '你現在想要什麼', 'あなた は 今 なに が 欲しい ですか', 2),
+(23, 'ja-JP', '我想要新的手機', '新しい 携帯 が 欲しい です', 2),
+(24, 'ja-JP', '今天也努力工作', '今日 も お仕事 頑張ります', 2),
+(25, 'ja-JP', '你的工作是什麼', 'あなた の お仕事 は なん ですか', 2),
+(26, 'ja-JP', '你有去過日本嗎', 'あなた は 日本 に 行った こと が ありますか', 3),
+(27, 'ja-JP', '哥哥想吃甜的食物', 'お兄さん は 甘い もの を 食べ たがり ます', 3),
+(28, 'ja-JP', '那個人每天看小說', 'あの人 は 毎日 小説 を 読んで います', 3),
+(29, 'ja-JP', '朋友回美國去了', '友達 は アメリカ へ 帰って いきました', 3),
+(30, 'ja-JP', '身體突然變得不舒服', '急に 体調 が 悪く なって きました', 3),
+(31, 'ja-JP', '明天早點去醫院比較好', '明日 は 早く 病院 に いった ほう が いいです', 3),
+(32, 'ja-JP', '老師讓學生接受測驗', '先生 は 学生 に 試験 を 受け させました', 3),
+(33, 'ja-JP', '我被老師罵了', '私 は 先生 に 叱ら れました', 3),
+(34, 'ja-JP', '我一邊聽音樂一邊念書', '私 は 音楽 を 聞き ながら 勉強 を しました', 3),
+(35, 'ja-JP', '可以借個筆嗎', 'ペン を お借り できませんか', 3),
+(36, 'ja-JP', '為了健康所以上健身房', '健康 の ために ジム に 通って います', 3),
+(37, 'ja-JP', '每年六月都會舉行畢業典禮', '毎年 六月 に 卒業式 が 行われます', 3),
+(38, 'ja-JP', '我被觀光客問路', '私 は 観光客 に 道 を 聞かれ ました', 3),
+(39, 'ja-JP', '我請朋友借我書', '私 は 友達 に 本 を 貸して もらい ました', 3),
+(40, 'ja-JP', '什麼日本料理我都吃', '私 は 日本料理 は 何 でも 食べれ ます', 3);
 
 -- --------------------------------------------------------
 
@@ -607,34 +616,34 @@ CREATE TABLE `viewcount` (
 
 INSERT INTO `viewcount` (`sid`, `course_sid`, `Jan`, `Feb`, `Mar`, `Apr`, `May`, `Jun`) VALUES
 (1, 34, 731, 559, 279, 195, 221, 127),
-(2, 18, 375, 290, 412, 437, 723, 536),
+(2, 67, 375, 290, 412, 437, 723, 536),
 (3, 27, 23, 607, 128, 358, 246, 30),
-(4, 16, 418, 511, 127, 43, 258, 587),
-(5, 10, 7, 474, 183, 420, 347, 575),
+(4, 65, 418, 511, 127, 43, 258, 587),
+(5, 40, 7, 474, 183, 420, 347, 575),
 (6, 23, 131, 111, 2, 157, 139, 65),
 (7, 58, 6, 145, 68, 63, 112, 51),
-(8, 2, 34, 157, 42, 59, 8, 26),
+(8, 23, 34, 157, 42, 59, 8, 26),
 (9, 50, 119, 133, 149, 24, 153, 54),
 (10, 46, 142, 6, 81, 71, 108, 11),
 (11, 29, 120, 104, 159, 2, 13, 61),
 (12, 45, 139, 72, 102, 133, 39, 118),
 (13, 56, 130, 158, 79, 81, 10, 124),
 (14, 57, 38, 8, 84, 77, 133, 112),
-(15, 4, 102, 15, 88, 74, 107, 152),
+(15, 25, 102, 15, 88, 74, 107, 152),
 (16, 24, 62, 74, 23, 52, 32, 5),
-(17, 20, 83, 105, 118, 114, 55, 92),
-(18, 3, 21, 55, 195, 142, 198, 149),
+(17, 69, 83, 105, 118, 114, 55, 92),
+(18, 24, 21, 55, 195, 142, 198, 149),
 (19, 40, 118, 397, 363, 17, 78, 133),
-(20, 15, 106, 369, 263, 139, 85, 13),
-(21, 17, 302, 88, 555, 74, 29, 29),
+(20, 63, 106, 369, 263, 139, 85, 13),
+(21, 66, 302, 88, 555, 74, 29, 29),
 (22, 33, 427, 439, 56, 109, 16, 94),
 (23, 43, 60, 580, 284, 187, 184, 30),
 (24, 52, 123, 173, 421, 257, 22, 100),
-(25, 8, 219, 527, 47, 301, 107, 66),
-(26, 11, 448, 42, 399, 45, 114, 80),
+(25, 27, 219, 527, 47, 301, 107, 66),
+(26, 59, 448, 42, 399, 45, 114, 80),
 (27, 30, 407, 569, 179, 260, 70, 130),
 (28, 37, 35, 32, 34, 51, 92, 148),
-(29, 19, 453, 486, 199, 90, 27, 1),
+(29, 68, 453, 486, 199, 90, 27, 1),
 (30, 54, 380, 12, 492, 15, 146, 85),
 (31, 41, 222, 412, 61, 180, 189, 59),
 (32, 36, 342, 36, 145, 12, 86, 9),
@@ -643,19 +652,19 @@ INSERT INTO `viewcount` (`sid`, `course_sid`, `Jan`, `Feb`, `Mar`, `Apr`, `May`,
 (35, 32, 451, 185, 500, 96, 140, 124),
 (36, 31, 132, 386, 256, 79, 143, 156),
 (37, 42, 421, 376, 365, 65, 198, 74),
-(38, 14, 311, 348, 23, 179, 25, 46),
+(38, 62, 311, 348, 23, 179, 25, 46),
 (39, 38, 447, 241, 195, 167, 23, 51),
 (40, 28, 355, 306, 252, 230, 122, 52),
 (41, 53, 470, 425, 434, 196, 56, 149),
 (42, 47, 242, 424, 53, 128, 66, 111),
 (43, 26, 123, 103, 70, 29, 3, 136),
 (44, 35, 74, 247, 369, 337, 73, 47),
-(45, 12, 159, 103, 542, 0, 58, 73),
+(45, 60, 159, 103, 542, 0, 58, 73),
 (46, 51, 151, 274, 228, 212, 101, 150),
 (47, 1, 242, 86, 158, 354, 128, 88),
-(48, 9, 148, 77, 454, 160, 145, 70),
-(49, 5, 384, 23, 531, 126, 183, 102),
-(50, 13, 317, 414, 327, 264, 133, 54);
+(48, 37, 148, 77, 454, 160, 145, 70),
+(49, 26, 384, 23, 531, 126, 183, 102),
+(50, 61, 317, 414, 327, 264, 133, 54);
 
 --
 -- 已傾印資料表的索引
@@ -798,7 +807,7 @@ ALTER TABLE `art_messenger`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `chat_conversation`
@@ -810,7 +819,7 @@ ALTER TABLE `chat_conversation`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `chat_message`
 --
 ALTER TABLE `chat_message`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `course`
@@ -828,19 +837,31 @@ ALTER TABLE `cs_messenger`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
 --
 ALTER TABLE `member`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1015;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1017;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_main`
 --
 ALTER TABLE `order_main`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `schedule`
+--
+ALTER TABLE `schedule`
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `sentence_game`
+--
+ALTER TABLE `sentence_game`
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `video_list`

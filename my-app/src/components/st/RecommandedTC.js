@@ -1,5 +1,4 @@
 import React from 'react'
-import { IMG_PATH } from '../../config'
 
 export default function RecommandedTC(props) {
   const { teachersname, teacherimg } = props

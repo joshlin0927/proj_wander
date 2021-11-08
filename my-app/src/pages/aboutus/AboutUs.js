@@ -1,14 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import { devUrl } from '../../config'
 import './aboutus.css'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import Footer from '../../components/Footer'
-import { Link } from 'react-router-dom'
-import HomeBgDecorationNormal from '../../components/home/HomeBgDecorationNormal'
 
 import ComonproblemDecorationNormal from '../../components/articles/ComonproblemDecorationNormal'
-
-import Figure from 'react-bootstrap/Figure'
 
 function AboutUs() {
   return (
@@ -16,13 +12,13 @@ function AboutUs() {
       <div className="container mainContent">
         <MultiLevelBreadCrumb />
         <div className="row justify-content-center d-flex">
-        <div className="row  col-md-12 col-lg-12  aboutus-img ">
-          <div className="col-10 ml-auto comp-pageName ">
-            <span className="comp-pageNameText ">
-              關於我們
-            </span>
+          <div className="row  col-md-12 col-lg-12  aboutus-img ">
+            <div className="col-10 ml-auto comp-pageName ">
+              <span className="comp-pageNameText ">
+                關於我們
+              </span>
+            </div>
           </div>
-        </div>
         </div>
 
         <div className="row justify-content-center d-flex">

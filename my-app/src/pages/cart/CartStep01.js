@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { devUrl, Cart_API } from '../../config'
 import axios from 'axios'
 import $ from 'jquery'

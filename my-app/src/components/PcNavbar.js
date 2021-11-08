@@ -56,7 +56,7 @@ function PcNavbar(props) {
       })()
     }
     setDrop('d-none')
-  }, [imgSrc, auth])
+  }, [imgSrc, auth, token, setAuth, identity, memberID])
 
   // console.log(imgSrc)
 

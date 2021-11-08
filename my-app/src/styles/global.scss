@@ -1204,6 +1204,12 @@ a {
   margin-right: 10px;
 }
 
+.chatCardAvatar img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .chatName {
   font-size: 18px;
   font-weight: bold;
@@ -1352,6 +1358,7 @@ a {
 
 .message.left {
   background-color: #f1f0e9;
+  order: 1;
 }
 
 .message.right {
@@ -1361,18 +1368,30 @@ a {
 .chatWindowFoot {
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.chatInsert {
+  background-color: transparent;
+}
+.chatInsert:focus {
+  border: 0px solid black;
 }
 
 .chatInsertButton {
-  width: 100%;
+  position: absolute;
+  right: 1px;
+  width: 20%;
   height: 48px;
-  border: 0px;
+  border: 1px;
+  font-size: 14px;
+  font-weight: bold;
   color: black;
   background-color: #f1ef5b;
-  margin-left: -100px;
   margin-bottom: 5px;
   border-radius: 0px 10px 10px 0px;
 }
+
 .messageText {
   width: 100%;
 }

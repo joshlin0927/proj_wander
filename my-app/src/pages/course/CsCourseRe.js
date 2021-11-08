@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 //推薦課程
 
 // import { devUrl } from '../../config'
@@ -38,7 +38,9 @@ function CsCourseRe() {
               <div className="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
-              <span className="teachername">Thoms Lillard</span>
+              <span className="teachername">
+                Thoms Lillard
+              </span>
               <span className="co-price">2700 TWD</span>
             </div>
             <div className="sh-courseitem">
@@ -49,7 +51,9 @@ function CsCourseRe() {
               <div className="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
-              <span className="teachername">Thoms Lillard</span>
+              <span className="teachername">
+                Thoms Lillard
+              </span>
               <span className="co-price">2700 TWD</span>
             </div>
             <div className="sh-courseitem">
@@ -60,7 +64,9 @@ function CsCourseRe() {
               <div className="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
-              <span className="teachername">Thoms Lillard</span>
+              <span className="teachername">
+                Thoms Lillard
+              </span>
               <span className="co-price">2700 TWD</span>
             </div>
             <div className="sh-courseitem">
@@ -71,7 +77,9 @@ function CsCourseRe() {
               <div className="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
-              <span className="teachername">Thoms Lillard</span>
+              <span className="teachername">
+                Thoms Lillard
+              </span>
               <span className="co-price">2700 TWD</span>
             </div>
             <div className="sh-courseitem">
@@ -82,7 +90,9 @@ function CsCourseRe() {
               <div className="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
-              <span className="teachername">Thoms Lillard</span>
+              <span className="teachername">
+                Thoms Lillard
+              </span>
               <span className="co-price">2700 TWD</span>
             </div>
             <div className="sh-courseitem">
@@ -93,7 +103,9 @@ function CsCourseRe() {
               <div className="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
-              <span className="teachername">Thoms Lillard</span>
+              <span className="teachername">
+                Thoms Lillard
+              </span>
               <span className="co-price">2700 TWD</span>
             </div>
             <div className="sh-courseitem">
@@ -104,7 +116,9 @@ function CsCourseRe() {
               <div className="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
-              <span className="teachername">Thoms Lillard</span>
+              <span className="teachername">
+                Thoms Lillard
+              </span>
               <span className="co-price">2700 TWD</span>
             </div>
             <div className="sh-courseitem">
@@ -115,7 +129,9 @@ function CsCourseRe() {
               <div className="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
-              <span className="teachername">Thoms Lillard</span>
+              <span className="teachername">
+                Thoms Lillard
+              </span>
               <span className="co-price">2700 TWD</span>
             </div>
             <div className="sh-courseitem">
@@ -126,7 +142,9 @@ function CsCourseRe() {
               <div className="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
-              <span className="teachername">Thoms Lillard</span>
+              <span className="teachername">
+                Thoms Lillard
+              </span>
               <span className="co-price">2700 TWD</span>
             </div>
             <div className="sh-courseitem">
@@ -137,7 +155,9 @@ function CsCourseRe() {
               <div className="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
-              <span className="teachername">Thoms Lillard</span>
+              <span className="teachername">
+                Thoms Lillard
+              </span>
               <span className="co-price">2700 TWD</span>
             </div>
             <div className="sh-courseitem">
@@ -148,7 +168,9 @@ function CsCourseRe() {
               <div className="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
-              <span className="teachername">Thoms Lillard</span>
+              <span className="teachername">
+                Thoms Lillard
+              </span>
               <span className="co-price">2700 TWD</span>
             </div>
             <div className="sh-courseitem">
@@ -159,7 +181,9 @@ function CsCourseRe() {
               <div className="sh-coursename">
                 課程名稱：填上課程名稱
               </div>
-              <span className="teachername">Thoms Lillard</span>
+              <span className="teachername">
+                Thoms Lillard
+              </span>
               <span className="co-price">2700 TWD</span>
             </div>
           </div>

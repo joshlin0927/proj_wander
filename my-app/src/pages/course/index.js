@@ -6,16 +6,14 @@ import './course1.css'
 // 頁面
 import CsCourse from './CsCourse'
 // import CsCourses from './CsCourses'
-import CsCoursede from './CsCoursede'
+import CsCoursede from './CsCoursedesn'
 import CsCoursedes from './CsCoursedes'
-import CsCoursedesNot from './CsCoursedesNot'
+import CsCoursedesn from './CsCoursedesn'
 import CsCoursedeNt from './CsCoursedeNt'
 import CsCoursedesOpen from './CsCoursedesOpen'
 import CsCourseRe from './CsCourseRe'
 import CsMessage from './CsMessage'
 import ArtMessageADD from './CsMessageADD'
-
-
 
 function index() {
   return (
@@ -33,8 +31,8 @@ function index() {
         <Route path="/Course/CsCoursedes/:sid?" exact>
           <CsCoursedes />
         </Route>
-        <Route path="/Course/CsCoursedesNot/:sid?" exact>
-          <CsCoursedesNot />
+        <Route path="/Course/CsCoursedesn/:sid?" exact>
+          <CsCoursedesn />
         </Route>
         <Route path="/Course/CsCoursedeNt" exact>
           <CsCoursedeNt />

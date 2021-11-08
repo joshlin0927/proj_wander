@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import moment from 'moment'
 import momentDurationFormatSetup from 'moment-duration-format'
 
@@ -8,17 +8,16 @@ function PcCoursePlaylistCard(props) {
     video_name,
     duration1,
     order_status,
-    member_sid,
     active,
     setActive,
     value,
     // showStatus,
   } = props
 
-  const member = JSON.parse(localStorage.getItem('member'))
+  // const member = JSON.parse(localStorage.getItem('member'))
 
-  const [hide, setHide] = useState('')
-  const [ishide, setISHide] = useState('')
+  // const [hide, setHide] = useState('')
+  // const [ishide, setISHide] = useState('')
 
   // useEffect(() => {
   //   if (member_sid !== member.sid) {
@@ -43,9 +42,7 @@ function PcCoursePlaylistCard(props) {
       } ? (
         <div
           className={
-            active === value
-              ? `clip first ${ishide} `
-              : `clip ${ishide} `
+            active === value ? `clip first` : `clip `
           }
         >
           <input

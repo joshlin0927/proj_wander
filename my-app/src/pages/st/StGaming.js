@@ -12,33 +12,38 @@ function StGaming(props) {
   const category = sessionStorage.getItem('category')
     ? JSON.parse(sessionStorage.getItem('category'))
     : ''
-  function wordSound(e) {
-    const word = e.target.innerText
-    //urlencoded法
-    fetch(`${SentenceGame_SOT}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        word: word,
-        lang: category.lang,
-      }),
-    })
-      .then((r) => r.json())
-      .then((obj) => {
-        console.log('SOT ID:', JSON.stringify(obj, null, 4))
-        if (obj.success) {
-          const audio = new Audio(
-            `https://storage.soundoftext.com/${obj.id}.mp3`
-          )
-          audio.play()
-        } else {
-          alert('發送失敗')
-        }
-      })
-  }
+
   useEffect(() => {
+    function wordSound(e) {
+      const word = e.target.innerText
+      //urlencoded法
+      fetch(`${SentenceGame_SOT}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          word: word,
+          lang: category.lang,
+        }),
+      })
+        .then((r) => r.json())
+        .then((obj) => {
+          console.log(
+            'SOT ID:',
+            JSON.stringify(obj, null, 4)
+          )
+          if (obj.success) {
+            const audio = new Audio(
+              `https://storage.soundoftext.com/${obj.id}.mp3`
+            )
+            audio.play()
+          } else {
+            alert('發送失敗')
+          }
+        })
+    }
+
     const dataArr = sessionStorage.getItem('array')
       ? JSON.parse(sessionStorage.getItem('array'))
       : []
@@ -78,7 +83,7 @@ function StGaming(props) {
       for (let i = 0; i < question.length; i++) {
         question[
           i
-        ] = `<div className="word-bg"><div id="word${i}" className="word">${question[i]}</div></div>`
+        ] = `<div class="word-bg"><div id="word${i}" class="word">${question[i]}</div></div>`
         document.querySelector('.selectWord').innerHTML +=
           question[i]
       }

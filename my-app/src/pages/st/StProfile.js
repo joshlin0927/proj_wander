@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './style/st_editprofile.css'
-import { Link } from 'react-router-dom'
 import { IMG_PATH, UPLOAD_AVATAR } from '../../config'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'

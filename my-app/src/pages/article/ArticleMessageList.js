@@ -1,7 +1,7 @@
 import ArticleMessageListCard from './ArticleMessageListCard'
 
 function ArticleMessageList(props) {
-  const { displayMessage, setDisplayMessage } = props
+  const { displayMessage } = props
   return (
     <>
       {displayMessage.map((Course, i) => {

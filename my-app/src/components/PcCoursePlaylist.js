@@ -3,7 +3,7 @@ import React from 'react'
 import PcCoursePlaylistCard from './PcCoursePlaylistCard'
 
 function PcCoursePlaylist(props) {
-  const { active, setActive, videos, showStatus } = props
+  const { active, setActive, videos } = props
 
   // console.log('active', active)
   // console.log('videos', videos)

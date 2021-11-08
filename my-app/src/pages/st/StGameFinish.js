@@ -105,6 +105,7 @@ function StGameFinish(props) {
                 <h2 className="col-12 mt-5 mb-3 p-0">
                   為您推薦以下課程
                 </h2>
+                {console.log('recommand:', recommandCourse)}
                 {recommandCourse.length === 0
                   ? ''
                   : recommandCourse.map((v, i) => {

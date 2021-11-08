@@ -48,11 +48,11 @@ function TcCourseVideoUpload() {
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
   const [selectedFile, setSelectedFile] = useState()
-  const [isFilePicked, setIsFilePicked] = useState(false)
+  // const [isFilePicked, setIsFilePicked] = useState(false)
 
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0])
-    setIsFilePicked(true)
+    // setIsFilePicked(true)
   }
 
   // console.log('selectedFile', selectedFile)
@@ -129,7 +129,7 @@ function TcCourseVideoUpload() {
 
     // ex. 用fetch api/axios送到伺服器
 
-    const r = fetch(TcVideo_ADD, {
+    fetch(TcVideo_ADD, {
       method: 'POST',
       body: formVideo,
     })
@@ -145,7 +145,6 @@ function TcCourseVideoUpload() {
           alert(obj.error || '資料新增失敗')
         }
       })
-    console.log(r)
   }
 
   // 當整個表單有變動時觸發
