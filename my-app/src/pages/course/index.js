@@ -15,7 +15,8 @@ import CsCourseRe from './CsCourseRe'
 import CsMessage from './CsMessage'
 import ArtMessageADD from './CsMessageADD'
 
-function index() {
+function index(props) {
+  const { setNavCartQty } = props
   return (
     <>
       <Switch>
@@ -29,7 +30,7 @@ function index() {
           <CsCoursede />
         </Route>
         <Route path="/Course/CsCoursedes/:sid?" exact>
-          <CsCoursedes />
+          <CsCoursedes setNavCartQty={setNavCartQty} />
         </Route>
         <Route path="/Course/CsCoursedesn/:sid?" exact>
           <CsCoursedesn />

@@ -444,16 +444,50 @@ a {
   z-index: 5;
 }
 
-.nav_cart:hover,
-.nav_login:hover {
-  background-color: #065f8e;
+.navCartQty {
+  position: absolute;
+  left: 50%;
+  bottom: -50%;
+  transform: translate(-50%, 0);
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  color: #065f8e;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 1.5rem;
+  z-index: 6;
+  text-align: center;
+  transition: 0.5s;
+}
+.navCartQty.move {
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  transition: 0.5s;
 }
 
-.nav_cart:hover .nav_cart_icon,
-.nav_login:hover .nav_login_txt {
-  filter: drop-shadow(#ffffff 60px 0);
-  color: white;
+.nav_cart:hover {
+  .nav_cart_icon {
+    top: -50%;
+    transition: 0.5s;
+  }
+  .navCartQty {
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    color: #ffffff;
+  }
 }
+
+// .nav_cart:hover,
+// .nav_login:hover {
+//   background-color: #065f8e;
+// }
+
+// .nav_cart:hover .nav_cart_icon,
+// .nav_login:hover .nav_login_txt {
+//   filter: drop-shadow(#ffffff 60px 0);
+//   color: white;
+// }
 
 /* hover底線動畫 */
 .nav__en::after {
