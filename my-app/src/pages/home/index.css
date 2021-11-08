@@ -621,6 +621,17 @@
   /* background-color:#fff; */
 }
 
+.y-img img{
+  /* width: 260px; */
+  /* height: 308px; */
+  /* border: 1.25px solid rgba(255, 255, 255, 1); */
+  /* margin-left: 65px; */
+  position: relative;
+  margin-bottom: 20px;
+
+  /* background-color:#fff; */
+}
+
 .indexBigImg18 {
   top: 420%;
   position: absolute;
@@ -636,6 +647,27 @@
   padding: 60px 0;
   z-index: 6;
 }
+
+.animate {
+  position: relative;
+  left: -10%;
+  /* right: -10%; */
+  animation: move 10s infinite reverse;
+  animation:move 10s infinite alternate;  
+  animation-timing-function: linear;
+  animation-delay: 0s;
+}
+
+
+@keyframes move {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
 
 .wrap {
   max-width: 1110px;
@@ -863,7 +895,7 @@ li {
     position: absolute;
     top: 234px;
     left: 0;
-    background-color: #fafafa;
+    background-color: #f1f0e9;
     z-index: 2;
     width: 90%;
     height: 150px;
@@ -924,33 +956,33 @@ li {
     position: absolute;
     max-width: 300px;
     z-index: -4;
-    -webkit-animation: type02_icon 15s infinite;
-    -ms-animation: type02_icon 15s infinite;
-    -o-animation: type02_icon 15s infinite;
-    animation: type02_icon 15s infinite;
+    -webkit-animation: type03_icon 15s infinite;
+    -ms-animation: type03_icon 15s infinite;
+    -o-animation: type03_icon 15s infinite;
+    animation: type03_icon 15s infinite;
   }
 
-  @-moz-keyframes type02_icon1 {
+  @-moz-keyframes type03_icon1 {
     50% {
       transform: translate(-50px, -50px);
     }
   }
-  @-webkit-keyframes type02_icon {
+  @-webkit-keyframes type03_icon {
     50% {
       transform: translate(-50px, -50px);
     }
   }
-  @-o-keyframes type02_icon {
+  @-o-keyframes type03_icon {
     50% {
       transform: translate(-50px, -50px);
     }
   }
-  @-ms-keyframes type02_icon {
+  @-ms-keyframes type03_icon {
     50% {
       transform: translate(-50px, -50px);
     }
   }
-  @keyframes type02_icon {
+  @keyframes type03_icon {
     50% {
       transform: translate(-50px, -50px);
     }
@@ -960,7 +992,7 @@ li {
     position: absolute;
     top: 1400px;
     padding: 0;
-    z-index: -100;
+    z-index: -1;
   }
 
   .indexBigImg9 {
@@ -982,41 +1014,49 @@ li {
     color: #4b4b4b;
   }
 
+  /* .icon03 {
+    margin-left: 65px;
+    position: relative;
+  } */
+
   .icon02 {
-    top: -100px;
+    top: -220px;
     display: block;
     position: absolute;
     max-width: 1122px;
-    z-index: -200;
+    width: 229px;
+    z-index: -1;
     -webkit-animation: type02_icon 15s infinite;
     -ms-animation: type02_icon 15s infinite;
     -o-animation: type02_icon 15s infinite;
     animation: type02_icon 15s infinite;
   }
 
-  @-moz-keyframes type02_icon1 {
+  
+
+  @-moz-keyframes type02_icon {
     50% {
-      transform: translate(-50px, -50px);
+      transform: translate(50px, 50px);
     }
   }
   @-webkit-keyframes type02_icon {
     50% {
-      transform: translate(-50px, -50px);
+      transform: translate(50px, 50px);
     }
   }
   @-o-keyframes type02_icon {
     50% {
-      transform: translate(-50px, -50px);
+      transform: translate(50px, 50px);
     }
   }
   @-ms-keyframes type02_icon {
     50% {
-      transform: translate(-50px, -50px);
+      transform: translate(50px, 50px);
     }
   }
   @keyframes type02_icon {
     50% {
-      transform: translate(-50px, -50px);
+      transform: translate(50px, 50px);
     }
   }
 
@@ -1148,7 +1188,7 @@ li {
   .checkoutBtn-m {
     position: absolute;
     width: 30%;
-    left: 120px;
+    left: 130px;
     font-size: 1.2rem;
     height: 51px;
     color: #ffffff;
@@ -1165,6 +1205,7 @@ li {
   .yellow-area-but-4-index button {
     width: 100px;
   }
+
 }
 
 /*============= 效果模組 =============*/

@@ -239,7 +239,7 @@ margin-top: 30px;
 
 .white-block {
   position: relative;
-    width: 590px;
+    width: 300px;
     height: 400px;
     background: #FFFFFF;
     border-radius: 0px 180px 180px 0px;
@@ -270,7 +270,7 @@ margin-top: 30px;
   line-height: 41px;
   /* identical to box height */
   top:60px;
-  left:80px;
+  left:28px;
   display: flex;
   align-items: center;
   letter-spacing: 0.15em;
@@ -281,7 +281,7 @@ margin-top: 30px;
 .sns-sing {
   z-index: 15;
 position: absolute;
-left: 90px;
+left: 50px;
 top:320px;
 -js-display: flex;
 display:-webkit-box;
