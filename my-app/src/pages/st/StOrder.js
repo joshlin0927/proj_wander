@@ -297,8 +297,8 @@ function StOrder(props) {
         </div>
       </div>
 
+      <div className="bgbeige"></div>
       <StBgDecorationNormal />
-      <div className="bgbeige"> </div>
       <Footer />
     </>
   )

@@ -1,5 +1,10 @@
 .bgbeige {
   background-color: #f1f0e9;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -6;
+  top: 0;
 }
 
 /* 麵包屑 */
