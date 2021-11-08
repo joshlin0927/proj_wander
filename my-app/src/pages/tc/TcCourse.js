@@ -58,13 +58,12 @@ function TcCourse(props) {
         let r = await axios.get(
           `${TcCourse_LIST}/?teacherSid=${teacherSid}`
         )
-        console.log(r.data.rows)
         if (r.status === 200) {
           setTcCourses(r.data.rows)
           setDisplayCourse(r.data.rows)
           // setImgSrc(r.data.rows[0].avatar)
         }
-        console.log(r.data.rows)
+        // console.log(r.data.rows)
       })()
     }
     // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面

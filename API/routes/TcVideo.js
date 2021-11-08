@@ -7,10 +7,7 @@ const router = express.Router();
 async function getListData(req, res) {
   const perPage = 5;
   let page = parseInt(req.query.page) || 1;
-  let keyword = req.query.keyword || "";
-  keyword = keyword.trim(); //去掉頭尾的空白
 
-  // res.locals.keyword = keyword; // 傳給template
   const output = {};
 
   // SELECT `video_list`.*, `member`.`firstname`, `course`.`course_name` FROM `video_list` LEFT JOIN `member` ON `video_list`.`teacher_sid`=`member`.`sid`LEFT JOIN `course` ON `course`.`sid`=`video_list`.`course_sid` WHERE `member`.`sid`=1;
@@ -18,13 +15,6 @@ async function getListData(req, res) {
   let courseSid = req.query.courseSid;
 
   let where = `LEFT JOIN \`member\` ON \`video_list\`.\`teacher_sid\`=\`member\`.\`sid\`LEFT JOIN \`course\` ON \`course\`.\`sid\`=\`video_list\`.\`course_sid\` WHERE \`video_list\`.\`course_sid\` = ${courseSid} `;
-  // if (keyword) {
-  //   output.keyword = keyword;
-  //   where += ` AND \`video_list\`.\`video_name\` LIKE ${db.escape(
-  //     "%" + keyword + "%"
-  //   )} `;
-  // }
-  // 有其他條件可以用差不多的寫法加在sql後面
 
   const t_sql = `SELECT COUNT(1) totalRows FROM \`video_list\` ${where}`;
 
@@ -41,20 +31,12 @@ async function getListData(req, res) {
     if (page < 1) {
       output.redirect = "?page=1";
       return output;
-
-      /*
-            // 下面是原本的寫法，但在用redirect的function時，就不能這樣寫
-            // return res.redirect(req.baseUrl);// 會轉到根目錄
-            // return res.redirect('?page=1');
-            */
     }
     if (page > output.totalPages) {
       output.redirect = "?page=" + output.totalPages;
       return output;
 
-      /*
-            // return res.redirect('?page=1' + output.totalPages);
-            */
+      // return res.redirect('?page=1' + output.totalPages);
     }
     const sql = `SELECT \`video_list\`.*, \`member\`.\`firstname\`, \`course\`.\`course_name\` FROM \`video_list\` ${where} ORDER BY \`course\`.\`sid\` DESC `;
     // LIMIT ${
@@ -66,6 +48,46 @@ async function getListData(req, res) {
   }
   return output;
 }
+
+// app.get("/video", function (req, res) {
+//   // Ensure there is a range given for the video
+//   const range = req.headers.range;
+//   if (!range) {
+//     res.status(400).send("Requires Range header");
+//   }
+
+//   // get video stats (about 61MB)
+//   const videoPath = "public/video/DAGA KOTOWARU.mp4";
+//   const videoSize = fs.statSync(videoPath).size;
+
+//   // Parse Range
+//   // Example: "bytes=32324-"
+//   const CHUNK_SIZE = 10 ** 6; // 要再調整
+//   const start = Number(range.replace(/\D/g, ""));
+
+//   const end = Math.min(start + CHUNK_SIZE, videoSize - 1);
+
+//   // Create headers
+//   const contentLength = end - start + 1;
+//   const headers = {
+//     "Content-Range": `bytes ${start}-${end}/${videoSize}`,
+//     "Accept-Ranges": "bytes",
+//     "Content-Length": contentLength,
+//     "Content-Type": "video/mp4",
+//   };
+
+//   // HTTP Status 206 for Partial Content
+//   res.writeHead(206, headers);
+
+//   // create video read stream for this particular chunk
+//   const videoStream = fs.createReadStream(videoPath, {
+//     start,
+//     end,
+//   });
+
+//   // Stream the video chunk to the client
+//   videoStream.pipe(res);
+// });
 
 router.get("/api/list", async (req, res) => {
   const output = await getListData(req, res);
@@ -92,7 +114,7 @@ router.route("/add").post(uploadVid.single("video_link"), async (req, res) => {
   const input = {
     ...req.body,
     created_at: new Date(),
-    video_link: req.file.filename
+    video_link: req.file.filename,
     // 上傳檔案的時候要在這多寫個req.file.filename，不然後端接不到檔名，進不到資料庫
   };
 
@@ -154,17 +176,14 @@ router.post("/edit", async (req, res) => {
   res.json(output);
 });
 
+router.route("/LastAdd").get(async (req, res) => {
+  // sql = SELECT * FROM `course` ORDER BY `created_at` DESC LIMIT 1;
+  const sql =
+    "SELECT * FROM `video_list` ORDER BY `created_time` DESC LIMIT 1;";
 
-router
-  .route("/LastAdd")
-  .get(async (req, res) => {
-    // sql = SELECT * FROM `course` ORDER BY `created_at` DESC LIMIT 1;
-    const sql = "SELECT * FROM `video_list` ORDER BY `created_time` DESC LIMIT 1;";
+  [result] = await db.query(sql);
 
-    [result] = await db.query(sql);
-
-    res.json(result);
-  })
-
+  res.json(result);
+});
 
 module.exports = router;

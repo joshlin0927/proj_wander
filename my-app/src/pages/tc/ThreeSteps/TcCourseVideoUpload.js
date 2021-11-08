@@ -129,7 +129,7 @@ function TcCourseVideoUpload() {
 
     // ex. 用fetch api/axios送到伺服器
 
-    const r = fetch(TcVideo_ADD, {
+    fetch(TcVideo_ADD, {
       method: 'POST',
       body: formVideo,
     })
@@ -145,7 +145,6 @@ function TcCourseVideoUpload() {
           alert(obj.error || '資料新增失敗')
         }
       })
-    console.log(r)
   }
 
   // 當整個表單有變動時觸發
