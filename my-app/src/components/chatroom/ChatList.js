@@ -63,7 +63,10 @@ function ChatList(props) {
                       setCurrentChat(v)
                     }}
                   >
-                    <ChatCard conversation={v} />
+                    <ChatCard
+                      conversation={v}
+                      member={member}
+                    />
                   </div>
                 )
               })}

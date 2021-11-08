@@ -254,9 +254,18 @@
 .loadingio-spinner-ripple-axvmfinlmje {
   width: 200px;
   height: 200px;
-  display: inline-block;
+  display: flex;
   overflow: hidden;
   background: transparent;
+  position: absolute;
+  top:30%;
+  left:30%
+
+  
+ 
+
+
+
 }
 
 .ldio-xv8fxyexxut {

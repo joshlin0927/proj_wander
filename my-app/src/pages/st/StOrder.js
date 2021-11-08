@@ -12,6 +12,7 @@ import StOrderDetail from '../../components/st/StOrderDetail'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
+import Spinner from '../../components/Spinner'
 
 function StOrder(props) {
   //大頭貼狀態
@@ -25,7 +26,7 @@ function StOrder(props) {
   const [tab, setTab] = useState(1)
   // set order & orderdetail
   const [showDetail, setShowDetail] = useState(false)
-  const [orderData, setOrderData] = useState([{}])
+  const [orderData, setOrderData] = useState([])
   const [orderData0, setOrderData0] = useState([{}])
   const [orderData1, setOrderData1] = useState([{}])
   const [orderData2, setOrderData2] = useState([{}])
@@ -111,20 +112,25 @@ function StOrder(props) {
       {/* <!-- orderItem --> */}
       {/* 全部 */}
       <div className="row stOrderDetailContent stODC1">
-        {orderData.length === 0
-          ? ''
-          : orderData.map((v, i) => {
-              return (
-                <StOrderList
-                  setShowDetail={setShowDetail}
-                  time={v.created_at}
-                  order_id={v.order_id}
-                  order_status={v.order_status}
-                  price={v.total_price}
-                  setOrderID={setOrderID}
-                />
-              )
-            })}
+        {console.log('orderDDD:', orderData)}
+        {orderData.length === 0 ? (
+          <div className="orderDataEmpty">
+            目前沒有訂單資料
+          </div>
+        ) : (
+          orderData.map((v, i) => {
+            return (
+              <StOrderList
+                setShowDetail={setShowDetail}
+                time={v.created_at}
+                order_id={v.order_id}
+                order_status={v.order_status}
+                price={v.total_price}
+                setOrderID={setOrderID}
+              />
+            )
+          })
+        )}
       </div>
       {/* 待付款 */}
       <div className="row stOrderDetailContent stODC2">
@@ -194,7 +200,7 @@ function StOrder(props) {
           <StSideBar imgSrc={imgSrc} />
           <form className="form col-12 offset-0 col-md-9 offset-md-1">
             <ConfirmMsg />
-            <div className="form-head ml-1 px-3">
+            <div className="form-head ml-1">
               <div
                 onClick={() => {
                   props.history.push(
