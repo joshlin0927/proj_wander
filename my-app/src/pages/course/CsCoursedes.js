@@ -110,6 +110,25 @@ function CsCoursede(props) {
     } else {
       console.log(obj.error)
     }
+    // 新增購物車動畫
+    let n = await axios.get(
+      `${Cart_API}/list?member_sid=${member.sid}`
+    )
+    if (n.data.success) {
+      setNavCartQty(n.data.result.length)
+    } else {
+      setNavCartQty(0)
+    }
+    const qty = document.querySelector('.navCartQty')
+    const icon = document.querySelector('.nav_cart_icon')
+    setTimeout(() => {
+      qty.classList.add('move')
+      icon.classList.add('move')
+    }, 20)
+    setTimeout(() => {
+      qty.classList.remove('move')
+      icon.classList.remove('move')
+    }, 2500)
   }
 
   return (

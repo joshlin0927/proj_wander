@@ -58,6 +58,7 @@ function App() {
             setAuth={setAuth}
             user={user}
             navCartQty={navCartQty}
+            setNavCartQty={setNavCartQty}
           />
           <Switch>
             <Route path="/CompanyBackend">
