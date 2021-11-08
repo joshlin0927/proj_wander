@@ -5,7 +5,9 @@ import { Chat_API } from '../../config'
 import ChatCard from './ChatCard'
 import ChatWindow from './ChatWindow'
 
-function ChatList() {
+function ChatList(props) {
+  const { chat, setChat } = props
+
   // 取得該會員資料
   const member = localStorage.getItem('member')
     ? JSON.parse(localStorage.getItem('member'))
@@ -39,7 +41,9 @@ function ChatList() {
   console.log('current:', currentChat)
   return (
     <>
-      <div className="chatList col-12 col-md-5 col-lg-4">
+      <div
+        className={`chatList col-12 col-md-5 offset-md-2 col-lg-4 ${chat}`}
+      >
         <div className="chatList-content">
           <div className="TCform-head ml-1">
             <div>

@@ -10,12 +10,21 @@ import {
   MemberEdit,
   ApplyForm,
 } from '../../config'
+
+// 引用元件
+import ChatList from '../chatroom/ChatList'
+import ChatWindow from '../chatroom/ChatWindow'
 import ConfirmMsg from '../ConfirmMsg'
 
 function TcSideBar(props) {
   const { imgSrc } = props
 
   const history = useHistory()
+
+  // 聊天室開關
+  let [chat, setChat] = useState('d-none')
+
+  console.log('chat', chat)
 
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
@@ -247,6 +256,7 @@ function TcSideBar(props) {
               activeclassname="active"
               onClick={() => {
                 setIsActive('聊天室')
+                setChat('d-block')
               }}
             >
               <i className="fas fa-comment-alt"></i>
@@ -269,6 +279,9 @@ function TcSideBar(props) {
           </li>
         </ul>
       </Nav>
+      <div className="row position-absolute w-100">
+        <ChatList setChat={setChat} chat={chat} />
+      </div>
       <Modal show={show} onHide={handleClose} centered>
         <form
           name="applyForm"

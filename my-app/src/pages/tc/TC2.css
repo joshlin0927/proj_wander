@@ -618,6 +618,7 @@ body {
   /* 會員中心TCsidebar */
   .TCsidebar {
     display: flex;
+    position: relative;
     align-items: center;
     flex-direction: column;
     padding: 0;

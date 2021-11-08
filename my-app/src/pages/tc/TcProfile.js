@@ -10,11 +10,13 @@ import {
 } from '../../config'
 
 // components
+import ChatList from '../../components/chatroom/ChatList'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
+import ChatWindow from '../../components/chatroom/ChatWindow'
 
 function TcProfile(props) {
   //判斷是否登入並為教師身分
@@ -225,6 +227,7 @@ function TcProfile(props) {
             </span>
           </div>
         </div>
+
         <div className="row">
           <TcSideBar imgSrc={imgSrc} />
           {/* form */}
@@ -425,6 +428,7 @@ function TcProfile(props) {
           </form>
         </div>
       </div>
+
       <TcBgDecorationNormal />
       <Footer />
     </>
