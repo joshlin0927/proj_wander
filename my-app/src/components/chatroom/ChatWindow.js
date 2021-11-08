@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect, useRef } from 'react'
-import { Chat_API } from '../../config'
+import { Chat_API, Member_FINDONE } from '../../config'
 import { io } from 'socket.io-client'
 
 import MessageRight from './MessageRight'
@@ -13,8 +13,15 @@ function ChatWindow(props) {
 
   const [newMessage, setNewMessage] = useState('')
   const [arrivalMessage, setArrivalMessage] = useState({})
+  const [receiver, setReceiver] = useState({})
+  const [sender, setSender] = useState({})
   const scrollRef = useRef()
   const socket = useRef()
+
+  const whoReceive =
+    currentChat.senderID === member.sid
+      ? currentChat.receiverID
+      : currentChat.senderID
 
   // socket.io
   useEffect(() => {
@@ -45,11 +52,31 @@ function ChatWindow(props) {
   }, [arrivalMessage, currentChat, setMessages, member.sid])
 
   useEffect(() => {
+    // socket.io
     socket.current.emit('addUser', member.sid)
     socket.current.on('getUsers', (users) => {
       console.log('連線中用戶:', users)
     })
-  }, [member.sid])
+    // 取得sender跟receiver會員資料
+    ;(async () => {
+      let r = await axios.get(
+        `${Member_FINDONE}?memberID=${whoReceive}`
+      )
+      if (r.data.success) {
+        setReceiver(r.data.result[0])
+      } else {
+        console.log('error:', r.data.error)
+      }
+      let s = await axios.get(
+        `${Member_FINDONE}?memberID=${member.sid}`
+      )
+      if (s.data.success) {
+        setSender(s.data.result[0])
+      } else {
+        console.log('error:', s.data.error)
+      }
+    })()
+  }, [member.sid, whoReceive])
 
   const handleSubmitMessage = async (e) => {
     e.preventDefault()
@@ -67,13 +94,9 @@ function ChatWindow(props) {
       setMessages([...messages, r.data.result[0]])
       setNewMessage('')
       // socket.io
-      const RID =
-        currentChat.senderID === member.sid
-          ? currentChat.receiverID
-          : currentChat.senderID
       socket.current.emit('sendMessage', {
         senderID: member.sid,
-        receiverID: RID,
+        receiverID: whoReceive,
         text: newMessage,
       })
     } catch (error) {
@@ -100,7 +123,9 @@ function ChatWindow(props) {
                 alt=""
               />
             </div>
-            <div className="talkToName">Harue</div>
+            <div className="talkToName">
+              {receiver.nickname}
+            </div>
           </div>
           <div className="closeWindow">
             <i className="fas fa-times"></i>
@@ -114,6 +139,8 @@ function ChatWindow(props) {
                   key={i}
                   messages={v}
                   own={v.senderID === member.sid}
+                  receiver={receiver}
+                  sender={sender}
                 />
               </div>
             )

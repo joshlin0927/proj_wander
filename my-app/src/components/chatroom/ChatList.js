@@ -61,7 +61,10 @@ function ChatList() {
                       setCurrentChat(v)
                     }}
                   >
-                    <ChatCard conversation={v} />
+                    <ChatCard
+                      conversation={v}
+                      member={member}
+                    />
                   </div>
                 )
               })}

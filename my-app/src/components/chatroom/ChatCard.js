@@ -3,13 +3,17 @@ import axios from 'axios'
 import { Member_FINDONE, IMG_PATH } from '../../config'
 
 function ChatCard(props) {
-  const { conversation } = props
+  const { conversation, member } = props
   const [receiveUser, setReceiveUser] = useState({})
 
   useEffect(() => {
     ;(async () => {
+      const whoReceive =
+        conversation.receiverID === member.sid
+          ? conversation.senderID
+          : conversation.receiverID
       let r = await axios.get(
-        `${Member_FINDONE}?memberID=${conversation.receiverID}`
+        `${Member_FINDONE}?memberID=${whoReceive}`
       )
       if (r.data.success) {
         setReceiveUser(r.data.result[0])
@@ -17,9 +21,11 @@ function ChatCard(props) {
         console.log('error:', r.data.error)
       }
     })()
-  }, [conversation.receiverID])
+  }, [conversation, member])
   return (
     <>
+      {console.log('conversation', conversation)}
+      {console.log('receiveUser', receiveUser)}
       <div className="chatCardAvatar">
         <img
           src={`${IMG_PATH}/${receiveUser.avatar}`}
@@ -36,7 +42,7 @@ function ChatCard(props) {
         </div>
         <div className="LastMessageAndTime">
           <p className="m-0">
-            <span>會員ID：{conversation.receiverID}</span>
+            <span>會員ID：{receiveUser.sid}</span>
           </p>
           <div className="d-flex">
             <p className="lastMessage">
