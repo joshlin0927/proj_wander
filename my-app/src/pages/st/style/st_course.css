@@ -2,8 +2,6 @@
   font-family: 'Noto Sans', 'Noto Sans TC', sans-serif;
 }
 
-
-
 /* 全頁背景色 */
 .TCsp-bgc {
   background: #f1f0e9;
@@ -238,34 +236,29 @@
   border-style: solid;
   opacity: 1;
   border-radius: 50%;
-  animation: ldio-xv8fxyexxut 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  animation: ldio-xv8fxyexxut 1s
+    cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 
 .ldio-xv8fxyexxut div:nth-child(1) {
-  border-color: #F1EF5B;
+  border-color: #f1ef5b;
   animation-delay: 0s;
 }
 
 .ldio-xv8fxyexxut div:nth-child(2) {
-  border-color: #065F8E;
+  border-color: #065f8e;
   animation-delay: -0.5s;
 }
 
-.loadingio-spinner-ripple-axvmfinlmje {
+.stcoursesection .loadingio-spinner-ripple-axvmfinlmje {
   width: 200px;
   height: 200px;
   display: flex;
   overflow: hidden;
   background: transparent;
   position: absolute;
-  top:30%;
-  left:30%
-
-  
- 
-
-
-
+  top: 30%;
+  left: 30%;
 }
 
 .ldio-xv8fxyexxut {

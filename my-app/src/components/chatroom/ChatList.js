@@ -22,7 +22,9 @@ function ChatList(props) {
       let r = await axios.get(
         `${Chat_API}/conversation/${member.sid}`
       )
-      setConversation(r.data)
+      if (r.data) {
+        setConversation(r.data)
+      }
     })()
   }, [member.sid])
   // 點擊到的chatroom資料

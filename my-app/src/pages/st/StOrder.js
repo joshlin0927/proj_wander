@@ -12,7 +12,6 @@ import StOrderDetail from '../../components/st/StOrderDetail'
 import StBgDecorationNormal from '../../components/st/StBgDecorationNormal'
 import ConfirmMsg from '../../components/ConfirmMsg'
 import Footer from '../../components/Footer'
-import Spinner from '../../components/Spinner'
 
 function StOrder(props) {
   //大頭貼狀態

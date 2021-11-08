@@ -111,6 +111,16 @@
   margin-left: 0;
   margin-right: 0;
   transition: 0.5s;
+  min-height: 250px;
+  position: relative;
+}
+.stPayMethod .loadingio-spinner-ripple-axvmfinlmje {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  height: 200px;
+  width: 200px;
+  transform: translateX(-50%);
 }
 .payTitle {
   border-bottom: 2px solid black;

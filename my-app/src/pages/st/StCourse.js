@@ -86,7 +86,7 @@ export default withRouter(function StCourse(props) {
       //把spinner關起來
       setTimeout(() => {
         setIsLoading(false)
-      }, 2000)
+      }, 1500)
     }
   }, [])
   //這裡要記得掛上空格讓他有相依可以判斷，不然會fetch完會再次render，等於狀態又改變，又fetch造成無限迴圈
