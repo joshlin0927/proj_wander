@@ -1159,26 +1159,39 @@ a {
 }
 
 /*============= 聊天室 chatroom =============*/
-/* 對象選單 */
+
 .chatList {
   display: flex;
   flex-direction: column;
   border-radius: 20px;
   background-color: #fff;
-  height: 922px;
+  min-height: 30%;
   width: 100%;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
 }
+/* 對象選單 */
+@media (min-width: 768px) {
+  .chatList {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #fff;
+    min-height: 30%;
+    width: 100%;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
+  }
 
-.chatList-content {
-  margin-bottom: 30px;
-}
+  .chatList-content {
+    margin-bottom: 30px;
+  }
 
-.chatList .title {
-  margin: 50px 0px;
-  color: #065f8e;
-  font-size: 36px;
-  font-weight: bold;
+  .chatList .title {
+    margin: 50px 0px;
+    color: #065f8e;
+    font-size: 36px;
+    font-weight: bold;
+  }
 }
 
 .chatCard {
@@ -1250,8 +1263,8 @@ a {
   border-radius: 20px;
   background-color: #fff;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-  height: 690px;
+  min-height: 30%;
+  z-index: 1;
 }
 
 .chatWindowHead {
@@ -1351,7 +1364,7 @@ a {
 .message {
   z-index: 1;
   border-radius: 10px;
-  width: 75%;
+  width: 55%;
   padding: 0.5rem;
   font-size: 18px;
 }
@@ -1369,6 +1382,7 @@ a {
   display: flex;
   align-items: center;
   position: relative;
+  margin-bottom: 1rem;
 }
 
 .chatInsert {
@@ -1388,7 +1402,6 @@ a {
   font-weight: bold;
   color: black;
   background-color: #f1ef5b;
-  margin-bottom: 5px;
   border-radius: 0px 10px 10px 0px;
 }
 

@@ -9,8 +9,6 @@ function ChatWindow(props) {
   const { messages, setMessages, member, currentChat } =
     props
 
-  console.log(member)
-
   const [newMessage, setNewMessage] = useState('')
   const [arrivalMessage, setArrivalMessage] = useState({})
   const scrollRef = useRef()
@@ -90,7 +88,7 @@ function ChatWindow(props) {
 
   return (
     <>
-      <div className="chatWindow col-12 col-md-6  col-lg-5">
+      <div className="chatWindow col-12 col-md-5  col-lg-5">
         <div className="chatWindowHead">
           <div className="talkTo">
             <div className="talkToAvatar">
@@ -123,7 +121,7 @@ function ChatWindow(props) {
           <input
             type="text"
             id="chatInsert"
-            className=" chatInsert allInputs col-12"
+            className=" chatInsert allInputs m-0 col-12"
             placeholder="請輸入"
             value={newMessage}
             onChange={(e) => {

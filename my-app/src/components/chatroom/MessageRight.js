@@ -4,7 +4,6 @@ import { format } from 'timeago.js'
 function MessageRight(props) {
   const { messages, own } = props
 
-  console.log('own', own)
   return (
     <>
       <div className={own ? 'messageRight' : 'messageLeft'}>
