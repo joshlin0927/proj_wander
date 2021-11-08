@@ -1162,14 +1162,13 @@ a {
 .chatWrapper {
   display: flex;
   position: absolute;
-  left: 0px;
 }
 
 .chatList {
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  background-color: rgb(131, 131, 131);
+  background-color: #fff;
   min-height: 30%;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
@@ -1181,9 +1180,9 @@ a {
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    background-color: rgb(131, 131, 131);
+    background-color: #fff;
     min-height: 30%;
-    width: 35vw;
+    width: 30vw;
     box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   }
 
@@ -1211,7 +1210,7 @@ a {
 }
 
 .chatCard-info {
-  width: 50%;
+  width: 70%;
   margin-left: 10px;
 }
 
@@ -1266,10 +1265,10 @@ a {
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  background-color: rgb(131, 131, 131);
+  background-color: #fff;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   max-height: 500px;
-  width: 48vw;
+  width: 50vw;
   z-index: 1;
 }
 
@@ -1369,7 +1368,7 @@ a {
 .message {
   z-index: 1;
   border-radius: 10px;
-  width: 15vw;
+  max-width: 15vw;
   word-wrap: break-word;
   white-space: pre-wrap;
   padding: 0.5rem;
@@ -1389,7 +1388,7 @@ a {
   display: flex;
   align-items: center;
   position: relative;
-  margin: 1rem;
+  margin-bottom: 1rem;
 }
 
 .chatInsert {
