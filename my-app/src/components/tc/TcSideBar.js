@@ -241,7 +241,7 @@ function TcSideBar(props) {
             <div
               className={
                 isActive === '聊天室'
-                  ? 'nav-item' + ' ' + 'active'
+                  ? 'nav-item active'
                   : 'nav-item'
               }
               activeclassname="active"

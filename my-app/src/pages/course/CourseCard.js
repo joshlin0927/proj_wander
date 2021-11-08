@@ -1,7 +1,3 @@
-// import axios from 'axios'
-import React, { useState, useEffect } from 'react'
-
-import { Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 // import {
@@ -19,17 +15,16 @@ import { Link } from 'react-router-dom'
 //     course_introduction,
 //     created_at,
 //     remove,
-import { useHistory } from 'react-router'
 import { IMG_PATH } from '../../config'
 
 function CourseCard(props) {
-  const member = localStorage.getItem('member')
+  // const member = localStorage.getItem('member')
 
-  const memberObj = JSON.parse(member)
+  // const memberObj = JSON.parse(member)
 
-  const token = localStorage.getItem('token')
+  // const token = localStorage.getItem('token')
 
-  const history = useHistory()
+  // const history = useHistory()
 
   //大頭貼狀態
   // let [imgSrc, setImgSrc] = useState('')
@@ -48,17 +43,10 @@ function CourseCard(props) {
 
   const {
     sid,
-    teacher_sid,
     course_category,
     course_name,
     course_img,
     course_price,
-    course_data,
-    hours,
-    course_introduction,
-    created_at,
-    remove,
-    setMess,
   } = props
 
   // 刪除留言
@@ -169,7 +157,9 @@ function CourseCard(props) {
           <span className="sh-teachername">
             {course_category}
           </span>
-          <span className="co-price">{course_price} TWD</span>
+          <span className="co-price">
+            {course_price} TWD
+          </span>
         </Link>
       </div>
 

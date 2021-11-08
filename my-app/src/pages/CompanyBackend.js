@@ -12,14 +12,14 @@ import TcBgDecorationNormal from '../components/tc/TcBgDecorationNormal'
 function CompanyBackend() {
   const [selectedOption, setSelectedOption] = useState('')
   let [data, setData] = useState({})
-  let [totalRows, setTotalRows] = useState(0)
+  // let [totalRows, setTotalRows] = useState(0)
 
   useEffect(() => {
     ;(async () => {
       let r = await axios.get(Member_LIST)
       console.log(r)
       if (r.status === 200) {
-        setTotalRows(r.data.totalRows)
+        // setTotalRows(r.data.totalRows)
         setData(r.data)
       }
     })()

@@ -2,10 +2,10 @@ import React from 'react'
 import { IMG_PATH, devUrl } from '../../config'
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+// import withReactContent from 'sweetalert2-react-content'
 
 function CalendarCourseItem(props) {
-  const MySwal = withReactContent(Swal)
+  // const MySwal = withReactContent(Swal)
   const {
     name,
     teacher,

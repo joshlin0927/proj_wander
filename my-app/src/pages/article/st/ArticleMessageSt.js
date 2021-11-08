@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router'
 import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
 
@@ -51,7 +50,7 @@ function ArticleMessage(prop) {
   const [displayCourse, setDisplayCourse] = useState([{}])
 
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
-  const [RemoveCourse, setRemoveCourse] = useState()
+  // const [RemoveCourse, setRemoveCourse] = useState()
 
   // 拿去做map排列的，取的是r.data.rows，或是其它處理
   const [displayMessage, setDisplayMessage] = useState([{}])

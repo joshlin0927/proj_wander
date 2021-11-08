@@ -42,13 +42,13 @@ function ChatList() {
       <div className="chatList col-12 col-md-5 col-lg-4">
         <div className="chatList-content">
           <div className="TCform-head ml-1">
-            <a href="">
+            <div>
               <i className="fas fa-chevron-left TCback-btn"></i>
-            </a>
+            </div>
             <div className="TCform-title">聊天室</div>
-            <a href="">
+            <div>
               <i className="fas fa-chevron-left TCback-btn opacity-0"></i>
-            </a>
+            </div>
           </div>
           {/* a person */}
           {conversation.length === 0

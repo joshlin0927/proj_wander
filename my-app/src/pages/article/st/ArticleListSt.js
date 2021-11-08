@@ -1,7 +1,7 @@
 import ArticleListCardSt from './ArticleListCardSt'
 
 function ArtMessageList(prop) {
-  const { displayCourse, setDisplayCourse } = prop
+  const { displayCourse } = prop
   return (
     <>
       {displayCourse.map((Course, i) => {
