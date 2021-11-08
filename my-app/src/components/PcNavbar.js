@@ -15,7 +15,7 @@ function scrollHeader() {
 window.addEventListener('scroll', scrollHeader)
 
 function PcNavbar(props) {
-  const { auth, setAuth } = props
+  const { auth, setAuth, navCartQty } = props
   const [imgSrc, setImgSrc] = useState('')
 
   const [drop, setDrop] = useState('d-none')
@@ -57,8 +57,6 @@ function PcNavbar(props) {
     }
     setDrop('d-none')
   }, [imgSrc, auth, token, setAuth, identity, memberID])
-
-  // console.log(imgSrc)
 
   const logout = async () => {
     localStorage.removeItem('token')
@@ -191,6 +189,9 @@ function PcNavbar(props) {
                 </div>
               )}
               <Link to="/Cart" className="nav_cart">
+                <div className="navCartQty">
+                  {navCartQty}
+                </div>
                 <img
                   src={`${devUrl}/images/cart/cart_icon.svg`}
                   alt=""

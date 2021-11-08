@@ -47,6 +47,7 @@ import CompanyBackend from './pages/CompanyBackend'
 function App() {
   const [auth, setAuth] = useState(false)
   const [user, setUser] = useState()
+  const [navCartQty, setNavCartQty] = useState(0)
 
   return (
     <Router>
@@ -56,6 +57,7 @@ function App() {
             auth={auth}
             setAuth={setAuth}
             user={user}
+            navCartQty={navCartQty}
           />
           <Switch>
             <Route path="/CompanyBackend">
@@ -90,7 +92,7 @@ function App() {
               <ArtIndex />
             </Route>
             <Route path="/Course">
-              <CsIndex />
+              <CsIndex setNavCartQty={setNavCartQty} />
             </Route>
             <Route path="/Preview">
               <Preview />
