@@ -13,6 +13,7 @@ import StBgDecoration from '../../components/st/StBgDecoration'
 import CourseItem from '../../components/st/CourseItem'
 import RecommandedTC from '../../components/st/RecommandedTC'
 import RemindingText from '../../components/st/RemindingText'
+import Spinner from '../../components/Spinner'
 import Footer from '../../components/Footer'
 
 export default withRouter(function StCourse(props) {
@@ -31,17 +32,9 @@ export default withRouter(function StCourse(props) {
   // 設定Loading Spinner狀態
   const [isLoading, setIsLoading] = useState(true)
 
-  const spinner = (
-    <div className="loadingio-spinner-ripple-axvmfinlmje">
-      <div className="ldio-xv8fxyexxut">
-        <div> </div> <div> </div>
-      </div>
-    </div>
-  )
-
   //要呈現的課程資料
   const courseData = (
-    <div className="stcoursesection  col-12 col-md-10 ">
+    <>
       {courses.length !== 0 ? (
         courses.map((course, i) => {
           return (
@@ -57,7 +50,7 @@ export default withRouter(function StCourse(props) {
       ) : (
         <RemindingText />
       )}
-    </div>
+    </>
   )
   useEffect(() => {
     if (token && identity === 0) {
@@ -124,8 +117,11 @@ export default withRouter(function StCourse(props) {
 
         <div className="row justify-content-center d-flex">
           <StSideBar2 imgSrc={imgSrc} />
+          <div className="stcoursesection  col-12 col-md-10">
+            {isLoading ? <Spinner /> : courseData}
+          </div>
         </div>
-        {isLoading ? spinner : courseData}
+
         <div className="row">
           <div className="coursesubtitle">推薦教師</div>
         </div>
