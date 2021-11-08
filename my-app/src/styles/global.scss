@@ -458,11 +458,14 @@ a {
   font-size: 1.5rem;
   z-index: 6;
   text-align: center;
-  transition: 0.5s;
 }
 .navCartQty.move {
   bottom: 50%;
   transform: translate(-50%, 50%);
+  transition: 0.5s;
+}
+.nav_cart_icon.move {
+  top: -50%;
   transition: 0.5s;
 }
 
@@ -475,6 +478,7 @@ a {
     bottom: 50%;
     transform: translate(-50%, 50%);
     color: #ffffff;
+    transition: 0.5s;
   }
 }
 

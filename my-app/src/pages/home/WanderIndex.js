@@ -597,6 +597,7 @@ function WanderIndex() {
           </div>
         </div>
       </div>
+      <div className="indexBG"></div>
       <HomeBgDecorationNormal />
       <div className="indexBigFooter container-fluid">
         <Footer />

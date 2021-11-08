@@ -1,4 +1,17 @@
 /*============= Main =============*/
+.indexBG {
+  background-color: #f1f0e9;
+  width: 100%;
+  height: calc(480% + 250px);
+  position: absolute;
+  z-index: -10;
+  top: 0;
+}
+@media (max-width: 767px) {
+  .indexBG {
+    height: 3500px;
+  }
+}
 .indexTopContent {
   position: relative;
   min-height: 100vh;
@@ -522,8 +535,6 @@
   width: 500px;
 }
 
-
-
 /* .yellow-area-but-2 {
   position: absolute;
   left: 900px; 
@@ -599,7 +610,7 @@
   justify-content: center;
 }
 
-.index-articleitem  {
+.index-articleitem {
   /* width: 260px; */
   /* height: 308px; */
   /* border: 1.25px solid rgba(255, 255, 255, 1); */
@@ -757,25 +768,22 @@
   color: #000000;
 }
 
-
 .recommendation p {
   border: 0;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-}  
-
-
+}
 
 .recommendation-card img,
- .recommendation ol, 
+.recommendation ol,
 .recommendation-wall ul,
 .recommendation-wall li {
   border: 0;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-}  
+}
 
 /* .recommendation p,
 img,
@@ -816,7 +824,6 @@ li {
   color: #ffffff;
   background-color: #065f8e;
   margin: 0;
-  
 }
 
 .checkoutBtn:hover {
@@ -1055,7 +1062,6 @@ li {
     top: 110px;
     position: absolute;
     margin-left: 10px;
-
   }
 
   .indexBigImg15 {

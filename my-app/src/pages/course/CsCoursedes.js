@@ -18,6 +18,7 @@ import CsMessageList from './CsMessageList'
 // import CoursedeList from './CoursedeList'
 
 function CsCoursede(props) {
+  const { setNavCartQty } = props
   const [stopModalShow, setStopModalShow] = useState(false)
   const handleStopModalClose = () => setStopModalShow(false)
   const handleStopModalShow = () => setStopModalShow(true)
@@ -91,8 +92,8 @@ function CsCoursede(props) {
   }, [props.location.search, member.sid])
 
   // 新增購物車資料
-  function addCart(courseID) {
-    fetch(`${Cart_API}/add`, {
+  const addCart = async (courseID) => {
+    const r = await fetch(`${Cart_API}/add`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -102,15 +103,13 @@ function CsCoursede(props) {
         product_sid: courseID,
       }),
     })
-      .then((r) => r.json())
-      .then((obj) => {
-        if (obj.success) {
-          console.log('新增成功：', obj)
-          changeAddCartBtn()
-        } else {
-          console.log(obj.error)
-        }
-      })
+    const obj = await r.json()
+    if (obj.success) {
+      console.log('新增成功：', obj)
+      changeAddCartBtn()
+    } else {
+      console.log(obj.error)
+    }
   }
 
   return (
