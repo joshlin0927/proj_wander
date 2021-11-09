@@ -33,6 +33,7 @@ function TcProfile(props) {
       `${MemberAvatar}/?teacherSid=${teacherSid}`,
       new FormData(document.formAvatar)
     )
+    console.log('r', r)
     setImgSrc(r.data.filename)
     console.log(r.data)
     if (r.data.success) {
@@ -274,7 +275,7 @@ function TcProfile(props) {
                       name="avatar"
                       className="d-none"
                       accept="image/*"
-                      onClick={doUpload}
+                      onChange={doUpload}
                       ref={inputRef}
                     />
                     <input
