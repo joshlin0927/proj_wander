@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-11-09 17:09:04
+-- 產生時間： 2021-11-09 22:52:40
 -- 伺服器版本： 10.4.20-MariaDB
 -- PHP 版本： 7.4.21
 
@@ -148,15 +148,15 @@ CREATE TABLE `art_messenger` (
 --
 
 INSERT INTO `art_messenger` (`sid`, `ar_sid`, `st_sid`, `nickname`, `st_pictuer`, `messenger`, `great`, `created_date`) VALUES
-(9, 95, 19, '이준기', 'e8157cd9-f0d1-4a98-adf8-f8d54cc2f95e.jpg', '這部劇情，我超喜歡的!!', 0, '2021-10-31 16:53:37'),
-(22, 98, 8, 'Jeffrey', '703d8337-d22a-4875-8ecc-d9f48863b72b.jpg', '我超喜歡這部的!!', 0, '2021-11-08 01:35:44'),
-(23, 99, 9, 'yuki', 'f84b3006-b697-4a6b-8bc7-de21521c750f.jpg', '這部劇情，我超喜歡的!!', 0, '2021-11-08 01:36:53'),
-(24, 103, 10, 'Ruby', 'eca70f10-1e90-4fa1-8d59-8406502a0dfd.jpg', '男主超帥的~~~', 0, '2021-11-08 01:41:51'),
-(25, 102, 11, 'Lisa', '86be747d-42fc-41ed-a771-d80cf697cea1.jpg', '我超喜歡這部的女主的', 0, '2021-11-08 01:43:58'),
-(26, 97, 19, '이준기', 'e8157cd9-f0d1-4a98-adf8-f8d54cc2f95e.jpg', '這部超級燒腦的~~~劇情超棒!!', 0, '2021-11-08 01:48:32'),
-(27, 96, 21, 'Mal', '84a8195a-c78f-443a-83fc-9b60470a55dc.jpg', '我超喜歡這部的特效，做的超棒的~', 0, '2021-11-08 01:49:28'),
-(28, 101, 22, 'Danielle', '2a5f7853-627f-47ce-8b7c-ac25b7e585df.jpg', '這部超推~~~~', 0, '2021-11-08 01:49:58'),
-(29, 100, 1014, 'samar', '085dc4f3-059b-4ac4-9e1a-6a8d4eb8b571.jpg', '這部超有話題的，我超喜歡的~~', 0, '2021-11-08 01:51:13');
+(9, 95, 8, 'Jennie', 'Jane Campbell.jpeg', '這部劇情，我超喜歡的!!', 0, '2021-10-31 16:53:37'),
+(22, 98, 10, '940', 'Jocelyn Teller法國人.jpeg', '我超喜歡這部的!!', 0, '2021-11-08 01:35:44'),
+(23, 99, 6, 'Anne', 'Anne Hathaway.jpg', '這部劇情，我超喜歡的!!', 0, '2021-11-08 01:36:53'),
+(24, 103, 15, 'Emily', 'Sagehashi Harue.jpeg', '男主超帥的~~~', 0, '2021-11-08 01:41:51'),
+(25, 102, 9, 'PP', 'Jax Paul德國人.jpeg', '我超喜歡這部的女主的', 0, '2021-11-08 01:43:58'),
+(26, 97, 7, 'David', 'David Giles.jpeg', '這部超級燒腦的~~~劇情超棒!!', 0, '2021-11-08 01:48:32'),
+(27, 96, 11, 'water', 'Kasanobu Wataru日本人.jpeg', '我超喜歡這部的特效，做的超棒的~', 0, '2021-11-08 01:49:28'),
+(28, 101, 16, 'Ming', 'Tatsuoka  Natsumi(姓加名).jpeg', '這部超推~~~~', 0, '2021-11-08 01:49:58'),
+(29, 100, 12, 'Liz', 'Lizzie Hopper.jpeg', '這部超有話題的，我超喜歡的~~', 0, '2021-11-08 01:51:13');
 
 -- --------------------------------------------------------
 
@@ -300,10 +300,10 @@ CREATE TABLE `cs_messenger` (
 INSERT INTO `cs_messenger` (`sid`, `cs_sid`, `st_sid`, `nickname`, `st_pictuer`, `messenger`, `score`, `great`, `created_date`) VALUES
 (8, 21, 8, 'Jennie', 'Jane Campbell.jpeg', '課程內容優質、老師口條清晰。', '5', 0, '2021-10-30 19:17:22'),
 (46, NULL, 9, 'PP', 'Jax Paul德國人.jpeg', '很容易吸收的課程，收穫滿滿。', '5', NULL, '2021-11-07 17:32:40'),
-(47, NULL, 10, '940', 'Jocelyn Teller法國人.jpeg', '有邏輯、系統的一門課,相同的方法可以運用到其他語言的學習，真是獲益良多！！', '5', NULL, '2021-11-07 17:52:10'),
-(49, NULL, 11, 'water', 'Kasanobu Wataru日本人.jpeg', '課程架構清晰，讓我們清楚學習時的具體方向及架構。', '5', NULL, '2021-11-07 17:54:37'),
+(47, NULL, 10, '940', 'Jocelyn Teller法國人.jpeg', '有邏輯的一門課，真是獲益良多！！', '5', NULL, '2021-11-07 17:52:10'),
+(49, NULL, 11, 'water', 'Kasanobu Wataru日本人.jpeg', '課程架構清晰，值得推薦。', '5', NULL, '2021-11-07 17:54:37'),
 (50, NULL, 12, 'Liz', 'Lizzie Hopper.jpeg', '還不錯，容易記憶。', '4', NULL, '2021-11-07 17:56:58'),
-(51, NULL, 13, 'penny', 'Penny Grecic.jpeg', '實用簡單,課程規劃不會太長好吸收', '4', NULL, '2021-11-09 19:11:16');
+(51, NULL, 13, 'penny', 'Penny Grecic.jpeg', '實用簡單，課程規劃不會太長好吸收。', '4', NULL, '2021-11-09 19:11:16');
 
 -- --------------------------------------------------------
 
@@ -341,7 +341,7 @@ INSERT INTO `member` (`sid`, `identity`, `verification`, `resume`, `avatar`, `fi
 (4, 1, 2, '', 'f12ea339-8919-4ef2-8405-8ea4a506f8a7.jpg', 'Patrick', 'Graham', 'Graham', 't4@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文', '美國', 'ESL expert, TESOL certified, \r\n1000+ hours of teaching English to adults/teens/kids, all levels of fluency. \r\nInteresting, interactive & engaging classes. Give students the right environment to practice the language. \r\nDaily conversation \r\nEnglish for kids & teens \r\nBusiness English', '2020-04-13'),
 (5, 1, 2, '', '22c49315-d7c0-462f-b5ca-387d5f0fbd88.jpg', 'Miller', 'Michael', 'Michael', 't5@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '英文', '美國', '6+ teaching experiences\r\nTESOL certificate \r\nChild expert \r\nVery Experienced Teacher! \r\nOver 16,000 classes taught! \r\nAges 5 - Adult Grammar Speaking Reading Writing Business Finance Marketing Sales \r\nBachelor of Business Marketing \r\nStudying for Chartered Professional Accountants', '2020-04-13'),
 (6, 0, 0, '', 'Anne Hathaway.jpg', 'Anne', 'Hathaway', 'Anne', 'mebycute@yahoo.com.tw', '$2y$10$.oYcT2djWelQuNUzsdyKLehgNWg09A/Pt7iowdtbgwDp4KxN0De0y', '1998-03-12', 2, '', '', '', '2021-08-12'),
-(7, 0, 0, '', 'David Giles.jpeg', 'David', 'Giles', '', 'mic@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1993-12-31', 1, '', '', '', '2021-08-12'),
+(7, 0, 0, '', 'David Giles.jpeg', 'David', 'Giles', 'David', 'mic@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1993-12-31', 1, '', '', '', '2021-08-12'),
 (8, 0, 0, '', 'Jane Campbell.jpeg', 'Jane ', 'Campbell', 'Jennie', 'hanyang@yahoo.com.tw', '$2y$10$.xN3DJmZJ.Bl6z3IWmHRX.BRbwwU69.Qo20FYGEkFBKvd88JtqR4C', '1991-04-15', 1, '', '', '', '2021-08-12'),
 (9, 0, 0, '', 'Jax Paul德國人.jpeg', 'Jax', 'Paul', 'PP', 'littleyu@gmail.com', '$2y$10$NGO/9qhSCLzMaK.A1.zIoO1.SyHkw1yeLHfWkTmRkQjmGhbKmG/nS', '1997-05-12', 2, '', '', '', '2021-08-12'),
 (10, 0, 0, '', 'Jocelyn Teller法國人.jpeg', 'Jocelyn ', 'Teller', '940', 'rsheng@hotmail.com', '$2y$10$fYYlJLdna6D4Y6mG0leDX.aB9B9/E2rXlP95mI0ZQjVhiMHLbsR9y\n', '1995-03-04', 2, '', '', '', '2021-08-12'),
@@ -349,7 +349,7 @@ INSERT INTO `member` (`sid`, `identity`, `verification`, `resume`, `avatar`, `fi
 (12, 0, 0, '', 'Lizzie Hopper.jpeg', 'Lizzie', ' Hopper', 'Liz', 'walker@gmail.com', '$2y$10$d8qooauoK8hI83od5MYk6.r.YPrYRJ5stVW/LCi7O9ptg1gnolK0e', '1996-01-01', 1, '', '', '', '2021-08-12'),
 (13, 0, 0, '', 'Penny Grecic.jpeg', 'Penny ', 'Grecic', 'penny', 'john@hotmail.com', '$2y$10$cCfeLN6TvktpbslwmSE5neGV93TREUW3oDwk13JWLI9iJbsOn7onm', '1992-09-09', 1, '', '', '', '2021-08-12'),
 (15, 0, 0, '', 'Sagehashi Harue.jpeg', 'Sagehashi ', 'Harue', 'Emily', 'emilylo@yahoo.com.tw', '$2y$10$xImMJIFbeGue5gQSZEP8mejXPx0kMB.YXlbj4Xof7VMCp8JLiymDq', '1995-05-01', 2, '', '', '', '2021-08-15'),
-(16, 0, 0, '', 'Tatsuoka  Natsumi(姓加名).jpeg', 'Tatsuoka  Natsumi', '', 'Ming', 'ming@gmail.com', '$2y$10$uIg3cyWN7Igyhy0dIMplOOvymEEP/zQxU31MZyGvWi9hsePVDEaiy', '1995-01-01', 1, '', '', '', '2021-08-15'),
+(16, 0, 0, '', 'Tatsuoka  Natsumi(姓加名).jpeg', 'Tatsuoka  Natsumi', 'Ming', 'Ming', 'ming@gmail.com', '$2y$10$uIg3cyWN7Igyhy0dIMplOOvymEEP/zQxU31MZyGvWi9hsePVDEaiy', '1995-01-01', 1, '', '', '', '2021-08-15'),
 (62, 1, 3, '', '039a55cd-a471-4a7f-9233-385313456fec.jpg', 'Tarin', 'Johnson', 'L50544', 'l5054@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '英文、日文', '日本', 'One-on-One Class *8.0 IELTS and 7+ years teaching experience *full time teacher, more time slots available *2800+ classes conducted *1100+ 5 star reviews *provides class notes and materials after class Materials for Business English, Daily English Conversation, Travel English, Kids English, IELTS/TOEIC/TOEFL Speaking Practice.', '2020-04-13'),
 (63, 1, 2, '', '414c42f4-20a6-4f3b-9d30-dce3b36835e0.jpg', '嘉萱', '魏', 'wei', 'jiawei@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '2000-02-25', 2, '中文、英文、日文', '中國', '輔助超過50位學生取得金色多益證書 高效準備考試/面試/簡報 10年ESL教學經驗 理科腦/思路清晰/批判性思考訓練 發音矯正專家，美式口音 把英文壓力➡️自信來源 一對一客製化教學 漸進式對話練習，口說練習互動多，說的一嘴好英文不再只是口號', '2020-07-01'),
 (64, 1, 2, '', '29a91a4f-1b58-4593-ac3f-b0be308e5c9c.jpg', '正名', '蔣', 'wright', 'wright@hotmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1998-04-08', 1, '中文、英文', '台灣', '🎖️六年教學經歷｜線上破千堂教學🎖️紐西蘭籍華僑｜母語人士正統美語發音🎖️多益金色證書｜專業正音教師🎖️兒童美語｜成人美語🎖️學員一致評價最有耐心、親和力教師｜帶領在無壓力的英語環境下進步🎖️鑽研兒童心理學，擅長與孩子建立朋友般的互動學習關係｜活潑熱情、耐心引導開口🎖️曾任兒童劇團英語戲劇營及知名新聞台英語主播營講師', '2020-10-14'),
@@ -836,7 +836,7 @@ ALTER TABLE `article_pop`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `art_messenger`
 --
 ALTER TABLE `art_messenger`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cart`

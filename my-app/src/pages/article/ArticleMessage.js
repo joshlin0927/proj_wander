@@ -142,11 +142,14 @@ function ArticleMessage(props) {
             </div>
             <br />
             <div className="p-page-avatar-sin">
-              <img
-                src={`${IMG_PATH}/pop-articles/${displayCourse.artical_image}`}
-                alt=""
-                className="img-fluid"
-              />
+              <div className="ArtMessage">
+                <img
+                  src={`${IMG_PATH}/pop-articles/${displayCourse.artical_image}`}
+                  alt=""
+                  className="img-fluid"
+                />
+              </div>
+
               {/* <img
                 src={`${devUrl}/images/article/熱門文章/06.jpg`}
                 alt=""
@@ -205,10 +208,164 @@ function ArticleMessage(props) {
                   </nav>
                   <Link to={`/ArtIndex/Article/`}>
                     <button className="btn Article-ar-btn-secondary mx-auto  one-btn-sin btn-b-sin">
-                      回到國際角落
+                      回到熱門文章
                     </button>
                   </Link>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="TCallwrapera-sing-out">
+        <div className="TCallwraperw-out">
+        <div className="TCallwraperw-white-block">
+          <div className="col-12">
+            <div className="post-sidebar-area">
+              <div className="TCallwraperw-out-sidebar-widget-area">
+                <h5 className="title">Advertisement</h5>
+                <a href="#">
+                  <img
+                    src={`${devUrl}/images/article/out/add.gif`}
+                    alt=""
+                  />
+                </a>
+              </div>
+            </div>
+
+            <div className="TCallwraperw-out-sidebar-widget-area">
+              <h5 className="title">Latest Posts</h5>
+
+              <div className="widget-content">
+                <div className="single-blog-post d-flex align-items-center widget-post">
+                  <div className="post-thumbnail">
+                    <Link
+                      to={`/ArtIndex/ArticleMessage?articleSid=101`}
+                    >
+                      <img
+                        src={`${devUrl}/images/index/06.png`}
+                        alt=""
+                      />
+                    </Link>
+                  </div>
+                  <div className="post-content">
+                    <Link
+                      to={`/ArtIndex/ArticleMessage?articleSid=101`}
+                      className="post-tag"
+                    >
+                      #熱門影集
+                    </Link>
+                    <h4>
+                      <Link
+                        to={`/ArtIndex/ArticleMessage?articleSid=101`}
+                        className="post-headline"
+                      >
+                        后翼棄兵
+                      </Link>
+                    </h4>
+                    <div className="post-meta">
+                      <p>
+                        <Link
+                          to={`/ArtIndex/ArticleMessage?articleSid=101`}
+                        >
+                          11 March
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="single-blog-post d-flex align-items-center widget-post">
+                  <div className="post-thumbnail">
+                    <Link
+                      to={`/ArtIndex/ArticleMessage?articleSid=96`}
+                    >
+                      <img
+                        src={`${devUrl}/images/index/07.png`}
+                        alt=""
+                      />
+                    </Link>
+                  </div>
+                  <div className="post-content">
+                    <Link
+                      to={`/ArtIndex/ArticleMessage?articleSid=96`}
+                      className="post-tag"
+                    >
+                      #異國節慶
+                    </Link>
+
+                    <h4>
+                      <Link
+                        to={`/ArtIndex/ArticleMessage?articleSid=96`}
+                        className="post-headline"
+                      >
+                        燃燒自我的限時烏托邦
+                      </Link>
+                    </h4>
+                    <div className="post-meta">
+                      <p>
+                        <Link
+                          to={`/ArtIndex/ArticleMessage?articleSid=96`}
+                        >
+                          11 March
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="single-blog-post d-flex align-items-center widget-post">
+                  <div className="post-thumbnail">
+                    <Link
+                      to={`/ArtIndex/ArticleMessage?articleSid=103`}
+                    >
+                      <img
+                        src={`${devUrl}/images/index/08.png`}
+                        alt=""
+                      />
+                    </Link>
+                  </div>
+
+                  <div className="post-content">
+                    <Link
+                      to={`/ArtIndex/ArticleMessage?articleSid=103`}
+                      lass="post-tag"
+                    >
+                      #熱門影集
+                    </Link>
+
+                    <h4>
+                      <Link
+                        to={`/ArtIndex/ArticleMessage?articleSid=103`}
+                        className="post-headline"
+                      >
+                        黑道律師文森佐
+                      </Link>
+                    </h4>
+                    <div className="post-meta">
+                      <p>
+                        <Link
+                          to={`/ArtIndex/ArticleMessage?articleSid=103`}
+                        >
+                          11 March
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="TCallwraperw-out-sidebar-widget-area">
+                <h5 className="title">Tags</h5>
+                <div className="widget-content">
+                  <ul className="tags">
+                    <li>
+                      <Link to={`/ArtIndex/Article/`}>
+                        熱門文章
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
               </div>
             </div>
           </div>

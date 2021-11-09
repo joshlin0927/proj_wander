@@ -132,11 +132,12 @@ function ArticleMessage(prop) {
             </div>
             <br />
             <div className="p-page-avatar-sin">
-              <img
+            <img
                 src={`${IMG_PATH}/pop-articles/${displayCourse.artical_image}`}
                 alt=""
                 className="img-fluid"
               />
+
               {/* <img
                 src={`${devUrl}/images/article/熱門文章/06.jpg`}
                 alt=""
@@ -204,6 +205,7 @@ function ArticleMessage(prop) {
           </div>
         </div>
       </div>
+      
       <div className="TCallwrapera-sing">
         <div className="TCallwraperw">
           <div className="white-block">

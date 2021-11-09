@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { devUrl } from '../../config'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 // 後端檔案路徑
 import { Art_Article_POP_LIST } from '../../config'
@@ -14,6 +15,8 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import ArBgDecorationNormal from '../../components/articles/ArBgDecorationNormal.js'
 import Footer from '../../components/Footer'
 
+import Spinner from '../../components/Spinner'
+
 function Article(props) {
   //判斷是否登入並為教師身分
   // const history = useHistory()
@@ -21,6 +24,9 @@ function Article(props) {
   // const member = localStorage.getItem('member')
   // const identity = JSON.parse(member).identity
   //  const teacherSid = JSON.parse(member).sid
+
+  // spinner
+  const [isLoading, setIsLoading] = useState(true)
 
   // 搜尋列
   const [searchWord, setSearchWord] = useState('')
@@ -64,6 +70,9 @@ function Article(props) {
         console.log('r.data.rows', r.data.rows)
         // setImgSrc(r.data.rows[0].avatar)
       }
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 1500)
     })()
   }, [])
 
@@ -119,7 +128,26 @@ function Article(props) {
           </div>
         </div>
         <div className="row justify-content-center d-flex">
-          <div className="coursesection col-md-10 col-lg-10">
+          {isLoading ? (
+            <div className="courseSpinner">
+              <Spinner />
+            </div>
+          ) : (
+            <div className="coursesection   col-md-10 col-lg-10">
+              {TcCourses.length > 0 ? (
+                <ArticleList
+                  displayCourse={displayCourse}
+                  setDisplayCourse={setDisplayCourse}
+                  // setImgSrc={
+                  //   setImgSrc
+                  // }
+                  // RemoveCourse={RemoveCourse}
+                  // setRemoveCourse={setRemoveCourse}
+                />
+              ) : null}
+            </div>
+          )}
+          {/* <div className="coursesection   col-md-10 col-lg-10">
             {TcCourses.length > 0 ? (
               <ArticleList
                 displayCourse={displayCourse}
@@ -131,346 +159,140 @@ function Article(props) {
                 // setRemoveCourse={setRemoveCourse}
               />
             ) : null}
-            {/* <MyPagination /> */}
+          </div> */}
+        </div>
+      </div>
+      {isLoading ? null : (
+        <div className="TCallwrapera-sing-out">
+        <div className="TCallwraperw-out">
+        <div className="TCallwraperw-white-block">
 
-            {/* <div className="articleitem">
-              <img
-                src="../images/article/01-1.jpg"
-                alt=""
-              />
-              <a href="">
-                <div className="coursename">
-                  柏捷頓家族名門韻事
+          <div className="col-12">
+            <div className="post-sidebar-area">
+              <div className="TCallwraperw-out-sidebar-widget-area">
+                <h5 className="title">Advertisement</h5>
+                <a href="#">
+                  <img
+                    src={`${devUrl}/images/article/out/add.gif`}
+                    alt=""
+                  />
+                </a>
+              </div>
+            </div>
+
+            <div className="TCallwraperw-out-sidebar-widget-area">
+              <h5 className="title">Latest Posts</h5>
+
+              <div className="widget-content">
+                <div className="single-blog-post d-flex align-items-center widget-post">
+                  <div className="post-thumbnail">
+                    <Link
+                      to={`/ArtIndex/ArticleMessage?articleSid=101`}
+                    >
+                      <img
+                        src={`${devUrl}/images/index/06.png`}
+                        alt=""
+                      />
+                    </Link>
+                  </div>
+                  <div className="post-content">
+                    <Link to={`/ArtIndex/ArticleMessage?articleSid=101`} class="post-tag">
+                      #熱門影集
+                    </Link>
+                    <h4>
+                      <Link
+                       to={`/ArtIndex/ArticleMessage?articleSid=101`}
+                       className="post-headline"
+                      >
+                        后翼棄兵
+                      </Link>
+                    </h4>
+                    <div className="post-meta">
+                      <p>
+                        <Link to={`/ArtIndex/ArticleMessage?articleSid=101`}>11 March</Link>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </a>
-              <span className="teachername">#熱門文章</span>
-            </div>
-            <div className="articleitem">
-              <img src="../images/article/02.jpeg" alt="" />
-              <a href="">
-                <div className="coursename ">紐約新醫革命</div>
-              </a>
-              <span className="teachername">#熱門文章</span>
-            </div>
-            <div className="articleitem">
-              <img src="../images/article/03.jpeg" alt="" />
-              <a href="">
-                <div className="coursename ">誰殺了莎拉？</div>
-              </a>
-              <span className="teachername">#熱門文章</span>
-            </div>
-            <div className="articleitem">
-              <img src="../images/article/04.jpeg" alt="" />
-              <a href="">
-                <div className="coursename ">亞森羅蘋</div>
-              </a>
-              <span className="teachername">#熱門文章</span>
-            </div>
-            <div className="articleitem ">
-              <img src="../images/article/05.jpeg" alt="" />
-              <a href="">
-                <div className="coursename">亞森羅蘋</div>
-              </a>
-              <span className="teachername">#熱門文章</span>
-            </div>
-            <div className="articleitem ">
-              <img src="../images/article/06.jpg" alt="" />
-              <a href="">
-                <div className="coursename">黑道律師文森佐</div>
-              </a>
-              <span className="teachername">#熱門文章</span>
-            </div>
-            <div className="articleitem ">
-              <img src="../images/article/21.jpg" alt="" />
-              <a href="">
-                <div className="coursename">
-                  藏著「上頭」不願被人記得的事
+
+                <div className="single-blog-post d-flex align-items-center widget-post">
+                  <div className="post-thumbnail">
+                    <Link
+                      to={`/ArtIndex/ArticleMessage?articleSid=96`}
+                    >
+                      <img
+                        src={`${devUrl}/images/index/07.png`}
+                        alt=""
+                      />
+                    </Link>
+                  </div>
+                  <div className="post-content">
+                    <Link  to={`/ArtIndex/ArticleMessage?articleSid=96`} class="post-tag">
+                      #異國節慶
+                    </Link>
+
+                    <h4>
+                      <Link
+                         to={`/ArtIndex/ArticleMessage?articleSid=96`}
+                         className="post-headline"
+                      >
+                        燃燒自我的限時烏托邦
+                      </Link>
+                    </h4>
+                    <div className="post-meta">
+                      <p>
+                        <Link  to={`/ArtIndex/ArticleMessage?articleSid=96`}>11 March</Link>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </a>
-              <span className="teachername">#熱門文章</span>
-            </div>
-            <div className="articleitem ">
-              <img src="../images/article/22.jpg" alt="" />
-              <a href="">
-                <div className="coursename">
-                  英文二十六個字母的起源
+
+                <div className="single-blog-post d-flex align-items-center widget-post">
+                  <div className="post-thumbnail">
+                    <Link
+                      to={`/ArtIndex/ArticleMessage?articleSid=103`}
+                    >
+                      <img
+                        src={`${devUrl}/images/index/08.png`}
+                        alt=""
+                      />
+                    </Link>
+                  </div>
+
+                  <div className="post-content">
+                    <Link    to={`/ArtIndex/ArticleMessage?articleSid=103`}
+ 
+                    lass="post-tag">
+                      #熱門影集
+                    </Link>
+
+                    <h4>
+                      <Link
+                       to={`/ArtIndex/ArticleMessage?articleSid=103`}
+
+                       className="post-headline"
+                      >
+                        黑道律師文森佐
+                      </Link>
+                    </h4>
+                    <div className="post-meta">
+                      <p>
+                        <Link                       to={`/ArtIndex/ArticleMessage?articleSid=103`}
+
+                        >
+                        11 March
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </a>
-              <span className="teachername">#熱門文章</span>
+              </div>
             </div>
-            <div className="articleitem ">
-              <img src="../images/article/26.jpg" alt="" />
-              <a href="">
-                <div className="coursename">
-                  為失語者開啟一扇溝通的窗
-                </div>
-              </a>
-              <span className="teachername">#熱門文章</span>
-            </div>
-            <div className="articleitem ">
-              <img src="../images/article/23.jpg" alt="" />
-              <a href="">
-                <div className="coursename">
-                  外來語所組成的語言
-                </div>
-              </a>
-              <span className="teachername">#熱門文章</span>
-            </div>
-            <div className="articleitem img-fluid ">
-              <img src="../images/article/24.jpeg" alt="" />
-              <a href="">
-                <div className="coursename">
-                  職場中的專業精神、善意
-                </div>
-              </a>
-              <span className="teachername">#熱門文章</span>
-            </div>
-            <div className="articleitem img-fluid ">
-              <img src="../images/article/25.jpeg" alt="" />
-              <a href="">
-                <div className="coursename">寬容的公司文化</div>
-              </a>
-              <span className="teachername">#熱門文章</span>
-            </div> */}
+          </div>
           </div>
         </div>
       </div>
-
-      {/* <div className="TCallwrapera-sing">
-        <div className="Article-TCallwraperw ">
-        <div className="row col-4 offset-8 p-0">
-          <div className="col-10 offset-0 p-0 ar-artpicture">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/01.png`}
-                alt=""
-              />
-            </Link>
-
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/02.png`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="col-11 offset-0 p-0 ar-artpicture">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/03.png`}
-                alt=""
-              />
-            </Link>
-
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/04.png`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="col-11 offset-0 p-0 ar-artpicture">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/05.png`}
-                alt=""
-              />
-            </Link>
-
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/06.png`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="col-11 offset-0 p-0 ar-artpicture">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/07.png`}
-                alt=""
-              />
-            </Link>
-
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/08.png`}
-                alt=""
-              />
-            </Link>
-          </div>
-        </div>
-
-        </div>
-      </div> */}
-
-      {/* <div className="TCallwraperb">
-        <div className="row col-4 offset-8 p-0">
-          <div className="col-11 offset-0 p-0 ar-artpicture">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/01.png`}
-                alt=""
-              />
-            </Link>
-
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/02.png`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="col-11 offset-0 p-0 ar-artpicture">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/03.png`}
-                alt=""
-              />
-            </Link>
-
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/04.png`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="col-11 offset-0 p-0 ar-artpicture">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/05.png`}
-                alt=""
-              />
-            </Link>
-
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/06.png`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="col-11 offset-0 p-0 ar-artpicture">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/07.png`}
-                alt=""
-              />
-            </Link>
-
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/s/08.png`}
-                alt=""
-              />
-            </Link>
-          </div>
-        </div>
-        </div> */}
-
-      {/* <div className="row col-12 offset-0 p-0">
-
-        <div className="artar-coursesectiona col-4  col-md-2 offset-md-9">
-          <div className="ar-artpicture">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/01-1.jpg`}
-                alt=""
-              />
-            </Link>
-          </div>
-
-          <div className="ar-artpicture">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/02.jpeg`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="ar-artpicture">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/03.jpeg`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="ar-artpicture">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/04.jpeg`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="ar-artpicture ">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/05.jpeg`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="ar-artpicture ">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/06.jpg`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="ar-artpicture ">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/21.jpg`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="ar-artpicture ">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/22.jpg`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="ar-artpicture ">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/26.jpg`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="ar-artpicture ">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/23.jpg`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="ar-artpicture img-fluid ">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/24.jpeg`}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="ar-artpicture img-fluid ">
-            <Link to={`#`}>
-              <img
-                src={`${devUrl}/images/article/25.jpeg`}
-                alt=""
-              />
-            </Link>
-          </div>
-        </div>
-        </div> */}
+      )}
 
       <div className="TCallwrapera-sing">
         <div className="TCallwraperw">

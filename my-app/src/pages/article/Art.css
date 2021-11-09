@@ -1,3 +1,18 @@
+:root {
+  /*========== Hover overlay ==========*/
+  --img-transition: 0.3s;
+  --img-hidden: hidden;
+  --img-scale: scale(1.1);
+}
+
+.articleitem img {
+  transition: var(--img-transition);
+}
+
+.articleitem img:hover {
+  transform: var(--img-scale);
+}
+
 .art-p-page-info {
   order: 2;
   display: flex;
@@ -7,12 +22,11 @@
   border-radius: 20px;
 }
 
-.TCcourse-info-sing{
+.TCcourse-info-sing {
   width: 500px;
 }
 
-
-.art-type-sin{
+.art-type-sin {
   font-family: Noto Sans;
   font-style: normal;
   font-weight: bold;
@@ -22,10 +36,10 @@
 
   letter-spacing: -0.015em;
 
-  color: #065F8E;
+  color: #065f8e;
 }
 
-.art-title-sin{
+.art-title-sin {
   font-family: Noto Sans;
   font-style: normal;
   font-weight: bold;
@@ -38,162 +52,153 @@
   color: #000000;
 }
 
-.p-page-avatar-sin{
+.p-page-avatar-sin {
   display: flex;
   justify-content: center;
-  }
-
-  
-  .btn-sin {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 115px;
-    height: 40px;
-    font-size: 14px;
-    font-weight: bold;
 }
 
-.opp-sin-art{
+.btn-sin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 115px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+}
 
+.opp-sin-art {
   display: flex;
   margin-top: 50px;
   align-items: center;
   justify-content: center;
   margin-bottom: 50px;
-  background: #FFFFFF;
+  background: #ffffff;
   /* width: 400px; */
-          }
+}
 
-          .opp-icon-sin{
-              display: flex;
+.opp-icon-sin {
+  display: flex;
   align-items: center;
   justify-content: center;
   display: flex;
   margin-top: 40px;
+}
 
-} 
-
-
-.opp-sin{
+.opp-sin {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 50px;
-  background: #FFFFFF;
+  background: #ffffff;
   /* width: 400px; */
-          }
+}
 
-          .opp-icon-sin{
-              display: flex;
+.opp-icon-sin {
+  display: flex;
   align-items: center;
   justify-content: center;
   display: flex;
   margin-top: 30px;
-          }
+}
 
-          
-      .subtitle-sin {
-        font-size: 16px;
-        font-weight: bold;
-        margin: 25px 0px 25px 10px;
-    }
-            /* 單獨一個按鈕在表單底部時 */
-            .one-btn-sin {
-              color: black;
-              margin-bottom: 30px;
-          }
+.subtitle-sin {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 25px 0px 25px 10px;
+}
+/* 單獨一個按鈕在表單底部時 */
+.one-btn-sin {
+  color: black;
+  margin-bottom: 30px;
+}
 
-          .btn-b-sin {
-            width: 115px;
-            height: 40px;
-            margin-top: 25px
-        }
+.btn-b-sin {
+  width: 115px;
+  height: 40px;
+  margin-top: 25px;
+}
 
-        .sidebars-sing .nav-list-sing {
-          width: 100%;
-          list-style: none;
-          padding-left: 0;
-          margin-top: 20px;
-        }
+.sidebars-sing .nav-list-sing {
+  width: 100%;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
 
-            /* 選中的選項狀態 */
-    .sidebars-sing .sing-TCcourse-card.active {
-      background-color: #ECECEC;
-    }
+/* 選中的選項狀態 */
+.sidebars-sing .sing-TCcourse-card.active {
+  background-color: #ececec;
+}
 
+.sidebars-sing .sing-TCcourse-card:hover {
+  background-color: white;
+  opacity: 0.8;
+}
 
+.sing-TCcourse-card {
+  display: flex;
+  justify-content: center;
+  background: #ececec;
+  width: 100%;
+  /* overflow: hidden; */
+  /* margin-bottom: 15px;  */
+  /* cursor: pointer;  */
+  z-index: -1;
+  margin-bottom: 3px;
 
-    .sidebars-sing .sing-TCcourse-card:hover {
-      background-color: white;
-      opacity: 0.8;
-    }
+  /* position: absolute;*/
+}
 
-    .sing-TCcourse-card {
-      display: flex;
-      justify-content: center;
-      background: #ECECEC;
-      width: 100%;
-      /* overflow: hidden; */
-      /* margin-bottom: 15px;  */
-      /* cursor: pointer;  */
-      z-index: -1;
-      margin-bottom: 3px;
-  
-      /* position: absolute;*/
-  
-  }
+/* 課程刪除按鈕 */
+.TCcourse-delete-sin {
+  color: #065f8e;
+  font-size: 18px;
+  padding: 3px 10px 0px;
+  margin-left: auto;
+}
 
-          /* 課程刪除按鈕 */
-          .TCcourse-delete-sin {
-            color: #065f8e;
-            font-size: 18px;
-            padding: 3px 10px 0px;
-            margin-left: auto;
-        }
+.TCcourse-info-right-sin {
+  display: flex;
+  justify-content: flex-end;
+}
 
+.TCallwraperb {
+  z-index: 15;
+  position: absolute;
+  top: 500px;
+  right: 0px;
+  /* width: 100%; */
+}
 
-      .TCcourse-info-right-sin{
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    .TCallwraperb{
-      z-index: 15;    
-      position: absolute;
-      top: 500px;
-      right: 0px; 
-      /* width: 100%; */
-  }
-
-  /* .TCallwraperb img{
+/* .TCallwraperb img{
     width:500px;
   } */
 
-    .opp-icon-sing{
-      display: flex;
-align-items: center;
-justify-content: center;
-display: flex;
-margin-top: 30px;
-  }
-
-  .TCcourse-img-selector-sin {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin-bottom: 25px;
-      font-family: Noto Sans;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 10px;
-      line-height: 25px;
-      text-align: center;
-      letter-spacing: -0.015em;
-      color: #065F8E;
+.opp-icon-sing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 30px;
 }
 
-.TCcourse-title-sin p{
+.TCcourse-img-selector-sin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 25px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 25px;
+  text-align: center;
+  letter-spacing: -0.015em;
+  color: #065f8e;
+}
+
+.TCcourse-title-sin p {
   font-family: Noto Sans;
   font-style: normal;
   font-weight: bold;
@@ -204,64 +209,198 @@ margin-top: 30px;
   letter-spacing: -0.015em;
 
   color: #000000;
-  }
+}
 
-  .TCcourse-img-sing{
-    margin-right: 10px;
-  }
-  .TCcourse-img-sing img{
-     width: 202px;
-  }
+.TCcourse-img-sing {
+  margin-right: 10px;
+}
+.TCcourse-img-sing img {
+  width: 202px;
+}
 
-
-  .TCallwrapera-sing{
-    z-index: 5;
-    position: absolute;
-    top: 50px;
-    width: 100%;
+.TCallwrapera-sing {
+  z-index: 5;
+  position: absolute;
+  top: 50px;
+  width: 100%;
 }
 
 .TCallwraperw {
   display: block;
   position: absolute;
-  z-index:1;
+  z-index: 1;
   left: 0px;
   top: 100px;
+}
+
+.TCallwrapera-sing-out {
+  z-index: 5;
+  position: absolute;
+  top: 300px;
+  width: 100%;
+}
+
+.TCallwraperw-out {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 200px;
+}
+
+.TCallwraperw-out-sidebar-widget-area .title {
+  font-size: 18px;
+  margin-bottom: 52px;
+  margin-right: 50px;
+}
+
+.TCallwraperw-out-sidebar-widget-area img {
+  height: auto;
+  /* max-width: 100%; */
+  width: 300px;
+}
+
+.TCallwraperw-out-sidebar-widget-area .single-blog-post {
+  margin-bottom: 25px;
+}
+.TCallwraperw-out-sidebar-widget-area
+  .single-blog-post
+  .post-thumbnail {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 115px;
+  flex: 0 0 115px;
+  min-width: 115px;
+  padding-right: 15px;
+}
+.TCallwraperw-out-sidebar-widget-area
+  .single-blog-post
+  .post-content
+  .post-tag {
+  color: #0c6291;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.TCallwraperw-out-sidebar-widget-area
+  .single-blog-post
+  .post-content
+  .post-tag:hover,
+.TCallwraperw-out-sidebar-widget-area
+  .single-blog-post
+  .post-content
+  .post-tag:focus {
+  color: #000000;
+}
+.TCallwraperw-out-sidebar-widget-area
+  .single-blog-post
+  .post-content
+  h4 {
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.TCallwraperw-out-sidebar-widget-area
+  .single-blog-post
+  .post-content
+  h4
+  .post-headline {
+  font-size: 16px;
+  color: #000000;
+}
+.TCallwraperw-out-sidebar-widget-area
+  .single-blog-post
+  .post-content
+  .post-meta
+  p {
+  margin-bottom: 0;
+}
+.TCallwraperw-out-sidebar-widget-area
+  .single-blog-post
+  .post-content
+  .post-meta
+  p
+  a {
+  font-size: 11px;
+  color: #878787;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+}
+.TCallwraperw-out-sidebar-widget-area
+  .single-blog-post
+  .post-content
+  .post-meta
+  p
+  a:hover,
+.TCallwraperw-out-sidebar-widget-area
+  .single-blog-post
+  .post-content
+  .post-meta
+  p
+  a:focus {
+  color: #000000;
+}
+
+.TCallwraperw-out-sidebar-widget-area .tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-top: -5px;
+  margin-left: -5px;
+}
+.TCallwraperw-out-sidebar-widget-area .tags a {
+  display: block;
+  padding: 0 35px;
+  border: 1px solid #c5c5c5;
+  font-size: 12px;
+  color: #000000;
+  height: 45px;
+  line-height: 43px;
+  margin: 5px;
+}
+.TCallwraperw-out-sidebar-widget-area .tags a:hover,
+.TCallwraperw-out-sidebar-widget-area .tags a:focus {
+  border: 1px solid #065f8e;
+  color: #ffffff;
+  background-color: #065f8e;
 }
 
 .Article-TCallwraperw {
   display: block;
   position: absolute;
-  z-index:-4;
+  z-index: -4;
   right: 100px;
   top: 100px;
 }
 
 .white-block {
   position: relative;
-    width: 300px;
-    height: 400px;
-    background: #FFFFFF;
-    border-radius: 0px 180px 180px 0px;
+  width: 300px;
+  height: 400px;
+  background: #ffffff;
+  border-radius: 0px 180px 180px 0px;
+}
 
+.TCallwraperw-white-block {
+  position: relative;
+  width: 300px;
 }
 
 .Article-white-block {
   position: relative;
-    width: 500px;
-    height: 400px;
-    background: #FFFFFF;
-
+  width: 500px;
+  height: 400px;
+  background: #ffffff;
 }
 
-.yellow-area-but-1   {
+.yellow-area-but-1 {
   display: flex;
   justify-content: center;
   border: 1px solid #000000;
   position: absolute;
   width: 200px;
   height: 58px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-sizing: border-box;
   font-family: Noto Sans;
   font-style: normal;
@@ -269,8 +408,8 @@ margin-top: 30px;
   font-size: 20px;
   line-height: 41px;
   /* identical to box height */
-  top:60px;
-  left:28px;
+  top: 60px;
+  left: 28px;
   display: flex;
   align-items: center;
   letter-spacing: 0.15em;
@@ -280,67 +419,63 @@ margin-top: 30px;
 
 .sns-sing {
   z-index: 15;
-position: absolute;
-left: 50px;
-top:320px;
--js-display: flex;
-display:-webkit-box;
-display: -webkit-flex;
-display:-moz-box;
-display:-ms-flexbox;
-display: flex;
--webkit-justify-content: space-between;
-justify-content: space-between;
--webkit-flex-wrap: wrap;
--ms-flex-wrap: wrap;
-flex-wrap: wrap;
+  position: absolute;
+  left: 50px;
+  top: 320px;
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-
 .sns-sing .nav_footer-sing {
-position: relative;
-width: 60px;
-height: 60px;
-background-color: #065f8e;
-border-radius: 50%;
-overflow: hidden;
-transition: 0.3s ease;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background-color: #065f8e;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: 0.3s ease;
 }
 
 .sns-sing .nav_footera-sing {
-position: relative;
-width: 60px;
-height: 60px;
-left: 30px;
-background-color: #065f8e;
-border-radius: 50%;
-overflow: hidden;
-transition: 0.3s ease;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  left: 30px;
+  background-color: #065f8e;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: 0.3s ease;
 }
-
-
 
 .sns-sing .Facebook-sing {
-width: 30px;
-height: 30px;
-left: -50%;
-top: 50%;
-filter: drop-shadow(#fff 60px 0);
-transform: translate(-50%, -50%);
-position: absolute;
-z-index: 5;
+  width: 30px;
+  height: 30px;
+  left: -50%;
+  top: 50%;
+  filter: drop-shadow(#fff 60px 0);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 5;
 }
-
 
 .sns-sing .nav_footer-sing:hover,
 .sns-sing .nav_footera-sing:hover {
-background-color: #fff;
+  background-color: #fff;
 }
 
 .sns-sing .nav_footer-sing:hover .Facebook-sing,
-.sns-sing .nav_footera-sing:hover .Facebook-sing{
-filter: drop-shadow(#065f8e 60px 0);
-color: #065f8e;
+.sns-sing .nav_footera-sing:hover .Facebook-sing {
+  filter: drop-shadow(#065f8e 60px 0);
+  color: #065f8e;
 }
 
 .Article-ar-btn-secondary:hover {
@@ -352,12 +487,10 @@ color: #065f8e;
 }
 
 .Article-ar-btn-secondary {
-  color: #FFFFFF;
+  color: #ffffff;
   border: 1px solid #2b6686;
   background-color: #065f8e;
 }
-
-
 
 .ar-btn-secondary:hover {
   border: 1px solid black;
@@ -380,88 +513,73 @@ color: #065f8e;
   margin-bottom: 30px;
 }
 
+/* 表單 */
+.ar-TCform {
+  margin-top: 50px;
+  border: 2px solid rgba(6, 95, 142, 0.5);
+  margin-bottom: 150px;
+}
 
-  /* 表單 */
-  .ar-TCform {
-    margin-top: 50px;
-    border: 2px solid rgba(6, 95, 142, 0.5);
-    margin-bottom: 150px;
-  }
+/* 表單內容 */
+.ar-TCform-content {
+  width: 70%;
+}
 
+.ar-TCform .ar-TCform-content {
+  margin: 0px auto;
+  padding: 0px auto;
+}
 
-    /* 表單內容 */
-    .ar-TCform-content {
-      width: 70%;
-    }
-  
-    .ar-TCform .ar-TCform-content {
-    margin: 0px auto;
-    padding: 0px auto;
-  }
-
-  .ar-TC-intro {
-    border: 1px
-    solid black;
-    background-color: #fff;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    font-size: 15px;
+.ar-TC-intro {
+  border: 1px solid black;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  font-size: 15px;
 }
 
 .ar-ar-all {
   margin-top: 30px;
 }
 
-.ar-artpicture{
-  margin-top:10px
+.ar-artpicture {
+  margin-top: 10px;
 }
-.ar-artpicture img{
-  margin-left:10px;
+.ar-artpicture img {
+  margin-left: 10px;
   border: 20px solid rgba(255, 255, 255, 1);
-
 }
-
-
-
-
 
 @media (max-width: 768px) {
-
-  
   .artar-coursesectiona {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
 
+  .ar-artpicture {
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgba(255, 255, 255, 1);
+    position: relative;
 
-}
+    /* margin-bottom: 30px; */
+    /* margin-left: 10px; */
+    background-color: #fff;
+  }
 
-.ar-artpicture {
-  width: 100px;
-height: 100px;
-border: 1px solid rgba(255, 255, 255, 1);
-position: relative;
+  .ar-artpicture img {
+    position: absolute;
+    width: 50px;
+    height: 90px;
+    left: 5px;
+    top: 5px;
+  }
 
-/* margin-bottom: 30px; */
-/* margin-left: 10px; */
-background-color: #fff;
-}
-
-.ar-artpicture img{
-  
-  position: absolute;
-  width: 50px;
-  height: 90px;
-  left: 5px;
-  top: 5px;
-}
-
-  
-  .TCallwraperb{
+  .TCallwraperb {
     display: none;
-
-}
+  }
 
   .Art-coursename {
     font-size: 16px;
@@ -479,19 +597,17 @@ background-color: #fff;
     letter-spacing: -0.015em;
 
     color: #000000;
-}
+  }
 
-.teachername {
-  color: #065F8E;
-  font-size: 14px;
-  font-style: bold;
-  position: absolute;
-  top: 90%;
-  left: 5%;
-}
+  .teachername {
+    color: #065f8e;
+    font-size: 14px;
+    font-style: bold;
+    position: absolute;
+    top: 90%;
+    left: 5%;
+  }
 
-
-  
   .articleitem {
     width: 260px;
     height: 308px;
@@ -499,279 +615,249 @@ background-color: #fff;
     position: relative;
     margin-bottom: 30px;
     margin-left: 10px;
-    background-color:#fff;
-}
+    background-color: #fff;
+  }
 
-.articleitem img {
+  .articleitem img {
     position: absolute;
     width: 160px;
     height: 208px;
     left: 50px;
     top: 32px;
-}
+  }
 
-  
-
-  .TCcourse-img-sing img{
+  .TCcourse-img-sing img {
     width: 202px;
- }
-
-
- .articleitem {
-  width: 260px;
-  height: 308px;
-  border: 1.25px solid rgba(255, 255, 255, 1);
-  position: relative;
-  margin-bottom: 30px;
-  margin-left: 10px;
-  background-color:#fff;
-}
-
-.articleitem img {
-  position: absolute;
-  width: 160px;
-  height: 208px;
-  left: 50px;
-  top: 32px;
-}
-
-
-          
-
-  .TCallwrapera-sing{
-      display: none;
-
   }
-  .sns-sing .nav_footer-sing ,
+
+  .articleitem {
+    width: 260px;
+    height: 308px;
+    border: 1.25px solid rgba(255, 255, 255, 1);
+    position: relative;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    background-color: #fff;
+  }
+
+  .articleitem img {
+    position: absolute;
+    width: 160px;
+    height: 208px;
+    left: 50px;
+    top: 32px;
+  }
+
+  .TCallwrapera-sing {
+    display: none;
+  }
+
+  .TCallwrapera-sing-out {
+    display: none;
+  }
+  .sns-sing .nav_footer-sing,
   .sns-sing .nav_footera-sing {
-      display: none;
-
+    display: none;
   }
 
-  .ar-TCform .art-input-data{
+  .ar-TCform .art-input-data {
+    display: noon;
+  }
+}
+
+/*875*/
+@media (min-width: 768px) {
+  .teachername {
+    color: #065f8e;
+    font-size: 8px;
+    font-style: bold;
+    position: absolute;
+    top: 90%;
+    left: 5%;
+  }
+
+  .Art-coursename {
+    color: #000000;
+    font-size: 14px;
+    top: 80%;
+    left: 5%;
+    margin-left: auto;
+    position: absolute;
+  }
+
+  .articleitem {
+    width: 260px;
+    height: 308px;
+    border: 1.25px solid rgba(255, 255, 255, 1);
+    /* border-radius: 30px; */
+    position: relative;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    background-color: #fff;
+  }
+
+  .articleitem img {
+    position: absolute;
+    width: 160px;
+    height: 208px;
+    left: 50px;
+    top: 32px;
+  }
+
+  .TCcourse-img-sing img {
+    width: 202px;
+  }
+
+  .ar-TCform .art-input-data {
     display: noon;
   }
 
+  .coursesection {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content:center; */
+  }
 
+  .opp-icon-sing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 25px;
+  }
+
+  .TCcourse-delete-sing {
+    color: #065f8e;
+    font-size: 18px;
+    padding: 0px;
+    margin: auto 15px;
+  }
+
+  .TCcourse-img-selector-sin {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 50px;
+    /* identical to box height, or 250% */
+
+    text-align: center;
+    letter-spacing: -0.015em;
+
+    color: #065f8e;
+  }
+
+  /* sidebar選項列 */
+  .sidebar-sing .nav-list-sing {
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .btn-b-sin {
+    width: 250px;
+    height: 40px;
+    margin-top: 20px;
+  }
+
+  .one-btn-sin {
+    margin: 50px 0px 60px;
+  }
+
+  .opp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    background: #ffffff;
+    width: 800px;
+    margin-left: 200px;
+  }
+
+  .opp-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 25px;
+  }
+
+  .subtitle-sin {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 45px 0px 33px 15px;
+  }
+
+  /* 課程卡片 */
+  .sing-TCcourse-card {
+    display: flex;
+    justify-content: center;
+    background: #ececec;
+    width: 100%;
+    /* overflow: hidden; */
+    margin-bottom: 15px;
+    /* cursor: pointer;  */
+    z-index: -1;
+    /* margin-bottom: 3px; */
+
+    /* position: absolute;*/
+  }
+
+  .img-fluid-sin {
+    max-width: 60%;
+    height: auto;
+  }
+
+  .TCcourse-img-sing {
+    margin-right: 10px;
+  }
+
+  /* 課程圖片 */
+  .TCcourse-img-selector-sing {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 50px;
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 50px;
+    /* identical to box height, or 250% */
+
+    text-align: center;
+    letter-spacing: -0.015em;
+
+    color: #065f8e;
+  }
+
+  .TCcourse-title-sin {
+    font-size: 16px;
+    margin-bottom: 0px;
+  }
+
+  .TCcourse-title-sin p {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    /* or 139% */
+
+    letter-spacing: -0.015em;
+
+    color: #000000;
+  }
+
+  .TCcourse-detail-sin {
+    transform: scale(1);
+    width: 80px;
+    /* text-align: center; */
+    font-size: 14px;
+  }
 }
-
-
-
-
-
-/*875*/
-          @media (min-width: 768px) {
-
-            .teachername {
-              color: #065F8E;
-              font-size: 8px;
-              font-style: bold;
-              position: absolute;
-              top: 90%;
-              left: 5%;
-          }
-
-            .Art-coursename {
-              color: #000000;
-              font-size: 14px;
-              top: 80%;
-              left: 5%;
-              margin-left: auto;
-              position: absolute;
-          }
-
-            .articleitem {
-              width: 260px;
-              height: 308px;
-              border: 1.25px solid rgba(255, 255, 255, 1);
-              /* border-radius: 30px; */
-              position: relative;
-              margin-bottom: 30px;
-              margin-left: 10px;
-              background-color:#fff;
-              
-
-          }
-
-          .articleitem img {
-              position: absolute;
-          width: 160px;
-          height: 208px;
-          left: 50px;
-          top: 32px;
-              
-          
-          }
-
-            .TCcourse-img-sing img{
-              width: 202px;
-           }
-
-
-            .ar-TCform .art-input-data{
-              display: noon;
-            }
-
-            .coursesection {
-              display: flex;
-              flex-wrap: wrap;
-              /* justify-content:center; */
-
-          }
-
-
-
-      
-
-            .opp-icon-sing{
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              display: flex;
-              margin-top: 25px;
-          }
-
-            .TCcourse-delete-sing {
-              color: #065f8e;
-              font-size: 18px;
-              padding: 0px;
-              margin: auto 15px;
-          }
-
-            .TCcourse-img-selector-sin {
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              margin-left: 50px;
-              margin-bottom: 50px;
-              font-family: Noto Sans;
-              font-style: normal;
-              font-weight: bold;
-              font-size: 20px;
-              line-height: 50px;
-              /* identical to box height, or 250% */
-
-              text-align: center;
-              letter-spacing: -0.015em;
-
-              color: #065F8E;
-          }
-
-
-                        /* sidebar選項列 */
-                        .sidebar-sing .nav-list-sing {
-                          width: 100%;
-                          list-style: none;
-                          padding-left: 0;
-                      }
-
-            .btn-b-sin {
-              width: 250px;
-              height: 40px;
-              margin-top: 20px
-          }
-
-
-            .one-btn-sin {
-              margin: 50px 0px 60px;
-          }
-
-       
-
-            .opp{
-              display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 50px;
-  background: #FFFFFF;
-  width: 800px;
-  margin-left: 200px;
-          }
-
-
-          .opp-icon{
-              display: flex;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  margin-top: 25px;
-          }
-
-          .subtitle-sin {
-            font-size: 36px;
-            font-weight: bold;
-            margin: 45px 0px 33px 15px;
-          }
-
-             /* 課程卡片 */
-             .sing-TCcourse-card {
-              display: flex;
-              justify-content: center;
-              background: #ECECEC;
-              width: 100%;
-              /* overflow: hidden; */
-              margin-bottom: 15px; 
-              /* cursor: pointer;  */
-              z-index: -1;
-              /* margin-bottom: 3px; */
-          
-              /* position: absolute;*/
-          }
-
-          .img-fluid-sin {
-
-            max-width: 60%;
-            height: auto;
-            }
-
-            .TCcourse-img-sing{
-              margin-right: 10px;
-            }
-
-             /* 課程圖片 */
-             .TCcourse-img-selector-sing {
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              margin-bottom: 50px;
-              font-family: Noto Sans;
-              font-style: normal;
-              font-weight: bold;
-              font-size: 20px;
-              line-height: 50px;
-              /* identical to box height, or 250% */
-
-              text-align: center;
-              letter-spacing: -0.015em;
-
-              color: #065F8E;
-          }
-
-          .TCcourse-title-sin {
-            font-size: 16px;
-            margin-bottom: 0px;
-        }
-
-        .TCcourse-title-sin p{
-        font-family: Noto Sans;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 18px;
-        line-height: 25px;
-        /* or 139% */
-
-        letter-spacing: -0.015em;
-
-        color: #000000;
-        }
-
-        .TCcourse-detail-sin{
-          transform: scale(1);
-          width: 80px;
-          /* text-align: center; */
-          font-size: 14px;
-      }
-
-
-
-          }
