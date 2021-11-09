@@ -55,7 +55,7 @@ function TcCourseVideoUpload() {
     // setIsFilePicked(true)
   }
 
-  // console.log('selectedFile', selectedFile)
+  // console.log('selectedFile', selectedFile.size)
 
   const formRef = useRef(null)
   // 使用物件值作為狀態值，儲存所有欄位的值
@@ -87,31 +87,61 @@ function TcCourseVideoUpload() {
   const durationReader = (e) => {
     // console.log('et', e.target.files)
     const file = e.target.files[0]
-    const mime = file.type
     const reader = new FileReader()
+    if (file) {
+      const mime = file.type
 
-    reader.onload = function (e) {
-      let blob = new Blob([e.target.result], {
-          type: mime,
-        }),
-        url = URL.createObjectURL(blob),
-        video = document.createElement('video')
-      // console.log('url', url)
-      // video.preload = 'metadata'
-      video.addEventListener('loadedmetadata', function () {
-        const data = {
-          duration: Math.ceil(video.duration),
-          video_name: file.name,
-          // video_link: url.slice(27),
+      reader.onload = function (e) {
+        let blob = new Blob([e.target.result], {
+            type: mime,
+          }),
+          url = URL.createObjectURL(blob),
+          video = document.createElement('video')
+        // console.log('url', url)
+        // video.preload = 'metadata'
+        video.addEventListener(
+          'loadedmetadata',
+          function () {
+            const data = {
+              duration: Math.ceil(video.duration),
+              video_name: file.name,
+              // video_link: url.slice(27),
+              size: file.size,
+            }
+
+            if (data.size > 1000000000) {
+              document
+                .querySelector('#warning')
+                .classList.add('text-danger')
+              return
+            } else {
+              document
+                .querySelector('#warning')
+                .classList.remove('text-danger')
+            }
+            setFields(data)
+            URL.revokeObjectURL(url)
+          }
+        )
+        video.src = url
+
+        if (
+          mime !== 'video/mp4' &&
+          'video/quicktime' &&
+          'video/x-ms-wmv'
+        ) {
+          document
+            .querySelector('#warning')
+            .classList.add('text-danger')
+        } else {
+          document
+            .querySelector('#warning')
+            .classList.remove('text-danger')
         }
+      }
 
-        setFields(data)
-        URL.revokeObjectURL(url)
-      })
-      video.src = url
+      reader.readAsArrayBuffer(file)
     }
-
-    reader.readAsArrayBuffer(file)
   }
 
   const FormSubmit = async (e) => {
@@ -163,46 +193,6 @@ function TcCourseVideoUpload() {
     setFieldErrors(updatedFieldErrors)
   }
 
-  // 有錯誤的訊息會觸發在這裡
-  const FormInvalid = (e) => {
-    e.preventDefault()
-
-    // 表單實體的物件參照
-    const form = formRef.current
-
-    let errorMsg = {}
-
-    for (let i = 0; i < form.elements.length; i++) {
-      const element = form.elements[i]
-
-      if (
-        element.tagName !== 'button' &&
-        element.willValidate &&
-        !element.validity.valid
-      ) {
-        // 必填用預設訊息，但錯誤格式驗証用title中的字串
-        if (element.validity.valueMissing) {
-          errorMsg = {
-            ...errorMsg,
-            [element.name]: element.validationMessage,
-          }
-        } else {
-          errorMsg = {
-            ...errorMsg,
-            [element.name]: element.title,
-          }
-        }
-      }
-    }
-
-    const updatedFieldErrors = {
-      ...fieldErrors,
-      ...errorMsg,
-    }
-
-    setFieldErrors(updatedFieldErrors)
-  }
-
   // window.addEventListener(
   //   'dragover',
   //   function (e) {
@@ -241,7 +231,6 @@ function TcCourseVideoUpload() {
             <form
               className="TCform-content"
               onChange={FormChange}
-              onInvalid={FormInvalid}
               onSubmit={FormSubmit}
               ref={formRef}
             >
@@ -273,7 +262,7 @@ function TcCourseVideoUpload() {
                 <i className="fas fa-upload"></i>
 
                 <p>請點擊並選擇要上傳的檔案</p>
-                <label>
+                <label id="warning">
                   僅支持檔案小於1GB，且格式為mp4, mov,
                   wmv的檔案
                 </label>
@@ -283,61 +272,78 @@ function TcCourseVideoUpload() {
                   accept="video/mp4,video/quicktime,video/x-ms-wmv"
                   id="video_link"
                   name="video_link"
-                  // className="d-none"
+                  className="d-none"
                   onChange={changeHandler}
                   onChangeCapture={durationReader}
                 />
-              </div>
-              <div
-                id="duration"
-                className="videoMeta"
-                // onDrop={(e) => {
-                //   DragNDrop(e)
-                // }}
-              >
-                <div className="">
-                  <input
-                    name="duration"
-                    className="d-none"
-                    value={fields.duration + 's'}
-                    onChange={handleFieldChange}
-                  />
-                  <input
-                    name="course_sid"
-                    className="d-none"
-                    value={courseSid}
-                    onChange={handleFieldChange}
-                  />
-                  <input
-                    name="teacher_sid"
-                    className="d-none"
-                    value={memberObj.sid}
-                    onChange={handleFieldChange}
-                  />
+
+                <div
+                  id="duration"
+                  className="videoMeta"
+                  // onDrop={(e) => {
+                  //   DragNDrop(e)
+                  // }}
+                >
+                  <div className="">
+                    <input
+                      name="duration"
+                      className="d-none"
+                      value={fields.duration + 's'}
+                      onChange={handleFieldChange}
+                    />
+                    <input
+                      name="course_sid"
+                      className="d-none"
+                      value={courseSid}
+                      onChange={handleFieldChange}
+                    />
+                    <input
+                      name="teacher_sid"
+                      className="d-none"
+                      value={memberObj.sid}
+                      onChange={handleFieldChange}
+                    />
+                  </div>
+                  <div className="d-flex mx-auto ">
+                    <span className="TCvideoName">
+                      影片名稱:
+                    </span>
+                    <input
+                      name="video_name"
+                      className="d-none"
+                      value={fields.video_name.slice(
+                        0,
+                        fields.video_name.length - 4
+                      )}
+                      onChange={handleFieldChange}
+                    />
+                    <label>
+                      {fields.video_name.slice(
+                        0,
+                        fields.video_name.length - 4
+                      )}
+                    </label>
+                  </div>
                 </div>
-                <div className="d-flex mb-5">
-                  名稱:
-                  <input
-                    name="video_name"
-                    className="border-0 w-75"
-                    value={fields.video_name.slice(
-                      0,
-                      fields.video_name.length - 4
-                    )}
-                    onChange={handleFieldChange}
-                  />
-                </div>
-                {selectedFile ? (
-                  <button
-                    type="submit"
-                    className="btn btn-secondary mx-auto"
-                  >
-                    上傳檔案
-                  </button>
-                ) : (
-                  ''
-                )}
               </div>
+              {selectedFile.size < 1000000000 ? (
+                <button
+                  type="submit"
+                  id="uploadBtn"
+                  className="btn btn-secondary mx-auto mb-5"
+                >
+                  上傳檔案
+                </button>
+              ) : (
+                <button
+                  disabled
+                  type="submit"
+                  id="uploadBtn"
+                  className="btn btn-secondary mx-auto mb-5"
+                >
+                  上傳檔案
+                </button>
+              )}
             </form>
           </div>
         </div>
