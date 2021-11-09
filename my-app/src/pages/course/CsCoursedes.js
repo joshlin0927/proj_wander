@@ -110,7 +110,7 @@ function CsCoursede(props) {
     } else {
       console.log(obj.error)
     }
-    // 新增購物車動畫
+    // 新增購物車後的nav動畫
     let n = await axios.get(
       `${Cart_API}/list?member_sid=${member.sid}`
     )
