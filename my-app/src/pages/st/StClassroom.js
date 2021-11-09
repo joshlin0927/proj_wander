@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
+import { Modal } from 'react-bootstrap'
 import './style/classroom.css'
 import ReactPlayer from 'react-player'
 import axios from 'axios'
@@ -19,6 +20,10 @@ import Footer from '../../components/Footer'
 import PlayerControls from '../../components/PlayerControls'
 
 export default function StClassroom() {
+  const [stopModalShow, setStopModalShow] = useState(false)
+  const handleStopModalClose = () => setStopModalShow(false)
+  const handleStopModalShow = () => setStopModalShow(true)
+
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
     ? localStorage.getItem('member')
@@ -26,7 +31,7 @@ export default function StClassroom() {
   const identity = member ? JSON.parse(member).identity : ''
 
   const [imgSrc, setImgSrc] = useState('')
-
+  const [receiveTCID, setReceiveTCID] = useState('')
   const [first, setFirst] = useState('')
   const history = useHistory()
 
@@ -89,6 +94,7 @@ export default function StClassroom() {
           member_sid: JSON.parse(member).sid,
         }
       )
+      setReceiveTCID(r.data.teacher_sid)
 
       if (r.data) {
         setVideoLink(
@@ -210,6 +216,28 @@ export default function StClassroom() {
           .duration(duration, 'seconds')
           .format('HH:mm:ss', { trim: false })
 
+  const createConversation = async (TCID) => {
+    if (TCID) {
+      let r = await axios.post(`${API_HOST}/conversation`, {
+        senderID: JSON.parse(member).sid,
+        receiverID: TCID,
+      })
+      if (r.data.success) {
+        const message = {
+          senderID: JSON.parse(member).sid,
+          text: 'Hello!',
+          conversationID: r.data.result.insertId,
+        }
+        let m = await axios.post(
+          `${API_HOST}/message`,
+          message
+        )
+        if (m.data.success) {
+          handleStopModalShow()
+        }
+      }
+    }
+  }
   return (
     <>
       <div className="container mainContent">
@@ -274,13 +302,18 @@ export default function StClassroom() {
               課程標題:
               {videos ? videos[0].course_name : ''}
             </h3>
-              <h4 className='courseDetailTitle'>課程介紹:</h4>
-              <p className="courseDetail">
-                {' '}
-                {videos ? videos[0].course_introduction : ''}
-              </p>
+            <h4 className="courseDetailTitle">課程介紹:</h4>
+            <p className="courseDetail">
+              {' '}
+              {videos ? videos[0].course_introduction : ''}
+            </p>
           </div>
-          <button className="btn btn-secondary contactTeacher col-md-3">
+          <button
+            className="btn btn-secondary contactTeacher col-md-3"
+            onClick={() => {
+              createConversation(receiveTCID)
+            }}
+          >
             聯繫老師
           </button>
         </div>
@@ -292,6 +325,33 @@ export default function StClassroom() {
           />
         </div>
       </div>
+      {/* 跳轉提示modal */}
+      <Modal
+        show={stopModalShow}
+        onHide={handleStopModalClose}
+        id="alertModal"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title>提醒</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">
+          <span>
+            已為您聯繫教師，您可以在聊天室介面查看內容
+          </span>
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            type="button"
+            className="btn confirmBtn"
+            onClick={handleStopModalClose}
+          >
+            確認
+          </button>
+        </Modal.Footer>
+      </Modal>
+
       <StBgDecorationNormal />
       <div className="bgbeige"> </div>
       <Footer />

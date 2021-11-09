@@ -10,10 +10,13 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import TcSearchBar from '../../components/course/CsSearchBar'
 import Footer from '../../components/Footer'
+import Spinner from '../../components/Spinner'
 
 import CourseList from './CourseList'
 
 function CsCourse(prop) {
+  // spinner
+  const [isLoading, setIsLoading] = useState(true)
   //  const [searchWord, setSearchWord] = useState('')
 
   //判斷是否登入並為教師身分
@@ -79,8 +82,9 @@ function CsCourse(prop) {
       }
       console.log('r.data.rows', r.data.rows)
     })()
-    // }
-    // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1500)
   }, [])
 
   return (
@@ -114,17 +118,24 @@ function CsCourse(prop) {
             </div>
           </div>
         </div>
+
         <div className="row justify-content-center d-flex">
-          <div className="coursesection col-md-10 col-lg-10">
-            {TcCourses.length > 0 ? (
-              <CourseList
-                displayCourse={displayCourse}
-                setDisplayCourse={setDisplayCourse}
-                RemoveCourse={RemoveCourse}
-                setRemoveCourse={setRemoveCourse}
-              />
-            ) : null}
-          </div>
+          {isLoading ? (
+            <div className="courseSpinner">
+              <Spinner />
+            </div>
+          ) : (
+            <div className="coursesection col-md-10 col-lg-10">
+              {TcCourses.length > 0 ? (
+                <CourseList
+                  displayCourse={displayCourse}
+                  setDisplayCourse={setDisplayCourse}
+                  RemoveCourse={RemoveCourse}
+                  setRemoveCourse={setRemoveCourse}
+                />
+              ) : null}
+            </div>
+          )}
         </div>
       </div>
       <TcBgDecorationNormal />

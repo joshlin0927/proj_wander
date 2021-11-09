@@ -1066,3 +1066,16 @@ background: #f1ef5b;
   background-color: #065f8e;
   color: white;
 }
+.courseSpinner {
+  min-height: 561px;
+  width: 100%;
+  position: relative;
+}
+.courseSpinner .loadingio-spinner-ripple-axvmfinlmje {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10%;
+  width: 200px;
+  height: 200px;
+}

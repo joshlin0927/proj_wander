@@ -148,20 +148,6 @@ function MemberCenterForMobile(props) {
               ) : (
                 ''
               )}
-              <div className="mobilelist">
-                <Nav.Link
-                  as={NavLink}
-                  to="/StIndex/StOrder"
-                  className="nav-item d-flex align-items-center offset-2 "
-                >
-                  <div className="mobilecircle">
-                    <i className="fas fa-comment-alt mobileicon"></i>
-                  </div>
-                  <div className="nav-item-text mobiletext ml-4">
-                    聊天室
-                  </div>
-                </Nav.Link>
-              </div>
               <div className="mobilelist lastline">
                 <div className="nav-item d-flex align-items-center offset-2 ">
                   <div className="mobilecircle">

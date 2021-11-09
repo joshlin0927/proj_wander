@@ -129,13 +129,6 @@ function ChatWindow(props) {
       <div className="chatWindow">
         <div className="chatWindowHead">
           <div className="talkTo">
-            <div className="talkToAvatar">
-              <img
-                src="../images/students/Sagehashi Harue.jpeg"
-                className="img-fluid"
-                alt=""
-              />
-            </div>
             <div className="talkToName">
               {receiver.nickname}
             </div>
@@ -157,8 +150,8 @@ function ChatWindow(props) {
                   key={i}
                   messages={v}
                   own={v.senderID === member.sid}
-                  receiver={receiver}
-                  sender={sender}
+                  currentChat={currentChat}
+                  member={member}
                 />
               </div>
             )

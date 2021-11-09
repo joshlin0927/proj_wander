@@ -54,29 +54,35 @@ function ChatList(props) {
             <div>
               <i className="fas fa-chevron-left TCback-btn"></i>
             </div>
-            <div className="TCform-title">聊天室</div>
+            <div className="TCform-title m-0">聊天室</div>
             <div>
               <i className="fas fa-chevron-left TCback-btn opacity-0"></i>
             </div>
           </div>
           {/* a person */}
-          {conversation.length === 0
-            ? ''
-            : conversation.map((v) => {
-                return (
-                  <div
-                    className="chatCard"
-                    onClick={() => {
-                      setCurrentChat(v)
-                    }}
-                  >
-                    <ChatCard
-                      conversation={v}
-                      member={member}
-                    />
-                  </div>
-                )
-              })}
+          {conversation.length === 0 ? (
+            <div className="chatCard">
+              <span className="noChatExist">
+                目前沒有聯繫對象，如要發起聊天，請至教室上課中點選【聯繫老師】
+              </span>
+            </div>
+          ) : (
+            conversation.map((v) => {
+              return (
+                <div
+                  className="chatCard"
+                  onClick={() => {
+                    setCurrentChat(v)
+                  }}
+                >
+                  <ChatCard
+                    conversation={v}
+                    member={member}
+                  />
+                </div>
+              )
+            })
+          )}
         </div>
       </div>
       {currentChat ? (

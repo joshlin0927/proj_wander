@@ -17,6 +17,17 @@ class Message{
         }
     }
 
+    // 讀取最新一筆
+    static async getLastMessage(conversationID){
+        const sql = `SELECT * FROM ${tableName} WHERE conversationID=? ORDER BY created_at DESC`;
+        const [r] = await db.query(sql, [conversationID]);
+        if(r && r.length!==0){
+            return r[0];
+        }else{
+            return null;
+        }
+    }
+
     // 保存至購物車
     static async add(obj){
         const output = {
@@ -41,22 +52,6 @@ class Message{
         return output;
     }
 
-    // 修改項目
-    static async update(member_sid, product_sid, quantity){
-
-    }
-
-    // 刪除項目
-    static async remove(member_sid, product_sid){
-        const sql = `DELETE FROM ${tableName} WHERE member_sid=? AND product_sid=?`;
-        const [r] = await db.query(sql, [member_sid, product_sid]);
-        return r;
-    }
-
-    // 清空購物車
-    static async clear(member_id){
-
-    }
 }
 
 module.exports = Message;

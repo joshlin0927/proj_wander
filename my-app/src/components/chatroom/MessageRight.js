@@ -1,11 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { format } from 'timeago.js'
+import axios from 'axios'
+import { IMG_PATH, Member_FINDONE } from '../../config'
 
 function MessageRight(props) {
-  const { messages, own } = props
-
+  const { messages, own, currentChat, member } = props
+  const [receiver, setReceiver] = useState('')
+  const [sender, setSender] = useState('')
+  useEffect(() => {
+    ;(async () => {
+      const whoReceive =
+        currentChat.senderID === member.sid
+          ? currentChat.receiverID
+          : currentChat.senderID
+      let r = await axios.get(
+        `${Member_FINDONE}?memberID=${whoReceive}`
+      )
+      if (r.data.success) {
+        if (r.data.result[0].avatar) {
+          setReceiver(r.data.result[0].avatar)
+        } else {
+          setReceiver('presetAvatar.jpeg')
+        }
+      } else {
+        console.log('error:', r.data.error)
+      }
+      let s = await axios.get(
+        `${Member_FINDONE}?memberID=${member.sid}`
+      )
+      if (s.data.success) {
+        if (s.data.result[0].avatar) {
+          setSender(s.data.result[0].avatar)
+        } else {
+          setSender('presetAvatar.jpeg')
+        }
+      } else {
+        console.log('error:', s.data.error)
+      }
+    })()
+  }, [currentChat, member.sid])
   return (
     <>
+      {console.log('re:', receiver, sender)}
       <div className={own ? 'messageRight' : 'messageLeft'}>
         <div
           className={own ? 'message right' : 'message left'}
@@ -24,7 +60,11 @@ function MessageRight(props) {
               className={own ? 'Rtriangle' : 'Ltriangle'}
             >
               <img
-                src="../images/teacher/Thomas_Lillard.jpg"
+                src={
+                  own
+                    ? `${IMG_PATH}/${sender}`
+                    : `${IMG_PATH}/${receiver}`
+                }
                 className="img-fluid"
                 alt=""
               />

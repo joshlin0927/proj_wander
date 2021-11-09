@@ -27,7 +27,11 @@ function ChatCard(props) {
       <div className="col-3 px-2">
         <div className="chatCardAvatar">
           <img
-            src={`${IMG_PATH}/${receiveUser.avatar}`}
+            src={
+              receiveUser.avatar
+                ? `${IMG_PATH}/${receiveUser.avatar}`
+                : `${IMG_PATH}/presetAvatar.jpeg`
+            }
             className="chatCardAvatarImg"
             alt=""
           />

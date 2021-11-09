@@ -1209,10 +1209,9 @@ a {
   flex-direction: column;
   border-radius: 20px;
   background-color: #fff;
-  height: 500px;
+  height: 450px;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  z-index: 1;
   border: #065e8e 2px solid;
 }
 /* 對象選單 */
@@ -1221,29 +1220,11 @@ a {
     display: flex;
     position: absolute;
     left: 100%;
+    z-index: 10;
   }
   .chatList {
     width: 30vw;
-  }
-}
-
-@media (min-width: 1440px) {
-  .chatWrapper {
-    display: flex;
-    position: absolute;
-  }
-  .chatList {
-    width: 30vw;
-  }
-}
-
-@media (min-width: 2560px) {
-  .chatWrapper {
-    display: flex;
-    position: absolute;
-  }
-  .chatList {
-    width: 17vw;
+    height: 450px;
   }
 }
 
@@ -1266,6 +1247,10 @@ a {
   background-color: #f1f0e9;
   border-radius: 10px;
   cursor: pointer;
+}
+.noChatExist {
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 // .chatCard-info {
@@ -1340,37 +1325,11 @@ a {
   border-radius: 20px;
   background-color: #fff;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
-  max-height: 500px;
+  height: 600px;
   width: 35vw;
-  z-index: 1;
+  z-index: 10;
   margin-left: 1rem;
   border: #065e8e 2px solid;
-}
-
-@media (min-width: 1440px) {
-  .chatWindow {
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    background-color: #fff;
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
-    max-height: 500px;
-    width: 30vw;
-    z-index: 1;
-  }
-}
-
-@media (min-width: 2560px) {
-  .chatWindow {
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    background-color: #fff;
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
-    max-height: 500px;
-    width: 15vw;
-    z-index: 1;
-  }
 }
 
 .chatWindowHead {
@@ -1396,6 +1355,7 @@ a {
 .talkToName {
   font-size: 24px;
   font-weight: bold;
+  margin-left: 2rem;
 }
 
 .closeWindow {
@@ -1420,16 +1380,14 @@ a {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin: 1.25rem;
 }
 
 .messageRight {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin: 1.25rem;
 }
 
 .messageAvatar {
@@ -1448,7 +1406,7 @@ a {
 
 .Ltriangle::before {
   position: absolute;
-  left: 35px;
+  left: 55px;
   top: 5px;
   content: '';
   width: 0;
@@ -1460,7 +1418,7 @@ a {
 
 .Rtriangle::before {
   position: absolute;
-  left: -25px;
+  left: -45px;
   top: 5px;
   content: '';
   width: 0;
@@ -1477,17 +1435,19 @@ a {
   max-width: 15vw;
   word-wrap: break-word;
   white-space: pre-wrap;
-  padding: 1rem;
+  padding: 0.5rem 1.5rem;
   font-size: 18px;
 }
 
 .message.left {
   background-color: #f1f0e9;
   order: 1;
+  margin-left: 1rem;
 }
 
 .message.right {
   background-color: #f1ef5b;
+  margin-right: 1rem;
 }
 
 .chatWindowFoot {

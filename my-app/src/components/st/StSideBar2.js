@@ -32,7 +32,10 @@ export default function StSideBar2(props) {
         <ul className="nav-list">
           <li>
             <div
-              className="nav-item"
+              id="nav-item-chatroom"
+              className={
+                isOpen ? 'nav-item active' : 'nav-item'
+              }
               onClick={() => {
                 if (isOpen) {
                   setIsOpen(false)
