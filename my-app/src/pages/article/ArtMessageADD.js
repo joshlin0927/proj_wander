@@ -4,7 +4,7 @@ import { devUrl } from '../../config'
 import axios from 'axios'
 import { useHistory } from 'react-router'
 import ArBgDecorationNormal from '../../components/articles/ArBgDecorationNormal'
-import { IMG_PATH, Art_LIST } from '../../config'
+import { IMG_PATH, Art_inter_LIST } from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -49,7 +49,7 @@ function ArtMessageADD(prop) {
           `http://localhost:3001/stprofile/list?studentSid=${studentSid}`
         )
 
-        let a = await axios.get(`${Art_LIST}/${id}`)
+        let a = await axios.get(`${Art_inter_LIST}/${id}`)
         // setFields(r.data[0][0])
         if (r.status === 200) {
           setDisplayCourse(a.data.result[0])
@@ -58,7 +58,7 @@ function ArtMessageADD(prop) {
         }
       })()
     }
-  }, [imgSrc])
+  }, [imgSrc,displayCourse])
 
   // console.log('imgSrc', imgSrc)
 
@@ -243,17 +243,19 @@ function ArtMessageADD(prop) {
             </div>
             <br />
             <div className="p-page-avatar-sin">
+
               <img
-                src={`${IMG_PATH}/pop-articles/${displayCourse.artical_image}`}
+                src={`${IMG_PATH}/inter-articles/${displayCourse.artical_image}`}
                 alt=""
                 className="img-fluid"
               />
+              </div>
+
               {/* <img
                 src={`${devUrl}/images/article/熱門文章/06.jpg`}
                 alt=""
                 className="img-fluid-sin"
               /> */}
-            </div>
             <form
               className="ar-TCform "
               ref={formRef}

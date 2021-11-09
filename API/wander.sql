@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-11-09 04:19:58
--- 伺服器版本： 10.4.21-MariaDB
--- PHP 版本： 8.0.11
+-- 產生時間： 2021-11-09 22:52:40
+-- 伺服器版本： 10.4.20-MariaDB
+-- PHP 版本： 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -148,15 +148,15 @@ CREATE TABLE `art_messenger` (
 --
 
 INSERT INTO `art_messenger` (`sid`, `ar_sid`, `st_sid`, `nickname`, `st_pictuer`, `messenger`, `great`, `created_date`) VALUES
-(9, 95, 19, '이준기', 'e8157cd9-f0d1-4a98-adf8-f8d54cc2f95e.jpg', '這部劇情，我超喜歡的!!', 0, '2021-10-31 16:53:37'),
-(22, 98, 8, 'Jeffrey', '703d8337-d22a-4875-8ecc-d9f48863b72b.jpg', '我超喜歡這部的!!', 0, '2021-11-08 01:35:44'),
-(23, 99, 9, 'yuki', 'f84b3006-b697-4a6b-8bc7-de21521c750f.jpg', '這部劇情，我超喜歡的!!', 0, '2021-11-08 01:36:53'),
-(24, 103, 10, 'Ruby', 'eca70f10-1e90-4fa1-8d59-8406502a0dfd.jpg', '男主超帥的~~~', 0, '2021-11-08 01:41:51'),
-(25, 102, 11, 'Lisa', '86be747d-42fc-41ed-a771-d80cf697cea1.jpg', '我超喜歡這部的女主的', 0, '2021-11-08 01:43:58'),
-(26, 97, 19, '이준기', 'e8157cd9-f0d1-4a98-adf8-f8d54cc2f95e.jpg', '這部超級燒腦的~~~劇情超棒!!', 0, '2021-11-08 01:48:32'),
-(27, 96, 21, 'Mal', '84a8195a-c78f-443a-83fc-9b60470a55dc.jpg', '我超喜歡這部的特效，做的超棒的~', 0, '2021-11-08 01:49:28'),
-(28, 101, 22, 'Danielle', '2a5f7853-627f-47ce-8b7c-ac25b7e585df.jpg', '這部超推~~~~', 0, '2021-11-08 01:49:58'),
-(29, 100, 1014, 'samar', '085dc4f3-059b-4ac4-9e1a-6a8d4eb8b571.jpg', '這部超有話題的，我超喜歡的~~', 0, '2021-11-08 01:51:13');
+(9, 95, 8, 'Jennie', 'Jane Campbell.jpeg', '這部劇情，我超喜歡的!!', 0, '2021-10-31 16:53:37'),
+(22, 98, 10, '940', 'Jocelyn Teller法國人.jpeg', '我超喜歡這部的!!', 0, '2021-11-08 01:35:44'),
+(23, 99, 6, 'Anne', 'Anne Hathaway.jpg', '這部劇情，我超喜歡的!!', 0, '2021-11-08 01:36:53'),
+(24, 103, 15, 'Emily', 'Sagehashi Harue.jpeg', '男主超帥的~~~', 0, '2021-11-08 01:41:51'),
+(25, 102, 9, 'PP', 'Jax Paul德國人.jpeg', '我超喜歡這部的女主的', 0, '2021-11-08 01:43:58'),
+(26, 97, 7, 'David', 'David Giles.jpeg', '這部超級燒腦的~~~劇情超棒!!', 0, '2021-11-08 01:48:32'),
+(27, 96, 11, 'water', 'Kasanobu Wataru日本人.jpeg', '我超喜歡這部的特效，做的超棒的~', 0, '2021-11-08 01:49:28'),
+(28, 101, 16, 'Ming', 'Tatsuoka  Natsumi(姓加名).jpeg', '這部超推~~~~', 0, '2021-11-08 01:49:58'),
+(29, 100, 12, 'Liz', 'Lizzie Hopper.jpeg', '這部超有話題的，我超喜歡的~~', 0, '2021-11-08 01:51:13');
 
 -- --------------------------------------------------------
 
@@ -201,7 +201,7 @@ CREATE TABLE `chat_conversation` (
 INSERT INTO `chat_conversation` (`sid`, `senderID`, `receiverID`, `created_at`) VALUES
 (1, 1, 2, '2021-11-07 14:27:52'),
 (2, 2, 3, '2021-11-07 14:33:54'),
-(3, 2, 4, '2021-11-07 15:08:17');
+(4, 1018, 1, '2021-11-10 00:03:05');
 
 -- --------------------------------------------------------
 
@@ -226,7 +226,9 @@ INSERT INTO `chat_message` (`sid`, `conversationID`, `senderID`, `text`, `create
 (2, 3, 2, 'hello2', '2021-11-07 16:07:28'),
 (88, 2, 2, 'fwefawfwa', '2021-11-08 14:35:07'),
 (89, 2, 2, 'qewqweqweqw', '2021-11-08 14:35:13'),
-(90, 2, 3, 'ffff', '2021-11-08 14:35:32');
+(90, 2, 3, 'ffff', '2021-11-08 14:35:32'),
+(91, 4, 1018, 'Hello!', '2021-11-10 00:03:05'),
+(92, 4, 1, 'Hi, what\'s wrong?', '2021-11-10 00:08:46');
 
 -- --------------------------------------------------------
 
@@ -296,11 +298,12 @@ CREATE TABLE `cs_messenger` (
 --
 
 INSERT INTO `cs_messenger` (`sid`, `cs_sid`, `st_sid`, `nickname`, `st_pictuer`, `messenger`, `score`, `great`, `created_date`) VALUES
-(8, 21, 102, 'Mal', '3042a221-0aa4-437d-acea-8669b3e90908.jpg', '課程內容優質、老師口條清晰。', '5', 0, '2021-10-30 19:17:22'),
-(46, NULL, 8, 'Jeffrey', '703d8337-d22a-4875-8ecc-d9f48863b72b.jpg', '很容易吸收的課程，收穫滿滿。', '5', NULL, '2021-11-07 17:32:40'),
-(47, NULL, 11, 'Lisa', '86be747d-42fc-41ed-a771-d80cf697cea1.jpg', '有邏輯、系統的一門課,相同的方法可以運用到其他語言的學習，真是獲益良多！！', '5', NULL, '2021-11-07 17:52:10'),
-(49, NULL, 19, '이준기', 'e8157cd9-f0d1-4a98-adf8-f8d54cc2f95e.jpg', '課程架構清晰，讓我們清楚學習時的具體方向及架構。', '5', NULL, '2021-11-07 17:54:37'),
-(50, NULL, 21, 'Mal', '84a8195a-c78f-443a-83fc-9b60470a55dc.jpg', '還不錯，容易記憶。', '4', NULL, '2021-11-07 17:56:58');
+(8, 21, 8, 'Jennie', 'Jane Campbell.jpeg', '課程內容優質、老師口條清晰。', '5', 0, '2021-10-30 19:17:22'),
+(46, NULL, 9, 'PP', 'Jax Paul德國人.jpeg', '很容易吸收的課程，收穫滿滿。', '5', NULL, '2021-11-07 17:32:40'),
+(47, NULL, 10, '940', 'Jocelyn Teller法國人.jpeg', '有邏輯的一門課，真是獲益良多！！', '5', NULL, '2021-11-07 17:52:10'),
+(49, NULL, 11, 'water', 'Kasanobu Wataru日本人.jpeg', '課程架構清晰，值得推薦。', '5', NULL, '2021-11-07 17:54:37'),
+(50, NULL, 12, 'Liz', 'Lizzie Hopper.jpeg', '還不錯，容易記憶。', '4', NULL, '2021-11-07 17:56:58'),
+(51, NULL, 13, 'penny', 'Penny Grecic.jpeg', '實用簡單，課程規劃不會太長好吸收。', '4', NULL, '2021-11-09 19:11:16');
 
 -- --------------------------------------------------------
 
@@ -332,13 +335,13 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`sid`, `identity`, `verification`, `resume`, `avatar`, `firstname`, `lastname`, `nickname`, `email`, `password`, `birth`, `gender`, `language`, `nationality`, `intro`, `created_date`) VALUES
-(1, 1, 2, '', 'e2d7ea0d-8143-42ba-9ca8-611008acd894.jpg', 'Ai', 'lee', 'Ai', 't1@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '0000-00-00', 1, '英文、日文', '日本', 'Japan University Student\r\nFluent English speaker\r\n1000+ lesson completed\r\n4+ years teaching experience\r\nJapan university student\r\nLiving in Japan 4+ years\r\nTaught more than 100+ students\r\nAll materials provided\r\nLearn to speak in just 10 lessons \r\nConversational Japanese Grammar \r\nJLPT exams \r\nJapanese for kids', '2020-04-13'),
-(2, 1, 2, '', '77ddfe2c-4da9-41a5-aa93-03eec586a3a3.jpg', '艾莉絲', '', '艾莉絲', 't2@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、日文', '日本', 'Hey everyone  我是艾莉絲 \r\n有著外語教學背景的語言學碩士 \r\n研究領域包含：語音及實驗音韻學 專攻美式發音 \r\n課程包含： 子母音發音訓練  英文重音及語調  英語音韻規則  語音分析  影集式英語口說及聽力  成人英語  商業英語  基礎英文文法  英語升學考試  IELTS及TOEIC口說  客製化課程', '2020-04-13'),
-(3, 1, 2, '', '12744a0a-c5ff-41a4-a3ac-d3953a91545e.jpg', 'Yumika', '', 'Yumika', 't3@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、日文', '日本', 'Native Japaneseable to speak English and Chinese\r\n5years teaching experience\r\nMaster’s course of International education\r\nJapanese school teacher license\r\nExperienced Japanese volunteers \r\nKids Japanese \r\nBeginners \r\nJapanese character \r\nMinna no Nihongo\r\nListening, reading and pronunciation \r\nExam preparation', '2020-04-13'),
-(4, 1, 2, '', '4df3a732-b28b-4153-b99e-cdcbf31da830.jpg', 'Tracy', '', 'Tracy', 't4@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文', '美國', 'ESL expert, TESOL certified, \r\n1000+ hours of teaching English to adults/teens/kids, all levels of fluency. \r\nInteresting, interactive & engaging classes. Give students the right environment to practice the language. \r\nDaily conversation \r\nEnglish for kids & teens \r\nBusiness English', '2020-04-13'),
-(5, 1, 2, '', 'ea3e6c31-905c-4f99-bd31-b2747d3865a3.jpg', 'Jeffrey', '', 'Jeffrey', 't5@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '英文', '美國', '6+ teaching experiences\r\nTESOL certificate \r\nChild expert \r\nVery Experienced Teacher! \r\nOver 16,000 classes taught! \r\nAges 5 - Adult Grammar Speaking Reading Writing Business Finance Marketing Sales \r\nBachelor of Business Marketing \r\nStudying for Chartered Professional Accountants', '2020-04-13'),
+(1, 1, 2, '', 'e2d7ea0d-8143-42ba-9ca8-611008acd894.jpg', 'Sayana', 'Kikaku ', 'Saya', 't1@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1997-06-10', 1, '英文、日文', '日本', 'Japan University Student\r\nFluent English speaker\r\n1000+ lesson completed\r\n4+ years teaching experience\r\nJapan university student\r\nLiving in Japan 4+ years\r\nTaught more than 100+ students\r\nAll materials provided\r\nLearn to speak in just 10 lessons \r\nConversational Japanese Grammar \r\nJLPT exams \r\nJapanese for kids', '2020-04-13'),
+(2, 1, 2, '', '77ddfe2c-4da9-41a5-aa93-03eec586a3a3.jpg', 'Nayoun', 'Kang', 'Nayoun', 't2@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、日文', '日本', 'Hey everyone  我是Nayoun \r\n有著外語教學背景的語言學碩士 \r\n研究領域包含：語音及實驗音韻學 專攻美式發音 \r\n課程包含： 子母音發音訓練  英文重音及語調  英語音韻規則  語音分析  影集式英語口說及聽力  成人英語  商業英語  基礎英文文法  英語升學考試  IELTS及TOEIC口說  客製化課程', '2020-04-13'),
+(3, 1, 2, '', '12744a0a-c5ff-41a4-a3ac-d3953a91545e.jpg', 'Jurina', 'Saeki ', 'Jurina', 't3@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、日文', '日本', 'Native Japaneseable to speak English and Chinese\r\n5years teaching experience\r\nMaster’s course of International education\r\nJapanese school teacher license\r\nExperienced Japanese volunteers \r\nKids Japanese \r\nBeginners \r\nJapanese character \r\nMinna no Nihongo\r\nListening, reading and pronunciation \r\nExam preparation', '2020-04-13'),
+(4, 1, 2, '', 'f12ea339-8919-4ef2-8405-8ea4a506f8a7.jpg', 'Patrick', 'Graham', 'Graham', 't4@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文', '美國', 'ESL expert, TESOL certified, \r\n1000+ hours of teaching English to adults/teens/kids, all levels of fluency. \r\nInteresting, interactive & engaging classes. Give students the right environment to practice the language. \r\nDaily conversation \r\nEnglish for kids & teens \r\nBusiness English', '2020-04-13'),
+(5, 1, 2, '', '22c49315-d7c0-462f-b5ca-387d5f0fbd88.jpg', 'Miller', 'Michael', 'Michael', 't5@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '英文', '美國', '6+ teaching experiences\r\nTESOL certificate \r\nChild expert \r\nVery Experienced Teacher! \r\nOver 16,000 classes taught! \r\nAges 5 - Adult Grammar Speaking Reading Writing Business Finance Marketing Sales \r\nBachelor of Business Marketing \r\nStudying for Chartered Professional Accountants', '2020-04-13'),
 (6, 0, 0, '', 'Anne Hathaway.jpg', 'Anne', 'Hathaway', 'Anne', 'mebycute@yahoo.com.tw', '$2y$10$.oYcT2djWelQuNUzsdyKLehgNWg09A/Pt7iowdtbgwDp4KxN0De0y', '1998-03-12', 2, '', '', '', '2021-08-12'),
-(7, 0, 0, '', 'David Giles.jpeg', 'David', 'Giles', '', 'mic@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1993-12-31', 1, '', '', '', '2021-08-12'),
+(7, 0, 0, '', 'David Giles.jpeg', 'David', 'Giles', 'David', 'mic@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1993-12-31', 1, '', '', '', '2021-08-12'),
 (8, 0, 0, '', 'Jane Campbell.jpeg', 'Jane ', 'Campbell', 'Jennie', 'hanyang@yahoo.com.tw', '$2y$10$.xN3DJmZJ.Bl6z3IWmHRX.BRbwwU69.Qo20FYGEkFBKvd88JtqR4C', '1991-04-15', 1, '', '', '', '2021-08-12'),
 (9, 0, 0, '', 'Jax Paul德國人.jpeg', 'Jax', 'Paul', 'PP', 'littleyu@gmail.com', '$2y$10$NGO/9qhSCLzMaK.A1.zIoO1.SyHkw1yeLHfWkTmRkQjmGhbKmG/nS', '1997-05-12', 2, '', '', '', '2021-08-12'),
 (10, 0, 0, '', 'Jocelyn Teller法國人.jpeg', 'Jocelyn ', 'Teller', '940', 'rsheng@hotmail.com', '$2y$10$fYYlJLdna6D4Y6mG0leDX.aB9B9/E2rXlP95mI0ZQjVhiMHLbsR9y\n', '1995-03-04', 2, '', '', '', '2021-08-12'),
@@ -346,19 +349,18 @@ INSERT INTO `member` (`sid`, `identity`, `verification`, `resume`, `avatar`, `fi
 (12, 0, 0, '', 'Lizzie Hopper.jpeg', 'Lizzie', ' Hopper', 'Liz', 'walker@gmail.com', '$2y$10$d8qooauoK8hI83od5MYk6.r.YPrYRJ5stVW/LCi7O9ptg1gnolK0e', '1996-01-01', 1, '', '', '', '2021-08-12'),
 (13, 0, 0, '', 'Penny Grecic.jpeg', 'Penny ', 'Grecic', 'penny', 'john@hotmail.com', '$2y$10$cCfeLN6TvktpbslwmSE5neGV93TREUW3oDwk13JWLI9iJbsOn7onm', '1992-09-09', 1, '', '', '', '2021-08-12'),
 (15, 0, 0, '', 'Sagehashi Harue.jpeg', 'Sagehashi ', 'Harue', 'Emily', 'emilylo@yahoo.com.tw', '$2y$10$xImMJIFbeGue5gQSZEP8mejXPx0kMB.YXlbj4Xof7VMCp8JLiymDq', '1995-05-01', 2, '', '', '', '2021-08-15'),
-(16, 0, 0, '', 'Tatsuoka  Natsumi(姓加名).jpeg', 'Tatsuoka  Natsumi', '', 'Ming', 'ming@gmail.com', '$2y$10$uIg3cyWN7Igyhy0dIMplOOvymEEP/zQxU31MZyGvWi9hsePVDEaiy', '1995-01-01', 1, '', '', '', '2021-08-15'),
-(62, 1, 3, '', '3042a221-0aa4-437d-acea-8669b3e90908.jpg', 'Anna Ball', '', 'L50544', 'l5054@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '英文、日文', '日本', 'One-on-One Class *8.0 IELTS and 7+ years teaching experience *full time teacher, more time slots available *2800+ classes conducted *1100+ 5 star reviews *provides class notes and materials after class Materials for Business English, Daily English Conversation, Travel English, Kids English, IELTS/TOEIC/TOEFL Speaking Practice.', '2020-04-13'),
-(63, 1, 2, '', '4d4cd160-50d5-4031-840c-4e1a67b3c5fc.jpg', '魏嘉萱', '', 'wei', 'jiawei@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '2000-02-25', 2, '中文、英文、日文', '中國', '輔助超過50位學生取得金色多益證書 高效準備考試/面試/簡報 10年ESL教學經驗 理科腦/思路清晰/批判性思考訓練 發音矯正專家，美式口音 把英文壓力➡️自信來源 一對一客製化教學 漸進式對話練習，口說練習互動多，說的一嘴好英文不再只是口號', '2020-07-01'),
-(64, 1, 2, '', '29a91a4f-1b58-4593-ac3f-b0be308e5c9c.jpg', '蔣正名', '', 'wright', 'wright@hotmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1998-04-08', 1, '中文、英文', '台灣', '🎖️六年教學經歷｜線上破千堂教學🎖️紐西蘭籍華僑｜母語人士正統美語發音🎖️多益金色證書｜專業正音教師🎖️兒童美語｜成人美語🎖️學員一致評價最有耐心、親和力教師｜帶領在無壓力的英語環境下進步🎖️鑽研兒童心理學，擅長與孩子建立朋友般的互動學習關係｜活潑熱情、耐心引導開口🎖️曾任兒童劇團英語戲劇營及知名新聞台英語主播營講師', '2020-10-14'),
-(65, 1, 2, '', 'd3eda7d6-b6ce-45e7-a741-7582a15ec830.jpg', 'Miller Michelle', '', 'MM', 'mm03495@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1974-08-07', 1, '中文、英文', '加拿大', '在加拿大出生和長大，擁有 (2) 年的經驗 \r\n雅思和托福備考 - 通過考試！ \r\n商務英語 - 為您的職業生涯做好準備！ \r\n會話英語 - 提高你的技能！ \r\n口音和發音 - 減少你的口音！ [ \r\n課程期間的免費建議！', '2020-10-14'),
-(66, 1, 2, '', '23950b43-a4bc-4704-805c-e6683db1e838.jpg', 'Jelly Willy', '', 'Will', 'jwilly@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1977-12-31', 1, '中文、英文', '澳洲', ' Teacher with ten years of IELTS and TOEFL teaching experience 🇬🇧 , Standard British accent 🇬🇧 Cambridge University 🇬🇧 TESOL certification 🇬🇧 10 years of experience  Self-study manual! Stress-free learning environment  Free workbooks  Composition correction', '2020-10-19'),
-(67, 1, 2, '', '7adc6043cb34201875ab786456b2ec7372a423da.jpg', 'Thompson Klay Alexander', '', 'AK', 'thomak223@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1991-07-04', 1, '英文', '美國', '母语为英语的美国口音。 \r\n西班牙语母语者。 \r\n10+ 年经验。 \r\n英语作为第二语言文凭。 \r\n口语和写作教练。 \r\n第一次证书准备。 \r\n熟练度准备。 \r\n雅思备考。 \r\n托福备考。 \r\n儿童、青少年和成人课程。', '2020-10-20'),
-(68, 1, 2, '', '76fd1f69-7c29-4d3b-b9f0-24344da3f323.jpg', 'Key Kaitlin', '', 'Kait', 'kait09372@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1988-12-03', 1, '英文', '英國', ' English Native Speaker with American accent. \r\nSpanish Native Speaker. \r\n10+ years experience. \r\nEnglish as a Second Language Diploma.\r\nSpeaking and writing coach. \r\nFirst Certificate Preparation. \r\nProficiency Preparation. \r\nIELTS Preparation. \r\nTOEFL Preparation. \r\nCourses for children, teenagers, and adults.', '2021-04-15'),
-(69, 1, 2, '', '36b258e6-e055-4251-b423-5cd5378d8e68.jpg', 'Dominguez Rose Lilly', '', 'Lily', 'lily2431@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1999-01-01', 2, '英文、日文', '美國', ' Small Pronunciation GROUP classes 50% off\r\nNative Speaker🇬🇧\r\nI speak 4 languages\r\nPronunciation Expert\r\nAdults & Kids\r\nAll Levels Welcome\r\nFluent Conversation\r\nChildren’s English\r\nBusiness English\r\nPerfect Accent\r\nFun & Calm Lessons\r\nBoost Confidence\r\nBook a trial and let’s improve your English Fast', '2021-04-16'),
-(70, 1, 0, '', NULL, '大川實禰', '', 'oka', 'oka0293@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1994-11-24', 2, '英文、日文', '日本', '', '2021-06-11'),
-(71, 1, 0, '', NULL, '杉原岩雄', '', 'iwa', 'iwa8984@yahoo.com.jp', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1990-10-17', 1, '中文、日文', '日本', '', '2021-08-18'),
+(16, 0, 0, '', 'Tatsuoka  Natsumi(姓加名).jpeg', 'Tatsuoka  Natsumi', 'Ming', 'Ming', 'ming@gmail.com', '$2y$10$uIg3cyWN7Igyhy0dIMplOOvymEEP/zQxU31MZyGvWi9hsePVDEaiy', '1995-01-01', 1, '', '', '', '2021-08-15'),
+(62, 1, 3, '', '039a55cd-a471-4a7f-9233-385313456fec.jpg', 'Tarin', 'Johnson', 'L50544', 'l5054@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '英文、日文', '日本', 'One-on-One Class *8.0 IELTS and 7+ years teaching experience *full time teacher, more time slots available *2800+ classes conducted *1100+ 5 star reviews *provides class notes and materials after class Materials for Business English, Daily English Conversation, Travel English, Kids English, IELTS/TOEIC/TOEFL Speaking Practice.', '2020-04-13'),
+(63, 1, 2, '', '414c42f4-20a6-4f3b-9d30-dce3b36835e0.jpg', '嘉萱', '魏', 'wei', 'jiawei@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '2000-02-25', 2, '中文、英文、日文', '中國', '輔助超過50位學生取得金色多益證書 高效準備考試/面試/簡報 10年ESL教學經驗 理科腦/思路清晰/批判性思考訓練 發音矯正專家，美式口音 把英文壓力➡️自信來源 一對一客製化教學 漸進式對話練習，口說練習互動多，說的一嘴好英文不再只是口號', '2020-07-01'),
+(64, 1, 2, '', '29a91a4f-1b58-4593-ac3f-b0be308e5c9c.jpg', '正名', '蔣', 'wright', 'wright@hotmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1998-04-08', 1, '中文、英文', '台灣', '🎖️六年教學經歷｜線上破千堂教學🎖️紐西蘭籍華僑｜母語人士正統美語發音🎖️多益金色證書｜專業正音教師🎖️兒童美語｜成人美語🎖️學員一致評價最有耐心、親和力教師｜帶領在無壓力的英語環境下進步🎖️鑽研兒童心理學，擅長與孩子建立朋友般的互動學習關係｜活潑熱情、耐心引導開口🎖️曾任兒童劇團英語戲劇營及知名新聞台英語主播營講師', '2020-10-14'),
+(65, 1, 2, '', '35b3a759-f8ec-4ea9-8f48-9e93dff4e997.jpg', 'Michelle', 'Miller ', 'MM', 'mm03495@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1974-08-07', 1, '中文、英文', '加拿大', '在加拿大出生和長大，擁有 (2) 年的經驗 \r\n雅思和托福備考 - 通過考試！ \r\n商務英語 - 為您的職業生涯做好準備！ \r\n會話英語 - 提高你的技能！ \r\n口音和發音 - 減少你的口音！ [ \r\n課程期間的免費建議！', '2020-10-14'),
+(66, 1, 2, '', '3bf5f9fe-562f-409c-bf3a-2c79a8ede563.jpg', 'Jackson', 'Willy', 'Will', 'jwilly@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1977-12-31', 1, '中文、英文', '澳洲', 'Teacher with ten years of IELTS and TOEFL teaching experience, Standard British accent 🇬🇧 Cambridge University 🇬🇧 TESOL certification 🇬🇧 10 years of experience  Self-study manual! Stress-free learning environment  Free workbooks  Composition correction', '2020-10-19'),
+(67, 1, 2, '', '7adc6043cb34201875ab786456b2ec7372a423da.jpg', 'Thompson', 'Alexander', 'AK', 'thomak223@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1991-07-04', 1, '英文', '美國', '母语为英语的美国口音。 \r\n西班牙语母语者。 \r\n10+ 年经验。 \r\n英语作为第二语言文凭。 \r\n口语和写作教练。 \r\n第一次证书准备。 \r\n熟练度准备。 \r\n雅思备考。 \r\n托福备考。 \r\n儿童、青少年和成人课程。', '2020-10-20'),
+(68, 1, 2, '', 'e651caf3-38d9-4e2d-83f1-f99236f0647a.jpg', 'Key', 'Kaitlin', 'Kait', 'kait09372@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1988-12-03', 1, '英文', '英國', ' English Native Speaker with American accent. \r\nSpanish Native Speaker. \r\n10+ years experience. \r\nEnglish as a Second Language Diploma.\r\nSpeaking and writing coach. \r\nFirst Certificate Preparation. \r\nProficiency Preparation. \r\nIELTS Preparation. \r\nTOEFL Preparation. \r\nCourses for children, teenagers, and adults.', '2021-04-15'),
+(69, 1, 2, '', '68318c8c-f8ab-481f-a6ba-42d28ee66aad.jpg', 'Catherine', 'Dorléac', 'Lily', 'lily2431@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1999-01-01', 2, '英文、日文', '美國', ' Small Pronunciation GROUP classes 50% off\r\nNative Speaker🇬🇧\r\nI speak 4 languages\r\nPronunciation Expert\r\nAdults & Kids\r\nAll Levels Welcome\r\nFluent Conversation\r\nChildren’s English\r\nBusiness English\r\nPerfect Accent\r\nFun & Calm Lessons\r\nBoost Confidence\r\nBook a trial and let’s improve your English Fast', '2021-04-16'),
 (1008, 1, 0, '', NULL, 'TTTTT', 'SSSSS', 'test01', 'tt@tt.com', '$2a$10$uASYlb0UAtfZMortDvIInO/lKTu/hLuTx5qtbaupsq.DE9dFLtXUW', NULL, NULL, NULL, NULL, '', '2021-10-29'),
-(1012, 1, 0, '', NULL, 'rr', 'rr', '', 'rr@hh', '$2a$10$/65ii13Pa6we6Y4CnFhxQeGaLgRU9KS2qLj2.ZDmGfOq1MmtIPo1C', NULL, NULL, NULL, NULL, NULL, '2021-11-03');
+(1012, 1, 0, '', NULL, 'rr', 'rr', '', 'rr@hh', '$2a$10$/65ii13Pa6we6Y4CnFhxQeGaLgRU9KS2qLj2.ZDmGfOq1MmtIPo1C', NULL, NULL, NULL, NULL, NULL, '2021-11-03'),
+(1018, 0, 0, '', NULL, 'ZZZZ', 'RRRR', 'ZRUSH', 'ts@gmail.com', '$2a$10$8g7y4zertE4ahbgxfWHQ5unfytlq.3MklKKhWWGXVI2p2iVjMslhu', NULL, NULL, NULL, NULL, NULL, '2021-11-09');
 
 -- --------------------------------------------------------
 
@@ -378,7 +380,9 @@ CREATE TABLE `order_detail` (
 
 INSERT INTO `order_detail` (`sid`, `order_main_id`, `product_sid`) VALUES
 (122, 'JO407383', 67),
-(123, 'JO407383', 65);
+(123, 'JO407383', 65),
+(124, 'DO117373', 63),
+(125, 'DO117373', 59);
 
 -- --------------------------------------------------------
 
@@ -402,7 +406,8 @@ CREATE TABLE `order_main` (
 --
 
 INSERT INTO `order_main` (`sid`, `order_id`, `member_sid`, `pay_method`, `cstoresort`, `order_status`, `total_price`, `created_at`) VALUES
-(56, 'JO407383', 1016, 2, 1, 1, 4580, '2021-11-08 14:16:42');
+(56, 'JO407383', 1016, 2, 1, 1, 4580, '2021-11-08 14:16:42'),
+(57, 'DO117373', 1018, 2, 3, 1, 4680, '2021-11-10 00:02:20');
 
 -- --------------------------------------------------------
 
@@ -484,7 +489,17 @@ INSERT INTO `sentence_game` (`sid`, `language`, `ques`, `ans`, `easiness`) VALUE
 (37, 'ja-JP', '每年六月都會舉行畢業典禮', '毎年 六月 に 卒業式 が 行われます', 3),
 (38, 'ja-JP', '我被觀光客問路', '私 は 観光客 に 道 を 聞かれ ました', 3),
 (39, 'ja-JP', '我請朋友借我書', '私 は 友達 に 本 を 貸して もらい ました', 3),
-(40, 'ja-JP', '什麼日本料理我都吃', '私 は 日本料理 は 何 でも 食べれ ます', 3);
+(40, 'ja-JP', '什麼日本料理我都吃', '私 は 日本料理 は 何 でも 食べれ ます', 3),
+(41, 'en-US', 'Jimmy在Martha生日的時候送她一本書', 'Jimmy sent Martha a book for her birthday', 2),
+(42, 'en-US', '我和我哥都不會游泳', 'Neither I nor my brother can swim', 2),
+(43, 'en-US', 'Kevin已經病了一週', 'Kevin has been sick for a week', 2),
+(44, 'en-US', 'Jennny問Jack可不可以到機場接她', 'Jenny asked Jack if he could pick her up at the airport', 2),
+(45, 'en-US', 'Mark緊張到無法吃飯', 'Mark was so nervous that he couldn\'t eat', 2),
+(46, 'en-US', '公車上的人都在盯著那個大聲講電話的男生', 'People on the bus stared at the boy who was talking loudly on his cellphone', 3),
+(47, 'en-US', '我的表妹邀請我參加她的婚禮', 'My cousin invites me to attend her wedding', 3),
+(48, 'en-US', '研究顯示大笑可以幫助人們遠離心理疾病', 'Studies show that laughing can help people avoid mental illness', 3),
+(49, 'en-US', '由於作物歉收，數百萬人正受挨餓而急需糧食援助', 'Because of crop failure, millions of people are starving and in need of food aid', 3),
+(50, 'en-US', '我們學校籃球隊要和來自另一縣的校隊打友誼賽', 'My school basketball team is going to play a friendly match against a school team from another county', 3);
 
 -- --------------------------------------------------------
 
@@ -531,7 +546,7 @@ INSERT INTO `video_list` (`sid`, `course_sid`, `video_name`, `video_link`, `teac
 (16, 23, '4.學習助詞，表示\"原因\"，應用於解釋事發原因', ' ', '1', '2021-08-16', '2021-08-16 04:16:04', 341),
 (22, 23, '5.學習講述形容經驗、推測事情、講述事物的變化、將來的夢想', ' ', '1', '2021-08-16', '2021-08-16 07:37:30', 533),
 (23, 23, '6.情境會話演練', ' ', '1', '2021-08-16', '0000-00-00 00:00:00', 0),
-(24, 24, '1.日本人的姓氏', ' 日本人的姓氏.mp4', '1', '2021-08-17', '2021-08-17 04:37:30', 345),
+(24, 24, '1.日本人的姓氏', '日本人的姓氏.mp4', '1', '2021-08-17', '2021-08-17 04:37:30', 345),
 (44, 24, '2.日本人的縣民特性', ' ', '1', '2021-08-23', '2021-08-23 04:00:06', 233),
 (50, 24, '3.在日本的世界遺產', ' ', '1', '2021-08-23', '2021-08-23 04:05:30', 343),
 (51, 24, '4.日本人的社群網路 ', ' ', '1', '2021-08-23', '2021-08-23 05:08:18', 234),
@@ -582,8 +597,8 @@ INSERT INTO `video_list` (`sid`, `course_sid`, `video_name`, `video_link`, `teac
 (97, 61, '3.如何開啟話題', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 441),
 (98, 61, '4.Small talk禁忌', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 521),
 (99, 61, '5.從Small talk到正題', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 711),
-(100, 62, '1.平溪天燈節', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 421),
-(101, 62, '2.在大雪山森林公園', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 758),
+(100, 62, '1.平溪天燈節', 'Setting Off Paper Sky Lanterns in Pingxi, Taiwan.mp4', '1', '2021-09-10', '0000-00-00 00:00:00', 226),
+(101, 62, '2.在大雪山森林公園', '', '1', '2021-09-10', '0000-00-00 00:00:00', 758),
 (102, 62, '3.看歌仔戲', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 634),
 (103, 62, '4.台南小吃', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 715),
 (104, 62, '5.拜訪手工藝品創作坊', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 671),
@@ -592,26 +607,26 @@ INSERT INTO `video_list` (`sid`, `course_sid`, `video_name`, `video_link`, `teac
 (107, 63, '3.解構常見題型', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 751),
 (108, 63, '4.實戰聽力測試', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 521),
 (109, 63, '5.分析答題弱點', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 641),
-(110, 65, '1. 發音與口音到底是什麼', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 702),
+(110, 65, '1. 發音與口音到底是什麼', 'Learn English Business Language in 2 Hours_006.mp4', '1', '2021-09-10', '0000-00-00 00:00:00', 702),
 (111, 65, '2.母音決定音節，子音決定發音的清晰度', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 841),
 (112, 65, '3.原來拼音也會影響到發音', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 812),
 (113, 65, '4. 單字、句子的重音怎麼放', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 475),
 (114, 65, '5.來測試看看你的發音是否標準吧！', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 561),
-(115, 66, '1. 第一次見面如何開場不尷尬', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 921),
+(115, 66, '1. 第一次見面如何開場不尷尬', '美語家教.mp4', '1', '2021-09-10', '0000-00-00 00:00:00', 921),
 (116, 66, '2.開學與新同學分組報告', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 627),
 (117, 66, '3.週末約朋友到酒吧看球賽', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 610),
 (118, 66, '4.搭計程車與司機尬聊', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 683),
 (119, 66, '5.和朋友規劃一場週末小旅行', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 483),
-(120, 67, '1.去一趟日本傳統市場採買吧！', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 208),
+(120, 67, '1.去一趟日本傳統市場採買吧！', 'c1ecc20a538d581ba7c8061bb40b4fa0dba013bd.mp4', '1', '2021-09-10', '0000-00-00 00:00:00', 208),
 (121, 67, '2.築地市場', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 384),
 (122, 67, '3.日本人喜歡的蛋糕', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 547),
 (123, 67, '4.每個日本家庭主婦都會的拿手菜', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 742),
 (124, 67, '5.飲食文化介紹(日本酒)', ' ', '1', '2021-09-10', '0000-00-00 00:00:00', 857),
-(125, 68, '1.學習前的小秘訣', ' Learn English Business Language in 2 Hours_001.mp4', '1', '2021-09-10', '0000-00-00 00:00:00', 207),
-(126, 68, '2.重新建立基礎', ' Learn English Business Language in 2 Hours_002.mp4', '1', '2021-09-10', '0000-00-00 00:00:00', 537),
-(127, 68, '3.道地美式發音', ' Learn English Business Language in 2 Hours_003.mp4', '1', '2021-09-10', '0000-00-00 00:00:00', 782),
-(128, 68, '4.子音字母結尾', ' Learn English Business Language in 2 Hours_004.mp4', '1', '2021-09-10', '0000-00-00 00:00:00', 621),
-(129, 68, '5.用英文思考', ' Learn English Business Language in 2 Hours_005.mp4', '1', '2021-09-10', '0000-00-00 00:00:00', 588);
+(125, 68, '1.學習前的小秘訣', 'Learn English Business Language in 2 Hours_001.mp4', '1', '2021-09-10', '0000-00-00 00:00:00', 207),
+(126, 68, '2.重新建立基礎', 'Learn English Business Language in 2 Hours_002.mp4', '1', '2021-09-10', '0000-00-00 00:00:00', 537),
+(127, 68, '3.道地美式發音', 'Learn English Business Language in 2 Hours_003.mp4', '1', '2021-09-10', '0000-00-00 00:00:00', 782),
+(128, 68, '4.子音字母結尾', 'Learn English Business Language in 2 Hours_004.mp4', '1', '2021-09-10', '0000-00-00 00:00:00', 621),
+(129, 68, '5.用英文思考', 'Learn English Business Language in 2 Hours_005.mp4', '1', '2021-09-10', '0000-00-00 00:00:00', 588);
 
 -- --------------------------------------------------------
 
@@ -821,25 +836,25 @@ ALTER TABLE `article_pop`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `art_messenger`
 --
 ALTER TABLE `art_messenger`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `chat_conversation`
 --
 ALTER TABLE `chat_conversation`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `chat_message`
 --
 ALTER TABLE `chat_message`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `course`
@@ -851,25 +866,25 @@ ALTER TABLE `course`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cs_messenger`
 --
 ALTER TABLE `cs_messenger`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
 --
 ALTER TABLE `member`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1017;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1019;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_main`
 --
 ALTER TABLE `order_main`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `schedule`
@@ -881,7 +896,7 @@ ALTER TABLE `schedule`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `sentence_game`
 --
 ALTER TABLE `sentence_game`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `video_list`

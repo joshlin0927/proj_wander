@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 // 後端檔案路徑
 import {
@@ -16,8 +17,14 @@ import ArticleListSt from './ArticleListSt'
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import ArBgDecorationNormal from '../../../components/articles/ArBgDecorationNormal'
 import Footer from '../../../components/Footer'
+import Spinner from '../../../components/Spinner'
+
 
 function Article(prop) {
+
+  // spinner
+  const [isLoading, setIsLoading] = useState(true)
+
   //判斷是否登入並為教師身分
   const history = useHistory()
   const token = localStorage.getItem('token')
@@ -56,6 +63,9 @@ function Article(prop) {
         }
       })()
     }
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1500)
   }, [])
 
   // 將搜尋吧的字串與得到的資料帶入函式
@@ -100,7 +110,12 @@ function Article(prop) {
           </div>
         </div>
         <div className="row justify-content-center d-flex">
-          <div className="coursesection col-md-10 col-lg-10">
+        {isLoading ? (
+            <div className="courseSpinner">
+              <Spinner />
+            </div>
+          ) : (
+            <div className="coursesection col-md-10 col-lg-10">
             {TcCourses.length > 0 ? (
               <ArticleListSt
                 displayCourse={displayCourse}
@@ -108,8 +123,142 @@ function Article(prop) {
               />
             ) : null}
           </div>
+          )}
+        
+          {/* <div className="coursesection col-md-10 col-lg-10">
+            {TcCourses.length > 0 ? (
+              <ArticleListSt
+                displayCourse={displayCourse}
+                setDisplayCourse={setDisplayCourse}
+              />
+            ) : null}
+          </div> */}
         </div>
       </div>
+      {isLoading ? null : (
+        <div className="TCallwrapera-sing-out">
+          <div className="TCallwraperw-out">
+          <div className="TCallwraperw-white-block">
+
+            <div className="col-12">
+              <div className="post-sidebar-area">
+                <div className="TCallwraperw-out-sidebar-widget-area">
+                  <h5 className="title">Advertisement</h5>
+                  <a href="#">
+                    <img
+                      src={`${devUrl}/images/article/out/add.gif`}
+                      alt=""
+                    />
+                  </a>
+                </div>
+              </div>
+
+              <div className="TCallwraperw-out-sidebar-widget-area">
+                <h5 className="title">Latest Posts</h5>
+
+                <div className="widget-content">
+                  <div className="single-blog-post d-flex align-items-center widget-post">
+                    <div className="post-thumbnail">
+                    <Link
+                              to={`/ArtIndex/ArtMessage?articleSid=101`}
+                            >
+                        <img
+                        src={`${devUrl}/images/index/12.png`}
+                          alt=""
+                        />
+                      </Link>
+                    </div>
+                    <div className="post-content">
+                      <Link  to={`/ArtIndex/ArtMessage?articleSid=101`} className="post-tag">
+                        #熱門影集
+                      </Link>
+                      <h4>
+                        <Link
+                           to={`/ArtIndex/ArtMessage?articleSid=101`}
+                          className="post-headline"
+                        >
+                          太陽召喚
+                        </Link>
+                      </h4>
+                      <div className="post-meta">
+                        <p>
+                          <Link  to={`/ArtIndex/ArtMessage?articleSid=101`}>11 March</Link>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="single-blog-post d-flex align-items-center widget-post">
+                    <div className="post-thumbnail">
+                    <Link
+                              to={`/ArtIndex/ArtMessage?articleSid=96`}
+                            >
+                        <img
+                        src={`${devUrl}/images/index/13.png`}
+                          alt=""
+                        />
+                      </Link>
+                    </div>
+                    <div className="post-content">
+                      <Link to={`/ArtIndex/ArtMessage?articleSid=96`} className="post-tag">
+                        #異國節慶
+                      </Link>
+
+                      <h4>
+                        <Link
+                          to={`/ArtIndex/ArtMessage?articleSid=96`}
+                          className="post-headline"
+                        >
+                          不朽者
+                        </Link>
+                      </h4>
+                      <div className="post-meta">
+                        <p>
+                          <Link to={`/ArtIndex/ArtMessage?articleSid=96`}>11 March</Link>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="single-blog-post d-flex align-items-center widget-post">
+                    <div className="post-thumbnail">
+                    <Link
+                              to={`/ArtIndex/ArtMessage?articleSid=99`}
+                            >
+                        <img
+                        src={`${devUrl}/images/index/14.png`}
+                          alt=""
+                        />
+                      </Link>
+                    </div>
+
+                    <div className="post-content">
+                      <Link to={`/ArtIndex/ArtMessage?articleSid=99`} className="post-tag">
+                        #熱門影集
+                      </Link>
+
+                      <h4>
+                        <Link
+                          to={`/ArtIndex/ArtMessage?articleSid=99`}
+                          className="post-headline"
+                        >
+                         末日列車
+                        </Link>
+                      </h4>
+                      <div className="post-meta">
+                        <p>
+                          <Link to={`/ArtIndex/ArtMessage?articleSid=99`}>11 March</Link>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="TCallwrapera-sing">
         <div className="TCallwraperw">

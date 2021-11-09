@@ -5,6 +5,11 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom'
 import HomeBgDecorationNormal from '../../components/home/HomeBgDecorationNormal'
+import ImageSlider from './Slider'
+import ImageSliderST from './st/SliderST'
+
+import MobileSlider from './Mobile-Slider'
+import MobileSliderST from './st/Mobile-SliderST'
 
 function WanderIndex() {
   const member = localStorage.getItem('member')
@@ -13,7 +18,7 @@ function WanderIndex() {
 
   const identity = member ? member.identity : ''
 
-  const [rndmItem, setRndmItem] = useState(
+  const [changeItem, setCHangeItem] = useState(
     `${devUrl}/images/index/01/01.png`
   )
 
@@ -35,10 +40,10 @@ function WanderIndex() {
       var randomItem =
         myArray[Math.floor(Math.random() * myArray.length)]
       // console.log(randomItem)
-      setRndmItem(randomItem)
+      setCHangeItem(randomItem)
     }, 5000)
     return () => clearTimeout(timoutId)
-  }, [rndmItem])
+  }, [changeItem])
 
   return (
     <>
@@ -58,7 +63,7 @@ function WanderIndex() {
             <div className="col-md-5 offset-md-6 col-11 offset-1 p-0">
               <img
                 // src={`${devUrl}/images/index/01.jpg`}
-                src={rndmItem}
+                src={changeItem}
                 alt=""
                 className="img-01"
               />
@@ -348,9 +353,29 @@ function WanderIndex() {
                   </span>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="indexBigImg21 container-fluid w-100">
+          <div className="row w-100 m-0 ">
+            <div className="col-12 offset-0 p-0">
+              <div className="mobile-card">
+                {identity === 0 ? (
+                  <MobileSliderST />
+                ) : (
+                  <MobileSlider />
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="indexBigImg22 container-fluid">
+          <div className="row">
+            <div className="mobile-card">
               <div className="row col-12 offset-0 p-0 ">
                 <div className="imge-12-Text mge-12-a-b">
-                  <div>aaaa</div>
+              {/* <div>aaaa</div> */}
                 </div>
               </div>
             </div>
@@ -406,7 +431,14 @@ function WanderIndex() {
           <div className="row col-12 offset-0 p-0">
             <div className="row w-100 m-0 ">
               <div className="col-md-12 offset-md-0 ">
-                <span>bbbb</span>
+                {/* <span>bbbb</span> */}
+                <div className="container mt-5 carousel">
+                  {identity === 0 ? (
+                    <ImageSliderST />
+                  ) : (
+                    <ImageSlider />
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -433,7 +465,7 @@ function WanderIndex() {
             <div className="row col-12 justify-content-center d-flex">
               {identity === 0 ? (
                 <div className="coursesection col-md-12 col-lg-12">
-                  <Link
+                  {/* <Link
                     to={`/ArtIndex/ArtMessage?articleSid=101`}
                   >
                     <div className="index-articleitem">
@@ -442,9 +474,35 @@ function WanderIndex() {
                         alt=""
                       />
                     </div>
-                  </Link>
+                  </Link> */}
 
-                  <Link
+                  <div className="index-articleitem">
+                    <div className="WanderIndex-box">
+                      <img
+                        src={`${devUrl}/images/index/12.png`}
+                        alt=""
+                      />
+                      <div className="WanderIndex-box-content">
+                        <h3 className="WanderIndex-title">
+                          太陽召喚
+                        </h3>
+                        <span className="WanderIndex-post">
+                          #熱門影集
+                        </span>
+                        <ul className="WanderIndex-icon">
+                          <li>
+                            <Link
+                              to={`/ArtIndex/ArtMessage?articleSid=101`}
+                            >
+                              <i className="fa fa-link"></i>
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* <Link
                     to={`/ArtIndex/ArtMessage?articleSid=96`}
                   >
                     <div className="index-articleitem">
@@ -453,8 +511,35 @@ function WanderIndex() {
                         alt=""
                       />
                     </div>
-                  </Link>
+                  </Link> */}
 
+                  <div className="index-articleitem">
+                    <div className="WanderIndex-box">
+                      <img
+                        src={`${devUrl}/images/index/13.png`}
+                        alt=""
+                      />
+                      <div className="WanderIndex-box-content">
+                        <h3 className="WanderIndex-title">
+                          不朽者
+                        </h3>
+                        <span className="WanderIndex-post">
+                          #熱門影集
+                        </span>
+                        <ul className="WanderIndex-icon">
+                          <li>
+                            <Link
+                              to={`/ArtIndex/ArtMessage?articleSid=96`}
+                            >
+                              <i className="fa fa-link"></i>
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 
                   <Link
                     to={`/ArtIndex/ArtMessage?articleSid=99`}
                   >
@@ -464,11 +549,37 @@ function WanderIndex() {
                         alt=""
                       />
                     </div>
-                  </Link>
+                  </Link> */}
+
+                  <div className="index-articleitem">
+                    <div className="WanderIndex-box">
+                      <img
+                        src={`${devUrl}/images/index/14.png`}
+                        alt=""
+                      />
+                      <div className="WanderIndex-box-content">
+                        <h3 className="WanderIndex-title">
+                          末日列車
+                        </h3>
+                        <span className="WanderIndex-post">
+                          #熱門影集
+                        </span>
+                        <ul className="WanderIndex-icon">
+                          <li>
+                            <Link
+                              to={`/ArtIndex/ArtMessage?articleSid=99`}
+                            >
+                              <i className="fa fa-link"></i>
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <div className="coursesection col-md-12 col-lg-12">
-                  <Link
+                  {/* <Link
                     to={`/ArtIndex/ArticleMessage?articleSid=101`}
                   >
                     <div className="index-articleitem">
@@ -477,9 +588,34 @@ function WanderIndex() {
                         alt=""
                       />
                     </div>
-                  </Link>
+                  </Link> */}
+                  <div className="index-articleitem">
+                    <div className="WanderIndex-box">
+                      <img
+                        src={`${devUrl}/images/index/06.png`}
+                        alt=""
+                      />
+                      <div className="WanderIndex-box-content">
+                        <h3 className="WanderIndex-title">
+                          后翼棄兵
+                        </h3>
+                        <span className="WanderIndex-post">
+                          #熱門影集
+                        </span>
+                        <ul className="WanderIndex-icon">
+                          <li>
+                            <Link
+                              to={`/ArtIndex/ArticleMessage?articleSid=101`}
+                            >
+                              <i className="fa fa-link"></i>
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
 
-                  <Link
+                  {/* <Link
                     to={`/ArtIndex/ArticleMessage?articleSid=96`}
                   >
                     <div className="index-articleitem">
@@ -488,18 +624,64 @@ function WanderIndex() {
                         alt=""
                       />
                     </div>
-                  </Link>
+                  </Link> */}
+                  <div className="index-articleitem">
+                    <div className="WanderIndex-box">
+                      <img
+                        src={`${devUrl}/images/index/07.png`}
+                        alt=""
+                      />
+                      <div className="WanderIndex-box-content">
+                        <h3 className="WanderIndex-title">
+                          燃燒自我的限時烏托邦
+                        </h3>
+                        <span className="WanderIndex-post">
+                          #異國節慶
+                        </span>
+                        <ul className="WanderIndex-icon">
+                          <li>
+                            <Link
+                              to={`/ArtIndex/ArticleMessage?articleSid=96`}
+                            >
+                              <i className="fa fa-link"></i>
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
 
-                  <Link
-                    to={`/ArtIndex/ArticleMessage?articleSid=103`}
-                  >
-                    <div className="index-articleitem">
+                  <div className="index-articleitem">
+                    <div className="WanderIndex-box">
                       <img
                         src={`${devUrl}/images/index/08.png`}
                         alt=""
                       />
+                      <div className="WanderIndex-box-content">
+                        <h3 className="WanderIndex-title">
+                          黑道律師文森佐
+                        </h3>
+                        <span className="WanderIndex-post">
+                          #熱門影集
+                        </span>
+                        <ul className="WanderIndex-icon">
+                          <li>
+                            <Link
+                              to={`/ArtIndex/ArticleMessage?articleSid=103`}
+                            >
+                              <i className="fa fa-link"></i>
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                  </Link>
+                  </div>
+                  {/* <div className="index-articleitem">
+                      <img
+                        src={`${devUrl}/images/index/08.png`}
+                        alt=""
+                      />
+                    </div> */}
                 </div>
               )}
             </div>
@@ -547,130 +729,134 @@ function WanderIndex() {
                 <ul className="gallery-top animate">
                   <li className="recommendation-card">
                     <img
-                      src={`${devUrl}/images/index/10.png`}
+                      src={`${devUrl}/images/index/Praise/01.png`}
                       alt=""
                     />
                     <div className="recommend-content">
                       <div className="recommend-img">
                         <img
-                          src={`${devUrl}/images/index/09.png`}
+                          src={`${devUrl}/images/index/Praise/avatar/01.png`}
                           alt=""
                         />
                         <div>
-                          <h6>王大雄</h6>
+                          <h6>penny</h6>
                           <p className="recommend-text">
-                            XXX老師的初階英語
+                            旅遊英文一把罩
                           </p>
                         </div>
                       </div>
-                      <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                      <p>
+                        實用簡單，課程規劃不會太長好吸收。
+                      </p>
                     </div>
                   </li>
                   <li className="recommendation-card">
                     <img
-                      src={`${devUrl}/images/index/10.png`}
+                      src={`${devUrl}/images/index/Praise/02.png`}
                       alt=""
                     />
                     <div className="recommend-content">
                       <div className="recommend-img">
                         <img
-                          src={`${devUrl}/images/index/09.png`}
+                          src={`${devUrl}/images/index/Praise/avatar/02.png`}
                           alt=""
                         />
                         <div>
-                          <h6>王大雄</h6>
+                          <h6>Liz</h6>
                           <p className="recommend-text">
-                            XXX老師的初階英語
+                            求職英文
                           </p>
                         </div>
                       </div>
-                      <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                      <p>還不錯，容易記憶。</p>
                     </div>
                   </li>
                   <li className="recommendation-card">
                     <img
-                      src={`${devUrl}/images/index/10.png`}
+                      src={`${devUrl}/images/index/Praise/03.png`}
                       alt=""
                     />
                     <div className="recommend-content">
                       <div className="recommend-img">
                         <img
-                          src={`${devUrl}/images/index/09.png`}
+                          src={`${devUrl}/images/index/Praise/avatar/03.png`}
                           alt=""
                         />
                         <div>
-                          <h6>王大雄</h6>
+                          <h6>water</h6>
                           <p className="recommend-text">
-                            XXX老師的初階英語
+                            社交話題不斷電
                           </p>
                         </div>
                       </div>
-                      <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                      <p>課程架構清晰，值得推薦。</p>
                     </div>
                   </li>
                 </ul>
                 <ul className="gallery-bottom animate">
                   <li className="recommendation-card">
                     <img
-                      src={`${devUrl}/images/index/10.png`}
+                      src={`${devUrl}/images/index/Praise/04.png`}
                       alt=""
                     />
                     <div className="recommend-content">
                       <div className="recommend-img">
                         <img
-                          src={`${devUrl}/images/index/09.png`}
+                          src={`${devUrl}/images/index/Praise/avatar/04.png`}
                           alt=""
                         />
                         <div>
-                          <h6>王大雄</h6>
+                          <h6>940</h6>
                           <p className="recommend-text">
-                            XXX老師的初階英語
+                            英文情境會話開口說
                           </p>
                         </div>
                       </div>
-                      <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                      <p>
+                        有邏輯的一門課，真是獲益良多！！
+                      </p>
                     </div>
                   </li>
                   <li className="recommendation-card">
                     <img
-                      src={`${devUrl}/images/index/10.png`}
+                      src={`${devUrl}/images/index/Praise/05.png`}
                       alt=""
                     />
                     <div className="recommend-content">
                       <div className="recommend-img">
                         <img
-                          src={`${devUrl}/images/index/09.png`}
+                          src={`${devUrl}/images/index/Praise/avatar/05.png`}
                           alt=""
                         />
                         <div>
-                          <h6>王大雄</h6>
+                          <h6>PP</h6>
                           <p className="recommend-text">
-                            XXX老師的初階英語
+                            700+分數保證多益課程
                           </p>
                         </div>
                       </div>
-                      <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                      <p>很容易吸收的課程，收穫滿滿。</p>
                     </div>
                   </li>
                   <li className="recommendation-card">
                     <img
-                      src={`${devUrl}/images/index/10.png`}
+                      src={`${devUrl}/images/index/Praise/06.png`}
                       alt=""
                     />
                     <div className="recommend-content">
                       <div className="recommend-img">
                         <img
-                          src={`${devUrl}/images/index/09.png`}
+                          src={`${devUrl}/images/index/Praise/avatar/06.png`}
                           alt=""
                         />
                         <div>
-                          <h6>王大雄</h6>
+                          <h6>Jennie</h6>
                           <p className="recommend-text">
-                            XXX老師的初階英語
+                            生活英文實用課程
                           </p>
                         </div>
                       </div>
-                      <p>讚讚讚讚讚讚讚讚讚讚讚讚讚!</p>
+                      <p>課程內容優質、老師口條清晰。</p>
                     </div>
                   </li>
                 </ul>

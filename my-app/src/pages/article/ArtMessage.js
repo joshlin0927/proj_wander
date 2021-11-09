@@ -75,7 +75,7 @@ function ArtMessage(prop) {
         }
       })()
     }
-  }, [])
+  }, [ArtdisplayCourse])
 
   return (
     <>
@@ -184,6 +184,160 @@ function ArtMessage(prop) {
                       回到國際角落
                     </button>
                   </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="TCallwrapera-sing-out">
+        <div className="TCallwraperw-out">
+        <div className="TCallwraperw-white-block">
+          <div className="col-12">
+            <div className="post-sidebar-area">
+              <div className="TCallwraperw-out-sidebar-widget-area">
+                <h5 className="title">Advertisement</h5>
+                <a href="#">
+                  <img
+                    src={`${devUrl}/images/article/out/add.gif`}
+                    alt=""
+                  />
+                </a>
+              </div>
+            </div>
+
+            <div className="TCallwraperw-out-sidebar-widget-area">
+              <h5 className="title">Latest Posts</h5>
+
+              <div className="widget-content">
+                <div className="single-blog-post d-flex align-items-center widget-post">
+                  <div className="post-thumbnail">
+                    <Link
+                      to={`/ArtIndex/ArtMessage?articleSid=101`}
+                    >
+                      <img
+                        src={`${devUrl}/images/index/12.png`}
+                        alt=""
+                      />
+                    </Link>
+                  </div>
+                  <div className="post-content">
+                    <Link
+                      to={`/ArtIndex/ArtMessage?articleSid=101`}
+                      className="post-tag"
+                    >
+                      #熱門影集
+                    </Link>
+                    <h4>
+                      <Link
+                        to={`/ArtIndex/ArtMessage?articleSid=101`}
+                        className="post-headline"
+                      >
+                        太陽召喚
+                      </Link>
+                    </h4>
+                    <div className="post-meta">
+                      <p>
+                        <Link
+                          to={`/ArtIndex/ArtMessage?articleSid=101`}
+                        >
+                          11 March
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="single-blog-post d-flex align-items-center widget-post">
+                  <div className="post-thumbnail">
+                    <Link
+                      to={`/ArtIndex/ArtMessage?articleSid=96`}
+                    >
+                      <img
+                        src={`${devUrl}/images/index/13.png`}
+                        alt=""
+                      />
+                    </Link>
+                  </div>
+                  <div className="post-content">
+                    <Link
+                      to={`/ArtIndex/ArtMessage?articleSid=96`}
+                      className="post-tag"
+                    >
+                      #異國節慶
+                    </Link>
+
+                    <h4>
+                      <Link
+                        to={`/ArtIndex/ArtMessage?articleSid=96`}
+                        className="post-headline"
+                      >
+                        不朽者
+                      </Link>
+                    </h4>
+                    <div className="post-meta">
+                      <p>
+                        <Link
+                          to={`/ArtIndex/ArtMessage?articleSid=96`}
+                        >
+                          11 March
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="single-blog-post d-flex align-items-center widget-post">
+                  <div className="post-thumbnail">
+                    <Link
+                      to={`/ArtIndex/ArtMessage?articleSid=99`}
+                    >
+                      <img
+                        src={`${devUrl}/images/index/14.png`}
+                        alt=""
+                      />
+                    </Link>
+                  </div>
+
+                  <div className="post-content">
+                    <Link
+                      to={`/ArtIndex/ArtMessage?articleSid=99`}
+                      className="post-tag"
+                    >
+                      #熱門影集
+                    </Link>
+
+                    <h4>
+                      <Link
+                        to={`/ArtIndex/ArtMessage?articleSid=99`}
+                        className="post-headline"
+                      >
+                        末日列車
+                      </Link>
+                    </h4>
+                    <div className="post-meta">
+                      <p>
+                        <Link
+                          to={`/ArtIndex/ArtMessage?articleSid=99`}
+                        >
+                          11 March
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="TCallwraperw-out-sidebar-widget-area">
+              <h5 className="title">Tags</h5>
+              <div className="widget-content">
+                <ul class="tags">
+                  <li>
+                    <Link to={`/ArtIndex/ArticleSt/`}>
+                      國際角落
+                    </Link>
+                  </li>
+                </ul>
                 </div>
               </div>
             </div>

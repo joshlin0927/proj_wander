@@ -73,7 +73,7 @@ function ArtMessageListCard(props) {
         remove()
         handleClose()
         alert('刪除成功')
-        history.push('/ArtIndex/ArtMessage')
+        // history.push('/ArtIndex/ArtMessage')
       }
     })()
   }
