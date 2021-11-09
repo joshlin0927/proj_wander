@@ -51,7 +51,7 @@ export default function StClassroom() {
           }
         )
         if (r) {
-          console.log(r)
+          // console.log(r)
           setImgSrc(r.data[0][0].avatar)
         }
       })()
@@ -60,8 +60,12 @@ export default function StClassroom() {
     }
 
     ;(async () => {
-      let r = await axios.get(
-        `http://localhost:3001/stcourse/classroom/?courseSid=${takeClass}`
+      let r = await axios.post(
+        `http://localhost:3001/stcourse/boughtCourse`,
+        {
+          courseSid: takeClass,
+          member_sid: JSON.parse(member).sid,
+        }
       )
       if (!r.data[0]) {
         history.push('/StIndex/StCourse')
@@ -78,8 +82,12 @@ export default function StClassroom() {
 
   useEffect(() => {
     ;(async () => {
-      let r = await axios.get(
-        `http://localhost:3001/stcourse/videos/?videoSid=${active}`
+      let r = await axios.post(
+        `http://localhost:3001/stcourse/videos`,
+        {
+          videoSid: active,
+          member_sid: JSON.parse(member).sid,
+        }
       )
 
       if (r.data) {
@@ -87,6 +95,9 @@ export default function StClassroom() {
           `${API_HOST}/video/${r.data.video_link}`
         )
       }
+      console.log('r', r)
+
+      console.log('active', active)
     })()
   }, [active])
 
@@ -215,7 +226,7 @@ export default function StClassroom() {
         </div>
 
         <div className="row">
-          <StSideBar2 imgSrc={imgSrc}/>
+          <StSideBar2 imgSrc={imgSrc} />
           <div
             ref={playerContainerRef}
             className="player col-12 col-md-7 mb-5 p-0"
@@ -260,7 +271,9 @@ export default function StClassroom() {
           </div>
         </div>
 
-        <div className="h30"> </div>
+        <div class="row">
+          <div className="h30"> </div>
+        </div>
       </div>
       <StBgDecorationNormal />
       <div className="bgbeige"> </div>

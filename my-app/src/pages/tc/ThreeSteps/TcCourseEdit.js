@@ -30,9 +30,7 @@ function TcCourseEdit(props) {
     : ''
 
   useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 1) {
+    if (!token && identity !== 1) {
       history.push('/')
     } else {
       ;(async () => {

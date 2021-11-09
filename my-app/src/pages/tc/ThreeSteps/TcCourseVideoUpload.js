@@ -24,9 +24,7 @@ function TcCourseVideoUpload() {
 
   // console.log(courseSid);
   useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (memberObj.identity !== 1) {
+    if (!token && memberObj.identity !== 1) {
       history.push('/')
     } else {
       return
