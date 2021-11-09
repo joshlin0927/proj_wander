@@ -29,7 +29,7 @@ function ChatCard(props) {
       <div className="chatCardAvatar">
         <img
           src={`${IMG_PATH}/${receiveUser.avatar}`}
-          className="img-fluid"
+          className="chatCardAvatarImg"
           alt=""
         />
       </div>

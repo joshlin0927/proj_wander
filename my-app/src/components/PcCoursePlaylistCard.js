@@ -11,7 +11,7 @@ function PcCoursePlaylistCard(props) {
     active,
     setActive,
     value,
-    // showStatus,
+    showStatus,
   } = props
 
   // const member = JSON.parse(localStorage.getItem('member'))
@@ -37,9 +37,7 @@ function PcCoursePlaylistCard(props) {
     <>
       {order_status === null ||
       order_status === 0 ||
-      {
-        /* showStatus === false  */
-      } ? (
+      showStatus === false ? (
         <div
           className={
             active === value ? `clip first` : `clip `

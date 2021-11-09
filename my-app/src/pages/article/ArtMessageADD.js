@@ -212,14 +212,15 @@ function ArtMessageADD(prop) {
       <div className="container mainContent">
         {/* breadcrumb */}
         <MultiLevelBreadCrumb />
+        <br />
         <Nav.Link
           as={NavLink}
           to={`/ArtIndex/ArtMessage?articleSid=${id}`}
           // "/ArtIndex/ArtMessage"
           className="btn btn-border-only-no-h col-2"
         >
-          <i className="fas fa-chevron-left"></i>
-          <span>返回文章內容</span>
+          <i className="fas fa-chevron-left article-left"></i>
+          <span>返回</span>
         </Nav.Link>
         <div className="row justify-content-center col-12">
           <div className="art-p-page-info col-12 col-md-8">

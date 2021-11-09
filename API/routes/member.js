@@ -51,7 +51,7 @@ async function getListData(req,res){
             // return res.redirect('?page=1' + output.totalPages);
             */
         }
-        const sql = `SELECT * FROM \`member\` ${where} ORDER BY member.sid DESC LIMIT ${(page-1)*perPage}, ${perPage}`;
+        const sql = `SELECT * FROM \`member\` ORDER BY member.sid DESC `;
         /* 如果要用backtick，在名稱的地方要加上\`做跳脫 */
         const [rows] = await db.query(sql)
         output.rows = rows;
@@ -81,11 +81,10 @@ router.get('/findOne', async(req, res)=>{
     res.json(output);
 })
 
-
-router.route('/edit/:sid')
+router.route('/edit')
     .get(async (req, res) => {
         const sql = "SELECT * FROM member WHERE sid=?";
-        const [rs] = await db.query(sql, [req.params.sid]);
+        const [rs] = await db.query(sql, [req.body.sid]);
 
         if (rs.length) {
             res.render('member/edit', {
@@ -105,11 +104,13 @@ router.route('/edit/:sid')
         const input = {
             ...req.body
         };
-        const sql = "UPDATE `member` SET ? WHERE sid=?";
+
+        // sql=UPDATE `member` SET `verification` = '1' WHERE `member`.`sid` = 1006;
+        const sql = "UPDATE `member` SET `verification` = ? WHERE `member`. sid=?";
         let result = {};
         // 處理修改資料時可能的錯誤
         try {
-            [result] = await db.query(sql, [input, req.params.sid]);
+            [result] = await db.query(sql, [input, req.body.sid]);
         } catch (ex) {
             output.error = ex.toString();
         }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { devUrl } from '../../config'
 import './index.css'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -10,7 +10,36 @@ function WanderIndex() {
   const member = localStorage.getItem('member')
     ? JSON.parse(localStorage.getItem('member'))
     : ''
+
   const identity = member ? member.identity : ''
+
+  const [rndmItem, setRndmItem] = useState(
+    `${devUrl}/images/index/01/01.png`
+  )
+
+  const myArray = [
+    `${devUrl}/images/index/01/01.png`,
+    `${devUrl}/images/index/01/02.png`,
+    `${devUrl}/images/index/01/03.png`,
+    `${devUrl}/images/index/01/04.png`,
+    `${devUrl}/images/index/01/05.png`,
+    `${devUrl}/images/index/01/06.png`,
+    `${devUrl}/images/index/01/07.png`,
+    `${devUrl}/images/index/01/08.png`,
+    `${devUrl}/images/index/01/09.png`,
+    `${devUrl}/images/index/01/10.png`,
+  ]
+
+  useEffect(() => {
+    const timoutId = setInterval(() => {
+      var randomItem =
+        myArray[Math.floor(Math.random() * myArray.length)]
+      // console.log(randomItem)
+      setRndmItem(randomItem)
+    }, 5000)
+    return () => clearTimeout(timoutId)
+  }, [rndmItem])
+
   return (
     <>
       <MultiLevelBreadCrumb />
@@ -28,7 +57,8 @@ function WanderIndex() {
           <div className="row w-100 m-0">
             <div className="col-md-5 offset-md-6 col-11 offset-1 p-0">
               <img
-                src={`${devUrl}/images/index/01.jpg`}
+                // src={`${devUrl}/images/index/01.jpg`}
+                src={rndmItem}
                 alt=""
                 className="img-01"
               />
@@ -287,11 +317,20 @@ function WanderIndex() {
               </div>
               <div className="row col-11 offset-0 p-0 indexBigImg14">
                 <div className="row yellow-area-but-3 offset-5">
-                  <Link to="/SignUp">
+                  {identity === '' ? (
+                    <Link to="/SignUp">
+                      <button className="btn checkoutBtn">
+                        快來註冊吧!
+                      </button>
+                    </Link>
+                  ) : (
+                    ''
+                  )}
+                  {/* <Link to="/SignUp">
                     <button className="btn checkoutBtn">
                       快來註冊吧!
                     </button>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
@@ -302,7 +341,11 @@ function WanderIndex() {
             <div className="mobile-card">
               <div className="row col-12 offset-0 p-0">
                 <div className="imge-12-Text mge-12-a">
-                  <span>熱門課程</span>
+                  <span>
+                    {identity === 0
+                      ? '推薦課程'
+                      : '熱門課程'}
+                  </span>
                 </div>
               </div>
               <div className="row col-12 offset-0 p-0 ">
@@ -388,40 +431,77 @@ function WanderIndex() {
         <div className="indexBigImg17 container-fluid">
           <div className="row col-12 offset-0 p-0">
             <div className="row col-12 justify-content-center d-flex">
-              <div className="coursesection col-md-12 col-lg-12">
-                <Link
-                  to={`/ArtIndex/ArticleMessage?articleSid=101`}
-                >
-                  <div className="index-articleitem">
-                    <img
-                      src={`${devUrl}/images/index/06.png`}
-                      alt=""
-                    />
-                  </div>
-                </Link>
+              {identity === 0 ? (
+                <div className="coursesection col-md-12 col-lg-12">
+                  <Link
+                    to={`/ArtIndex/ArtMessage?articleSid=101`}
+                  >
+                    <div className="index-articleitem">
+                      <img
+                        src={`${devUrl}/images/index/12.png`}
+                        alt=""
+                      />
+                    </div>
+                  </Link>
 
-                <Link
-                  to={`/ArtIndex/ArticleMessage?articleSid=96`}
-                >
-                  <div className="index-articleitem">
-                    <img
-                      src={`${devUrl}/images/index/07.png`}
-                      alt=""
-                    />
-                  </div>
-                </Link>
+                  <Link
+                    to={`/ArtIndex/ArtMessage?articleSid=96`}
+                  >
+                    <div className="index-articleitem">
+                      <img
+                        src={`${devUrl}/images/index/13.png`}
+                        alt=""
+                      />
+                    </div>
+                  </Link>
 
-                <Link
-                  to={`/ArtIndex/ArticleMessage?articleSid=103`}
-                >
-                  <div className="index-articleitem">
-                    <img
-                      src={`${devUrl}/images/index/08.png`}
-                      alt=""
-                    />
-                  </div>
-                </Link>
-              </div>
+                  <Link
+                    to={`/ArtIndex/ArtMessage?articleSid=99`}
+                  >
+                    <div className="index-articleitem">
+                      <img
+                        src={`${devUrl}/images/index/14.png`}
+                        alt=""
+                      />
+                    </div>
+                  </Link>
+                </div>
+              ) : (
+                <div className="coursesection col-md-12 col-lg-12">
+                  <Link
+                    to={`/ArtIndex/ArticleMessage?articleSid=101`}
+                  >
+                    <div className="index-articleitem">
+                      <img
+                        src={`${devUrl}/images/index/06.png`}
+                        alt=""
+                      />
+                    </div>
+                  </Link>
+
+                  <Link
+                    to={`/ArtIndex/ArticleMessage?articleSid=96`}
+                  >
+                    <div className="index-articleitem">
+                      <img
+                        src={`${devUrl}/images/index/07.png`}
+                        alt=""
+                      />
+                    </div>
+                  </Link>
+
+                  <Link
+                    to={`/ArtIndex/ArticleMessage?articleSid=103`}
+                  >
+                    <div className="index-articleitem">
+                      <img
+                        src={`${devUrl}/images/index/08.png`}
+                        alt=""
+                      />
+                    </div>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -441,9 +521,11 @@ function WanderIndex() {
 
         <div className="indexBigImg20 container-fluid">
           <div className="mobile-card">
-            <button className="btn checkoutBtn-m">
-              更多文章
-            </button>
+            <Link to={`/ArtIndex/ArtAll`}>
+              <button className="btn checkoutBtn-m">
+                更多文章
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -597,6 +679,7 @@ function WanderIndex() {
           </div>
         </div>
       </div>
+      <div className="indexBG"></div>
       <HomeBgDecorationNormal />
       <div className="indexBigFooter container-fluid">
         <Footer />

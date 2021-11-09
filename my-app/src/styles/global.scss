@@ -442,6 +442,42 @@ a {
   transform: translate(-50%, -50%);
   position: absolute;
   z-index: 5;
+  transition: 0.5s ease-in-out;
+}
+
+.navCartQty {
+  position: absolute;
+  left: 50%;
+  bottom: -50%;
+  transform: translate(-50%, 0);
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  color: #065f8e;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 1.5rem;
+  z-index: 6;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+}
+.navCartQty.move {
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+}
+.nav_cart_icon.move {
+  top: -50%;
+}
+
+.nav_cart:hover {
+  .nav_cart_icon {
+    top: -50%;
+  }
+  .navCartQty {
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    color: white;
+  }
 }
 
 .nav_cart:hover,
@@ -451,7 +487,6 @@ a {
 
 .nav_cart:hover .nav_cart_icon,
 .nav_login:hover .nav_login_txt {
-  filter: drop-shadow(#ffffff 60px 0);
   color: white;
 }
 
@@ -1161,7 +1196,7 @@ a {
 /*============= 聊天室 chatroom =============*/
 .chatWrapper {
   display: flex;
-  position: absolute;
+  margin-left: 10vw;
 }
 
 .chatList {
@@ -1169,49 +1204,81 @@ a {
   flex-direction: column;
   border-radius: 20px;
   background-color: #fff;
-  min-height: 30%;
+  height: 500px;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
+  z-index: 1;
 }
 /* 對象選單 */
 @media (min-width: 768px) {
-  .chatList {
-    z-index: 1;
+  .chatWrapper {
     display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    background-color: #fff;
-    min-height: 30%;
+    position: absolute;
+    margin-left: 15.666667vw;
+  }
+  .chatList {
+    width: 40vw;
+  }
+}
+
+@media (min-width: 1440px) {
+  .chatWrapper {
+    display: flex;
+    position: absolute;
+    margin-left: 13vw;
+  }
+  .chatList {
     width: 30vw;
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   }
+}
 
-  .chatList-content {
-    margin-bottom: 30px;
+@media (min-width: 2560px) {
+  .chatWrapper {
+    display: flex;
+    position: absolute;
+    margin-left: 7.44vw;
   }
+  .chatList {
+    width: 17vw;
+  }
+}
 
-  .chatList .title {
-    margin: 50px 0px;
-    color: #065f8e;
-    font-size: 36px;
-    font-weight: bold;
-  }
+.chatList-content {
+  margin-bottom: 30px;
+}
+
+.chatList .title {
+  margin: 50px 0px;
+  color: #065f8e;
+  font-size: 36px;
+  font-weight: bold;
 }
 
 .chatCard {
   display: flex;
   align-items: center;
-  // width: 100%;
   height: 80px;
-  padding: 0.75rem;
+  padding: 0.5rem;
   background-color: #f1f0e9;
   border-radius: 10px;
   cursor: pointer;
 }
 
 .chatCard-info {
-  width: 70%;
-  margin-left: 10px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .chatCard-info {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .chatCard-info {
+    width: 100%;
+    padding-left: 5px;
+  }
 }
 
 .chatCard .chatCardAvatar {
@@ -1221,7 +1288,7 @@ a {
   overflow: hidden;
 }
 
-.chatCardAvatar img {
+.chatCardAvatarImg {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -1268,8 +1335,34 @@ a {
   background-color: #fff;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   max-height: 500px;
-  width: 50vw;
+  width: 40vw;
   z-index: 1;
+}
+
+@media (min-width: 1440px) {
+  .chatWindow {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
+    max-height: 500px;
+    width: 30vw;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 2560px) {
+  .chatWindow {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
+    max-height: 500px;
+    width: 15vw;
+    z-index: 1;
+  }
 }
 
 .chatWindowHead {
@@ -1305,7 +1398,7 @@ a {
 }
 
 .chatWindowBody {
-  // height: 540px;
+  height: 540px;
   overflow: auto;
 }
 
@@ -1388,7 +1481,7 @@ a {
   display: flex;
   align-items: center;
   position: relative;
-  margin-bottom: 1rem;
+  margin: 1rem;
 }
 
 .chatInsert {
