@@ -158,6 +158,7 @@ function Login(props) {
   // //設定Email.js
   const sendmail = () => {
     let templateParams = {
+      email: account,
       name: firstname,
       notes: `請使用Wander提供給您的新密碼重新登入。新密碼:
         ${newPass}`,

@@ -19,6 +19,14 @@ import Footer from '../../components/Footer'
 import PlayerControls from '../../components/PlayerControls'
 
 export default function StClassroom() {
+  const token = localStorage.getItem('token')
+  const member = localStorage.getItem('member')
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+
+  const [imgSrc, setImgSrc] = useState('')
+
   const [first, setFirst] = useState('')
   const history = useHistory()
 
@@ -31,6 +39,26 @@ export default function StClassroom() {
   const [videos, setVideos] = useState('')
   const takeClass = sessionStorage.getItem('takeClass')
   useEffect(() => {
+    if (token && identity === 0) {
+      ;(async () => {
+        let r = await axios.get(
+          `http://localhost:3001/stprofile/list`,
+          {
+            headers: {
+              Authorization:
+                'Bearer ' + localStorage.getItem('token'),
+            },
+          }
+        )
+        if (r) {
+          console.log(r)
+          setImgSrc(r.data[0][0].avatar)
+        }
+      })()
+    } else {
+      history.push('/')
+    }
+
     ;(async () => {
       let r = await axios.get(
         `http://localhost:3001/stcourse/classroom/?courseSid=${takeClass}`
@@ -46,7 +74,7 @@ export default function StClassroom() {
       // console.log('videos', r.data)
       // console.log('active', r.data[0].sid)
     })()
-  }, [])
+  }, [imgSrc])
 
   useEffect(() => {
     ;(async () => {
@@ -187,7 +215,7 @@ export default function StClassroom() {
         </div>
 
         <div className="row">
-          <StSideBar2 />
+          <StSideBar2 imgSrc={imgSrc}/>
           <div
             ref={playerContainerRef}
             className="player col-12 col-md-7 mb-5 p-0"

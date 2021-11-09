@@ -42,6 +42,15 @@ export default function StCalendar(props) {
         setImgSrc(r.data[0][0].avatar)
       })()
     }
+
+    ;(async () => {
+      let r = await axios.get(
+        `http://localhost:3001/stcourse/api/coursedata?studentSid=${studentSid}`
+      )
+      if (r.data.rows.length === 0) {
+        history.push('/StIndex/StCourse')
+      }
+    })()
   }, [imgSrc, auth])
 
   //要該名學生購買的課程資料要出現在黃色色塊給學生選
@@ -57,7 +66,7 @@ export default function StCalendar(props) {
         )
         if (Data) {
           setCourses(Data.data.rows)
-          console.log('coursedata:', Data.data.rows)
+          // console.log('coursedata:', Data.data.rows)
         }
       })()
     }
@@ -87,15 +96,6 @@ export default function StCalendar(props) {
       })()
     }
   }, [mytest])
-
-  // //carousel設定
-  // const settings = {
-  //   dots: false,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  // }
 
   //日曆設定
 
@@ -147,8 +147,8 @@ export default function StCalendar(props) {
       title: '確定要刪除這個行程？',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#065F8E',
+      cancelButtonColor: '#F1F0E9',
       confirmButtonText: 'delete',
     }).then(async (r) => {
       if (r.isConfirmed) {
@@ -264,14 +264,6 @@ export default function StCalendar(props) {
     console.log('[onKeyPressEvent] - event', event)
     console.log('[onKeyPressEvent] - other', other)
   }
-
-  // const onDragStart = ({ event, action }) => {
-  //   const { id } = event
-  //   if (id === 5) {
-  //     return false
-  //   }
-  //   //console.log(`onDragStart: ${action}`, event);
-  // }
 
   const onSelecting = (range) => {
     console.log('[onSelecting] range: ', range)
