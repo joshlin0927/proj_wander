@@ -76,9 +76,10 @@ export default withRouter(function StCourse(props) {
           const Data = await axios.get(
             `http://localhost:3001/stcourse/api/coursedata?studentSid=${studentSid}`
           )
-          if (Data) {
+
+          if (Data.data.rows !== []) {
             setCourses(Data.data.rows)
-            console.log('coursedata', Data.data.rows)
+            console.log('coursedata', Data.data)
           }
         })()
       }, 1000)
@@ -98,7 +99,7 @@ export default withRouter(function StCourse(props) {
       )
       if (RecommandedTeacher) {
         setRecommandedTeacher(RecommandedTeacher.data)
-        console.log('teachersdata', RecommandedTeacher.data)
+        //   console.log('teachersdata', RecommandedTeacher.data)
       }
     })()
   }, [])
@@ -116,7 +117,7 @@ export default withRouter(function StCourse(props) {
         </div>
 
         <div className="row justify-content-center d-flex">
-          <StSideBar2 imgSrc={imgSrc} />
+          <StSideBar2 imgSrc={imgSrc}  />
           <div className="stcoursesection  col-12 col-md-10">
             {isLoading ? <Spinner /> : courseData}
           </div>

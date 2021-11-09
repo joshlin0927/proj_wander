@@ -10,7 +10,7 @@ import Swal from 'sweetalert2'
 import LoginTitle from '../../components/st/LoginTitle'
 //共用元件
 // import FBLogin from '../../components/st/FBLogin'
-// import GooLogin from '../../components/st/GooLogin'
+import GooLogin from '../../components/st/GooLogin'
 
 export default withRouter(function SignUp(props) {
   const history = useHistory()
@@ -116,7 +116,9 @@ export default withRouter(function SignUp(props) {
     }
 
     if (asTeacherOrStudent === 3) {
-      Swal.fire('請選擇註冊身份')
+      Swal.fire({
+        title: '請選擇註冊身份',
+      })
       return
     }
     // 用axios把表單送出
@@ -143,7 +145,6 @@ export default withRouter(function SignUp(props) {
               icon: 'success',
               title: '恭喜成為Wander會員',
               showConfirmButton: false,
-              showConfirmButtonColor: '#065F8E',
               timer: 1500,
             })
 
@@ -374,7 +375,7 @@ export default withRouter(function SignUp(props) {
               <div className="w-100 mt-5"></div>
               <div className="d-flex d-md-block">
                 {/* <FBLogin /> */}
-                {/* <GooLogin /> */}
+                <GooLogin />
               </div>
               <div>
                 <button className="signUpBtn-m mx-auto col-10 ">

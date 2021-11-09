@@ -266,7 +266,21 @@ a {
   display: none;
 }
 
+.playlist-m {
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
 @media (min-width: 768px) {
+  .playlist-m {
+    display: none;
+  }
+
   .playlist {
     display: block;
     padding: 0px;
@@ -277,14 +291,6 @@ a {
     border-radius: 5px;
     overflow: hidden;
   }
-}
-
-.playlist-m {
-  padding: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 5px;
-  overflow: hidden;
 }
 
 /* 清單卡片 */
@@ -951,7 +957,7 @@ a {
 
   .footerWrap {
     position: relative;
-    margin-bottom: 0px;
+    margin-bottom: auto;
   }
 
   .footerFill {

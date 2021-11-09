@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link, withRouter } from 'react-router-dom'
 import { IMG_PATH } from '../../config'
-import { Link } from 'react-router-dom'
 
 export default function CourseItem(props) {
   const { sid, name, courseimg, teacher } = props
+  
 
   const getSid = () => {
     sessionStorage.setItem('takeClass', sid)
@@ -11,19 +12,20 @@ export default function CourseItem(props) {
 
   return (
     <>
-      <div className="courseitem mr-md-2" onClick={getSid}>
+      <div className="BuyCourseItem" onClick={getSid}>
         <Link to="/StIndex/StClassroom">
           <img
             src={`${IMG_PATH}/course/img/${courseimg}`}
+            className="BuyCourseImg"
             alt=""
           />
-          <div className="stalreadybuycoursename">
-            {name}
+          <div className="BuyCourseInfo">
+            <div className="BCIcoursename">{name}</div>
+            <span className="BCIteachername">
+              {teacher}
+            </span>
           </div>
-          <span className="stalreadybuyteachername">
-            {' '}
-            {teacher}{' '}
-          </span>
+          <div className="BurCourseItemMask"></div>
         </Link>
       </div>
     </>

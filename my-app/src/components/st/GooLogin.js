@@ -20,7 +20,7 @@ export class GooLogin extends Component {
     } else {
       GoogleContent = (
         <GoogleLogin
-          clientId="923400697715-0nvlv25pdiphlgn78atankgesd64pttd.apps.googleusercontent.com"
+          clientId="832788875078-ordktuamhlfprtd15ao7gdkfnm76jm72.apps.googleusercontent.com"
           buttonText="Login With Google"
           onSuccess={this.succeed}
           onFailure={this.failed}
@@ -28,7 +28,7 @@ export class GooLogin extends Component {
         />
       )
     }
-    return <div></div>
+    return GoogleContent
   }
 }
 

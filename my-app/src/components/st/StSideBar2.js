@@ -12,7 +12,6 @@ import ChatList from '../chatroom/ChatList'
 export default function StSideBar2(props) {
   const { imgSrc } = props
 
-  // 聊天室開關
   let [chat, setChat] = useState('d-none')
   const [isOpen, setIsOpen] = useState(false)
 
@@ -85,9 +84,7 @@ export default function StSideBar2(props) {
                 style={{
                   paddingLeft: '2px',
                 }}
-              >
-                {' '}
-              </i>
+              ></i>
               <div className="nav-item-text">課程管理</div>
             </Nav.Link>
           </li>

@@ -25,11 +25,14 @@ function TcPassword() {
     ? JSON.parse(member).email
     : ''
 
+  //小眼睛設定，因為有兩個input要用，所以需要另設狀態，不能共用狀態
   const [close, setClose] = useState('far fa-eye-slash')
   const [closeAnother, setCloseAnother] = useState(
     'far fa-eye-slash'
   )
+  // 切換input type
   const [type, setType] = useState('password')
+  const [typeAnother, setTypeAnother] = useState('password')
 
   //頭圖傳送
   let [imgSrc, setImgSrc] = useState('')
@@ -230,7 +233,7 @@ function TcPassword() {
               <label className="d-flex">
                 <input
                   name="newPass"
-                  type={type}
+                  type={typeAnother}
                   className="col-12 allInputs"
                   placeholder="請輸入新密碼"
                   value={fields.newPass}
@@ -239,14 +242,14 @@ function TcPassword() {
                   minLength="6"
                 />
                 <i
-                  className={`mt-4 mt-md-3 ml-2 ${close}`}
+                  className={`mt-4 mt-md-3 ml-2 ${closeAnother}`}
                   onClick={() => {
-                    if (type === 'password') {
-                      setType('text')
-                      setClose('far fa-eye')
+                    if (typeAnother === 'password') {
+                      setTypeAnother('text')
+                      setCloseAnother('far fa-eye')
                     } else {
-                      setType('password')
-                      setClose('far fa-eye-slash')
+                      setTypeAnother('password')
+                      setCloseAnother('far fa-eye-slash')
                     }
                   }}
                 ></i>

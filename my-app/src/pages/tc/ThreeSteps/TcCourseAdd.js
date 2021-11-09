@@ -31,9 +31,7 @@ function TcCourseAdd(props) {
   const identity = member ? JSON.parse(member).identity : ''
   const teacherSid = member ? JSON.parse(member).sid : ''
   useEffect(() => {
-    if (!token) {
-      history.push('/')
-    } else if (identity !== 1) {
+    if (!token && identity !== 1) {
       history.push('/')
     } else {
       ;(async () => {
@@ -42,10 +40,7 @@ function TcCourseAdd(props) {
         setImgSrc(r.data[0].course_img)
         setFields(r.data[0])
         setLastAdd(r.data[0].sid)
-        localStorage.setItem(
-          'CourseSidForProcess',
-          r.data[0].sid
-        )
+        sessionStorage.setItem('CourseSid', r.data[0].sid)
       })()
     }
   }, [imgSrc])
@@ -125,10 +120,10 @@ function TcCourseAdd(props) {
     // 利用FormData Api 得到各欄位的值 or 利用狀態值
     // FormData 利用的是表單元素的 name
     const formData = new FormData(e.target)
-    console.log(formData.get('course_name'))
-    console.log(formData.get('course_category'))
-    console.log(formData.get('course_price'))
-    console.log(formData.get('course_introduction'))
+    // console.log(formData.get('course_name'))
+    // console.log(formData.get('course_category'))
+    // console.log(formData.get('course_price'))
+    // console.log(formData.get('course_introduction'))
     // 利用狀態來得到輸入的值
 
     // ex. 用fetch api/axios送到伺服器

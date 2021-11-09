@@ -2,10 +2,6 @@ body {
   position: relative;
 }
 
-.videoMeta {
-  margin-bottom: 10%;
-}
-
 .videoMeta > div > input {
   background-color: transparent;
 }
@@ -502,7 +498,8 @@ body {
   align-items: center;
   border: 2px dashed #868686;
   border-radius: 20px;
-  padding: 25%;
+  padding-top: 7.5%;
+  padding-bottom: 7.5%;
   margin: 0px auto 30px;
   text-align: center;
   cursor: pointer;
@@ -520,6 +517,24 @@ body {
 .TCvideo-drop-zone > label {
   font-size: 12px;
   margin-bottom: 20px;
+}
+
+.TCvideoName{
+  white-space:nowrap;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+
+
+@media (min-width: 768px) {
+  
+  /* 影片上傳 */
+  /* .TCvideo-drop-zone {
+    display: flex;
+    align-items: stretch;
+    cursor: pointer;
+  } */
 }
 
 @media (min-width: 375px) {
@@ -878,17 +893,6 @@ body {
   /* 審核提示窗 */
   .TCnotify {
     border: 2px solid rgba(6, 95, 142, 0.5);
-  }
-
-  /* 影片上傳 */
-  .TCvideo-drop-zone {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 25%;
-    text-align: center;
-    cursor: pointer;
   }
 
   /* 會員表格 */
