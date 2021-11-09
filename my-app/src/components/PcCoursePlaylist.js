@@ -7,8 +7,7 @@ function PcCoursePlaylist(props) {
 
   // console.log('active', active)
   // console.log('videos', videos)
-
-  console.log(showStatus)
+  // console.log(showStatus)
 
   const newVideos = [...videos]
   const first = newVideos.shift()

@@ -92,6 +92,7 @@ body {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   margin-bottom: 30px;
+  min-height: 400px;
 }
 
 /* 表單頭 */
@@ -519,16 +520,13 @@ body {
   margin-bottom: 20px;
 }
 
-.TCvideoName{
-  white-space:nowrap;
+.TCvideoName {
+  white-space: nowrap;
   word-wrap: break-word;
   text-align: center;
 }
 
-
-
 @media (min-width: 768px) {
-  
   /* 影片上傳 */
   /* .TCvideo-drop-zone {
     display: flex;

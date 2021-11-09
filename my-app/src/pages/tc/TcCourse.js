@@ -11,6 +11,7 @@ import {
 } from '../../config'
 
 // components
+import Spinner from '../../components/Spinner'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcSideBar from '../../components/tc/TcSideBar'
 import TcSearchBar from '../../components/tc/TcSearchBar'
@@ -42,29 +43,54 @@ function TcCourse(props) {
   // 取得頭圖
   const [imgSrc, setImgSrc] = useState('')
 
+  // 設定Loading Spinner狀態
+  const [isLoading, setIsLoading] = useState(true)
+
+  const AllTcCourses = (
+    <>
+      {TcCourses.length > 0 ? (
+        <TcCourseList
+          Courses={displayCourse}
+          RemoveCourse={RemoveCourse}
+          setRemoveCourse={setRemoveCourse}
+        />
+      ) : (
+        <TcHasNoCourse
+          text={'請點擊右上角的按鈕以新增課程'}
+        />
+      )}
+    </>
+  )
+
   useEffect(() => {
     if (!token && identity !== 1) {
       history.push('/')
     } else {
-      ;(async () => {
-        let M = await axios.get(
-          `${MemberEdit}/?teacherSid=${teacherSid}`
-        )
-        if (M.status === 200) {
-          setImgSrc(M.data[0].avatar)
-        }
-      })()
-      ;(async () => {
-        let r = await axios.get(
-          `${TcCourse_LIST}/?teacherSid=${teacherSid}`
-        )
-        if (r.status === 200) {
-          setTcCourses(r.data.rows)
-          setDisplayCourse(r.data.rows)
-          // setImgSrc(r.data.rows[0].avatar)
-        }
-        // console.log(r.data.rows)
-      })()
+      setTimeout(() => {
+        ;(async () => {
+          let M = await axios.get(
+            `${MemberEdit}/?teacherSid=${teacherSid}`
+          )
+          if (M.status === 200) {
+            setImgSrc(M.data[0].avatar)
+          }
+        })()
+        ;(async () => {
+          let r = await axios.get(
+            `${TcCourse_LIST}/?teacherSid=${teacherSid}`
+          )
+          if (r.status === 200) {
+            setTcCourses(r.data.rows)
+            setDisplayCourse(r.data.rows)
+          }
+          // console.log(r.data.rows)
+        })()
+      }, 1000)
+
+      // spinner 關閉
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 1500)
     }
     // 為什麼沒有寫[]就會無限fetch，ANS: []與useEffect有相依性，當[]內設定的東西被改變時，useEffect會執行裡面的程式並將值設定回去，，進而render頁面，沒有加[]的話就不會有這個限制，所以會不斷的render頁面
   }, [RemoveCourse, imgSrc])
@@ -173,16 +199,13 @@ function TcCourse(props) {
               </div>
             </div>
             {/* course cards */}
-            {TcCourses.length > 0 ? (
-              <TcCourseList
-                Courses={displayCourse}
-                RemoveCourse={RemoveCourse}
-                setRemoveCourse={setRemoveCourse}
-              />
+
+            {isLoading ? (
+              <div className="d-flex justify-content-center col-10">
+                <Spinner />
+              </div>
             ) : (
-              <TcHasNoCourse
-                text={'請點擊右上角的按鈕以新增課程'}
-              />
+              AllTcCourses
             )}
 
             {/* Pagination */}

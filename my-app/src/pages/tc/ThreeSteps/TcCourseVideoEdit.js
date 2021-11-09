@@ -5,6 +5,7 @@ import axios from 'axios'
 import { TcVideo_LIST } from '../../../config'
 
 // components
+import Spinner from '../../../components/Spinner'
 import ConfirmMsg from '../../../components/ConfirmMsg'
 import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import TcCourseProcessBar from '../../../components/tc/TcCourseProcessBar'
@@ -42,20 +43,47 @@ function TcCourseVideoEdit() {
   //設定確認表單送出訊息框的狀態
   const [showUp, setShowUp] = useState('')
 
+  // 設定Loading Spinner狀態
+  const [isLoading, setIsLoading] = useState(true)
+
+  const AllVideos = (
+    <>
+      {TcVideos.length > 0 ? (
+        <TcVideoList
+          Videos={displayVideo}
+          RemoveVideo={RemoveVideo}
+          setRemoveVideo={setRemoveVideo}
+          status={status}
+          setStatus={setStatus}
+          setShowUp={setShowUp}
+        />
+      ) : (
+        <TcHasNoCourse text={'目前沒有任何影片'} />
+      )}
+    </>
+  )
+
   useEffect(() => {
     if (!token && identity !== 1) {
       history.push('/')
     } else {
-      ;(async () => {
-        let r = await axios.get(
-          `${TcVideo_LIST}?courseSid=${courseSid}`
-        )
-        if (r.status === 200) {
-          setTcVideos(r.data.rows)
-          setDisplayVideo(r.data.rows)
-        }
-        console.log(r.data.rows)
-      })()
+      setTimeout(() => {
+        ;(async () => {
+          let r = await axios.get(
+            `${TcVideo_LIST}?courseSid=${courseSid}`
+          )
+          if (r.status === 200) {
+            setTcVideos(r.data.rows)
+            setDisplayVideo(r.data.rows)
+          }
+          // console.log(r.data.rows)
+        })()
+      }, 1000)
+
+      // spinner 關閉
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 1500)
     }
   }, [RemoveVideo, status])
 
@@ -137,17 +165,13 @@ function TcCourseVideoEdit() {
               </div>
             </div>
             {/* course cards */}
-            {TcVideos.length > 0 ? (
-              <TcVideoList
-                Videos={displayVideo}
-                RemoveVideo={RemoveVideo}
-                setRemoveVideo={setRemoveVideo}
-                status={status}
-                setStatus={setStatus}
-                setShowUp={setShowUp}
-              />
+
+            {isLoading ? (
+              <div className="d-flex justify-content-center col-10">
+                <Spinner />
+              </div>
             ) : (
-              <TcHasNoCourse text={'目前沒有任何影片'} />
+              AllVideos
             )}
             {/* <MyPagination /> */}
           </form>
