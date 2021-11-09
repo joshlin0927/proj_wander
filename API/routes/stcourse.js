@@ -66,7 +66,7 @@ router.get('/list',async(req,res)=>{
 
 // 獲取已購買並要播放的課程內容
 router.post('/boughtCourse', async(req,res)=>{
-  const sql = "SELECT `video_list`.*, `order_detail`.`order_main_id`, `order_detail`.`product_sid`, `order_main`.`order_id`, `order_main`.`member_sid`, `order_main`.`order_status` FROM `video_list` JOIN `order_detail` ON `order_detail`.`product_sid` = `video_list`.`course_sid` JOIN `order_main` ON `order_detail`.`order_main_id` = `order_main`.`order_id` WHERE `video_list`.`course_sid` = ? AND `order_main`.`member_sid` =?"
+  const sql = "SELECT `video_list`.*,  `course`.`course_name`, `course`.`course_introduction`, `order_detail`.`order_main_id`, `order_detail`.`product_sid`, `order_main`.`order_id`, `order_main`.`member_sid`, `order_main`.`order_status` FROM `video_list` JOIN `order_detail` ON `order_detail`.`product_sid` = `video_list`.`course_sid`  JOIN `course` ON `course`.`sid` = `video_list`.`course_sid`  JOIN `order_main` ON `order_detail`.`order_main_id` = `order_main`.`order_id` WHERE `video_list`.`course_sid` = ? AND `order_main`.`member_sid` =?"
 
   const [result]=await db.query(sql, [req.body.courseSid, req.body.member_sid])
   res.json(result)
@@ -82,7 +82,7 @@ router.post('/buyCourse', async(req,res)=>{
 
 
 router.post('/videos', async(req,res)=>{
-  const sql = "SELECT `video_list`.*, `order_detail`.`order_main_id`, `order_detail`.`product_sid`, `order_main`.`order_id`, `order_main`.`member_sid`, `order_main`.`order_status` FROM `video_list` JOIN `order_detail` ON `order_detail`.`product_sid` = `video_list`.`course_sid` JOIN `order_main` ON `order_detail`.`order_main_id` = `order_main`.`order_id` WHERE `video_list`.`sid` = ? AND `order_main`.`member_sid` =?"
+  const sql = "SELECT `video_list`.*, `order_detail`.`order_main_id`, `order_detail`.`product_sid`, `order_main`.`order_id`, `order_main`.`member_sid`, `order_main`.`order_status` FROM `video_list` LEFT JOIN `order_detail` ON `order_detail`.`product_sid` = `video_list`.`course_sid` LEFT JOIN `order_main` ON `order_detail`.`order_main_id` = `order_main`.`order_id` WHERE `video_list`.`sid` = ? AND `order_main`.`member_sid` =?"
 
   const [result]=await db.query(sql, [req.body.videoSid, req.body.member_sid])
 console.log(result);

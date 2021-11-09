@@ -22,6 +22,36 @@
   display: none;
 }
 
+/* 課程標題 */
+.StTitleRow {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
+}
+
+.courseDetailTitle {
+  text-align: left;
+  margin-top: 2.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.courseDetail {
+  text-align: left;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* 聯繫老師按鈕 */
+.contactTeacher {
+  transform: scale(0.8);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
+}
+
 /* -------------以上為公用------------ */
 
 @media (min-width: 768px) {
@@ -79,5 +109,32 @@
     z-index: -5;
     left: 44%;
     top: 55%;
+  }
+
+  /* 課程標題 */
+  .StTitleRow {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    text-align: left;
+    margin-bottom: 5rem;
+  }
+
+  .contactTeacher {
+    transform: scale(1);
+  }
+
+  .courseDetailTitle {
+    text-align: left;
+    margin-top: 2.5rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .courseDetail {
+    text-align: left;
+    font-size: 1rem;
+    padding-left: 0;
+    padding-right: 0;
   }
 }

@@ -95,9 +95,6 @@ export default function StClassroom() {
           `${API_HOST}/video/${r.data.video_link}`
         )
       }
-      console.log('r', r)
-
-      console.log('active', active)
     })()
   }, [active])
 
@@ -271,8 +268,28 @@ export default function StClassroom() {
           </div>
         </div>
 
-        <div class="row">
-          <div className="h30"> </div>
+        <div class="row StTitleRow">
+          <div className=" col-12 col-md-7 offset-md-2 mb-5 p-0">
+            <h3 className="">
+              課程標題:
+              {videos ? videos[0].course_name : ''}
+            </h3>
+              <h4 className='courseDetailTitle'>課程介紹:</h4>
+              <p className="courseDetail">
+                {' '}
+                {videos ? videos[0].course_introduction : ''}
+              </p>
+          </div>
+          <button className="btn btn-secondary contactTeacher col-md-3">
+            聯繫老師
+          </button>
+        </div>
+        <div className="playlist-m col-10 col-md-3 mb-5">
+          <PcCoursePlaylist
+            videos={videos}
+            active={active}
+            setActive={setActive}
+          />
         </div>
       </div>
       <StBgDecorationNormal />
