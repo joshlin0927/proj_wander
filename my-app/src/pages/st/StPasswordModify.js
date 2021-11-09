@@ -22,11 +22,14 @@ export default withRouter(function StPasswordModify(props) {
   // const { auth, setAuth } = props
   const [imgSrc, setImgSrc] = useState('')
 
+  //小眼睛設定，因為有兩個input要用，所以需要另設狀態，不能共用狀態
   const [close, setClose] = useState('far fa-eye-slash')
   const [closeAnother, setCloseAnother] = useState(
     'far fa-eye-slash'
   )
+  // 切換input type
   const [type, setType] = useState('password')
+  const [typeAnother, setTypeAnother] = useState('password')
 
   useEffect(() => {
     if (token && identity === 0) {
@@ -178,19 +181,6 @@ export default withRouter(function StPasswordModify(props) {
     }
   }
 
-  // const showOHide = () => {
-  //   const eyes = document.querySelector('#_eye')
-  //   const pw = document.querySelector('#_password')
-
-  //   if (pw.type == 'password') {
-  //     pw.type = 'text'
-  //     eyes.className = 'mt-2 ml-1 far fa-eye'
-  //   } else {
-  //     pw.type = 'password'
-  //     eyes.className = 'mt-2 ml-1 far fa-eye-slash'
-  //   }
-  // }
-
   return (
     <>
       <div className="container mainContent ">
@@ -228,7 +218,7 @@ export default withRouter(function StPasswordModify(props) {
               <div className="d-flex">
                 <input
                   name="origin"
-                  type="password"
+                  type={type}
                   className="col-12 allInputs"
                   placeholder="請輸入原密碼"
                   value={fields.origin}
@@ -260,7 +250,7 @@ export default withRouter(function StPasswordModify(props) {
               <div className="d-flex">
                 <input
                   name="newPass"
-                  type="password"
+                  type={typeAnother}
                   className="col-12 allInputs"
                   placeholder="請輸入新密碼"
                   value={fields.newPass}
@@ -269,14 +259,14 @@ export default withRouter(function StPasswordModify(props) {
                   minLength="5"
                 />
                 <i
-                  className={`mt-4 mt-md-3 ml-2 ${close}`}
+                  className={`mt-4 mt-md-3 ml-2 ${closeAnother}`}
                   onClick={() => {
-                    if (type === 'password') {
-                      setType('text')
-                      setClose('far fa-eye')
+                    if (typeAnother === 'password') {
+                      setTypeAnother('text')
+                      setCloseAnother('far fa-eye')
                     } else {
-                      setType('password')
-                      setClose('far fa-eye-slash')
+                      setTypeAnother('password')
+                      setCloseAnother('far fa-eye-slash')
                     }
                   }}
                 ></i>
@@ -292,7 +282,7 @@ export default withRouter(function StPasswordModify(props) {
               )}
               <input
                 name="newPassConfirm"
-                type="password"
+                type="text"
                 className="col-12 allInputs"
                 placeholder="請再次輸入新密碼"
                 value={fields.newPassConfirm}
