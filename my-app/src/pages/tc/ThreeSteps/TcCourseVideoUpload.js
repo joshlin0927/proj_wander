@@ -283,7 +283,7 @@ function TcCourseVideoUpload() {
                   accept="video/mp4,video/quicktime,video/x-ms-wmv"
                   id="video_link"
                   name="video_link"
-                  className="d-none"
+                  // className="d-none"
                   onChange={changeHandler}
                   onChangeCapture={durationReader}
                 />

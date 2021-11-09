@@ -1196,7 +1196,7 @@ a {
 /*============= 聊天室 chatroom =============*/
 .chatWrapper {
   display: flex;
-  position: absolute;
+  margin-left: 10vw;
 }
 
 .chatList {
@@ -1204,40 +1204,31 @@ a {
   flex-direction: column;
   border-radius: 20px;
   background-color: #fff;
-  min-height: 30%;
+  height: 500px;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
+  z-index: 1;
 }
 /* 對象選單 */
 @media (min-width: 768px) {
   .chatWrapper {
     display: flex;
     position: absolute;
-    margin-left: 16.6666666667%;
+    margin-left: 15.666667vw;
   }
-
   .chatList {
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    background-color: #fff;
-    min-height: 30%;
     width: 40vw;
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   }
 }
 
 @media (min-width: 1440px) {
-  .chatList {
-    z-index: 1;
+  .chatWrapper {
     display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    background-color: #fff;
-    min-height: 30%;
+    position: absolute;
+    margin-left: 13vw;
+  }
+  .chatList {
     width: 30vw;
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -1245,17 +1236,10 @@ a {
   .chatWrapper {
     display: flex;
     position: absolute;
-    margin-left: 8.33333333333333%;
+    margin-left: 7.44vw;
   }
   .chatList {
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    background-color: #fff;
-    min-height: 30%;
-    width: 15vw;
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
+    width: 17vw;
   }
 }
 
@@ -1273,9 +1257,8 @@ a {
 .chatCard {
   display: flex;
   align-items: center;
-  // width: 100%;
   height: 80px;
-  padding: 0.75rem;
+  padding: 0.5rem;
   background-color: #f1f0e9;
   border-radius: 10px;
   cursor: pointer;
@@ -1283,7 +1266,19 @@ a {
 
 .chatCard-info {
   width: 100%;
-  margin-left: 10px;
+}
+
+@media (min-width: 768px) {
+  .chatCard-info {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .chatCard-info {
+    width: 100%;
+    padding-left: 5px;
+  }
 }
 
 .chatCard .chatCardAvatar {
@@ -1293,7 +1288,7 @@ a {
   overflow: hidden;
 }
 
-.chatCardAvatar img {
+.chatCardAvatarImg {
   height: 100%;
   width: 100%;
   object-fit: cover;

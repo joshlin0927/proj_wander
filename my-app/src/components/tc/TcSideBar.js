@@ -276,7 +276,7 @@ function TcSideBar(props) {
           </li>
         </ul>
       </Nav>
-      <div className="chatWrapper offset-md-2">
+      <div className="chatWrapper">
         <ChatList setChat={setChat} chat={chat} />
       </div>
       <Modal show={show} onHide={handleClose} centered>
