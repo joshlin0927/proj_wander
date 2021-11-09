@@ -14,25 +14,10 @@ function PcCoursePlaylistCard(props) {
     showStatus,
   } = props
 
-  // const member = JSON.parse(localStorage.getItem('member'))
-
-  // const [hide, setHide] = useState('')
-  // const [ishide, setISHide] = useState('')
-
-  // useEffect(() => {
-  //   if (member_sid !== member.sid) {
-  //     setHide('d-none')
-  //   } else {
-  //     setISHide('d-none')
-  //   }
-  // }, [member.sid])
-
   const time = moment
     .duration(duration1, 'seconds')
     .format('HH:mm:ss')
 
-  // console.log('active', active)
-  // console.log('value', value)
   return (
     <>
       {order_status === null ||

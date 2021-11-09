@@ -1,15 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 //課程詳細頁(有鎖頭)
 import axios from 'axios'
 import { IMG_PATH } from '../../config'
-import { withRouter } from 'react-router'
+import { withRouter, useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
 import { Modal } from 'react-bootstrap'
 import { CsMessage_LIST } from '../../config'
-import { CsCourse_EDIT, Cart_API } from '../../config'
+import {
+  CsCourse_EDIT,
+  Cart_API,
+  API_HOST,
+} from '../../config'
+import ReactPlayer from 'react-player'
+import screenfull from 'screenfull'
+import moment from 'moment'
+import momentDurationFormatSetup from 'moment-duration-format'
+
 // components
+import PlayerControls from '../../components/PlayerControls'
+import PcCoursePlaylist from '../../components/PcCoursePlaylist'
+import PcCoursePlaylistCard from '../../components/PcCoursePlaylistCard'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
@@ -131,6 +143,184 @@ function CsCoursede(props) {
     }, 2500)
   }
 
+  // -----------------以下為播放器---------------//
+
+  const [first, setFirst] = useState('')
+  const history = useHistory()
+
+  // 這個課程的所有影片
+  const [videos, setVideos] = useState('')
+
+  // 單一的第一支影片
+  const [singleVid, setSingleVid] = useState({})
+
+  // 判斷購買狀態
+  const [showStatus, setShowStatus] = useState('')
+
+  useEffect(() => {
+    ;(async () => {
+      let r = await axios.post(
+        `http://localhost:3001/stcourse/boughtCourse`,
+        {
+          courseSid: props.location.search.slice(11),
+          member_sid: member.sid,
+        }
+      )
+      if (r.data.length !== 0) {
+        setFirst(
+          `${API_HOST}/video/${r.data[0].video_link}`
+        )
+        setActive(r.data[0].sid)
+        setVideos(r.data)
+      } else {
+        let sec = await axios.post(
+          `http://localhost:3001/stcourse/buyCourse`,
+          {
+            courseSid: props.location.search.slice(11),
+          }
+        )
+        setFirst(
+          `${API_HOST}/video/${sec.data[0].video_link}`
+        )
+        setActive(sec.data[0].sid)
+        setVideos(sec.data)
+        setShowStatus(false)
+        setSingleVid(sec.data[0])
+      }
+    })()
+  }, [])
+
+  // 被點選的影片編號
+  const [active, setActive] = useState('')
+  // 影片連結
+  const [videoLink, setVideoLink] = useState('')
+
+  useEffect(() => {
+    ;(async () => {
+      let r = await axios.get(
+        `http://localhost:3001/stcourse/videos/?videoSid=${active}`
+      )
+
+      if (r.data) {
+        setVideoLink(
+          `${API_HOST}/video/${r.data.video_link}`
+        )
+      }
+    })()
+  }, [active])
+
+  // 撥放器
+  const [player, setPlayer] = useState({
+    playing: false,
+    muted: false,
+    volume: 1,
+    played: 0,
+    seeking: '',
+    fade: '',
+  })
+
+  // 捕捉撥放器與撥放器控制
+  const playerContainerRef = useRef(null)
+
+  // 捕捉撥放器
+  const playerRef = useRef(null)
+
+  const { playing, muted, volume, played, seeking, fade } =
+    player
+
+  const handlePlayNPause = () => {
+    setPlayer({
+      ...player,
+      playing: !player.playing,
+      fade: 'playIconFade-out',
+    })
+  }
+
+  // 音量控制
+  const handleMute = () => {
+    setPlayer({ ...player, muted: !player.muted })
+  }
+
+  const handleVolumeChange = (e, newValue) => {
+    setPlayer({
+      ...player,
+      volume: parseFloat(newValue / 100),
+      muted: newValue === 0 ? true : false,
+    })
+  }
+
+  const handleVolumeUp = (e, newValue) => {
+    setPlayer({
+      ...player,
+      volume: parseFloat(newValue / 100),
+      muted: newValue === 0 ? true : false,
+    })
+  }
+
+  const toggleFullScreen = () => {
+    screenfull.toggle(playerContainerRef.current)
+  }
+
+  // 捕捉時間跳轉與點擊跳轉
+  const handleProgress = (changeState) => {
+    // console.log(changeState)
+    if (!player.seeking) {
+      setPlayer({ ...player, ...changeState })
+    }
+  }
+
+  const handleSeekChange = (e, newValue) => {
+    // console.log(newValue)
+    setPlayer({
+      ...player,
+      played: parseFloat(newValue / 100),
+    })
+  }
+
+  const seekingMouseDown = (e) => {
+    setPlayer({
+      ...player,
+      seeking: true,
+    })
+  }
+
+  const seekingMouseUp = (e, newValue) => {
+    setPlayer({
+      ...player,
+      seeking: false,
+    })
+    playerRef.current.seekTo(newValue / 100)
+  }
+
+  // 計算現在時間與總長
+  const currentTime = playerRef.current
+    ? playerRef.current.getCurrentTime()
+    : '00:00'
+  // console.log('currentTime', currentTime)
+
+  const duration = playerRef.current
+    ? playerRef.current.getDuration()
+    : '00:00'
+  // console.log('duration', duration)
+
+  const elapsedTime =
+    currentTime < 216000
+      ? moment
+          .duration(currentTime, 'seconds')
+          .format('mm:ss', { trim: false })
+      : moment
+          .duration(currentTime, 'seconds')
+          .format('HH:mm:ss', { trim: false })
+
+  const totalDuration =
+    duration < 216000
+      ? moment
+          .duration(duration, 'seconds')
+          .format('mm:ss', { trim: false })
+      : moment
+          .duration(duration, 'seconds')
+          .format('HH:mm:ss', { trim: false })
+
   return (
     <>
       <div className="container mainContent">
@@ -145,223 +335,62 @@ function CsCoursede(props) {
           <span>返回</span>
         </Nav.Link>
         <div className="row">
-          <div className="video">
-            <div className="embed-responsive embed-responsive-16by9">
-              {/* <video className="video-fluid z-depth-1" autoplay loop controls muted> (有muted就是自動播放) */}
-
-              {/* <video
-                className="video-fluid z-depth-1"
-                autoplay
-                loop
-                controls
-              >
-                <source
-                  src="../images/img/Amber 生活日文課， 28 單元開啟自學之旅 - 線上教學課程 - Hahow 好學校.mp4"
-                  type="video/mp4"
-                />
-              </video> */}
-              {/* <div className="">
-                {' '}
-                <img src="" />
-              </div>
-
-              <div className="dsds">
-                <span
-                  className="fas fa-lock lock"
-                  style={{
-                    opacity: '0.5',
-                    fontSize: '145px',
-                  }}
-                ></span>
-                <span>付費課程</span>
-              </div> */}
-
-              {/* 上方是版本二(本機版本可用內部資料) */}
-              {/* 下方是直接連網路ex:youtube */}
-              <iframe
-                title="fake video"
-                className="embed-responsive-item"
-                src="https://www.youtube.com/embed/GmRdUUVgSAA"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <div className="op">
-              <nav
-                className="sh-sidebar col-2"
-                style={{ marginTop: '16px' }}
-              >
-                <ul className="nav-list  ">
-                  <Link
-                    className="list-content flex"
-                    to={`/Course/CsCoursedes/?courseSid=${fields.sid}`}
-                  >
-                    <li
-                      className="sh-nav-item active  shadow-sm p-3 mb-2 bg-body rounded "
-                      style={{ backgroundColor: '#065f8e' }}
-                    >
-                      <span
-                        className="item flex"
-                        style={{
-                          color: 'rgb(255, 255, 255)',
-                          marginRight: '10px',
-                        }}
-                      >
-                        自我介紹
-                      </span>
-                      <div className="">
-                        <span
-                          style={{ marginRight: '10px' }}
-                        >
-                          02:33
-                        </span>
-                      </div>
-                      <span
-                        className="fas"
-                        style={{ marginRight: '20px' }}
-                      ></span>
-                    </li>
-                  </Link>
-                  <Link
-                    className="list-content flex"
-                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </li>
-                  </Link>
-                  <Link
-                    className="list-content flex"
-                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </li>
-                  </Link>
-                  <Link
-                    className="list-content flex"
-                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </li>
-                  </Link>
-                  <Link
-                    className="list-content flex"
-                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </li>
-                  </Link>
-                  <Link
-                    className="list-content flex"
-                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </li>
-                  </Link>
-                  <Link
-                    className="list-content flex"
-                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </li>
-                  </Link>
-                </ul>
-              </nav>
-            </div>
+          <div
+            ref={playerContainerRef}
+            className="player col-12 col-md-9 mb-5 p-0"
+          >
+            <ReactPlayer
+              ref={playerRef}
+              className="playerBG"
+              url={!videoLink ? first : videoLink}
+              width="100%"
+              height="100%"
+              playing={playing}
+              muted={muted}
+              volume={volume}
+              onProgress={handleProgress}
+              seeking={seeking}
+            />
+            {/* 撥放器控制 */}
+            <PlayerControls
+              handlePlayNPause={handlePlayNPause}
+              playing={playing}
+              fade={fade}
+              handleMute={handleMute}
+              muted={muted}
+              handleVolumeChange={handleVolumeChange}
+              handleVolumeUp={handleVolumeUp}
+              volume={volume}
+              toggleFullScreen={toggleFullScreen}
+              played={played}
+              seeking={handleSeekChange}
+              seekingMouseDown={seekingMouseDown}
+              seekingMouseUp={seekingMouseUp}
+              elapsedTime={elapsedTime}
+              totalDuration={totalDuration}
+            />
+          </div>
+          <div className="playlist col-10 col-md-3">
+            {showStatus === false ? (
+              <PcCoursePlaylistCard
+                sid={singleVid.sid}
+                video_name={singleVid.video_name}
+                duration1={singleVid.duration}
+                value={singleVid.sid}
+                order_status={singleVid.order_status}
+                member_sid={singleVid.member_sid}
+                active={active}
+                setActive={setActive}
+              />
+            ) : (
+              ''
+            )}
+            <PcCoursePlaylist
+              videos={videos}
+              active={active}
+              setActive={setActive}
+              showStatus={showStatus}
+            />
           </div>
         </div>
         {/* 手機板單元 */}
@@ -379,183 +408,13 @@ function CsCoursede(props) {
               <Modal.Title>課程單元一覽</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <nav
-                className="sh-sidebarrwd col-2 side"
-                style={{ marginTop: '16px' }}
-              >
-                <ul className="nav-list  ">
-                  <Link
-                    className="list-content flex"
-                    to={`/Course/CsCoursedes/?courseSid=${fields.sid}`}
-                  >
-                    <li
-                      className="sh-nav-item active  shadow-sm p-3 mb-2 bg-body rounded"
-                      style={{
-                        backgroundColor: '#065f8e',
-                      }}
-                    >
-                      <span
-                        className="item flex"
-                        style={{
-                          color: 'rgb(255, 255, 255)',
-                          marginRight: '10px',
-                        }}
-                      >
-                        自我介紹
-                      </span>
-
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas "
-                        style={{ marginRight: '20px' }}
-                      ></span>
-                    </li>
-                  </Link>
-                  <Link
-                    className="list-content flex"
-                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </li>
-                  </Link>
-                  <Link
-                    className="list-content flex"
-                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </li>
-                  </Link>
-                  <Link
-                    className="list-content flex"
-                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </li>
-                  </Link>
-                  <Link
-                    className="list-content flex"
-                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </li>
-                  </Link>
-                  <Link
-                    className="list-content flex"
-                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </li>
-                  </Link>
-                  <Link
-                    className="list-content flex"
-                    to={`/Course/CsCoursedesn/?courseSid=${fields.sid}`}
-                  >
-                    <li className="sh-nav-item shadow-sm p-3 mb-2 bg-body rounded">
-                      <span
-                        className="item flex"
-                        style={{ marginRight: '10px' }}
-                      >
-                        日本高階商
-                      </span>
-                      <div
-                        className=""
-                        style={{ marginRight: '10px' }}
-                      >
-                        <span> 02:33</span>
-                      </div>
-                      <span
-                        className="fas fa-lock"
-                        style={{ marginRight: '10px' }}
-                      ></span>
-                    </li>
-                  </Link>
-                </ul>
-              </nav>
+              <div class="playlist-m">
+                <PcCoursePlaylist
+                  videos={videos}
+                  active={active}
+                  setActive={setActive}
+                />
+              </div>
             </Modal.Body>
             <Modal.Footer>
               <button
