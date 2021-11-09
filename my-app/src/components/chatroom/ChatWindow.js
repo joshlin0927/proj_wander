@@ -4,10 +4,16 @@ import { Chat_API, Member_FINDONE } from '../../config'
 import { io } from 'socket.io-client'
 
 import MessageRight from './MessageRight'
+import { preventDefault } from '@fullcalendar/react'
 
 function ChatWindow(props) {
-  const { messages, setMessages, member, currentChat } =
-    props
+  const {
+    messages,
+    setMessages,
+    member,
+    currentChat,
+    setCurrentChat,
+  } = props
 
   const [newMessage, setNewMessage] = useState('')
   const [arrivalMessage, setArrivalMessage] = useState({})
@@ -102,10 +108,19 @@ function ChatWindow(props) {
     }
   }
 
+  // Enter觸發
+  const pressEnter = (e) => {
+    if (e.key === 'Enter' && newMessage !== '') {
+      handleSubmitMessage(e)
+    }
+  }
+
   // 輸入或讀取視窗自動滾動到最下面訊息
   useEffect(() => {
     scrollRef.current?.scrollIntoView({
       behavior: 'smooth',
+      block: 'nearest',
+      inline: 'start',
     })
   }, [messages])
 
@@ -125,7 +140,12 @@ function ChatWindow(props) {
               {receiver.nickname}
             </div>
           </div>
-          <div className="closeWindow">
+          <div
+            className="closeWindow"
+            onClick={() => {
+              setCurrentChat(null)
+            }}
+          >
             <i className="fas fa-times"></i>
           </div>
         </div>
@@ -151,6 +171,7 @@ function ChatWindow(props) {
             className=" chatInsert allInputs m-0 col-12"
             placeholder="請輸入"
             value={newMessage}
+            onKeyPress={pressEnter}
             onChange={(e) => {
               setNewMessage(e.target.value)
             }}

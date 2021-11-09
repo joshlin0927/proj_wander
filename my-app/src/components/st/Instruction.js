@@ -8,7 +8,7 @@ export default function Instruction() {
         steps={[
           'Wander為您推薦最適合的課程',
           1000,
-          'Wander為您推薦最適合的課程，點選開始課程後開始！',
+          'Wander為您推薦最適合的課程，點選開始測驗後進行！',
           500,
         ]}
         loop={1}

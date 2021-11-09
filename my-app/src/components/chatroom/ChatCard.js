@@ -24,16 +24,16 @@ function ChatCard(props) {
   }, [conversation, member])
   return (
     <>
-      {console.log('conversation', conversation)}
-      {console.log('receiveUser', receiveUser)}
-      <div className="chatCardAvatar">
-        <img
-          src={`${IMG_PATH}/${receiveUser.avatar}`}
-          className="chatCardAvatarImg"
-          alt=""
-        />
+      <div className="col-3 px-2">
+        <div className="chatCardAvatar">
+          <img
+            src={`${IMG_PATH}/${receiveUser.avatar}`}
+            className="chatCardAvatarImg"
+            alt=""
+          />
+        </div>
       </div>
-      <div className="chatCard-info">
+      <div className="chatCard-info col-9">
         <div className="d-flex align-items-center">
           <div className="chatName">
             {receiveUser.nickname}
@@ -41,9 +41,6 @@ function ChatCard(props) {
           <div className="notification"></div>
         </div>
         <div className="LastMessageAndTime">
-          <p className="m-0">
-            <span>會員ID：{receiveUser.sid}</span>
-          </p>
           <div className="d-flex">
             <p className="lastMessage">
               我對第一段影片的某一些地方有疑問，適不適

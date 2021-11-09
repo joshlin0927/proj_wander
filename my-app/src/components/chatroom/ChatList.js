@@ -6,7 +6,7 @@ import ChatCard from './ChatCard'
 import ChatWindow from './ChatWindow'
 
 function ChatList(props) {
-  const { chat, setChat } = props
+  const { chat, setChat, isActive, isOpen } = props
 
   // 取得該會員資料
   const member = localStorage.getItem('member')
@@ -41,6 +41,11 @@ function ChatList(props) {
     })()
   }, [currentChat])
   console.log('current:', currentChat)
+  useEffect(() => {
+    if (isActive === '' || isOpen === false) {
+      setCurrentChat(null)
+    }
+  }, [isActive, isOpen])
   return (
     <>
       <div className={`chatList ${chat}`}>
@@ -82,6 +87,7 @@ function ChatList(props) {
               setMessages={setMessages}
               member={member}
               currentChat={currentChat}
+              setCurrentChat={setCurrentChat}
             />
           ) : (
             ''

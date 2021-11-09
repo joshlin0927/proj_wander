@@ -19,7 +19,7 @@ export default function StStartMyCourse() {
             <Link to="/StIndex/StSelectLanguage">
               <button className="mylanguage col-4 col-md-3 col-lg-2 offset-7 offset-md-9 offset-lg-10">
                 <div className="dot"> </div>
-                開始課程
+                開始測驗
               </button>
             </Link>
             <div className="instruction col-6">

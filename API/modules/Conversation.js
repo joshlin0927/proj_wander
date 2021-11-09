@@ -8,15 +8,14 @@ class Conversation{
         this.data = defaultObj;
     }
     static async getList(memberID){
+
         // sender預設為學生 receiver預設為老師
         const sql = `SELECT * FROM ${tableName} WHERE senderID=?`;
         const [sender] = await db.query(sql, [memberID]);
         const sql2 = `SELECT * FROM ${tableName} WHERE receiverID=?`;
         const [receiver] = await db.query(sql2, [memberID]);
-        if(sender && sender.length!==0){
-            return sender;
-        }else if(receiver && receiver.length!==0){
-            return receiver;
+        if(sender || receiver){
+            return [...sender, ...receiver];
         }else{
             return null;
         }

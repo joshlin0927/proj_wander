@@ -55,12 +55,6 @@ function StSideBar(props) {
               <div className="nav-item-text">訂單查詢</div>
             </Nav.Link>
           </li>
-          <li>
-            <div className="nav-item">
-              <i className="fas fa-comment-alt"> </i>
-              <div className="nav-item-text"> 聊天室 </div>
-            </div>
-          </li>
         </ul>
       </Nav>
     </>

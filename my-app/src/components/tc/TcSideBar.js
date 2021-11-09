@@ -252,8 +252,13 @@ function TcSideBar(props) {
               }
               activeclassname="active"
               onClick={() => {
-                setIsActive('聊天室')
-                setChat('d-block')
+                if (isActive) {
+                  setIsActive('')
+                  setChat('d-none')
+                } else {
+                  setIsActive('聊天室')
+                  setChat('d-block')
+                }
               }}
             >
               <i className="fas fa-comment-alt"></i>
@@ -275,10 +280,15 @@ function TcSideBar(props) {
             </Nav.Link>
           </li>
         </ul>
+        <div className="chatWrapper">
+          <ChatList
+            setChat={setChat}
+            chat={chat}
+            isActive={isActive}
+          />
+        </div>
       </Nav>
-      <div className="chatWrapper">
-        <ChatList setChat={setChat} chat={chat} />
-      </div>
+
       <Modal show={show} onHide={handleClose} centered>
         <form
           name="applyForm"

@@ -14,6 +14,7 @@ export default function StSideBar2(props) {
 
   // 聊天室開關
   let [chat, setChat] = useState('d-none')
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
@@ -34,7 +35,13 @@ export default function StSideBar2(props) {
             <div
               className="nav-item"
               onClick={() => {
-                setChat('d-block')
+                if (isOpen) {
+                  setIsOpen(false)
+                  setChat('d-none')
+                } else {
+                  setIsOpen(true)
+                  setChat('d-block')
+                }
               }}
             >
               <i className="fas fa-user"> </i>
@@ -96,10 +103,14 @@ export default function StSideBar2(props) {
             </Nav.Link>
           </li>
         </ul>
+        <div className="chatWrapper">
+          <ChatList
+            setChat={setChat}
+            chat={chat}
+            isOpen={isOpen}
+          />
+        </div>
       </Nav>
-      <div className="row position-absolute w-100">
-        <ChatList setChat={setChat} chat={chat} />
-      </div>
     </>
   )
 }

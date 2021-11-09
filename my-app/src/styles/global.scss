@@ -1196,7 +1196,6 @@ a {
 /*============= 聊天室 chatroom =============*/
 .chatWrapper {
   display: flex;
-  margin-left: 10vw;
 }
 
 .chatList {
@@ -1208,16 +1207,17 @@ a {
   box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   z-index: 1;
+  border: #065e8e 2px solid;
 }
 /* 對象選單 */
 @media (min-width: 768px) {
   .chatWrapper {
     display: flex;
     position: absolute;
-    margin-left: 15.666667vw;
+    left: 100%;
   }
   .chatList {
-    width: 40vw;
+    width: 30vw;
   }
 }
 
@@ -1225,7 +1225,6 @@ a {
   .chatWrapper {
     display: flex;
     position: absolute;
-    margin-left: 13vw;
   }
   .chatList {
     width: 30vw;
@@ -1236,7 +1235,6 @@ a {
   .chatWrapper {
     display: flex;
     position: absolute;
-    margin-left: 7.44vw;
   }
   .chatList {
     width: 17vw;
@@ -1264,14 +1262,14 @@ a {
   cursor: pointer;
 }
 
-.chatCard-info {
-  width: 100%;
-}
+// .chatCard-info {
+//   width: 100%;
+// }
 
 @media (min-width: 768px) {
-  .chatCard-info {
-    width: 100%;
-  }
+  // .chatCard-info {
+  //   width: 100%;
+  // }
 }
 
 @media (min-width: 1024px) {
@@ -1286,6 +1284,8 @@ a {
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
+  padding: 0px;
+  margin: 0 auto;
 }
 
 .chatCardAvatarImg {
@@ -1335,8 +1335,10 @@ a {
   background-color: #fff;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   max-height: 500px;
-  width: 40vw;
+  width: 35vw;
   z-index: 1;
+  margin-left: 1rem;
+  border: #065e8e 2px solid;
 }
 
 @media (min-width: 1440px) {
@@ -1395,6 +1397,11 @@ a {
   padding: 0px 30px;
   margin: auto 0px;
   margin-left: auto;
+  cursor: pointer;
+}
+.closeWindow:hover {
+  opacity: 0.8;
+  filter: drop-shadow(0px 2px 2px #065f8e);
 }
 
 .chatWindowBody {
@@ -1464,7 +1471,7 @@ a {
   max-width: 15vw;
   word-wrap: break-word;
   white-space: pre-wrap;
-  padding: 0.5rem;
+  padding: 1rem;
   font-size: 18px;
 }
 
@@ -1504,11 +1511,7 @@ a {
   border-radius: 0px 10px 10px 0px;
 }
 
-.messageText {
-  // width: 100%;
-}
 .messageTimestamp {
-  // width: 100%;
   font-size: 0.625rem;
 }
 
