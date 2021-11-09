@@ -55,7 +55,7 @@ function TcCourseVideoUpload() {
     // setIsFilePicked(true)
   }
 
-  // console.log('selectedFile', selectedFile.size)
+  // console.log('selectedFile', selectedFile)
 
   const formRef = useRef(null)
   // 使用物件值作為狀態值，儲存所有欄位的值
@@ -133,10 +133,16 @@ function TcCourseVideoUpload() {
           document
             .querySelector('#warning')
             .classList.add('text-danger')
+          document
+            .querySelector('#uploadBtn')
+            .setAttribute('disabled', true)
         } else {
           document
             .querySelector('#warning')
             .classList.remove('text-danger')
+          document
+            .querySelector('#uploadBtn')
+            .removeAttribute('disabled')
         }
       }
 
@@ -326,7 +332,7 @@ function TcCourseVideoUpload() {
                   </div>
                 </div>
               </div>
-              {selectedFile.size < 1000000000 ? (
+              {selectedFile ? (
                 <button
                   type="submit"
                   id="uploadBtn"
