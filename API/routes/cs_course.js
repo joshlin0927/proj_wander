@@ -79,11 +79,13 @@ router.get('/api/list', async (req, res)=>{
 router.get("/edit", async (req, res) => {
     // let courseSid = ;
     const sql = 
-    `SELECT \`course\`.*, \`member\`.\`nickname\`, \`member\`.\`language\`, \`member\`.\`nationality\`, \`member\`.\`avatar\`
-    FROM \`course\` 
-    LEFT JOIN \`member\`
-    ON \`course\`.\`teacher_sid\` = \`member\`.sid
-    WHERE \`course\`.\`sid\`=?`;
+    `SELECT course.*, member.nickname, member.language, member.nationality, member.avatar, video_list.video_name, video_list.video_link
+    FROM course
+    LEFT JOIN member
+    ON course.teacher_sid = member.sid
+    LEFT JOIN video_list
+    ON course.sid = video_list.course_sid
+    WHERE course.sid=?`
     const [rs] = await db.query(sql, [req.query.courseSid]);
     res.json(rs);
   });
