@@ -27,16 +27,16 @@ function CourseList(props) {
             // great={Course.great}
             // created_date={Course.created_date}
 
-            remove={() => {
-              const newDisplayCourse = [...displayCourse]
-              newDisplayCourse.splice(i, 1)
-              setDisplayCourse(newDisplayCourse)
-            }}
-            setMess={(newMess) => {
-              const newDisplayCourse = [...displayCourse]
-              newDisplayCourse[i].messenger = newMess
-              setDisplayCourse(newDisplayCourse)
-            }}
+            // remove={() => {
+            //   const newDisplayCourse = [...displayCourse]
+            //   newDisplayCourse.splice(i, 1)
+            //   setDisplayCourse(newDisplayCourse)
+            // }}
+            // setMess={(newMess) => {
+            //   const newDisplayCourse = [...displayCourse]
+            //   newDisplayCourse[i].messenger = newMess
+            //   setDisplayCourse(newDisplayCourse)
+            // }}
           />
         )
       })}

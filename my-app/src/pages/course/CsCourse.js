@@ -40,7 +40,6 @@ function CsCourse(prop) {
   const [displayCourse, setDisplayCourse] = useState([])
 
   // 從後端獲取的所有資料資料，包括sql用叫出的totalRows
-  const [RemoveCourse, setRemoveCourse] = useState()
   const [searchWord, setSearchWord] = useState('')
 
   // 將搜尋吧的字串與得到的資料帶入函式
@@ -126,12 +125,10 @@ function CsCourse(prop) {
             </div>
           ) : (
             <div className="coursesection col-md-10 col-lg-10">
-              {TcCourses.length > 0 ? (
+              {displayCourse.length > 0 ? (
                 <CourseList
                   displayCourse={displayCourse}
                   setDisplayCourse={setDisplayCourse}
-                  RemoveCourse={RemoveCourse}
-                  setRemoveCourse={setRemoveCourse}
                 />
               ) : null}
             </div>
