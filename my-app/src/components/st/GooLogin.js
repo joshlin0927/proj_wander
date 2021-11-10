@@ -8,7 +8,7 @@ export default function GooLogin() {
   const history = useHistory()
   const handleGoogleLogin = async (response) => {
     const r = await axios.post(
-      'http://localhost:3001/GoogleLogin',
+      'http://localhost:3001/login-jwt',
       {
         email: response.profileObj.email,
         password: response.profileObj.googleId,
@@ -17,6 +17,11 @@ export default function GooLogin() {
     if (r) {
       console.log(r)
       if (r.data.success === true) {
+        localStorage.setItem('token', r.data.token)
+        localStorage.setItem(
+          'member',
+          JSON.stringify(r.data.member)
+        )
         Swal.fire({
           position: 'top-center',
           icon: 'success',
@@ -29,7 +34,7 @@ export default function GooLogin() {
         Swal.fire({
           icon: 'error',
           title: '登愣',
-          text: '請前往註冊頁註冊',
+          text: '請先前往註冊',
         })
         return
       }

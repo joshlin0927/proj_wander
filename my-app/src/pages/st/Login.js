@@ -184,7 +184,7 @@ function Login(props) {
 
   return (
     <>
-      <div className="container">
+      <div className="container mb80">
         <div className="m-wrap row justify-content-center">
           <div className="logo-m-login">
             <img
@@ -274,84 +274,7 @@ function Login(props) {
                 {fieldErrors.password}
               </label>
             )}
-
-            <div>
-              <Goologin />
-            </div>
-            <div
-              className="forgetPassword"
-              onClick={async () => {
-                await Swal.fire({
-                  title: '請輸入您的帳號',
-                  input: 'text',
-                  inputAttributes: {
-                    autocapitalize: 'off',
-                  },
-                  showCancelButton: true,
-                  confirmButtonText: '送出',
-                  showLoaderOnConfirm: true,
-                  preConfirm: (email) => {
-                    return fetch(
-                      `http://localhost:3001/passwordmodify/list?email=${email}`
-                    )
-                      .then((r) => r.json())
-                      .then((response) => {
-                        console.log('response', response)
-                        firstname =
-                          response.result[0].lastname
-                        if (!response.success) {
-                          throw new Error(response.error)
-                        }
-                      })
-                      .catch((error) => {
-                        Swal.showValidationMessage(
-                          `${error}`
-                        )
-                      })
-                  },
-                  allowOutsideClick: () =>
-                    !Swal.isLoading(),
-                }).then((result) => {
-                  // console.log('result', result)
-                  account = result.value
-                  if (result.isConfirmed) {
-                    Swal.fire({
-                      title: '請到信箱確認重置密碼',
-                      showClass: {
-                        popup:
-                          'animate__animated animate__fadeInDown',
-                      },
-                      hideClass: {
-                        popup:
-                          'animate__animated animate__fadeOutUp',
-                      },
-                    })
-                  }
-                })
-
-                await sendmail()
-
-                let j = await fetch(
-                  'http://localhost:3001/passwordmodify/update',
-                  {
-                    method: 'PUT',
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                      password: newPass,
-                      email: account,
-                    }),
-                  }
-                )
-                let res = await j.json()
-                console.log('res:', res)
-              }}
-            >
-              <span> 忘記密碼？ </span>
-            </div>
-
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center ">
               <button
                 type="submit"
                 className="signUpBtn-m mx-auto col-10"
@@ -362,12 +285,89 @@ function Login(props) {
                 登入
               </button>
             </div>
-            <div className="joinusblack">
-              還沒加入我們？
-              <Link to="/SignUp" className="joinus">
-                前往註冊
-              </Link>
+
+            <div className="d-flex justify-content-center mb-50">
+              <Goologin />
             </div>
+            <div className="d-flex ">
+              <div className="joinusblack d-flex offset-4">
+                還沒加入我們？
+                <Link to="/SignUp" className="joinus">
+                  前往註冊
+                </Link>
+              </div>
+              <div
+                className="forgetPassword ml-3"
+                onClick={async () => {
+                  await Swal.fire({
+                    title: '請輸入您的帳號',
+                    input: 'text',
+                    inputAttributes: {
+                      autocapitalize: 'off',
+                    },
+                    showCancelButton: true,
+                    confirmButtonText: '送出',
+                    showLoaderOnConfirm: true,
+                    preConfirm: (email) => {
+                      return fetch(
+                        `http://localhost:3001/passwordmodify/list?email=${email}`
+                      )
+                        .then((r) => r.json())
+                        .then((response) => {
+                          console.log('response', response)
+                          firstname =
+                            response.result[0].lastname
+                          if (!response.success) {
+                            throw new Error(response.error)
+                          }
+                        })
+                        .catch((error) => {
+                          Swal.showValidationMessage(
+                            `${error}`
+                          )
+                        })
+                    },
+                    allowOutsideClick: () =>
+                      !Swal.isLoading(),
+                  }).then((result) => {
+                    // console.log('result', result)
+                    account = result.value
+                    if (result.isConfirmed) {
+                      Swal.fire({
+                        title: '請到信箱確認重置密碼',
+                        showClass: {
+                          popup:
+                            'animate__animated animate__fadeInDown',
+                        },
+                        hideClass: {
+                          popup:
+                            'animate__animated animate__fadeOutUp',
+                        },
+                      })
+                    }
+                  })
+                  await sendmail()
+                  let j = await fetch(
+                    'http://localhost:3001/passwordmodify/update',
+                    {
+                      method: 'PUT',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify({
+                        password: newPass,
+                        email: account,
+                      }),
+                    }
+                  )
+                  let res = await j.json()
+                  console.log('res:', res)
+                }}
+              >
+                <span> 忘記密碼？ </span>
+              </div>
+            </div>
+
             <div className="h30"> </div>
           </form>
         </div>

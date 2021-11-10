@@ -182,7 +182,7 @@ export default withRouter(function SignUp(props) {
 
   return (
     <>
-      <div className="container">
+      <div className="container mb80">
         <div className="m-wrap row justify-content-center">
           <div className="logo-m-login">
             <img
@@ -370,23 +370,24 @@ export default withRouter(function SignUp(props) {
                   onChange={handleFieldChange}
                 />
               </div>
+              <div className="h30"></div>
+              <div>
+                <button className="LoginBtn-m mx-auto col-10 ">
+                  註冊
+                </button>
+                <button className="LoginBtn col-12 mx-auto">
+                  註冊
+                </button>
+              </div>
               <div className="separator col-10 col-lg-8 mx-auto">
                 <div className="or">OR</div>
               </div>
-              <div className="w-100 mt-5"></div>
-              <div className="d-flex d-md-block">
+
+              <div className="d-flex justify-content-center mt-5">
                 {/* <FBLogin /> */}
                 <GooleSignUp
                   asTeacherOrStudent={asTeacherOrStudent}
                 />
-              </div>
-              <div>
-                <button className="signUpBtn-m mx-auto col-10 ">
-                  註冊
-                </button>
-                <button className="signUpBtn col-12 mx-auto">
-                  註冊
-                </button>
               </div>
               <div className="h30 des-none"></div>
             </form>
