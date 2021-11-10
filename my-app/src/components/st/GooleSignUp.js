@@ -40,22 +40,12 @@ export default function GooleSignUp(props) {
       } else {
         Swal.fire({
           icon: 'error',
-          title: '抱歉',
-          text: '註冊失敗',
+          title: '重複註冊',
+          text: '此帳號已存在',
         })
         return
       }
     }
-
-    // const j = await axios.post(
-    //   'http://localhost:3001/googlelogin',
-    //   {
-    //     token: response.tokenId,
-    //   }
-    // )
-    // if (j) {
-    //   console.log(j)
-    // }
   }
   return (
     <>

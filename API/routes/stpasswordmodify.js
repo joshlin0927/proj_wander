@@ -12,6 +12,9 @@ router.get('/list', async (req, res) => {
   }
   const sql = `SELECT * FROM \`member\` WHERE email = ? `;
   const [r] = await db.query(sql, [req.query.email]);
+  if(r.googleidentity===1){
+    output.error='您已使用Google帳號登入'
+  }
   if (r && r.length === 1) {
     output.success = true;
     output.result = r

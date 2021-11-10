@@ -384,7 +384,6 @@ export default withRouter(function SignUp(props) {
               </div>
 
               <div className="d-flex justify-content-center mt-5">
-                {/* <FBLogin /> */}
                 <GooleSignUp
                   asTeacherOrStudent={asTeacherOrStudent}
                 />

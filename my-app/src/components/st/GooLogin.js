@@ -35,7 +35,7 @@ export default function GooLogin() {
         Swal.fire({
           icon: 'error',
           title: '登愣',
-          text: '請先前往註冊',
+          text: '您尚未註冊',
         })
         return
       }

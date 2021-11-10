@@ -316,15 +316,15 @@ function Login(props) {
                         .then((response) => {
                           console.log('response', response)
                           firstname =
-                            response.result[0].lastname
-                          if (!response.success) {
-                            throw new Error(response.error)
+                            response.result[0].firstname
+                          if (
+                            response.result[0]
+                              .googleidentity === 1
+                          ) {
+                            Swal.showValidationMessage(
+                              '您已使用Google帳號註冊'
+                            )
                           }
-                        })
-                        .catch((error) => {
-                          Swal.showValidationMessage(
-                            `${error}`
-                          )
                         })
                     },
                     allowOutsideClick: () =>
