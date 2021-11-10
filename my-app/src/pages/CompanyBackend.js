@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 import axios from 'axios'
-
+import { useHistory } from 'react-router'
 import { Member_LIST } from '../config'
 
 import MyPdf from '../components/MyPdf'
@@ -20,6 +20,8 @@ function CompanyBackend() {
     ? JSON.parse(localStorage.getItem('member'))
     : ''
 
+  const history = useHistory()
+
   // 更改會員狀態
   const [selectedOption, setSelectedOption] = useState('')
 
@@ -36,8 +38,6 @@ function CompanyBackend() {
   const [displayData, setDisplayData] = useState([])
 
   useEffect(() => {
-    if (!token && memberObj.identity !== 2) {
-    }
     ;(async () => {
       let r = await axios.get(Member_LIST)
 

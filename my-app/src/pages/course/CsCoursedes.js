@@ -578,57 +578,64 @@ function CsCoursede(props) {
         </div>
         {/*  手機標頭*/}
         {/*  */}
-        <Link
-          to={`/Course/TcPreview/?teacherSid=${fields.teacher_sid}`}
+        <div
           className="AAAA"
           style={{ display: 'flex', marginTop: '40px' }}
         >
-          <div className="Ann">
+          <Link
+            className="d-flex text-black"
+            to={`/Course/TcPreview/?teacherSid=${fields.teacher_sid}`}
+          >
+            <div className="Ann">
+              <div
+                className="fsdfds"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  marginRight: '10px',
+                  alignItems: 'center',
+                  marginLeft: '30px',
+                }}
+              >
+                <img
+                  src={`${IMG_PATH}/${fields.avatar}`}
+                  alt=""
+                  style={{
+                    width: '100px',
+                    borderRadius: '50%',
+                    height: '100px',
+                  }}
+                />
+                <h2>{fields.nickname}</h2>
+              </div>
+            </div>
             <div
-              className="fsdfds"
+              className="ann"
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                marginRight: '10px',
                 alignItems: 'center',
-                marginLeft: '30px',
+                marginLeft: '20px',
               }}
             >
-              <img
-                src={`${IMG_PATH}/${fields.avatar}`}
-                alt=""
-                style={{
-                  width: '100px',
-                  borderRadius: '50%',
-                  height: '100px',
-                }}
-              />
-              <h2>{fields.nickname}</h2>
+              <h5> 國籍：{fields.nationality}</h5>
+              <h5>專長：{fields.language}</h5>
+              <h5>
+                課程評價：
+                <div
+                  className="fas fa-star"
+                  style={{
+                    color: 'black',
+                    fontSize: '18px',
+                  }}
+                >
+                  4
+                </div>
+              </h5>
+              <h5>教學經驗：5年</h5>
             </div>
-          </div>
-          <div
-            className="ann"
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              marginLeft: '20px',
-            }}
-          >
-            <h5> 國籍：{fields.nationality}</h5>
-            <h5>專長：{fields.language}</h5>
-            <h5>
-              課程評價：
-              <div
-                className="fas fa-star"
-                style={{ color: 'black', fontSize: '18px' }}
-              >
-                4
-              </div>
-            </h5>
-            <h5>教學經驗：5年</h5>
-          </div>
-        </Link>
+          </Link>
+        </div>
 
         {/* 留言板 */}
         <div

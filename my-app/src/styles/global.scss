@@ -102,6 +102,17 @@ a {
   background-color: transparent !important;
 }
 
+.text-black {
+  color: black;
+}
+.text-black:hover {
+  color: black;
+}
+
+.text-black:hover img {
+  filter: brightness(1.2);
+}
+
 /*=============== 小按鈕 ===============*/
 
 /* 新增課程(手機板) */
