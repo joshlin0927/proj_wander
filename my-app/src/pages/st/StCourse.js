@@ -133,6 +133,7 @@ export default withRouter(function StCourse(props) {
               return (
                 <RecommandedTC
                   key={teacher.sid + '_' + i}
+                  teacherSid={teacher.sid}
                   teacherimg={
                     IMG_PATH + '/' + teacher.avatar
                   }

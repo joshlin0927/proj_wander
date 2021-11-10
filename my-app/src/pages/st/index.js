@@ -14,9 +14,9 @@ import StCalendar from './StCalendar'
 import StClassroom from './StClassroom'
 import StOrder from './StOrder'
 import MemberCenterForMobile from './MemberCenterForMobile'
+import TcPreview from '../tc/TcPreview'
 
 function index(props) {
-
   return (
     <>
       <Switch>
@@ -44,6 +44,9 @@ function index(props) {
 
         <Route exact path="/StIndex/StCourse">
           <StCourse />
+        </Route>
+        <Route path="/StIndex/TcPreview/:sid?" exact>
+          <TcPreview />
         </Route>
         <Route exact path="/StIndex/StCalendar">
           <StCalendar />

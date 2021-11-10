@@ -11,21 +11,14 @@ import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
 import axios from 'axios'
 
-function TcPreview() {
+function TcPreview(props) {
   const [teacher, setTeacher] = useState('')
   const [course, setCourse] = useState('')
 
-  //判斷是否登入並為教師身分
-  // const history = useHistory()
-  // const token = localStorage.getItem('token')
-  // const member = localStorage.getItem('member')
-  //   ? localStorage.getItem('member')
-  //   : ''
-  // const identity = member ? JSON.parse(member).identity : ''
   useEffect(() => {
     ;(async () => {
       let r = await axios.get(
-        `${TcCourse_LIST}/?teacherSid=1`
+        `${TcCourse_LIST}/${props.location.search}`
       )
       setCourse(r.data.rows)
       setTeacher(r.data.rows[0])
@@ -66,14 +59,14 @@ function TcPreview() {
           <div className="p-page-title ml-0 w-100">
             我的課程
           </div>
-          <div className="BuyCourseSection">
+          <div className="BuyCourseSection  col-12 col-md-10">
             {course.length > 0
               ? course.map((c, i) => {
                   return (
                     <BuyCourseItem
                       CourseCover={c.course_img}
                       CourseName={c.course_name}
-                      TeacherName={c.firstname}
+                      TeacherName={c.course_category}
                       Price={c.course_price}
                     />
                   )

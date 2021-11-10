@@ -14,6 +14,7 @@ import TcCourseEdit from './ThreeSteps/TcCourseEdit'
 import TcCourseVideoUpload from './ThreeSteps/TcCourseVideoUpload'
 import TcCourseVideoEdit from './ThreeSteps/TcCourseVideoEdit'
 import TcAnalytic from './TcAnalytic'
+import TcPreview from './TcPreview'
 
 // 共用元件
 import ChatList from '../../components/chatroom/ChatList'
@@ -52,6 +53,9 @@ function Index() {
         </Route>
         <Route path="/TcIndex/ChatWindow">
           <ChatWindow />
+        </Route>
+        <Route path="/TcIndex/TcPreview/sid:?">
+          <TcPreview />
         </Route>
         <Route path="/TcIndex">
           <Redirect to="/TcIndex/TcProfile" />

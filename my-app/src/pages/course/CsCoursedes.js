@@ -578,7 +578,8 @@ function CsCoursede(props) {
         </div>
         {/*  手機標頭*/}
         {/*  */}
-        <div
+        <Link
+          to={`/Course/TcPreview/?teacherSid=${fields.teacher_sid}`}
           className="AAAA"
           style={{ display: 'flex', marginTop: '40px' }}
         >
@@ -627,7 +628,7 @@ function CsCoursede(props) {
             </h5>
             <h5>教學經驗：5年</h5>
           </div>
-        </div>
+        </Link>
 
         {/* 留言板 */}
         <div

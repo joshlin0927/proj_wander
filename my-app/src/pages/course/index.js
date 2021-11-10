@@ -15,12 +15,16 @@ import CsCoursedeso from './CsCoursedeso'
 import CsCourseRe from './CsCourseRe'
 import CsMessage from './CsMessage'
 import ArtMessageADD from './CsMessageADD'
+import TcPreview from '../tc/TcPreview'
 
 function index(props) {
   const { setNavCartQty } = props
   return (
     <>
       <Switch>
+        <Route path="/Course/TcPreview/:sid?" exact>
+          <TcPreview />
+        </Route>
         <Route path="/Course/CsCourse" exact>
           <CsCourse />
         </Route>

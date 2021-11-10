@@ -153,7 +153,7 @@ function Login(props) {
     // 3. 設定回原錯誤訊息狀態物件
     setFieldErrors(updatedFieldErrors)
   }
-  const newPass = Math.floor(Math.random() * 99999)
+  const newPass = Math.floor(Math.random() * 89999 + 10000)
   // console.log(newPass)
   // //設定Email.js
   const sendmail = () => {

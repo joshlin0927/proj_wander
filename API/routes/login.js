@@ -6,7 +6,7 @@ const db = require("./../modules/connect-mysql");
 const router = express.Router();
 
 router.post("/login-jwt", async (req, res) => {
-  
+
   const output = {
     success: false,
     token: null,
@@ -16,11 +16,12 @@ router.post("/login-jwt", async (req, res) => {
     req.body.email.toLowerCase(),
   ]);
 
+
   if (!rs.length) {
     // 帳號錯誤
-    return res.json({
-      output,
-    });
+  
+    output.error="無此帳號"
+    return res.json(output);
   }
   const success = await bcrypt.compare(req.body.password, rs[0].password);
   // 這裡設定的是登入後的token要給的資料

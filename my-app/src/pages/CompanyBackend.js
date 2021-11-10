@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 import axios from 'axios'
 
-import { Member_LIST, API_HOST } from '../config'
-
-import { Document, Page, pdfjs } from 'react-pdf'
+import { Member_LIST } from '../config'
 
 import MyPdf from '../components/MyPdf'
 import MemberList from '../components/tc/MemberList'
@@ -15,6 +13,13 @@ import TcSearchBar from '../components/tc/TcSearchBar'
 import TcBgDecorationNormal from '../components/tc/TcBgDecorationNormal'
 
 function CompanyBackend() {
+  const token = localStorage.getItem('token')
+  const memberObj = JSON.parse(
+    localStorage.getItem('member')
+  )
+    ? JSON.parse(localStorage.getItem('member'))
+    : ''
+
   // 更改會員狀態
   const [selectedOption, setSelectedOption] = useState('')
 
@@ -31,11 +36,12 @@ function CompanyBackend() {
   const [displayData, setDisplayData] = useState([])
 
   useEffect(() => {
+    if (!token && memberObj.identity !== 2) {
+    }
     ;(async () => {
       let r = await axios.get(Member_LIST)
 
       if (r.status === 200) {
-        // setTotalRows(r.data.totalRows)
         setData(r.data.rows)
         setDisplayData(r.data.rows)
       }

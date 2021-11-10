@@ -56,7 +56,7 @@ export default function StClassroom() {
           }
         )
         if (r) {
-          // console.log(r)
+          console.log('r', r)
           setImgSrc(r.data[0][0].avatar)
         }
       })()
