@@ -8,6 +8,7 @@ import {
   View,
   Document,
   StyleSheet,
+  pdfjs,
 } from '@react-pdf/renderer'
 import { Member_LIST } from '../config'
 
