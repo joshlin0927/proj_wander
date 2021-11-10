@@ -4,7 +4,6 @@ import { Chat_API, Member_FINDONE } from '../../config'
 import { io } from 'socket.io-client'
 
 import MessageRight from './MessageRight'
-import { preventDefault } from '@fullcalendar/react'
 
 function ChatWindow(props) {
   const {
@@ -94,7 +93,6 @@ function ChatWindow(props) {
         `${Chat_API}/message`,
         message
       )
-      console.log('回傳:', r.data.result[0])
       setMessages([...messages, r.data.result[0]])
       setNewMessage('')
       // socket.io

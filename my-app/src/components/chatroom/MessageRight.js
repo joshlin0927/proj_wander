@@ -41,7 +41,6 @@ function MessageRight(props) {
   }, [currentChat, member.sid])
   return (
     <>
-      {console.log('re:', receiver, sender)}
       <div className={own ? 'messageRight' : 'messageLeft'}>
         <div
           className={own ? 'message right' : 'message left'}

@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Member_FINDONE, IMG_PATH } from '../../config'
 
 function ChatCard(props) {
-  const { conversation, member } = props
+  const { conversation, member, currentChat } = props
   const [receiveUser, setReceiveUser] = useState({})
 
   useEffect(() => {
@@ -42,15 +42,7 @@ function ChatCard(props) {
           <div className="chatName">
             {receiveUser.nickname}
           </div>
-          <div className="notification"></div>
-        </div>
-        <div className="LastMessageAndTime">
-          <div className="d-flex">
-            <p className="lastMessage">
-              我對第一段影片的某一些地方有疑問，適不適
-            </p>
-            <span>(15分鐘前)</span>
-          </div>
+          {/* <div className="notification"></div> */}
         </div>
       </div>
     </>

@@ -1223,7 +1223,7 @@ a {
     z-index: 10;
   }
   .chatList {
-    width: 30vw;
+    width: 20vw;
     height: 450px;
   }
 }
@@ -1247,6 +1247,7 @@ a {
   background-color: #f1f0e9;
   border-radius: 10px;
   cursor: pointer;
+  margin: 0.5rem 0;
 }
 .noChatExist {
   font-weight: bold;
@@ -1317,6 +1318,9 @@ a {
 .chatCard:hover {
   background-color: #f1ef5b;
 }
+.chatCard.isClick {
+  background-color: #f1ee5ba6;
+}
 
 /* 對話視窗 */
 .chatWindow {
@@ -1326,7 +1330,7 @@ a {
   background-color: #fff;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   height: 600px;
-  width: 35vw;
+  width: 25vw;
   z-index: 10;
   margin-left: 1rem;
   border: #065e8e 2px solid;

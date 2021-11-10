@@ -11,8 +11,5 @@ router.post('/', async(req, res)=>{
 router.get('/:conversationID', async (req, res)=>{
     res.json(await Message.getList(req.params.conversationID));
 })
-router.get('/lastest/:conversationID', async (req, res)=>{
-    res.json(await Message.getLastMessage(req.params.conversationID));
-})
 
 module.exports = router;

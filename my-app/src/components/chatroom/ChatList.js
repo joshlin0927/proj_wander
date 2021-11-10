@@ -40,7 +40,7 @@ function ChatList(props) {
       }
     })()
   }, [currentChat])
-  console.log('current:', currentChat)
+  console.log('current:', currentChat, conversation)
   useEffect(() => {
     if (isActive === '' || isOpen === false) {
       setCurrentChat(null)
@@ -70,7 +70,13 @@ function ChatList(props) {
             conversation.map((v) => {
               return (
                 <div
-                  className="chatCard"
+                  className={
+                    currentChat
+                      ? currentChat.sid === v.sid
+                        ? 'chatCard isClick'
+                        : 'chatCard'
+                      : 'chatCard'
+                  }
                   onClick={() => {
                     setCurrentChat(v)
                   }}
