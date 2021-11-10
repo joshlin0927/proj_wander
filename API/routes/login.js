@@ -18,9 +18,8 @@ router.post("/login-jwt", async (req, res) => {
 
   if (!rs.length) {
     // 帳號錯誤
-    return res.json({
-      output,
-    });
+  
+    output.error="無此帳號"
   }
   const success = await bcrypt.compare(req.body.password, rs[0].password);
   // 這裡設定的是登入後的token要給的資料

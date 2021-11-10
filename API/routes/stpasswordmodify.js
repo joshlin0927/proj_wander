@@ -10,7 +10,7 @@ router.get('/list', async (req, res) => {
     success: false,
     error: '',
   }
-  const sql = `SELECT * FROM \`member\` WHERE email = ? `;
+  const sql = `SELECT * FROM \`member\` WHERE email = AND \`googleidentity\` = 1 ? `;
   const [r] = await db.query(sql, [req.query.email]);
   if (r && r.length === 1) {
     output.success = true;

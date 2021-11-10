@@ -36,7 +36,7 @@ export default function GooleSignUp(props) {
           showConfirmButton: false,
           timer: 1500,
         })
-        history.push('/')
+        history.push('/login')
       } else {
         Swal.fire({
           icon: 'error',
