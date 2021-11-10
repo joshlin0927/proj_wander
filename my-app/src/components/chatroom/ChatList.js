@@ -51,11 +51,19 @@ function ChatList(props) {
       <div className={`chatList ${chat}`}>
         <div className="chatList-content">
           <div className="TCform-head ml-1">
-            <div>
+            <div
+              onClick={() => {
+                props.history.goBack()
+              }}
+            >
               <i className="fas fa-chevron-left TCback-btn"></i>
             </div>
             <div className="TCform-title m-0">聊天室</div>
-            <div>
+            <div
+              onClick={() => {
+                props.history.goBack()
+              }}
+            >
               <i className="fas fa-chevron-left TCback-btn opacity-0"></i>
             </div>
           </div>

@@ -43,6 +43,7 @@ import Comonproblem from './pages/comonproblem/Comonproblem'
 
 // 會員管理後台
 import CompanyBackend from './pages/CompanyBackend'
+import ChatroomMobile from './pages/st/ChatroomMobile'
 
 function App() {
   const [auth, setAuth] = useState(false)
@@ -97,6 +98,9 @@ function App() {
             </Route>
             <Route path="/Preview">
               <Preview />
+            </Route>
+            <Route path="/ChatroomMobile">
+              <ChatroomMobile />
             </Route>
             <Route path="/">
               <WanderIndex />

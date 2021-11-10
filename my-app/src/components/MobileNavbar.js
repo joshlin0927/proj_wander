@@ -86,7 +86,7 @@ function MobileNavbar(props) {
             <span>購物車</span>
           </Link>
           <Link
-            to="#/"
+            to="/ChatroomMobile"
             className="mobile-nav-item col-2"
             id="mNavChat"
           >
