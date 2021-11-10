@@ -30,7 +30,8 @@ export default function GooLogin() {
           timer: 1500,
         })
         history.goBack()
-      } else if (r.data.error === '無此帳號') {
+      }
+      if (r.data.error === '無此帳號') {
         Swal.fire({
           icon: 'error',
           title: '登愣',
