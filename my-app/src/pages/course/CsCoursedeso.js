@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react'
 //課程詳細頁(有鎖頭)
 import axios from 'axios'
+import { IMG_PATH } from '../../config'
 import { withRouter, useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
 import { Modal } from 'react-bootstrap'
+import { CsMessage_LIST } from '../../config'
 import {
   CsCourse_EDIT,
   Cart_API,
   API_HOST,
-  CsCourse_API,
-  IMG_PATH,
-  CsMessage_LIST,
 } from '../../config'
 import ReactPlayer from 'react-player'
 import screenfull from 'screenfull'
@@ -35,7 +35,6 @@ function CsCoursede(props) {
   const handleStopModalClose = () => setStopModalShow(false)
   const handleStopModalShow = () => setStopModalShow(true)
   const [show, setShow] = useState(false)
-  const [hasBought, setHasBought] = useState(false)
   const member = localStorage.getItem('member')
     ? JSON.parse(localStorage.getItem('member'))
     : ''
@@ -101,12 +100,6 @@ function CsCoursede(props) {
       )
       setFields(r.data[0])
       console.log('edit', r.data[0])
-      let h = await axios.get(
-        `http://localhost:3001/stCourse/hasBoughtItem${props.location.search}&member_sid=${member.sid}`
-      )
-      if (h.data.success) {
-        setHasBought(true)
-      }
     })()
   }, [props.location.search, member.sid])
 
@@ -173,7 +166,6 @@ function CsCoursede(props) {
           member_sid: member.sid,
         }
       )
-      console.log('object', r.data)
       if (r.data.length !== 0) {
         setFirst(
           `${API_HOST}/video/${r.data[0].video_link}`
@@ -495,33 +487,27 @@ function CsCoursede(props) {
                 &nbsp;{fields.course_price} NTD
               </h4>
             </button>
-            {hasBought ? (
-              <div className="btn btn-outline-b btn-b">
-                您已購買過此課程
-              </div>
-            ) : (
-              <button
-                className="btn btn-outline-b btn-b csAddToCart"
-                style={{
-                  width: '230px',
-                  marginRight: '10px',
-                  marginTop: '10px',
-                  marginLeft: '10px',
-                }}
-                onClick={() => {
-                  const id = new URLSearchParams(
-                    props.location.search
-                  )
-                  if (member.identity === 0) {
-                    addCart(id.get('courseSid'))
-                  } else {
-                    handleStopModalShow()
-                  }
-                }}
-              >
-                加入購物車
-              </button>
-            )}
+            <button
+              className="btn btn-outline-b btn-b csAddToCart"
+              style={{
+                width: '230px',
+                marginRight: '10px',
+                marginTop: '10px',
+                marginLeft: '10px',
+              }}
+              onClick={() => {
+                const id = new URLSearchParams(
+                  props.location.search
+                )
+                if (member.identity === 0) {
+                  addCart(id.get('courseSid'))
+                } else {
+                  handleStopModalShow()
+                }
+              }}
+            >
+              加入購物車
+            </button>
           </div>
         </div>
         {/* 桌機標頭 */}
@@ -550,29 +536,22 @@ function CsCoursede(props) {
                 &nbsp;{fields.course_price}NTD
               </h4>
             </button>
-            {hasBought ? (
-              ''
-            ) : (
-              <button
-                className="btn btn-outline-b btn-b csAddToCart"
-                style={{
-                  width: '230px',
-                  marginTop: '24px',
-                }}
-                onClick={() => {
-                  const id = new URLSearchParams(
-                    props.location.search
-                  )
-                  if (member.identity === 0) {
-                    addCart(id.get('courseSid'))
-                  } else {
-                    handleStopModalShow()
-                  }
-                }}
-              >
-                加入購物車
-              </button>
-            )}
+            <button
+              className="btn btn-outline-b btn-b csAddToCart"
+              style={{ width: '230px', marginTop: '24px' }}
+              onClick={() => {
+                const id = new URLSearchParams(
+                  props.location.search
+                )
+                if (member.identity === 0) {
+                  addCart(id.get('courseSid'))
+                } else {
+                  handleStopModalShow()
+                }
+              }}
+            >
+              加入購物車
+            </button>
           </div>
         </div>
         {/*  手機標頭*/}
@@ -694,10 +673,28 @@ function CsCoursede(props) {
           {/* <Link
             to={`/Course/CsMessageADD/?courseSid=${fields.sid}`}
           > */}
-          <div
+          {/*  */}
+          <Link
+            to={`/Course/CsMessageADD/?courseSid=${fields.sid}`}
+          >
+          <button
+            className="btn btn-outline-y row mx-auto one-btn btn-b "
+            style={{
+              width: '200px',
+              marginRight: '10px',
+              marginTop: '30px',
+            }}
+          >
+            我要評論
+          </button>
+          </Link>
+          {/*  */}
+          {/* <div
             className="bitrt"
             style={{ width: '200px', marginRight: '10px' }}
-          ></div>
+          ></div> */}
+          {/*  */}
+
           {/* </Link> */}
         </div>
 

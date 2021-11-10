@@ -2,16 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 import axios from 'axios'
-import {
-  Page,
-  Text,
-  View,
-  Document,
-  StyleSheet,
-  pdfjs,
-} from '@react-pdf/renderer'
-import { Member_LIST } from '../config'
 
+import { Member_LIST, API_HOST } from '../config'
+
+import { Document, Page, pdfjs } from 'react-pdf'
+
+import MyPdf from '../components/MyPdf'
 import MemberList from '../components/tc/MemberList'
 import ConfirmMsg from '../components/ConfirmMsg'
 import MultiLevelBreadCrumb from '../components/MultiLevelBreadCrumb'
@@ -37,25 +33,21 @@ function CompanyBackend() {
   useEffect(() => {
     ;(async () => {
       let r = await axios.get(Member_LIST)
-      console.log(r)
+
       if (r.status === 200) {
         // setTotalRows(r.data.totalRows)
         setData(r.data.rows)
         setDisplayData(r.data.rows)
       }
-      console.log(r)
     })()
   }, [showUp])
 
-  //修改影片
+  //修改會員狀態
   const [isShow, setIsShow] = useState(false)
   const handleIsClose = () => setIsShow(false)
   const handleIsShow = () => setIsShow(true)
 
-  // 影片名稱欄位
-  // const [nameChange, setNameChange] = useState(video_name)
-
-  // 影片名稱修改後的送出
+  // 會員狀態修改後送出
   const FormSubmit = async (e) => {
     e.preventDefault()
     ;(async () => {
@@ -104,32 +96,14 @@ function CompanyBackend() {
     setDisplayData(newData)
   }, [searchWord, data])
 
-  // Create styles
-  const styles = StyleSheet.create({
-    page: {
-      flexDirection: 'row',
-      backgroundColor: '#E4E4E4',
-    },
-    section: {
-      margin: 10,
-      padding: 10,
-      flexGrow: 1,
-    },
-  })
+  //查看履歷
+  const [resumeShow, setResumeShow] = useState(false)
+  const [resumeName, setResumeName] = useState('')
+  const handleResumeClose = () => setResumeShow(false)
+  const handleResumeShow = () => {
+    setResumeShow(true)
+  }
 
-  // Create Document Component
-  const MyDocument = () => (
-    <Document>
-      <Page size="A4" style={styles.page}>
-        <View style={styles.section}>
-          <Text>Section #1</Text>
-        </View>
-        <View style={styles.section}>
-          <Text>Section #2</Text>
-        </View>
-      </Page>
-    </Document>
-  )
   return (
     <>
       <div className="container mainContent">
@@ -173,7 +147,9 @@ function CompanyBackend() {
                     <MemberList
                       data={displayData}
                       handleIsShow={handleIsShow}
+                      handleResumeShow={handleResumeShow}
                       setMemberSid={setMemberSid}
+                      setResumeName={setResumeName}
                     />
                   ) : (
                     <tr>
@@ -219,6 +195,19 @@ function CompanyBackend() {
               送出變更
             </button>
           </form>
+        </Modal.Body>
+      </Modal>
+      <Modal
+        size="lg"
+        show={resumeShow}
+        onHide={handleResumeClose}
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title>履歷表</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <MyPdf resumeName={resumeName} />
         </Modal.Body>
       </Modal>
     </>

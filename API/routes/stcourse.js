@@ -55,6 +55,26 @@ router.get('/api/coursedata', async (req, res) => {
   res.json(output);
 });
 
+router.get('/hasBoughtItem', async (req, res)=>{
+  const output = {
+    success: false,
+    error:'',
+  }
+  const sql = 
+  `SELECT order_main.*, order_detail.product_sid
+  FROM order_main 
+  LEFT JOIN order_detail
+  ON order_main.order_id = order_detail.order_main_id
+  WHERE order_main.member_sid=? AND order_detail.product_sid=?`;
+  const [r] = await db.query(sql, [req.query.member_sid, req.query.courseSid]);
+  if(r && r[0].order_status===1){
+    output.success = true;
+  }else{
+    output.error = '未購買的ID';
+  }
+  res.json(output);
+})
+
 
 //這是拿到所有課程資料(測試用)
 router.get('/list',async(req,res)=>{

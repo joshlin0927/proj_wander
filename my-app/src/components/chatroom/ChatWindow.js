@@ -7,6 +7,7 @@ import MessageRight from './MessageRight'
 
 function ChatWindow(props) {
   const {
+    socket,
     messages,
     setMessages,
     member,
@@ -19,7 +20,6 @@ function ChatWindow(props) {
   const [receiver, setReceiver] = useState({})
   const [sender, setSender] = useState({})
   const scrollRef = useRef()
-  const socket = useRef()
 
   const whoReceive =
     currentChat.senderID === member.sid
@@ -28,7 +28,6 @@ function ChatWindow(props) {
 
   // socket.io
   useEffect(() => {
-    socket.current = io('http://localhost:8900')
     socket.current.on('getMessage', (data) => {
       console.log('觸發SET')
       setArrivalMessage({
@@ -37,7 +36,7 @@ function ChatWindow(props) {
         created_at: Date.now(),
       })
     })
-  }, [])
+  }, [socket])
 
   // 讀取傳來的訊息
   useEffect(() => {
@@ -55,11 +54,6 @@ function ChatWindow(props) {
   }, [arrivalMessage, currentChat, setMessages, member.sid])
 
   useEffect(() => {
-    // socket.io
-    socket.current.emit('addUser', member.sid)
-    socket.current.on('getUsers', (users) => {
-      console.log('連線中用戶:', users)
-    })
     // 取得sender跟receiver會員資料
     ;(async () => {
       let r = await axios.get(
