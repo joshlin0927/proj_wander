@@ -72,7 +72,19 @@ async function getListData(req,res){
 }
 
 router.get('/api/list', async (req, res)=>{
-    const output = await getListData(req, res);
+
+    const output={
+        success: false,
+        rows: '',
+    }
+    const sql = `    
+    SELECT course.*, member.nickname
+    FROM course
+    LEFT JOIN member
+    ON course.teacher_sid = member.sid
+    ORDER BY course.sid DESC`;
+    const [rows] = await db.query(sql)
+    output.rows = rows;
     res.json(output);
 });
 

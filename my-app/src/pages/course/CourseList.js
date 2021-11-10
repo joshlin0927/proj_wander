@@ -15,6 +15,7 @@ function CourseList(props) {
             course_price={Course.course_price}
             course_data={Course.course_data}
             hours={Course.duration}
+            teacher_name={Course.nickname}
             // hours={Course.duration}
 
             // key={Course.sid}

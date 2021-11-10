@@ -79,7 +79,6 @@ function CsCourse(prop) {
 
         setDisplayCourse(r.data.rows)
       }
-      console.log('r.data.rows', r.data.rows)
     })()
     setTimeout(() => {
       setIsLoading(false)

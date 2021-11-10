@@ -43,10 +43,10 @@ function CourseCard(props) {
 
   const {
     sid,
-    course_category,
     course_name,
     course_img,
     course_price,
+    teacher_name,
   } = props
 
   // 刪除留言
@@ -140,28 +140,25 @@ function CourseCard(props) {
           </div>
         </div> */}
 
-      <div className="sh-courseitem">
-        <Link
-          className=""
-          to={`/Course/CsCoursedes/?courseSid=${sid}`}
-        >
-          <img
-            src={
-              course_img
-                ? `${IMG_PATH}/course/img/${course_img}`
-                : `${IMG_PATH}/course/Course_Preset.jpg`
-            }
-            alt=""
-          />
-          <div className="sh-coursename">{course_name}</div>
-          <span className="sh-teachername">
-            {course_category}
-          </span>
-          <span className="co-price">
-            {course_price} TWD
-          </span>
-        </Link>
-      </div>
+      <Link
+        className="sh-courseitem"
+        to={`/Course/CsCoursedes/?courseSid=${sid}`}
+      >
+        <img
+          src={
+            course_img
+              ? `${IMG_PATH}/course/img/${course_img}`
+              : `${IMG_PATH}/course/Course_Preset.jpg`
+          }
+          alt=""
+        />
+        <div className="sh-coursename">{course_name}</div>
+        <span className="sh-teachername">
+          {teacher_name}
+        </span>
+        <span className="co-price">{course_price} NTD</span>
+        <div className="BurCourseItemMask"></div>
+      </Link>
 
       {/* {memberObj.sid === st_sid ? (
           <div

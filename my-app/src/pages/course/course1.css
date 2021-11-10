@@ -860,6 +860,7 @@ background: #f1ef5b;
   position: relative;
   margin-bottom: 30px;
   margin-left: 10px;
+  z-index: 6;
 }
 
 .sh-courseitem img {
@@ -867,22 +868,25 @@ background: #f1ef5b;
   height: 100%;
   border-radius: 30px;
   object-fit: fill;
+  z-index: 6;
 }
 .sh-teachername {
   color: white;
   font-size: 14px;
   font-style: bold;
   position: absolute;
-  top: 80%;
+  top: 85%;
   left: 5%;
+  z-index: 5;
 }
 .co-price {
   color: white;
   font-size: 13px;
   font-style: bold;
   position: absolute;
-  top: 90%;
-  left: 5%;
+  top: 85%;
+  right: 5%;
+  z-index: 5;
 }
 .span-a {
   display: flex;
@@ -905,12 +909,12 @@ background: #f1ef5b;
 }
 .sh-coursename {
   color: white;
-  font-size: 14px;
-  font-style: bold;
+  font-size: 16px;
   top: 60%;
   left: 5%;
   margin-left: auto;
   position: absolute;
+  z-index: 5;
 }
 
 @media (max-width: 768px) {
@@ -1019,7 +1023,7 @@ background: #f1ef5b;
     font-size: 15px;
     font-style: bold;
     position: absolute;
-    top: 83%;
+    top: 85%;
     left: 5%;
   }
   .co-price {
@@ -1027,8 +1031,8 @@ background: #f1ef5b;
     font-size: 15px;
     font-style: bold;
     position: absolute;
-    top: 90%;
-    left: 5%;
+    top: 85%;
+    right: 5%;
   }
   .span-a {
     display: none;
@@ -1050,7 +1054,6 @@ background: #f1ef5b;
   .sh-coursename {
     color: white;
     font-size: 16px;
-    font-style: bold;
     top: 65%;
     left: 5%;
     margin-left: auto;

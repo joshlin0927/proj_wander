@@ -29,7 +29,7 @@ function BuyCourseItem(props) {
             {TeacherName}
           </span>
           <span className="BCICoursePrice">
-            {Price} TWD
+            {Price} NTD
           </span>
         </div>
 
