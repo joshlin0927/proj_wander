@@ -29,6 +29,7 @@ function MemberCard(props) {
         <td>{email}</td>
         <td>
           <div
+            className="TcCursorP"
             onClick={() => {
               handleResumeShow()
               setResumeName(resume)

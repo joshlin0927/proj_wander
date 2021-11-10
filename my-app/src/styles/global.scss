@@ -1050,6 +1050,7 @@ a {
 .BuyCourseSection {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .BuyCourseItem {
@@ -1118,6 +1119,7 @@ a {
   .BuyCourseSection {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
     margin-bottom: 30px;
   }
 
@@ -1748,7 +1750,6 @@ input::-webkit-input-placeholder {
     color: black;
     font-size: 15px;
     font-weight: bold;
-    
   }
 
   .signUpBtn-m {

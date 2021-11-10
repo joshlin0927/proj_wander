@@ -15,11 +15,10 @@ function BuyCourseItem(props) {
     <>
       <Link
         to={`/Course/CsCoursedes/?courseSid=${courseSid}`}
-        className="BuyCourseItem"
+        className="sh-courseitem"
       >
         <img
           src={`${IMG_PATH}/course/img/${CourseCover}`}
-          className="BuyCourseImg"
           alt=""
         />
         <div className="BuyCourseInfo">
@@ -30,7 +29,7 @@ function BuyCourseItem(props) {
             {TeacherName}
           </span>
           <span className="BCICoursePrice">
-            {Price} NTD
+            {Price} TWD
           </span>
         </div>
 

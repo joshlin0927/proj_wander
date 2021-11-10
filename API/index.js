@@ -66,7 +66,7 @@ app.use(async (req, res, next) => {
     // jwt 驗證
     req.myAuth = null; // 自訂的屬性 myAuth
     const auth = req.get('Authorization');
-    if (auth && auth.indexOf('Bearer ') === 0) {
+    if (auth && auth.indexOf('Bearer ') === 0 ) {
         const token = auth.slice(7);
         try {
             req.myAuth = await jwt.verify(token, process.env.JWT_SECRET);
@@ -124,10 +124,11 @@ app.post('/try-upload2', uploadImg.single('avatar'), async (req, res) => {
 
 });
 
+// 公司後台
+app.use('/member', require(__dirname + '/routes/member'));
 
 //教師
 app.use('/TcProfile', require(__dirname + '/routes/TcProfile'));
-app.use('/member', require(__dirname + '/routes/member'));
 app.use('/TcCourse', require(__dirname + '/routes/TcCourse'));
 app.use('/TcVideo', require(__dirname + '/routes/TcVideo'));
 
