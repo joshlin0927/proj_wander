@@ -67,7 +67,7 @@ router.get('/hasBoughtItem', async (req, res)=>{
   ON order_main.order_id = order_detail.order_main_id
   WHERE order_main.member_sid=? AND order_detail.product_sid=?`;
   const [r] = await db.query(sql, [req.query.member_sid, req.query.courseSid]);
-  if(r && r[0].order_status===1){
+  if(r.length===1 && r[0].order_status===1){
     output.success = true;
   }else{
     output.error = '未購買的ID';

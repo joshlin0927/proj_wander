@@ -234,9 +234,7 @@ function CsMessageADD(props) {
           console.log(res.data)
           if (res.data.success === true) {
             alert('留言成功')
-            history.push(
-              `/Course/CsCoursedesOpen/?courseSid=${fields.sid}`
-            )
+            props.history.goBack()
           } else {
             alert('留言失敗')
             return

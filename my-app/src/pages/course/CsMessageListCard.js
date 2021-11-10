@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import './course1.css'
 // import { ArtMessage_DELETE } from '../../config'
@@ -42,7 +42,8 @@ function ArtMessageListCard(props) {
   //   }
   // }, [imgSrc])
 
-  const { messenger, nickname, st_pictuer, score } = props
+  const { index, messenger, nickname, st_pictuer, score } =
+    props
 
   // // 刪除留言
   // const [show, setShow] = useState(false)
@@ -97,6 +98,13 @@ function ArtMessageListCard(props) {
   //   })()
   // }
 
+  useEffect(() => {
+    let spans = document.getElementById(`scoreStar${index}`)
+    for (let i = 0; i < score; i++) {
+      spans.innerHTML += `<span class="fas fa-star"></span>`
+    }
+  }, [score, index])
+
   return (
     <>
       {/* <li className="sing-TCcourse-card active  shadow-sm p-3 mb-2 bg-body rounded">
@@ -129,7 +137,11 @@ function ArtMessageListCard(props) {
           >
             <span>{nickname}</span>
             <img
-              src={`${IMG_PATH}/${st_pictuer}`}
+              src={
+                st_pictuer
+                  ? `${IMG_PATH}/${st_pictuer}`
+                  : `${IMG_PATH}/presetAvatar.jpeg`
+              }
               alt=""
               style={{
                 width: '50px',
@@ -145,15 +157,19 @@ function ArtMessageListCard(props) {
         >
           {messenger}
         </span>
-        <span
+        <div
+          id={`scoreStar${index}`}
+          className="scoreStar"
+        ></div>
+        {/* <span
           className="fas fa-star"
           style={{
             marginRight: '10px',
-            color: 'black',
+            color: '#BCC831',
           }}
         >
           {score}
-        </span>
+        </span> */}
         <span className="">
           {/* <span> 1分鐘</span> */}
         </span>

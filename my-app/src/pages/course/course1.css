@@ -1079,3 +1079,21 @@ background: #f1ef5b;
   width: 200px;
   height: 200px;
 }
+.hasBoughtBtn {
+  background-color: #fff;
+  margin: 10px 0 0 10px;
+  width: 230px;
+  border: 1px solid black;
+  height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+}
+.scoreStar {
+  color: #bcc831;
+  width: 80px;
+}

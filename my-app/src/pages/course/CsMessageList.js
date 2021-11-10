@@ -8,6 +8,7 @@ function ArtMessageList(props) {
         return (
           <CsMessageListCard
             key={i}
+            index={i}
             sid={Course.sid}
             // ar_sid={Course.ar_sid}
             st_sid={Course.st_sid}

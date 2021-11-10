@@ -677,16 +677,16 @@ function CsCoursede(props) {
           <Link
             to={`/Course/CsMessageADD/?courseSid=${fields.sid}`}
           >
-          <button
-            className="btn btn-outline-y row mx-auto one-btn btn-b "
-            style={{
-              width: '200px',
-              marginRight: '10px',
-              marginTop: '30px',
-            }}
-          >
-            我要評論
-          </button>
+            <button
+              className="btn btn-outline-y row mx-auto one-btn btn-b "
+              style={{
+                width: '200px',
+                marginRight: '10px',
+                marginTop: '30px',
+              }}
+            >
+              我要評論
+            </button>
           </Link>
           {/*  */}
           {/* <div
