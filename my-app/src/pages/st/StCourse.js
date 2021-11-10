@@ -117,7 +117,7 @@ export default withRouter(function StCourse(props) {
         </div>
 
         <div className="row justify-content-center d-flex">
-          <StSideBar2 imgSrc={imgSrc}  />
+          <StSideBar2 imgSrc={imgSrc} />
           <div className="stcoursesection  col-12 col-md-10">
             {isLoading ? <Spinner /> : courseData}
           </div>

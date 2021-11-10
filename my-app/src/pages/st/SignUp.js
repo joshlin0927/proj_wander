@@ -10,7 +10,7 @@ import Swal from 'sweetalert2'
 import LoginTitle from '../../components/st/LoginTitle'
 //共用元件
 // import FBLogin from '../../components/st/FBLogin'
-import GooLogin from '../../components/st/GooLogin'
+import GooleSignUp from '../../components/st/GooleSignUp'
 
 export default withRouter(function SignUp(props) {
   const history = useHistory()
@@ -130,7 +130,7 @@ export default withRouter(function SignUp(props) {
     ) {
       axios
         .post('http://localhost:3001/SignUp', {
-          GoogleId: 0,
+          googleidentity: 0,
           nickname: fields.nickname,
           lastname: fields.lastname,
           firstname: fields.firstname,
@@ -376,7 +376,7 @@ export default withRouter(function SignUp(props) {
               <div className="w-100 mt-5"></div>
               <div className="d-flex d-md-block">
                 {/* <FBLogin /> */}
-                <GooLogin
+                <GooleSignUp
                   asTeacherOrStudent={asTeacherOrStudent}
                 />
               </div>

@@ -12,10 +12,7 @@ async function getListData(req, res) {
 
   };
 
-  let where = " WHERE \`identity\` = 1 ";
-
-
-  const t_sql = `SELECT COUNT(1) totalRows FROM member ${where}`;
+  const t_sql = `SELECT COUNT(1) totalRows FROM member WHERE \`identity\` = 1 `;
   const [
     [{
       totalRows
@@ -26,7 +23,6 @@ async function getListData(req, res) {
   output.perPage = perPage;
   output.rows = [];
   output.page = page;
-
 
   if (totalRows > 0) {
     if (page < 1) {

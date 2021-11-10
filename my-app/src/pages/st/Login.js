@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { devUrl, MemberLogin } from '../../config'
 import emailjs from 'emailjs-com'
 import Swal from 'sweetalert2'
-// import withReactContent from 'sweetalert2-react-content'
+import Goologin from '../../components/st/GooLogin'
 
 function Login(props) {
   const { auth, setAuth, setUser } = props
@@ -274,6 +274,10 @@ function Login(props) {
                 {fieldErrors.password}
               </label>
             )}
+
+            <div>
+              <Goologin />
+            </div>
             <div
               className="forgetPassword"
               onClick={async () => {
@@ -344,7 +348,7 @@ function Login(props) {
                 console.log('res:', res)
               }}
             >
-              <span> 忘記密碼？ </span>{' '}
+              <span> 忘記密碼？ </span>
             </div>
 
             <div className="d-flex justify-content-center">

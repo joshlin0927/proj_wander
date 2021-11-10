@@ -92,6 +92,7 @@ app.get('/', (req, res) => {
 
 //註冊
 app.use('/SignUp', require(__dirname + '/routes/signup'));
+app.use('/GoogleLogin', require(__dirname + '/routes/googlelogin'))
 
 //登入
 app.use(require(__dirname + '/routes/login'));
