@@ -256,7 +256,7 @@ function CsMessageADD(props) {
         <MultiLevelBreadCrumb />
         <Nav.Link
           as={NavLink}
-          to={`/Course/CsCoursedesOpen/?courseSid=${fields.sid}`}
+          to={`/Course/CsCoursedes/?courseSid=${fields.sid}`}
           className="btn btn-border-only-no-h col-2"
         >
           <i className="fas fa-chevron-left"></i>
