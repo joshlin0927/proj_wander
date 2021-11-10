@@ -11,6 +11,7 @@ import CsCoursedes from './CsCoursedes'
 import CsCoursedesn from './CsCoursedesn'
 import CsCoursedeNt from './CsCoursedeNt'
 import CsCoursedesOpen from './CsCoursedesOpen'
+import CsCoursedeso from './CsCoursedeso'
 import CsCourseRe from './CsCourseRe'
 import CsMessage from './CsMessage'
 import ArtMessageADD from './CsMessageADD'
@@ -40,6 +41,9 @@ function index(props) {
         </Route>
         <Route path="/Course/CsCoursedesOpen/:sid?" exact>
           <CsCoursedesOpen />
+        </Route>
+        <Route path="/Course/CsCoursedeso/:sid?" exact>
+          <CsCoursedeso />
         </Route>
         <Route path="/Course/CsCourseRe" exact>
           <CsCourseRe />
