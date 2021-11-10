@@ -13,7 +13,7 @@ function Login(props) {
   const { auth, setAuth, setUser } = props
   const history = useHistory()
   const formRef = useRef(null)
-  // const MySwal = withReactContent(Swal)
+
   // const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
     ? localStorage.getItem('member')

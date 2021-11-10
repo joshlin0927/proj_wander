@@ -130,6 +130,7 @@ export default withRouter(function SignUp(props) {
     ) {
       axios
         .post('http://localhost:3001/SignUp', {
+          GoogleId: 0,
           nickname: fields.nickname,
           lastname: fields.lastname,
           firstname: fields.firstname,
@@ -369,13 +370,15 @@ export default withRouter(function SignUp(props) {
                   onChange={handleFieldChange}
                 />
               </div>
-              {/* <div className="separator col-10 col-lg-8 mx-auto">
+              <div className="separator col-10 col-lg-8 mx-auto">
                 <div className="or">OR</div>
-              </div> */}
+              </div>
               <div className="w-100 mt-5"></div>
               <div className="d-flex d-md-block">
                 {/* <FBLogin /> */}
-                <GooLogin />
+                <GooLogin
+                  asTeacherOrStudent={asTeacherOrStudent}
+                />
               </div>
               <div>
                 <button className="signUpBtn-m mx-auto col-10 ">

@@ -35,11 +35,12 @@ router.post('/',async(req,res)=>{
   
   const hash = await bcrypt.hash(req.body.password, 10);
 
-  const sql = "INSERT INTO `member`" + "(`identity`,`firstname`, `email`,`lastname`, `nickname`, `password` , `created_date`) VALUES (?,?,?,?,?,?,NOW())";
+  const sql = "INSERT INTO `member`" + "(`identity`, `GoogleId`,`firstname`, `email`,`lastname`, `nickname`, `password` , `created_date`) VALUES (?,?,?,?,?,?,?,NOW())";
   let result;
   try {
     [result] = await db.query(sql, [
       req.body.identity,
+      req.body.GoogleId,
       req.body.firstname,
       req.body.email,
       req.body.lastname,
