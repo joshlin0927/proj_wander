@@ -9,7 +9,10 @@ function MemberCard(props) {
     language,
     email,
     verification,
+    resume,
     handleIsShow,
+    handleResumeShow,
+    setResumeName,
   } = props
   return (
     <>
@@ -25,7 +28,12 @@ function MemberCard(props) {
         <td>{language}</td>
         <td>{email}</td>
         <td>
-          <div>
+          <div
+            onClick={() => {
+              handleResumeShow()
+              setResumeName(resume)
+            }}
+          >
             <i className="far fa-file-alt"></i>
           </div>
         </td>
