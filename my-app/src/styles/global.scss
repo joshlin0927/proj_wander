@@ -1335,6 +1335,18 @@ a {
   margin-left: 1rem;
   border: #065e8e 2px solid;
 }
+@media (max-width: 767px) {
+  .chatWindow {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0;
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    height: 480px;
+  }
+}
 
 .chatWindowHead {
   display: flex;
@@ -1442,6 +1454,11 @@ a {
   padding: 0.5rem 1.5rem;
   font-size: 18px;
 }
+@media (max-width: 767px) {
+  .message {
+    max-width: 50vw;
+  }
+}
 
 .message.left {
   background-color: #f1f0e9;
@@ -1483,6 +1500,11 @@ a {
 
 .messageTimestamp {
   font-size: 0.625rem;
+}
+.mobileChatForm {
+  margin-bottom: 30px;
+  overflow: hidden;
+  position: relative;
 }
 
 /*============= 登入頁 =============*/

@@ -9,17 +9,12 @@ import ChatList from '../../components/chatroom/ChatList'
 import Footer from '../../components/Footer'
 
 function ChatroomMobile(props) {
-  const member = localStorage.getItem('member')
-    ? localStorage.getItem('member')
-    : ''
-  const memberObj = member ? JSON.parse(member) : ''
-
   return (
     <>
       <div className="container mainContent">
         <MultiLevelBreadCrumb />
         <div className="row">
-          <form className="form col-12 offset-0 col-md-8 offset-md-1 mobileform">
+          <form className="form col-12 offset-0 col-md-8 offset-md-1 mobileChatForm">
             <ChatList />
           </form>
         </div>

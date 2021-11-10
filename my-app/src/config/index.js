@@ -129,6 +129,7 @@ export const pathnameList = [
   '/StIndex/StCourse',
   '/StIndex/StCalendar',
   '/StIndex/StClassroom',
+  '/StIndex/StOrder',
   '/ArtIndex/Article',
   '/ArtIndex/ArticleMessage',
   '/ArtIndex/ArticleSt',
@@ -141,6 +142,7 @@ export const pathnameList = [
   '/Course/CsCoursedes/',
   '/Course/CsCoursedesn/',
   '/Course/CsCoursedesOpen/',
+  '/ChatroomMobile',
 ]
 
 export const pathnameTextList = [
@@ -165,6 +167,7 @@ export const pathnameTextList = [
   '/學生頁面/我的課程',
   '/學生頁面/課程管理',
   '/學生頁面/教室上課',
+  '/學生頁面/訂單查詢',
   '/熱門文章',
   '/熱門文章/文章內容',
   '/國際角落',
@@ -177,4 +180,5 @@ export const pathnameTextList = [
   '/課程總覽/課程詳細頁',
   '/課程總覽/課程詳細頁',
   '/課程總覽/課程詳細頁',
+  '/聊天室',
 ]
