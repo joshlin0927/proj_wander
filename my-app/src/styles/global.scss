@@ -1498,13 +1498,22 @@ a {
   border-radius: 0px 10px 10px 0px;
 }
 
-.messageTimestamp {
-  font-size: 0.625rem;
-}
 .mobileChatForm {
   margin-bottom: 30px;
   overflow: hidden;
   position: relative;
+}
+.messageText {
+  font-size: 1rem;
+}
+.messageTimestamp {
+  font-size: 12px;
+  color: #065f8e;
+}
+@media (max-width: 767px) {
+  .messageText {
+    font-size: 14px;
+  }
 }
 
 /*============= 登入頁 =============*/

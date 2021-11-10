@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 
 import { Chat_API } from '../../config'
 import ChatCard from './ChatCard'
 import ChatWindow from './ChatWindow'
+import { io } from 'socket.io-client'
 
 function ChatList(props) {
   const { chat, setChat, isActive, isOpen } = props
+  const socket = useRef()
 
   // 取得該會員資料
   const member = localStorage.getItem('member')
@@ -18,6 +20,7 @@ function ChatList(props) {
 
   // 對話列表資料
   useEffect(() => {
+    socket.current = io('http://localhost:8900')
     ;(async () => {
       let r = await axios.get(
         `${Chat_API}/conversation/${member.sid}`
@@ -26,6 +29,11 @@ function ChatList(props) {
         setConversation(r.data)
       }
     })()
+    // socket.io
+    socket.current.emit('addUser', member.sid)
+    socket.current.on('getUsers', (users) => {
+      console.log('連線中用戶:', users)
+    })
   }, [member.sid])
   // 點擊到的chatroom資料
   useEffect(() => {
@@ -103,6 +111,7 @@ function ChatList(props) {
         <>
           {messages ? (
             <ChatWindow
+              socket={socket}
               messages={messages}
               setMessages={setMessages}
               member={member}

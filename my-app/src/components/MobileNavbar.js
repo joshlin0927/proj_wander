@@ -31,23 +31,20 @@ function MobileNavbar(props) {
         navItem[i].classList.remove('active')
       }
     }
+    removeLoop()
     if (path.includes('CsCourse')) {
-      removeLoop()
       navItem[0].classList.add('active')
     }
     if (path.includes('Cart')) {
-      removeLoop()
       navItem[1].classList.add('active')
     }
     if (path.includes('Chatroom')) {
-      removeLoop()
       navItem[2].classList.add('active')
     }
     if (
       path.includes('StIndex') ||
       path.includes('TcCourse')
     ) {
-      removeLoop()
       navItem[3].classList.add('active')
     }
     if (
