@@ -6,6 +6,7 @@ import {
   Cart_API,
 } from '../config'
 import { Link } from 'react-router-dom'
+import { Modal } from 'react-bootstrap'
 import { useHistory } from 'react-router'
 import axios from 'axios'
 
@@ -24,6 +25,9 @@ function PcNavbar(props) {
   const [imgSrc, setImgSrc] = useState('')
 
   const [drop, setDrop] = useState('d-none')
+  const [stopModalShow, setStopModalShow] = useState(false)
+  const handleStopModalClose = () => setStopModalShow(false)
+  const handleStopModalShow = () => setStopModalShow(true)
 
   //判斷是否登入
   const history = useHistory()
@@ -113,6 +117,11 @@ function PcNavbar(props) {
               </li>
               <li>
                 <Link
+                  onClick={() => {
+                    if (!member) {
+                      handleStopModalShow()
+                    }
+                  }}
                   to={
                     member
                       ? identity === 1
@@ -220,6 +229,38 @@ function PcNavbar(props) {
           </div>
         </div>
       </nav>
+      <Modal
+        show={stopModalShow}
+        onHide={handleStopModalClose}
+        id="alertModal"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title>提醒</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">
+          <span>如要使用此功能請先登入</span>
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            type="button"
+            className="btn confirmBtn"
+            onClick={handleStopModalClose}
+          >
+            關閉
+          </button>
+          <button
+            type="button"
+            className="btn confirmBtn"
+            onClick={() => {
+              props.history.push('/Login')
+            }}
+          >
+            前往登入
+          </button>
+        </Modal.Footer>
+      </Modal>
     </>
   )
 }
