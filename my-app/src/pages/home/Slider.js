@@ -17,8 +17,7 @@ const breakPoints = [
 function ImageSlider() {
   return (
     <div className="App">
-      <Carousel breakPoints={breakPoints}
-      >
+      <Carousel breakPoints={breakPoints}>
         <Item>
           <div className="wanderIndex-card-wrapper">
             <div className="wanderIndex-card">

@@ -39,6 +39,10 @@ function MobileNavbar(props) {
       removeLoop()
       navItem[1].classList.add('active')
     }
+    if (path.includes('Chatroom')) {
+      removeLoop()
+      navItem[2].classList.add('active')
+    }
     if (
       path.includes('StIndex') ||
       path.includes('TcCourse')

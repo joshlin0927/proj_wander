@@ -79,7 +79,12 @@ function MultiLevelBreadCrumb(props) {
         aria-label="breadcrumb"
         className="breadcrumbNav"
       >
-        <div className="logo-m">
+        <div
+          className="logo-m"
+          onClick={() => {
+            props.history.push('/')
+          }}
+        >
           <img
             src={`${devUrl}/images/logo/log_mobile.png`}
             alt=""
