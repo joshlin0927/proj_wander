@@ -3,7 +3,13 @@ import React from 'react'
 import MemberCard from './MemberCard'
 
 function MemberList(props) {
-  const { data, handleIsShow, setMemberSid } = props
+  const {
+    data,
+    handleIsShow,
+    setMemberSid,
+    handleResumeShow,
+    setResumeName,
+  } = props
 
   console.log('data', data)
   return (
@@ -18,8 +24,11 @@ function MemberList(props) {
             language={el.language}
             email={el.email}
             verification={el.verification}
+            resume={el.resume}
             handleIsShow={handleIsShow}
+            handleResumeShow={handleResumeShow}
             setMemberSid={setMemberSid}
+            setResumeName={setResumeName}
           />
         )
       })}
