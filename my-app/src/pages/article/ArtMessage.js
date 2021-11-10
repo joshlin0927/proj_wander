@@ -241,7 +241,7 @@ function ArtMessage(prop) {
                         <Link
                           to={`/ArtIndex/ArtMessage?articleSid=101`}
                         >
-                          11 March
+                          19 November
                         </Link>
                       </p>
                     </div>
@@ -280,7 +280,7 @@ function ArtMessage(prop) {
                         <Link
                           to={`/ArtIndex/ArtMessage?articleSid=96`}
                         >
-                          11 March
+                          19 November
                         </Link>
                       </p>
                     </div>
@@ -320,7 +320,7 @@ function ArtMessage(prop) {
                         <Link
                           to={`/ArtIndex/ArtMessage?articleSid=99`}
                         >
-                          11 March
+                          19 November
                         </Link>
                       </p>
                     </div>

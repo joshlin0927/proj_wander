@@ -766,9 +766,7 @@
 .animate {
   position: relative;
   left: -10%;
-  /* right: -10%; */
   animation: move 10s infinite reverse;
-  animation:move 10s infinite alternate;  
   animation-timing-function: linear;
   animation-delay: 0s;
 }
@@ -776,7 +774,7 @@
 
 @keyframes move {
   0% {
-    left: -100%;
+    left: -150%;
   }
   100% {
     left: 100%;
@@ -1030,7 +1028,7 @@ li {
 
   .indexBigImg1 {
     position: absolute;
-    top: 0px;
+    top: -30px;
     padding: 0;
     z-index: 1;
   }
