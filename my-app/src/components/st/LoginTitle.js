@@ -1,14 +1,10 @@
 import React from 'react'
-import Typical from 'react-typical'
+import Flip from 'react-reveal/Flip'
 
 export default function Logintitle() {
   return (
     <>
-      <Typical
-        steps={['Wander', 1000, 'Wander with Us!', 500]}
-        loop={1}
-        wrapper="p"
-      />
+      <Flip top>Wander With Us! </Flip>
     </>
   )
 }

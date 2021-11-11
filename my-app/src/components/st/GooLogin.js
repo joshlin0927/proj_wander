@@ -12,6 +12,7 @@ export default function GooLogin() {
       {
         email: response.profileObj.email,
         password: response.profileObj.googleId,
+
       }
     )
     if (r) {
@@ -29,7 +30,7 @@ export default function GooLogin() {
           showConfirmButton: false,
           timer: 1500,
         })
-        history.goBack()
+        history.push('/')
       }
       if (r.data.error === '無此帳號') {
         Swal.fire({
@@ -39,6 +40,7 @@ export default function GooLogin() {
         })
         return
       }
+      
     }
   }
   return (

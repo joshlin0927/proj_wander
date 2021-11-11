@@ -15,7 +15,9 @@ function CalendarCourseItem(props) {
   } = props
 
   const member = localStorage.getItem('member')
-  const studentSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const studentSid = member ? JSON.parse(member).sid : ''
 
   const addSchedule = () => {
     console.log(scheduledDate.start)

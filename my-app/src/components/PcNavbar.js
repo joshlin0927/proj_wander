@@ -67,6 +67,7 @@ function PcNavbar(props) {
           }
         )
         // console.log('STr', r)
+
         setImgSrc(r.data[0][0].avatar)
       })()
     }

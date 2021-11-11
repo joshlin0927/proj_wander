@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
+import { Modal } from 'react-bootstrap'
 import { IMG_PATH } from '../../config'
 
-import { Nav, Modal } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
+import { Nav } from 'react-bootstrap'
 
 //讓Link標籤可以有style(透過加className)
+import { NavLink } from 'react-router-dom'
 
 //引用元件
 import ChatList from '../chatroom/ChatList'
 
 export default function StSideBar2(props) {
-  const { imgSrc, courses } = props
+  const { imgSrc } = props
 
   let [chat, setChat] = useState('d-none')
   const [isOpen, setIsOpen] = useState(false)
@@ -18,7 +19,6 @@ export default function StSideBar2(props) {
   const handleStopModalClose = () => setStopModalShow(false)
   const handleStopModalShow = () => setStopModalShow(true)
 
-  console.log('cccc', courses)
   return (
     <>
       <Nav className="sidebar col-2">
@@ -68,7 +68,7 @@ export default function StSideBar2(props) {
           <li>
             <Nav.Link
               as={NavLink}
-              to={'/StIndex/StClassroom'}
+              to="/StIndex/StClassroom"
               className="nav-item"
               activeClassName="active"
             >
@@ -115,7 +115,7 @@ export default function StSideBar2(props) {
           />
         </div>
       </Nav>
-      {/* stop Modal */}
+      {/* 教師訪問stop Modal */}
       <Modal
         show={stopModalShow}
         onHide={handleStopModalClose}
@@ -127,7 +127,7 @@ export default function StSideBar2(props) {
           <Modal.Title>提醒</Modal.Title>
         </Modal.Header>
         <Modal.Body className="text-center">
-          <span>您的課程</span>
+          <span>如要購買課程請先登入學生帳戶</span>
         </Modal.Body>
         <Modal.Footer>
           <button
@@ -135,7 +135,7 @@ export default function StSideBar2(props) {
             className="btn confirmBtn"
             onClick={handleStopModalClose}
           >
-            確認
+            前往登入
           </button>
         </Modal.Footer>
       </Modal>

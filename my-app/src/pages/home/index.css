@@ -175,7 +175,13 @@
   width: 600px;
   height: 600px;
 }
-
+@media (max-width: 767px) {
+  .img-01 {
+    height: 230px;
+    width: 100%;
+    object-position: top center;
+  }
+}
 .indexBigImg3 .img-03 {
   position: absolute;
   /* left: 30px; */
