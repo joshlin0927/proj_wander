@@ -57,12 +57,12 @@ function TcAnalytic() {
         let r = await axios.get(
           `${TcCourse_LIST}?teacherSid=${teacherSid}`
         )
-        if (r.status === 200) {
+        if (r.data.rows.length !== 0) {
           setDisplayCourse(r.data.rows)
           setTcCourses(r.data.rows)
           setClick(r.data.rows[0].sid)
         } else {
-          alert('連線出現問題')
+          return
         }
       })()
     }

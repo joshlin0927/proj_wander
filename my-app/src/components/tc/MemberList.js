@@ -11,7 +11,7 @@ function MemberList(props) {
     setResumeName,
   } = props
 
-  console.log('data', data)
+  // console.log('data', data)
   return (
     <>
       {data.map((el, i) => {
