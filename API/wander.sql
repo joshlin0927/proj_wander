@@ -2,8 +2,8 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- 主機： 127.0.0.1
--- 產生時間： 2021-11-10 07:33:26
+-- 主機： localhost
+-- 產生時間： 2021 年 11 月 11 日 22:45
 -- 伺服器版本： 10.4.20-MariaDB
 -- PHP 版本： 7.4.21
 
@@ -351,7 +351,8 @@ INSERT INTO `member` (`sid`, `googleidentity`, `identity`, `verification`, `resu
 (69, 0, 1, 2, '', '68318c8c-f8ab-481f-a6ba-42d28ee66aad.jfif', 'Alisha', 'Dorléac', 'Lily', 'lily2431@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1999-01-01', 2, '英文、日文', '美國', ' Small Pronunciation GROUP classes 50% off\r\nNative Speaker🇬🇧\r\nI speak 4 languages\r\nPronunciation Expert\r\nAdults & Kids\r\nAll Levels Welcome\r\nFluent Conversation\r\nChildren’s English\r\nBusiness English\r\nPerfect Accent\r\nFun & Calm Lessons\r\nBoost Confidence\r\nBook a trial and let’s improve your English Fast', '2021-04-16'),
 (1008, 0, 1, 0, '', NULL, 'TTTTT', 'SSSSS', 'test01', 'tt@tt.com', '$2a$10$uASYlb0UAtfZMortDvIInO/lKTu/hLuTx5qtbaupsq.DE9dFLtXUW', NULL, NULL, NULL, NULL, '', '2021-10-29'),
 (1012, 0, 1, 0, '', NULL, 'rr', 'rr', '', 'rr@hh', '$2a$10$/65ii13Pa6we6Y4CnFhxQeGaLgRU9KS2qLj2.ZDmGfOq1MmtIPo1C', NULL, NULL, NULL, NULL, NULL, '2021-11-03'),
-(1018, 0, 0, 0, '', NULL, 'ZZZZ', 'RRRR', 'ZRUSH', 'ts@gmail.com', '$2a$10$8g7y4zertE4ahbgxfWHQ5unfytlq.3MklKKhWWGXVI2p2iVjMslhu', NULL, NULL, NULL, NULL, NULL, '2021-11-09');
+(1018, 0, 0, 0, '', NULL, 'ZZZZ', 'RRRR', 'ZRUSH', 'ts@gmail.com', '$2a$10$8g7y4zertE4ahbgxfWHQ5unfytlq.3MklKKhWWGXVI2p2iVjMslhu', NULL, NULL, NULL, NULL, NULL, '2021-11-09'),
+(1019, 0, 0, 0, NULL, NULL, '阿德', '林', '', 'wander@gmail.com', '$2a$10$CMzOYSRDCpAAM2WBRmeVEOa6QxbPPYL7uJxg0qmH.1mWOvH1TVd3i', NULL, NULL, NULL, NULL, NULL, '2021-11-11');
 
 -- --------------------------------------------------------
 
@@ -840,7 +841,7 @@ ALTER TABLE `cs_messenger`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
 --
 ALTER TABLE `member`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1019;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1020;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_detail`
