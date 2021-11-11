@@ -133,7 +133,7 @@ function TcCourseVideoUpload() {
             .classList.add('text-danger')
           document
             .querySelector('#uploadBtn')
-            .setAttribute('disabled', true)
+            .setAttribute('disabled')
         } else {
           document
             .querySelector('#warning')
@@ -179,6 +179,7 @@ function TcCourseVideoUpload() {
           alert(obj.error || '資料新增失敗')
         }
       })
+    setFields('')
   }
 
   // 當整個表單有變動時觸發
@@ -313,19 +314,26 @@ function TcCourseVideoUpload() {
                       影片名稱:
                     </span>
                     <input
+                      id="video_name"
                       name="video_name"
                       className="d-none"
-                      value={fields.video_name.slice(
-                        0,
-                        fields.video_name.length - 4
-                      )}
+                      value={
+                        fields.video_name
+                          ? fields.video_name.slice(
+                              0,
+                              fields.video_name.length - 4
+                            )
+                          : fields.video_name
+                      }
                       onChange={handleFieldChange}
                     />
                     <label>
-                      {fields.video_name.slice(
-                        0,
-                        fields.video_name.length - 4
-                      )}
+                      {fields.video_name
+                        ? fields.video_name.slice(
+                            0,
+                            fields.video_name.length - 4
+                          )
+                        : fields.video_name}
                     </label>
                   </div>
                 </div>

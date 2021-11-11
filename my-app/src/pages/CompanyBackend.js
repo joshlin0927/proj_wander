@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 import axios from 'axios'
-import { useHistory } from 'react-router'
 import { Member_LIST } from '../config'
 
 import MyPdf from '../components/MyPdf'
@@ -13,20 +11,21 @@ import TcSearchBar from '../components/tc/TcSearchBar'
 import TcBgDecorationNormal from '../components/tc/TcBgDecorationNormal'
 
 function CompanyBackend() {
-  const token = localStorage.getItem('token')
-  const memberObj = JSON.parse(
-    localStorage.getItem('member')
-  )
-    ? JSON.parse(localStorage.getItem('member'))
-    : ''
-
-  const history = useHistory()
+  // const token = localStorage.getItem('token')
+  // const memberObj = JSON.parse(
+  //   localStorage.getItem('member')
+  // )
+  //   ? JSON.parse(localStorage.getItem('member'))
+  //   : ''
 
   // 更改會員狀態
   const [selectedOption, setSelectedOption] = useState('')
 
   // 成功修改的提示
   const [showUp, setShowUp] = useState('')
+
+  // 刷新頁面
+  const [update, setUpdate] = useState('')
 
   // 會員sid
   const [memberSid, setMemberSid] = useState('')
@@ -47,6 +46,7 @@ function CompanyBackend() {
       }
     })()
   }, [showUp])
+
 
   //修改會員狀態
   const [isShow, setIsShow] = useState(false)
@@ -119,9 +119,7 @@ function CompanyBackend() {
           {/* content */}
           <form className="col-12">
             <div className="TCform-head ml-1 p-0">
-              <Link to="">
-                <i className="fas fa-chevron-left TCback-btn"></i>
-              </Link>
+              <i className=" TCback-btn"></i>
               <div className="TCform-title mr-auto">
                 教師會員管理
               </div>

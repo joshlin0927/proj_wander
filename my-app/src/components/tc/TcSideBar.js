@@ -67,6 +67,8 @@ function TcSideBar(props) {
       setTimeout(() => {
         history.push('/')
       }, 5000)
+    } else if (verify === 3) {
+      handleShow()
     }
   })
 
@@ -301,9 +303,7 @@ function TcSideBar(props) {
           <ConfirmMsg showUp={showUp} text={'資料已送出'} />
           <div className="TCform-content w-100">
             <div className="TCform-head ml-1">
-              <Link to="/">
-                <i className="fas fa-chevron-left TCback-btn"></i>
-              </Link>
+              <i className="TCback-btn"></i>
               <div className="TCform-title">審核資料</div>
               <i className="TCback-btn"></i>
             </div>
