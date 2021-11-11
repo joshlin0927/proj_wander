@@ -48,7 +48,6 @@ function ChatList(props) {
       }
     })()
   }, [currentChat])
-  console.log('current:', currentChat, conversation)
   useEffect(() => {
     if (isActive === '' || isOpen === false) {
       setCurrentChat(null)

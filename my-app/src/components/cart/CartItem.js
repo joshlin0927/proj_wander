@@ -1,5 +1,6 @@
 import React from 'react'
 import { devUrl, API_HOST, Cart_API } from '../../config'
+import { withRouter } from 'react-router-dom'
 
 function CartItem(props) {
   const {
@@ -63,7 +64,14 @@ function CartItem(props) {
           </div>
         </div>
         <div className="cartItemBtn">
-          <div className="cartItemBtn-Detail">
+          <div
+            className="cartItemBtn-Detail"
+            onClick={() => {
+              props.history.push(
+                `/Course/CsCoursedes/?courseSid=${product_sid}`
+              )
+            }}
+          >
             <img
               src={`${devUrl}/images/cart/cartItemDetail.svg`}
               alt=""
@@ -92,4 +100,4 @@ function CartItem(props) {
   )
 }
 
-export default CartItem
+export default withRouter(CartItem)

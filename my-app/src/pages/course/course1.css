@@ -860,7 +860,6 @@ background: #f1ef5b;
   position: relative;
   margin-bottom: 30px;
   margin-left: 10px;
-  z-index: 6;
 }
 
 .sh-courseitem img {
@@ -1074,9 +1073,9 @@ background: #f1ef5b;
   color: white;
 }
 .courseSpinner {
-  min-height: 561px;
   width: 100%;
-  position: relative;
+  position: absolute;
+  z-index: 10;
 }
 .courseSpinner .loadingio-spinner-ripple-axvmfinlmje {
   position: absolute;
@@ -1103,4 +1102,10 @@ background: #f1ef5b;
 .scoreStar {
   color: #bcc831;
   width: 80px;
+}
+.opacity0-CourseSection {
+  opacity: 0;
+}
+.opacity1-CourseSection {
+  opacity: 1;
 }

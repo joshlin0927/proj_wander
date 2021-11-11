@@ -137,7 +137,7 @@ function ChatWindow(props) {
         <div className="chatWindowBody">
           {messages.map((v, i) => {
             return (
-              <div ref={scrollRef}>
+              <div ref={scrollRef} key={i}>
                 <MessageRight
                   key={i}
                   messages={v}

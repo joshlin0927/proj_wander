@@ -118,20 +118,29 @@ function CsCourse(prop) {
         </div>
 
         <div className="row justify-content-center d-flex">
-          {isLoading ? (
-            <div className="courseSpinner">
-              <Spinner />
-            </div>
-          ) : (
-            <div className="coursesection col-md-10 col-lg-10">
-              {displayCourse.length > 0 ? (
-                <CourseList
-                  displayCourse={displayCourse}
-                  setDisplayCourse={setDisplayCourse}
-                />
-              ) : null}
-            </div>
-          )}
+          <div
+            className={
+              isLoading
+                ? 'courseSpinner'
+                : 'courseSpinner opacity0-CourseSection'
+            }
+          >
+            <Spinner />
+          </div>
+          <div
+            className={
+              isLoading
+                ? 'coursesection col-md-10 col-lg-10 opacity0-CourseSection'
+                : 'coursesection col-md-10 col-lg-10 opacity1-CourseSection'
+            }
+          >
+            {displayCourse.length > 0 ? (
+              <CourseList
+                displayCourse={displayCourse}
+                setDisplayCourse={setDisplayCourse}
+              />
+            ) : null}
+          </div>
         </div>
       </div>
       <TcBgDecorationNormal />

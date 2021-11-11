@@ -4,6 +4,7 @@ import './style/classroom.css'
 import ReactPlayer from 'react-player'
 import axios from 'axios'
 import { useHistory } from 'react-router'
+import { withRouter } from 'react-router-dom'
 import screenfull from 'screenfull'
 import moment from 'moment'
 import momentDurationFormatSetup from 'moment-duration-format'
@@ -19,10 +20,15 @@ import Footer from '../../components/Footer'
 // 撥放器
 import PlayerControls from '../../components/PlayerControls'
 
-export default function StClassroom() {
+export default withRouter(function StClassroom() {
   const [stopModalShow, setStopModalShow] = useState(false)
   const handleStopModalClose = () => setStopModalShow(false)
   const handleStopModalShow = () => setStopModalShow(true)
+  const [stopModalShow2, setStopModalShow2] =
+    useState(false)
+  const handleStopModalClose2 = () =>
+    setStopModalShow2(false)
+  const handleStopModalShow2 = () => setStopModalShow2(true)
 
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
@@ -222,6 +228,7 @@ export default function StClassroom() {
         senderID: JSON.parse(member).sid,
         receiverID: TCID,
       })
+      console.log('rrr:', r.data)
       if (r.data.success) {
         const message = {
           senderID: JSON.parse(member).sid,
@@ -235,6 +242,9 @@ export default function StClassroom() {
         if (m.data.success) {
           handleStopModalShow()
         }
+      }
+      if (r.data.error === '已存在此對話') {
+        handleStopModalShow2()
       }
     }
   }
@@ -338,14 +348,44 @@ export default function StClassroom() {
         </Modal.Header>
         <Modal.Body className="text-center">
           <span>
-            已為您聯繫教師，您可以在聊天室介面查看內容
+            已為您聯繫教師
+            <br />
+            您可以在聊天室介面查看內容
           </span>
         </Modal.Body>
         <Modal.Footer>
           <button
             type="button"
             className="btn confirmBtn"
-            onClick={handleStopModalClose}
+            onClick={() => {
+              history.go(0)
+            }}
+          >
+            確認
+          </button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal
+        show={stopModalShow2}
+        onHide={handleStopModalClose2}
+        id="alertModal"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title>提醒</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">
+          <span>您與該教師的對話已存在</span>
+          <br />
+          <span>請至【聊天室】查看</span>
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            type="button"
+            className="btn confirmBtn"
+            onClick={handleStopModalClose2}
           >
             確認
           </button>
@@ -357,4 +397,4 @@ export default function StClassroom() {
       <Footer />
     </>
   )
-}
+})
