@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-11-11 15:12:01
+-- 產生時間： 2021-11-11 15:47:40
 -- 伺服器版本： 10.4.20-MariaDB
 -- PHP 版本： 7.4.21
 
@@ -341,7 +341,7 @@ INSERT INTO `member` (`sid`, `googleidentity`, `identity`, `verification`, `resu
 (13, 0, 0, 0, '', 'Penny Grecic.jpeg', 'Penny ', 'Grecic', 'penny', 'john@hotmail.com', '$2y$10$cCfeLN6TvktpbslwmSE5neGV93TREUW3oDwk13JWLI9iJbsOn7onm', '1992-09-09', 1, '', '', '', '2021-08-12'),
 (15, 0, 0, 0, '', 'Sagehashi Harue.jpeg', 'Sagehashi ', 'Harue', 'Emily', 'emilylo@yahoo.com.tw', '$2y$10$xImMJIFbeGue5gQSZEP8mejXPx0kMB.YXlbj4Xof7VMCp8JLiymDq', '1995-05-01', 2, '', '', '', '2021-08-15'),
 (16, 0, 0, 0, '', 'Tatsuoka  Natsumi(姓加名).jpeg', 'Tatsuoka  Natsumi', 'Ming', 'Ming', 'ming@gmail.com', '$2y$10$uIg3cyWN7Igyhy0dIMplOOvymEEP/zQxU31MZyGvWi9hsePVDEaiy', '1995-01-01', 1, '', '', '', '2021-08-15'),
-(62, 0, 1, 3, '', '039a55cd-a471-4a7f-9233-385313456fec.jpeg', '由菜', '秋山', 'Aki', 'aki@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '中文、日文', '日本', 'One-on-One Class *8.0 IELTS and 7+ years teaching experience *full time teacher, more time slots available *2800+ classes conducted *1100+ 5 star reviews *provides class notes and materials after class Materials for Business English, Daily English Conversation, Travel English, Kids English, IELTS/TOEIC/TOEFL Speaking Practice.', '2020-04-13'),
+(62, 0, 1, 2, '', '039a55cd-a471-4a7f-9233-385313456fec.jpeg', '由菜', '秋山', 'Aki', 'aki@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 1, '中文、日文', '日本', 'One-on-One Class *8.0 IELTS and 7+ years teaching experience *full time teacher, more time slots available *2800+ classes conducted *1100+ 5 star reviews *provides class notes and materials after class Materials for Business English, Daily English Conversation, Travel English, Kids English, IELTS/TOEIC/TOEFL Speaking Practice.', '2020-04-13'),
 (63, 0, 1, 2, '', '8bc22114-5824-4004-9910-a1faff900804.jpg', 'Kathryn', 'Janicek', 'Kath', 'Kathryn@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '2000-02-25', 2, '中文、英文', '美國', '輔助超過50位學生取得金色多益證書 高效準備考試/面試/簡報 10年ESL教學經驗 理科腦/思路清晰/批判性思考訓練 發音矯正專家，美式口音 把英文壓力➡️自信來源 一對一客製化教學 漸進式對話練習，口說練習互動多，說的一嘴好英文不再只是口號', '2020-07-01'),
 (64, 0, 1, 2, '', '29a91a4f-1b58-4593-ac3f-b0be308e5c9c.jpg', '春花', '蔣', 'Haruka', 'haruka@hotmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1998-04-08', 1, '中文、英文', '台灣', '🎖️六年教學經歷｜線上破千堂教學🎖️紐西蘭籍華僑｜母語人士正統美語發音🎖️多益金色證書｜專業正音教師🎖️兒童美語｜成人美語🎖️學員一致評價最有耐心、親和力教師｜帶領在無壓力的英語環境下進步🎖️鑽研兒童心理學，擅長與孩子建立朋友般的互動學習關係｜活潑熱情、耐心引導開口🎖️曾任兒童劇團英語戲劇營及知名新聞台英語主播營講師', '2020-10-14'),
 (65, 0, 1, 2, '', '35b3a759-f8ec-4ea9-8f48-9e93dff4e997.png', 'Michelle', 'Miller ', 'MM', 'mm03495@gmail.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1974-08-07', 1, '中文、英文', '英國', '在加拿大出生和長大，擁有 (2) 年的經驗 \r\n雅思和托福備考 - 通過考試！ \r\n商務英語 - 為您的職業生涯做好準備！ \r\n會話英語 - 提高你的技能！ \r\n口音和發音 - 減少你的口音！ [ \r\n課程期間的免費建議！', '2020-10-14'),
@@ -623,12 +623,12 @@ INSERT INTO `viewcount` (`sid`, `course_sid`, `Jan`, `Feb`, `Mar`, `Apr`, `May`,
 (3, 27, 23, 607, 128, 358, 246, 30),
 (4, 65, 418, 511, 127, 43, 258, 587),
 (5, 40, 7, 474, 183, 420, 347, 575),
-(6, 23, 131, 111, 2, 157, 139, 65),
+(6, 23, 131, 111, 122, 157, 139, 65),
 (7, 58, 6, 145, 68, 63, 112, 51),
 (8, 23, 34, 157, 42, 59, 8, 26),
 (9, 50, 119, 133, 149, 24, 153, 54),
 (10, 46, 142, 6, 81, 71, 108, 11),
-(11, 29, 120, 104, 159, 2, 13, 61),
+(11, 29, 120, 104, 159, 32, 13, 61),
 (12, 45, 139, 72, 102, 133, 39, 118),
 (13, 56, 130, 158, 79, 81, 10, 124),
 (14, 57, 38, 8, 84, 77, 133, 112),
@@ -662,7 +662,7 @@ INSERT INTO `viewcount` (`sid`, `course_sid`, `Jan`, `Feb`, `Mar`, `Apr`, `May`,
 (42, 47, 242, 424, 53, 128, 66, 111),
 (43, 26, 123, 103, 70, 29, 3, 136),
 (44, 35, 74, 247, 369, 337, 73, 47),
-(45, 60, 159, 103, 542, 0, 58, 73),
+(45, 60, 159, 103, 542, 421, 311, 151),
 (46, 51, 151, 274, 228, 212, 101, 150),
 (47, 1, 242, 86, 158, 354, 128, 88),
 (48, 37, 148, 77, 454, 160, 145, 70),

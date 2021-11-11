@@ -6,6 +6,7 @@ import axios from 'axios'
 function TcChart(props) {
   const { click } = props
   const [CourseData, setCourseData] = useState('')
+  const [maxNum, setMaxNum] = useState('')
   const [name, setName] = useState('')
 
   useEffect(() => {
@@ -25,6 +26,16 @@ function TcChart(props) {
         }
         setCourseData(SingleCourseData)
         setName(r.data[0].course_name)
+        setMaxNum(
+          Math.max(
+            r.data[0].Jan,
+            r.data[0].Feb,
+            r.data[0].Mar,
+            r.data[0].Apr,
+            r.data[0].May,
+            r.data[0].Jun
+          )
+        )
       } else {
         return
       }
@@ -47,7 +58,7 @@ function TcChart(props) {
   const options = {
     scales: {
       y: {
-        max: 500,
+        max: Math.ceil(maxNum / 100) * 100 + 100,
         beginAtZero: true,
       },
     },
