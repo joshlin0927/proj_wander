@@ -116,8 +116,8 @@ export default withRouter(function SignUp(props) {
         if (i.email === fields.email) {
           Swal.fire({
             icon: 'error',
-            title: '請重新註冊',
-            text: '帳號重複了！',
+            title: '重複註冊',
+            text: '此帳號已存在',
           })
           return
         }

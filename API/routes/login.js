@@ -43,6 +43,10 @@ router.post("/login-jwt", async (req, res) => {
       process.env.JWT_SECRET
     );
   }
+  //這裡處理gmail已經被拿去一般註冊，因此再透過同個gmail google登入時就要報錯
+  else{
+    output.error='此帳號已用其他方式註冊過';
+  }
 
   res.json(output);
 });

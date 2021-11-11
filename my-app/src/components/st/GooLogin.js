@@ -12,7 +12,6 @@ export default function GooLogin() {
       {
         email: response.profileObj.email,
         password: response.profileObj.googleId,
-
       }
     )
     if (r) {
@@ -40,7 +39,14 @@ export default function GooLogin() {
         })
         return
       }
-      
+      if (r.data.error === '此帳號已用其他方式註冊過') {
+        Swal.fire({
+          icon: 'error',
+          title: '登愣',
+          text: '該帳號已用其他方式註冊',
+        })
+        return
+      }
     }
   }
   return (
