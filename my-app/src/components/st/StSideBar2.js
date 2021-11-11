@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Modal } from 'react-bootstrap'
 import { IMG_PATH } from '../../config'
 
 import { Nav } from 'react-bootstrap'
@@ -14,6 +15,9 @@ export default function StSideBar2(props) {
 
   let [chat, setChat] = useState('d-none')
   const [isOpen, setIsOpen] = useState(false)
+  const [stopModalShow, setStopModalShow] = useState(false)
+  const handleStopModalClose = () => setStopModalShow(false)
+  const handleStopModalShow = () => setStopModalShow(true)
 
   return (
     <>
@@ -111,6 +115,30 @@ export default function StSideBar2(props) {
           />
         </div>
       </Nav>
+      {/* 教師訪問stop Modal */}
+      <Modal
+        show={stopModalShow}
+        onHide={handleStopModalClose}
+        id="alertModal"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title>提醒</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">
+          <span>如要購買課程請先登入學生帳戶</span>
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            type="button"
+            className="btn confirmBtn"
+            onClick={handleStopModalClose}
+          >
+            前往登入
+          </button>
+        </Modal.Footer>
+      </Modal>
     </>
   )
 }
