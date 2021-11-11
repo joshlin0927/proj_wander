@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2021 年 11 月 11 日 22:45
+-- 產生時間： 2021 年 11 月 11 日 22:57
 -- 伺服器版本： 10.4.20-MariaDB
 -- PHP 版本： 7.4.21
 
@@ -352,7 +352,7 @@ INSERT INTO `member` (`sid`, `googleidentity`, `identity`, `verification`, `resu
 (1008, 0, 1, 0, '', NULL, 'TTTTT', 'SSSSS', 'test01', 'tt@tt.com', '$2a$10$uASYlb0UAtfZMortDvIInO/lKTu/hLuTx5qtbaupsq.DE9dFLtXUW', NULL, NULL, NULL, NULL, '', '2021-10-29'),
 (1012, 0, 1, 0, '', NULL, 'rr', 'rr', '', 'rr@hh', '$2a$10$/65ii13Pa6we6Y4CnFhxQeGaLgRU9KS2qLj2.ZDmGfOq1MmtIPo1C', NULL, NULL, NULL, NULL, NULL, '2021-11-03'),
 (1018, 0, 0, 0, '', NULL, 'ZZZZ', 'RRRR', 'ZRUSH', 'ts@gmail.com', '$2a$10$8g7y4zertE4ahbgxfWHQ5unfytlq.3MklKKhWWGXVI2p2iVjMslhu', NULL, NULL, NULL, NULL, NULL, '2021-11-09'),
-(1019, 0, 0, 0, NULL, NULL, '阿德', '林', '', 'wander@gmail.com', '$2a$10$CMzOYSRDCpAAM2WBRmeVEOa6QxbPPYL7uJxg0qmH.1mWOvH1TVd3i', NULL, NULL, NULL, NULL, NULL, '2021-11-11');
+(1021, 0, 0, 0, NULL, 'b2b18723-b228-4fe9-abe7-4d3fa4007f67.jpg', '阿德', '林', 'R der', 'wander@gmail.com', '$2a$10$2uWxAOdkgdm0DViFzB/TC.XlvX/yB8xP5PCKOLITjk41FROiLB8ki', '2002-11-20', NULL, NULL, NULL, NULL, '2021-11-11');
 
 -- --------------------------------------------------------
 
@@ -841,7 +841,7 @@ ALTER TABLE `cs_messenger`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
 --
 ALTER TABLE `member`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1020;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1022;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_detail`
