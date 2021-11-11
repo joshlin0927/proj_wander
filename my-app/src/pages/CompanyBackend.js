@@ -9,6 +9,7 @@ import ConfirmMsg from '../components/ConfirmMsg'
 import MultiLevelBreadCrumb from '../components/MultiLevelBreadCrumb'
 import TcSearchBar from '../components/tc/TcSearchBar'
 import TcBgDecorationNormal from '../components/tc/TcBgDecorationNormal'
+import { withRouter } from 'react-router'
 
 function CompanyBackend() {
   // const token = localStorage.getItem('token')
@@ -23,9 +24,6 @@ function CompanyBackend() {
 
   // 成功修改的提示
   const [showUp, setShowUp] = useState('')
-
-  // 刷新頁面
-  const [update, setUpdate] = useState('')
 
   // 會員sid
   const [memberSid, setMemberSid] = useState('')
@@ -45,35 +43,12 @@ function CompanyBackend() {
         setDisplayData(r.data.rows)
       }
     })()
-  }, [showUp])
-
+  }, [])
 
   //修改會員狀態
   const [isShow, setIsShow] = useState(false)
   const handleIsClose = () => setIsShow(false)
   const handleIsShow = () => setIsShow(true)
-
-  // 會員狀態修改後送出
-  const FormSubmit = async (e) => {
-    e.preventDefault()
-    ;(async () => {
-      let r = await axios.post(
-        `http://localhost:3001/member/edit`,
-        {
-          sid: memberSid,
-          verification: selectedOption,
-        }
-      )
-      // console.log(r)
-      handleIsClose()
-      if (r.data.success === true) {
-        setShowUp('showup')
-        setTimeout(() => {
-          setShowUp('none')
-        }, 1000)
-      }
-    })()
-  }
 
   // 搜尋列
   const [searchWord, setSearchWord] = useState('')
@@ -150,7 +125,13 @@ function CompanyBackend() {
                   {data.length > 0 ? (
                     <MemberList
                       data={displayData}
+                      setData={setData}
+                      isShow={isShow}
+                      setShowUp={setShowUp}
                       handleIsShow={handleIsShow}
+                      handleIsClose={handleIsClose}
+                      selectedOption={selectedOption}
+                      setSelectedOption={setSelectedOption}
                       handleResumeShow={handleResumeShow}
                       setMemberSid={setMemberSid}
                       setResumeName={setResumeName}
@@ -168,39 +149,7 @@ function CompanyBackend() {
         </div>
       </div>
       <TcBgDecorationNormal />
-      <Modal show={isShow} onHide={handleIsClose} centered>
-        <Modal.Header>
-          <Modal.Title>審核狀態</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <form className="" onSubmit={FormSubmit}>
-            <input
-              name="sid"
-              defaultValue={memberSid}
-              className="d-none"
-            />
-            <select
-              name="verification"
-              className="custom-select"
-              value={selectedOption}
-              onChange={(e) => {
-                setSelectedOption(e.target.value)
-              }}
-            >
-              <option value="0">未申請</option>
-              <option value="1">未審核</option>
-              <option value="2">通過</option>
-              <option value="3">未通過</option>
-            </select>
-            <button
-              type="submit"
-              className="btn btn-secondary mx-auto mt-5"
-            >
-              送出變更
-            </button>
-          </form>
-        </Modal.Body>
-      </Modal>
+
       <Modal
         size="lg"
         show={resumeShow}
@@ -218,4 +167,4 @@ function CompanyBackend() {
   )
 }
 
-export default CompanyBackend
+export default withRouter(CompanyBackend)

@@ -40,7 +40,7 @@ async function getListData(req, res) {
       return output;
 
     }
-    const sql = `SELECT \`course\`.*, \`member\`.\`firstname\`,\`member\`.\`avatar\`, \`member\`.\`intro\` FROM \`course\` ${where} ORDER BY \`course\`.\`sid\` DESC`; 
+    const sql = `SELECT \`course\`.*, \`member\`.\`firstname\`,\`member\`.\`lastname\`,\`member\`.\`nationality\`,\`member\`.\`avatar\`, \`member\`.\`intro\` FROM \`course\` ${where} ORDER BY \`course\`.\`sid\` DESC`; 
     // LIMIT ${
     //   (page - 1) * perPage
     // }, ${perPage}`;

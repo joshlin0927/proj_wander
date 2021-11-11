@@ -9,6 +9,9 @@ function MemberList(props) {
     setMemberSid,
     handleResumeShow,
     setResumeName,
+    selectedOption,
+    setShowUp,
+    setData,
   } = props
 
   // console.log('data', data)
@@ -18,7 +21,11 @@ function MemberList(props) {
         return (
           <MemberCard
             key={i}
+            index={i}
             sid={el.sid}
+            data={data}
+            setData={setData}
+            setShowUp={setShowUp}
             lastname={el.lastname}
             firstname={el.firstname}
             language={el.language}
@@ -29,6 +36,7 @@ function MemberList(props) {
             handleResumeShow={handleResumeShow}
             setMemberSid={setMemberSid}
             setResumeName={setResumeName}
+            selectedOption={selectedOption}
           />
         )
       })}

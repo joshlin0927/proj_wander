@@ -36,7 +36,7 @@ function TcCourseAdd(props) {
     } else {
       ;(async () => {
         let r = await axios.get(`${TcCourse_LAST}`)
-        console.log('lastAdd', r.data[0])
+        // console.log('lastAdd', r.data[0])
         setImgSrc(r.data[0].course_img)
         setFields(r.data[0])
         setLastAdd(r.data[0].sid)
@@ -137,7 +137,7 @@ function TcCourseAdd(props) {
     })
       .then((r) => r.json())
       .then((obj) => {
-        console.log(JSON.stringify(obj, null, 4))
+        // console.log(JSON.stringify(obj, null, 4))
         if (obj.success) {
           setShowUp('showup')
           setTimeout(() => {
@@ -245,7 +245,7 @@ function TcCourseAdd(props) {
               </div>
               <input
                 name="teacher_sid"
-                value={teacherSid}
+                defaultValue={teacherSid}
                 className="d-none"
               />
               <div className="TCcourse-img-selector">
@@ -273,7 +273,7 @@ function TcCourseAdd(props) {
                     />
                     <input
                       name="sid"
-                      value={lastAdd}
+                      defaultValue={lastAdd}
                       className="d-none"
                     />
                   </form>
@@ -282,7 +282,7 @@ function TcCourseAdd(props) {
               </div>
               <input
                 name="sid"
-                value={lastAdd}
+                defaultValue={lastAdd}
                 className="d-none"
               />
               <input
@@ -316,7 +316,7 @@ function TcCourseAdd(props) {
                 required
               >
                 <option value="" disabled>
-                  請選擇
+                  請選擇課程種類
                 </option>
                 <option value="日文">日文</option>
                 <option value="英文">英文</option>
@@ -339,8 +339,8 @@ function TcCourseAdd(props) {
                 name="course_price"
                 value={fields.course_price}
                 onChange={handleFieldChange}
+                title="請輸入課程定價"
                 required
-                min="0"
               />
               {fieldErrors.course_price === '' ? (
                 <label className="TCnotice" htmlFor="">
