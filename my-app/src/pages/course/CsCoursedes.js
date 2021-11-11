@@ -29,7 +29,7 @@ import CsMessageList from './CsMessageList'
 // import CoursedeList from './CoursedeList'
 
 function CsCoursede(props) {
-  const { setNavCartQty } = props
+  const { setNavCartQty, setCartIconImg } = props
   const [stopModalShow, setStopModalShow] = useState(false)
   const handleStopModalClose = () => setStopModalShow(false)
   const handleStopModalShow = () => setStopModalShow(true)
@@ -144,6 +144,7 @@ function CsCoursede(props) {
       icon.classList.add('move')
     }, 20)
     setTimeout(() => {
+      setCartIconImg('cart_icon.svg')
       qty.classList.remove('move')
       icon.classList.remove('move')
     }, 2500)

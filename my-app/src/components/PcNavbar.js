@@ -21,14 +21,20 @@ function scrollHeader() {
 window.addEventListener('scroll', scrollHeader)
 
 function PcNavbar(props) {
-  const { auth, setAuth, navCartQty, setNavCartQty } = props
+  const {
+    auth,
+    setAuth,
+    navCartQty,
+    setNavCartQty,
+    cartIconImg,
+    setCartIconImg,
+  } = props
   const [imgSrc, setImgSrc] = useState('')
 
   const [drop, setDrop] = useState('d-none')
   const [stopModalShow, setStopModalShow] = useState(false)
   const handleStopModalClose = () => setStopModalShow(false)
   const handleStopModalShow = () => setStopModalShow(true)
-
   //判斷是否登入
   const history = useHistory()
   const token = localStorage.getItem('token')
@@ -74,8 +80,10 @@ function PcNavbar(props) {
       )
       if (n.data.success) {
         setNavCartQty(n.data.result.length)
+        setCartIconImg('cart_icon.svg')
       } else {
         setNavCartQty(0)
+        setCartIconImg('cart_icon_empty.svg')
       }
     })()
   }, [setNavCartQty, member.sid])
@@ -220,7 +228,7 @@ function PcNavbar(props) {
                   {navCartQty}
                 </div>
                 <img
-                  src={`${devUrl}/images/cart/cart_icon.svg`}
+                  src={`${devUrl}/images/cart/${cartIconImg}`}
                   alt=""
                   className="nav_cart_icon"
                 />

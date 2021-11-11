@@ -49,6 +49,7 @@ function App() {
   const [auth, setAuth] = useState(false)
   const [user, setUser] = useState()
   const [navCartQty, setNavCartQty] = useState(0)
+  const [cartIconImg, setCartIconImg] = useState('')
 
   return (
     <Router>
@@ -60,6 +61,8 @@ function App() {
             user={user}
             navCartQty={navCartQty}
             setNavCartQty={setNavCartQty}
+            cartIconImg={cartIconImg}
+            setCartIconImg={setCartIconImg}
           />
           <Switch>
             <Route path="/CompanyBackend">
@@ -94,7 +97,10 @@ function App() {
               <ArtIndex />
             </Route>
             <Route path="/Course">
-              <CsIndex setNavCartQty={setNavCartQty} />
+              <CsIndex
+                setNavCartQty={setNavCartQty}
+                setCartIconImg={setCartIconImg}
+              />
             </Route>
             <Route path="/Preview">
               <Preview />

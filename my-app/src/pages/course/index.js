@@ -18,7 +18,7 @@ import ArtMessageADD from './CsMessageADD'
 import TcPreview from '../tc/TcPreview'
 
 function index(props) {
-  const { setNavCartQty } = props
+  const { setNavCartQty, setCartIconImg } = props
   return (
     <>
       <Switch>
@@ -35,7 +35,10 @@ function index(props) {
           <CsCoursede />
         </Route>
         <Route path="/Course/CsCoursedes/:sid?" exact>
-          <CsCoursedes setNavCartQty={setNavCartQty} />
+          <CsCoursedes
+            setNavCartQty={setNavCartQty}
+            setCartIconImg={setCartIconImg}
+          />
         </Route>
         <Route path="/Course/CsCoursedesn/:sid?" exact>
           <CsCoursedesn />
