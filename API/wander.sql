@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2021 年 11 月 11 日 22:57
+-- 產生時間： 2021 年 11 月 11 日 23:01
 -- 伺服器版本： 10.4.20-MariaDB
 -- PHP 版本： 7.4.21
 
@@ -366,6 +366,15 @@ CREATE TABLE `order_detail` (
   `product_sid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- 傾印資料表的資料 `order_detail`
+--
+
+INSERT INTO `order_detail` (`sid`, `order_main_id`, `product_sid`) VALUES
+(126, 'WX437808', 63),
+(127, 'WX437808', 65),
+(128, 'WX437808', 68);
+
 -- --------------------------------------------------------
 
 --
@@ -382,6 +391,13 @@ CREATE TABLE `order_main` (
   `total_price` int(11) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `order_main`
+--
+
+INSERT INTO `order_main` (`sid`, `order_id`, `member_sid`, `pay_method`, `cstoresort`, `order_status`, `total_price`, `created_at`) VALUES
+(58, 'WX437808', 1021, 3, 0, 1, 6680, '2021-11-11 23:01:10');
 
 -- --------------------------------------------------------
 
@@ -811,7 +827,7 @@ ALTER TABLE `art_messenger`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `chat_conversation`
@@ -847,13 +863,13 @@ ALTER TABLE `member`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_main`
 --
 ALTER TABLE `order_main`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `schedule`
