@@ -50,7 +50,7 @@ export default withRouter(function StClassroom() {
   const [videos, setVideos] = useState('')
   const takeClass = sessionStorage.getItem('takeClass')
   useEffect(() => {
-    if (token && identity === 0) {
+    if (token && identity !== 0) {
       ;(async () => {
         let r = await axios.get(
           `http://localhost:3001/stprofile/list`,
@@ -70,25 +70,31 @@ export default withRouter(function StClassroom() {
       history.push('/')
     }
 
-    ;(async () => {
-      let r = await axios.post(
-        `http://localhost:3001/stcourse/boughtCourse`,
-        {
-          courseSid: takeClass,
-          member_sid: JSON.parse(member).sid,
+    if (!takeClass) {
+      history.push('/StIndex/StCourse')
+    } else {
+      ;(async () => {
+        let r = await axios.post(
+          `http://localhost:3001/stcourse/boughtCourse`,
+          {
+            courseSid: takeClass,
+            member_sid: JSON.parse(member).sid,
+          }
+        )
+        if (!r.data[0]) {
+          history.push('/StIndex/StCourse')
+          return
         }
-      )
-      if (!r.data[0]) {
-        history.push('/StIndex/StCourse')
-        return
-      }
-      setFirst(`${API_HOST}/video/${r.data[0].video_link}`)
-      setActive(r.data[0].sid)
-      setVideos(r.data)
+        setFirst(
+          `${API_HOST}/video/${r.data[0].video_link}`
+        )
+        setActive(r.data[0].sid)
+        setVideos(r.data)
 
-      // console.log('videos', r.data)
-      // console.log('active', r.data[0].sid)
-    })()
+        // console.log('videos', r.data)
+        // console.log('active', r.data[0].sid)
+      })()
+    }
   }, [imgSrc])
 
   useEffect(() => {
