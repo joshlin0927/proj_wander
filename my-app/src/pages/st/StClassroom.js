@@ -50,7 +50,7 @@ export default withRouter(function StClassroom() {
   const [videos, setVideos] = useState('')
   const takeClass = sessionStorage.getItem('takeClass')
   useEffect(() => {
-    if (token && identity !== 0) {
+    if (token && identity === 0) {
       ;(async () => {
         let r = await axios.get(
           `http://localhost:3001/stprofile/list`,
@@ -312,7 +312,7 @@ export default withRouter(function StClassroom() {
           </div>
         </div>
 
-        <div class="row StTitleRow">
+        <div className="row StTitleRow">
           <div className=" col-12 col-md-7 offset-md-2 mb-5 p-0">
             <h3 className="">
               課程標題:
