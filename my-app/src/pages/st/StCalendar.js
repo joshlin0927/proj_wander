@@ -22,8 +22,10 @@ export default function StCalendar(props) {
   const history = useHistory()
   const token = localStorage.getItem('token')
   const member = localStorage.getItem('member')
-  const identity = JSON.parse(member).identity
-  const studentSid = JSON.parse(member).sid
+    ? localStorage.getItem('member')
+    : ''
+  const identity = member ? JSON.parse(member).identity : ''
+  const studentSid = member ? JSON.parse(member).sid : ''
   const { auth } = props
   const [imgSrc, setImgSrc] = useState('')
   const [events, setEvents] = useState([{}])
@@ -280,12 +282,13 @@ export default function StCalendar(props) {
             </span>
           </div>
         </div>
-
         <div className="row">
           <StSideBar2 imgSrc={imgSrc} />
           <div
             className="col-md-8 col-12 offset-0 offset-md-1 p-2 big_calendar"
-            style={{ backgroundColor: 'white' }}
+            style={{
+              backgroundColor: 'white',
+            }}
           >
             <Calendar
               {...{
@@ -307,14 +310,12 @@ export default function StCalendar(props) {
             />
           </div>
         </div>
-
         {/* <div className="coursesection-m col-12">
-          <CalendarCourseItem />
-        </div> */}
-        <div className="h30"></div>
-        <div className="h30"></div>
+                <CalendarCourseItem />
+              </div> */}
+        <div className="h30"> </div>
+        <div className="h30"> </div>
       </div>
-
       <div className={`allwraper  ${schedule}`}>
         <div className="calendardec-side col-md-10 col-12">
           <div className="calendardec-insideblock col-md-10 col-12">
@@ -326,7 +327,6 @@ export default function StCalendar(props) {
             >
               close
             </div>
-
             <div className="schedulecoursesection col-md-10 col-12">
               <Carousel cols={1} rows={1} gap={10} loop>
                 {courses.length !== 0 ? (
@@ -345,15 +345,14 @@ export default function StCalendar(props) {
                     )
                   })
                 ) : (
-                  <></>
+                  <> </>
                 )}
               </Carousel>
             </div>
           </div>
         </div>
       </div>
-      <div className="bgicalendar"></div>
-      <Footer />
+      <div className="bgicalendar"> </div> <Footer />
     </>
   )
 }

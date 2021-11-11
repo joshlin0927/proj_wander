@@ -12,6 +12,7 @@ export default function GooLogin() {
       {
         email: response.profileObj.email,
         password: response.profileObj.googleId,
+
       }
     )
     if (r) {
@@ -29,13 +30,21 @@ export default function GooLogin() {
           showConfirmButton: false,
           timer: 1500,
         })
-        history.goBack()
+        history.push('/')
       }
       if (r.data.error === '無此帳號') {
         Swal.fire({
           icon: 'error',
           title: '登愣',
           text: '您尚未註冊',
+        })
+        return
+      }
+      if (r.data.error === '帳號重複') {
+        Swal.fire({
+          icon: 'error',
+          title: '登愣',
+          text: '此帳號已使用過',
         })
         return
       }

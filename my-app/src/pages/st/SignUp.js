@@ -32,6 +32,15 @@ export default withRouter(function SignUp(props) {
     email: '',
     password: '',
   })
+  const member = localStorage.getItem('member')
+    ? localStorage.getItem('member')
+    : ''
+  //使用者登入後無法進到註冊頁
+  useEffect(() => {
+    if (member) {
+      history.push('/')
+    }
+  })
 
   //將使用者在欄位輸入的值進行更新
   const handleFieldChange = (e) => {

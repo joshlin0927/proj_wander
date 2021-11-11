@@ -19,8 +19,10 @@ router.post("/login-jwt", async (req, res) => {
 
   if (!rs.length) {
     // 帳號錯誤
-  
     output.error="無此帳號"
+    return res.json(output);
+  } else if (req.body.email === rs[0].email && rs[0].googleidentity===0) {
+    output.error = "帳號重複"
     return res.json(output);
   }
   const success = await bcrypt.compare(req.body.password, rs[0].password);
