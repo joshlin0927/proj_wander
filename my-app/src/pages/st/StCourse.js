@@ -24,7 +24,7 @@ export default withRouter(function StCourse(props) {
     : ''
   const identity = member ? JSON.parse(member).identity : ''
   const studentSid = member ? JSON.parse(member).sid : ''
-  const [courses, setCourses] = useState([{}])
+  const [courses, setCourses] = useState([])
   const [RecommandedTeacher, setRecommandedTeacher] =
     useState({})
   const { auth } = props
@@ -35,7 +35,6 @@ export default withRouter(function StCourse(props) {
   //要呈現的課程資料
   const courseData = (
     <>
-      {console.log(courses)}
       {courses.length !== 0 ? (
         courses.map((course, i) => {
           return (
@@ -80,7 +79,6 @@ export default withRouter(function StCourse(props) {
 
           if (Data.data.rows !== []) {
             setCourses(Data.data.rows)
-            console.log('coursedata', Data.data)
           }
         })()
       }, 1000)
@@ -118,7 +116,7 @@ export default withRouter(function StCourse(props) {
         </div>
 
         <div className="row justify-content-center d-flex">
-          <StSideBar2 imgSrc={imgSrc} />
+          <StSideBar2 imgSrc={imgSrc} courses={courses} />
           <div className="stcoursesection  col-12 col-md-10">
             {isLoading ? <Spinner /> : courseData}
           </div>
