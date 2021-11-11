@@ -97,7 +97,7 @@ function Login(props) {
           )
           setAuth(true)
           setUser(obj.member.sid)
-          history.goBack()
+          history.push('/')
         } else {
           setAuth(false)
           if (auth === false) {
@@ -314,9 +314,10 @@ function Login(props) {
                       )
                         .then((r) => r.json())
                         .then((response) => {
-                          console.log('response', response)
-                          firstname =
-                            response.result[0].firstname
+                          // console.log('response', response)
+                          firstname = response
+                            ? response.result[0].firstname
+                            : ''
                           if (
                             response.result[0]
                               .googleidentity === 1

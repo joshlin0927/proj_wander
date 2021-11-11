@@ -35,6 +35,7 @@ export default withRouter(function StCourse(props) {
   //要呈現的課程資料
   const courseData = (
     <>
+      {console.log(courses)}
       {courses.length !== 0 ? (
         courses.map((course, i) => {
           return (
@@ -43,7 +44,7 @@ export default withRouter(function StCourse(props) {
               sid={course.product_sid}
               name={course.course_name}
               courseimg={course.course_img}
-              teacher={course.firstname}
+              teacher={course.nickname}
             />
           )
         })
@@ -137,7 +138,7 @@ export default withRouter(function StCourse(props) {
                   teacherimg={
                     IMG_PATH + '/' + teacher.avatar
                   }
-                  teachersname={teacher.firstname}
+                  teachersname={teacher.nickname}
                 />
               )
             })
