@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 57 57.57"><g id="fae74586-db61-4bf4-be52-9e3cb53643dc" data-name="圖層 2"><g id="aca7287f-5dcf-4d78-bef7-928b49a5c3c1" data-name="圖層 1"><path d="M15.2,8.22V0H0V8.22H7.6V37h38L57,20.56V8.22ZM56,20.08,44.84,35.79H8.6V7.22H.78V1H14.2V9.22H56Z"/><path d="M7.6,49.34V45.23H22.8v4.11c0,4.54-3.4,8.23-7.6,8.23S7.6,53.88,7.6,49.34Z"/><path d="M45.6,45.23H30.4v4.11c0,4.54,3.4,8.23,7.6,8.23s7.6-3.69,7.6-8.23Z"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 57 57.6" style="enable-background:new 0 0 57 57.6;" xml:space="preserve">
+<g id="fae74586-db61-4bf4-be52-9e3cb53643dc">
+	<g id="aca7287f-5dcf-4d78-bef7-928b49a5c3c1">
+		<path d="M15.2,8.2V0H0v8.2h7.6V37h38L57,20.6V8.2H15.2z M54.2,19.6L44,33.9H10.4V5.5H2.4V2.7h10.3V11h41.4V19.6z"/>
+		<path d="M7.6,49.3v-4.1h15.2v4.1c0,4.5-3.4,8.2-7.6,8.2S7.6,53.9,7.6,49.3z"/>
+		<path d="M45.6,45.2H30.4v4.1c0,4.5,3.4,8.2,7.6,8.2s7.6-3.7,7.6-8.2V45.2z"/>
+	</g>
+</g>
+</svg>
