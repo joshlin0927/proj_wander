@@ -51,6 +51,7 @@ export default function GooleSignUp(props) {
     <>
       <GoogleLogin
         clientId="832788875078-ordktuamhlfprtd15ao7gdkfnm76jm72.apps.googleusercontent.com"
+        className="googleloginbtn"
         buttonText="Sign Up With Google"
         onSuccess={handleGoogleSignUp}
         onFailure={handleGoogleSignUp}

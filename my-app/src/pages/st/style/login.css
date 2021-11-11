@@ -2,7 +2,14 @@
    font-family: Noto Sans, Noto Sans TC;
  }
 
-
+.googleloginbtn{
+ border-radius: 5px !important;
+ color:rgb(94, 93, 93) !important;
+  
+}
+.googleloginbtn:hover{
+  color:black !important;
+}
 
  .back {
    width: 80px;

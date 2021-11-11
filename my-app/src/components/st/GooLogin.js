@@ -44,6 +44,7 @@ export default function GooLogin() {
   return (
     <>
       <GoogleLogin
+        className="googleloginbtn"
         clientId="832788875078-ordktuamhlfprtd15ao7gdkfnm76jm72.apps.googleusercontent.com"
         buttonText="Login With Google"
         onSuccess={handleGoogleLogin}
