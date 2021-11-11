@@ -128,25 +128,34 @@ function Article(props) {
           </div>
         </div>
         <div className="row justify-content-center d-flex">
-          {isLoading ? (
-            <div className="courseSpinner">
-              <Spinner />
-            </div>
-          ) : (
-            <div className="coursesection   col-md-10 col-lg-10">
-              {TcCourses.length > 0 ? (
-                <ArticleList
-                  displayCourse={displayCourse}
-                  setDisplayCourse={setDisplayCourse}
-                  // setImgSrc={
-                  //   setImgSrc
-                  // }
-                  // RemoveCourse={RemoveCourse}
-                  // setRemoveCourse={setRemoveCourse}
-                />
-              ) : null}
-            </div>
-          )}
+          <div
+            className={
+              isLoading
+                ? 'courseSpinner'
+                : 'courseSpinner opacity0-CourseSection'
+            }
+          >
+            <Spinner />
+          </div>
+          <div
+            className={
+              isLoading
+                ? 'coursesection col-md-10 col-lg-10 opacity0-CourseSection'
+                : 'coursesection col-md-10 col-lg-10 opacity1-CourseSection'
+            }
+          >
+            {TcCourses.length > 0 ? (
+              <ArticleList
+                displayCourse={displayCourse}
+                setDisplayCourse={setDisplayCourse}
+                // setImgSrc={
+                //   setImgSrc
+                // }
+                // RemoveCourse={RemoveCourse}
+                // setRemoveCourse={setRemoveCourse}
+              />
+            ) : null}
+          </div>
           {/* <div className="coursesection   col-md-10 col-lg-10">
             {TcCourses.length > 0 ? (
               <ArticleList
@@ -164,161 +173,177 @@ function Article(props) {
       </div>
       {isLoading ? null : (
         <div className="TCallwrapera-sing-out">
-        <div className="TCallwraperw-out">
-        <div className="TCallwraperw-white-block">
-
-          <div className="col-12">
-            <div className="post-sidebar-area">
-              <div className="TCallwraperw-out-sidebar-widget-area">
-                <h5 className="title">Advertisement</h5>
-                <a href="#">
-                  <img
-                    src={`${devUrl}/images/article/out/add.gif`}
-                    alt=""
-                  />
-                </a>
-              </div>
-            </div>
-
-            <div className="TCallwraperw-out-sidebar-widget-area">
-              <h5 className="title">Latest Posts</h5>
-
-              <div className="widget-content">
-                <div className="single-blog-post d-flex align-items-center widget-post">
-                  <div className="post-thumbnail">
-                    <Link
-                      to={`/ArtIndex/ArticleMessage?articleSid=101`}
-                    >
+          <div className="TCallwraperw-out">
+            <div className="TCallwraperw-white-block">
+              <div className="col-12">
+                <div className="post-sidebar-area">
+                  <div className="TCallwraperw-out-sidebar-widget-area">
+                    <h5 className="title">Advertisement</h5>
+                    <a href="#">
                       <img
-                        src={`${devUrl}/images/index/06.png`}
+                        src={`${devUrl}/images/article/out/add.gif`}
                         alt=""
                       />
-                    </Link>
-                  </div>
-                  <div className="post-content">
-                    <Link to={`/ArtIndex/ArticleMessage?articleSid=101`} class="post-tag">
-                      #熱門影集
-                    </Link>
-                    <h4>
-                      <Link
-                       to={`/ArtIndex/ArticleMessage?articleSid=101`}
-                       className="post-headline"
-                      >
-                        后翼棄兵
-                      </Link>
-                    </h4>
-                    <div className="post-meta">
-                      <p>
-                        <Link to={`/ArtIndex/ArticleMessage?articleSid=101`}>19 November</Link>
-                      </p>
-                    </div>
+                    </a>
                   </div>
                 </div>
 
-                <div className="single-blog-post d-flex align-items-center widget-post">
-                  <div className="post-thumbnail">
-                    <Link
-                      to={`/ArtIndex/ArticleMessage?articleSid=96`}
-                    >
-                      <img
-                        src={`${devUrl}/images/index/07.png`}
-                        alt=""
-                      />
-                    </Link>
-                  </div>
-                  <div className="post-content">
-                    <Link  to={`/ArtIndex/ArticleMessage?articleSid=96`} class="post-tag">
-                      #異國節慶
-                    </Link>
+                <div className="TCallwraperw-out-sidebar-widget-area">
+                  <h5 className="title">Latest Posts</h5>
 
-                    <h4>
-                      <Link
-                         to={`/ArtIndex/ArticleMessage?articleSid=96`}
-                         className="post-headline"
-                      >
-                        燃燒自我的限時烏托邦
-                      </Link>
-                    </h4>
-                    <div className="post-meta">
-                      <p>
-                        <Link  to={`/ArtIndex/ArticleMessage?articleSid=96`}>19 November</Link>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="single-blog-post d-flex align-items-center widget-post">
-                  <div className="post-thumbnail">
-                    <Link
-                      to={`/ArtIndex/ArticleMessage?articleSid=103`}
-                    >
-                      <img
-                        src={`${devUrl}/images/index/08.png`}
-                        alt=""
-                      />
-                    </Link>
-                  </div>
-
-                  <div className="post-content">
-                    <Link    to={`/ArtIndex/ArticleMessage?articleSid=103`}
- 
-                    lass="post-tag">
-                      #熱門影集
-                    </Link>
-
-                    <h4>
-                      <Link
-                       to={`/ArtIndex/ArticleMessage?articleSid=103`}
-
-                       className="post-headline"
-                      >
-                        黑道律師文森佐
-                      </Link>
-                    </h4>
-                    <div className="post-meta">
-                      <p>
-                        <Link                       to={`/ArtIndex/ArticleMessage?articleSid=103`}
-
+                  <div className="widget-content">
+                    <div className="single-blog-post d-flex align-items-center widget-post">
+                      <div className="post-thumbnail">
+                        <Link
+                          to={`/ArtIndex/ArticleMessage?articleSid=101`}
                         >
-                        19 November
+                          <img
+                            src={`${devUrl}/images/index/06.png`}
+                            alt=""
+                          />
                         </Link>
-                      </p>
+                      </div>
+                      <div className="post-content">
+                        <Link
+                          to={`/ArtIndex/ArticleMessage?articleSid=101`}
+                          className="post-tag"
+                        >
+                          #熱門影集
+                        </Link>
+                        <h4>
+                          <Link
+                            to={`/ArtIndex/ArticleMessage?articleSid=101`}
+                            className="post-headline"
+                          >
+                            后翼棄兵
+                          </Link>
+                        </h4>
+                        <div className="post-meta">
+                          <p>
+                            <Link
+                              to={`/ArtIndex/ArticleMessage?articleSid=101`}
+                            >
+                              19 November
+                            </Link>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="single-blog-post d-flex align-items-center widget-post">
+                      <div className="post-thumbnail">
+                        <Link
+                          to={`/ArtIndex/ArticleMessage?articleSid=96`}
+                        >
+                          <img
+                            src={`${devUrl}/images/index/07.png`}
+                            alt=""
+                          />
+                        </Link>
+                      </div>
+                      <div className="post-content">
+                        <Link
+                          to={`/ArtIndex/ArticleMessage?articleSid=96`}
+                          className="post-tag"
+                        >
+                          #異國節慶
+                        </Link>
+
+                        <h4>
+                          <Link
+                            to={`/ArtIndex/ArticleMessage?articleSid=96`}
+                            className="post-headline"
+                          >
+                            燃燒自我的限時烏托邦
+                          </Link>
+                        </h4>
+                        <div className="post-meta">
+                          <p>
+                            <Link
+                              to={`/ArtIndex/ArticleMessage?articleSid=96`}
+                            >
+                              19 November
+                            </Link>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="single-blog-post d-flex align-items-center widget-post">
+                      <div className="post-thumbnail">
+                        <Link
+                          to={`/ArtIndex/ArticleMessage?articleSid=103`}
+                        >
+                          <img
+                            src={`${devUrl}/images/index/08.png`}
+                            alt=""
+                          />
+                        </Link>
+                      </div>
+
+                      <div className="post-content">
+                        <Link
+                          to={`/ArtIndex/ArticleMessage?articleSid=103`}
+                          lass="post-tag"
+                        >
+                          #熱門影集
+                        </Link>
+
+                        <h4>
+                          <Link
+                            to={`/ArtIndex/ArticleMessage?articleSid=103`}
+                            className="post-headline"
+                          >
+                            黑道律師文森佐
+                          </Link>
+                        </h4>
+                        <div className="post-meta">
+                          <p>
+                            <Link
+                              to={`/ArtIndex/ArticleMessage?articleSid=103`}
+                            >
+                              19 November
+                            </Link>
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          </div>
         </div>
-      </div>
       )}
-
-      <div className="TCallwrapera-sing">
-        <div className="TCallwraperw">
-          <div className="white-block">
-            <div className="yellow-area-but-1 ">
-              熱門文章
+      {isLoading ? null : (
+        <div className="TCallwrapera-sing">
+          <div className="TCallwraperw">
+            <div className="white-block">
+              <div className="yellow-area-but-1 ">
+                熱門文章
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="sns-sing">
-        <div className="nav_footer-sing">
-          <img
-            src={`${devUrl}/images/index/icon/Facebook.svg`}
-            alt=""
-            className="Facebook-sing"
-          />
+      )}
+      {isLoading ? null : (
+        <div className="sns-sing">
+          <div className="nav_footer-sing">
+            <img
+              src={`${devUrl}/images/index/icon/Facebook.svg`}
+              alt=""
+              className="Facebook-sing"
+            />
+          </div>
+          <div className="nav_footera-sing">
+            <img
+              src={`${devUrl}/images/index/icon/twitter.svg`}
+              alt=""
+              className="Facebook-sing"
+            />
+          </div>
         </div>
-        <div className="nav_footera-sing">
-          <img
-            src={`${devUrl}/images/index/icon/twitter.svg`}
-            alt=""
-            className="Facebook-sing"
-          />
-        </div>
-      </div>
+      )}
       <ArBgDecorationNormal />
       <div className="bgbeige"> </div>
       <Footer />

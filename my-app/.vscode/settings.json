@@ -11,7 +11,7 @@
   "prettier.disableLanguages": ["js"],
   "eslint.autoFixOnSave": true,
   "eslint.alwaysShowStatus": true,
-  "files.autoSave": "off",
+  "files.autoSave": "afterDelay",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }

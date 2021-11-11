@@ -110,12 +110,22 @@ function Article(prop) {
           </div>
         </div>
         <div className="row justify-content-center d-flex">
-        {isLoading ? (
-            <div className="courseSpinner">
-              <Spinner />
-            </div>
-          ) : (
-            <div className="coursesection col-md-10 col-lg-10">
+          <div
+            className={
+              isLoading
+                ? 'courseSpinner'
+                : 'courseSpinner opacity0-CourseSection'
+            }
+          >
+            <Spinner />
+          </div>
+          <div
+            className={
+              isLoading
+                ? 'coursesection col-md-10 col-lg-10 opacity0-CourseSection'
+                : 'coursesection col-md-10 col-lg-10 opacity1-CourseSection'
+            }
+          >
             {TcCourses.length > 0 ? (
               <ArticleListSt
                 displayCourse={displayCourse}
@@ -123,8 +133,6 @@ function Article(prop) {
               />
             ) : null}
           </div>
-          )}
-        
           {/* <div className="coursesection col-md-10 col-lg-10">
             {TcCourses.length > 0 ? (
               <ArticleListSt
@@ -259,7 +267,7 @@ function Article(prop) {
           </div>
         </div>
       )}
-
+      {isLoading ? null : (
       <div className="TCallwrapera-sing">
         <div className="TCallwraperw">
           <div className="white-block">
@@ -269,6 +277,9 @@ function Article(prop) {
           </div>
         </div>
       </div>
+      )}
+      {isLoading ? null : (
+
       <div className="sns-sing">
         <div className="nav_footer-sing">
           <img
@@ -285,6 +296,7 @@ function Article(prop) {
           />
         </div>
       </div>
+      )}
       <ArBgDecorationNormal />
       <div className="bgbeige"> </div>
       <Footer />

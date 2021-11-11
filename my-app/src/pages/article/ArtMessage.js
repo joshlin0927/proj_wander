@@ -331,7 +331,7 @@ function ArtMessage(prop) {
             <div className="TCallwraperw-out-sidebar-widget-area">
               <h5 className="title">Tags</h5>
               <div className="widget-content">
-                <ul class="tags">
+                <ul className="tags">
                   <li>
                     <Link to={`/ArtIndex/ArticleSt/`}>
                       國際角落
