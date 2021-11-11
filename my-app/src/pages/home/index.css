@@ -172,6 +172,8 @@
 .img-01 {
   border: 6px solid #fafafa;
   box-sizing: border-box;
+  width: 600px;
+  height: 600px;
 }
 
 .indexBigImg3 .img-03 {
