@@ -40,14 +40,7 @@ export default function GooLogin() {
         })
         return
       }
-      if (r.data.error === '帳號重複') {
-        Swal.fire({
-          icon: 'error',
-          title: '登愣',
-          text: '此帳號已使用過',
-        })
-        return
-      }
+      
     }
   }
   return (
