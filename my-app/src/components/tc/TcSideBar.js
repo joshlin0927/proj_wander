@@ -75,12 +75,16 @@ function TcSideBar(props) {
   const formRef = useRef(null)
   // 使用物件值作為狀態值，儲存所有欄位的值
   const [fields, setFields] = useState({
+    nickname: '',
+    nationality: '',
     language: '',
     resume: '',
   })
 
   // 存入錯誤訊息用
   const [fieldErrors, setFieldErrors] = useState({
+    nickname: '',
+    nationality: '',
     language: '',
     resume: '',
   })
@@ -312,6 +316,46 @@ function TcSideBar(props) {
               className="d-none"
               defaultValue="1"
             />
+            <input
+              name="nickname"
+              type="text"
+              className="col-12 allInputs"
+              placeholder="請輸入暱稱"
+              title="請填寫暱稱"
+              value={fields.nickname}
+              onChange={handleFieldChange}
+              required
+              minLength="2"
+            />
+            {fieldErrors.nickname === '' ? (
+              <label className="TCnotice" htmlFor="">
+                &nbsp;
+              </label>
+            ) : (
+              <label className="TCnotice" htmlFor="">
+                {fieldErrors.nickname}
+              </label>
+            )}
+            <input
+              name="nationality"
+              type="text"
+              className="col-12 allInputs"
+              placeholder="請輸入國籍"
+              title="請填寫國籍"
+              value={fields.nationality}
+              onChange={handleFieldChange}
+              required
+              minLength="2"
+            />
+            {fieldErrors.nationality === '' ? (
+              <label className="TCnotice" htmlFor="">
+                &nbsp;
+              </label>
+            ) : (
+              <label className="TCnotice" htmlFor="">
+                {fieldErrors.nationality}
+              </label>
+            )}
             <input
               name="language"
               type="text"

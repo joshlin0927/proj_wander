@@ -36,7 +36,10 @@ function TcPreview(props) {
             <div className="p-info-wrapper col-12">
               <div className="p-page-info">
                 <div className="TCname">
-                  {teacher.firstname}
+                  {teacher.nationality !== '台灣' &&
+                  teacher.nationality !== '日本'
+                    ? `${teacher.firstname} ${teacher.lastname}`
+                    : `${teacher.lastname}${teacher.firstname}`}
                 </div>
                 <div className="TCp-intro">
                   <div className="TCp-intro-title">
@@ -66,7 +69,7 @@ function TcPreview(props) {
                     <BuyCourseItem
                       CourseCover={c.course_img}
                       CourseName={c.course_name}
-                      TeacherName={c.course_category}
+                      course_category={c.course_category}
                       Price={c.course_price}
                     />
                   )

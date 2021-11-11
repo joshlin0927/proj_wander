@@ -45,8 +45,7 @@ function CompanyBackend() {
         setDisplayData(r.data.rows)
       }
     })()
-  }, [showUp])
-
+  }, [update])
 
   //修改會員狀態
   const [isShow, setIsShow] = useState(false)
@@ -150,7 +149,12 @@ function CompanyBackend() {
                   {data.length > 0 ? (
                     <MemberList
                       data={displayData}
+                      FormSubmit={FormSubmit}
+                      isShow={isShow}
                       handleIsShow={handleIsShow}
+                      handleIsClose={handleIsClose}
+                      selectedOption={selectedOption}
+                      setSelectedOption={setSelectedOption}
                       handleResumeShow={handleResumeShow}
                       setMemberSid={setMemberSid}
                       setResumeName={setResumeName}

@@ -13,7 +13,7 @@ import TcSearchBar from '../../components/tc/TcSearchBar'
 import TcAnalayticCourseList from '../../components/tc/TcAnalyticCourseList'
 import TcHasNoCourse from '../../components/tc/TcHasNoCourse'
 import TcChart from '../../components/tc/TcChart'
-import MyPagination from '../../components/MyPagination'
+// import MyPagination from '../../components/MyPagination'
 import TcBgDecorationNormal from '../../components/tc/TcBgDecorationNormal'
 import Footer from '../../components/Footer'
 
@@ -166,7 +166,7 @@ function TcAnalytic() {
                 text={'請點擊右上角的按鈕以新增課程'}
               />
             )}
-            <MyPagination />
+            {/* <MyPagination /> */}
           </form>
         </div>
       </div>

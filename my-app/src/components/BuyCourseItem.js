@@ -7,7 +7,7 @@ function BuyCourseItem(props) {
     courseSid,
     CourseCover,
     CourseName,
-    TeacherName,
+    course_category,
     Price,
   } = props
 
@@ -22,15 +22,13 @@ function BuyCourseItem(props) {
           alt=""
         />
         <div className="BuyCourseInfo">
-          <span className="BCIcoursename">
+          <span className="sh-coursename">
             {CourseName}
           </span>
-          <span className="BCIteachername">
-            {TeacherName}
+          <span className="sh-teachername">
+            {course_category}
           </span>
-          <span className="BCICoursePrice">
-            {Price} NTD
-          </span>
+          <span className="co-price">{Price} NTD</span>
         </div>
 
         <div className="BurCourseItemMask"></div>

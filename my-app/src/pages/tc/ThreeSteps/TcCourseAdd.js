@@ -316,7 +316,7 @@ function TcCourseAdd(props) {
                 required
               >
                 <option value="" disabled>
-                  請選擇
+                  請選擇課程種類
                 </option>
                 <option value="日文">日文</option>
                 <option value="英文">英文</option>
@@ -339,8 +339,8 @@ function TcCourseAdd(props) {
                 name="course_price"
                 value={fields.course_price}
                 onChange={handleFieldChange}
+                title="請輸入課程定價"
                 required
-                min="0"
               />
               {fieldErrors.course_price === '' ? (
                 <label className="TCnotice" htmlFor="">
