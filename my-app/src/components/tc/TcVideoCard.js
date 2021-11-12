@@ -252,34 +252,46 @@ function TcVideoCard(props) {
         onHide={handleIsVidClose}
         centered
       >
-        <ReactPlayer
-          ref={playerRef}
-          className="playerBG player"
-          url={`${API_HOST}/video/${video_link}`}
-          playing={playing}
-          muted={muted}
-          volume={volume}
-          onProgress={handleProgress}
-          seeking={seeking}
-        />
-        {/* 撥放器控制 */}
-        <PlayerControls
-          handlePlayNPause={handlePlayNPause}
-          playing={playing}
-          fade={fade}
-          handleMute={handleMute}
-          muted={muted}
-          handleVolumeChange={handleVolumeChange}
-          handleVolumeUp={handleVolumeUp}
-          volume={volume}
-          toggleFullScreen={toggleFullScreen}
-          played={played}
-          seeking={handleSeekChange}
-          seekingMouseDown={seekingMouseDown}
-          seekingMouseUp={seekingMouseUp}
-          elapsedTime={elapsedTime}
-          totalDuration={totalDuration}
-        />
+        <Modal.Body
+          style={{
+            'padding-left': '1rem',
+            'padding-right': '1rem',
+            'padding-bottom': '4rem',
+          }}
+        >
+          <Modal.Title>影片資訊</Modal.Title>
+          <ReactPlayer
+            ref={playerRef}
+            className="playerBG player"
+            url={`${API_HOST}/video/${video_link}`}
+            width="100%"
+            height="100%"
+            playing={playing}
+            muted={muted}
+            volume={volume}
+            onProgress={handleProgress}
+            seeking={seeking}
+          />
+
+          {/* 撥放器控制 */}
+          <PlayerControls
+            handlePlayNPause={handlePlayNPause}
+            playing={playing}
+            fade={fade}
+            handleMute={handleMute}
+            muted={muted}
+            handleVolumeChange={handleVolumeChange}
+            handleVolumeUp={handleVolumeUp}
+            volume={volume}
+            toggleFullScreen={toggleFullScreen}
+            played={played}
+            seeking={handleSeekChange}
+            seekingMouseDown={seekingMouseDown}
+            seekingMouseUp={seekingMouseUp}
+            elapsedTime={elapsedTime}
+            totalDuration={totalDuration}
+          />
+        </Modal.Body>
       </Modal>
       <Modal show={isShow} onHide={handleIsClose} centered>
         <Modal.Header>

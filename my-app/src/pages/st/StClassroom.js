@@ -277,6 +277,7 @@ export default withRouter(function StClassroom() {
               className="playerBG"
               url={!videoLink ? first : videoLink}
               width="100%"
+              height="100%"
               playing={playing}
               muted={muted}
               volume={volume}
@@ -284,23 +285,25 @@ export default withRouter(function StClassroom() {
               seeking={seeking}
             />
             {/* 撥放器控制 */}
-            <PlayerControls
-              handlePlayNPause={handlePlayNPause}
-              playing={playing}
-              fade={fade}
-              handleMute={handleMute}
-              muted={muted}
-              handleVolumeChange={handleVolumeChange}
-              handleVolumeUp={handleVolumeUp}
-              volume={volume}
-              toggleFullScreen={toggleFullScreen}
-              played={played}
-              seeking={handleSeekChange}
-              seekingMouseDown={seekingMouseDown}
-              seekingMouseUp={seekingMouseUp}
-              elapsedTime={elapsedTime}
-              totalDuration={totalDuration}
-            />
+            <div className="mt-6">
+              <PlayerControls
+                handlePlayNPause={handlePlayNPause}
+                playing={playing}
+                fade={fade}
+                handleMute={handleMute}
+                muted={muted}
+                handleVolumeChange={handleVolumeChange}
+                handleVolumeUp={handleVolumeUp}
+                volume={volume}
+                toggleFullScreen={toggleFullScreen}
+                played={played}
+                seeking={handleSeekChange}
+                seekingMouseDown={seekingMouseDown}
+                seekingMouseUp={seekingMouseUp}
+                elapsedTime={elapsedTime}
+                totalDuration={totalDuration}
+              />
+            </div>
           </div>
           <div className="playlist col-10 col-md-3">
             <PcCoursePlaylist

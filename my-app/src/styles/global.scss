@@ -51,6 +51,10 @@ a {
   }
 }
 
+.mt-6 {
+  margin-top: 4rem;
+}
+
 .btn {
   display: flex;
   align-items: center;
@@ -178,13 +182,13 @@ a {
   position: relative;
   // background: #000;
 }
-.playerBG > video {
-  height: auto;
+.playerBG video {
+  object-fit: cover;
+  // height: auto !important;
 }
 
 .player {
   width: 100%;
-  position: relative;
 }
 
 /* 撥放器控制的最頂層 */
@@ -193,7 +197,8 @@ a {
   left: 0;
   top: 0;
   right: 0;
-  bottom: -1rem;
+  // bottom: 12.4rem;
+  bottom: 0rem;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
@@ -291,6 +296,18 @@ a {
   border-radius: 5px;
   overflow: hidden;
 }
+// @media (min-width: 425px) {
+//   .playerControlWrap {
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     right: 0;
+//     bottom: 10.1rem;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//   }
+// }
 
 @media (min-width: 768px) {
   .playlist-m {
@@ -313,19 +330,7 @@ a {
     left: 0;
     top: 0;
     right: 0;
-    bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-}
-
-@media (min-width: 1024px) {
-  .playerControlWrap {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
+    // bottom: 11.4rem;
     bottom: 0;
     display: flex;
     flex-direction: column;
@@ -333,18 +338,31 @@ a {
   }
 }
 
-@media (min-width: 1440px) {
-  .playerControlWrap {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: -1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-}
+// @media (min-width: 1024px) {
+//   .playerControlWrap {
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     right: 0;
+//     bottom: 6.45rem;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//   }
+// }
+
+// @media (min-width: 1440px) {
+//   .playerControlWrap {
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     right: 0;
+//     bottom: 2.68rem;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//   }
+// }
 
 /* 清單卡片 */
 .clip {
