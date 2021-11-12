@@ -26,6 +26,7 @@
 .cartIcon {
   height: 57px;
   width: 57px;
+  object-fit: contain !important;
 }
 .cartTitleTxt {
   color: black;
