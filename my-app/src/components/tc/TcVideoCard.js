@@ -1,10 +1,18 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Modal } from 'react-bootstrap'
 import moment from 'moment'
 import momentDurationFormatSetup from 'moment-duration-format'
+import screenfull from 'screenfull'
+import {
+  TcVideo__DELETE,
+  TcVideo_EDIT,
+  API_HOST,
+} from '../../config'
 
-import { TcVideo__DELETE, TcVideo_EDIT } from '../../config'
+import ReactPlayer from 'react-player'
+// 撥放器
+import PlayerControls from '../PlayerControls'
 
 function TcVideoCard(props) {
   const {
@@ -13,6 +21,7 @@ function TcVideoCard(props) {
     // course_name,
     // video_cover,
     video_name,
+    video_link,
     // teacher_sid,
     created_at,
     duration1,
@@ -71,6 +80,123 @@ function TcVideoCard(props) {
     })()
   }
 
+  //預覽影片
+  const [isVidShow, setIsVidShow] = useState(false)
+  const handleIsVidClose = () => setIsVidShow(false)
+  const handleIsVidShow = () => setIsVidShow(true)
+
+  // 撥放器
+  const [player, setPlayer] = useState({
+    playing: false,
+    muted: false,
+    volume: 1,
+    played: 0,
+    seeking: false,
+    fade: '',
+  })
+
+  // 捕捉撥放器與撥放器控制
+  const playerContainerRef = useRef(null)
+
+  // 捕捉撥放器
+  const playerRef = useRef(null)
+
+  const { playing, muted, volume, played, seeking, fade } =
+    player
+
+  const handlePlayNPause = () => {
+    setPlayer({
+      ...player,
+      playing: !player.playing,
+      fade: 'playIconFade-out',
+    })
+  }
+
+  // 音量控制
+  const handleMute = () => {
+    setPlayer({ ...player, muted: !player.muted })
+  }
+
+  const handleVolumeChange = (e, newValue) => {
+    setPlayer({
+      ...player,
+      volume: parseFloat(newValue / 100),
+      muted: newValue === 0 ? true : false,
+    })
+  }
+
+  const handleVolumeUp = (e, newValue) => {
+    setPlayer({
+      ...player,
+      volume: parseFloat(newValue / 100),
+      muted: newValue === 0 ? true : false,
+    })
+  }
+
+  const toggleFullScreen = () => {
+    screenfull.toggle(playerContainerRef.current)
+  }
+
+  // 捕捉時間跳轉與點擊跳轉
+  const handleProgress = (changeState) => {
+    // console.log(changeState)
+    if (!player.seeking) {
+      setPlayer({ ...player, ...changeState })
+    }
+  }
+
+  const handleSeekChange = (e, newValue) => {
+    // console.log(newValue)
+    setPlayer({
+      ...player,
+      played: parseFloat(newValue / 100),
+    })
+  }
+
+  const seekingMouseDown = (e) => {
+    setPlayer({
+      ...player,
+      seeking: true,
+    })
+  }
+
+  const seekingMouseUp = (e, newValue) => {
+    setPlayer({
+      ...player,
+      seeking: false,
+    })
+    playerRef.current.seekTo(newValue / 100)
+  }
+
+  // 計算現在時間與總長
+  const currentTime = playerRef.current
+    ? playerRef.current.getCurrentTime()
+    : '00:00'
+  // console.log('currentTime', currentTime)
+
+  const duration = playerRef.current
+    ? playerRef.current.getDuration()
+    : '00:00'
+  // console.log('duration', duration)
+
+  const elapsedTime =
+    currentTime < 216000
+      ? moment
+          .duration(currentTime, 'seconds')
+          .format('mm:ss', { trim: false })
+      : moment
+          .duration(currentTime, 'seconds')
+          .format('HH:mm:ss', { trim: false })
+
+  const totalDuration =
+    duration < 216000
+      ? moment
+          .duration(duration, 'seconds')
+          .format('mm:ss', { trim: false })
+      : moment
+          .duration(duration, 'seconds')
+          .format('HH:mm:ss', { trim: false })
+
   return (
     <>
       <div className="TCcourse-card col-12">
@@ -90,18 +216,24 @@ function TcVideoCard(props) {
             />
           )}
         </div> */}
-        <div
-          className="TCcourse-info"
-          onClick={handleIsShow}
-        >
-          <div className="TCcourse-title">
+        <div className="TCcourse-info">
+          <div
+            className="TCcourse-title w-50"
+            onClick={handleIsShow}
+          >
             <span>{video_name}</span>
           </div>
           <div className="TCcourse-info-right">
-            <div className="TCcourse-detail">
+            <div
+              className="TCcourse-detail clickZone py-5"
+              onClick={handleIsVidShow}
+            >
+              <i class="far fa-play-circle"></i>
+            </div>
+            <div className="TCcourse-detail py-5">
               <span>上傳日期：</span> {created_at}
             </div>
-            <div className="TCcourse-detail">
+            <div className="TCcourse-detail py-5">
               <span>影片長度：</span>
               {videoTime}
             </div>
@@ -115,6 +247,40 @@ function TcVideoCard(props) {
           <i className="far fa-times-circle"></i>
         </div>
       </div>
+      <Modal
+        show={isVidShow}
+        onHide={handleIsVidClose}
+        centered
+      >
+        <ReactPlayer
+          ref={playerRef}
+          className="playerBG player"
+          url={`${API_HOST}/video/${video_link}`}
+          playing={playing}
+          muted={muted}
+          volume={volume}
+          onProgress={handleProgress}
+          seeking={seeking}
+        />
+        {/* 撥放器控制 */}
+        <PlayerControls
+          handlePlayNPause={handlePlayNPause}
+          playing={playing}
+          fade={fade}
+          handleMute={handleMute}
+          muted={muted}
+          handleVolumeChange={handleVolumeChange}
+          handleVolumeUp={handleVolumeUp}
+          volume={volume}
+          toggleFullScreen={toggleFullScreen}
+          played={played}
+          seeking={handleSeekChange}
+          seekingMouseDown={seekingMouseDown}
+          seekingMouseUp={seekingMouseUp}
+          elapsedTime={elapsedTime}
+          totalDuration={totalDuration}
+        />
+      </Modal>
       <Modal show={isShow} onHide={handleIsClose} centered>
         <Modal.Header>
           <Modal.Title>影片資訊</Modal.Title>

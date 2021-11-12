@@ -175,8 +175,13 @@ a {
 
 /*=============== 撥放器 ===============*/
 .playerBG {
-  background-color: #000;
+  position: relative;
+  // background: #000;
 }
+.playerBG > video {
+  height: auto;
+}
+
 .player {
   width: 100%;
   position: relative;
@@ -185,10 +190,10 @@ a {
 /* 撥放器控制的最頂層 */
 .playerControlWrap {
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
   right: 0;
-  bottom: 0;
+  bottom: -1rem;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
@@ -301,6 +306,43 @@ a {
     margin-right: auto;
     border-radius: 5px;
     overflow: hidden;
+  }
+
+  .playerControlWrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .playerControlWrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1440px) {
+  .playerControlWrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: -1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 

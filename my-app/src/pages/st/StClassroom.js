@@ -277,7 +277,6 @@ export default withRouter(function StClassroom() {
               className="playerBG"
               url={!videoLink ? first : videoLink}
               width="100%"
-              height="100%"
               playing={playing}
               muted={muted}
               volume={volume}

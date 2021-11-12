@@ -63,7 +63,7 @@ function PlayerControls(props) {
 
         {/* 下方控制列 */}
         <div className="bottomControlGRP">
-          <div className="videoProgressSlider w-100">
+          <div className="videoProgressSlider w-100 mb-n3">
             <Slider
               min={0}
               max={100}

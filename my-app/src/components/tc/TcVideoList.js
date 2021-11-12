@@ -35,10 +35,10 @@ function TcVideoList(props) {
         teacher_sid: memberObj.sid,
         duration: sum,
       })
-      console.log(r)
+      // console.log(r)
     })()
   }, [sum])
-  console.log('sum', sum)
+  console.log('Videos', Videos)
   return (
     <>
       {Videos.map((Video, i) => {
@@ -48,6 +48,7 @@ function TcVideoList(props) {
             sid={Video.sid}
             course_sid={Video.course_sid}
             video_name={Video.video_name}
+            video_link={Video.video_link}
             created_at={Video.created_at}
             duration1={Video.duration}
             remove={() => {
