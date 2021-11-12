@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-11-12 06:36:37
+-- 產生時間： 2021-11-12 07:59:50
 -- 伺服器版本： 10.4.21-MariaDB
 -- PHP 版本： 8.0.11
 
@@ -171,14 +171,6 @@ CREATE TABLE `cart` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- 傾印資料表的資料 `cart`
---
-
-INSERT INTO `cart` (`sid`, `member_sid`, `product_sid`, `created_at`) VALUES
-(43, '1021', '66', '2021-11-12 13:34:38'),
-(44, '1021', '69', '2021-11-12 13:35:24');
-
 -- --------------------------------------------------------
 
 --
@@ -199,7 +191,9 @@ CREATE TABLE `chat_conversation` (
 INSERT INTO `chat_conversation` (`sid`, `senderID`, `receiverID`, `created_at`) VALUES
 (1, 1, 2, '2021-11-07 14:27:52'),
 (2, 2, 3, '2021-11-07 14:33:54'),
-(4, 1018, 1, '2021-11-10 00:03:05');
+(4, 1018, 1, '2021-11-10 00:03:05'),
+(5, 1021, 69, '2021-11-12 14:05:23'),
+(6, 1021, 68, '2021-11-12 14:15:03');
 
 -- --------------------------------------------------------
 
@@ -226,7 +220,13 @@ INSERT INTO `chat_message` (`sid`, `conversationID`, `senderID`, `text`, `create
 (89, 2, 2, 'qewqweqweqw', '2021-11-08 14:35:13'),
 (90, 2, 3, 'ffff', '2021-11-08 14:35:32'),
 (91, 4, 1018, 'Hello!', '2021-11-10 00:03:05'),
-(92, 4, 1, 'Hi, what\'s wrong?', '2021-11-10 00:08:46');
+(92, 4, 1, 'Hi, what\'s wrong?', '2021-11-10 00:08:46'),
+(93, 5, 1021, 'Hello!', '2021-11-12 14:05:23'),
+(94, 6, 1021, 'Hello!', '2021-11-12 14:15:03'),
+(95, 5, 69, 'Hi, what\'s wrong?', '2021-11-12 14:16:19'),
+(96, 6, 1021, '我想問一些問題', '2021-11-12 14:23:40'),
+(97, 6, 68, '請說', '2021-11-12 14:24:12'),
+(98, 6, 68, '有什麼疑問嗎', '2021-11-12 14:24:57');
 
 -- --------------------------------------------------------
 
@@ -381,8 +381,10 @@ CREATE TABLE `order_detail` (
 
 INSERT INTO `order_detail` (`sid`, `order_main_id`, `product_sid`) VALUES
 (126, 'WX437808', 63),
-(127, 'WX437808', 65),
-(128, 'WX437808', 68);
+(127, 'WX437808', 69),
+(128, 'WX437808', 68),
+(129, 'IV558431', 66),
+(130, 'IV558431', 61);
 
 -- --------------------------------------------------------
 
@@ -406,7 +408,8 @@ CREATE TABLE `order_main` (
 --
 
 INSERT INTO `order_main` (`sid`, `order_id`, `member_sid`, `pay_method`, `cstoresort`, `order_status`, `total_price`, `created_at`) VALUES
-(58, 'WX437808', 1021, 3, 0, 1, 6680, '2021-11-11 23:01:10');
+(58, 'WX437808', 1021, 3, 0, 1, 6680, '2021-11-11 23:01:10'),
+(59, 'IV558431', 1021, 2, 1, 2, 6120, '2021-11-12 13:42:36');
 
 -- --------------------------------------------------------
 
@@ -829,19 +832,19 @@ ALTER TABLE `art_messenger`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `chat_conversation`
 --
 ALTER TABLE `chat_conversation`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `chat_message`
 --
 ALTER TABLE `chat_message`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `course`
@@ -865,13 +868,13 @@ ALTER TABLE `member`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_main`
 --
 ALTER TABLE `order_main`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `schedule`
