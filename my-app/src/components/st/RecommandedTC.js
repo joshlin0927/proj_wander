@@ -16,7 +16,7 @@ export default function RecommandedTC(props) {
           src={
             teacherimg
               ? teacherimg
-              : `${API_HOST}/img/presetAvatar`
+              : `${API_HOST}/img/presetAvatar.jpeg`
           }
           alt=""
         />
