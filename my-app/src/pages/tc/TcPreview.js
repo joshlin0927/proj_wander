@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router'
 
-import { IMG_PATH, TcCourse_LIST } from '../../config'
+import {
+  IMG_PATH,
+  TcCourse_LIST,
+  MemberEdit,
+} from '../../config'
 
 // components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -18,11 +22,14 @@ function TcPreview(props) {
   useEffect(() => {
     ;(async () => {
       let r = await axios.get(
+        `${MemberEdit}/${props.location.search}`
+      )
+      let c = await axios.get(
         `${TcCourse_LIST}/${props.location.search}`
       )
-      setCourse(r.data.rows)
-      setTeacher(r.data.rows[0])
-      // console.log(r.data.rows)
+      setCourse(c.data.rows)
+      setTeacher(r.data[0])
+      // console.log('member', r.data[0])
     })()
   }, [])
 
