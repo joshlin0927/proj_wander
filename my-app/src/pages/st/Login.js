@@ -315,15 +315,21 @@ function Login(props) {
                         .then((r) => r.json())
                         .then((response) => {
                           // console.log('response', response)
-                          firstname = response
-                            ? response.result[0].firstname
-                            : ''
-                          if (
-                            response.result[0]
-                              .googleidentity === 1
-                          ) {
+                          if (response.success) {
+                            firstname =
+                              response.result[0].firstname
+
+                            if (
+                              response.result[0]
+                                .googleidentity === 1
+                            ) {
+                              Swal.showValidationMessage(
+                                '您已使用Google帳號註冊'
+                              )
+                            }
+                          } else {
                             Swal.showValidationMessage(
-                              '您已使用Google帳號註冊'
+                              '無效帳號'
                             )
                           }
                         })
