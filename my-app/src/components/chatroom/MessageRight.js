@@ -55,19 +55,18 @@ function MessageRight(props) {
         </div>
         <div className="messageAvatar">
           <div className="messageAvatarFilter">
+            <img
+              src={
+                own
+                  ? `${IMG_PATH}/${sender}`
+                  : `${IMG_PATH}/${receiver}`
+              }
+              className="img-fluid messageAvatarImg"
+              alt=""
+            />
             <div
               className={own ? 'Rtriangle' : 'Ltriangle'}
-            >
-              <img
-                src={
-                  own
-                    ? `${IMG_PATH}/${sender}`
-                    : `${IMG_PATH}/${receiver}`
-                }
-                className="img-fluid"
-                alt=""
-              />
-            </div>
+            ></div>
           </div>
         </div>
       </div>

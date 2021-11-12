@@ -1109,3 +1109,6 @@ background: #f1ef5b;
 .opacity1-CourseSection {
   opacity: 1;
 }
+.CsCourseMH {
+  min-height: calc(100vh - 363px);
+}

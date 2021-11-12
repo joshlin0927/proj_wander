@@ -115,7 +115,9 @@ function StGameFinish(props) {
                           CourseCover={v.course_img}
                           CourseName={v.course_name}
                           Price={v.course_price}
-                          TeacherName={v.nickname}
+                          course_category={
+                            v.course_category
+                          }
                         />
                       )
                     })}
