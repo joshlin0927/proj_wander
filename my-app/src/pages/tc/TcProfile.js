@@ -126,10 +126,10 @@ function TcProfile(props) {
     // 利用FormData Api 得到各欄位的值 or 利用狀態值
     // FormData 利用的是表單元素的 name
     const TcProfileFormData = new FormData(e.target)
-    // console.log(TcProfileFormData.get('avatar'))
-    // console.log(TcProfileFormData.get('birth'))
-    // console.log(TcProfileFormData.get('nickname'))
-    // console.log(TcProfileFormData.get('language'))
+    let usp = new URLSearchParams(TcProfileFormData)
+    // intro的換行轉換
+    let content = fields.intro.replace(/\n|\r\n/g, '<br>')
+    usp.set('intro', content)
 
     // 利用狀態來得到輸入的值
 
@@ -140,9 +140,7 @@ function TcProfile(props) {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: new URLSearchParams(
-        TcProfileFormData
-      ).toString(),
+      body: usp.toString(),
     })
       .then((r) => r.json())
       .then((obj) => {

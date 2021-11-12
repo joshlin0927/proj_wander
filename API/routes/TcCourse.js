@@ -13,7 +13,7 @@ async function getListData(req, res) {
 
   // sql = SELECT * FROM `course`LEFT JOIN `member` ON `course`.`teacher_sid`=`member`.`sid` WHERE `member`.`sid` = 1; AND `course`.`course_name` LIKE 'A%';
 
-  let teacherSid = req.query.teacherSid;
+  let teacherSid = req.query.teacherSid.toString();
 
   let where = `LEFT JOIN \`member\` ON \`course\`.\`teacher_sid\`=\`member\`.\`sid\` WHERE \`member\`.\`sid\` =${teacherSid} `;
  
