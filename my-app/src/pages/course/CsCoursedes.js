@@ -599,7 +599,11 @@ function CsCoursede(props) {
                 }}
               >
                 <img
-                  src={`${IMG_PATH}/${fields.avatar}`}
+                  src={
+                    fields.avatar
+                      ? `${IMG_PATH}/${fields.avatar}`
+                      : `${IMG_PATH}/presetAvatar.jpeg`
+                  }
                   alt=""
                   style={{
                     width: '100px',
