@@ -44,7 +44,7 @@ function MemberCard(props) {
         setShowUp('showup')
         setTimeout(() => {
           setShowUp('none')
-        }, 1000)
+        }, 3000)
       }
     })()
 

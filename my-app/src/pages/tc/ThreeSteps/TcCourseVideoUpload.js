@@ -131,22 +131,18 @@ function TcCourseVideoUpload() {
           document
             .querySelector('#warning')
             .classList.add('text-danger')
-          document
-            .querySelector('#uploadBtn')
-            .setAttribute('disabled')
         } else {
           document
             .querySelector('#warning')
             .classList.remove('text-danger')
-          document
-            .querySelector('#uploadBtn')
-            .removeAttribute('disabled')
         }
       }
 
       reader.readAsArrayBuffer(file)
     }
   }
+
+  console.log(selectedFile)
 
   const FormSubmit = async (e) => {
     // 阻擋form的預設送出行為
@@ -339,13 +335,26 @@ function TcCourseVideoUpload() {
                 </div>
               </div>
               {selectedFile ? (
-                <button
-                  type="submit"
-                  id="uploadBtn"
-                  className="btn btn-secondary mx-auto mb-5"
-                >
-                  上傳檔案
-                </button>
+                selectedFile.type !== 'video/mp4' &&
+                selectedFile.type !== 'video/quicktime' &&
+                selectedFile.type !== 'video/x-ms-wmv' ? (
+                  <button
+                    disabled
+                    type="submit"
+                    id="uploadBtn"
+                    className="btn btn-secondary mx-auto mb-5"
+                  >
+                    上傳檔案
+                  </button>
+                ) : (
+                  <button
+                    type="submit"
+                    id="uploadBtn"
+                    className="btn btn-secondary mx-auto mb-5"
+                  >
+                    上傳檔案
+                  </button>
+                )
               ) : (
                 <button
                   disabled
