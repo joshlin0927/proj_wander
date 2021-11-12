@@ -62,7 +62,7 @@ export default withRouter(function StClassroom() {
           }
         )
         if (r) {
-          console.log('r', r)
+          // console.log('r', r)
           setImgSrc(r.data[0][0].avatar)
         }
       })()
