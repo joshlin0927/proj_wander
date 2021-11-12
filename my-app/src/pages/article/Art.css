@@ -861,3 +861,8 @@
     font-size: 14px;
   }
 }
+
+
+.art-CsCourseMH {
+  min-height: calc(100vh - 100px);
+}

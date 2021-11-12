@@ -102,7 +102,7 @@ function Article(prop) {
           <div className="sh-pageName   mx-auto">
             <div className="sh-search ml-0  ">
               <TcSearchBar
-                placeholder="請輸入想搜尋的課程名稱"
+                placeholder="請輸入想搜尋的文章名稱"
                 searchWord={searchWord}
                 setSearchWord={setSearchWord}
               />
@@ -114,7 +114,7 @@ function Article(prop) {
             className={
               isLoading
                 ? 'courseSpinner'
-                : 'courseSpinner opacity0-CourseSection'
+                : 'courseSpinner d-none'
             }
           >
             <Spinner />
@@ -122,8 +122,8 @@ function Article(prop) {
           <div
             className={
               isLoading
-                ? 'coursesection col-md-10 col-lg-10 opacity0-CourseSection'
-                : 'coursesection col-md-10 col-lg-10 opacity1-CourseSection'
+              ? 'coursesection col-md-10 col-lg-10 opacity0-CourseSection art-CsCourseMH'
+                : 'coursesection col-md-10 col-lg-10 opacity1-CourseSection art-CsCourseMH'
             }
           >
             {TcCourses.length > 0 ? (
