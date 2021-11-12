@@ -8,6 +8,7 @@ body {
 
 .clickZone {
   cursor: pointer;
+  color: #065f8e;
 }
 
 .TcCursorP {
@@ -470,9 +471,11 @@ body {
 .TCcourse-title {
   font-size: 12px;
   font-weight: 400;
-  line-height: 16px;
   margin-bottom: 7px;
   letter-spacing: -0.015em;
+  height: 128px;
+  padding-top: 54px;
+  cursor: pointer;
 }
 
 /* 課程名稱除外的細節 */
@@ -489,6 +492,7 @@ body {
   font-size: 18px;
   padding: 3px 10px 0px;
   margin-left: auto;
+  cursor: pointer;
 }
 
 .TCcourse-delete:hover {

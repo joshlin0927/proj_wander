@@ -160,6 +160,7 @@ function TcCourseVideoEdit() {
               {/* <div className="Labelitem">影片截圖</div> */}
               <div className="Labelitem">影片名稱</div>
               <div className="TCcourseLabel-right">
+                <div className="Labelitem">影片預覽</div>
                 <div className="Labelitem">上傳日期</div>
                 <div className="Labelitem">影片長度</div>
               </div>
@@ -167,7 +168,7 @@ function TcCourseVideoEdit() {
             {/* course cards */}
 
             {isLoading ? (
-              <div className="d-flex justify-content-center col-10">
+              <div className="d-flex justify-content-center col-4 col-md-10">
                 <Spinner />
               </div>
             ) : (

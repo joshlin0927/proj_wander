@@ -30,7 +30,7 @@ function TcPreview(props) {
       )
       setCourse(c.data.rows)
       setTeacher(r.data[0])
-      // console.log('member', r.data[0])
+      console.log('member', teacher.intro)
     })()
   }, [])
 
@@ -53,7 +53,18 @@ function TcPreview(props) {
                   <div className="TCp-intro-title">
                     自我介紹
                   </div>
-                  <p>{teacher.intro}</p>
+                  <p>
+                    {teacher.intro
+                      .split('\n')
+                      .map((item) => {
+                        return (
+                          <>
+                            {item}
+                            <br />
+                          </>
+                        )
+                      })}
+                  </p>
                 </div>
               </div>
               <div className="p-page-avatar">
