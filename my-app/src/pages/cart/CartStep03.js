@@ -25,6 +25,7 @@ function CartStep03(props) {
     : ''
 
   useEffect(() => {
+    sessionStorage.removeItem('counponID')
     ;(async () => {
       let r = await axios.delete(
         `${Cart_API}/clear?member_sid=${member.sid}`

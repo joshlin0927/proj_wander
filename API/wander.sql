@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-11-11 17:04:32
--- 伺服器版本： 10.4.20-MariaDB
--- PHP 版本： 7.4.21
+-- 產生時間： 2021-11-12 06:36:37
+-- 伺服器版本： 10.4.21-MariaDB
+-- PHP 版本： 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -171,6 +171,14 @@ CREATE TABLE `cart` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- 傾印資料表的資料 `cart`
+--
+
+INSERT INTO `cart` (`sid`, `member_sid`, `product_sid`, `created_at`) VALUES
+(43, '1021', '66', '2021-11-12 13:34:38'),
+(44, '1021', '69', '2021-11-12 13:35:24');
+
 -- --------------------------------------------------------
 
 --
@@ -248,23 +256,23 @@ CREATE TABLE `course` (
 
 INSERT INTO `course` (`sid`, `teacher_sid`, `course_category`, `course_name`, `course_img`, `course_price`, `course_data`, `duration`, `course_introduction`, `easiness`, `course_status`, `views`, `created_at`) VALUES
 (1, '64', '日文', '零基礎輕鬆成為日語達人', '零基礎輕鬆成為日語達人.jpg', 5400, '2021-06-08', 3510, '「以同學熟悉的主修課程文法概念」作為出發點向外延伸，將學過的日語基礎概念向外延伸，模擬旅遊實境，讓同學能以符合自身程度、自然且不失禮的日語，向日本人表達自己的需求，真正達到「學以致用」的效果。', '3', 1, '2112', '0000-00-00 00:00:00'),
-(23, '62', '日文', 'N5情境會話課程', 'N5情境會話課程.jpg', 6000, '2021-08-11', 2756, '學習使用日文進行簡單自我介紹，能看懂日文固定詞句與簡單文體。學習課堂上或周遭等日常生活中常接觸之情境中，如為速度較慢之簡短對話，可從中聽取必要資訊。', '1', 0, '725', '0000-00-00 00:00:00'),
-(24, '62', '日文', '生活與文化日語', '生活與文化日語.jpg', 7000, '2021-06-10', 1389, '單堂獨立、無連貫性的主題課程，課中會帶領同學們一同認識日本道地的食、衣、住、行、育、樂等各項生活文化議題，除了可接觸到多元且趣味的課外詞彙之外，透過與老師及同班同學之間的意見交流，更可達到知識分享、經驗互惠的學習效果。', '1', 0, '760', '0000-00-00 00:00:00'),
-(25, '66', '英文', '旅遊英文一把罩', '旅遊英文一把罩.jpg', 7000, '2021-06-25', 2470, '出國迷路怎麼辦？景點介紹聽不懂？環遊世界的背包客就是你！', '2', 0, '', '0000-00-00 00:00:00'),
-(26, '4', '英文', '會議協商與簡報技巧', '會議協商與簡報技巧.jpg', 7000, '2021-06-29', 3446, '根據職能英文培訓及實用性，模擬各項商務溝通與會議商業應用，讓您掌握商用英文技能與知識，打造無可取代的職場優勢！線上學，模擬會議與簡報訓練、商業提案、協商談判演練，全面提升職場應用商務英文能力，各項職場應用學習。', '2', 0, '', '0000-00-00 00:00:00'),
-(27, '3', '英文', '求職英文', '求職英文.jpg', 8000, '2021-07-01', 3443, '根據職能英文培訓及實用性，模擬英文面試、英文履歷撰寫、外商公司求職情境演練，全面提升職場應用商務英文能力。', '3', 0, '', '0000-00-00 00:00:00'),
-(37, '1', '英文', '生活英文實用課程', '生活英文實用課程.jpg', 3500, '2021-11-01', 3517, '日常生活的點滴、休閒或娛樂、購物和點餐，教你用英文過日子！', '1', 0, '', '2021-11-01 11:20:59'),
-(40, '65', '英文', '社交話題不斷電', '社交話題不斷電.jpg', 7000, '2021-11-01', 10537, '社交場合，擔心失禮嗎？害怕冷場嗎？幫你打造英文社交魂！', '1', 0, '', '2021-11-01 11:46:54'),
-(59, '2', '日文', '到日本人家作客', '到日本人家作客.jpg', 2340, '2021-11-01', 2233, '在日本留學期間，交個日本朋友以及去日本朋友家裡做客，是很普通也很常見的一件事。台日文化雖然十分相近，但文化習俗還是有差別的。本課程將讓你知道去日本朋友家裡做客一定要注意入鄉隨俗，避免做出失禮行為。\n\n', '2', 0, '', '2021-11-01 11:46:54'),
-(60, '62', '英文', '用簡單的日文自助遊日本', '用簡單的日文自助遊日本.jpg', 4000, '2021-11-01', 5845, '學習用日文點餐、購物，迷路時知道怎麼問路，不用倚靠祂人就可以自己上日本網站訂房。', '2', 0, '1687', '2021-11-01 11:46:54'),
-(61, '63', '英文', '跨國英語 con-call 實戰力', '跨國英語 con-call 實戰力.jpg', 4000, '2021-11-01', 2838, '了解會議流程，讓當聽眾的你更有效地了解會議內容，\n適當出聲，問專業的問題，也能讓主管看到你的能力！', '2', 0, '', '2021-11-01 11:46:54'),
-(62, '5', '英文', '帶老外遊台灣', '帶老外遊台灣.jpg', 2340, '2021-11-01', 3199, '外國朋友來台灣旅遊時，流暢用英文介紹豐富的台灣在地小吃及特色文化！', '3', 0, '', '2021-11-01 11:46:54'),
-(63, '69', '英文', '700+分數保證多益課程', '700+分數保證多益課程.jpg', 2000, '2021-11-01', 2950, '本課程透過聽力、閱讀模擬練習的過程中，將所學的單字、文法應用在生活中，透過說出來、寫下來的方式加深長期記憶，確實熟練單字用法，才能看懂、聽懂TOEIC考試整篇文章的意境，進而正確迅速地回答問題，並且有效養成英語實力。', '3', 0, '', '2021-11-01 11:46:54'),
-(65, '67', '英文', '提升英文口説流暢度', '提升英文口説流暢度.jpg', 2340, '2021-11-01', 3391, '本課程將讓你搞懂母音發展出來的 20 多種變化發音，遇到類似拼音的單字，也可以推測正確發音，以及辨別相似發音，不同意思的單字。還有類似拼法，但發音完全不一樣的單字。', '1', 0, '', '2021-11-01 11:46:54'),
-(66, '4', '英文', '英文情境會話開口說', '英文情境會話開口說.jpg', 2800, '2021-11-01', 3324, '你對自己的英語口說能力滿意嗎？是否常常只會那幾句，又害怕講錯被糾正而更不敢開口說？本課程將教你如何掌握使用單字及句型的準確度，輕輕鬆鬆開口說英語！', '1', 0, '', '2021-11-01 11:46:54'),
-(67, '1', '英文', '秒懂日本飲食文化', '秒懂日本飲食文化.jpg', 2340, '2021-11-01', 2738, '單堂獨立、無連貫性的主題課程，課中會帶領同學們一同認識日本道地的食、衣、住、行、育、樂等各項生活文化議題，除了可接觸到多元且趣味的課外詞彙之外，透過與老師及同班同學之間的意見交流，更可達到知識分享、經驗互惠的學習效果。', '1', 0, '', '2021-11-01 11:46:54'),
-(68, '69', '英文', '學美國道地的說話習慣', '學美國道地的說話習慣.jpg', 2340, '2021-11-01', 2735, '從英文和中文的口說發音習慣切入課程，提供你小技巧幫助你調整口說方式直到接近英文母語者。', '2', 0, '', '2021-11-01 11:46:54'),
-(69, '68', '英文', '用「英文邏輯」溝通說服你的主管、同事', '用「英文邏輯」溝通說服你的主管、同事.jpg', 2340, '2021-11-01', 1407, '國際認證外師全英語面對面授課，著重職場英文的各種情境會話與商用寫作主題，讓你一次掌握必備技巧，在任何情境會話中都能自信開口說英文！', '3', 0, '', '2021-11-01 11:46:54');
+(23, '62', '日文', 'N5情境會話課程', 'N5情境會話課程.jpg', 6000, '2021-08-11', 2756, '學習使用日文進行簡單自我介紹，能看懂日文固定詞句與簡單文體。學習課堂上或周遭等日常生活中常接觸之情境中，如為速度較慢之簡短對話，可從中聽取必要資訊。', '1', 1, '725', '0000-00-00 00:00:00'),
+(24, '62', '日文', '生活與文化日語', '生活與文化日語.jpg', 7000, '2021-06-10', 1389, '單堂獨立、無連貫性的主題課程，課中會帶領同學們一同認識日本道地的食、衣、住、行、育、樂等各項生活文化議題，除了可接觸到多元且趣味的課外詞彙之外，透過與老師及同班同學之間的意見交流，更可達到知識分享、經驗互惠的學習效果。', '1', 1, '760', '0000-00-00 00:00:00'),
+(25, '66', '英文', '旅遊英文一把罩', '旅遊英文一把罩.jpg', 7000, '2021-06-25', 2470, '出國迷路怎麼辦？景點介紹聽不懂？環遊世界的背包客就是你！', '2', 1, '', '0000-00-00 00:00:00'),
+(26, '4', '英文', '會議協商與簡報技巧', '會議協商與簡報技巧.jpg', 7000, '2021-06-29', 3446, '根據職能英文培訓及實用性，模擬各項商務溝通與會議商業應用，讓您掌握商用英文技能與知識，打造無可取代的職場優勢！線上學，模擬會議與簡報訓練、商業提案、協商談判演練，全面提升職場應用商務英文能力，各項職場應用學習。', '2', 1, '', '0000-00-00 00:00:00'),
+(27, '3', '英文', '求職英文', '求職英文.jpg', 8000, '2021-07-01', 3443, '根據職能英文培訓及實用性，模擬英文面試、英文履歷撰寫、外商公司求職情境演練，全面提升職場應用商務英文能力。', '3', 1, '', '0000-00-00 00:00:00'),
+(37, '1', '英文', '生活英文實用課程', '生活英文實用課程.jpg', 3500, '2021-11-01', 3517, '日常生活的點滴、休閒或娛樂、購物和點餐，教你用英文過日子！', '1', 1, '', '2021-11-01 11:20:59'),
+(40, '65', '英文', '社交話題不斷電', '社交話題不斷電.jpg', 7000, '2021-11-01', 10537, '社交場合，擔心失禮嗎？害怕冷場嗎？幫你打造英文社交魂！', '1', 1, '', '2021-11-01 11:46:54'),
+(59, '2', '日文', '到日本人家作客', '到日本人家作客.jpg', 2340, '2021-11-01', 2233, '在日本留學期間，交個日本朋友以及去日本朋友家裡做客，是很普通也很常見的一件事。台日文化雖然十分相近，但文化習俗還是有差別的。本課程將讓你知道去日本朋友家裡做客一定要注意入鄉隨俗，避免做出失禮行為。\n\n', '2', 1, '', '2021-11-01 11:46:54'),
+(60, '62', '英文', '用簡單的日文自助遊日本', '用簡單的日文自助遊日本.jpg', 4000, '2021-11-01', 5845, '學習用日文點餐、購物，迷路時知道怎麼問路，不用倚靠祂人就可以自己上日本網站訂房。', '2', 1, '1687', '2021-11-01 11:46:54'),
+(61, '63', '英文', '跨國英語 con-call 實戰力', '跨國英語 con-call 實戰力.jpg', 4000, '2021-11-01', 2838, '了解會議流程，讓當聽眾的你更有效地了解會議內容，\n適當出聲，問專業的問題，也能讓主管看到你的能力！', '2', 1, '', '2021-11-01 11:46:54'),
+(62, '5', '英文', '帶老外遊台灣', '帶老外遊台灣.jpg', 2340, '2021-11-01', 3199, '外國朋友來台灣旅遊時，流暢用英文介紹豐富的台灣在地小吃及特色文化！', '3', 1, '', '2021-11-01 11:46:54'),
+(63, '69', '英文', '700+分數保證多益課程', '700+分數保證多益課程.jpg', 2000, '2021-11-01', 2950, '本課程透過聽力、閱讀模擬練習的過程中，將所學的單字、文法應用在生活中，透過說出來、寫下來的方式加深長期記憶，確實熟練單字用法，才能看懂、聽懂TOEIC考試整篇文章的意境，進而正確迅速地回答問題，並且有效養成英語實力。', '3', 1, '', '2021-11-01 11:46:54'),
+(65, '67', '英文', '提升英文口説流暢度', '提升英文口説流暢度.jpg', 2340, '2021-11-01', 3391, '本課程將讓你搞懂母音發展出來的 20 多種變化發音，遇到類似拼音的單字，也可以推測正確發音，以及辨別相似發音，不同意思的單字。還有類似拼法，但發音完全不一樣的單字。', '1', 1, '', '2021-11-01 11:46:54'),
+(66, '4', '英文', '英文情境會話開口說', '英文情境會話開口說.jpg', 2800, '2021-11-01', 3324, '你對自己的英語口說能力滿意嗎？是否常常只會那幾句，又害怕講錯被糾正而更不敢開口說？本課程將教你如何掌握使用單字及句型的準確度，輕輕鬆鬆開口說英語！', '1', 1, '', '2021-11-01 11:46:54'),
+(67, '1', '英文', '秒懂日本飲食文化', '秒懂日本飲食文化.jpg', 2340, '2021-11-01', 2738, '單堂獨立、無連貫性的主題課程，課中會帶領同學們一同認識日本道地的食、衣、住、行、育、樂等各項生活文化議題，除了可接觸到多元且趣味的課外詞彙之外，透過與老師及同班同學之間的意見交流，更可達到知識分享、經驗互惠的學習效果。', '1', 1, '', '2021-11-01 11:46:54'),
+(68, '69', '英文', '學美國道地的說話習慣', '學美國道地的說話習慣.jpg', 2340, '2021-11-01', 2735, '從英文和中文的口說發音習慣切入課程，提供你小技巧幫助你調整口說方式直到接近英文母語者。', '2', 1, '', '2021-11-01 11:46:54'),
+(69, '68', '英文', '用「英文邏輯」溝通說服你的主管、同事', '用「英文邏輯」溝通說服你的主管、同事.jpg', 2340, '2021-11-01', 1407, '國際認證外師全英語面對面授課，著重職場英文的各種情境會話與商用寫作主題，讓你一次掌握必備技巧，在任何情境會話中都能自信開口說英文！', '3', 1, '', '2021-11-01 11:46:54');
 
 -- --------------------------------------------------------
 
@@ -327,7 +335,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`sid`, `googleidentity`, `identity`, `verification`, `resume`, `avatar`, `firstname`, `lastname`, `nickname`, `email`, `password`, `birth`, `gender`, `language`, `nationality`, `intro`, `created_date`) VALUES
-(1, 0, 1, 2, '', 'e2d7ea0d-8143-42ba-9ca8-611008acd894.jpg', 'Sayana', 'Kikaku ', 'Saya', 't1@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1997-06-10', 1, '英文、日文', '日本', 'Japan University Student\r\nFluent English speaker\r\n1000+ lesson completed\r\n4+ years teaching experience\r\nJapan university student\r\nLiving in Japan 4+ years\r\nTaught more than 100+ students\r\nAll materials provided\r\nLearn to speak in just 10 lessons \r\nConversational Japanese Grammar \r\nJLPT exams \r\nJapanese for kids', '2020-04-13'),
+(1, 0, 1, 2, '', 'e2d7ea0d-8143-42ba-9ca8-611008acd894.jpg', 'Sayana', 'Kikaku ', 'Saya', 't1@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1997-06-10', 1, '英文、日文', '日本', 'Japan University Student\nFluent English speaker\n1000+ lesson completed\n4+ years teaching experience\nJapan university student\nLiving in Japan 4+ years\nTaught more than 100+ students\nAll materials provided\nLearn to speak in just 10 lessons \nConversational Japanese Grammar \nJLPT exams \nJapanese for kids', '2020-04-13'),
 (2, 0, 1, 2, '', '62cbe2bf-d5fd-41bd-88f6-8939c6c3ea51.jpg', '言雄', '大川', 'Okawa', 't2@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、日文', '日本', 'I am a certified Japanese teacher who finished 420 hours training and passed the Japanese Language Teaching Competency Test in 2017.\r\n\r\nI studied linguistics and taught Japanese in college.\r\n\r\nYou will have a lot of chance to make Japanese sentences by using the grammar and expressions which you already have as knowledge.\r\n\r\n\r\n\r\nIn my beginner class, we will practice sentence structure such as noun, particle, verb, visible for you, so students will have a lot of opportunities to make their own sentences in Japanese\r\n\r\n After Intermediate level, you will practice responding to the Japanese you hear, without translating to your native language.\r\n\r\nwe will  learn the basis of pronunciation, rhythm and intonation, which Japanese people are easy to listen to. \r\n\r\nYou will achieve the way to use language which fits the people\'s relationship and be able to understand Japanese value, select Japanese expression, and feel the same way as Japanese people. \r\n\r\nI can teach you university and graduate school treatise guidance, EJU writing, and interview test practice because I had the class in Japanese language school before\r\n\r\nI used to work in sales of job market development and instruct interview and how to write resume for job applicants at a recruiting company.\r\n\r\nI used to teach business Japanese and service in a private company before.', '2020-04-13'),
 (3, 0, 1, 2, '', '12744a0a-c5ff-41a4-a3ac-d3953a91545e.png', 'Thomas', 'Frank', 'Frank', 't3@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文、中文', '美國', 'Native American speaks English and Chinese\r\n5years teaching experience\r\nMaster’s course of International education\r\nKids English\r\nBeginners \r\nListening, reading and pronunciation \r\nExam preparation', '2020-04-13'),
 (4, 0, 1, 2, '', 'f12ea339-8919-4ef2-8405-8ea4a506f8a7.png', 'Jeffery', 'Graham', 'Graham', 't4@gg.com', '$2y$10$ceKZw1EX1TdwadauBEet9u.Xe4gqzMFmpYACO8oG.cZCgbqYMHwzG', '1982-05-24', 2, '英文', '美國', 'ESL expert, TESOL certified, \r\n1000+ hours of teaching English to adults/teens/kids, all levels of fluency. \r\nInteresting, interactive & engaging classes. Give students the right environment to practice the language. \r\nDaily conversation \r\nEnglish for kids & teens \r\nBusiness English', '2020-04-13'),
@@ -821,7 +829,7 @@ ALTER TABLE `art_messenger`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `chat_conversation`
@@ -851,7 +859,7 @@ ALTER TABLE `cs_messenger`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
 --
 ALTER TABLE `member`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1022;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1023;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_detail`

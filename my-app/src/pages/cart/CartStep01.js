@@ -43,7 +43,6 @@ function CartStep01(props) {
     ? JSON.parse(localStorage.getItem('member'))
     : ''
   useEffect(() => {
-    sessionStorage.removeItem('counponID')
     sessionStorage.removeItem('order')
     if (member.identity !== 0) {
       handleStopModalShow()

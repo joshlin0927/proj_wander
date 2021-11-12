@@ -87,7 +87,7 @@ function PcNavbar(props) {
         setCartIconImg('cart_icon_empty.svg')
       }
     })()
-  }, [setNavCartQty, member.sid])
+  }, [setNavCartQty, member.sid, setCartIconImg])
 
   const logout = async () => {
     localStorage.removeItem('token')
@@ -238,38 +238,6 @@ function PcNavbar(props) {
           </div>
         </div>
       </nav>
-      <Modal
-        show={stopModalShow}
-        onHide={handleStopModalClose}
-        id="alertModal"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header>
-          <Modal.Title>提醒</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="text-center">
-          <span>如要使用此功能請先登入</span>
-        </Modal.Body>
-        <Modal.Footer>
-          <button
-            type="button"
-            className="btn confirmBtn"
-            onClick={handleStopModalClose}
-          >
-            關閉
-          </button>
-          <button
-            type="button"
-            className="btn confirmBtn"
-            onClick={() => {
-              props.history.push('/Login')
-            }}
-          >
-            前往登入
-          </button>
-        </Modal.Footer>
-      </Modal>
     </>
   )
 }
