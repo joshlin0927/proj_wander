@@ -15,6 +15,7 @@ function TcPreview(props) {
   const [teacher, setTeacher] = useState('')
   const [course, setCourse] = useState('')
 
+  console.log('ssss', props.location.search)
   useEffect(() => {
     ;(async () => {
       let r = await axios.get(
@@ -22,7 +23,6 @@ function TcPreview(props) {
       )
       setCourse(r.data.rows)
       setTeacher(r.data.rows[0])
-      // console.log(r.data.rows)
     })()
   }, [])
 
@@ -67,6 +67,7 @@ function TcPreview(props) {
               ? course.map((c, i) => {
                   return (
                     <BuyCourseItem
+                      courseSid={c.sid}
                       CourseCover={c.course_img}
                       CourseName={c.course_name}
                       course_category={c.course_category}
