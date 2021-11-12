@@ -174,7 +174,7 @@ function TcCourseVideoUpload() {
           setShowUp('showup')
           setTimeout(() => {
             setShowUp('none')
-          }, 1000)
+          }, 3000)
         } else {
           alert(obj.error || '資料新增失敗')
         }

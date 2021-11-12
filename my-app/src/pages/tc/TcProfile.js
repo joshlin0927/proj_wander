@@ -33,16 +33,14 @@ function TcProfile(props) {
       `${MemberAvatar}/?teacherSid=${teacherSid}`,
       new FormData(document.formAvatar)
     )
-    console.log('r', r)
     setImgSrc(r.data.filename)
-    console.log(r.data)
-    if (r.data.success) {
-      setShowUp('showup')
-      window.location.reload()
-      setTimeout(() => {
-        setShowUp('none')
-      }, 1000)
-    }
+    // if (r.data.success) {
+    //   setShowUp('showup')
+    //   window.location.reload()
+    //   setTimeout(() => {
+    //     setShowUp('none')
+    //   }, 1000)
+    // }
   }
 
   useEffect(() => {
@@ -149,7 +147,7 @@ function TcProfile(props) {
           setShowUp('showup')
           setTimeout(() => {
             setShowUp('none')
-          }, 1000)
+          }, 3000)
         }
         // else {
         //   alert(obj.error || '資料修改失敗')

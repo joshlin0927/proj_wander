@@ -155,7 +155,7 @@ function TcPassword() {
         setShowUp('showup')
         setTimeout(() => {
           setShowUp('none')
-        }, 1000)
+        }, 3000)
       } else {
         setFieldErrors({
           origin: r.data.error,
