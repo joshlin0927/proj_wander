@@ -169,7 +169,7 @@ export default withRouter(function StPasswordModify(props) {
             setShowUp('showup')
             setTimeout(() => {
               setShowUp('none')
-            }, 1000)
+            }, 3000)
           } else {
             setFieldErrors({
               origin: res.data.error,

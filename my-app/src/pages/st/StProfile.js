@@ -176,7 +176,7 @@ export default withRouter(function StProfile(props) {
            
             setTimeout(() => {
               setShowUp('none')
-            }, 1000)
+            }, 3000)
           }
         })
     } else {
