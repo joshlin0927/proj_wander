@@ -19,8 +19,11 @@ import Footer from '../../../components/Footer'
 function TcCourseAdd(props) {
   //課程封面狀態
   let [imgSrc, setImgSrc] = useState('')
-  // 課程新增後的通知
+  // 最後新增的課程
   const [lastAdd, setLastAdd] = useState('')
+
+  //課程編號
+  const CourseSid = sessionStorage.getItem('courseSid')
 
   //判斷是否登入並為教師身分
   const history = useHistory()
@@ -40,7 +43,7 @@ function TcCourseAdd(props) {
         setImgSrc(r.data[0].course_img)
         setFields(r.data[0])
         setLastAdd(r.data[0].sid)
-        sessionStorage.setItem('CourseSid', r.data[0].sid)
+        sessionStorage.setItem('courseSid', r.data[0].sid)
       })()
     }
   }, [imgSrc])
@@ -213,7 +216,9 @@ function TcCourseAdd(props) {
         <MultiLevelBreadCrumb />
         <div className="row justify-content-center">
           {/* TCcourse-TCcourse-process bar */}
-          <TcCourseProcessBar CourseSid={lastAdd} />
+          <TcCourseProcessBar
+            CourseSid={lastAdd ? lastAdd : CourseSid}
+          />
           {/* form */}
           <form
             className="TCform col-12 col-md-10"

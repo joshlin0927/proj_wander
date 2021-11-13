@@ -54,7 +54,7 @@ function Index() {
         <Route path="/TcIndex/ChatWindow">
           <ChatWindow />
         </Route>
-        <Route path="/TcIndex/TcPreview/sid:?">
+        <Route path="/TcIndex/TcPreview/:sid?">
           <TcPreview />
         </Route>
         <Route path="/TcIndex">

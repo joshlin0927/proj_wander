@@ -29,21 +29,6 @@ function TcCourseEdit(props) {
     ? sessionStorage.getItem('courseSid')
     : ''
 
-  useEffect(() => {
-    if (!token && identity !== 1) {
-      history.push('/')
-    } else {
-      ;(async () => {
-        let r = await axios.get(
-          `${TcCourse_EDIT}/?courseSid=${courseSid}`
-        )
-        setFields(r.data[0])
-        setImgSrc(r.data[0].course_img)
-        // console.log('edit', r.data[0])
-      })()
-    }
-  }, [imgSrc])
-
   const formRef = useRef(null)
 
   const doUpload = async () => {
@@ -204,6 +189,22 @@ function TcCourseEdit(props) {
     setFieldErrors(updatedFieldErrors)
   }
 
+  useEffect(() => {
+    if (!token && identity !== 1) {
+      history.push('/')
+    } else {
+      ;(async () => {
+        let r = await axios.get(
+          `${TcCourse_EDIT}/?courseSid=${courseSid}`
+        )
+        setFields(r.data[0])
+        // setImgSrc(r.data[0].course_img)
+        console.log('edit', r)
+        console.log(courseSid)
+      })()
+    }
+  }, [imgSrc])
+
   return (
     <>
       {/* Main Content */}
@@ -212,7 +213,7 @@ function TcCourseEdit(props) {
         <MultiLevelBreadCrumb />
         <div className="row justify-content-center">
           {/* TCcourse-TCcourse-process bar */}
-          <TcCourseProcessBar CourseSid={fields.sid} />
+          <TcCourseProcessBar />
           {/* form */}
           <form
             className="TCform col-12 col-md-10"

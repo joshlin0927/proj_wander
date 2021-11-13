@@ -1,13 +1,11 @@
 import React from 'react'
 import { Nav } from 'react-bootstrap'
-
+import { withRouter } from 'react-router'
 // 要使用能有active css效果的NavLink元件
 import { NavLink } from 'react-router-dom'
 
 function TcCourseProcessBar(props) {
-  const CourseSid = localStorage.getItem(
-    'CourseSidForProcess'
-  )
+  const CourseSid = sessionStorage.getItem('CourseSid')
   // console.log(CourseSid)
   return (
     <>
@@ -24,7 +22,11 @@ function TcCourseProcessBar(props) {
           <li className="TCcourse-processBar-item">
             <Nav.Link
               as={NavLink}
-              to={`/TCindex/TcCourseEdit/?courseSid=${CourseSid}`}
+              to={
+                CourseSid
+                  ? `/TCindex/TcCourseEdit/?courseSid=${CourseSid}`
+                  : `/TCindex/TcCourseEdit/${props.location.search}`
+              }
             >
               <div>課程細節頁面</div>
             </Nav.Link>
@@ -51,4 +53,4 @@ function TcCourseProcessBar(props) {
   )
 }
 
-export default TcCourseProcessBar
+export default withRouter(TcCourseProcessBar)
