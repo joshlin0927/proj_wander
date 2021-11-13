@@ -107,35 +107,11 @@ function TcCourseVideoUpload() {
               size: file.size,
             }
 
-            if (data.size > 1000000000) {
-              document
-                .querySelector('#warning')
-                .classList.add('text-danger')
-              return
-            } else {
-              document
-                .querySelector('#warning')
-                .classList.remove('text-danger')
-            }
             setFields(data)
             URL.revokeObjectURL(url)
           }
         )
         video.src = url
-
-        if (
-          mime !== 'video/mp4' &&
-          'video/quicktime' &&
-          'video/x-ms-wmv'
-        ) {
-          document
-            .querySelector('#warning')
-            .classList.add('text-danger')
-        } else {
-          document
-            .querySelector('#warning')
-            .classList.remove('text-danger')
-        }
       }
 
       reader.readAsArrayBuffer(file)
@@ -263,7 +239,23 @@ function TcCourseVideoUpload() {
                 <i className="fas fa-upload"></i>
 
                 <p>請點擊並選擇要上傳的檔案</p>
-                <label id="warning">
+                <label
+                  id="warning"
+                  className={
+                    selectedFile
+                      ? selectedFile.size < 1000000000
+                        ? selectedFile.type !==
+                            'video/mp4' &&
+                          selectedFile.type !==
+                            'video/quicktime' &&
+                          selectedFile.type !==
+                            'video/x-ms-wmv'
+                          ? 'text-danger'
+                          : ''
+                        : 'text-danger'
+                      : ''
+                  }
+                >
                   僅支持檔案小於1GB，且格式為mp4, mov,
                   wmv的檔案
                 </label>
@@ -346,8 +338,17 @@ function TcCourseVideoUpload() {
                   >
                     上傳檔案
                   </button>
+                ) : selectedFile.size < 1000000000 ? (
+                  <button
+                    type="submit"
+                    id="uploadBtn"
+                    className="btn btn-secondary mx-auto mb-5"
+                  >
+                    上傳檔案
+                  </button>
                 ) : (
                   <button
+                    disabled
                     type="submit"
                     id="uploadBtn"
                     className="btn btn-secondary mx-auto mb-5"
