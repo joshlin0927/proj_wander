@@ -198,7 +198,7 @@ function TcCourseEdit(props) {
           `${TcCourse_EDIT}/?courseSid=${courseSid}`
         )
         setFields(r.data[0])
-        // setImgSrc(r.data[0].course_img)
+        setImgSrc(r.data[0].course_img)
         console.log('edit', r)
         console.log(courseSid)
       })()
