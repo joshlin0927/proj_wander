@@ -1156,7 +1156,7 @@ li {
     top: -220px;
     display: block;
     position: absolute;
-    max-width: 1122px;
+    max-width: 1000px;
     width: 200px;
     z-index: -1;
     -webkit-animation: type02_icon 15s infinite;
