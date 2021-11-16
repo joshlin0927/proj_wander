@@ -191,7 +191,7 @@ function Comonproblem() {
                   <p
                     aria-hidden={togglec ? 'true' : 'false'}
                   >
-                    目前只支持，只支持超商付款方式。
+                    目前只支持超商付款方式。
                   </p>
                 </div>
               </div>
