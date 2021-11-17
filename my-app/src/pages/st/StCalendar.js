@@ -150,7 +150,7 @@ export default function StCalendar(props) {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#065F8E',
-      cancelButtonColor: '#F1F0E9',
+      cancelButtonColor: '#FACEA8',
       confirmButtonText: 'delete',
     }).then(async (r) => {
       if (r.isConfirmed) {

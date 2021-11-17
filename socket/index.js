@@ -17,7 +17,7 @@ const findUser = (userID) => {
   return users.find((user) => user.userID === userID);
 };
 
-io.on("connection", (socket) => {nㄟ
+io.on("connection", (socket) => {
   // 用戶連線
   console.log("a user connected.");
 
