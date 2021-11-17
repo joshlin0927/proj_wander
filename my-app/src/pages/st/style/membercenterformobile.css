@@ -19,6 +19,8 @@
 }
 
 .mobileicon {
+  padding-top: 0.4rem;
+  padding-left: 0.1rem;
   font-size: 25px;
   color: #065f8e;
 }
