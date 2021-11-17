@@ -190,7 +190,7 @@ function Article(prop) {
                       </h4>
                       <div className="post-meta">
                         <p>
-                          <Link  to={`/ArtIndex/ArtMessage?articleSid=101`}>19 November</Link>
+                          <Link  to={`/ArtIndex/ArtMessage?articleSid=101`}>13 November</Link>
                         </p>
                       </div>
                     </div>
@@ -222,7 +222,7 @@ function Article(prop) {
                       </h4>
                       <div className="post-meta">
                         <p>
-                          <Link to={`/ArtIndex/ArtMessage?articleSid=96`}>19 November</Link>
+                          <Link to={`/ArtIndex/ArtMessage?articleSid=96`}>13 November</Link>
                         </p>
                       </div>
                     </div>
@@ -255,7 +255,7 @@ function Article(prop) {
                       </h4>
                       <div className="post-meta">
                         <p>
-                          <Link to={`/ArtIndex/ArtMessage?articleSid=99`}>19 November</Link>
+                          <Link to={`/ArtIndex/ArtMessage?articleSid=99`}>13 November</Link>
                         </p>
                       </div>
                     </div>

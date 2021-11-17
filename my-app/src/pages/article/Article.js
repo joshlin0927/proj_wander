@@ -225,7 +225,7 @@ function Article(props) {
                             <Link
                               to={`/ArtIndex/ArticleMessage?articleSid=101`}
                             >
-                              19 November
+                              13 November
                             </Link>
                           </p>
                         </div>
@@ -264,7 +264,7 @@ function Article(props) {
                             <Link
                               to={`/ArtIndex/ArticleMessage?articleSid=96`}
                             >
-                              19 November
+                              13 November
                             </Link>
                           </p>
                         </div>
@@ -304,7 +304,7 @@ function Article(props) {
                             <Link
                               to={`/ArtIndex/ArticleMessage?articleSid=103`}
                             >
-                              19 November
+                              13 November
                             </Link>
                           </p>
                         </div>
