@@ -4,45 +4,41 @@
   left: 16px;
   top: 267px;
   border-radius: 10px;
-  background-color: #FCFCFB;
+  background-color: #fcfcfb;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  line-height:60px;
+  line-height: 60px;
   margin-bottom: 8px;
 }
 
 .mobiletext {
- justify-content: start;
- font-size: 18px;
- font-weight: bold;
- letter-spacing: -0.015em;
-
+  justify-content: start;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: -0.015em;
+  color: #065f8e;
 }
 
-.mobileicon{
-  font-size:25px;
- 
- 
-  
+.mobileicon {
+  font-size: 25px;
+  color: #065f8e;
 }
 
-.mobilecircle{
+.mobilecircle {
   width: 40px;
   height: 40px;
   text-align: center;
   line-height: 45px;
-  border: 1px solid #065F8E;
+  border: 1px solid #065f8e;
   border-radius: 50%;
- 
-  
 }
 
-.lastline{
+.lastline {
   margin-bottom: 155px;
 }
-.mobileline{
-  border-bottom: 1px solid #E7E7E7;
+.mobileline {
+  border-bottom: 1px solid #e7e7e7;
   padding-bottom: 19px;
 }
-.mobileform{
+.mobileform {
   margin-bottom: 30px;
 }
