@@ -473,8 +473,8 @@ body {
   font-weight: 400;
   margin-bottom: 7px;
   letter-spacing: -0.015em;
-  height: 128px;
-  padding-top: 54px;
+  height: auto;
+  padding-top: 0;
   cursor: pointer;
 }
 
@@ -770,6 +770,8 @@ body {
   .TCcourse-title {
     font-size: 1rem;
     margin-bottom: 0px;
+    height: 128px;
+    padding-top: 54px;
   }
 
   .TCcourse-info-right {

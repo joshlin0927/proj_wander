@@ -66,15 +66,15 @@ function TcCourse(props) {
     if (!token && identity !== 1) {
       history.push('/')
     } else {
+      ;(async () => {
+        let M = await axios.get(
+          `${MemberEdit}/?teacherSid=${teacherSid}`
+        )
+        if (M.status === 200) {
+          setImgSrc(M.data[0].avatar)
+        }
+      })()
       setTimeout(() => {
-        ;(async () => {
-          let M = await axios.get(
-            `${MemberEdit}/?teacherSid=${teacherSid}`
-          )
-          if (M.status === 200) {
-            setImgSrc(M.data[0].avatar)
-          }
-        })()
         ;(async () => {
           let r = await axios.get(
             `${TcCourse_LIST}/?teacherSid=${teacherSid}`
@@ -201,7 +201,7 @@ function TcCourse(props) {
             {/* course cards */}
 
             {isLoading ? (
-              <div className="d-flex justify-content-center col-10">
+              <div className="d-flex justify-content-center col-6 col-md-10">
                 <Spinner />
               </div>
             ) : (
